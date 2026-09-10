@@ -1,0 +1,176 @@
+{
+  "completed_case_count": 21,
+  "summed_solver_wall_s": 1853.9013369000022,
+  "maximum_recorded_solver_rss_bytes": 710213632,
+  "cases": [
+    {
+      "case_id": "q1_1d_nr40_nz1_dt0.125_half_steps",
+      "wall_s": 0.38544460000048275,
+      "compile_or_cache_load_s": 0.20616309999968507,
+      "sampled_peak_rss_bytes": 160665600,
+      "steps": 14400,
+      "simulated_seconds_per_wall_second": 4669.931813800857
+    },
+    {
+      "case_id": "q1_1d_nr40_nz1_dt0.25",
+      "wall_s": 4.872841399999743,
+      "compile_or_cache_load_s": 0.4294480000007752,
+      "sampled_peak_rss_bytes": 207540224,
+      "steps": 7200,
+      "simulated_seconds_per_wall_second": 369.39433325289326
+    },
+    {
+      "case_id": "q1_1d_nr80_nz1_dt0.25_radial_refinement",
+      "wall_s": 0.4917404000007082,
+      "compile_or_cache_load_s": 0.0002193000000261236,
+      "sampled_peak_rss_bytes": 162787328,
+      "steps": 14400,
+      "simulated_seconds_per_wall_second": 3660.4680030304767
+    },
+    {
+      "case_id": "q1_2d_nr40_nz125_dt0.125_half_steps",
+      "wall_s": 9.374525700000959,
+      "compile_or_cache_load_s": 0.21091819999855943,
+      "sampled_peak_rss_bytes": 437374976,
+      "steps": 14400,
+      "simulated_seconds_per_wall_second": 192.00971415543893
+    },
+    {
+      "case_id": "q1_2d_nr40_nz125_dt0.25",
+      "wall_s": 5.385502699999051,
+      "compile_or_cache_load_s": 0.3945871999985684,
+      "sampled_peak_rss_bytes": 415825920,
+      "steps": 7200,
+      "simulated_seconds_per_wall_second": 334.23063737398496
+    },
+    {
+      "case_id": "q1_2d_nr40_nz250_dt0.25_axial_refinement",
+      "wall_s": 9.912082400000145,
+      "compile_or_cache_load_s": 0.0006045000009180512,
+      "sampled_peak_rss_bytes": 579252224,
+      "steps": 7200,
+      "simulated_seconds_per_wall_second": 181.59655331355737
+    },
+    {
+      "case_id": "q1_2d_nr80_nz125_dt0.25_radial_refinement",
+      "wall_s": 47.43155309999929,
+      "compile_or_cache_load_s": 0.0003876000009768177,
+      "sampled_peak_rss_bytes": 585895936,
+      "steps": 27000,
+      "simulated_seconds_per_wall_second": 37.949421479096095
+    },
+    {
+      "case_id": "q23_1d_nr40_nz1_dt0.125_half_steps",
+      "wall_s": 20.08362429999943,
+      "compile_or_cache_load_s": 0.00025719999939610716,
+      "sampled_peak_rss_bytes": 187269120,
+      "steps": 2073600,
+      "simulated_seconds_per_wall_second": 12906.03708415355
+    },
+    {
+      "case_id": "q23_1d_nr40_nz1_dt0.25",
+      "wall_s": 9.947296700000152,
+      "compile_or_cache_load_s": 0.38915340000130527,
+      "sampled_peak_rss_bytes": 156389376,
+      "steps": 1036800,
+      "simulated_seconds_per_wall_second": 26057.330731875732
+    },
+    {
+      "case_id": "q23_1d_nr80_nz1_dt0.25_radial_refinement",
+      "wall_s": 83.73905620000005,
+      "compile_or_cache_load_s": 0.00042829999983950984,
+      "sampled_peak_rss_bytes": 184451072,
+      "steps": 4084002,
+      "simulated_seconds_per_wall_second": 3095.329846815253
+    },
+    {
+      "case_id": "q23_2d_nr40_nz125_dt0.125_half_steps",
+      "wall_s": 10.358016000000134,
+      "compile_or_cache_load_s": 0.0002640000002429588,
+      "sampled_peak_rss_bytes": 437891072,
+      "steps": 14400,
+      "simulated_seconds_per_wall_second": 173.77845332542222
+    },
+    {
+      "case_id": "q23_2d_nr40_nz125_dt0.25",
+      "wall_s": 745.9333677000013,
+      "compile_or_cache_load_s": 0.0005774000001110835,
+      "sampled_peak_rss_bytes": 710213632,
+      "steps": 1036800,
+      "simulated_seconds_per_wall_second": 347.48412019590035
+    },
+    {
+      "case_id": "q23_2d_nr40_nz250_dt0.25_axial_refinement",
+      "wall_s": 10.629584199999954,
+      "compile_or_cache_load_s": 0.000331900000674068,
+      "sampled_peak_rss_bytes": 577691648,
+      "steps": 7200,
+      "simulated_seconds_per_wall_second": 169.33870282527212
+    },
+    {
+      "case_id": "q23_2d_nr80_nz125_dt0.25_radial_refinement",
+      "wall_s": 38.29592080000111,
+      "compile_or_cache_load_s": 0.00042190000021946616,
+      "sampled_peak_rss_bytes": 573325312,
+      "steps": 21156,
+      "simulated_seconds_per_wall_second": 47.00239509582304
+    },
+    {
+      "case_id": "q4_1d_nr40_nz1_dt0.125_half_steps",
+      "wall_s": 19.701103199999125,
+      "compile_or_cache_load_s": 0.00023039999905449804,
+      "sampled_peak_rss_bytes": 157642752,
+      "steps": 2073600,
+      "simulated_seconds_per_wall_second": 13156.623635168386
+    },
+    {
+      "case_id": "q4_1d_nr40_nz1_dt0.25",
+      "wall_s": 10.259432799999558,
+      "compile_or_cache_load_s": 0.39035560000047553,
+      "sampled_peak_rss_bytes": 124686336,
+      "steps": 1036800,
+      "simulated_seconds_per_wall_second": 25264.554586293616
+    },
+    {
+      "case_id": "q4_1d_nr80_nz1_dt0.25_radial_refinement",
+      "wall_s": 86.80158879999908,
+      "compile_or_cache_load_s": 0.00020670000048994552,
+      "sampled_peak_rss_bytes": 155328512,
+      "steps": 4010011,
+      "simulated_seconds_per_wall_second": 2986.120456818214
+    },
+    {
+      "case_id": "q4_2d_nr40_nz125_dt0.125_half_steps",
+      "wall_s": 9.4203604000013,
+      "compile_or_cache_load_s": 0.0004138000003877096,
+      "sampled_peak_rss_bytes": 153563136,
+      "steps": 14400,
+      "simulated_seconds_per_wall_second": 191.0754921860263
+    },
+    {
+      "case_id": "q4_2d_nr40_nz125_dt0.25",
+      "wall_s": 699.2659182000007,
+      "compile_or_cache_load_s": 0.00027709999994840473,
+      "sampled_peak_rss_bytes": 131649536,
+      "steps": 1036800,
+      "simulated_seconds_per_wall_second": 370.67443622479664
+    },
+    {
+      "case_id": "q4_2d_nr40_nz250_dt0.25_axial_refinement",
+      "wall_s": 10.184084200000143,
+      "compile_or_cache_load_s": 0.00034530000084487256,
+      "sampled_peak_rss_bytes": 155160576,
+      "steps": 7200,
+      "simulated_seconds_per_wall_second": 176.7463784323361
+    },
+    {
+      "case_id": "q4_2d_nr80_nz125_dt0.25_radial_refinement",
+      "wall_s": 21.42829309999979,
+      "compile_or_cache_load_s": 0.0003156000002491055,
+      "sampled_peak_rss_bytes": 155500544,
+      "steps": 13566,
+      "simulated_seconds_per_wall_second": 84.00109106217226
+    }
+  ],
+  "note": "Wall times measured locally; memory sampled at checkpoints, not a guaranteed OS peak; summed times may overlap with lightweight tasks"
+}

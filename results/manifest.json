@@ -1,0 +1,82 @@
+{
+  "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+  "outputs": [
+    {
+      "question": 1,
+      "case_id": "q1_1d_nr40_nz1_dt0.25",
+      "fingerprint": "7df7df45becfbc17ee307ada2d3925069fe99939df73459efa07e925dcfdda8c",
+      "dimension": 1,
+      "path": "results\\candidate\\result1_numerical_validation_pending.xlsx",
+      "status": "candidate",
+      "numerical_validation": "TIME_VALIDATED_SPATIAL_QUANTIFIED",
+      "rows": 1800,
+      "columns": 22,
+      "event": null,
+      "workbook_hash": "dba8f89381dce48775b9c12526a2c83517ba528d33ad8ccbcd0fcd1ddb7d8010",
+      "readback": "PASSED: sheet names, all numeric cells, dimensions, time SI, precision, blanks, event deduplication, source"
+    },
+    {
+      "question": 2,
+      "case_id": "q23_1d_nr40_nz1_dt0.25",
+      "fingerprint": "39aa1dd9362da4d02040f277a138f4e8924bed89c2d66a918fc70e0371d9c5e0",
+      "dimension": 1,
+      "path": "results\\candidate\\result2_numerical_validation_pending.xlsx",
+      "status": "candidate",
+      "numerical_validation": "TIME_VALIDATED_SPATIAL_QUANTIFIED",
+      "rows": 10800,
+      "columns": 22,
+      "event": null,
+      "workbook_hash": "4df3a525090e2cbc7dd0be2f7c8e86ba2f55a2a526b077269c887b3de6fd58b2",
+      "readback": "PASSED: sheet names, all numeric cells, dimensions, time SI, precision, blanks, event deduplication, source"
+    },
+    {
+      "question": 3,
+      "case_id": "q23_1d_nr40_nz1_dt0.25",
+      "fingerprint": "39aa1dd9362da4d02040f277a138f4e8924bed89c2d66a918fc70e0371d9c5e0",
+      "dimension": 1,
+      "path": "results\\candidate\\result3_numerical_validation_pending.xlsx",
+      "status": "candidate",
+      "numerical_validation": "TIME_VALIDATED_SPATIAL_QUANTIFIED",
+      "rows": 3475,
+      "columns": 22,
+      "event": {
+        "left_s": 208488.8125,
+        "right_s": 208488.875,
+        "width_s": 0.0625,
+        "raw_event_s": 208488.875,
+        "report_s": 208488.96,
+        "report_h": 57.913599999999995,
+        "left_max_C": 0.15000000454850437,
+        "right_max_C": 0.14999998662040537,
+        "report_max_C": 0.149999962238207
+      },
+      "workbook_hash": "5ae96a28c65daeceb009cd495bccb8aab766468786ad491f92925c252323a881",
+      "readback": "PASSED: sheet names, all numeric cells, dimensions, time SI, precision, blanks, event deduplication, source"
+    },
+    {
+      "question": 4,
+      "case_id": "q4_1d_nr40_nz1_dt0.25",
+      "fingerprint": "8f836bbbd5ddcfd5429c795364b9a0a589b4251afc9f1f680a4b79d019eddd07",
+      "dimension": 1,
+      "path": "results\\candidate\\result4_numerical_validation_pending.xlsx",
+      "status": "candidate",
+      "numerical_validation": "TIME_VALIDATED_SPATIAL_QUANTIFIED",
+      "rows": 3072,
+      "columns": 23,
+      "event": {
+        "left_s": 184283.875,
+        "right_s": 184283.9375,
+        "width_s": 0.0625,
+        "raw_event_s": 184283.9375,
+        "report_s": 184284.0,
+        "report_h": 51.19,
+        "left_max_C": 0.1500000095716367,
+        "right_max_C": 0.1499999776096947,
+        "report_max_C": 0.1499999456477778
+      },
+      "workbook_hash": "3abb8c4b83feb52cdfff7eae70a0bb59f89ab548ba2ea67a178fdbec9ad2ca83",
+      "readback": "PASSED: sheet names, all numeric cells, dimensions, time SI, precision, blanks, event deduplication, source"
+    }
+  ],
+  "official_source": "1D"
+}

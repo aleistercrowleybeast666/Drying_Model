@@ -1,0 +1,161 @@
+2026-09-10 21:53:06,225 INFO START q1_1d_nr40_nz1_dt0.25 warmup 0.43s target 0.50h
+2026-09-10 21:53:11,111 INFO COMPUTED {"case_id": "q1_1d_nr40_nz1_dt0.25", "simulated_time_s": 1800.0, "Cmax": 2.549990132410681, "wall_s": 4.872841399999743, "peak_rss_bytes": 207540224, "drying_time_h": null}
+2026-09-10 21:53:20,251 INFO START q23_1d_nr40_nz1_dt0.25 warmup 0.39s target 72.00h
+2026-09-10 21:53:28,290 INFO DRYING_EVENT_LOCATED {"case_id": "q23_1d_nr40_nz1_dt0.25", "left_s": 208488.8125, "right_s": 208488.875, "width_s": 0.0625, "raw_event_s": 208488.875, "report_s": 208488.96, "report_h": 57.913599999999995, "left_max_C": 0.15000000454850437, "right_max_C": 0.14999998662040537, "report_max_C": 0.149999962238207}
+2026-09-10 21:53:30,208 INFO DRY {"case_id": "q23_1d_nr40_nz1_dt0.25", "simulated_time_s": 259200.0, "Cmax": 0.13813397079869225, "wall_s": 9.947296700000152, "peak_rss_bytes": 156389376, "drying_time_h": 57.913599999999995}
+2026-09-10 21:54:58,080 INFO START q4_1d_nr40_nz1_dt0.25 warmup 0.39s target 72.00h
+2026-09-10 21:55:05,284 INFO DRYING_EVENT_LOCATED {"case_id": "q4_1d_nr40_nz1_dt0.25", "left_s": 184283.875, "right_s": 184283.9375, "width_s": 0.0625, "raw_event_s": 184283.9375, "report_s": 184284.0, "report_h": 51.19, "left_max_C": 0.1500000095716367, "right_max_C": 0.1499999776096947, "report_max_C": 0.1499999456477778}
+2026-09-10 21:55:08,349 INFO DRY {"case_id": "q4_1d_nr40_nz1_dt0.25", "simulated_time_s": 259200.0, "Cmax": 0.12376716107038954, "wall_s": 10.259432799999558, "peak_rss_bytes": 124686336, "drying_time_h": 51.19}
+2026-09-10 21:55:21,764 INFO CACHE_REUSED q1_1d_nr40_nz1_dt0.25
+2026-09-10 21:55:21,979 INFO START q1_1d_nr40_nz1_dt0.125_half_steps warmup 0.21s target 0.50h
+2026-09-10 21:55:22,369 INFO COMPUTED {"case_id": "q1_1d_nr40_nz1_dt0.125_half_steps", "simulated_time_s": 1800.0, "Cmax": 2.5499901324106693, "wall_s": 0.38544460000048275, "peak_rss_bytes": 160665600, "drying_time_h": null}
+2026-09-10 21:55:22,984 INFO START q1_1d_nr80_nz1_dt0.25_radial_refinement warmup 0.00s target 0.50h
+2026-09-10 21:55:22,985 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q1_1d_nr80_nz1_dt0.25_radial_refinement", "requested_dt_s": 0.25, "accepted_dt_s": 0.125, "simulated_time_s": 0.0, "grid": [80, 1]}
+2026-09-10 21:55:23,482 INFO COMPUTED {"case_id": "q1_1d_nr80_nz1_dt0.25_radial_refinement", "simulated_time_s": 1800.0, "Cmax": 2.5499918558313523, "wall_s": 0.4917404000007082, "peak_rss_bytes": 162787328, "drying_time_h": null}
+2026-09-10 21:55:24,205 INFO CACHE_REUSED q23_1d_nr40_nz1_dt0.25
+2026-09-10 21:55:24,214 INFO START q23_1d_nr40_nz1_dt0.125_half_steps warmup 0.00s target 72.00h
+2026-09-10 21:55:40,684 INFO DRYING_EVENT_LOCATED {"case_id": "q23_1d_nr40_nz1_dt0.125_half_steps", "left_s": 208488.8125, "right_s": 208488.875, "width_s": 0.0625, "raw_event_s": 208488.875, "report_s": 208488.96, "report_h": 57.913599999999995, "left_max_C": 0.15000000454865972, "right_max_C": 0.1499999866205607, "report_max_C": 0.14999996223836237}
+2026-09-10 21:55:44,213 INFO q23_1d_nr40_nz1_dt0.125_half_steps t=71.70h 99.6% wall=20.0s ETA=0.1s
+2026-09-10 21:55:44,310 INFO DRY {"case_id": "q23_1d_nr40_nz1_dt0.125_half_steps", "simulated_time_s": 259200.0, "Cmax": 0.13813397079882309, "wall_s": 20.08362429999943, "peak_rss_bytes": 187269120, "drying_time_h": 57.913599999999995}
+2026-09-10 21:55:51,027 INFO START q23_1d_nr80_nz1_dt0.25_radial_refinement warmup 0.00s target 72.00h
+2026-09-10 21:55:51,029 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q23_1d_nr80_nz1_dt0.25_radial_refinement", "requested_dt_s": 0.25, "accepted_dt_s": 0.125, "simulated_time_s": 0.0, "grid": [80, 1]}
+2026-09-10 21:56:11,035 INFO q23_1d_nr80_nz1_dt0.25_radial_refinement t=16.63h 23.1% wall=20.0s ETA=66.6s
+2026-09-10 21:56:31,036 INFO q23_1d_nr80_nz1_dt0.25_radial_refinement t=33.85h 47.0% wall=40.0s ETA=45.1s
+2026-09-10 21:56:51,055 INFO q23_1d_nr80_nz1_dt0.25_radial_refinement t=51.25h 71.2% wall=60.0s ETA=24.3s
+2026-09-10 21:56:58,297 INFO DRYING_EVENT_LOCATED {"case_id": "q23_1d_nr80_nz1_dt0.25_radial_refinement", "left_s": 207535.6875, "right_s": 207535.75, "width_s": 0.0625, "raw_event_s": 207535.75, "report_s": 207536.03999999998, "report_h": 57.6489, "left_max_C": 0.15000000851829443, "right_max_C": 0.14999999042595158, "report_max_C": 0.14999990647761657}
+2026-09-10 21:57:11,059 INFO q23_1d_nr80_nz1_dt0.25_radial_refinement t=68.67h 95.4% wall=80.0s ETA=3.9s
+2026-09-10 21:57:14,775 INFO DRY {"case_id": "q23_1d_nr80_nz1_dt0.25_radial_refinement", "simulated_time_s": 259200.0, "Cmax": 0.13786030864910992, "wall_s": 83.73905620000005, "peak_rss_bytes": 184451072, "drying_time_h": 57.6489}
+2026-09-10 21:57:21,105 INFO CACHE_REUSED q4_1d_nr40_nz1_dt0.25
+2026-09-10 21:57:21,115 INFO START q4_1d_nr40_nz1_dt0.125_half_steps warmup 0.00s target 72.00h
+2026-09-10 21:57:35,177 INFO DRYING_EVENT_LOCATED {"case_id": "q4_1d_nr40_nz1_dt0.125_half_steps", "left_s": 184283.875, "right_s": 184283.9375, "width_s": 0.0625, "raw_event_s": 184283.9375, "report_s": 184284.0, "report_h": 51.19, "left_max_C": 0.15000000957182902, "right_max_C": 0.14999997760988698, "report_max_C": 0.1499999456479701}
+2026-09-10 21:57:40,826 INFO DRY {"case_id": "q4_1d_nr40_nz1_dt0.125_half_steps", "simulated_time_s": 259200.0, "Cmax": 0.12376716107052256, "wall_s": 19.701103199999125, "peak_rss_bytes": 157642752, "drying_time_h": 51.19}
+2026-09-10 21:57:43,259 INFO START q4_1d_nr80_nz1_dt0.25_radial_refinement warmup 0.00s target 72.00h
+2026-09-10 21:57:43,309 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q4_1d_nr80_nz1_dt0.25_radial_refinement", "requested_dt_s": 0.25, "accepted_dt_s": 0.125, "simulated_time_s": 600.0, "grid": [80, 1]}
+2026-09-10 21:58:03,270 INFO q4_1d_nr80_nz1_dt0.25_radial_refinement t=18.52h 25.7% wall=20.0s ETA=57.8s
+2026-09-10 21:58:23,272 INFO q4_1d_nr80_nz1_dt0.25_radial_refinement t=34.62h 48.1% wall=40.0s ETA=43.2s
+2026-09-10 21:58:43,277 INFO q4_1d_nr80_nz1_dt0.25_radial_refinement t=50.50h 70.1% wall=60.0s ETA=25.6s
+2026-09-10 21:58:44,079 INFO DRYING_EVENT_LOCATED {"case_id": "q4_1d_nr80_nz1_dt0.25_radial_refinement", "left_s": 184054.6875, "right_s": 184054.75, "width_s": 0.0625, "raw_event_s": 184054.75, "report_s": 184055.03999999998, "report_h": 51.1264, "left_max_C": 0.15000001340009966, "right_max_C": 0.149999981352255, "report_max_C": 0.14999983265058636}
+2026-09-10 21:59:03,295 INFO q4_1d_nr80_nz1_dt0.25_radial_refinement t=66.57h 92.5% wall=80.0s ETA=6.5s
+2026-09-10 21:59:10,070 INFO DRY {"case_id": "q4_1d_nr80_nz1_dt0.25_radial_refinement", "simulated_time_s": 259200.0, "Cmax": 0.12366522295297261, "wall_s": 86.80158879999908, "peak_rss_bytes": 155328512, "drying_time_h": 51.1264}
+2026-09-10 21:59:15,371 INFO START q1_2d_nr40_nz125_dt0.25 warmup 0.39s target 0.50h
+2026-09-10 21:59:20,763 INFO COMPUTED {"case_id": "q1_2d_nr40_nz125_dt0.25", "simulated_time_s": 1800.0, "Cmax": 2.549990132410681, "wall_s": 5.385502699999051, "peak_rss_bytes": 415825920, "drying_time_h": null}
+2026-09-10 21:59:20,825 INFO START q23_2d_nr40_nz125_dt0.25 warmup 0.00s target 72.00h
+2026-09-10 21:59:40,826 INFO q23_2d_nr40_nz125_dt0.25 t=1.60h 2.2% wall=20.0s ETA=878.7s
+2026-09-10 22:00:00,829 INFO q23_2d_nr40_nz125_dt0.25 t=3.18h 4.4% wall=40.0s ETA=864.8s
+2026-09-10 22:00:20,952 INFO q23_2d_nr40_nz125_dt0.25 t=5.10h 7.1% wall=60.1s ETA=788.7s
+2026-09-10 22:00:41,003 INFO q23_2d_nr40_nz125_dt0.25 t=7.03h 9.8% wall=80.2s ETA=740.6s
+2026-09-10 22:01:01,077 INFO q23_2d_nr40_nz125_dt0.25 t=8.97h 12.5% wall=100.3s ETA=704.8s
+2026-09-10 22:01:21,086 INFO q23_2d_nr40_nz125_dt0.25 t=10.90h 15.1% wall=120.3s ETA=674.1s
+2026-09-10 22:01:41,207 INFO q23_2d_nr40_nz125_dt0.25 t=12.82h 17.8% wall=140.4s ETA=648.2s
+2026-09-10 22:02:01,351 INFO q23_2d_nr40_nz125_dt0.25 t=14.70h 20.4% wall=160.5s ETA=625.7s
+2026-09-10 22:02:21,467 INFO q23_2d_nr40_nz125_dt0.25 t=16.60h 23.1% wall=180.6s ETA=602.9s
+2026-09-10 22:02:41,544 INFO q23_2d_nr40_nz125_dt0.25 t=18.55h 25.8% wall=200.7s ETA=578.4s
+2026-09-10 22:03:01,699 INFO q23_2d_nr40_nz125_dt0.25 t=20.48h 28.4% wall=220.9s ETA=555.5s
+2026-09-10 22:03:21,741 INFO q23_2d_nr40_nz125_dt0.25 t=22.42h 31.1% wall=240.9s ETA=532.9s
+2026-09-10 22:03:41,821 INFO q23_2d_nr40_nz125_dt0.25 t=24.23h 33.7% wall=261.0s ETA=514.5s
+2026-09-10 22:03:48,073 INFO CACHE_REUSED q1_1d_nr40_nz1_dt0.25
+2026-09-10 22:03:48,080 INFO CACHE_REUSED q1_1d_nr40_nz1_dt0.125_half_steps
+2026-09-10 22:03:48,923 INFO CACHE_REUSED q1_1d_nr80_nz1_dt0.25_radial_refinement
+2026-09-10 22:03:49,585 INFO CACHE_REUSED q23_1d_nr40_nz1_dt0.25
+2026-09-10 22:03:49,594 INFO CACHE_REUSED q23_1d_nr40_nz1_dt0.125_half_steps
+2026-09-10 22:03:56,498 INFO CACHE_REUSED q23_1d_nr80_nz1_dt0.25_radial_refinement
+2026-09-10 22:04:01,889 INFO q23_2d_nr40_nz125_dt0.25 t=25.97h 36.1% wall=281.1s ETA=498.3s
+2026-09-10 22:04:02,116 INFO CACHE_REUSED q4_1d_nr40_nz1_dt0.25
+2026-09-10 22:04:02,123 INFO CACHE_REUSED q4_1d_nr40_nz1_dt0.125_half_steps
+2026-09-10 22:04:03,805 INFO CACHE_REUSED q4_1d_nr80_nz1_dt0.25_radial_refinement
+2026-09-10 22:04:21,912 INFO q23_2d_nr40_nz125_dt0.25 t=27.95h 38.8% wall=301.1s ETA=474.5s
+2026-09-10 22:04:41,951 INFO q23_2d_nr40_nz125_dt0.25 t=29.85h 41.5% wall=321.1s ETA=453.5s
+2026-09-10 22:05:02,112 INFO q23_2d_nr40_nz125_dt0.25 t=31.83h 44.2% wall=341.3s ETA=430.6s
+2026-09-10 22:05:22,159 INFO q23_2d_nr40_nz125_dt0.25 t=33.80h 46.9% wall=361.3s ETA=408.4s
+2026-09-10 22:05:42,264 INFO q23_2d_nr40_nz125_dt0.25 t=35.77h 49.7% wall=381.4s ETA=386.4s
+2026-09-10 22:06:02,332 INFO q23_2d_nr40_nz125_dt0.25 t=37.72h 52.4% wall=401.5s ETA=365.0s
+2026-09-10 22:06:22,381 INFO q23_2d_nr40_nz125_dt0.25 t=39.68h 55.1% wall=421.6s ETA=343.3s
+2026-09-10 22:06:42,414 INFO q23_2d_nr40_nz125_dt0.25 t=41.53h 57.7% wall=441.6s ETA=323.9s
+2026-09-10 22:07:02,480 INFO q23_2d_nr40_nz125_dt0.25 t=43.47h 60.4% wall=461.7s ETA=303.1s
+2026-09-10 22:07:22,623 INFO q23_2d_nr40_nz125_dt0.25 t=45.30h 62.9% wall=481.8s ETA=284.0s
+2026-09-10 22:07:42,789 INFO q23_2d_nr40_nz125_dt0.25 t=47.15h 65.5% wall=502.0s ETA=264.6s
+2026-09-10 22:08:02,860 INFO q23_2d_nr40_nz125_dt0.25 t=49.12h 68.2% wall=522.0s ETA=243.2s
+2026-09-10 22:08:22,904 INFO q23_2d_nr40_nz125_dt0.25 t=51.13h 71.0% wall=542.1s ETA=221.2s
+2026-09-10 22:08:43,047 INFO q23_2d_nr40_nz125_dt0.25 t=53.12h 73.8% wall=562.2s ETA=199.9s
+2026-09-10 22:09:03,072 INFO q23_2d_nr40_nz125_dt0.25 t=55.07h 76.5% wall=582.2s ETA=179.0s
+2026-09-10 22:09:23,157 INFO q23_2d_nr40_nz125_dt0.25 t=56.98h 79.1% wall=602.3s ETA=158.7s
+2026-09-10 22:09:32,072 INFO DRYING_EVENT_LOCATED {"case_id": "q23_2d_nr40_nz125_dt0.25", "left_s": 208481.125, "right_s": 208481.1875, "width_s": 0.0625, "raw_event_s": 208481.1875, "report_s": 208481.4, "report_h": 57.9115, "left_max_C": 0.15000001331649176, "right_max_C": 0.14999999538756745, "report_max_C": 0.1499999344293009}
+2026-09-10 22:09:43,223 INFO q23_2d_nr40_nz125_dt0.25 t=59.08h 82.1% wall=622.4s ETA=136.1s
+2026-09-10 22:10:03,317 INFO q23_2d_nr40_nz125_dt0.25 t=61.20h 85.0% wall=642.5s ETA=113.4s
+2026-09-10 22:10:23,448 INFO q23_2d_nr40_nz125_dt0.25 t=63.27h 87.9% wall=662.6s ETA=91.5s
+2026-09-10 22:10:43,578 INFO q23_2d_nr40_nz125_dt0.25 t=65.38h 90.8% wall=682.8s ETA=69.1s
+2026-09-10 22:11:03,731 INFO q23_2d_nr40_nz125_dt0.25 t=67.52h 93.8% wall=702.9s ETA=46.7s
+2026-09-10 22:11:23,854 INFO q23_2d_nr40_nz125_dt0.25 t=69.58h 96.6% wall=723.0s ETA=25.1s
+2026-09-10 22:11:43,902 INFO q23_2d_nr40_nz125_dt0.25 t=71.70h 99.6% wall=743.1s ETA=3.1s
+2026-09-10 22:11:46,774 INFO DRY {"case_id": "q23_2d_nr40_nz125_dt0.25", "simulated_time_s": 259200.0, "Cmax": 0.13813207160162486, "wall_s": 745.9333677000013, "peak_rss_bytes": 710213632, "drying_time_h": 57.9115}
+2026-09-10 22:11:46,783 INFO START q4_2d_nr40_nz125_dt0.25 warmup 0.00s target 72.00h
+2026-09-10 22:12:06,804 INFO q4_2d_nr40_nz125_dt0.25 t=2.08h 2.9% wall=20.0s ETA=671.9s
+2026-09-10 22:12:26,873 INFO q4_2d_nr40_nz125_dt0.25 t=4.18h 5.8% wall=40.1s ETA=649.9s
+2026-09-10 22:12:47,027 INFO q4_2d_nr40_nz125_dt0.25 t=6.32h 8.8% wall=60.2s ETA=626.5s
+2026-09-10 22:13:07,131 INFO q4_2d_nr40_nz125_dt0.25 t=8.35h 11.6% wall=80.3s ETA=612.5s
+2026-09-10 22:13:27,213 INFO q4_2d_nr40_nz125_dt0.25 t=10.35h 14.4% wall=100.4s ETA=598.2s
+2026-09-10 22:13:47,297 INFO q4_2d_nr40_nz125_dt0.25 t=12.28h 17.1% wall=120.5s ETA=585.9s
+2026-09-10 22:14:07,357 INFO q4_2d_nr40_nz125_dt0.25 t=14.28h 19.8% wall=140.6s ETA=568.0s
+2026-09-10 22:14:27,385 INFO q4_2d_nr40_nz125_dt0.25 t=16.25h 22.6% wall=160.6s ETA=551.0s
+2026-09-10 22:14:47,539 INFO q4_2d_nr40_nz125_dt0.25 t=18.25h 25.3% wall=180.8s ETA=532.4s
+2026-09-10 22:15:07,649 INFO q4_2d_nr40_nz125_dt0.25 t=20.15h 28.0% wall=200.9s ETA=516.9s
+2026-09-10 22:15:27,688 INFO q4_2d_nr40_nz125_dt0.25 t=22.25h 30.9% wall=220.9s ETA=493.9s
+2026-09-10 22:15:47,725 INFO q4_2d_nr40_nz125_dt0.25 t=24.37h 33.8% wall=240.9s ETA=471.0s
+2026-09-10 22:16:07,842 INFO q4_2d_nr40_nz125_dt0.25 t=26.48h 36.8% wall=261.1s ETA=448.7s
+2026-09-10 22:16:27,937 INFO q4_2d_nr40_nz125_dt0.25 t=28.48h 39.6% wall=281.2s ETA=429.5s
+2026-09-10 22:16:48,040 INFO q4_2d_nr40_nz125_dt0.25 t=30.62h 42.5% wall=301.3s ETA=407.2s
+2026-09-10 22:17:08,191 INFO q4_2d_nr40_nz125_dt0.25 t=32.72h 45.4% wall=321.4s ETA=385.9s
+2026-09-10 22:17:21,901 WARNING END_EFFECT_NOT_NEGLIGIBLE {"case_id": "q1", "max_abs_T": 3.698672416117404, "max_abs_C": 0.9863754562123477, "relative_time_difference": null}
+2026-09-10 22:17:28,239 INFO q4_2d_nr40_nz125_dt0.25 t=34.75h 48.3% wall=341.5s ETA=366.0s
+2026-09-10 22:17:48,318 INFO q4_2d_nr40_nz125_dt0.25 t=36.80h 51.1% wall=361.5s ETA=345.8s
+2026-09-10 22:18:03,332 WARNING END_EFFECT_NOT_NEGLIGIBLE {"case_id": "q23", "max_abs_T": 4.094380589719037, "max_abs_C": 0.9752337001443194, "relative_time_difference": 3.687247101314159e-05}
+2026-09-10 22:18:08,426 INFO q4_2d_nr40_nz125_dt0.25 t=38.80h 53.9% wall=381.6s ETA=326.6s
+2026-09-10 22:18:28,521 INFO q4_2d_nr40_nz125_dt0.25 t=40.90h 56.8% wall=401.7s ETA=305.5s
+2026-09-10 22:18:48,625 INFO q4_2d_nr40_nz125_dt0.25 t=43.03h 59.8% wall=421.8s ETA=284.0s
+2026-09-10 22:19:08,687 INFO q4_2d_nr40_nz125_dt0.25 t=45.15h 62.7% wall=441.9s ETA=262.8s
+2026-09-10 22:19:28,824 INFO q4_2d_nr40_nz125_dt0.25 t=47.27h 65.6% wall=462.0s ETA=241.8s
+2026-09-10 22:19:48,940 INFO q4_2d_nr40_nz125_dt0.25 t=49.32h 68.5% wall=482.2s ETA=221.8s
+2026-09-10 22:20:06,821 INFO DRYING_EVENT_LOCATED {"case_id": "q4_2d_nr40_nz125_dt0.25", "left_s": 184283.8125, "right_s": 184283.875, "width_s": 0.0625, "raw_event_s": 184283.875, "report_s": 184284.0, "report_h": 51.19, "left_max_C": 0.15000002722661357, "right_max_C": 0.14999999526465543, "report_max_C": 0.1499999313408145}
+2026-09-10 22:20:09,044 INFO q4_2d_nr40_nz125_dt0.25 t=51.43h 71.4% wall=502.3s ETA=200.8s
+2026-09-10 22:20:29,188 INFO q4_2d_nr40_nz125_dt0.25 t=53.50h 74.3% wall=522.4s ETA=180.6s
+2026-09-10 22:20:49,202 INFO q4_2d_nr40_nz125_dt0.25 t=55.62h 77.2% wall=542.4s ETA=159.8s
+2026-09-10 22:21:09,238 INFO q4_2d_nr40_nz125_dt0.25 t=57.73h 80.2% wall=562.5s ETA=139.0s
+2026-09-10 22:21:29,321 INFO q4_2d_nr40_nz125_dt0.25 t=59.85h 83.1% wall=582.5s ETA=118.3s
+2026-09-10 22:21:49,414 INFO q4_2d_nr40_nz125_dt0.25 t=61.95h 86.0% wall=602.6s ETA=97.8s
+2026-09-10 22:22:09,456 INFO q4_2d_nr40_nz125_dt0.25 t=64.03h 88.9% wall=622.7s ETA=77.5s
+2026-09-10 22:22:29,609 INFO q4_2d_nr40_nz125_dt0.25 t=66.15h 91.9% wall=642.8s ETA=56.8s
+2026-09-10 22:22:49,775 INFO q4_2d_nr40_nz125_dt0.25 t=68.20h 94.7% wall=663.0s ETA=36.9s
+2026-09-10 22:23:09,921 INFO q4_2d_nr40_nz125_dt0.25 t=70.28h 97.6% wall=683.1s ETA=16.7s
+2026-09-10 22:23:26,065 INFO DRY {"case_id": "q4_2d_nr40_nz125_dt0.25", "simulated_time_s": 259200.0, "Cmax": 0.12376715323140086, "wall_s": 699.2659182000007, "peak_rss_bytes": 131649536, "drying_time_h": 51.19}
+2026-09-10 22:23:36,408 INFO CACHE_REUSED q1_2d_nr40_nz125_dt0.25
+2026-09-10 22:23:36,628 INFO START q1_2d_nr40_nz125_dt0.125_half_steps warmup 0.21s target 0.50h
+2026-09-10 22:23:46,010 INFO COMPUTED {"case_id": "q1_2d_nr40_nz125_dt0.125_half_steps", "simulated_time_s": 1800.0, "Cmax": 2.5499901324106693, "wall_s": 9.374525700000959, "peak_rss_bytes": 437374976, "drying_time_h": null}
+2026-09-10 22:23:47,856 INFO START q1_2d_nr80_nz125_dt0.25_radial_refinement warmup 0.00s target 0.50h
+2026-09-10 22:23:47,882 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q1_2d_nr80_nz125_dt0.25_radial_refinement", "requested_dt_s": 0.25, "accepted_dt_s": 0.0625, "simulated_time_s": 0.0, "grid": [80, 125]}
+2026-09-10 22:24:07,858 INFO q1_2d_nr80_nz125_dt0.25_radial_refinement t=0.21h 42.9% wall=20.0s ETA=26.6s
+2026-09-10 22:24:27,886 INFO q1_2d_nr80_nz125_dt0.25_radial_refinement t=0.43h 85.6% wall=40.0s ETA=6.7s
+2026-09-10 22:24:35,283 INFO COMPUTED {"case_id": "q1_2d_nr80_nz125_dt0.25_radial_refinement", "simulated_time_s": 1800.0, "Cmax": 2.5499918558313603, "wall_s": 47.43155309999929, "peak_rss_bytes": 585895936, "drying_time_h": null}
+2026-09-10 22:24:38,146 INFO START q1_2d_nr40_nz250_dt0.25_axial_refinement warmup 0.00s target 0.50h
+2026-09-10 22:24:48,063 INFO COMPUTED {"case_id": "q1_2d_nr40_nz250_dt0.25_axial_refinement", "simulated_time_s": 1800.0, "Cmax": 2.549990132410681, "wall_s": 9.912082400000145, "peak_rss_bytes": 579252224, "drying_time_h": null}
+2026-09-10 22:24:50,400 INFO CACHE_REUSED q23_2d_nr40_nz125_dt0.25
+2026-09-10 22:24:50,410 INFO START q23_2d_nr40_nz125_dt0.125_half_steps warmup 0.00s target 0.50h
+2026-09-10 22:25:00,773 INFO PARTIAL_TIME_RANGE {"case_id": "q23_2d_nr40_nz125_dt0.125_half_steps", "simulated_time_s": 1800.0, "Cmax": 2.5499239685214063, "wall_s": 10.358016000000134, "peak_rss_bytes": 437891072, "drying_time_h": null}
+2026-09-10 22:25:02,602 INFO START q23_2d_nr80_nz125_dt0.25_radial_refinement warmup 0.00s target 0.50h
+2026-09-10 22:25:02,616 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q23_2d_nr80_nz125_dt0.25_radial_refinement", "requested_dt_s": 0.25, "accepted_dt_s": 0.125, "simulated_time_s": 0.0, "grid": [80, 125]}
+2026-09-10 22:25:22,615 INFO q23_2d_nr80_nz125_dt0.25_radial_refinement t=0.32h 64.5% wall=20.0s ETA=11.0s
+2026-09-10 22:25:40,903 INFO PARTIAL_TIME_RANGE {"case_id": "q23_2d_nr80_nz125_dt0.25_radial_refinement", "simulated_time_s": 1800.0, "Cmax": 2.549931592584488, "wall_s": 38.29592080000111, "peak_rss_bytes": 573325312, "drying_time_h": null}
+2026-09-10 22:25:43,594 INFO START q23_2d_nr40_nz250_dt0.25_axial_refinement warmup 0.00s target 0.50h
+2026-09-10 22:25:54,229 INFO PARTIAL_TIME_RANGE {"case_id": "q23_2d_nr40_nz250_dt0.25_axial_refinement", "simulated_time_s": 1800.0, "Cmax": 2.5499239685214117, "wall_s": 10.629584199999954, "peak_rss_bytes": 577691648, "drying_time_h": null}
+2026-09-10 22:25:56,760 WARNING SPATIAL_VALIDATION_INCOMPLETE {"case_id": "q23_2d_nr40_nz125_dt0.25", "covered_time_s": [0, 1800.0], "uncovered_time_s": [1800.0, 259200], "reason": "2D temporal and separate doubled spatial meshes restricted to first 1800 s based on measured base runtime and cache cost", "measured_base_wall_s": 745.9333677000013, "base_peak_rss_bytes": 710213632}
+2026-09-10 22:25:56,831 INFO CACHE_REUSED q4_2d_nr40_nz125_dt0.25
+2026-09-10 22:25:56,843 INFO START q4_2d_nr40_nz125_dt0.125_half_steps warmup 0.00s target 0.50h
+2026-09-10 22:26:06,268 INFO PARTIAL_TIME_RANGE {"case_id": "q4_2d_nr40_nz125_dt0.125_half_steps", "simulated_time_s": 1800.0, "Cmax": 2.55, "wall_s": 9.4203604000013, "peak_rss_bytes": 153563136, "drying_time_h": null}
+2026-09-10 22:26:06,345 INFO START q4_2d_nr80_nz125_dt0.25_radial_refinement warmup 0.00s target 0.50h
+2026-09-10 22:26:07,882 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q4_2d_nr80_nz125_dt0.25_radial_refinement", "requested_dt_s": 0.25, "accepted_dt_s": 0.125, "simulated_time_s": 180.0, "grid": [80, 125]}
+2026-09-10 22:26:26,980 INFO q4_2d_nr80_nz125_dt0.25_radial_refinement t=0.48h 96.7% wall=20.6s ETA=0.7s
+2026-09-10 22:26:27,777 INFO PARTIAL_TIME_RANGE {"case_id": "q4_2d_nr80_nz125_dt0.25_radial_refinement", "simulated_time_s": 1800.0, "Cmax": 2.55, "wall_s": 21.42829309999979, "peak_rss_bytes": 155500544, "drying_time_h": null}
+2026-09-10 22:26:27,873 INFO START q4_2d_nr40_nz250_dt0.25_axial_refinement warmup 0.00s target 0.50h
+2026-09-10 22:26:38,060 INFO PARTIAL_TIME_RANGE {"case_id": "q4_2d_nr40_nz250_dt0.25_axial_refinement", "simulated_time_s": 1800.0, "Cmax": 2.55, "wall_s": 10.184084200000143, "peak_rss_bytes": 155160576, "drying_time_h": null}
+2026-09-10 22:26:38,146 WARNING SPATIAL_VALIDATION_INCOMPLETE {"case_id": "q4_2d_nr40_nz125_dt0.25", "covered_time_s": [0, 1800.0], "uncovered_time_s": [1800.0, 259200], "reason": "2D temporal and separate doubled spatial meshes restricted to first 1800 s based on measured base runtime and cache cost", "measured_base_wall_s": 699.2659182000007, "base_peak_rss_bytes": 131649536}
+2026-09-10 22:26:46,700 WARNING END_EFFECT_NOT_NEGLIGIBLE {"case_id": "q4", "max_abs_T": 5.535398828697737, "max_abs_C": 1.710335829331694, "relative_time_difference": 3.391505567325964e-07}
+2026-09-10 22:30:23,113 INFO DELIVERY_CHECKS_COMPLETE {"case_count": 21, "program_tests_passed": 18, "official_format_candidates": 4, "spatial_accuracy_certified": false, "two_dimensional_validation_coverage_s": 1800, "three_dimensional_png_count": 2, "gif_count": 2}

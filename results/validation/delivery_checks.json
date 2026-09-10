@@ -1,0 +1,58 @@
+{
+  "workbooks": [
+    {
+      "file": "results\\candidate\\result1_numerical_validation_pending.xlsx",
+      "sheet": "温度",
+      "rows": 1801,
+      "columns": 22,
+      "candidate": true,
+      "last_time_s": 1800,
+      "preview": "results\\validation\\workbook_previews\\result1_温度.png"
+    },
+    {
+      "file": "results\\candidate\\result1_numerical_validation_pending.xlsx",
+      "sheet": "水分浓度",
+      "rows": 1801,
+      "columns": 22,
+      "candidate": true,
+      "last_time_s": 1800,
+      "preview": "results\\validation\\workbook_previews\\result1_水分浓度.png"
+    },
+    {
+      "file": "results\\candidate\\result2_numerical_validation_pending.xlsx",
+      "sheet": "温度",
+      "rows": 10801,
+      "columns": 22,
+      "candidate": true,
+      "last_time_s": 10800,
+      "preview": "results\\validation\\workbook_previews\\result2_温度.png"
+    },
+    {
+      "file": "results\\candidate\\result2_numerical_validation_pending.xlsx",
+      "sheet": "水分浓度",
+      "rows": 10801,
+      "columns": 22,
+      "candidate": true,
+      "last_time_s": 10800,
+      "preview": "results\\validation\\workbook_previews\\result2_水分浓度.png"
+    },
+    {
+      "file": "results\\candidate\\result3_numerical_validation_pending.xlsx",
+      "sheet": "Sheet1",
+      "rows": 3476,
+      "columns": 22,
+      "candidate": true,
+      "last_time_s": 208488.96,
+      "preview": "results\\validation\\workbook_previews\\result3_Sheet1.png"
+    },
+    {
+      "file": "results\\candidate\\result4_numerical_validation_pending.xlsx",
+      "sheet": "Sheet1",
+      "rows": 3073,
+      "columns": 23,
+      "candidate": true,
+      "last_time_s": 184284,
+      "preview": "results\\validation\\workbook_previews\\result4_Sheet1.png"
+    }
+  ]
+}

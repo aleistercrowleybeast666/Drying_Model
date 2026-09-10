@@ -1,0 +1,106 @@
+{
+  "source": "C:\\Users\\chdxm\\Desktop\\数学建模\\CUMCM2026Problems.zip",
+  "hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+  "environment_samples": 241,
+  "tail_samples": 61,
+  "T_tail_C": 49.99893442622951,
+  "H_tail": 0.04998754098360656,
+  "radius_samples": 145,
+  "R0_m": 0.02,
+  "R_end_m": 0.01198,
+  "templates": {
+    "1": {
+      "path": "data\\raw\\附件\\附件3\\result1.xlsx",
+      "sheets": {
+        "温度": {
+          "header": [
+            "时间\\到药材中心的距离",
+            0,
+            0.1,
+            0.2,
+            "…",
+            2
+          ],
+          "rows": 5,
+          "columns": 6
+        },
+        "水分浓度": {
+          "header": [
+            "时间\\到药材中心的距离",
+            0,
+            0.1,
+            0.2,
+            "…",
+            2
+          ],
+          "rows": 5,
+          "columns": 6
+        }
+      }
+    },
+    "2": {
+      "path": "data\\raw\\附件\\附件3\\result2.xlsx",
+      "sheets": {
+        "温度": {
+          "header": [
+            "时间\\到药材中心的距离",
+            0,
+            0.1,
+            0.2,
+            "…",
+            2
+          ],
+          "rows": 5,
+          "columns": 6
+        },
+        "水分浓度": {
+          "header": [
+            "时间\\到药材中心的距离",
+            0,
+            0.1,
+            0.2,
+            "…",
+            2
+          ],
+          "rows": 5,
+          "columns": 6
+        }
+      }
+    },
+    "3": {
+      "path": "data\\raw\\附件\\附件3\\result3.xlsx",
+      "sheets": {
+        "Sheet1": {
+          "header": [
+            "时间\\到药材中心的距离",
+            0,
+            0.1,
+            0.2,
+            "…",
+            2
+          ],
+          "rows": 5,
+          "columns": 6
+        }
+      }
+    },
+    "4": {
+      "path": "data\\raw\\附件\\附件3\\result4.xlsx",
+      "sheets": {
+        "Sheet1": {
+          "header": [
+            "时间\\到药材中心的距离",
+            0,
+            0.1,
+            0.2,
+            "…",
+            "药材表面"
+          ],
+          "rows": 5,
+          "columns": 6
+        }
+      }
+    }
+  },
+  "source_formula_review": "PDF appendices 2/3/4 visually and textually checked against prompt"
+}

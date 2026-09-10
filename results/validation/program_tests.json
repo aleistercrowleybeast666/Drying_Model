@@ -1,0 +1,131 @@
+{
+  "exit_status": 0,
+  "tests": [
+    {
+      "test": "A_Drying/tests/test_numerics.py::test_material_initial_regressions",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.2060139999994135,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_numerics.py::test_rk4_order_and_polynomial",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.0002898999991884921,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_numerics.py::test_zero_exchange_uniform_shrink",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.013115699999616481,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_numerics.py::test_shared_flux_cancellation_and_local_balance",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.02198859999953129,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_numerics.py::test_closed_ends_reduce_to_1d",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.00041790000068431254,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_numerics.py::test_axis_and_midplane_cell_average_reconstruction",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.021304899999449844,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_numerics.py::test_input_sides_and_radius_range",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.02898800000002666,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_numerics.py::test_rk4_constant_radius_fourth_appendix",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.029929700000138837,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_numerics.py::test_production_rk4_heat_time_order",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.0012747999990097014,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_numerics.py::test_production_shrinking_uniform_field_without_exchange",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.0725112000000081,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_numerics.py::test_independent_robin_cylinder_series",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.007402500001262524,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_workflow.py::test_real_attachment_tail_and_units",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.0026825999993889127,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_workflow.py::test_spatial_export_outside_domain_and_true_surface",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.02803669999957492,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_workflow.py::test_event_right_endpoint_strictly_dry_and_report_reintegrated",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.0014106999988143798,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_workflow.py::test_zip_traversal_and_original_preservation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.024847599999702652,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_workflow.py::test_excel_roundtrip_numeric_blank_and_four_decimals",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.04241090000141412,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_workflow.py::test_atomic_full_precision_storage",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.0057149000003846595,
+      "error": null
+    },
+    {
+      "test": "A_Drying/tests/test_workflow.py::test_vscode_workspace_valid",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.0008035999999265186,
+      "error": null
+    }
+  ]
+}

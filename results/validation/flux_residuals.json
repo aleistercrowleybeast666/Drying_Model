@@ -1,0 +1,14 @@
+[
+  {
+    "field": "heat_effective_W",
+    "residual": 8.764690362372818e-16,
+    "side_flux": 0.1924741987872408,
+    "end_flux": 0.0023978874557676216
+  },
+  {
+    "field": "normalized_moisture_m3_s",
+    "residual": -2.5849394142282115e-24,
+    "side_flux": -1.1841890741784097e-08,
+    "end_flux": -3.968632635121869e-10
+  }
+]

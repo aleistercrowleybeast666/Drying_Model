@@ -1,0 +1,113 @@
+import csv
+import json
+from pathlib import Path
+import numpy as np
+from .cases import Case_GetId, Case_IterFields, Case_LoadConfig, Case_LoadInputs, Case_ReadStatus
+from .sampling import Sampling_GetNodes
+from .geometry import Geometry_GetCells
+from .storage import Storage_WriteJson
+from .diagnostics import Diagnostics_Record
+
+
+def Comparison_IterFields(root, case_id):
+    path=Path(root)/'results/cache'/case_id/'paired_events.npz'
+    extras=[]
+    if path.exists():
+        with np.load(path) as data:
+            if str(data['fingerprint'])!=Case_ReadStatus(root,case_id)['fingerprint']:
+                raise RuntimeError('CACHE_MISMATCH: paired endpoint states')
+            extras=list(zip(data['time_s'].tolist(),data['fields']))
+    index=0
+    for t,field in Case_IterFields(root,case_id):
+        while index<len(extras) and extras[index][0]<t-1e-8:
+            yield extras[index]
+            index+=1
+        if index<len(extras) and abs(extras[index][0]-t)<1e-8:
+            yield extras[index]
+            index+=1
+        else:
+            yield t,field
+    yield from extras[index:]
+
+
+def Comparison_Run(root, case_filter='all'):
+    root = Path(root)
+    cfg = Case_LoadConfig(root)['comparison']
+    inputs = Case_LoadInputs(root)
+    validation_path = root/'results/validation/summary.json'
+    validation = json.loads(validation_path.read_text(encoding='utf-8')) if validation_path.exists() else {}
+    folder = root/'results/comparison'
+    folder.mkdir(parents=True, exist_ok=True)
+    summary_path=folder/'summary.json'
+    summary=json.loads(summary_path.read_text(encoding='utf-8')) if summary_path.exists() else {}
+    for case, model in [('q1', 1), ('q23', 3), ('q4', 4)]:
+        if case_filter not in ('all',case):
+            continue
+        one_id = validation.get(case+'_1d', {}).get('selected_id', Case_GetId(case, 1))
+        two_id = validation.get(case+'_2d', {}).get('selected_id', Case_GetId(case, 2))
+        one_status, two_status = Case_ReadStatus(root, one_id), Case_ReadStatus(root, two_id)
+        if not one_status['complete'] or not two_status['complete']:
+            raise RuntimeError('COMPARISON_INCOMPLETE: requested trajectory is still running')
+        stream1, stream2 = iter(Comparison_IterFields(root, one_id)), iter(Comparison_IterFields(root, two_id))
+        one, two = next(stream1, None), next(stream2, None)
+        maxima = [dict(value=-1.), dict(value=-1.)]
+        count, start, end = 0, None, None
+        with (folder/f'{case}_pointwise.csv').open('w', newline='', encoding='utf-8-sig') as output, (folder/f'{case}_z_profiles.csv').open('w', newline='', encoding='utf-8-sig') as profile:
+            writer, zwriter = csv.writer(output), csv.writer(profile)
+            columns = ['time_s', 'R_m']
+            for label in ['T_K', 'C_kg_kg']:
+                columns.extend([f'{label}_{name}' for name in ['max_abs', 'r_m', 'z_m', 'volume_RMSE', 'midplane_max_abs', 'endface_max_abs', 'middle_zone_max_abs', 'end_zone_max_abs']])
+            writer.writerow(columns)
+            zwriter.writerow(['time_s', 'z_m', 'max_abs_delta_T_K', 'max_abs_delta_C_kg_kg', 'radial_weighted_mean_delta_T_K', 'radial_weighted_mean_delta_C_kg_kg'])
+            while one is not None and two is not None:
+                if abs(one[0]-two[0]) > 1e-8:
+                    if one[0] < two[0]: one = next(stream1, None)
+                    else: two = next(stream2, None)
+                    continue
+                t = one[0]
+                r1, _, values1 = Sampling_GetNodes(one[1], t, model, inputs)
+                r2, z2, values2 = Sampling_GetNodes(two[1], t, model, inputs)
+                reference = np.stack([np.interp(r2, r1, values1[p, :, 0]) for p in range(2)])
+                delta = values2-reference[:, :, None]
+                weights = Geometry_GetCells(two_status['nr'], two_status['nz'], r2[-1])[2]
+                row = [t, r2[-1]]
+                for p in range(2):
+                    index = np.unravel_index(np.abs(delta[p]).argmax(), delta[p].shape)
+                    maximum = float(abs(delta[p][index]))
+                    rmse = float(np.sqrt(np.sum(weights*delta[p, 1:-1, 1:-1]**2)/weights.sum()))
+                    row.extend([maximum, r2[index[0]], z2[index[1]], rmse,
+                        np.max(np.abs(delta[p, :, 0])), np.max(np.abs(delta[p, :, -1])),
+                        np.max(np.abs(delta[p, :, z2 <= cfg['middle_zone_z_max_m']])),
+                        np.max(np.abs(delta[p, :, z2 >= cfg['end_zone_z_min_m']]))])
+                    if maximum > maxima[p]['value']:
+                        maxima[p] = dict(value=maximum, signed_difference=float(delta[p][index]),
+                            time_s=t, r_m=float(r2[index[0]]), z_m=float(z2[index[1]]))
+                writer.writerow(row)
+                if t % 60 == 0:
+                    radial_weights = weights[:, 0]
+                    for j, z in enumerate(z2):
+                        zwriter.writerow([t, z, np.max(np.abs(delta[0, :, j])), np.max(np.abs(delta[1, :, j])),
+                            np.average(delta[0, 1:-1, j], weights=radial_weights), np.average(delta[1, 1:-1, j], weights=radial_weights)])
+                start = t if start is None else start
+                end, count = t, count+1
+                one, two = next(stream1, None), next(stream2, None)
+        if count == 0:
+            raise RuntimeError('COMPARISON_INCOMPLETE: no shared samples')
+        relative = None
+        if one_status['event'] and two_status['event']:
+            relative = abs(two_status['event']['raw_event_s']-one_status['event']['raw_event_s'])/one_status['event']['raw_event_s']
+        exceed = maxima[0]['value'] > cfg['temperature_tolerance_K'] or maxima[1]['value'] > cfg['moisture_tolerance'] or (relative is not None and relative > cfg['relative_time_tolerance'])
+        verified = all(validation.get(case+f'_{dim}d', {}).get('time_passed', False) and validation.get(case+f'_{dim}d', {}).get('time_full_time', False) and validation.get(case+f'_{dim}d', {}).get('spatial_passed', False) for dim in [1, 2])
+        status = 'END_EFFECT_NOT_NEGLIGIBLE' if exceed else ('PASS_AT_SAMPLED_TIMES' if verified and (model == 1 or relative is not None) else 'COMPARISON_INCOMPLETE')
+        summary[case] = dict(status=status, one_id=one_id, two_id=two_id,
+            max_abs_temperature=maxima[0], max_abs_moisture=maxima[1],
+            one_drying_time_h=one_status['drying_time_h'], two_drying_time_h=two_status['drying_time_h'],
+            relative_drying_time_difference=relative, sample_count=count, time_range_s=[start,end],
+            fully_numerically_verified=verified, thresholds=cfg,
+            coordinate_method='Same physical time/r; linear radial interpolation of reconstructed 1D field; genuine 2D field',
+            scope_note='Maxima only at stored sampled times, not continuous-time rigorous bounds; event times compared separately',
+            official_source='1D')
+        Diagnostics_Record(root, status, 'WARNING' if status != 'PASS_AT_SAMPLED_TIMES' else 'INFO',
+                           case_id=case, max_abs_T=maxima[0]['value'], max_abs_C=maxima[1]['value'], relative_time_difference=relative)
+        Storage_WriteJson(folder/'summary.json', summary)
+    return summary

@@ -1,0 +1,14 @@
+{
+  "question": 2,
+  "case_id": "q23_1d_nr40_nz1_dt0.25",
+  "fingerprint": "39aa1dd9362da4d02040f277a138f4e8924bed89c2d66a918fc70e0371d9c5e0",
+  "dimension": 1,
+  "path": "results\\candidate\\result2_numerical_validation_pending.xlsx",
+  "status": "candidate",
+  "numerical_validation": "TIME_VALIDATED_SPATIAL_QUANTIFIED",
+  "rows": 10800,
+  "columns": 22,
+  "event": null,
+  "workbook_hash": "4df3a525090e2cbc7dd0be2f7c8e86ba2f55a2a526b077269c887b3de6fd58b2",
+  "readback": "PASSED: sheet names, all numeric cells, dimensions, time SI, precision, blanks, event deduplication, source"
+}

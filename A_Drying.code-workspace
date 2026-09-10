@@ -1,0 +1,30 @@
+{
+  "folders": [{ "name": "A题药材烘干", "path": "." }],
+  "settings": {
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestArgs": ["tests"],
+    "python.analysis.extraPaths": ["./src"],
+    "files.encoding": "utf8",
+    "files.exclude": {"**/__pycache__": true, "**/.pytest_cache": true},
+    "search.exclude": {"**/.venv": true, "**/results/cache": true, "**/data/raw": true}
+  },
+  "extensions": {"recommendations": ["ms-python.python", "ms-python.vscode-pylance"]},
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {"label": "A题: 检查资料", "type": "process", "command": "${workspaceFolder}/.venv/Scripts/python.exe", "args": ["run.py", "prepare"], "options": {"cwd": "${workspaceFolder}"}, "problemMatcher": []},
+      {"label": "A题: 运行测试", "type": "process", "command": "${workspaceFolder}/.venv/Scripts/python.exe", "args": ["run.py", "test"], "options": {"cwd": "${workspaceFolder}"}, "group": "test", "problemMatcher": []},
+      {"label": "A题: 一维求解", "type": "process", "command": "${workspaceFolder}/.venv/Scripts/python.exe", "args": ["run.py", "solve", "--case", "all", "--dim", "1"], "options": {"cwd": "${workspaceFolder}"}, "group": "build", "problemMatcher": []},
+      {"label": "A题: 二维求解", "type": "process", "command": "${workspaceFolder}/.venv/Scripts/python.exe", "args": ["run.py", "solve", "--case", "all", "--dim", "2"], "options": {"cwd": "${workspaceFolder}"}, "problemMatcher": []},
+      {"label": "A题: 数值验证", "type": "process", "command": "${workspaceFolder}/.venv/Scripts/python.exe", "args": ["run.py", "validate"], "options": {"cwd": "${workspaceFolder}"}, "problemMatcher": []},
+      {"label": "A题: 导出Excel", "type": "process", "command": "${workspaceFolder}/.venv/Scripts/python.exe", "args": ["run.py", "export"], "options": {"cwd": "${workspaceFolder}"}, "problemMatcher": []},
+      {"label": "A题: 全流程（可续算）", "type": "process", "command": "${workspaceFolder}/.venv/Scripts/python.exe", "args": ["run.py", "all"], "options": {"cwd": "${workspaceFolder}"}, "problemMatcher": []}
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [{"name": "调试第一问一维", "type": "debugpy", "request": "launch", "program": "${workspaceFolder}/run.py", "args": ["solve", "--case", "q1", "--dim", "1", "--tag", "debug"], "cwd": "${workspaceFolder}", "console": "integratedTerminal", "justMyCode": true}]
+  }
+}
