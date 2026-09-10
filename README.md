@@ -31,17 +31,37 @@ python -m venv .venv
 
 配置在 `configs/default.toml`，固定建模约定在 `configs/assumptions.json`。主模型为单元中心圆柱有限体积和经典四阶段 RK4；一维官方格式输出始终来自一维。第四问内部使用随体坐标，填表时转换到**当前空间中的固定 r**。域外点留空，表面独立重构。烘干事件经局部重新积分，保存不超过 0.1 s 的未达标/严格达标区间；报告时间向上取到 0.0001 h 并重新积分验证，另加在整分钟行之后。
 
-输出入口：
+输出按问题划分，文件位置表示结果类型，验证状态统一写入 `results/status.json` 和各问 summary：
 
-- `results/status.json`：所有案例的积分状态、事件、步长、耗时与内存。
-- `results/validation/`：18项程序测试、独立解析基准、通量残差、时间复算、空间对照数据。
-- `results/candidate/`：四问官方结构 Excel 和关键数值 CSV。文件中的数值已实际计算并完整回读。**候选标识不是空间精度合格声明。**
-- `results/final/`：只接收时间与明确空间验收要求均通过的一维结果。当前 prompt 没有给空间误差验收阈值，因此默认保留候选，避免把时间验证通过误写成网格独立。
-- `results/partial/`：72 h 未烘干的真实时序，烘干时间为 null。
-- `results/tables/`：全精度 NPZ（含有效域掩码）、简洁 CSV。
-- `results/comparison/`：一维/二维同物理位置比较，含中截面、端面、分区和沿 z 数据。
-- `results/figures/`、`results/animations/`：二维曲线、恰好两张三维分布图和两个 GIF。GIF 使用真实已保存二维场，非匀速物理时间映射。
-- `logs/run.log`、`logs/events.jsonl`、`results/diagnostics.csv`：进度、可定位事件与数值诊断。
+```text
+results/
+  tables/result1.xlsx … result4.xlsx
+  q1/q1_curves.png, q1_1d_2d_compare.png, q1_max_error_section.png
+     q1_compare.csv, q1_summary.json, q1_key_values.csv
+  q2/（同 q1，以 q2 命名）
+  q3/（同 q1，另有 q3_3d.png、q3_3d.gif）
+  q4/（同 q1，另有 q4_3d.png、q4_3d.gif、q4_radius_history.csv）
+  q3_q4_axial_section.gif
+  q3_q4_radial_section.gif
+  status.json
+work/
+  cache/          # 1D/2D 轨迹、共享 q23、事件场；exports/ 为全精度填表数组
+  checkpoints/    # 按 case_id 保存续算检查点
+  validation/     # 程序测试、解析基准、通量、时间和空间对照原始数据
+  comparison/     # 逐时间、沿轴向比较及内部汇总
+  diagnostics/    # diagnostics.csv、失败明细、导出来源、耗时与图像清单
+logs/
+  run.log
+  events.jsonl
+```
+
+四份 Excel 只使用一维结果，保存后逐单元回读校验；不会因验证状态而复制到不同目录。72 h 未烘干时，summary 中 `drying_time` 为 null，表中保留已计算时序，不添加烘干终点行。`status.json` 的 `time_convergence_passed`、`spatial_convergence_passed`、`two_dimensional_check_completed`、`drying_completed`、`official_output_generated` 分别记录对应状态；完成二维比较不等于空间精度已认证。summary 时间单位为秒。
+
+内部 q23 仅求解一次，第 2 问展示 0–3 h，第 3 问展示到一维烘干终点。第 1 问为 0–1800 s，第 4 问到自身终点。`compare` 从已有场生成四问比较 CSV；`plots` 自动补齐缺少的比较数据，直接重画 14 张 PNG，不依赖先运行 `export`，也不调用求解器。最大误差截面按各问时间窗内最大含水率绝对差选时，标注温差峰值时刻；全长截面由实际二维半圆柱解在径向与轴向对称展开。
+
+`animate` 生成四个 GIF：两张真实二维场的 3D 动画、一张 q3/q4 过轴截面、一张一维径向解映射的圆形截面。两张综合动画使用相同相对进度，各问显示实际物理时间，前 6% 过程放慢；温度和含水率分别固定为 28–53 ℃、0–2.55 kg/kg。第四问在固定坐标范围内显示真实半径收缩。动画逐帧编码并完整解码检查。`animate --case q23` 或 `--case q4` 只重画对应 3D GIF；综合动画用不带筛选的 `animate`。
+
+已有缓存时只需依次执行 `run.py test`、`run.py export`、`run.py plots`、`run.py animate`，不会重算生产 PDE。新工程需要先完成上述 `prepare`、`solve` 和 `validate` 阶段。缓存和检查点已在 `.gitignore` 中排除。
 
 当前验证范围：一维做全程步长减半和 Nr=40/80 对照；二维主案例覆盖完整规定时段，额外时间复算、径向加密和轴向加密默认只覆盖前1800 s。长时二维空间/时间验证不宣称已完成。空间对照差值不是真实误差的严格上界；端面比较阈值不能借用为空间收敛阈值。
 

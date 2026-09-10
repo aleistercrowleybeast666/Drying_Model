@@ -7,10 +7,11 @@ from .sampling import Sampling_GetNodes
 from .geometry import Geometry_GetCells
 from .storage import Storage_WriteJson
 from .diagnostics import Diagnostics_Record
+from .outputs import Output_GetEnd, Output_GetSelected, Output_ReadJson, Output_UpdateSummary, Output_PrepareFolders
 
 
 def Comparison_IterFields(root, case_id):
-    path=Path(root)/'results/cache'/case_id/'paired_events.npz'
+    path=Path(root)/'work/cache'/case_id/'paired_events.npz'
     extras=[]
     if path.exists():
         with np.load(path) as data:
@@ -30,15 +31,34 @@ def Comparison_IterFields(root, case_id):
     yield from extras[index:]
 
 
+def Comparison_ReadSnapshot(root, case_id, at_time):
+    folder = Path(root)/'work/cache'/case_id
+    status = Case_ReadStatus(root, case_id)
+    if status.get('event') and abs(status['event']['report_s']-at_time) < 1e-8:
+        with np.load(folder/'event.npz') as block:
+            return block['state'].copy()
+    for path in [folder/'paired_events.npz', *sorted(folder.glob('chunk_*.npz'))]:
+        if not path.exists():
+            continue
+        with np.load(path) as block:
+            if str(block['fingerprint']) != status['fingerprint']:
+                raise RuntimeError('CACHE_MISMATCH: snapshot fingerprint')
+            indices = np.flatnonzero(abs(block['time_s']-at_time) < 1e-8)
+            if len(indices):
+                return block['fields'][indices[0]].copy()
+    raise RuntimeError(f'PLOT_FAILED: exact cached field {case_id} at t={at_time} is unavailable')
+
+
 def Comparison_Run(root, case_filter='all'):
     root = Path(root)
+    Output_PrepareFolders(root)
     cfg = Case_LoadConfig(root)['comparison']
     inputs = Case_LoadInputs(root)
-    validation_path = root/'results/validation/summary.json'
+    validation_path = root/'work/validation/summary.json'
     validation = json.loads(validation_path.read_text(encoding='utf-8')) if validation_path.exists() else {}
-    folder = root/'results/comparison'
+    folder = root/'work/comparison'
     folder.mkdir(parents=True, exist_ok=True)
-    summary_path=folder/'summary.json'
+    summary_path=folder/'case_summary.json'
     summary=json.loads(summary_path.read_text(encoding='utf-8')) if summary_path.exists() else {}
     for case, model in [('q1', 1), ('q23', 3), ('q4', 4)]:
         if case_filter not in ('all',case):
@@ -100,6 +120,7 @@ def Comparison_Run(root, case_filter='all'):
         verified = all(validation.get(case+f'_{dim}d', {}).get('time_passed', False) and validation.get(case+f'_{dim}d', {}).get('time_full_time', False) and validation.get(case+f'_{dim}d', {}).get('spatial_passed', False) for dim in [1, 2])
         status = 'END_EFFECT_NOT_NEGLIGIBLE' if exceed else ('PASS_AT_SAMPLED_TIMES' if verified and (model == 1 or relative is not None) else 'COMPARISON_INCOMPLETE')
         summary[case] = dict(status=status, one_id=one_id, two_id=two_id,
+            one_fingerprint=one_status['fingerprint'], two_fingerprint=two_status['fingerprint'],
             max_abs_temperature=maxima[0], max_abs_moisture=maxima[1],
             one_drying_time_h=one_status['drying_time_h'], two_drying_time_h=two_status['drying_time_h'],
             relative_drying_time_difference=relative, sample_count=count, time_range_s=[start,end],
@@ -109,5 +130,69 @@ def Comparison_Run(root, case_filter='all'):
             official_source='1D')
         Diagnostics_Record(root, status, 'WARNING' if status != 'PASS_AT_SAMPLED_TIMES' else 'INFO',
                            case_id=case, max_abs_T=maxima[0]['value'], max_abs_C=maxima[1]['value'], relative_time_difference=relative)
-        Storage_WriteJson(folder/'summary.json', summary)
+        Storage_WriteJson(summary_path, summary)
+    return Comparison_WriteQuestions(root, case_filter)
+
+
+def Comparison_WriteQuestions(root, case_filter='all'):
+    root = Path(root)
+    source = Output_ReadJson(root/'work/comparison/case_summary.json')
+    summary = Output_ReadJson(root/'work/comparison/summary.json')
+    for case, questions in [('q1', [1]), ('q23', [2, 3]), ('q4', [4])]:
+        if case_filter not in ('all', case):
+            continue
+        info = source[case]
+        one_status = Case_ReadStatus(root, info['one_id'])
+        path = root/f'work/comparison/{case}_pointwise.csv'
+        with path.open(encoding='utf-8-sig') as stream:
+            columns = next(csv.reader(stream))
+        rows = np.loadtxt(path, delimiter=',', skiprows=1, ndmin=2)
+        for q in questions:
+            end = Output_GetEnd(q, one_status)
+            data = rows[rows[:, 0] <= end + 1e-8]
+            if len(data) < 2 or abs(data[0, 0]) > 1e-8 or abs(data[-1, 0]-end) > 1e-8:
+                raise RuntimeError(f'COMPARISON_INCOMPLETE: q{q} requires cached paired endpoint {end}')
+            maxima = []
+            for offset in [2, 10]:
+                row = data[np.argmax(data[:, offset])]
+                maxima.append(dict(value=float(row[offset]), time_s=float(row[0]),
+                                   r_m=float(row[offset+1]), z_m=float(row[offset+2])))
+            destination = root/f'results/q{q}/q{q}_compare.csv'
+            with destination.open('w', newline='', encoding='utf-8-sig') as stream:
+                writer = csv.writer(stream)
+                writer.writerow(columns)
+                writer.writerows(data)
+            record = dict(info, question=q, time_range_s=[0., end], sample_count=len(data),
+                max_abs_temperature=maxima[0], max_abs_moisture=maxima[1], comparison_completed=True,
+                schema_version=2, csv=str(destination.relative_to(root)))
+            if q <= 2:
+                record.update(one_drying_time_h=None, two_drying_time_h=None, relative_drying_time_difference=None)
+            summary[f'q{q}'] = record
+            Output_UpdateSummary(root, q,
+                max_1d_2d_temperature_difference=maxima[0]['value'],
+                max_1d_2d_moisture_difference=maxima[1]['value'],
+                time_of_max_difference={name: value['time_s'] for name, value in zip(['temperature', 'moisture'], maxima)},
+                location_of_max_difference={name: {key: value[key] for key in ['r_m', 'z_m']}
+                                           for name, value in zip(['temperature', 'moisture'], maxima)},
+                representative_section_time_s=maxima[1]['time_s'], comparison_time_range_s=[0., end],
+                comparison_scope='Absolute 2D minus 1D differences at stored samples; z=0 is the midplane',
+                temperature_difference_unit='K', moisture_difference_unit='kg/kg')
+    Storage_WriteJson(root/'work/comparison/summary.json', summary)
+    return summary
+
+
+def Comparison_EnsureQuestions(root):
+    summary = Output_ReadJson(Path(root)/'work/comparison/summary.json')
+    for case, questions in [('q1', [1]), ('q23', [2, 3]), ('q4', [4])]:
+        ids = [Output_GetSelected(root, case, dim) for dim in [1, 2]]
+        statuses = [Case_ReadStatus(root, case_id) for case_id in ids]
+        if any(summary.get(f'q{q}', {}).get('schema_version') != 2 or
+               summary.get(f'q{q}', {}).get('one_id') != ids[0] or
+               summary.get(f'q{q}', {}).get('two_id') != ids[1] or
+               not (Path(root)/f'results/q{q}/q{q}_compare.csv').exists() or
+               summary.get(f'q{q}', {}).get('one_fingerprint') != statuses[0]['fingerprint'] or
+               summary.get(f'q{q}', {}).get('two_fingerprint') != statuses[1]['fingerprint'] or
+               summary.get(f'q{q}', {}).get('time_range_s', [None, None])[-1] != Output_GetEnd(q, statuses[0])
+               for q in questions):
+            summary = Comparison_Run(root, case)
     return summary

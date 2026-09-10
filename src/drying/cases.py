@@ -46,7 +46,7 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
     if nr < 2 or nz < 1 or dim not in (1, 2) or dt <= 0:
         raise ValueError('INPUT_VALUE_INVALID: numerical configuration')
     case_id = Case_GetId(case, dim, nr, nz, dt, tag)
-    folder = root/'results/cache'/case_id
+    folder = root/'work/cache'/case_id
     folder.mkdir(parents=True, exist_ok=True)
     model = dict(q1=1, q23=3, q4=4)[case]
     cap = float(cap if cap is not None else (1800 if case == 'q1' else config['physics']['t_cap_s']))
@@ -82,7 +82,7 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
     minimum_dt, maximum_dt = float('inf'), 0.
     event = None
     diagnostics = []
-    checkpoint = folder/'checkpoint.npz'
+    checkpoint = root/'work/checkpoints'/case_id/'checkpoint.npz'
     if checkpoint.exists():
         with np.load(checkpoint) as saved:
             if str(saved['fingerprint']) != fingerprint:
@@ -117,7 +117,7 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
             fields.append(state.copy())
         replay = np.empty(0)
         if replay_id:
-            replay_path = root/'results/cache'/replay_id/f'chunk_{chunk_no:04d}.npz'
+            replay_path = root/'work/cache'/replay_id/f'chunk_{chunk_no:04d}.npz'
             with np.load(replay_path) as saved:
                 original = saved['step_ends']
             starts = np.r_[t, original[:-1]]
@@ -130,11 +130,16 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
                 ts, ds, stage, failure, i, j, T, C, R, Te, He, attempt = rejected_row
                 def Finite(value):
                     return float(value) if np.isfinite(value) else None
+                try:
+                    properties = [Finite(value) for value in Material_Evaluate(model, T, C)]
+                except (ValueError, ZeroDivisionError, OverflowError):
+                    properties = [None]*4
                 Diagnostics_Record(root, 'RK_STEP_REJECTED', 'WARNING', case_id=case_id, dimension=dim,
                     simulated_time_s=ts, requested_dt_s=dt, accepted_dt_s=ds, rk_stage=int(stage),
                     reason=RkStepResult(int(failure)).name, cell_index=[int(i), int(j)],
                     r_m=(i+.5)*R/nr, z_m=(j+.5)*.125/nz, xi=(i+.5)/nr,
                     R_m=R, T_K=Finite(T), C=Finite(C), environment_values=[Te, He], attempt=int(attempt),
+                    rho=properties[0], cp=properties[1], k=properties[2], D=properties[3],
                     grid=[nr, nz], suggested_check='Inspect local state, conductances, and rejected RK stage')
             if code:
                 status.update(status=RkStepResult(code).name, simulated_time_s=float(new_t))
@@ -173,6 +178,7 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
         index = np.unravel_index(nodes[1].argmax(), nodes[1].shape)
         props = Material_Evaluate(model, float(nodes[0][index]), float(nodes[1][index]))
         diagnostics.append(dict(time_s=t, Cmax=float(nodes[1][index]), r_m=float(r[index[0]]),
+            T_K=float(nodes[0][index]), dimension=dim, dt_s=maximum_dt, rk_stage='accepted_state',
             z_m=float(z[index[1]]), R_m=float(r[-1]), rho=props[0], cp=props[1], k=props[2], D=props[3]))
         peak = max(peak, process.memory_info().rss)
         chunk_no += 1
@@ -195,7 +201,7 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
 
 
 def Case_IterFields(root, case_id):
-    folder = Path(root)/'results/cache'/case_id
+    folder = Path(root)/'work/cache'/case_id
     status = Case_ReadStatus(root, case_id)
     expected = status['fingerprint']
     for path in sorted(folder.glob('chunk_*.npz')):
@@ -209,7 +215,7 @@ def Case_IterFields(root, case_id):
 
 def Case_ReadStatus(root, case_id):
     root = Path(root)
-    status = json.loads((root/'results/cache'/case_id/'status.json').read_text(encoding='utf-8'))
+    status = json.loads((root/'work/cache'/case_id/'status.json').read_text(encoding='utf-8'))
     current_input = json.loads((root/'data/input_manifest.json').read_text(encoding='utf-8'))['hash']
     current_source = Storage_HashFiles([root/'src/drying'/f for f in
         ('materials.py', 'boundaries.py', 'operators.py', 'rk4.py', 'sampling.py', 'inputs.py', 'events.py')])
@@ -225,7 +231,7 @@ def Case_SolvePairEvents(root):
     config=Case_LoadConfig(root)
     num=config['numerics']
     for case,model in [('q23',3),('q4',4)]:
-        validation_path=root/'results/validation/summary.json'
+        validation_path=root/'work/validation/summary.json'
         validation=json.loads(validation_path.read_text(encoding='utf-8')) if validation_path.exists() else {}
         ids=[validation.get(f'{case}_{dimension}d',{}).get('selected_id',Case_GetId(case,dimension)) for dimension in (1,2)]
         statuses=[Case_ReadStatus(root,case_id) for case_id in ids]
@@ -233,7 +239,7 @@ def Case_SolvePairEvents(root):
             continue
         times=np.unique([status['event']['report_s'] for status in statuses if status['event']])
         for case_id,status in zip(ids,statuses):
-            destination=root/'results/cache'/case_id/'paired_events.npz'
+            destination=root/'work/cache'/case_id/'paired_events.npz'
             if destination.exists():
                 with np.load(destination) as data:
                     if str(data['fingerprint'])==status['fingerprint'] and np.array_equal(data['time_s'],times):
@@ -241,11 +247,11 @@ def Case_SolvePairEvents(root):
             fields=[]
             for target in times:
                 if status['event'] and abs(status['event']['report_s']-target)<1e-8:
-                    with np.load(root/'results/cache'/case_id/'event.npz') as data:
+                    with np.load(root/'work/cache'/case_id/'event.npz') as data:
                         fields.append(data['state'].copy())
                     continue
                 prior=None
-                for path in sorted((root/'results/cache'/case_id).glob('chunk_*.npz')):
+                for path in sorted((root/'work/cache'/case_id).glob('chunk_*.npz')):
                     with np.load(path) as data:
                         stored_times=data['time_s']
                         eligible=np.flatnonzero(stored_times<=target+1e-9)

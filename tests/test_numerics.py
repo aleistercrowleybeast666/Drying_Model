@@ -65,7 +65,7 @@ def test_shared_flux_cancellation_and_local_balance():
         assert abs(residual) < (1e-12 if p == 0 else 1e-20)
     from pathlib import Path
     from drying.storage import Storage_WriteJson
-    Storage_WriteJson(Path(__file__).resolve().parents[1]/'results/validation/flux_residuals.json',residuals)
+    Storage_WriteJson(Path(__file__).resolve().parents[1]/'work/validation/flux_residuals.json',residuals)
 
 
 def test_closed_ends_reduce_to_1d():
@@ -164,6 +164,6 @@ def test_independent_robin_cylinder_series():
     assert errors[0]/errors[1] > 3.5 and errors[1]/errors[2] > 3.5
     from pathlib import Path
     from drying.storage import Storage_WriteJson
-    Storage_WriteJson(Path(__file__).resolve().parents[1]/'results/validation/analytic_cylinder.json',
+    Storage_WriteJson(Path(__file__).resolve().parents[1]/'work/validation/analytic_cylinder.json',
         dict(time_s=t,Nr=[20,40,80],maximum_cell_average_error=errors,series_terms=len(roots),
              benchmark='Appendix-2 constant heat equation, cylindrical Bessel Robin series vs exact semidiscrete matrix exponential'))

@@ -1,0 +1,173 @@
+{
+  "exit_status": 0,
+  "tests": [
+    {
+      "test": "tests/test_numerics.py::test_material_initial_regressions",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.2139247000013711,
+      "error": null
+    },
+    {
+      "test": "tests/test_numerics.py::test_rk4_order_and_polynomial",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.0004597999977704603,
+      "error": null
+    },
+    {
+      "test": "tests/test_numerics.py::test_zero_exchange_uniform_shrink",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.013028899997152621,
+      "error": null
+    },
+    {
+      "test": "tests/test_numerics.py::test_shared_flux_cancellation_and_local_balance",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.023338999999396037,
+      "error": null
+    },
+    {
+      "test": "tests/test_numerics.py::test_closed_ends_reduce_to_1d",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.00046460000157821923,
+      "error": null
+    },
+    {
+      "test": "tests/test_numerics.py::test_axis_and_midplane_cell_average_reconstruction",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.024285599996801466,
+      "error": null
+    },
+    {
+      "test": "tests/test_numerics.py::test_input_sides_and_radius_range",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.02185789999930421,
+      "error": null
+    },
+    {
+      "test": "tests/test_numerics.py::test_rk4_constant_radius_fourth_appendix",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.030730100002983818,
+      "error": null
+    },
+    {
+      "test": "tests/test_numerics.py::test_production_rk4_heat_time_order",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.0012409999981173314,
+      "error": null
+    },
+    {
+      "test": "tests/test_numerics.py::test_production_shrinking_uniform_field_without_exchange",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.0704154999984894,
+      "error": null
+    },
+    {
+      "test": "tests/test_numerics.py::test_independent_robin_cylinder_series",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.008703400002559647,
+      "error": null
+    },
+    {
+      "test": "tests/test_presentation.py::test_question_windows_and_not_dry_endpoint",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.00014510000255540945,
+      "error": null
+    },
+    {
+      "test": "tests/test_presentation.py::test_q23_comparison_splits_peak_times_without_solver",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.02851110000119661,
+      "error": null
+    },
+    {
+      "test": "tests/test_presentation.py::test_full_section_keeps_actual_axial_variation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.00037849999716854654,
+      "error": null
+    },
+    {
+      "test": "tests/test_presentation.py::test_circular_section_shrinks_in_fixed_physical_coordinates",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.001305300000240095,
+      "error": null
+    },
+    {
+      "test": "tests/test_presentation.py::test_numerical_failure_keeps_traceback_and_properties",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.011904200000572018,
+      "error": null
+    },
+    {
+      "test": "tests/test_presentation.py::test_status_separates_official_location_from_validation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.041592099998524645,
+      "error": null
+    },
+    {
+      "test": "tests/test_workflow.py::test_real_attachment_tail_and_units",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.0029305999996722676,
+      "error": null
+    },
+    {
+      "test": "tests/test_workflow.py::test_spatial_export_outside_domain_and_true_surface",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.032027799999923445,
+      "error": null
+    },
+    {
+      "test": "tests/test_workflow.py::test_event_right_endpoint_strictly_dry_and_report_reintegrated",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.002423800000542542,
+      "error": null
+    },
+    {
+      "test": "tests/test_workflow.py::test_zip_traversal_and_original_preservation",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.03301199999987148,
+      "error": null
+    },
+    {
+      "test": "tests/test_workflow.py::test_excel_roundtrip_numeric_blank_and_four_decimals",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.04950230000031297,
+      "error": null
+    },
+    {
+      "test": "tests/test_workflow.py::test_atomic_full_precision_storage",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.006765499998437008,
+      "error": null
+    },
+    {
+      "test": "tests/test_workflow.py::test_vscode_workspace_valid",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.0007913999979791697,
+      "error": null
+    }
+  ]
+}

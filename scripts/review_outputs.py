@@ -12,13 +12,13 @@ from drying.storage import Storage_WriteJson
 
 
 def Review_Run():
-    manifest=json.loads((root/'results/manifest.json').read_text(encoding='utf-8'))
-    folder=root/'results/validation/workbook_previews'; folder.mkdir(parents=True,exist_ok=True)
+    manifest=json.loads((root/'work/diagnostics/export_manifest.json').read_text(encoding='utf-8'))
+    folder=root/'work/validation/workbook_previews'; folder.mkdir(parents=True,exist_ok=True)
     font_path=Path('C:/Windows/Fonts/msyh.ttc')
     font=ImageFont.truetype(str(font_path),18)
     records=[]
     for entry in manifest['outputs']:
-        with np.load(root/f"results/tables/result{entry['question']}_full_precision.npz") as cache:
+        with np.load(root/f"work/cache/exports/result{entry['question']}_full_precision.npz") as cache:
             assert cache['valid_mask'].shape==cache['moisture'].shape
             assert np.array_equal(cache['valid_mask'],np.isfinite(cache['moisture']))
         path=root/entry['path']; wb=load_workbook(path,read_only=True,data_only=True)
@@ -42,9 +42,9 @@ def Review_Run():
                     draw.text((left+10,top+12),text,font=font,fill='#17394c')
             preview=folder/f"result{entry['question']}_{sheet.title}.png"; canvas.save(preview)
             records.append(dict(file=entry['path'],sheet=sheet.title,rows=sheet.max_row,columns=sheet.max_column,
-                candidate=entry['status']!='final',last_time_s=all_rows[-1][0],preview=str(preview.relative_to(root))))
+                generated=entry['status']=='GENERATED',last_time_s=all_rows[-1][0],preview=str(preview.relative_to(root))))
         wb.close()
-    Storage_WriteJson(root/'results/validation/delivery_checks.json',dict(workbooks=records))
+    Storage_WriteJson(root/'work/validation/delivery_checks.json',dict(workbooks=records))
     print(json.dumps(records,ensure_ascii=False,indent=2))
 
 

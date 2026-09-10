@@ -25,6 +25,11 @@ def Diagnostics_Record(root, code, severity='INFO', **fields):
     folder.mkdir(parents=True, exist_ok=True)
     with (folder/'events.jsonl').open('a', encoding='utf-8') as stream:
         stream.write(json.dumps(entry, ensure_ascii=False, allow_nan=False) + '\n')
+    if severity == 'ERROR' or code == 'RK_STEP_REJECTED':
+        details = Path(root)/'work/diagnostics'
+        details.mkdir(parents=True, exist_ok=True)
+        with (details/'failures.jsonl').open('a', encoding='utf-8') as stream:
+            stream.write(json.dumps(entry, ensure_ascii=False, allow_nan=False) + '\n')
     logging.getLogger('drying').log(getattr(logging, severity), '%s %s', code,
                                    json.dumps(fields, ensure_ascii=False))
 

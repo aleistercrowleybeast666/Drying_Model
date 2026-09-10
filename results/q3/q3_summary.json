@@ -1,0 +1,52 @@
+{
+  "max_1d_2d_temperature_difference": 4.094380589719037,
+  "max_1d_2d_moisture_difference": 0.9752337001443194,
+  "time_of_max_difference": {
+    "temperature": 2520.0,
+    "moisture": 5090.0
+  },
+  "location_of_max_difference": {
+    "temperature": {
+      "r_m": 0.0,
+      "z_m": 0.125
+    },
+    "moisture": {
+      "r_m": 0.0,
+      "z_m": 0.125
+    }
+  },
+  "representative_section_time_s": 5090.0,
+  "comparison_time_range_s": [
+    0.0,
+    208488.96
+  ],
+  "comparison_scope": "Absolute 2D minus 1D differences at stored samples; z=0 is the midplane",
+  "temperature_difference_unit": "K",
+  "moisture_difference_unit": "kg/kg",
+  "max_temperature": 50.039843100531186,
+  "min_moisture": 0.052614678867104345,
+  "temperature_unit": "degC",
+  "moisture_unit": "kg/kg",
+  "extrema_source": "All stored 1D samples in question window",
+  "source_case": "q23",
+  "official_source": "1D",
+  "one_id": "q23_1d_nr40_nz1_dt0.25",
+  "simulation_end": 208488.96,
+  "drying_time": 208488.96,
+  "drying_completed": true,
+  "time_convergence_passed": true,
+  "spatial_convergence_passed": false,
+  "two_dimensional_check_completed": true,
+  "official_output_generated": true,
+  "table": "results/tables/result3.xlsx",
+  "summary": "results/q3/q3_summary.json",
+  "time_unit": "s",
+  "time_convergence_status": "PASSED",
+  "space_convergence_status": "QUANTIFIED_NOT_CERTIFIED",
+  "drying_note": "DRY",
+  "endpoint_2d_max_moisture_location": {
+    "r_m": 0.0,
+    "z_m": 0.0,
+    "C": 0.1499977658260399
+  }
+}

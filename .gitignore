@@ -3,5 +3,6 @@ __pycache__/
 .pytest_cache/
 *.nbc
 *.nbi
-results/cache/
+work/cache/
+work/checkpoints/
 data/raw/

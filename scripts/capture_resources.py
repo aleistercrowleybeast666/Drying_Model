@@ -9,7 +9,7 @@ root=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(root/'src'))
 from drying.storage import Storage_WriteJson
 
-path=root/'results/os_peak_memory.json'
+path=root/'work/diagnostics/os_peak_memory.json'
 previous=json.loads(path.read_text(encoding='utf-8')) if path.exists() else []
 for process in psutil.process_iter():
     try:

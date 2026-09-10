@@ -26,8 +26,8 @@ def Run_Main():
     parser.add_argument('--tag', default='')
     parser.add_argument('--scope', choices=['1d', '2d', 'all'], default='all')
     args = parser.parse_args()
-    for directory in ['cache','candidate','final','partial','tables','comparison','validation','figures','animations']:
-        (_ROOT/'results'/directory).mkdir(parents=True,exist_ok=True)
+    from drying.outputs import Output_PrepareFolders
+    Output_PrepareFolders(_ROOT)
     Diagnostics_Open(_ROOT)
     commands = ['prepare', 'test', 'solve1', 'validate1', 'solve2', 'validate2', 'compare', 'export', 'plots', 'animate'] if args.command == 'all' else [args.command]
     exit_code = 0
@@ -42,7 +42,7 @@ def Run_Main():
                 manifest = Input_Prepare(_ROOT, args.source)
                 print(json.dumps(manifest, ensure_ascii=False, indent=2))
                 versions = {p: importlib.metadata.version(p) for p in ['numpy', 'scipy', 'numba', 'matplotlib', 'openpyxl', 'pillow', 'imageio', 'pytest', 'pypdf', 'psutil']}
-                Storage_WriteJson(_ROOT/'results/dependencies.json', dict(python=sys.version, packages=versions))
+                Storage_WriteJson(_ROOT/'work/diagnostics/dependencies.json', dict(python=sys.version, packages=versions))
             elif command == 'test':
                 result = subprocess.run([sys.executable, '-m', 'pytest', str(_ROOT/'tests'), '-q'], cwd=_ROOT)
                 if result.returncode:
@@ -92,35 +92,29 @@ def Run_Main():
             if command in ('prepare', 'test'):
                 break
         finally:
-            Run_UpdateStatus()
+            try:
+                Run_UpdateStatus()
+            except Exception as error:
+                Diagnostics_RecordException(_ROOT, 'STATUS_UPDATE_FAILED', error, command=command)
+                exit_code = 1
     return exit_code
 
 
 def Run_UpdateStatus():
     cases = []
-    for path in sorted((_ROOT/'results/cache').glob('*/status.json')):
+    for path in sorted((_ROOT/'work/cache').glob('*/status.json')):
         cases.append(json.loads(path.read_text(encoding='utf-8')))
-    validation_path=_ROOT/'results/validation/summary.json'
-    validation=json.loads(validation_path.read_text(encoding='utf-8')) if validation_path.exists() else {}
-    comparison_path=_ROOT/'results/comparison/summary.json'
-    comparison=json.loads(comparison_path.read_text(encoding='utf-8')) if comparison_path.exists() else {}
-    for case in cases:
-        for entry in validation.values():
-            if entry['selected_id']==case['case_id']:
-                case['validation']=entry['numerical_status']
-                case['time_validation_passed']=entry['time_passed']
-                case['spatial_accepted']=entry['spatial_passed']
-    Storage_WriteJson(_ROOT/'results/status.json', dict(cases=cases,numerical_validation=validation,
-        dimension_comparison=comparison,final_source='1D only',
-        note='COMPUTED/DRY are integration statuses; spatial accuracy is not certified, official-format workbooks remain candidates'))
-    diagnostics_path = _ROOT/'results/diagnostics.csv'
+    from drying.outputs import Output_UpdateStatus
+    Output_UpdateStatus(_ROOT)
+    diagnostics_path = _ROOT/'work/diagnostics/diagnostics.csv'
     with diagnostics_path.open('w', newline='', encoding='utf-8-sig') as stream:
         writer = csv.writer(stream)
-        writer.writerow(['case_id','time_s','Cmax_kg_kg','r_m','z_m','R_m','rho','cp','k','D'])
+        writer.writerow(['case_id','dimension','time_s','dt_s','rk_stage','T_K','Cmax_kg_kg','r_m','z_m','R_m','rho','cp','k','D'])
         for case in cases:
             for row in case.get('diagnostics', []):
-                writer.writerow([case['case_id']]+[row[k] for k in ['time_s','Cmax','r_m','z_m','R_m','rho','cp','k','D']])
-    Storage_WriteJson(_ROOT/'results/resource_usage.json',dict(
+                writer.writerow([case['case_id'],case['dim'],row['time_s'],row.get('dt_s'),
+                    row.get('rk_stage','accepted_state'),row.get('T_K')]+[row[k] for k in ['Cmax','r_m','z_m','R_m','rho','cp','k','D']])
+    Storage_WriteJson(_ROOT/'work/diagnostics/resource_usage.json',dict(
         completed_case_count=sum(bool(c.get('complete')) for c in cases),
         summed_solver_wall_s=sum(c.get('wall_s',0.) for c in cases),
         maximum_recorded_solver_rss_bytes=max((c.get('peak_rss_bytes',0) for c in cases),default=0),

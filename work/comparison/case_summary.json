@@ -1,0 +1,122 @@
+{
+  "q1": {
+    "status": "END_EFFECT_NOT_NEGLIGIBLE",
+    "one_id": "q1_1d_nr40_nz1_dt0.25",
+    "two_id": "q1_2d_nr40_nz125_dt0.25",
+    "one_fingerprint": "7df7df45becfbc17ee307ada2d3925069fe99939df73459efa07e925dcfdda8c",
+    "two_fingerprint": "7334f683597e30c4108d8d2557983857ffdac67da41074c82d8af762c320070f",
+    "max_abs_temperature": {
+      "value": 3.698672416117404,
+      "signed_difference": 3.698672416117404,
+      "time_s": 1800.0,
+      "r_m": 0.0,
+      "z_m": 0.125
+    },
+    "max_abs_moisture": {
+      "value": 0.9863754562123477,
+      "signed_difference": -0.9863754562123477,
+      "time_s": 1800.0,
+      "r_m": 0.0,
+      "z_m": 0.125
+    },
+    "one_drying_time_h": null,
+    "two_drying_time_h": null,
+    "relative_drying_time_difference": null,
+    "sample_count": 1801,
+    "time_range_s": [
+      0.0,
+      1800.0
+    ],
+    "fully_numerically_verified": false,
+    "thresholds": {
+      "temperature_tolerance_K": 0.2,
+      "moisture_tolerance": 0.003,
+      "relative_time_tolerance": 0.01,
+      "middle_zone_z_max_m": 0.0625,
+      "end_zone_z_min_m": 0.1
+    },
+    "coordinate_method": "Same physical time/r; linear radial interpolation of reconstructed 1D field; genuine 2D field",
+    "scope_note": "Maxima only at stored sampled times, not continuous-time rigorous bounds; event times compared separately",
+    "official_source": "1D"
+  },
+  "q23": {
+    "status": "END_EFFECT_NOT_NEGLIGIBLE",
+    "one_id": "q23_1d_nr40_nz1_dt0.25",
+    "two_id": "q23_2d_nr40_nz125_dt0.25",
+    "one_fingerprint": "39aa1dd9362da4d02040f277a138f4e8924bed89c2d66a918fc70e0371d9c5e0",
+    "two_fingerprint": "6d07f67d65fabb4ba4cbf0f0316b109e2d32709f9df90547d094e5e292aec169",
+    "max_abs_temperature": {
+      "value": 4.094380589719037,
+      "signed_difference": 4.094380589719037,
+      "time_s": 2520.0,
+      "r_m": 0.0,
+      "z_m": 0.125
+    },
+    "max_abs_moisture": {
+      "value": 0.9752337001443194,
+      "signed_difference": -0.9752337001443194,
+      "time_s": 5090.0,
+      "r_m": 0.0,
+      "z_m": 0.125
+    },
+    "one_drying_time_h": 57.913599999999995,
+    "two_drying_time_h": 57.9115,
+    "relative_drying_time_difference": 3.687247101314159e-05,
+    "sample_count": 14943,
+    "time_range_s": [
+      0.0,
+      259200.0
+    ],
+    "fully_numerically_verified": false,
+    "thresholds": {
+      "temperature_tolerance_K": 0.2,
+      "moisture_tolerance": 0.003,
+      "relative_time_tolerance": 0.01,
+      "middle_zone_z_max_m": 0.0625,
+      "end_zone_z_min_m": 0.1
+    },
+    "coordinate_method": "Same physical time/r; linear radial interpolation of reconstructed 1D field; genuine 2D field",
+    "scope_note": "Maxima only at stored sampled times, not continuous-time rigorous bounds; event times compared separately",
+    "official_source": "1D"
+  },
+  "q4": {
+    "status": "END_EFFECT_NOT_NEGLIGIBLE",
+    "one_id": "q4_1d_nr40_nz1_dt0.25",
+    "two_id": "q4_2d_nr40_nz125_dt0.25",
+    "one_fingerprint": "8f836bbbd5ddcfd5429c795364b9a0a589b4251afc9f1f680a4b79d019eddd07",
+    "two_fingerprint": "65b0d59548a097cc6f0f5dfa641451056d5055eafb4e7d5a82a37fa6d04625ce",
+    "max_abs_temperature": {
+      "value": 5.535398828697737,
+      "signed_difference": 5.535398828697737,
+      "time_s": 2520.0,
+      "r_m": 0.0,
+      "z_m": 0.125
+    },
+    "max_abs_moisture": {
+      "value": 1.710335829331694,
+      "signed_difference": -1.710335829331694,
+      "time_s": 10500.0,
+      "r_m": 0.0,
+      "z_m": 0.125
+    },
+    "one_drying_time_h": 51.19,
+    "two_drying_time_h": 51.19,
+    "relative_drying_time_difference": 3.391505567325964e-07,
+    "sample_count": 4322,
+    "time_range_s": [
+      0.0,
+      259200.0
+    ],
+    "fully_numerically_verified": false,
+    "thresholds": {
+      "temperature_tolerance_K": 0.2,
+      "moisture_tolerance": 0.003,
+      "relative_time_tolerance": 0.01,
+      "middle_zone_z_max_m": 0.0625,
+      "end_zone_z_min_m": 0.1
+    },
+    "coordinate_method": "Same physical time/r; linear radial interpolation of reconstructed 1D field; genuine 2D field",
+    "scope_note": "Maxima only at stored sampled times, not continuous-time rigorous bounds; event times compared separately",
+    "official_source": "1D"
+  }
+}

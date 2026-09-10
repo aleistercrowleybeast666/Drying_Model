@@ -56,7 +56,7 @@ def Validation_CompareCaches(root, coarse_id, fine_id):
 
 
 def Validation_SaveComparison(root, name, value, rows):
-    folder = Path(root)/'results/validation'
+    folder = Path(root)/'work/validation'
     folder.mkdir(parents=True, exist_ok=True)
     Storage_WriteJson(folder/f'{name}.json', value)
     with (folder/f'{name}.csv').open('w', newline='', encoding='utf-8-sig') as stream:
@@ -70,7 +70,7 @@ def Validation_Run(root, scope='all', case_filter='all'):
     config = Case_LoadConfig(root)
     cfg, num = config['validation'], config['numerics']
     dimensions = [1, 2] if scope == 'all' else [int(scope[0])]
-    summary_path = root/'results/validation/summary.json'
+    summary_path = root/'work/validation/summary.json'
     summary = json.loads(summary_path.read_text(encoding='utf-8')) if summary_path.exists() else {}
     for dim in dimensions:
         for case in ['q1', 'q23', 'q4']:

@@ -14,7 +14,7 @@ class TestResults:
 
     def pytest_sessionfinish(self,session,exitstatus):
         from drying.storage import Storage_WriteJson
-        Storage_WriteJson(Path(__file__).resolve().parents[1]/'results/validation/program_tests.json',
+        Storage_WriteJson(Path(__file__).resolve().parents[1]/'work/validation/program_tests.json',
             dict(exit_status=int(exitstatus),tests=self.reports))
 
 

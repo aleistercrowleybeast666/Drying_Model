@@ -11,7 +11,7 @@ root=Path(__file__).resolve().parents[1]
 app=QApplication([])
 document=QPdfDocument()
 document.load(str(root/'data/raw/A题.pdf'))
-folder=root/'results/validation/source_pdf_preview'
+folder=root/'work/validation/source_pdf_preview'
 folder.mkdir(parents=True,exist_ok=True)
 for page in range(document.pageCount()):
     size=document.pagePointSize(page)

@@ -8,7 +8,7 @@
     "python.analysis.extraPaths": ["./src"],
     "files.encoding": "utf8",
     "files.exclude": {"**/__pycache__": true, "**/.pytest_cache": true},
-    "search.exclude": {"**/.venv": true, "**/results/cache": true, "**/data/raw": true}
+    "search.exclude": {"**/.venv": true, "**/work/cache": true, "**/data/raw": true}
   },
   "extensions": {"recommendations": ["ms-python.python", "ms-python.vscode-pylance"]},
   "tasks": {

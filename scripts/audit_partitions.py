@@ -9,11 +9,11 @@ sys.path.insert(0,str(root/'src'))
 from drying.storage import Storage_WriteJson
 
 records=[]
-for status_file in sorted((root/'results/cache').glob('*/status.json')):
+for status_file in sorted((root/'work/cache').glob('*/status.json')):
     status=json.loads(status_file.read_text(encoding='utf-8'))
     if not status.get('replay_id') or not status['complete']:
         continue
-    fine_folder=status_file.parent; base_folder=root/'results/cache'/status['replay_id']
+    fine_folder=status_file.parent; base_folder=root/'work/cache'/status['replay_id']
     matched=0; fine_steps=0; start=0.; max_fine_dt=0.
     for fine_path in sorted(fine_folder.glob('chunk_*.npz')):
         with np.load(fine_path) as cache: fine=cache['step_ends']
@@ -29,5 +29,5 @@ for status_file in sorted((root/'results/cache').glob('*/status.json')):
     records.append(dict(case_id=status['case_id'],base_id=status['replay_id'],
         covered_until_s=start,base_steps=matched,refined_steps=fine_steps,
         maximum_refined_dt_s=max_fine_dt,all_baseline_midpoints_and_endpoints_present=True))
-Storage_WriteJson(root/'results/validation/actual_partition_audit.json',records)
+Storage_WriteJson(root/'work/validation/actual_partition_audit.json',records)
 print(json.dumps(records,indent=2))

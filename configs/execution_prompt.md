@@ -119,7 +119,7 @@ D=1.0471122989493634e-9
 - 状态设为 `NOT_DRY_WITHIN_72H`，中文说明“72 h 内未烘干”。
 - 烘干时间字段为 null，不填写 72 h、0、预计时间或外推时间。
 - 保存截至 72 h 的真实计算数据、末态最大 C、位置、参数与诊断。
-- 不把未完成案例放入 `results/final/` 冒充完整 result3/result4；可将已算的时序表另存到 `results/partial/`，文件名明确 `until72h_not_dry`，不写“烘干结束”行。
+- 未烘干案例仍写入 `results/tables/result3.xlsx` 或 `result4.xlsx`，保留已算时序，不写“烘干结束”行；summary 标记未烘干且 drying_time 为 null。
 - 第二问前 3 h 的合格结果仍可独立导出。
 - 这不是“已经证明程序有错”，要区分运行上限、数值故障和模型本身未达标。不得为了在 72 h 内达标而修改题目参数、阈值或边界。
 
@@ -264,7 +264,7 @@ max_abs_moisture_difference <= 1e-5 kg/kg
 drying_time_difference <= 1 s（两次都达标时）
 ```
 真实存储误差、坐标和时刻。空间误差也必须定量输出，与一维/二维比较阈值分开，不把“相邻网格差小”说成严格真实误差上界。
-允许选用已经完成验证的较细一维结果，但不得混用不同配置的表格和图。没有配置达到要求时保留为候选，状态明确 `NUMERICAL_VALIDATION_FAILED`，不要标注成功最终结果。
+允许选用已经完成验证的较细一维结果，但不得混用不同配置的表格和图。没有配置达到要求时，在 status.json 明确记录验证未通过；官方格式文件保持唯一，不将生成文件等同于数值验证通过。
 不得因为目标过严或结果不好而静默放宽阈值。
 
 最小程序测试：
@@ -340,7 +340,7 @@ relative drying-time difference <= 1%（q23/q4）
 - 第一问：100、300、600、900、1200、1500、1800 s，r=0、0.5、1、1.5、2 cm，温度与含水率。
 - 第二问：0.5、1、1.5、2、2.5、3 h，同样径向位置。
 - 第三、四问：每 6 h，加实际终点的含水率表；第四问另含真实表面列。
-- 未达标或验证失败的候选表与正式表分目录，状态可追溯。
+- 官方格式表统一放入 results/tables/；是否烘干和验证状态由 status.json 与各问 summary 表达。
 
 导出后重新读取核对：表名、完整行列、时间单位、终点去重、四位小数显示、域外空白语义、数值与计算缓存一致、结果来源确为一维。
 程序中途失败不得留下看似完整的正式文件；采用临时文件+成功后原子替换，并防止复用上一次不同配置的旧结果。
@@ -376,7 +376,7 @@ q4_distribution_3d.png
 - 主一维结果由前述二维曲线表达，不将一维旋转显示假装成真实二维求解。
 - 第三问对应附录 3 固定尺寸模型，第四问对应附录 4 收缩模型；不是再额外生成一套一维/二维三维差值图。
 
-### 9.3 三维 GIF 恰好两个
+### 9.3 三维 GIF 恰好两个（另加两个综合二维截面 GIF）
 
 ```
 q3_distribution_3d.gif
@@ -400,7 +400,7 @@ q4_distribution_3d.gif
 logs/run.log
 logs/events.jsonl
 results/status.json
-results/diagnostics.csv
+work/diagnostics/diagnostics.csv
 ```
 
 每条故障/警告包含适用字段：
@@ -460,17 +460,20 @@ A_Drying/
     storage.py
   tests/
   results/
+    tables/  # result1.xlsx ~ result4.xlsx
+    q1/
+    q2/
+    q3/
+    q4/
+    q3_q4_axial_section.gif
+    q3_q4_radial_section.gif
+    status.json
+  work/
     cache/
-    candidate/
-    final/
-    partial/
-    tables/
+    checkpoints/
     comparison/
     validation/
-    figures/
-    animations/
-    status.json
-    manifest.json
+    diagnostics/
   logs/
 ```
 
@@ -516,7 +519,7 @@ python run.py all
 3. 实际计算 q23、q4 一维，先得到四问候选结果及事件/未达标状态。
 4. 完成一维真实缩步及必要空间核验，修复程序错误，不改物理假设；导出来源一致的结果。
 5. 运行三类二维核验，完成同位置比较；再做有针对性的数值复核，记录覆盖范围。
-6. 导出官方一维 Excel、数值 CSV、必要二维图、两张三维静态图、两个三维 GIF。
+6. 导出唯一的四份官方一维 Excel、各问曲线/比较/最大误差截面 PNG、两张三维静态图、两个三维 GIF，以及 q3/q4 过轴和圆形径向截面综合 GIF；输出布局以 README 为准。
 7. 回读输出并检查状态、来源、终点、空白语义；将数值失败、端面偏差、展示失败分别汇总。
 
 本轮交付是：可运行源代码、四问实际计算结果或明确未达标/未通过状态、输入配置与假设记录、测试和数值复算的机器可读数据、所要求的图和 GIF、可定位错误日志。不要生成技术报告、论文、论文提纲或“结果还没算但文章已写好”的文档。
