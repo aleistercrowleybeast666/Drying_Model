@@ -2,7 +2,7 @@ import csv
 import json
 from pathlib import Path
 import numpy as np
-from .cases import Case_GetId, Case_IterFields, Case_LoadConfig, Case_LoadInputs, Case_ReadStatus
+from .cases import Case_GetId, Case_LoadMesh, Case_IterFields, Case_LoadConfig, Case_LoadInputs, Case_ReadStatus
 from .sampling import Sampling_GetNodes
 from .geometry import Geometry_GetCells
 from .storage import Storage_WriteJson
@@ -18,6 +18,11 @@ def Comparison_IterFields(root, case_id):
             if str(data['fingerprint'])!=Case_ReadStatus(root,case_id)['fingerprint']:
                 raise RuntimeError('CACHE_MISMATCH: paired endpoint states')
             extras=list(zip(data['time_s'].tolist(),data['fields']))
+    status=Case_ReadStatus(root,case_id)
+    if status.get('event') and not any(abs(t-status['event']['report_s'])<1e-8 for t,_ in extras):
+        with np.load(Path(root)/'work/cache'/case_id/'event.npz') as saved:
+            extras.append((float(saved['time_s']),saved['state'].copy()))
+        extras.sort(key=lambda item:item[0])
     index=0
     for t,field in Case_IterFields(root,case_id):
         while index<len(extras) and extras[index][0]<t-1e-8:
@@ -63,8 +68,9 @@ def Comparison_Run(root, case_filter='all'):
     for case, model in [('q1', 1), ('q23', 3), ('q4', 4)]:
         if case_filter not in ('all',case):
             continue
-        one_id = validation.get(case+'_1d', {}).get('selected_id', Case_GetId(case, 1))
-        two_id = validation.get(case+'_2d', {}).get('selected_id', Case_GetId(case, 2))
+        one_id = Output_GetSelected(root,case,1)
+        two_id = Output_GetSelected(root,case,2)
+        mesh1,mesh2 = Case_LoadMesh(root,one_id),Case_LoadMesh(root,two_id)
         one_status, two_status = Case_ReadStatus(root, one_id), Case_ReadStatus(root, two_id)
         if not one_status['complete'] or not two_status['complete']:
             raise RuntimeError('COMPARISON_INCOMPLETE: requested trajectory is still running')
@@ -85,11 +91,11 @@ def Comparison_Run(root, case_filter='all'):
                     else: two = next(stream2, None)
                     continue
                 t = one[0]
-                r1, _, values1 = Sampling_GetNodes(one[1], t, model, inputs)
-                r2, z2, values2 = Sampling_GetNodes(two[1], t, model, inputs)
+                r1, _, values1 = Sampling_GetNodes(one[1], t, model, inputs, mesh1)
+                r2, z2, values2 = Sampling_GetNodes(two[1], t, model, inputs, mesh2)
                 reference = np.stack([np.interp(r2, r1, values1[p, :, 0]) for p in range(2)])
                 delta = values2-reference[:, :, None]
-                weights = Geometry_GetCells(two_status['nr'], two_status['nz'], r2[-1])[2]
+                weights = Geometry_GetCells(two_status['nr'], two_status['nz'], r2[-1], mesh=mesh2)[2]
                 row = [t, r2[-1]]
                 for p in range(2):
                     index = np.unravel_index(np.abs(delta[p]).argmax(), delta[p].shape)
@@ -126,7 +132,8 @@ def Comparison_Run(root, case_filter='all'):
             relative_drying_time_difference=relative, sample_count=count, time_range_s=[start,end],
             fully_numerically_verified=verified, thresholds=cfg,
             coordinate_method='Same physical time/r; linear radial interpolation of reconstructed 1D field; genuine 2D field',
-            scope_note='Maxima only at stored sampled times, not continuous-time rigorous bounds; event times compared separately',
+            scope_note='Maxima only at stored sampled times; event times compared separately. Different radial cell counts mean these discrepancies include spatial error and cannot isolate physical end effects.',
+            one_grid=[one_status['nr'],one_status['nz']],two_grid=[two_status['nr'],two_status['nz']],
             official_source='1D')
         Diagnostics_Record(root, status, 'WARNING' if status != 'PASS_AT_SAMPLED_TIMES' else 'INFO',
                            case_id=case, max_abs_T=maxima[0]['value'], max_abs_C=maxima[1]['value'], relative_time_difference=relative)

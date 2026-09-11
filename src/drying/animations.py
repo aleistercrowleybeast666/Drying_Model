@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image, GifImagePlugin
 from .plots import Plot_SetStyle, Plot_GetSelected, Plot_DrawSurface, Plot_MirrorSection
 import matplotlib.pyplot as plt
-from .cases import Case_LoadConfig, Case_LoadInputs, Case_ReadStatus
+from .cases import Case_LoadMesh, Case_LoadConfig, Case_LoadInputs, Case_ReadStatus
 from .comparison import Comparison_IterFields
 from .sampling import Sampling_GetNodes
 from .outputs import Output_GetEnd, Output_PrepareFolders, Output_ReadJson
@@ -57,7 +57,7 @@ def Animation_LoadFrames(root, case, q, dimension, progress):
     if wanted-set(frames):
         raise RuntimeError(f'ANIMATION_FAILED: missing actual fields for {case_id}')
     return dict(case_id=case_id, status=status, end=end, times=selected, fields=frames,
-                question=q, model=4 if q == 4 else 3, dimension=dimension)
+                question=q, model=4 if q == 4 else 3, dimension=dimension, mesh=Case_LoadMesh(root,case_id))
 
 
 def Animation_MapRadial(r, profile, coordinates):
@@ -105,7 +105,7 @@ def Animation_DrawSections(index, datasets, inputs, progress, radial=False):
     coordinates = np.linspace(-.02, .02, 241)
     for col, dataset in enumerate(datasets):
         t = float(dataset['times'][index])
-        r, z, nodes = Sampling_GetNodes(dataset['fields'][t], t, dataset['model'], inputs)
+        r, z, nodes = Sampling_GetNodes(dataset['fields'][t], t, dataset['model'], inputs, dataset['mesh'])
         if not radial:
             rr, zz, mirrored = Plot_MirrorSection(r, z, nodes)
         for p in [0, 1]:
@@ -153,7 +153,7 @@ def Animation_Run(root, case_filter='all'):
             label = '真实二维解；物理时间非匀速映射'
             if not dataset['status']['event']:
                 label += '；72 h 内未烘干' if dataset['end'] >= 259200 else '；未达烘干条件'
-            Plot_DrawSurface(fig, dataset['fields'][t], t, dataset['model'], inputs, f'第{q}问', label, [(28, 53), (0, 2.55)])
+            Plot_DrawSurface(fig, dataset['fields'][t], t, dataset['model'], inputs, f'第{q}问', label, [(28, 53), (0, 2.55)], mesh=dataset['mesh'])
             return fig
         record = Animation_WriteGif(root, root/f'results/q{q}/q{q}_3d.gif', len(progress), cfg['fps'],
             Animation_DrawSurfaceFrame, dict(source='genuine 2D PDE', case_id=dataset['case_id'],

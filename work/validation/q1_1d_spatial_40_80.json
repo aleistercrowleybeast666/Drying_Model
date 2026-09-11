@@ -1,0 +1,72 @@
+{
+  "coarse_id": "q1_1d_adaptive_nr40_nz1_dt0.25_mcecd4275aca0",
+  "fine_id": "q1_1d_adaptive_nr80_nz1_dt0.25_m2fb9c46fbeef",
+  "coarse_fingerprint": "836d36e67480a9b82c86209b675bf5a8563ba469a9784cb9ccd984c227042f78",
+  "fine_fingerprint": "c4b5d7b2a8021156993377881eb8afb047aec35ca82e43e22197e6d8004f0b82",
+  "maxima_temperature": {
+    "value": 0.0006449430453585592,
+    "signed_difference": 0.0006449430453585592,
+    "time_s": 1800.0,
+    "r_m": 0.0,
+    "z_m": 0.0,
+    "coarse_value": 306.72448471282735,
+    "fine_value": 306.7251296558727
+  },
+  "maxima_moisture": {
+    "value": 0.035820875977183864,
+    "signed_difference": 0.035820875977183864,
+    "time_s": 1.0,
+    "r_m": 0.019898303564296956,
+    "z_m": 0.0,
+    "coarse_value": 2.504896434803031,
+    "fine_value": 2.540717310780215
+  },
+  "official_temperature": {
+    "value": 0.0006449430453585592,
+    "signed_difference": 0.0006449430453585592,
+    "time_s": 1800.0,
+    "r_m": 0.0,
+    "z_m": 0.0,
+    "coarse_value": 306.72448471282735,
+    "fine_value": 306.7251296558727
+  },
+  "official_moisture": {
+    "value": 0.03521498015760427,
+    "signed_difference": 0.03521498015760427,
+    "time_s": 1.0,
+    "r_m": 0.02,
+    "z_m": 0.0,
+    "coarse_value": 2.4645848348436017,
+    "fine_value": 2.499799815001206
+  },
+  "volume_L2_temperature": {
+    "value": 0.00034848022754167937,
+    "time_s": 1080.0
+  },
+  "volume_L2_moisture": {
+    "value": 0.005117254587351961,
+    "time_s": 1.0
+  },
+  "event_difference_s": null,
+  "event_relative_difference": null,
+  "event_status_agrees": true,
+  "event_comparison_applicable": true,
+  "reference_complete": true,
+  "time_range_s": [
+    0.0,
+    1800.0
+  ],
+  "sample_count": 1801,
+  "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+  "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+  "passed": false,
+  "failure_reasons": [
+    "OFFICIAL_C_EXCEEDS_TOLERANCE"
+  ],
+  "thresholds": {
+    "temperature_abs_K": 0.01,
+    "moisture_abs": 0.002,
+    "drying_time_relative": 0.001
+  },
+  "assessment": "FAIL"
+}

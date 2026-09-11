@@ -6,7 +6,7 @@ from copy import copy
 from pathlib import Path
 import numpy as np
 from openpyxl import load_workbook
-from .cases import Case_GetId, Case_IterFields, Case_LoadInputs, Case_ReadStatus
+from .cases import Case_GetId, Case_LoadMesh, Case_GetSelected, Case_IterFields, Case_LoadInputs, Case_ReadStatus
 from .sampling import Sampling_GetRadial
 from .storage import Storage_WriteArray, Storage_WriteJson, Storage_HashFiles
 
@@ -88,18 +88,21 @@ def Export_Run(root, case_filter='all'):
         if case_filter not in ('all',case):
             continue
         entry = validation.get(case+'_1d', {})
-        case_id = entry.get('selected_id', Case_GetId(case, 1))
+        case_id = Case_GetSelected(root,case,1)
+        mesh = Case_LoadMesh(root,case_id)
         status = Case_ReadStatus(root, case_id)
+        if entry.get('selected_id') != case_id or entry.get('selected_fingerprint') != status['fingerprint']:
+            entry = {}
         if not status['complete'] or status['dim'] != 1:
             raise RuntimeError('EXPORT_FAILED: incomplete or non-1D source')
         samples = []
         for t, field in Case_IterFields(root, case_id):
-            sampled, valid, surface, R = Sampling_GetRadial(field, t, model, inputs, np.arange(21)*.001)
+            sampled, valid, surface, R = Sampling_GetRadial(field, t, model, inputs, np.arange(21)*.001, mesh)
             samples.append((t, sampled, valid, surface, R))
         if status['event']:
             with np.load(root/'work/cache'/case_id/'event.npz') as saved:
                 et, estate = float(saved['time_s']), saved['state']
-            sampled, valid, surface, R = Sampling_GetRadial(estate, et, model, inputs, np.arange(21)*.001)
+            sampled, valid, surface, R = Sampling_GetRadial(estate, et, model, inputs, np.arange(21)*.001, mesh)
             samples = [row for row in samples if abs(row[0]-et)>1e-8]+[(et,sampled,valid,surface,R)]
             samples.sort(key=lambda row:row[0])
         for q in questions:
@@ -122,10 +125,6 @@ def Export_Run(root, case_filter='all'):
             arrays = [temperature,moisture] if q<=2 else [moisture]
             destination = root/f'results/tables/result{q}.xlsx'
             provenance = root/f'work/diagnostics/result{q}_export.json'
-            if destination.exists() and provenance.exists():
-                old = json.loads(provenance.read_text(encoding='utf-8'))
-                if old.get('fingerprint') != status['fingerprint']:
-                    raise RuntimeError('CACHE_MISMATCH: export destination contains a different configuration')
             Export_WriteWorkbook(root/input_manifest['templates'][str(q)]['path'], destination, times, arrays, columns)
             payload = dict(question=q, case_id=case_id, fingerprint=status['fingerprint'], dimension=1,
                 path=str(destination.relative_to(root)), status='GENERATED', numerical_validation=entry.get('numerical_status','PENDING'),

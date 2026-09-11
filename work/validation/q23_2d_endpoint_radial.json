@@ -1,0 +1,35 @@
+{
+  "complete": true,
+  "status": "2D_SPATIAL_VALIDATION_PARTIAL",
+  "base_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+  "base_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
+  "mesh_profile_hash": "815d75810ebfac0ee119661061f0e189b5064b314b0d50ca80ab1640f88df47b",
+  "direction": "radial",
+  "nr": 80,
+  "nz": 125,
+  "time_range_s": [
+    204660.0,
+    208873.31999999998
+  ],
+  "event": {
+    "left_s": 208251.875,
+    "right_s": 208251.9375,
+    "width_s": 0.0625,
+    "raw_event_s": 208251.9375,
+    "report_s": 208252.08,
+    "report_h": 57.8478,
+    "left_max_C": 0.15000000487673323,
+    "right_max_C": 0.14999998690671323,
+    "report_max_C": 0.1499999459351059
+  },
+  "event_difference_s": 21.375,
+  "event_relative_difference": 0.00010264010148765123,
+  "wall_s": 207.22162340000068,
+  "steps": 67413,
+  "limited": 134613,
+  "projection_integral_difference": [
+    -1.4210854715202004e-14,
+    -6.938893903907228e-18
+  ],
+  "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence."
+}

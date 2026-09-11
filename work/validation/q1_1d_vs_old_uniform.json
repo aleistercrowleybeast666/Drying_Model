@@ -1,0 +1,63 @@
+{
+  "coarse_id": "q1_1d_nr40_nz1_dt0.25",
+  "fine_id": "q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898",
+  "coarse_fingerprint": "7df7df45becfbc17ee307ada2d3925069fe99939df73459efa07e925dcfdda8c",
+  "fine_fingerprint": "003172110c7e7c7bc9fc6253e27585570f6bfb305e87ddaaf2bbe0efec38031e",
+  "maxima_temperature": {
+    "value": 0.0005697344490727119,
+    "signed_difference": 0.0005697344490727119,
+    "time_s": 1800.0,
+    "r_m": 0.0,
+    "z_m": 0.0,
+    "coarse_value": 306.72472127889273,
+    "fine_value": 306.7252910133418
+  },
+  "maxima_moisture": {
+    "value": 0.0661139273407696,
+    "signed_difference": 0.0661139273407696,
+    "time_s": 1.0,
+    "r_m": 0.01994915178214848,
+    "z_m": 0.0,
+    "coarse_value": 2.46771348317199,
+    "fine_value": 2.5338274105127594
+  },
+  "official_temperature": {
+    "value": 0.0005697344490727119,
+    "signed_difference": 0.0005697344490727119,
+    "time_s": 1800.0,
+    "r_m": 0.0,
+    "z_m": 0.0,
+    "coarse_value": 306.72472127889273,
+    "fine_value": 306.7252910133418
+  },
+  "official_moisture": {
+    "value": 0.06553886915859541,
+    "signed_difference": 0.06553886915859541,
+    "time_s": 1.0,
+    "r_m": 0.02,
+    "z_m": 0.0,
+    "coarse_value": 2.4476993387228734,
+    "fine_value": 2.513238207881469
+  },
+  "volume_L2_temperature": {
+    "value": 0.00036538986844133456,
+    "time_s": 660.0
+  },
+  "volume_L2_moisture": {
+    "value": 0.0077533974652733584,
+    "time_s": 1.0
+  },
+  "event_difference_s": null,
+  "event_relative_difference": null,
+  "event_status_agrees": true,
+  "event_comparison_applicable": true,
+  "reference_complete": true,
+  "time_range_s": [
+    0.0,
+    1800.0
+  ],
+  "sample_count": 1801,
+  "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+  "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+  "note": "Selected adaptive grid versus verified old uniform nr=40; this delta alone does not establish accuracy."
+}

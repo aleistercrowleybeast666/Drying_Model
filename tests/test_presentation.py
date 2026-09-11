@@ -90,6 +90,7 @@ def test_status_separates_official_location_from_validation(tmp_path, monkeypatc
     Output_PrepareFolders(tmp_path)
     status = dict(cap=259200., complete=True, event=None, drying_time_h=None, fingerprint='fp')
     monkeypatch.setattr(outputs, 'Case_ReadStatus', lambda *_: status)
+    monkeypatch.setattr(outputs, 'Output_GetEndpoint', lambda *_: {})
     validation, exports = {}, []
     for q, case in [(1, 'q1'), (2, 'q23'), (3, 'q23'), (4, 'q4')]:
         case_id = outputs.Output_GetSelected(tmp_path, case, 1)

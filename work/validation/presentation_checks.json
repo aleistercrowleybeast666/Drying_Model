@@ -23,25 +23,25 @@
       "question": 3,
       "time_range_s": [
         0,
-        208488.96
+        207095.75999999998
       ],
-      "compare_rows": 14097,
+      "compare_rows": 14073,
       "workbook_readback": "PASSED"
     },
     {
       "question": 4,
       "time_range_s": [
         0,
-        184284.0
+        183966.12
       ],
-      "compare_rows": 3073,
+      "compare_rows": 3068,
       "workbook_readback": "PASSED"
     }
   ],
   "png_count": 14,
   "gif_count": 4,
-  "test_count": 24,
-  "unchanged_solver_cache_files": 643,
+  "test_count": 36,
+  "unchanged_solver_cache_files": 637,
   "core_unchanged": true,
-  "numerical_note": "Existing end effects remain; spatial convergence is quantified but not certified."
+  "numerical_note": "Numerical acceptance is read from results/status.json; publication checks do not change numerical PASS/FAIL."
 }

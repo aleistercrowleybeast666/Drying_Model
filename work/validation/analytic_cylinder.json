@@ -6,9 +6,9 @@
     80
   ],
   "maximum_cell_average_error": [
-    0.0002465283544270669,
-    6.166778421379249e-05,
-    1.5418942460931895e-05
+    0.00024652835444283205,
+    6.166778423333241e-05,
+    1.5418942569955796e-05
   ],
   "series_terms": 35,
   "benchmark": "Appendix-2 constant heat equation, cylindrical Bessel Robin series vs exact semidiscrete matrix exponential"

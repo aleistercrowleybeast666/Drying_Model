@@ -1,0 +1,63 @@
+{
+  "coarse_id": "q4_1d_nr40_nz1_dt0.25",
+  "fine_id": "q4_1d_uniform_nr40_nz1_dt0.25_m4e31807a5f2e_uniform_regression",
+  "coarse_fingerprint": "8f836bbbd5ddcfd5429c795364b9a0a589b4251afc9f1f680a4b79d019eddd07",
+  "fine_fingerprint": "6d3a4708fbae4da2169ea935837aef3c5d8c85048e61bb46173b7e632ebdcf0b",
+  "maxima_temperature": {
+    "value": 2.2737367544323206e-13,
+    "signed_difference": 2.2737367544323206e-13,
+    "time_s": 1080.0,
+    "r_m": 0.016111825000000003,
+    "z_m": 0.0,
+    "coarse_value": 304.1738455705202,
+    "fine_value": 304.1738455705204
+  },
+  "maxima_moisture": {
+    "value": 2.220446049250313e-15,
+    "signed_difference": -2.220446049250313e-15,
+    "time_s": 1200.0,
+    "r_m": 0.01795625,
+    "z_m": 0.0,
+    "coarse_value": 2.044579617294301,
+    "fine_value": 2.044579617294299
+  },
+  "official_temperature": {
+    "value": 2.8421709430404007e-13,
+    "signed_difference": 2.8421709430404007e-13,
+    "time_s": 1080.0,
+    "r_m": 0.018000000000000002,
+    "z_m": 0.0,
+    "coarse_value": 304.88129102502023,
+    "fine_value": 304.8812910250205
+  },
+  "official_moisture": {
+    "value": 2.220446049250313e-15,
+    "signed_difference": -2.220446049250313e-15,
+    "time_s": 1200.0,
+    "r_m": 0.018000000000000002,
+    "z_m": 0.0,
+    "coarse_value": 2.020284445529376,
+    "fine_value": 2.0202844455293736
+  },
+  "volume_L2_temperature": {
+    "value": 1.846591073971749e-13,
+    "time_s": 1080.0
+  },
+  "volume_L2_moisture": {
+    "value": 8.631403896511871e-16,
+    "time_s": 1800.0
+  },
+  "event_difference_s": null,
+  "event_relative_difference": null,
+  "event_status_agrees": true,
+  "event_comparison_applicable": false,
+  "reference_complete": true,
+  "time_range_s": [
+    0.0,
+    1800.0
+  ],
+  "sample_count": 31,
+  "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+  "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+  "regression_passed": true
+}

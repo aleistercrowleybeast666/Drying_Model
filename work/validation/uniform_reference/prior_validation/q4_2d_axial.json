@@ -1,0 +1,32 @@
+{
+  "coarse_id": "q4_2d_nr40_nz125_dt0.25",
+  "fine_id": "q4_2d_nr40_nz250_dt0.25_axial_refinement",
+  "maxima_temperature": {
+    "value": 0.005784457861352621,
+    "signed_difference": -0.005784457861352621,
+    "time_s": 1740.0,
+    "r_m": 0.0,
+    "z_m": 0.12425,
+    "coarse_value": 308.47667621797405,
+    "fine_value": 308.4708917601127
+  },
+  "maxima_moisture": {
+    "value": 0.24716059445922278,
+    "signed_difference": 0.24716059445922278,
+    "time_s": 60.0,
+    "r_m": 0.0,
+    "z_m": 0.12475,
+    "coarse_value": 2.127731139965986,
+    "fine_value": 2.374891734425209
+  },
+  "event_difference_s": null,
+  "event_status_agrees": true,
+  "event_comparison_applicable": false,
+  "time_range_s": [
+    0.0,
+    1800.0
+  ],
+  "sample_count": 31,
+  "method": "Piecewise bilinear reconstruction at fine-grid cells, axis, symmetry and exposed boundary nodes; physical r,z",
+  "assessment": "QUANTIFIED"
+}

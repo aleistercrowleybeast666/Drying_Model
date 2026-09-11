@@ -1,0 +1,35 @@
+{
+  "complete": true,
+  "status": "2D_SPATIAL_VALIDATION_PARTIAL",
+  "base_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+  "base_fingerprint": "6769b70db8f82b3fb975713f1b631381d0d3e18970452395f6374fe9554c8b22",
+  "mesh_profile_hash": "338635beb33f8ce814c0d563afc33329ff07cea30317a41b99cd756eee1e5905",
+  "direction": "radial",
+  "nr": 80,
+  "nz": 125,
+  "time_range_s": [
+    180600.0,
+    184859.88
+  ],
+  "event": {
+    "left_s": 184243.625,
+    "right_s": 184243.6875,
+    "width_s": 0.0625,
+    "raw_event_s": 184243.6875,
+    "report_s": 184244.03999999998,
+    "report_h": 51.17889999999999,
+    "left_max_C": 0.1500000071166847,
+    "right_max_C": 0.14999997513568394,
+    "report_max_C": 0.14999979476331057
+  },
+  "event_difference_s": 16.1875,
+  "event_relative_difference": 8.785918377800596e-05,
+  "wall_s": 184.8497599000002,
+  "steps": 68158,
+  "limited": 136103,
+  "projection_integral_difference": [
+    0.0,
+    -6.938893903907228e-18
+  ],
+  "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence."
+}

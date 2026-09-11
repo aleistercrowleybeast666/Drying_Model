@@ -21,7 +21,9 @@ class RkStepResult(IntEnum):
 @njit(cache=True)
 def Rk4_Advance(U, t, stop, requested, model, environment, radius, tail,
                 shrink, ends, safety, min_dt, max_rejections, max_steps,
-                Tmin, Tmax, replay, h=25., hm=8e-7, threshold=0.15):
+                Tmin, Tmax, replay, h=25., hm=8e-7, threshold=0.15, xi_faces=None, eta_faces=None):
+    xi = np.linspace(0.,1.,U.shape[1]+1) if xi_faces is None else xi_faces
+    eta = np.linspace(0.,1.,U.shape[2]+1) if eta_faces is None else eta_faces
     state = U.copy()
     stages = np.empty((4,) + U.shape, dtype=np.float64)
     trial = U.copy()
@@ -61,7 +63,7 @@ def Rk4_Advance(U, t, stop, requested, model, environment, radius, tail,
                 ts = t+fraction*dt
                 Te, He, R = Input_AtTime(ts, environment, radius, tail, shrink, t >= 14400-1e-9)
                 largest, code, ii, jj = Operator_Evaluate(trial, R, Te, He, model,
-                    h, hm, ends, stages[stage], props, rows, constant)
+                    h, hm, ends, stages[stage], props, rows, constant, xi, eta)
                 if code == 0:
                     for i in range(trial.shape[1]):
                         for j in range(trial.shape[2]):
@@ -102,8 +104,8 @@ def Rk4_Advance(U, t, stop, requested, model, environment, radius, tail,
             if dt < min_dt or retries > max_rejections:
                 return state, t, accepted[:count], rejected[:reject_count], 6, limited, event_left, event_right, event_state, min_accepted, max_accepted
         if event_left < 0 and model != 1:
-            before = Sampling_MaxMoisture(state, He)[0]
-            after = Sampling_MaxMoisture(trial, He)[0]
+            before = Sampling_MaxMoisture(state, He, xi, eta)[0]
+            after = Sampling_MaxMoisture(trial, He, xi, eta)[0]
             if before >= threshold and after < threshold:
                 event_left, event_right = t, t+dt
                 event_state[:] = state

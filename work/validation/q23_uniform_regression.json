@@ -1,0 +1,63 @@
+{
+  "coarse_id": "q23_1d_nr40_nz1_dt0.25",
+  "fine_id": "q23_1d_uniform_nr40_nz1_dt0.25_m4e31807a5f2e_uniform_regression",
+  "coarse_fingerprint": "39aa1dd9362da4d02040f277a138f4e8924bed89c2d66a918fc70e0371d9c5e0",
+  "fine_fingerprint": "17b5014dbf2f82366adf21e4b952457870683f74ced4ee4fd81bead1853e1c1c",
+  "maxima_temperature": {
+    "value": 1.1368683772161603e-13,
+    "signed_difference": -1.1368683772161603e-13,
+    "time_s": 1548.0,
+    "r_m": 0.009750000000000002,
+    "z_m": 0.0,
+    "coarse_value": 304.9426102456476,
+    "fine_value": 304.9426102456475
+  },
+  "maxima_moisture": {
+    "value": 1.3322676295501878e-15,
+    "signed_difference": -1.3322676295501878e-15,
+    "time_s": 286.0,
+    "r_m": 0.02,
+    "z_m": 0.0,
+    "coarse_value": 2.093432018971528,
+    "fine_value": 2.0934320189715265
+  },
+  "official_temperature": {
+    "value": 1.1368683772161603e-13,
+    "signed_difference": 1.1368683772161603e-13,
+    "time_s": 611.0,
+    "r_m": 0.019,
+    "z_m": 0.0,
+    "coarse_value": 302.7104496746746,
+    "fine_value": 302.7104496746747
+  },
+  "official_moisture": {
+    "value": 1.3322676295501878e-15,
+    "signed_difference": -1.3322676295501878e-15,
+    "time_s": 286.0,
+    "r_m": 0.02,
+    "z_m": 0.0,
+    "coarse_value": 2.093432018971528,
+    "fine_value": 2.0934320189715265
+  },
+  "volume_L2_temperature": {
+    "value": 5.324805555118017e-14,
+    "time_s": 1500.0
+  },
+  "volume_L2_moisture": {
+    "value": 5.108232534890492e-16,
+    "time_s": 517.0
+  },
+  "event_difference_s": null,
+  "event_relative_difference": null,
+  "event_status_agrees": true,
+  "event_comparison_applicable": false,
+  "reference_complete": true,
+  "time_range_s": [
+    0.0,
+    1800.0
+  ],
+  "sample_count": 1801,
+  "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+  "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+  "regression_passed": true
+}

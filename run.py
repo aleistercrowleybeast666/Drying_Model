@@ -15,7 +15,7 @@ from drying.storage import Storage_WriteJson
 
 def Run_Main():
     parser = argparse.ArgumentParser(description='A题圆柱药材烘干数值求解')
-    parser.add_argument('command', choices=['prepare', 'test', 'solve', 'validate', 'compare', 'export', 'plots', 'animate', 'all'])
+    parser.add_argument('command', choices=['prepare', 'test', 'mesh', 'solve', 'validate', 'compare', 'export', 'plots', 'animate', 'all'])
     parser.add_argument('--source', default=str(_ROOT/'data/raw'))
     parser.add_argument('--case', choices=['q1', 'q23', 'q4', 'all'], default='all')
     parser.add_argument('--dim', choices=[1, 2], type=int, default=1)
@@ -24,12 +24,13 @@ def Run_Main():
     parser.add_argument('--dt', type=float)
     parser.add_argument('--cap', type=float)
     parser.add_argument('--tag', default='')
+    parser.add_argument('--mesh', choices=['uniform','adaptive'])
     parser.add_argument('--scope', choices=['1d', '2d', 'all'], default='all')
     args = parser.parse_args()
     from drying.outputs import Output_PrepareFolders
     Output_PrepareFolders(_ROOT)
     Diagnostics_Open(_ROOT)
-    commands = ['prepare', 'test', 'solve1', 'validate1', 'solve2', 'validate2', 'compare', 'export', 'plots', 'animate'] if args.command == 'all' else [args.command]
+    commands = ['prepare', 'test', 'mesh', 'validate1', 'export', 'solve2', 'validate2', 'compare', 'plots', 'animate'] if args.command == 'all' else [args.command]
     exit_code = 0
     for command in commands:
         try:
@@ -47,13 +48,18 @@ def Run_Main():
                 result = subprocess.run([sys.executable, '-m', 'pytest', str(_ROOT/'tests'), '-q'], cwd=_ROOT)
                 if result.returncode:
                     raise RuntimeError('NUMERICAL_VALIDATION_FAILED: program tests')
+            elif command == 'mesh':
+                from drying.mesh import Mesh_PrepareCase, Mesh_PlotProfiles
+                for case in ['q1','q23','q4']:
+                    Mesh_PrepareCase(_ROOT,case)
+                Mesh_PlotProfiles(_ROOT)
             elif command in ('solve', 'solve1', 'solve2'):
                 from drying.cases import Case_Solve
                 dimension = int(command[-1]) if command[-1].isdigit() else args.dim
                 cases = ['q1', 'q23', 'q4'] if args.case == 'all' else [args.case]
                 for case in cases:
                     try:
-                        Case_Solve(_ROOT, case, dimension, args.nr, args.nz, args.dt, args.tag, args.cap)
+                        Case_Solve(_ROOT, case, dimension, args.nr, args.nz, args.dt, args.tag, args.cap, mesh_mode=args.mesh)
                     except Exception as error:
                         Diagnostics_RecordException(_ROOT, 'CASE_FAILED', error, case_id=case, dimension=dimension)
                         exit_code=1
@@ -124,6 +130,8 @@ def Run_UpdateStatus():
                     simulated_seconds_per_wall_second=c.get('simulated_time_s',0)/c['wall_s'] if c.get('wall_s') else None)
                for c in cases],
         note='Wall times measured locally; memory sampled at checkpoints, not a guaranteed OS peak; summed times may overlap with lightweight tasks'))
+    from drying.overview import Overview_Write
+    Overview_Write(_ROOT)
 
 
 if __name__ == '__main__':

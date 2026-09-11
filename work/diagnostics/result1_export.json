@@ -1,14 +1,14 @@
 {
   "question": 1,
-  "case_id": "q1_1d_nr40_nz1_dt0.25",
-  "fingerprint": "7df7df45becfbc17ee307ada2d3925069fe99939df73459efa07e925dcfdda8c",
+  "case_id": "q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898",
+  "fingerprint": "003172110c7e7c7bc9fc6253e27585570f6bfb305e87ddaaf2bbe0efec38031e",
   "dimension": 1,
   "path": "results\\tables\\result1.xlsx",
   "status": "GENERATED",
-  "numerical_validation": "TIME_VALIDATED_SPATIAL_QUANTIFIED",
+  "numerical_validation": "SPATIAL_CONVERGENCE_FAILED",
   "rows": 1800,
   "columns": 22,
   "event": null,
-  "workbook_hash": "c86263b6ec08c80d935210da5b9f15faba9642d0ea5f7cf2800290dafb16aa82",
+  "workbook_hash": "a1725a3ec38e8aa850fa35b2a7859550fcc8a9f2dc3140a2578317052bdbe111",
   "readback": "PASSED: sheet names, all numeric cells, dimensions, time SI, precision, blanks, event deduplication, source"
 }

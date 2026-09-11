@@ -40,3 +40,30 @@ frames = 240
 fps = 24
 width_px = 1000
 height_px = 450
+
+[mesh]
+mode = "adaptive"
+pilot_nr = 40
+pilot_nz = 125
+monitor_smoothing_passes = 2
+monitor_points = 4097
+temperature_weight = 1.0
+moisture_weight = 1.0
+max_neighbor_cell_ratio = 1.35
+max_density_ratio = 4.0
+min_width_fraction = 0.25
+max_width_fraction = 2.5
+stability_margin = 1.02
+minimum_monitor_strength = 0.0001
+base_nr = 40
+refined_nr = 80
+verification_nr = 160
+base_nz = 125
+refined_nz = 250
+
+[validation.spatial]
+temperature_abs_K = 0.01
+moisture_abs = 0.002
+drying_time_relative = 0.001
+endpoint_window_s = 3600.0
+endpoint_tail_s = 600.0

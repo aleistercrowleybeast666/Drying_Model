@@ -1,0 +1,248 @@
+{
+  "configuration_hash": "4e009c066ac36b49cc7a1bd24d483cd4b8afc05f6b060d8afd321d2048d24843",
+  "case": "q1",
+  "monitor_strength": 0.125,
+  "base_stability_bound_s": 0.2653578468788543,
+  "profiles": {
+    "radial": {
+      "case": "q1",
+      "axis": "radial",
+      "pilot_id": "q1_1d_nr40_nz1_dt0.25",
+      "pilot_fingerprint": "7df7df45becfbc17ee307ada2d3925069fe99939df73459efa07e925dcfdda8c",
+      "pilot_reused": true,
+      "pilot_time_range_s": [
+        0.0,
+        1800
+      ],
+      "sample_count": 1801,
+      "reference_ranges": [
+        8.785790859551014,
+        1.0397684915086456
+      ],
+      "minima": [
+        301.15,
+        1.51023150849136
+      ],
+      "maxima": [
+        309.935790859551,
+        2.5500000000000056
+      ],
+      "min_radius": 0.02,
+      "formula": "1 + sqrt((wT max_t |dT/dx| / range(T))^2 + (wC max_t |dC/dx| / range(C))^2)",
+      "smoothing_passes": 2,
+      "max_density_ratio": 4.0,
+      "monitor_hash": "e33699637ee93e2d912c05d5a3c0182e67fc1bf0ab3a69e2ae5ca3b93b612ae8",
+      "monitor_strength": 0.125,
+      "monitor_min": 1.0,
+      "monitor_max": 1.375
+    },
+    "axial": {
+      "case": "q1",
+      "axis": "axial",
+      "pilot_id": "q1_2d_nr40_nz125_dt0.25",
+      "pilot_fingerprint": "7334f683597e30c4108d8d2557983857ffdac67da41074c82d8af762c320070f",
+      "pilot_reused": true,
+      "pilot_time_range_s": [
+        0.0,
+        1800
+      ],
+      "sample_count": 1801,
+      "reference_ranges": [
+        10.920977889980747,
+        1.7212326034924024
+      ],
+      "minima": [
+        301.15,
+        0.8287673965076037
+      ],
+      "maxima": [
+        312.0709778899807,
+        2.550000000000006
+      ],
+      "min_radius": 0.02,
+      "formula": "1 + sqrt((wT max_t |dT/dx| / range(T))^2 + (wC max_t |dC/dx| / range(C))^2)",
+      "smoothing_passes": 2,
+      "max_density_ratio": 4.0,
+      "monitor_hash": "f8a80cfebd34a052d644076940e40c2f0889ee19402f712f5c64d6c6ae7c9ec5",
+      "monitor_strength": 0.125,
+      "monitor_min": 1.0,
+      "monitor_max": 1.375
+    }
+  },
+  "stability": [
+    {
+      "case": "q1",
+      "dimension": 1,
+      "nr": 40,
+      "nz": 1,
+      "requested_dt": 0.25,
+      "stability_bound": 0.34119066043514484,
+      "uniform_stability_bound": 0.515472732393121,
+      "failing_location": [
+        0,
+        35,
+        0
+      ],
+      "dt_compatible": true,
+      "min_max_dr": {
+        "min": 0.0004067857428121746,
+        "max": 0.0005588200185019017,
+        "mean": 0.0004999999999999999,
+        "neighbor_ratio": 1.0284072704023526
+      },
+      "min_max_dz": {
+        "min": 0.125,
+        "max": 0.125,
+        "mean": 0.125,
+        "neighbor_ratio": 1.0
+      },
+      "monitor_min": 1.0,
+      "monitor_max": 1.375
+    },
+    {
+      "case": "q1",
+      "dimension": 1,
+      "nr": 80,
+      "nz": 1,
+      "requested_dt": 0.25,
+      "stability_bound": 0.08529766510878518,
+      "uniform_stability_bound": 0.1288681830982782,
+      "failing_location": [
+        0,
+        71,
+        0
+      ],
+      "dt_compatible": false,
+      "min_max_dr": {
+        "min": 0.0002033928714060873,
+        "max": 0.0002795353631896452,
+        "mean": 0.00025,
+        "neighbor_ratio": 1.014266060691301
+      },
+      "min_max_dz": {
+        "min": 0.125,
+        "max": 0.125,
+        "mean": 0.125,
+        "neighbor_ratio": 1.0
+      },
+      "monitor_min": 1.0,
+      "monitor_max": 1.375
+    },
+    {
+      "case": "q1",
+      "dimension": 1,
+      "nr": 160,
+      "nz": 1,
+      "requested_dt": 0.25,
+      "stability_bound": 0.021324416277195456,
+      "uniform_stability_bound": 0.03221704577456899,
+      "failing_location": [
+        0,
+        134,
+        0
+      ],
+      "dt_compatible": false,
+      "min_max_dr": {
+        "min": 0.00010169643570304254,
+        "max": 0.00013980009758546083,
+        "mean": 0.000125,
+        "neighbor_ratio": 1.0072223209080313
+      },
+      "min_max_dz": {
+        "min": 0.125,
+        "max": 0.125,
+        "mean": 0.125,
+        "neighbor_ratio": 1.0
+      },
+      "monitor_min": 1.0,
+      "monitor_max": 1.375
+    },
+    {
+      "case": "q1",
+      "dimension": 2,
+      "nr": 40,
+      "nz": 125,
+      "requested_dt": 0.25,
+      "stability_bound": 0.2653578468788543,
+      "uniform_stability_bound": 0.412378185914496,
+      "failing_location": [
+        0,
+        35,
+        121
+      ],
+      "dt_compatible": true,
+      "min_max_dr": {
+        "min": 0.0004067857428121746,
+        "max": 0.0005588200185019017,
+        "mean": 0.0004999999999999999,
+        "neighbor_ratio": 1.0284072704023526
+      },
+      "min_max_dz": {
+        "min": 0.0007609447161983918,
+        "max": 0.001046298982481953,
+        "mean": 0.0009999999999999998,
+        "neighbor_ratio": 1.0389122062220189
+      },
+      "monitor_min": 1.0,
+      "monitor_max": 1.375
+    },
+    {
+      "case": "q1",
+      "dimension": 2,
+      "nr": 80,
+      "nz": 125,
+      "requested_dt": 0.25,
+      "stability_bound": 0.07961001405207749,
+      "uniform_stability_bound": 0.12128770173955596,
+      "failing_location": [
+        0,
+        71,
+        121
+      ],
+      "dt_compatible": false,
+      "min_max_dr": {
+        "min": 0.0002033928714060873,
+        "max": 0.0002795353631896452,
+        "mean": 0.00025,
+        "neighbor_ratio": 1.014266060691301
+      },
+      "min_max_dz": {
+        "min": 0.0007609447161983918,
+        "max": 0.001046298982481953,
+        "mean": 0.0009999999999999998,
+        "neighbor_ratio": 1.0389122062220189
+      },
+      "monitor_min": 1.0,
+      "monitor_max": 1.375
+    },
+    {
+      "case": "q1",
+      "dimension": 2,
+      "nr": 40,
+      "nz": 250,
+      "requested_dt": 0.25,
+      "stability_bound": 0.15920406924007827,
+      "uniform_stability_bound": 0.2577363661965564,
+      "failing_location": [
+        0,
+        35,
+        243
+      ],
+      "dt_compatible": false,
+      "min_max_dr": {
+        "min": 0.0004067857428121746,
+        "max": 0.0005588200185019017,
+        "mean": 0.0004999999999999999,
+        "neighbor_ratio": 1.0284072704023526
+      },
+      "min_max_dz": {
+        "min": 0.000380472358099182,
+        "max": 0.000523149491800323,
+        "mean": 0.0004999999999999999,
+        "neighbor_ratio": 1.0221452811519949
+      },
+      "monitor_min": 1.0,
+      "monitor_max": 1.375
+    }
+  ]
+}

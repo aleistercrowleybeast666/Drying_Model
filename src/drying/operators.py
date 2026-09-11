@@ -3,12 +3,13 @@ import numpy as np
 from numba import njit
 from .materials import Material_Evaluate
 from .boundaries import Boundary_GetConductance
+from .geometry import Geometry_GetGrid
 
 
 @njit(cache=True)
-def Operator_Evaluate(U, R, Te, He, model, h, hm, ends, out, props, rows, constant):
+def Operator_Evaluate(U, R, Te, He, model, h, hm, ends, out, props, rows, constant,xi_faces=None,eta_faces=None):
     nr, nz = U.shape[1:]
-    dr, dz = R/nr, 0.125/nz
+    rf,rc,dr,zf,zc,dz = Geometry_GetGrid(nr,nz,R,xi_faces,eta_faces)
     out[:] = 0.0
     rows[:] = 0.0
     for i in range(nr):
@@ -25,11 +26,11 @@ def Operator_Evaluate(U, R, Te, He, model, h, hm, ends, out, props, rows, consta
                     return 0.0, 3, i, j
     # Per-radian geometry. Multiplying every area/volume by 2*pi cancels.
     for i in range(nr-1):
-        area = (i+1)*dr*dz
         for j in range(nz):
+            area = rf[i+1]*dz[j]
             for field in range(2):
                 a, b = props[field+2, i, j], props[field+2, i+1, j]
-                conductance = area * (2*a*b/(a+b)) / dr
+                conductance = area / ((rf[i+1]-rc[i])/a+(rc[i+1]-rf[i+1])/b)
                 flux = conductance*(U[field, i+1, j]-U[field, i, j])
                 out[field, i, j] += flux
                 out[field, i+1, j] -= flux
@@ -37,11 +38,11 @@ def Operator_Evaluate(U, R, Te, He, model, h, hm, ends, out, props, rows, consta
                 rows[field, i+1, j] += conductance
     if nz > 1:
         for i in range(nr):
-            area = (i+0.5)*dr*dr
+            area = .5*(rf[i+1]**2-rf[i]**2)
             for j in range(nz-1):
                 for field in range(2):
                     a, b = props[field+2, i, j], props[field+2, i, j+1]
-                    conductance = area*(2*a*b/(a+b))/dz
+                    conductance = area/((zf[j+1]-zc[j])/a+(zc[j+1]-zf[j+1])/b)
                     flux = conductance*(U[field, i, j+1]-U[field, i, j])
                     out[field, i, j] += flux
                     out[field, i, j+1] -= flux
@@ -51,22 +52,22 @@ def Operator_Evaluate(U, R, Te, He, model, h, hm, ends, out, props, rows, consta
         for field in range(2):
             outside = Te if field == 0 else He
             exchange = h if field == 0 else hm
-            conductance = R*dz*Boundary_GetConductance(props[field+2, nr-1, j], dr/2, exchange)
+            conductance = R*dz[j]*Boundary_GetConductance(props[field+2, nr-1, j], R-rc[-1], exchange)
             out[field, nr-1, j] -= conductance*(U[field, nr-1, j]-outside)
             rows[field, nr-1, j] += conductance
     if ends:
         for i in range(nr):
-            area = (i+0.5)*dr*dr
+            area = .5*(rf[i+1]**2-rf[i]**2)
             for field in range(2):
                 outside = Te if field == 0 else He
                 exchange = h if field == 0 else hm
-                conductance = area*Boundary_GetConductance(props[field+2, i, nz-1], dz/2, exchange)
+                conductance = area*Boundary_GetConductance(props[field+2, i, nz-1], zf[-1]-zc[-1], exchange)
                 out[field, i, nz-1] -= conductance*(U[field, i, nz-1]-outside)
                 rows[field, i, nz-1] += conductance
     largest_row = 0.0
     for i in range(nr):
-        volume = (i+0.5)*dr*dr*dz
         for j in range(nz):
+            volume = .5*(rf[i+1]**2-rf[i]**2)*dz[j]
             for field in range(2):
                 capacity = props[0, i, j]*props[1, i, j] if field == 0 else 1.0
                 denominator = volume*capacity

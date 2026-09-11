@@ -13,6 +13,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe run.py prepare
 # 首次导入也可指定 --source "C:\资料\CUMCM2026Problems.zip"
 .\.venv\Scripts\python.exe run.py test
+.\.venv\Scripts\python.exe run.py mesh
 .\.venv\Scripts\python.exe run.py solve --case q1 --dim 1
 .\.venv\Scripts\python.exe run.py solve --case q23 --dim 1
 .\.venv\Scripts\python.exe run.py solve --case q4 --dim 1
@@ -27,7 +28,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe run.py all
 ```
 
-`solve` 支持 `--nr`、`--nz`、`--dt`、`--cap`（秒）、`--tag`。运行中每模拟一小时写检查点；重复同一命令可续算。输入、物性/离散核心或配置哈希不一致时拒绝复用；实验性改变请使用新 `--tag`，不要覆盖旧缓存。只修改图样后运行 `plots` / `animate`，不会重新解 PDE。
+`solve` 支持 `--nr`、`--nz`、`--dt`、`--cap`（秒）、`--tag`、`--mesh uniform|adaptive`。默认空间模式取配置；`validate` 按配置执行 40/80/160 并自动选正式网格。运行中每模拟一小时写检查点；重复同一命令可续算。输入、物性/离散核心或配置哈希不一致时拒绝复用；实验性改变请使用新 `--tag`，不要覆盖旧缓存。网格面坐标、冻结 monitor 哈希进入 case 指纹，旧均匀缓存只可作为经过校验的 pilot/对照。只修改图样后运行 `plots` / `animate`，不会重新解 PDE。
 
 配置在 `configs/default.toml`，固定建模约定在 `configs/assumptions.json`。主模型为单元中心圆柱有限体积和经典四阶段 RK4；一维官方格式输出始终来自一维。第四问内部使用随体坐标，填表时转换到**当前空间中的固定 r**。域外点留空，表面独立重构。烘干事件经局部重新积分，保存不超过 0.1 s 的未达标/严格达标区间；报告时间向上取到 0.0001 h 并重新积分验证，另加在整分钟行之后。
 
@@ -44,6 +45,7 @@ results/
   q3_q4_axial_section.gif
   q3_q4_radial_section.gif
   status.json
+  overview.md     # 自动生成的简要数值结果、阶段状态和未解决警告
 work/
   cache/          # 1D/2D 轨迹、共享 q23、事件场；exports/ 为全精度填表数组
   checkpoints/    # 按 case_id 保存续算检查点
@@ -63,6 +65,10 @@ logs/
 
 已有缓存时只需依次执行 `run.py test`、`run.py export`、`run.py plots`、`run.py animate`，不会重算生产 PDE。新工程需要先完成上述 `prepare`、`solve` 和 `validate` 阶段。缓存和检查点已在 `.gitignore` 中排除。
 
-当前验证范围：一维做全程步长减半和 Nr=40/80 对照；二维主案例覆盖完整规定时段，额外时间复算、径向加密和轴向加密默认只覆盖前1800 s。长时二维空间/时间验证不宣称已完成。空间对照差值不是真实误差的严格上界；端面比较阈值不能借用为空间收敛阈值。
+空间方法：从旧均匀一维全程轨迹及二维前 1800 s pilot 提取 T/C 无量纲梯度包络，平滑/限制密度后冻结 monitor，通过累计监测量等分生成嵌套网格。q2/q3 共用 q23；第四问的 ξ 面坐标全程不变。网格诊断及图位于 `work/validation/mesh_profiles/`。非均匀面通量使用实际距离串联阻力，对称面用任意控制体二阶矩重构；uniform 模式与冻结旧算子回归，另有独立 Robin 圆柱解析解测试。
+
+一维空间验证完成全过程 40→80→160，以官方物理半径（含真实表面）最大 ΔT≤0.01 K、ΔC≤0.002 kg/kg，以及烘干时间相对差≤0.1% 验收。全场 L∞、体积加权 L2 另存诊断。第二轮通过选 80；未通过选 160 候选并保持空间 FAIL，不自动继续到 320。数值差值不是物理误差上界。时间验证保留实际步序减半、原阈值及必要时再次减半；请求 dt 始终为 0.25 s。细网格若必须启用现有 RK4 缩步保护，会明确记录 `ADAPTIVE_MESH_DT_CONFLICT`；不能把请求值解释为实际全程步长。
+
+二维主轨迹覆盖完整时段，时间减半仍按原方案覆盖前 1800 s。独立径向/轴向加密覆盖早期及当前一维/二维最大差代表时刻；长时终点采用最后一小时粗网格单元平均值的守恒投影，并在加密网格真实积分至终点附近，分别量化两方向敏感性。这是诊断窗口，继承了更早的粗网格误差，故保留 `2D_SPATIAL_VALIDATION_PARTIAL`，不宣称完整二维空间收敛。生产过程不 remesh。已有图和 GIF 的布局/帧计划不变，只更新真实非均匀坐标和对应场数据。`all`、`export` 自动刷新 `results/overview.md`。
 
 本工程不引入题面以外的材料参数，不外推72 h之后的半径，不生成论文或报告。原始 PDF 的辅助预览脚本仅用于本机查阅，不是求解依赖。

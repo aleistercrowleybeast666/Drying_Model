@@ -1,9 +1,9 @@
 {
-  "max_1d_2d_temperature_difference": 5.535398828697737,
-  "max_1d_2d_moisture_difference": 1.710335829331694,
+  "max_1d_2d_temperature_difference": 5.534792666020849,
+  "max_1d_2d_moisture_difference": 1.7108088207014944,
   "time_of_max_difference": {
     "temperature": 2520.0,
-    "moisture": 10500.0
+    "moisture": 10320.0
   },
   "location_of_max_difference": {
     "temperature": {
@@ -15,24 +15,24 @@
       "z_m": 0.125
     }
   },
-  "representative_section_time_s": 10500.0,
+  "representative_section_time_s": 10320.0,
   "comparison_time_range_s": [
     0.0,
-    184284.0
+    183966.12
   ],
   "comparison_scope": "Absolute 2D minus 1D differences at stored samples; z=0 is the midplane",
   "temperature_difference_unit": "K",
   "moisture_difference_unit": "kg/kg",
-  "max_temperature": 50.049967076590406,
-  "min_moisture": 0.05259748178119765,
+  "max_temperature": 50.050003390171526,
+  "min_moisture": 0.05260704702936083,
   "temperature_unit": "degC",
   "moisture_unit": "kg/kg",
   "extrema_source": "All stored 1D samples in question window",
   "source_case": "q4",
   "official_source": "1D",
-  "one_id": "q4_1d_nr40_nz1_dt0.25",
-  "simulation_end": 184284.0,
-  "drying_time": 184284.0,
+  "one_id": "q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b",
+  "simulation_end": 183966.12,
+  "drying_time": 183966.12,
   "drying_completed": true,
   "time_convergence_passed": true,
   "spatial_convergence_passed": false,
@@ -42,11 +42,33 @@
   "summary": "results/q4/q4_summary.json",
   "time_unit": "s",
   "time_convergence_status": "PASSED",
-  "space_convergence_status": "QUANTIFIED_NOT_CERTIFIED",
+  "space_convergence_status": "FAILED",
   "drying_note": "DRY",
   "endpoint_2d_max_moisture_location": {
     "r_m": 0.0,
     "z_m": 0.0,
-    "C": 0.1499999313408145
-  }
+    "C": 0.15015054115520007
+  },
+  "endpoint_values": {
+    "time_s": 183966.12,
+    "max_temperature_K": 323.14893442568194,
+    "min_temperature_K": 323.14893442504297,
+    "center_temperature_K": 323.14893442504297,
+    "surface_temperature_K": 323.14893442568194,
+    "max_moisture": 0.14999991588634534,
+    "min_moisture": 0.05260704702936083,
+    "controlling_r_m": 0.0,
+    "controlling_z_m": 0.0
+  },
+  "mesh_mode": "adaptive",
+  "nr": 160,
+  "mesh_profile_hash": "1d7a05f7e44bf42e3989ae2727861e45350a0b31d07f3cb1f3dfa672c0b5ee6e",
+  "requested_dt_s": 0.25,
+  "actual_dt_range_s": [
+    0.00994532456388697,
+    0.0546875
+  ],
+  "mean_accepted_dt_s": 0.015985629708306047,
+  "stability_limited_count": 64401652,
+  "candidate_only": true
 }

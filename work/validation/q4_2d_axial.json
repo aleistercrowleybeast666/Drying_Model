@@ -1,32 +1,68 @@
 {
-  "coarse_id": "q4_2d_nr40_nz125_dt0.25",
-  "fine_id": "q4_2d_nr40_nz250_dt0.25_axial_refinement",
+  "coarse_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+  "fine_id": "q4_2d_adaptive_nr40_nz250_dt0.25_m7c4f1999f231_axial_verification",
+  "coarse_fingerprint": "6769b70db8f82b3fb975713f1b631381d0d3e18970452395f6374fe9554c8b22",
+  "fine_fingerprint": "ee04fb19ebf51cb81dcb479f4509a08a0a8c50a47c249fe6fdf5c0444d0658b7",
   "maxima_temperature": {
-    "value": 0.005784457861352621,
-    "signed_difference": -0.005784457861352621,
+    "value": 0.005230467133799266,
+    "signed_difference": -0.005230467133799266,
     "time_s": 1740.0,
     "r_m": 0.0,
-    "z_m": 0.12425,
-    "coarse_value": 308.47667621797405,
-    "fine_value": 308.4708917601127
+    "z_m": 0.12430612667242141,
+    "coarse_value": 308.5056481871832,
+    "fine_value": 308.5004177200494
   },
   "maxima_moisture": {
-    "value": 0.24716059445922278,
-    "signed_difference": 0.24716059445922278,
+    "value": 0.22292803932494376,
+    "signed_difference": 0.22292803932494376,
     "time_s": 60.0,
     "r_m": 0.0,
-    "z_m": 0.12475,
-    "coarse_value": 2.127731139965986,
-    "fine_value": 2.374891734425209
+    "z_m": 0.12476870889080713,
+    "coarse_value": 2.139349101747969,
+    "fine_value": 2.3622771410729126
+  },
+  "official_temperature": {
+    "value": 0.005230467133799266,
+    "signed_difference": -0.005230467133799266,
+    "time_s": 1740.0,
+    "r_m": 0.0,
+    "z_m": 0.12430612667242141,
+    "coarse_value": 308.5056481871832,
+    "fine_value": 308.5004177200494
+  },
+  "official_moisture": {
+    "value": 0.22292803932494376,
+    "signed_difference": 0.22292803932494376,
+    "time_s": 60.0,
+    "r_m": 0.0,
+    "z_m": 0.12476870889080713,
+    "coarse_value": 2.139349101747969,
+    "fine_value": 2.3622771410729126
+  },
+  "volume_L2_temperature": {
+    "value": 0.0005233627183505843,
+    "time_s": 1320.0
+  },
+  "volume_L2_moisture": {
+    "value": 0.013862259257832759,
+    "time_s": 60.0
   },
   "event_difference_s": null,
+  "event_relative_difference": null,
   "event_status_agrees": true,
   "event_comparison_applicable": false,
+  "reference_complete": true,
   "time_range_s": [
     0.0,
-    1800.0
+    10320.0
   ],
-  "sample_count": 31,
-  "method": "Piecewise bilinear reconstruction at fine-grid cells, axis, symmetry and exposed boundary nodes; physical r,z",
-  "assessment": "QUANTIFIED"
+  "sample_count": 173,
+  "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+  "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+  "assessment": "QUANTIFIED",
+  "representative_times_s": [
+    2520.0,
+    10320.0
+  ],
+  "note": "Separate directional refinement; no combined-direction full-time certificate."
 }

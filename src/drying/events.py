@@ -3,9 +3,9 @@ import numpy as np
 from .sampling import Sampling_GetNodes
 
 
-def Event_Locate(left, right, left_state, advance, model, inputs, threshold=0.15):
+def Event_Locate(left, right, left_state, advance, model, inputs, threshold=0.15, mesh=None):
     def Maximum(state, t):
-        return float(Sampling_GetNodes(state, t, model, inputs)[2][1].max())
+        return float(Sampling_GetNodes(state, t, model, inputs, mesh)[2][1].max())
     original_left = left
     original_state = left_state.copy()
     if Maximum(left_state, left) < threshold:

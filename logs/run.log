@@ -162,3 +162,557 @@
 2026-09-10 23:39:31,962 WARNING END_EFFECT_NOT_NEGLIGIBLE {"case_id": "q1", "max_abs_T": 3.698672416117404, "max_abs_C": 0.9863754562123477, "relative_time_difference": null}
 2026-09-10 23:40:09,738 WARNING END_EFFECT_NOT_NEGLIGIBLE {"case_id": "q23", "max_abs_T": 4.094380589719037, "max_abs_C": 0.9752337001443194, "relative_time_difference": 3.687247101314159e-05}
 2026-09-10 23:40:35,301 WARNING END_EFFECT_NOT_NEGLIGIBLE {"case_id": "q4", "max_abs_T": 5.535398828697737, "max_abs_C": 1.710335829331694, "relative_time_difference": 3.391505567325964e-07}
+2026-09-11 00:50:47,233 WARNING ADAPTIVE_MESH_DT_CONFLICT {"case": "q1", "dimension": 1, "nr": 80, "nz": 1, "requested_dt": 0.25, "stability_bound": 0.08529766510878518, "uniform_stability_bound": 0.1288681830982782, "failing_location": [0, 71, 0], "dt_compatible": false, "min_max_dr": {"min": 0.0002033928714060873, "max": 0.0002795353631896452, "mean": 0.00025, "neighbor_ratio": 1.014266060691301}, "min_max_dz": {"min": 0.125, "max": 0.125, "mean": 0.125, "neighbor_ratio": 1.0}, "monitor_min": 1.0, "monitor_max": 1.375, "reason": "Fine grid cannot guarantee 0.25 s, even before strong clustering; requested dt stays fixed and existing RK4 safety limiter remains active."}
+2026-09-11 00:50:47,239 WARNING ADAPTIVE_MESH_DT_CONFLICT {"case": "q1", "dimension": 1, "nr": 160, "nz": 1, "requested_dt": 0.25, "stability_bound": 0.021324416277195456, "uniform_stability_bound": 0.03221704577456899, "failing_location": [0, 134, 0], "dt_compatible": false, "min_max_dr": {"min": 0.00010169643570304254, "max": 0.00013980009758546083, "mean": 0.000125, "neighbor_ratio": 1.0072223209080313}, "min_max_dz": {"min": 0.125, "max": 0.125, "mean": 0.125, "neighbor_ratio": 1.0}, "monitor_min": 1.0, "monitor_max": 1.375, "reason": "Fine grid cannot guarantee 0.25 s, even before strong clustering; requested dt stays fixed and existing RK4 safety limiter remains active."}
+2026-09-11 00:50:47,249 WARNING ADAPTIVE_MESH_DT_CONFLICT {"case": "q1", "dimension": 2, "nr": 80, "nz": 125, "requested_dt": 0.25, "stability_bound": 0.07961001405207749, "uniform_stability_bound": 0.12128770173955596, "failing_location": [0, 71, 121], "dt_compatible": false, "min_max_dr": {"min": 0.0002033928714060873, "max": 0.0002795353631896452, "mean": 0.00025, "neighbor_ratio": 1.014266060691301}, "min_max_dz": {"min": 0.0007609447161983918, "max": 0.001046298982481953, "mean": 0.0009999999999999998, "neighbor_ratio": 1.0389122062220189}, "monitor_min": 1.0, "monitor_max": 1.375, "reason": "Fine grid cannot guarantee 0.25 s, even before strong clustering; requested dt stays fixed and existing RK4 safety limiter remains active."}
+2026-09-11 00:50:47,254 WARNING ADAPTIVE_MESH_DT_CONFLICT {"case": "q1", "dimension": 2, "nr": 40, "nz": 250, "requested_dt": 0.25, "stability_bound": 0.15920406924007827, "uniform_stability_bound": 0.2577363661965564, "failing_location": [0, 35, 243], "dt_compatible": false, "min_max_dr": {"min": 0.0004067857428121746, "max": 0.0005588200185019017, "mean": 0.0004999999999999999, "neighbor_ratio": 1.0284072704023526}, "min_max_dz": {"min": 0.000380472358099182, "max": 0.000523149491800323, "mean": 0.0004999999999999999, "neighbor_ratio": 1.0221452811519949}, "monitor_min": 1.0, "monitor_max": 1.375, "reason": "Fine grid cannot guarantee 0.25 s, even before strong clustering; requested dt stays fixed and existing RK4 safety limiter remains active."}
+2026-09-11 00:50:52,344 WARNING ADAPTIVE_MESH_DT_CONFLICT {"case": "q23", "dimension": 1, "nr": 80, "nz": 1, "requested_dt": 0.25, "stability_bound": 0.08014914009765005, "uniform_stability_bound": 0.09900204069484567, "failing_location": [0, 78, 0], "dt_compatible": false, "min_max_dr": {"min": 0.00022058760821699107, "max": 0.00025889808617706936, "mean": 0.00024999999999999995, "neighbor_ratio": 1.0203691759055105}, "min_max_dz": {"min": 0.125, "max": 0.125, "mean": 0.125, "neighbor_ratio": 1.0}, "monitor_min": 1.0, "monitor_max": 1.1875, "reason": "Fine grid cannot guarantee 0.25 s, even before strong clustering; requested dt stays fixed and existing RK4 safety limiter remains active."}
+2026-09-11 00:50:52,350 WARNING ADAPTIVE_MESH_DT_CONFLICT {"case": "q23", "dimension": 1, "nr": 160, "nz": 1, "requested_dt": 0.25, "stability_bound": 0.01948691727418691, "uniform_stability_bound": 0.02475051017371098, "failing_location": [0, 158, 0], "dt_compatible": false, "min_max_dr": {"min": 0.00010965896330220382, "max": 0.00012946583140461927, "mean": 0.000125, "neighbor_ratio": 1.0115784571944602}, "min_max_dz": {"min": 0.125, "max": 0.125, "mean": 0.125, "neighbor_ratio": 1.0}, "monitor_min": 1.0, "monitor_max": 1.1875, "reason": "Fine grid cannot guarantee 0.25 s, even before strong clustering; requested dt stays fixed and existing RK4 safety limiter remains active."}
+2026-09-11 00:50:52,360 WARNING ADAPTIVE_MESH_DT_CONFLICT {"case": "q23", "dimension": 2, "nr": 80, "nz": 125, "requested_dt": 0.25, "stability_bound": 0.0750497254142958, "uniform_stability_bound": 0.0931783912422077, "failing_location": [0, 78, 118], "dt_compatible": false, "min_max_dr": {"min": 0.00022058760821699107, "max": 0.00025889808617706936, "mean": 0.00024999999999999995, "neighbor_ratio": 1.0203691759055105}, "min_max_dz": {"min": 0.0008629422996286606, "max": 0.0010247439806109083, "mean": 0.001, "neighbor_ratio": 1.0219432303603135}, "monitor_min": 1.0, "monitor_max": 1.1875, "reason": "Fine grid cannot guarantee 0.25 s, even before strong clustering; requested dt stays fixed and existing RK4 safety limiter remains active."}
+2026-09-11 00:50:52,367 WARNING ADAPTIVE_MESH_DT_CONFLICT {"case": "q23", "dimension": 2, "nr": 40, "nz": 250, "requested_dt": 0.25, "stability_bound": 0.15679798277406418, "uniform_stability_bound": 0.19800408138969125, "failing_location": [0, 38, 248], "dt_compatible": false, "min_max_dr": {"min": 0.0004456684042283299, "max": 0.0005176658748519389, "mean": 0.0005, "neighbor_ratio": 1.0331099976143439}, "min_max_dz": {"min": 0.0004314711498143303, "max": 0.0005123719903539826, "mean": 0.0004999999999999999, "neighbor_ratio": 1.0129211422016104}, "monitor_min": 1.0, "monitor_max": 1.1875, "reason": "Fine grid cannot guarantee 0.25 s, even before strong clustering; requested dt stays fixed and existing RK4 safety limiter remains active."}
+2026-09-11 00:50:54,275 WARNING ADAPTIVE_MESH_DT_CONFLICT {"case": "q4", "dimension": 1, "nr": 80, "nz": 1, "requested_dt": 0.25, "stability_bound": 0.07663480161664023, "uniform_stability_bound": 0.08640769650604264, "failing_location": [0, 76, 0], "dt_compatible": false, "min_max_dr": {"min": 0.00014102744438879454, "max": 0.00015421813316524022, "mean": 0.00014974999999999998, "neighbor_ratio": 1.006885153487816}, "min_max_dz": {"min": 0.125, "max": 0.125, "mean": 0.125, "neighbor_ratio": 1.0}, "monitor_min": 1.0, "monitor_max": 1.09375, "reason": "Fine grid cannot guarantee 0.25 s, even before strong clustering; requested dt stays fixed and existing RK4 safety limiter remains active."}
+2026-09-11 00:50:54,282 WARNING ADAPTIVE_MESH_DT_CONFLICT {"case": "q4", "dimension": 1, "nr": 160, "nz": 1, "requested_dt": 0.25, "stability_bound": 0.01915870040415985, "uniform_stability_bound": 0.021601924126510155, "failing_location": [0, 158, 0], "dt_compatible": false, "min_max_dr": {"min": 7.051372219439594e-05, "max": 7.711672117340112e-05, "mean": 7.487499999999999e-05, "neighbor_ratio": 1.0035355863794224}, "min_max_dz": {"min": 0.125, "max": 0.125, "mean": 0.125, "neighbor_ratio": 1.0}, "monitor_min": 1.0, "monitor_max": 1.09375, "reason": "Fine grid cannot guarantee 0.25 s, even before strong clustering; requested dt stays fixed and existing RK4 safety limiter remains active."}
+2026-09-11 00:50:54,296 WARNING ADAPTIVE_MESH_DT_CONFLICT {"case": "q4", "dimension": 2, "nr": 80, "nz": 125, "requested_dt": 0.25, "stability_bound": 0.07489452031047712, "uniform_stability_bound": 0.08451249844635207, "failing_location": [0, 76, 123], "dt_compatible": false, "min_max_dr": {"min": 0.00014102744438879454, "max": 0.00015421813316524022, "mean": 0.00014974999999999998, "neighbor_ratio": 1.006885153487816}, "min_max_dz": {"min": 0.0009251644367714307, "max": 0.0010118986027187731, "mean": 0.001, "neighbor_ratio": 1.0073665537000123}, "monitor_min": 1.0, "monitor_max": 1.09375, "reason": "Fine grid cannot guarantee 0.25 s, even before strong clustering; requested dt stays fixed and existing RK4 safety limiter remains active."}
+2026-09-11 00:50:54,305 WARNING ADAPTIVE_MESH_DT_CONFLICT {"case": "q4", "dimension": 2, "nr": 40, "nz": 250, "requested_dt": 0.25, "stability_bound": 0.2234604394171204, "uniform_stability_bound": 0.25436453610511844, "failing_location": [0, 38, 247], "dt_compatible": false, "min_max_dr": {"min": 0.00028205488877759043, "max": 0.0003083768377584064, "mean": 0.00029949999999999996, "neighbor_ratio": 1.011641562760427}, "min_max_dz": {"min": 0.00046258221838570146, "max": 0.0005059493013593866, "mean": 0.0005, "neighbor_ratio": 1.0037309796051364}, "monitor_min": 1.0, "monitor_max": 1.09375, "reason": "Fine grid cannot guarantee 0.25 s, even before strong clustering; requested dt stays fixed and existing RK4 safety limiter remains active."}
+2026-09-11 00:55:21,021 INFO START q1_1d_adaptive_nr40_nz1_dt0.25_mcecd4275aca0 warmup 9.30s target 0.50h
+2026-09-11 00:55:21,601 INFO COMPUTED {"case_id": "q1_1d_adaptive_nr40_nz1_dt0.25_mcecd4275aca0", "simulated_time_s": 1800.0, "Cmax": 2.5499901908781264, "wall_s": 0.5754827999990084, "peak_rss_bytes": 228397056, "drying_time_h": null}
+2026-09-11 00:55:21,627 INFO START q1_1d_adaptive_nr80_nz1_dt0.25_m2fb9c46fbeef warmup 0.00s target 0.50h
+2026-09-11 00:55:21,628 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q1_1d_adaptive_nr80_nz1_dt0.25_m2fb9c46fbeef", "requested_dt_s": 0.25, "accepted_dt_s": 0.046875, "simulated_time_s": 0.0, "grid": [80, 1]}
+2026-09-11 00:55:23,083 INFO COMPUTED {"case_id": "q1_1d_adaptive_nr80_nz1_dt0.25_m2fb9c46fbeef", "simulated_time_s": 1800.0, "Cmax": 2.549991866754662, "wall_s": 1.4511853999974846, "peak_rss_bytes": 229158912, "drying_time_h": null}
+2026-09-11 00:55:23,110 INFO START q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898 warmup 0.00s target 0.50h
+2026-09-11 00:55:23,116 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898", "requested_dt_s": 0.25, "accepted_dt_s": 0.010712196255036055, "simulated_time_s": 0.0, "grid": [160, 1]}
+2026-09-11 00:55:32,648 INFO COMPUTED {"case_id": "q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898", "simulated_time_s": 1800.0, "Cmax": 2.549992270836312, "wall_s": 9.534362500002317, "peak_rss_bytes": 229994496, "drying_time_h": null}
+2026-09-11 00:55:32,682 INFO START q23_1d_adaptive_nr40_nz1_dt0.25_mf63f9f413ef6 warmup 0.00s target 72.00h
+2026-09-11 00:55:50,831 INFO DRYING_EVENT_LOCATED {"case_id": "q23_1d_adaptive_nr40_nz1_dt0.25_mf63f9f413ef6", "left_s": 208280.875, "right_s": 208280.9375, "width_s": 0.0625, "raw_event_s": 208280.9375, "report_s": 208281.24, "report_h": 57.8559, "left_max_C": 0.15000001695622395, "right_max_C": 0.1499999989919916, "report_max_C": 0.14999991204525187}
+2026-09-11 00:55:52,683 INFO q23_1d_adaptive_nr40_nz1_dt0.25_mf63f9f413ef6 t=64.92h 90.2% wall=20.0s ETA=2.2s
+2026-09-11 00:55:54,593 INFO DRY {"case_id": "q23_1d_adaptive_nr40_nz1_dt0.25_mf63f9f413ef6", "simulated_time_s": 259200.0, "Cmax": 0.13807412137569822, "wall_s": 21.90130859999772, "peak_rss_bytes": 240668672, "drying_time_h": 57.8559}
+2026-09-11 00:55:54,614 INFO START q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27 warmup 0.00s target 72.00h
+2026-09-11 00:55:54,616 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27", "requested_dt_s": 0.25, "accepted_dt_s": 0.0625, "simulated_time_s": 0.0, "grid": [80, 1]}
+2026-09-11 00:56:14,614 INFO q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27 t=8.57h 11.9% wall=20.0s ETA=148.1s
+2026-09-11 00:56:34,622 INFO q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27 t=18.97h 26.3% wall=40.0s ETA=111.9s
+2026-09-11 00:56:54,649 INFO q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27 t=30.20h 41.9% wall=60.0s ETA=83.1s
+2026-09-11 00:57:14,676 INFO q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27 t=41.42h 57.5% wall=80.1s ETA=59.1s
+2026-09-11 00:57:34,693 INFO q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27 t=52.42h 72.8% wall=100.1s ETA=37.4s
+2026-09-11 00:57:45,603 INFO DRYING_EVENT_LOCATED {"case_id": "q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27", "left_s": 207437.4375, "right_s": 207437.5, "width_s": 0.0625, "raw_event_s": 207437.5, "report_s": 207437.75999999998, "report_h": 57.621599999999994, "left_max_C": 0.15000001710456212, "right_max_C": 0.1499999989947882, "report_max_C": 0.14999992365824016}
+2026-09-11 00:57:54,715 INFO q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27 t=62.62h 87.0% wall=120.1s ETA=18.0s
+2026-09-11 00:58:11,414 INFO DRY {"case_id": "q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27", "simulated_time_s": 259200.0, "Cmax": 0.1378318381738288, "wall_s": 136.78886200000125, "peak_rss_bytes": 244879360, "drying_time_h": 57.621599999999994}
+2026-09-11 00:58:11,432 INFO START q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 warmup 0.00s target 72.00h
+2026-09-11 00:58:11,438 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006", "requested_dt_s": 0.25, "accepted_dt_s": 0.014791837893426418, "simulated_time_s": 0.0, "grid": [160, 1]}
+2026-09-11 00:58:31,433 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=1.19h 1.7% wall=20.0s ETA=1190.9s
+2026-09-11 00:58:51,435 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=2.35h 3.3% wall=40.0s ETA=1186.3s
+2026-09-11 00:59:11,695 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=3.45h 4.8% wall=60.3s ETA=1197.5s
+2026-09-11 00:59:32,026 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=4.52h 6.3% wall=80.6s ETA=1204.2s
+2026-09-11 00:59:52,237 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=5.63h 7.8% wall=100.8s ETA=1187.6s
+2026-09-11 01:00:12,438 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=6.77h 9.4% wall=121.0s ETA=1166.6s
+2026-09-11 01:00:32,613 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=8.00h 11.1% wall=141.2s ETA=1129.5s
+2026-09-11 01:00:52,906 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=9.18h 12.8% wall=161.5s ETA=1104.5s
+2026-09-11 01:01:13,045 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=10.40h 14.4% wall=181.6s ETA=1075.7s
+2026-09-11 01:01:21,226 INFO CACHE_REUSED q1_1d_adaptive_nr40_nz1_dt0.25_mcecd4275aca0
+2026-09-11 01:01:21,228 INFO CACHE_REUSED {"case_id": "q1_1d_adaptive_nr40_nz1_dt0.25_mcecd4275aca0"}
+2026-09-11 01:01:21,244 INFO CACHE_REUSED q1_1d_adaptive_nr80_nz1_dt0.25_m2fb9c46fbeef
+2026-09-11 01:01:21,245 INFO CACHE_REUSED {"case_id": "q1_1d_adaptive_nr80_nz1_dt0.25_m2fb9c46fbeef"}
+2026-09-11 01:01:21,262 INFO CACHE_REUSED q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898
+2026-09-11 01:01:21,263 INFO CACHE_REUSED {"case_id": "q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898"}
+2026-09-11 01:01:24,773 WARNING SPATIAL_CONVERGENCE_FAILED {"case_id": "q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898", "failure_reasons": ["OFFICIAL_C_EXCEEDS_TOLERANCE"]}
+2026-09-11 01:01:24,846 INFO START q1_1d_adaptive_nr160_nz1_dt0.125_m26b01dc00898_half_steps warmup 0.05s target 0.50h
+2026-09-11 01:01:33,224 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=11.58h 16.1% wall=201.8s ETA=1052.5s
+2026-09-11 01:01:35,393 INFO COMPUTED {"case_id": "q1_1d_adaptive_nr160_nz1_dt0.125_m26b01dc00898_half_steps", "simulated_time_s": 1800.0, "Cmax": 2.549992270836059, "wall_s": 10.540599200001452, "peak_rss_bytes": 304705536, "drying_time_h": null}
+2026-09-11 01:01:46,418 INFO START q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542 warmup 0.43s target 0.50h
+2026-09-11 01:01:53,104 INFO COMPUTED {"case_id": "q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542", "simulated_time_s": 1800.0, "Cmax": 2.5499901908781264, "wall_s": 6.679685300001438, "peak_rss_bytes": 417492992, "drying_time_h": null}
+2026-09-11 01:01:53,171 INFO START q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 warmup 0.00s target 72.00h
+2026-09-11 01:01:53,431 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=12.77h 17.7% wall=222.0s ETA=1030.0s
+2026-09-11 01:02:13,171 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=1.24h 1.7% wall=20.0s ETA=1139.8s
+2026-09-11 01:02:13,579 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=13.92h 19.3% wall=242.1s ETA=1010.6s
+2026-09-11 01:02:33,174 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=2.48h 3.5% wall=40.0s ETA=1119.5s
+2026-09-11 01:02:33,815 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=15.08h 20.9% wall=262.4s ETA=990.1s
+2026-09-11 01:02:53,293 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=3.73h 5.2% wall=60.1s ETA=1099.4s
+2026-09-11 01:02:54,086 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=16.17h 22.5% wall=282.7s ETA=976.2s
+2026-09-11 01:03:13,409 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=5.18h 7.2% wall=80.2s ETA=1034.3s
+2026-09-11 01:03:14,161 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=17.33h 24.1% wall=302.7s ETA=954.8s
+2026-09-11 01:03:33,441 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=6.58h 9.1% wall=100.3s ETA=996.4s
+2026-09-11 01:03:34,361 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=18.47h 25.6% wall=322.9s ETA=936.2s
+2026-09-11 01:03:53,537 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=8.02h 11.1% wall=120.4s ETA=960.7s
+2026-09-11 01:03:54,663 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=19.62h 27.2% wall=343.2s ETA=916.6s
+2026-09-11 01:04:13,726 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=9.43h 13.1% wall=140.6s ETA=932.2s
+2026-09-11 01:04:14,684 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=20.73h 28.8% wall=363.3s ETA=898.2s
+2026-09-11 01:04:33,873 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=10.83h 15.0% wall=160.7s ETA=907.4s
+2026-09-11 01:04:34,759 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=21.85h 30.3% wall=383.3s ETA=879.8s
+2026-09-11 01:04:54,089 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=12.25h 17.0% wall=180.9s ETA=882.4s
+2026-09-11 01:04:54,784 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=22.97h 31.9% wall=403.4s ETA=861.2s
+2026-09-11 01:05:14,193 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=13.63h 18.9% wall=201.0s ETA=860.6s
+2026-09-11 01:05:14,873 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=24.07h 33.4% wall=423.4s ETA=843.4s
+2026-09-11 01:05:34,305 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=15.00h 20.8% wall=221.1s ETA=840.3s
+2026-09-11 01:05:34,987 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=25.17h 35.0% wall=443.6s ETA=825.4s
+2026-09-11 01:05:54,512 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=16.40h 22.8% wall=241.3s ETA=818.2s
+2026-09-11 01:05:55,086 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=26.27h 36.5% wall=463.7s ETA=807.3s
+2026-09-11 01:06:14,613 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=17.80h 24.7% wall=261.4s ETA=796.1s
+2026-09-11 01:06:15,252 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=27.38h 38.0% wall=483.8s ETA=788.3s
+2026-09-11 01:06:34,833 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=19.18h 26.6% wall=281.7s ETA=775.5s
+2026-09-11 01:06:35,315 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=28.47h 39.5% wall=503.9s ETA=770.6s
+2026-09-11 01:06:54,868 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=20.57h 28.6% wall=301.7s ETA=754.5s
+2026-09-11 01:06:55,423 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=29.58h 41.1% wall=524.0s ETA=751.3s
+2026-09-11 01:07:14,894 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=21.98h 30.5% wall=321.7s ETA=732.0s
+2026-09-11 01:07:15,576 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=30.72h 42.7% wall=544.1s ETA=731.3s
+2026-09-11 01:07:34,993 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=23.38h 32.5% wall=341.8s ETA=710.7s
+2026-09-11 01:07:35,717 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=31.85h 44.2% wall=564.3s ETA=711.3s
+2026-09-11 01:07:55,100 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=24.77h 34.4% wall=361.9s ETA=690.2s
+2026-09-11 01:07:56,017 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=32.97h 45.8% wall=584.6s ETA=692.2s
+2026-09-11 01:08:02,256 INFO CACHE_REUSED q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542
+2026-09-11 01:08:02,257 INFO CACHE_REUSED {"case_id": "q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542"}
+2026-09-11 01:08:02,490 INFO START q1_2d_adaptive_nr40_nz125_dt0.125_md810aa408542_half_steps warmup 0.22s target 0.50h
+2026-09-11 01:08:15,276 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=26.12h 36.3% wall=382.1s ETA=671.3s
+2026-09-11 01:08:16,147 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=34.05h 47.3% wall=604.7s ETA=674.0s
+2026-09-11 01:08:16,743 INFO COMPUTED {"case_id": "q1_2d_adaptive_nr40_nz125_dt0.125_md810aa408542_half_steps", "simulated_time_s": 1800.0, "Cmax": 2.5499901908781273, "wall_s": 14.22116620000088, "peak_rss_bytes": 441556992, "drying_time_h": null}
+2026-09-11 01:08:23,049 WARNING END_EFFECT_NOT_NEGLIGIBLE {"case_id": "q1", "max_abs_T": 3.697590683434555, "max_abs_C": 0.9862263314164501, "relative_time_difference": null}
+2026-09-11 01:08:23,146 INFO START q1_2d_adaptive_nr80_nz125_dt0.25_m0663d58bba57_radial_verification warmup 0.00s target 0.50h
+2026-09-11 01:08:23,190 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q1_2d_adaptive_nr80_nz125_dt0.25_m0663d58bba57_radial_verification", "requested_dt_s": 0.25, "accepted_dt_s": 0.046875, "simulated_time_s": 0.0, "grid": [80, 125]}
+2026-09-11 01:08:35,475 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=27.48h 38.2% wall=402.3s ETA=651.6s
+2026-09-11 01:08:36,377 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=35.17h 48.8% wall=624.9s ETA=654.6s
+2026-09-11 01:08:43,177 INFO q1_2d_adaptive_nr80_nz125_dt0.25_m0663d58bba57_radial_verification t=0.13h 26.9% wall=20.0s ETA=54.5s
+2026-09-11 01:08:55,548 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=28.83h 40.0% wall=422.4s ETA=632.3s
+2026-09-11 01:08:56,634 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=36.27h 50.4% wall=645.2s ETA=635.7s
+2026-09-11 01:09:03,205 INFO q1_2d_adaptive_nr80_nz125_dt0.25_m0663d58bba57_radial_verification t=0.27h 53.2% wall=40.1s ETA=35.3s
+2026-09-11 01:09:15,715 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=30.17h 41.9% wall=442.5s ETA=613.7s
+2026-09-11 01:09:16,711 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=37.30h 51.8% wall=665.3s ETA=618.9s
+2026-09-11 01:09:23,239 INFO q1_2d_adaptive_nr80_nz125_dt0.25_m0663d58bba57_radial_verification t=0.39h 78.9% wall=60.1s ETA=16.1s
+2026-09-11 01:09:35,755 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=31.47h 43.7% wall=462.6s ETA=595.9s
+2026-09-11 01:09:36,760 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=38.33h 53.2% wall=685.3s ETA=601.9s
+2026-09-11 01:09:40,442 INFO COMPUTED {"case_id": "q1_2d_adaptive_nr80_nz125_dt0.25_m0663d58bba57_radial_verification", "simulated_time_s": 1800.0, "Cmax": 2.549991866754662, "wall_s": 77.29062390000036, "peak_rss_bytes": 576741376, "drying_time_h": null}
+2026-09-11 01:09:46,657 INFO START q1_2d_adaptive_nr40_nz250_dt0.25_m86bafdbf4d10_axial_verification warmup 0.00s target 0.50h
+2026-09-11 01:09:46,676 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q1_2d_adaptive_nr40_nz250_dt0.25_m86bafdbf4d10_axial_verification", "requested_dt_s": 0.25, "accepted_dt_s": 0.125, "simulated_time_s": 0.0, "grid": [40, 250]}
+2026-09-11 01:09:55,798 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=32.72h 45.4% wall=482.6s ETA=579.5s
+2026-09-11 01:09:57,080 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=39.33h 54.6% wall=705.7s ETA=586.0s
+2026-09-11 01:10:06,674 INFO q1_2d_adaptive_nr40_nz250_dt0.25_m86bafdbf4d10_axial_verification t=0.27h 53.6% wall=20.0s ETA=17.3s
+2026-09-11 01:10:15,929 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=33.95h 47.2% wall=502.8s ETA=563.5s
+2026-09-11 01:10:17,223 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=40.32h 56.0% wall=725.8s ETA=570.4s
+2026-09-11 01:10:23,451 INFO COMPUTED {"case_id": "q1_2d_adaptive_nr40_nz250_dt0.25_m86bafdbf4d10_axial_verification", "simulated_time_s": 1800.0, "Cmax": 2.5499901908781273, "wall_s": 36.78779450000002, "peak_rss_bytes": 590831616, "drying_time_h": null}
+2026-09-11 01:10:29,943 WARNING 2D_SPATIAL_VALIDATION_PARTIAL {"case_id": "q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542", "covered_refinement_time_s": [0, 1800.0], "endpoint_windows": []}
+2026-09-11 01:10:36,025 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=35.25h 49.0% wall=522.9s ETA=545.1s
+2026-09-11 01:10:37,449 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=41.38h 57.5% wall=746.0s ETA=551.9s
+2026-09-11 01:10:56,076 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=36.52h 50.7% wall=542.9s ETA=527.5s
+2026-09-11 01:10:57,654 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=42.38h 58.9% wall=766.2s ETA=535.4s
+2026-09-11 01:11:16,165 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=37.63h 52.3% wall=563.0s ETA=514.1s
+2026-09-11 01:11:17,774 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=43.28h 60.1% wall=786.3s ETA=521.7s
+2026-09-11 01:11:36,170 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=39.00h 54.2% wall=583.0s ETA=493.3s
+2026-09-11 01:11:38,008 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=44.38h 61.6% wall=806.6s ETA=501.9s
+2026-09-11 01:11:56,181 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=40.35h 56.0% wall=603.0s ETA=473.0s
+2026-09-11 01:11:58,105 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=45.45h 63.1% wall=826.7s ETA=482.9s
+2026-09-11 01:12:16,416 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=41.68h 57.9% wall=623.2s ETA=453.3s
+2026-09-11 01:12:18,178 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=46.50h 64.6% wall=846.7s ETA=464.3s
+2026-09-11 01:12:36,628 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=43.03h 59.8% wall=643.5s ETA=433.1s
+2026-09-11 01:12:38,305 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=47.57h 66.1% wall=866.9s ETA=445.3s
+2026-09-11 01:12:56,637 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=44.37h 61.6% wall=663.5s ETA=413.2s
+2026-09-11 01:12:58,518 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=48.63h 67.5% wall=887.1s ETA=426.2s
+2026-09-11 01:13:16,781 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=45.73h 63.5% wall=683.6s ETA=392.6s
+2026-09-11 01:13:18,541 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=49.72h 69.1% wall=907.1s ETA=406.6s
+2026-09-11 01:13:36,128 INFO START q1_1d_uniform_nr40_nz1_dt0.25_m4e31807a5f2e_uniform_regression warmup 0.22s target 0.50h
+2026-09-11 01:13:36,525 INFO COMPUTED {"case_id": "q1_1d_uniform_nr40_nz1_dt0.25_m4e31807a5f2e_uniform_regression", "simulated_time_s": 1800.0, "Cmax": 2.549990132410681, "wall_s": 0.3926288000002387, "peak_rss_bytes": 165314560, "drying_time_h": null}
+2026-09-11 01:13:36,920 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=47.12h 65.4% wall=703.7s ETA=371.7s
+2026-09-11 01:13:38,271 INFO START q23_1d_uniform_nr40_nz1_dt0.25_m4e31807a5f2e_uniform_regression warmup 0.00s target 0.50h
+2026-09-11 01:13:38,654 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=50.82h 70.6% wall=927.2s ETA=386.5s
+2026-09-11 01:13:38,762 INFO PARTIAL_TIME_RANGE {"case_id": "q23_1d_uniform_nr40_nz1_dt0.25_m4e31807a5f2e_uniform_regression", "simulated_time_s": 1800.0, "Cmax": 2.5499239685214254, "wall_s": 0.48397949999707635, "peak_rss_bytes": 171757568, "drying_time_h": null}
+2026-09-11 01:13:40,740 INFO START q4_1d_uniform_nr40_nz1_dt0.25_m4e31807a5f2e_uniform_regression warmup 0.00s target 0.50h
+2026-09-11 01:13:40,920 INFO PARTIAL_TIME_RANGE {"case_id": "q4_1d_uniform_nr40_nz1_dt0.25_m4e31807a5f2e_uniform_regression", "simulated_time_s": 1800.0, "Cmax": 2.55, "wall_s": 0.17560320000120555, "peak_rss_bytes": 158720000, "drying_time_h": null}
+2026-09-11 01:13:57,084 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=48.48h 67.3% wall=723.9s ETA=351.1s
+2026-09-11 01:13:58,906 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=51.90h 72.1% wall=947.5s ETA=366.9s
+2026-09-11 01:14:17,165 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=49.83h 69.2% wall=744.0s ETA=330.9s
+2026-09-11 01:14:18,915 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=52.97h 73.6% wall=967.5s ETA=347.7s
+2026-09-11 01:14:37,216 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=51.20h 71.1% wall=764.0s ETA=310.4s
+2026-09-11 01:14:39,053 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=54.07h 75.1% wall=987.6s ETA=327.6s
+2026-09-11 01:14:57,406 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=52.62h 73.1% wall=784.2s ETA=288.9s
+2026-09-11 01:14:59,359 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=55.20h 76.7% wall=1007.9s ETA=306.8s
+2026-09-11 01:15:17,557 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=54.02h 75.0% wall=804.4s ETA=267.8s
+2026-09-11 01:15:19,552 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=56.32h 78.2% wall=1028.1s ETA=286.3s
+2026-09-11 01:15:37,793 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=55.40h 76.9% wall=824.6s ETA=247.1s
+2026-09-11 01:15:39,811 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=57.42h 79.7% wall=1048.4s ETA=266.3s
+2026-09-11 01:15:41,984 INFO DRYING_EVENT_LOCATED {"case_id": "q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006", "left_s": 207095.453125, "right_s": 207095.46875, "width_s": 0.015625, "raw_event_s": 207095.46875, "report_s": 207095.75999999998, "report_h": 57.526599999999995, "left_max_C": 0.15000000342743258, "right_max_C": 0.1499999988848572, "report_max_C": 0.1499999142113726}
+2026-09-11 01:15:57,852 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=56.75h 78.8% wall=844.7s ETA=227.0s
+2026-09-11 01:16:00,105 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=58.50h 81.2% wall=1068.7s ETA=246.6s
+2026-09-11 01:16:13,877 INFO DRYING_EVENT_LOCATED {"case_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919", "left_s": 208273.25, "right_s": 208273.3125, "width_s": 0.0625, "raw_event_s": 208273.3125, "report_s": 208273.31999999998, "report_h": 57.853699999999996, "left_max_C": 0.15000001436808816, "right_max_C": 0.1499999964030377, "report_max_C": 0.14999999424723234}
+2026-09-11 01:16:18,103 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=58.15h 80.8% wall=864.9s ETA=206.0s
+2026-09-11 01:16:20,211 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=59.62h 82.8% wall=1088.8s ETA=226.2s
+2026-09-11 01:16:38,221 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=59.53h 82.7% wall=885.1s ETA=185.3s
+2026-09-11 01:16:40,223 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=60.72h 84.3% wall=1108.8s ETA=206.1s
+2026-09-11 01:16:58,306 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=60.97h 84.7% wall=905.1s ETA=163.8s
+2026-09-11 01:17:00,402 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=61.85h 85.9% wall=1129.0s ETA=185.3s
+2026-09-11 01:17:18,366 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=62.40h 86.7% wall=925.2s ETA=142.3s
+2026-09-11 01:17:20,620 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=63.00h 87.5% wall=1149.2s ETA=164.2s
+2026-09-11 01:17:38,453 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=63.78h 88.6% wall=945.3s ETA=121.8s
+2026-09-11 01:17:40,674 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=64.10h 89.0% wall=1169.2s ETA=144.1s
+2026-09-11 01:17:58,633 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=65.17h 90.5% wall=965.5s ETA=101.2s
+2026-09-11 01:18:00,881 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=65.20h 90.6% wall=1189.5s ETA=124.1s
+2026-09-11 01:18:18,700 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=66.57h 92.5% wall=985.5s ETA=80.4s
+2026-09-11 01:18:21,168 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=66.32h 92.1% wall=1209.7s ETA=103.7s
+2026-09-11 01:18:38,793 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=68.00h 94.4% wall=1005.6s ETA=59.2s
+2026-09-11 01:18:41,174 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=67.47h 93.7% wall=1229.7s ETA=82.6s
+2026-09-11 01:18:58,973 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=69.42h 96.4% wall=1025.8s ETA=38.2s
+2026-09-11 01:19:01,238 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=68.58h 95.3% wall=1249.8s ETA=62.3s
+2026-09-11 01:19:19,085 INFO q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919 t=70.85h 98.4% wall=1045.9s ETA=17.0s
+2026-09-11 01:19:21,501 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=69.77h 96.9% wall=1270.1s ETA=40.7s
+2026-09-11 01:19:35,491 INFO DRY {"case_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919", "simulated_time_s": 259200.0, "Cmax": 0.13807222639420005, "wall_s": 1062.2996735999986, "peak_rss_bytes": 711733248, "drying_time_h": 57.853699999999996}
+2026-09-11 01:19:35,519 INFO START q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 warmup 0.00s target 72.00h
+2026-09-11 01:19:41,733 INFO q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006 t=70.90h 98.5% wall=1290.3s ETA=20.0s
+2026-09-11 01:19:55,661 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=1.45h 2.0% wall=20.1s ETA=980.1s
+2026-09-11 01:20:00,854 INFO DRY {"case_id": "q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006", "simulated_time_s": 259200.0, "Cmax": 0.13773286573811844, "wall_s": 1309.4127566000025, "peak_rss_bytes": 250003456, "drying_time_h": 57.526599999999995}
+2026-09-11 01:20:00,874 INFO START q4_1d_adaptive_nr40_nz1_dt0.25_ma085877c28ed warmup 0.00s target 72.00h
+2026-09-11 01:20:05,183 INFO CACHE_REUSED q23_1d_adaptive_nr40_nz1_dt0.25_mf63f9f413ef6
+2026-09-11 01:20:05,184 INFO CACHE_REUSED {"case_id": "q23_1d_adaptive_nr40_nz1_dt0.25_mf63f9f413ef6"}
+2026-09-11 01:20:05,197 INFO CACHE_REUSED q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27
+2026-09-11 01:20:05,197 INFO CACHE_REUSED {"case_id": "q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27"}
+2026-09-11 01:20:05,211 INFO CACHE_REUSED q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006
+2026-09-11 01:20:05,212 INFO CACHE_REUSED {"case_id": "q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006"}
+2026-09-11 01:20:14,760 INFO DRYING_EVENT_LOCATED {"case_id": "q4_1d_adaptive_nr40_nz1_dt0.25_ma085877c28ed", "left_s": 184259.875, "right_s": 184259.9375, "width_s": 0.0625, "raw_event_s": 184259.9375, "report_s": 184260.24, "report_h": 51.1834, "left_max_C": 0.15000000588253543, "right_max_C": 0.14999997391046, "report_max_C": 0.14999981916597027}
+2026-09-11 01:20:15,880 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=2.93h 4.1% wall=40.4s ETA=950.3s
+2026-09-11 01:20:20,546 INFO DRY {"case_id": "q4_1d_adaptive_nr40_nz1_dt0.25_ma085877c28ed", "simulated_time_s": 259200.0, "Cmax": 0.12375578937417407, "wall_s": 19.662301000000298, "peak_rss_bytes": 211673088, "drying_time_h": 51.1834}
+2026-09-11 01:20:20,565 INFO START q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe warmup 0.00s target 72.00h
+2026-09-11 01:20:20,578 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe", "requested_dt_s": 0.25, "accepted_dt_s": 0.125, "simulated_time_s": 0.0, "grid": [80, 1]}
+2026-09-11 01:20:35,890 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=4.33h 6.0% wall=60.4s ETA=942.7s
+2026-09-11 01:20:36,495 WARNING SPATIAL_CONVERGENCE_FAILED {"case_id": "q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006", "failure_reasons": ["OFFICIAL_C_EXCEEDS_TOLERANCE", "DRYING_TIME_EXCEEDS_TOLERANCE"]}
+2026-09-11 01:20:36,563 INFO START q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps warmup 0.05s target 72.00h
+2026-09-11 01:20:39,081 INFO CACHE_REUSED q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919
+2026-09-11 01:20:39,082 INFO CACHE_REUSED {"case_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919"}
+2026-09-11 01:20:39,394 INFO START q23_2d_adaptive_nr40_nz125_dt0.125_mfd6e5cf8c919_half_steps warmup 0.28s target 0.50h
+2026-09-11 01:20:40,601 INFO q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe t=10.77h 15.0% wall=20.0s ETA=114.0s
+2026-09-11 01:20:55,315 INFO PARTIAL_TIME_RANGE {"case_id": "q23_2d_adaptive_nr40_nz125_dt0.125_mfd6e5cf8c919_half_steps", "simulated_time_s": 1800.0, "Cmax": 2.549924197491844, "wall_s": 15.923872100000153, "peak_rss_bytes": 439087104, "drying_time_h": null}
+2026-09-11 01:20:55,933 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=5.70h 7.9% wall=80.4s ETA=935.3s
+2026-09-11 01:20:56,563 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=0.77h 1.1% wall=20.0s ETA=1850.9s
+2026-09-11 01:21:00,617 INFO q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe t=19.60h 27.2% wall=40.1s ETA=107.1s
+2026-09-11 01:21:16,085 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=7.05h 9.8% wall=100.6s ETA=926.5s
+2026-09-11 01:21:16,566 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=1.50h 2.1% wall=40.0s ETA=1880.2s
+2026-09-11 01:21:20,632 INFO q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe t=28.28h 39.3% wall=60.1s ETA=92.8s
+2026-09-11 01:21:33,976 WARNING END_EFFECT_NOT_NEGLIGIBLE {"case_id": "q23", "max_abs_T": 4.093695653635564, "max_abs_C": 0.9754244913361902, "relative_time_difference": 0.005687443366623636}
+2026-09-11 01:21:34,607 INFO START q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification warmup 0.00s target 1.41h
+2026-09-11 01:21:34,650 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification", "requested_dt_s": 0.25, "accepted_dt_s": 0.0625, "simulated_time_s": 0.0, "grid": [80, 125]}
+2026-09-11 01:21:36,268 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=8.40h 11.7% wall=120.8s ETA=914.3s
+2026-09-11 01:21:36,572 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=2.23h 3.1% wall=60.0s ETA=1876.8s
+2026-09-11 01:21:40,652 INFO q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe t=36.95h 51.3% wall=80.1s ETA=76.0s
+2026-09-11 01:21:54,651 INFO q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification t=0.12h 8.7% wall=20.0s ETA=210.1s
+2026-09-11 01:21:56,473 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=9.68h 13.4% wall=141.0s ETA=907.1s
+2026-09-11 01:21:56,576 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=2.93h 4.1% wall=80.0s ETA=1888.6s
+2026-09-11 01:22:00,654 INFO q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe t=45.37h 63.0% wall=100.1s ETA=58.8s
+2026-09-11 01:22:14,044 INFO DRYING_EVENT_LOCATED {"case_id": "q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe", "left_s": 184044.5625, "right_s": 184044.625, "width_s": 0.0625, "raw_event_s": 184044.625, "report_s": 184044.96, "report_h": 51.123599999999996, "left_max_C": 0.15000000487107268, "right_max_C": 0.14999997281923447, "report_max_C": 0.14999980102181226}
+2026-09-11 01:22:14,690 INFO q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification t=0.25h 17.6% wall=40.1s ETA=187.1s
+2026-09-11 01:22:16,620 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=11.02h 15.3% wall=161.1s ETA=891.8s
+2026-09-11 01:22:16,780 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=3.73h 5.2% wall=100.2s ETA=1832.6s
+2026-09-11 01:22:20,683 INFO q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe t=54.03h 75.0% wall=120.1s ETA=39.9s
+2026-09-11 01:22:34,723 INFO q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification t=0.37h 26.3% wall=60.1s ETA=168.2s
+2026-09-11 01:22:36,642 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=12.30h 17.1% wall=181.1s ETA=879.1s
+2026-09-11 01:22:37,010 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=4.55h 6.3% wall=120.4s ETA=1785.6s
+2026-09-11 01:22:40,693 INFO q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe t=62.50h 86.8% wall=140.1s ETA=21.3s
+2026-09-11 01:22:54,731 INFO q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification t=0.50h 35.2% wall=80.1s ETA=147.6s
+2026-09-11 01:22:56,735 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=13.63h 18.9% wall=201.2s ETA=861.4s
+2026-09-11 01:22:57,243 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=5.42h 7.5% wall=140.7s ETA=1729.3s
+2026-09-11 01:23:00,722 INFO q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe t=71.15h 98.8% wall=160.2s ETA=1.9s
+2026-09-11 01:23:02,646 INFO DRY {"case_id": "q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe", "simulated_time_s": 259200.0, "Cmax": 0.12366066361978396, "wall_s": 162.07198440000138, "peak_rss_bytes": 214548480, "drying_time_h": 51.123599999999996}
+2026-09-11 01:23:02,664 INFO START q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b warmup 0.00s target 72.00h
+2026-09-11 01:23:02,829 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b", "requested_dt_s": 0.25, "accepted_dt_s": 0.03076171875, "simulated_time_s": 0.0, "grid": [160, 1]}
+2026-09-11 01:23:14,744 INFO q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification t=0.62h 44.0% wall=100.1s ETA=127.5s
+2026-09-11 01:23:16,785 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=14.95h 20.8% wall=221.3s ETA=844.4s
+2026-09-11 01:23:17,289 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=6.27h 8.7% wall=160.7s ETA=1685.9s
+2026-09-11 01:23:22,726 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=2.13h 3.0% wall=20.1s ETA=657.1s
+2026-09-11 01:23:34,777 INFO q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification t=0.74h 52.1% wall=120.2s ETA=110.3s
+2026-09-11 01:23:36,823 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=16.23h 22.5% wall=241.3s ETA=829.0s
+2026-09-11 01:23:37,298 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=7.08h 9.8% wall=180.7s ETA=1656.4s
+2026-09-11 01:23:42,807 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=3.70h 5.1% wall=40.1s ETA=741.0s
+2026-09-11 01:23:54,817 INFO q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification t=0.85h 60.3% wall=140.2s ETA=92.4s
+2026-09-11 01:23:57,036 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=17.55h 24.4% wall=261.5s ETA=811.4s
+2026-09-11 01:23:57,605 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=7.93h 11.0% wall=201.0s ETA=1623.6s
+2026-09-11 01:24:03,050 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=4.73h 6.6% wall=60.4s ETA=858.2s
+2026-09-11 01:24:14,850 INFO q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification t=0.97h 68.6% wall=160.2s ETA=73.2s
+2026-09-11 01:24:17,048 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=18.88h 26.2% wall=281.5s ETA=791.9s
+2026-09-11 01:24:17,850 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=8.82h 12.2% wall=221.3s ETA=1585.8s
+2026-09-11 01:24:23,306 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=5.78h 8.0% wall=80.6s ETA=923.3s
+2026-09-11 01:24:34,879 INFO q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification t=1.08h 76.4% wall=180.3s ETA=55.8s
+2026-09-11 01:24:37,192 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=20.20h 28.1% wall=301.7s ETA=773.6s
+2026-09-11 01:24:38,087 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=9.68h 13.4% wall=241.5s ETA=1554.3s
+2026-09-11 01:24:43,453 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=6.82h 9.5% wall=100.8s ETA=963.8s
+2026-09-11 01:24:54,919 INFO q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification t=1.20h 84.9% wall=200.3s ETA=35.7s
+2026-09-11 01:24:57,373 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=21.55h 29.9% wall=321.9s ETA=753.5s
+2026-09-11 01:24:58,191 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=10.57h 14.7% wall=261.6s ETA=1521.1s
+2026-09-11 01:25:03,479 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=7.83h 10.9% wall=120.8s ETA=989.7s
+2026-09-11 01:25:14,919 INFO q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification t=1.32h 93.2% wall=220.3s ETA=16.0s
+2026-09-11 01:25:17,458 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=22.88h 31.8% wall=341.9s ETA=733.9s
+2026-09-11 01:25:18,583 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=11.45h 15.9% wall=282.0s ETA=1491.4s
+2026-09-11 01:25:23,746 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=8.87h 12.3% wall=141.1s ETA=1004.6s
+2026-09-11 01:25:31,673 INFO PARTIAL_TIME_RANGE {"case_id": "q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification", "simulated_time_s": 5085.0, "Cmax": 2.418872495978915, "wall_s": 237.0530409000021, "peak_rss_bytes": 984231936, "drying_time_h": null}
+2026-09-11 01:25:37,500 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=24.20h 33.6% wall=362.0s ETA=715.0s
+2026-09-11 01:25:38,588 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=12.32h 17.1% wall=302.0s ETA=1463.5s
+2026-09-11 01:25:43,769 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=9.88h 13.7% wall=161.1s ETA=1012.6s
+2026-09-11 01:25:47,909 INFO START q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification warmup 0.00s target 1.41h
+2026-09-11 01:25:47,931 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification", "requested_dt_s": 0.25, "accepted_dt_s": 0.125, "simulated_time_s": 0.0, "grid": [40, 250]}
+2026-09-11 01:25:57,609 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=25.53h 35.5% wall=382.1s ETA=695.3s
+2026-09-11 01:25:58,900 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=13.20h 18.3% wall=322.3s ETA=1435.9s
+2026-09-11 01:26:04,017 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=10.92h 15.2% wall=181.4s ETA=1014.8s
+2026-09-11 01:26:07,918 INFO q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification t=0.27h 18.9% wall=20.0s ETA=85.7s
+2026-09-11 01:26:17,724 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=26.87h 37.3% wall=402.2s ETA=675.7s
+2026-09-11 01:26:19,095 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=14.07h 19.5% wall=342.5s ETA=1410.7s
+2026-09-11 01:26:24,315 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=11.95h 16.6% wall=201.7s ETA=1013.3s
+2026-09-11 01:26:27,928 INFO q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification t=0.54h 38.2% wall=40.0s ETA=64.7s
+2026-09-11 01:26:37,886 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=28.18h 39.1% wall=422.4s ETA=656.7s
+2026-09-11 01:26:39,147 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=14.92h 20.7% wall=362.6s ETA=1387.5s
+2026-09-11 01:26:44,602 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=12.97h 18.0% wall=221.9s ETA=1010.4s
+2026-09-11 01:26:47,940 INFO q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification t=0.80h 56.8% wall=60.0s ETA=45.7s
+2026-09-11 01:26:58,158 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=29.50h 41.0% wall=442.6s ETA=637.7s
+2026-09-11 01:26:59,269 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=15.77h 21.9% wall=382.7s ETA=1365.0s
+2026-09-11 01:27:04,823 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=13.98h 19.4% wall=242.2s ETA=1004.7s
+2026-09-11 01:27:07,941 INFO q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification t=1.05h 74.4% wall=80.0s ETA=27.5s
+2026-09-11 01:27:18,351 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=30.82h 42.8% wall=462.8s ETA=618.5s
+2026-09-11 01:27:19,618 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=16.62h 23.1% wall=403.1s ETA=1343.4s
+2026-09-11 01:27:25,149 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=14.98h 20.8% wall=262.5s ETA=998.8s
+2026-09-11 01:27:27,953 INFO q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification t=1.32h 93.1% wall=100.0s ETA=7.4s
+2026-09-11 01:27:35,750 INFO PARTIAL_TIME_RANGE {"case_id": "q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification", "simulated_time_s": 5085.0, "Cmax": 2.4188079984199193, "wall_s": 107.83390589999908, "peak_rss_bytes": 1036075008, "drying_time_h": null}
+2026-09-11 01:27:38,599 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=32.10h 44.6% wall=483.1s ETA=600.5s
+2026-09-11 01:27:39,798 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=17.45h 24.2% wall=423.2s ETA=1323.1s
+2026-09-11 01:27:45,445 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=15.98h 22.2% wall=282.8s ETA=991.1s
+2026-09-11 01:27:58,954 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=33.32h 46.3% wall=503.4s ETA=584.5s
+2026-09-11 01:28:00,224 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=18.20h 25.3% wall=443.7s ETA=1311.5s
+2026-09-11 01:28:05,606 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=16.83h 23.4% wall=302.9s ETA=992.8s
+2026-09-11 01:28:19,224 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=34.47h 47.9% wall=523.7s ETA=570.3s
+2026-09-11 01:28:20,494 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=18.95h 26.3% wall=463.9s ETA=1298.8s
+2026-09-11 01:28:25,662 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=17.72h 24.6% wall=323.0s ETA=989.7s
+2026-09-11 01:28:39,438 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=35.67h 49.5% wall=543.9s ETA=554.1s
+2026-09-11 01:28:40,552 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=19.73h 27.4% wall=484.0s ETA=1281.9s
+2026-09-11 01:28:45,900 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=18.68h 25.9% wall=343.2s ETA=979.5s
+2026-09-11 01:28:59,599 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=36.95h 51.3% wall=564.1s ETA=535.1s
+2026-09-11 01:29:00,829 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=20.57h 28.6% wall=504.3s ETA=1261.1s
+2026-09-11 01:29:06,150 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=19.67h 27.3% wall=363.5s ETA=967.2s
+2026-09-11 01:29:19,837 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=38.27h 53.1% wall=584.3s ETA=515.1s
+2026-09-11 01:29:20,911 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=21.40h 29.7% wall=524.3s ETA=1239.8s
+2026-09-11 01:29:26,227 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=20.68h 28.7% wall=383.6s ETA=951.6s
+2026-09-11 01:29:40,046 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=39.57h 55.0% wall=604.5s ETA=495.5s
+2026-09-11 01:29:41,171 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=22.25h 30.9% wall=544.6s ETA=1217.7s
+2026-09-11 01:29:46,283 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=21.68h 30.1% wall=403.6s ETA=936.6s
+2026-09-11 01:30:00,287 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=40.88h 56.8% wall=624.8s ETA=475.5s
+2026-09-11 01:30:01,518 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=23.10h 32.1% wall=565.0s ETA=1195.9s
+2026-09-11 01:30:06,321 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=22.68h 31.5% wall=423.7s ETA=921.1s
+2026-09-11 01:30:20,386 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=42.20h 58.6% wall=644.9s ETA=455.4s
+2026-09-11 01:30:21,585 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=23.95h 33.3% wall=585.0s ETA=1173.7s
+2026-09-11 01:30:26,540 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=23.68h 32.9% wall=443.9s ETA=905.6s
+2026-09-11 01:30:40,419 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=43.48h 60.4% wall=664.9s ETA=436.0s
+2026-09-11 01:30:41,902 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=24.80h 34.4% wall=605.3s ETA=1152.1s
+2026-09-11 01:30:46,788 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=24.72h 34.3% wall=464.1s ETA=887.9s
+2026-09-11 01:31:00,504 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=44.82h 62.2% wall=685.0s ETA=415.5s
+2026-09-11 01:31:02,091 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=25.67h 35.6% wall=625.5s ETA=1129.2s
+2026-09-11 01:31:06,873 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=25.73h 35.7% wall=484.2s ETA=870.6s
+2026-09-11 01:31:20,517 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=46.15h 64.1% wall=705.0s ETA=394.9s
+2026-09-11 01:31:22,363 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=26.55h 36.9% wall=645.8s ETA=1105.5s
+2026-09-11 01:31:26,989 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=26.77h 37.2% wall=504.3s ETA=852.3s
+2026-09-11 01:31:40,521 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=47.48h 65.9% wall=725.0s ETA=374.3s
+2026-09-11 01:31:42,603 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=27.43h 38.1% wall=666.0s ETA=1082.0s
+2026-09-11 01:31:47,188 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=27.80h 38.6% wall=524.5s ETA=834.0s
+2026-09-11 01:32:00,646 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=48.82h 67.8% wall=745.1s ETA=353.9s
+2026-09-11 01:32:02,843 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=28.30h 39.3% wall=686.3s ETA=1059.7s
+2026-09-11 01:32:07,281 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=28.82h 40.0% wall=544.6s ETA=816.1s
+2026-09-11 01:32:20,778 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=50.13h 69.6% wall=765.3s ETA=333.8s
+2026-09-11 01:32:22,892 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=29.15h 40.5% wall=706.3s ETA=1038.3s
+2026-09-11 01:32:27,318 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=29.83h 41.4% wall=564.7s ETA=798.1s
+2026-09-11 01:32:36,747 INFO DRYING_EVENT_LOCATED {"case_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684", "left_s": 184259.8125, "right_s": 184259.875, "width_s": 0.0625, "raw_event_s": 184259.875, "report_s": 184259.88, "report_h": 51.1833, "left_max_C": 0.15000002354372266, "right_max_C": 0.1499999915716311, "report_max_C": 0.14999998901386488}
+2026-09-11 01:32:40,995 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=51.47h 71.5% wall=785.5s ETA=313.4s
+2026-09-11 01:32:43,033 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=30.00h 41.7% wall=726.5s ETA=1017.1s
+2026-09-11 01:32:47,449 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=30.87h 42.9% wall=584.8s ETA=779.3s
+2026-09-11 01:32:48,720 WARNING 2D_SPATIAL_VALIDATION_PARTIAL {"case_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919", "covered_refinement_time_s": [0, 5085.0], "endpoint_windows": [[204660.0, 208873.31999999998], [204660.0, 208873.31999999998]]}
+2026-09-11 01:33:01,163 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=52.85h 73.4% wall=805.6s ETA=291.9s
+2026-09-11 01:33:03,285 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=30.90h 42.9% wall=746.7s ETA=993.2s
+2026-09-11 01:33:07,623 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=31.95h 44.4% wall=605.0s ETA=758.3s
+2026-09-11 01:33:21,379 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=54.28h 75.4% wall=825.9s ETA=269.5s
+2026-09-11 01:33:23,297 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=31.83h 44.2% wall=766.7s ETA=967.5s
+2026-09-11 01:33:27,908 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=33.07h 45.9% wall=625.2s ETA=736.2s
+2026-09-11 01:33:41,480 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=55.72h 77.4% wall=846.0s ETA=247.2s
+2026-09-11 01:33:43,405 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=32.77h 45.5% wall=786.8s ETA=942.1s
+2026-09-11 01:33:47,977 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=34.17h 47.5% wall=645.3s ETA=714.6s
+2026-09-11 01:34:01,730 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=57.10h 79.3% wall=866.2s ETA=226.0s
+2026-09-11 01:34:03,436 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=33.65h 46.7% wall=806.9s ETA=919.6s
+2026-09-11 01:34:08,191 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=35.20h 48.9% wall=665.5s ETA=695.8s
+2026-09-11 01:34:21,943 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=58.50h 81.2% wall=886.4s ETA=204.6s
+2026-09-11 01:34:23,745 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=34.57h 48.0% wall=827.2s ETA=895.8s
+2026-09-11 01:34:28,379 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=36.30h 50.4% wall=685.7s ETA=674.4s
+2026-09-11 01:34:41,975 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=59.92h 83.2% wall=906.5s ETA=182.8s
+2026-09-11 01:34:44,056 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=35.48h 49.3% wall=847.5s ETA=872.2s
+2026-09-11 01:34:48,540 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=37.40h 51.9% wall=705.9s ETA=653.0s
+2026-09-11 01:35:02,119 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=61.30h 85.1% wall=926.6s ETA=161.7s
+2026-09-11 01:35:04,364 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=36.38h 50.5% wall=867.8s ETA=849.5s
+2026-09-11 01:35:08,792 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=38.47h 53.4% wall=726.1s ETA=633.0s
+2026-09-11 01:35:22,154 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=62.67h 87.0% wall=946.6s ETA=141.0s
+2026-09-11 01:35:24,672 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=37.27h 51.8% wall=888.1s ETA=827.7s
+2026-09-11 01:35:29,008 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=39.53h 54.9% wall=746.3s ETA=612.9s
+2026-09-11 01:35:42,223 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=64.07h 89.0% wall=966.7s ETA=119.7s
+2026-09-11 01:35:44,695 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=38.17h 53.0% wall=908.1s ETA=805.0s
+2026-09-11 01:35:49,113 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=40.60h 56.4% wall=766.4s ETA=592.8s
+2026-09-11 01:36:02,305 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=65.45h 90.9% wall=986.8s ETA=98.8s
+2026-09-11 01:36:04,714 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=39.07h 54.3% wall=928.2s ETA=782.4s
+2026-09-11 01:36:09,396 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=41.70h 57.9% wall=786.7s ETA=571.7s
+2026-09-11 01:36:22,376 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=66.87h 92.9% wall=1006.9s ETA=77.3s
+2026-09-11 01:36:24,782 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=40.00h 55.6% wall=948.2s ETA=758.6s
+2026-09-11 01:36:29,402 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=42.80h 59.4% wall=806.7s ETA=550.4s
+2026-09-11 01:36:42,512 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=68.27h 94.8% wall=1027.0s ETA=56.2s
+2026-09-11 01:36:44,845 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=40.92h 56.8% wall=968.3s ETA=735.6s
+2026-09-11 01:36:49,642 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=43.92h 61.0% wall=827.0s ETA=528.8s
+2026-09-11 01:37:02,654 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=69.70h 96.8% wall=1047.1s ETA=34.6s
+2026-09-11 01:37:05,062 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=41.83h 58.1% wall=988.5s ETA=712.8s
+2026-09-11 01:37:09,829 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=45.00h 62.5% wall=847.2s ETA=508.3s
+2026-09-11 01:37:22,697 INFO q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684 t=71.08h 98.7% wall=1067.2s ETA=13.8s
+2026-09-11 01:37:25,226 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=42.77h 59.4% wall=1008.7s ETA=689.5s
+2026-09-11 01:37:30,028 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=46.10h 64.0% wall=867.4s ETA=487.3s
+2026-09-11 01:37:35,767 INFO DRY {"case_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684", "simulated_time_s": 259200.0, "Cmax": 0.12375578153609805, "wall_s": 1080.231666900003, "peak_rss_bytes": 133939200, "drying_time_h": 51.1833}
+2026-09-11 01:37:45,230 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=43.70h 60.7% wall=1028.7s ETA=666.2s
+2026-09-11 01:37:50,314 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=47.23h 65.6% wall=887.7s ETA=465.4s
+2026-09-11 01:38:05,397 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=44.67h 62.0% wall=1048.8s ETA=641.8s
+2026-09-11 01:38:10,450 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=48.40h 67.2% wall=907.8s ETA=442.6s
+2026-09-11 01:38:25,608 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=45.62h 63.4% wall=1069.0s ETA=618.3s
+2026-09-11 01:38:30,595 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=49.57h 68.8% wall=927.9s ETA=420.0s
+2026-09-11 01:38:45,764 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=46.57h 64.7% wall=1089.2s ETA=594.9s
+2026-09-11 01:38:50,640 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=50.75h 70.5% wall=948.0s ETA=396.9s
+2026-09-11 01:38:56,880 INFO DRYING_EVENT_LOCATED {"case_id": "q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b", "left_s": 183965.953125, "right_s": 183965.96875, "width_s": 0.015625, "raw_event_s": 183965.96875, "report_s": 183966.12, "report_h": 51.1017, "left_max_C": 0.1500000015410422, "right_max_C": 0.14999999352093185, "report_max_C": 0.14999991588634534}
+2026-09-11 01:39:05,798 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=47.52h 66.0% wall=1109.2s ETA=571.5s
+2026-09-11 01:39:10,741 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=51.88h 72.1% wall=968.1s ETA=375.4s
+2026-09-11 01:39:25,918 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=48.47h 67.3% wall=1129.4s ETA=548.4s
+2026-09-11 01:39:30,747 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=53.03h 73.7% wall=988.1s ETA=353.4s
+2026-09-11 01:39:46,062 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=49.43h 68.7% wall=1149.5s ETA=524.8s
+2026-09-11 01:39:50,972 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=54.22h 75.3% wall=1008.3s ETA=330.7s
+2026-09-11 01:40:06,262 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=50.37h 70.0% wall=1169.7s ETA=502.4s
+2026-09-11 01:40:11,136 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=55.33h 76.9% wall=1028.5s ETA=309.8s
+2026-09-11 01:40:26,400 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=51.30h 71.2% wall=1189.8s ETA=480.1s
+2026-09-11 01:40:31,283 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=56.48h 78.4% wall=1048.6s ETA=288.1s
+2026-09-11 01:40:46,562 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=52.25h 72.6% wall=1210.0s ETA=457.4s
+2026-09-11 01:40:51,468 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=57.67h 80.1% wall=1068.8s ETA=265.7s
+2026-09-11 01:41:06,584 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=53.22h 73.9% wall=1230.0s ETA=434.1s
+2026-09-11 01:41:11,692 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=58.85h 81.7% wall=1089.0s ETA=243.3s
+2026-09-11 01:41:26,592 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=54.18h 75.3% wall=1250.0s ETA=411.0s
+2026-09-11 01:41:31,855 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=60.00h 83.3% wall=1109.2s ETA=221.8s
+2026-09-11 01:41:46,620 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=55.10h 76.5% wall=1270.1s ETA=389.5s
+2026-09-11 01:41:51,919 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=61.12h 84.9% wall=1129.3s ETA=201.1s
+2026-09-11 01:42:06,772 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=56.05h 77.8% wall=1290.2s ETA=367.2s
+2026-09-11 01:42:12,058 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=62.25h 86.5% wall=1149.4s ETA=180.0s
+2026-09-11 01:42:26,938 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=56.98h 79.1% wall=1310.4s ETA=345.3s
+2026-09-11 01:42:32,308 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=63.38h 88.0% wall=1169.6s ETA=159.0s
+2026-09-11 01:42:38,927 INFO DRYING_EVENT_LOCATED {"case_id": "q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps", "left_s": 207095.4609375, "right_s": 207095.46875, "width_s": 0.0078125, "raw_event_s": 207095.46875, "report_s": 207095.75999999998, "report_h": 57.526599999999995, "left_max_C": 0.15000000115844025, "right_max_C": 0.1499999988871527, "report_max_C": 0.149999914213668}
+2026-09-11 01:42:46,990 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=57.90h 80.4% wall=1330.4s ETA=324.0s
+2026-09-11 01:42:52,407 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=64.52h 89.6% wall=1189.7s ETA=138.0s
+2026-09-11 01:43:07,277 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=58.85h 81.7% wall=1350.7s ETA=301.8s
+2026-09-11 01:43:12,676 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=65.70h 91.2% wall=1210.0s ETA=116.0s
+2026-09-11 01:43:27,467 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=59.80h 83.1% wall=1370.9s ETA=279.7s
+2026-09-11 01:43:32,799 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=66.87h 92.9% wall=1230.1s ETA=94.4s
+2026-09-11 01:43:47,640 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=60.77h 84.4% wall=1391.1s ETA=257.2s
+2026-09-11 01:43:52,815 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=68.02h 94.5% wall=1250.2s ETA=73.2s
+2026-09-11 01:44:07,989 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=61.68h 85.7% wall=1411.4s ETA=236.1s
+2026-09-11 01:44:13,031 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=69.13h 96.0% wall=1270.4s ETA=52.7s
+2026-09-11 01:44:28,138 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=62.62h 87.0% wall=1431.6s ETA=214.5s
+2026-09-11 01:44:33,288 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=70.30h 97.6% wall=1290.6s ETA=31.2s
+2026-09-11 01:44:48,476 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=63.58h 88.3% wall=1451.9s ETA=192.2s
+2026-09-11 01:44:53,491 INFO q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b t=71.48h 99.3% wall=1310.8s ETA=9.5s
+2026-09-11 01:45:02,256 INFO DRY {"case_id": "q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b", "simulated_time_s": 259200.0, "Cmax": 0.1236268014568915, "wall_s": 1319.5830127000008, "peak_rss_bytes": 218578944, "drying_time_h": 51.1017}
+2026-09-11 01:45:08,658 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=64.53h 89.6% wall=1472.1s ETA=170.3s
+2026-09-11 01:45:15,548 INFO CACHE_REUSED q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684
+2026-09-11 01:45:15,549 INFO CACHE_REUSED {"case_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684"}
+2026-09-11 01:45:15,569 INFO START q4_2d_adaptive_nr40_nz125_dt0.125_md7f14a4ef684_half_steps warmup 0.00s target 0.50h
+2026-09-11 01:45:28,723 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=65.48h 90.9% wall=1492.2s ETA=148.5s
+2026-09-11 01:45:29,413 INFO PARTIAL_TIME_RANGE {"case_id": "q4_2d_adaptive_nr40_nz125_dt0.125_md7f14a4ef684_half_steps", "simulated_time_s": 1800.0, "Cmax": 2.55, "wall_s": 13.83901319999859, "peak_rss_bytes": 158998528, "drying_time_h": null}
+2026-09-11 01:45:48,826 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=66.40h 92.2% wall=1512.3s ETA=127.5s
+2026-09-11 01:45:53,250 WARNING END_EFFECT_NOT_NEGLIGIBLE {"case_id": "q4", "max_abs_T": 5.534792666020849, "max_abs_C": 1.7108088207014944, "relative_time_difference": 0.0015976120583443506}
+2026-09-11 01:45:53,388 INFO START q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification warmup 0.00s target 2.87h
+2026-09-11 01:45:54,516 WARNING DT_LIMITED_BY_STABILITY {"case_id": "q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification", "requested_dt_s": 0.25, "accepted_dt_s": 0.125, "simulated_time_s": 0.0, "grid": [80, 125]}
+2026-09-11 01:46:07,788 WARNING END_EFFECT_NOT_NEGLIGIBLE {"case_id": "q1", "max_abs_T": 3.697590683434555, "max_abs_C": 0.9862263314164501, "relative_time_difference": null}
+2026-09-11 01:46:08,831 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=67.28h 93.4% wall=1532.3s ETA=107.4s
+2026-09-11 01:46:13,887 INFO q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification t=0.30h 10.5% wall=20.5s ETA=175.4s
+2026-09-11 01:46:28,851 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=68.15h 94.7% wall=1552.3s ETA=87.7s
+2026-09-11 01:46:34,875 INFO q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification t=0.60h 20.9% wall=41.5s ETA=156.7s
+2026-09-11 01:46:36,397 WARNING END_EFFECT_NOT_NEGLIGIBLE {"case_id": "q23", "max_abs_T": 4.093695653635564, "max_abs_C": 0.9754244913361902, "relative_time_difference": 0.005687443366623636}
+2026-09-11 01:46:49,040 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=69.05h 95.9% wall=1572.5s ETA=67.2s
+2026-09-11 01:46:55,885 INFO q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification t=0.92h 32.0% wall=62.5s ETA=133.0s
+2026-09-11 01:46:57,393 WARNING END_EFFECT_NOT_NEGLIGIBLE {"case_id": "q4", "max_abs_T": 5.534792666020849, "max_abs_C": 1.7108088207014944, "relative_time_difference": 0.0015976120583443506}
+2026-09-11 01:47:09,181 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=69.98h 97.2% wall=1592.6s ETA=45.9s
+2026-09-11 01:47:16,959 INFO q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification t=1.23h 43.0% wall=83.6s ETA=110.7s
+2026-09-11 01:47:29,401 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=70.92h 98.5% wall=1612.8s ETA=24.6s
+2026-09-11 01:47:38,130 INFO q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification t=1.55h 54.1% wall=104.7s ETA=89.0s
+2026-09-11 01:47:49,724 INFO q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps t=71.82h 99.7% wall=1633.2s ETA=4.2s
+2026-09-11 01:47:53,895 INFO DRY {"case_id": "q23_1d_adaptive_nr160_nz1_dt0.125_m94a220bc5006_half_steps", "simulated_time_s": 259200.0, "Cmax": 0.1377328657400242, "wall_s": 1637.3144694000002, "peak_rss_bytes": 464433152, "drying_time_h": 57.526599999999995}
+2026-09-11 01:47:58,554 INFO q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification t=1.85h 64.5% wall=125.2s ETA=68.8s
+2026-09-11 01:48:18,971 INFO q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification t=2.15h 75.0% wall=145.6s ETA=48.5s
+2026-09-11 01:48:39,803 INFO q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification t=2.47h 86.0% wall=166.4s ETA=27.0s
+2026-09-11 01:48:43,242 INFO CACHE_REUSED q4_1d_adaptive_nr40_nz1_dt0.25_ma085877c28ed
+2026-09-11 01:48:43,243 INFO CACHE_REUSED {"case_id": "q4_1d_adaptive_nr40_nz1_dt0.25_ma085877c28ed"}
+2026-09-11 01:48:43,255 INFO CACHE_REUSED q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe
+2026-09-11 01:48:43,256 INFO CACHE_REUSED {"case_id": "q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe"}
+2026-09-11 01:48:43,269 INFO CACHE_REUSED q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b
+2026-09-11 01:48:43,270 INFO CACHE_REUSED {"case_id": "q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b"}
+2026-09-11 01:48:52,263 WARNING SPATIAL_CONVERGENCE_FAILED {"case_id": "q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b", "failure_reasons": ["OFFICIAL_C_EXCEEDS_TOLERANCE"]}
+2026-09-11 01:48:52,279 INFO START q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps warmup 0.00s target 72.00h
+2026-09-11 01:49:00,308 INFO q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification t=2.77h 96.5% wall=186.9s ETA=6.8s
+2026-09-11 01:49:06,987 INFO PARTIAL_TIME_RANGE {"case_id": "q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification", "simulated_time_s": 10320.0, "Cmax": 2.475017771909165, "wall_s": 193.5850352999987, "peak_rss_bytes": 169783296, "drying_time_h": null}
+2026-09-11 01:49:07,623 INFO START q4_2d_adaptive_nr40_nz250_dt0.25_m7c4f1999f231_axial_verification warmup 0.00s target 2.87h
+2026-09-11 01:49:12,338 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=1.72h 2.4% wall=20.1s ETA=821.3s
+2026-09-11 01:49:28,022 INFO q4_2d_adaptive_nr40_nz250_dt0.25_m7c4f1999f231_axial_verification t=0.73h 25.6% wall=20.4s ETA=59.3s
+2026-09-11 01:49:32,469 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=3.38h 4.7% wall=40.2s ETA=815.1s
+2026-09-11 01:49:48,254 INFO q4_2d_adaptive_nr40_nz250_dt0.25_m7c4f1999f231_axial_verification t=1.45h 50.6% wall=40.6s ETA=39.7s
+2026-09-11 01:49:52,506 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=4.25h 5.9% wall=60.2s ETA=960.1s
+2026-09-11 01:50:08,702 INFO q4_2d_adaptive_nr40_nz250_dt0.25_m7c4f1999f231_axial_verification t=2.18h 76.2% wall=61.1s ETA=19.1s
+2026-09-11 01:50:12,662 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=5.15h 7.2% wall=80.4s ETA=1043.4s
+2026-09-11 01:50:27,606 INFO PARTIAL_TIME_RANGE {"case_id": "q4_2d_adaptive_nr40_nz250_dt0.25_m7c4f1999f231_axial_verification", "simulated_time_s": 10320.0, "Cmax": 2.4748463454346066, "wall_s": 79.96898610000062, "peak_rss_bytes": 167686144, "drying_time_h": null}
+2026-09-11 01:50:32,928 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=6.07h 8.4% wall=100.7s ETA=1093.9s
+2026-09-11 01:50:53,089 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=6.98h 9.7% wall=120.8s ETA=1124.8s
+2026-09-11 01:51:13,260 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=7.90h 11.0% wall=141.0s ETA=1143.9s
+2026-09-11 01:51:33,365 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=8.80h 12.2% wall=161.1s ETA=1156.9s
+2026-09-11 01:51:53,701 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=9.70h 13.5% wall=181.4s ETA=1165.2s
+2026-09-11 01:52:13,930 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=10.62h 14.7% wall=201.7s ETA=1165.9s
+2026-09-11 01:52:34,210 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=11.53h 16.0% wall=221.9s ETA=1163.5s
+2026-09-11 01:52:54,502 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=12.45h 17.3% wall=242.2s ETA=1158.6s
+2026-09-11 01:53:14,719 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=13.33h 18.5% wall=262.4s ETA=1154.7s
+2026-09-11 01:53:34,905 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=14.23h 19.8% wall=282.6s ETA=1147.1s
+2026-09-11 01:53:55,157 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=15.15h 21.0% wall=302.9s ETA=1136.5s
+2026-09-11 01:54:15,498 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=16.08h 22.3% wall=323.2s ETA=1123.7s
+2026-09-11 01:54:35,631 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=17.02h 23.6% wall=343.4s ETA=1109.4s
+2026-09-11 01:54:51,888 WARNING 2D_SPATIAL_VALIDATION_PARTIAL {"case_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684", "covered_refinement_time_s": [0, 10320.0], "endpoint_windows": [[180600.0, 184859.88], [180600.0, 184859.88]]}
+2026-09-11 01:54:55,733 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=17.93h 24.9% wall=363.5s ETA=1095.8s
+2026-09-11 01:55:15,759 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=18.97h 26.3% wall=383.5s ETA=1072.3s
+2026-09-11 01:55:36,047 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=20.03h 27.8% wall=403.8s ETA=1047.4s
+2026-09-11 01:55:56,054 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=21.08h 29.3% wall=423.8s ETA=1023.4s
+2026-09-11 01:56:16,072 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=22.08h 30.7% wall=443.8s ETA=1003.1s
+2026-09-11 01:56:36,273 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=23.15h 32.2% wall=464.0s ETA=979.1s
+2026-09-11 01:56:56,602 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=24.22h 33.6% wall=484.3s ETA=955.6s
+2026-09-11 01:57:16,896 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=25.28h 35.1% wall=504.6s ETA=932.4s
+2026-09-11 01:57:37,115 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=26.33h 36.6% wall=524.8s ETA=910.2s
+2026-09-11 01:57:57,412 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=27.42h 38.1% wall=545.1s ETA=886.5s
+2026-09-11 01:58:17,546 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=28.47h 39.5% wall=565.3s ETA=864.5s
+2026-09-11 01:58:37,552 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=29.52h 41.0% wall=585.3s ETA=842.4s
+2026-09-11 01:58:57,807 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=30.57h 42.5% wall=605.5s ETA=820.8s
+2026-09-11 01:59:17,877 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=31.58h 43.9% wall=625.6s ETA=800.6s
+2026-09-11 01:59:38,169 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=32.65h 45.3% wall=645.9s ETA=778.4s
+2026-09-11 01:59:58,209 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=33.68h 46.8% wall=665.9s ETA=757.5s
+2026-09-11 02:00:18,447 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=34.75h 48.3% wall=686.2s ETA=735.5s
+2026-09-11 02:00:38,736 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=35.83h 49.8% wall=706.5s ETA=713.0s
+2026-09-11 02:00:58,802 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=36.93h 51.3% wall=726.5s ETA=689.8s
+2026-09-11 02:01:18,981 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=38.00h 52.8% wall=746.7s ETA=668.1s
+2026-09-11 02:01:39,163 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=39.08h 54.3% wall=766.9s ETA=645.9s
+2026-09-11 02:01:59,504 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=40.17h 55.8% wall=787.2s ETA=623.9s
+2026-09-11 02:02:19,542 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=41.22h 57.2% wall=807.3s ETA=602.9s
+2026-09-11 02:02:39,693 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=42.30h 58.8% wall=827.4s ETA=581.0s
+2026-09-11 02:02:59,985 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=43.40h 60.3% wall=847.7s ETA=558.6s
+2026-09-11 02:03:20,013 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=44.47h 61.8% wall=867.7s ETA=537.3s
+2026-09-11 02:03:40,152 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=45.53h 63.2% wall=887.9s ETA=516.1s
+2026-09-11 02:04:00,271 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=46.60h 64.7% wall=908.0s ETA=494.9s
+2026-09-11 02:04:20,347 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=47.67h 66.2% wall=928.1s ETA=473.8s
+2026-09-11 02:04:40,632 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=48.73h 67.7% wall=948.4s ETA=452.8s
+2026-09-11 02:05:00,729 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=49.80h 69.2% wall=968.5s ETA=431.7s
+2026-09-11 02:05:20,767 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=50.87h 70.6% wall=988.5s ETA=410.7s
+2026-09-11 02:05:25,484 INFO DRYING_EVENT_LOCATED {"case_id": "q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps", "left_s": 183965.953125, "right_s": 183965.9609375, "width_s": 0.0078125, "raw_event_s": 183965.9609375, "report_s": 183966.12, "report_h": 51.1017, "left_max_C": 0.15000000154401769, "right_max_C": 0.1499999975339623, "report_max_C": 0.14999991588932085}
+2026-09-11 02:05:40,950 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=51.92h 72.1% wall=1008.7s ETA=390.2s
+2026-09-11 02:06:00,970 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=52.95h 73.5% wall=1028.7s ETA=370.1s
+2026-09-11 02:06:21,023 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=54.00h 75.0% wall=1048.7s ETA=349.6s
+2026-09-11 02:06:41,095 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=55.05h 76.5% wall=1068.8s ETA=329.1s
+2026-09-11 02:07:01,307 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=56.10h 77.9% wall=1089.0s ETA=308.7s
+2026-09-11 02:07:21,566 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=57.22h 79.5% wall=1109.3s ETA=286.6s
+2026-09-11 02:07:41,713 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=58.27h 80.9% wall=1129.4s ETA=266.2s
+2026-09-11 02:08:01,865 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=59.33h 82.4% wall=1149.6s ETA=245.4s
+2026-09-11 02:08:22,002 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=60.37h 83.8% wall=1169.7s ETA=225.4s
+2026-09-11 02:08:42,022 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=61.38h 85.3% wall=1189.7s ETA=205.8s
+2026-09-11 02:09:02,023 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=62.42h 86.7% wall=1209.7s ETA=185.7s
+2026-09-11 02:09:22,265 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=63.47h 88.1% wall=1230.0s ETA=165.4s
+2026-09-11 02:09:42,329 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=64.52h 89.6% wall=1250.1s ETA=145.0s
+2026-09-11 02:10:02,563 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=65.57h 91.1% wall=1270.3s ETA=124.6s
+2026-09-11 02:10:22,648 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=66.62h 92.5% wall=1290.4s ETA=104.3s
+2026-09-11 02:10:42,728 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=67.67h 94.0% wall=1310.5s ETA=83.9s
+2026-09-11 02:11:02,965 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=68.75h 95.5% wall=1330.7s ETA=62.9s
+2026-09-11 02:11:23,232 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=69.83h 97.0% wall=1351.0s ETA=41.9s
+2026-09-11 02:11:43,241 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=70.87h 98.4% wall=1371.0s ETA=21.9s
+2026-09-11 02:12:03,258 INFO q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps t=71.90h 99.9% wall=1391.0s ETA=1.9s
+2026-09-11 02:12:05,206 INFO DRY {"case_id": "q4_1d_adaptive_nr160_nz1_dt0.125_m1d7a05f7e44b_half_steps", "simulated_time_s": 259200.0, "Cmax": 0.12362680145889196, "wall_s": 1392.9075584999991, "peak_rss_bytes": 233598976, "drying_time_h": 51.1017}

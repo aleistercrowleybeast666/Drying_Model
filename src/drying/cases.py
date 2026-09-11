@@ -10,6 +10,8 @@ from .diagnostics import Diagnostics_Record
 from .events import Event_Locate
 from .inputs import Input_AtTime
 from .materials import Material_Evaluate
+from .mesh import Mesh_BuildAdaptive, Mesh_GetHash
+from .geometry import Geometry_GetGrid
 from .rk4 import Rk4_Advance, RkStepResult
 from .sampling import Sampling_GetNodes
 from .storage import Storage_HashFiles, Storage_WriteArray, Storage_WriteJson
@@ -25,8 +27,38 @@ def Case_LoadConfig(root):
         return tomllib.load(stream)
 
 
-def Case_GetId(case, dim, nr=40, nz=125, dt=0.25, tag=''):
-    return f'{case}_{dim}d_nr{nr}_nz{nz if dim == 2 else 1}_dt{dt:g}' + (f'_{tag}' if tag else '')
+def Case_LoadMesh(root,case_id):
+    with np.load(Path(root)/'work/cache'/case_id/'mesh.npz') as saved:
+        return saved['xi_faces'].copy(),saved['eta_faces'].copy()
+
+
+def Case_GetSourceHash(root):
+    return Storage_HashFiles([Path(root)/'src/drying'/name for name in
+        ('materials.py','boundaries.py','operators.py','rk4.py','sampling.py','inputs.py','events.py','geometry.py')])
+
+
+def Case_GetSelected(root,case,dimension):
+    root=Path(root)
+    mode=Case_LoadConfig(root).get('mesh',{}).get('mode','uniform') if (root/'configs/default.toml').exists() else 'uniform'
+    path=root/'work/validation/summary.json'
+    if path.exists():
+        selected=json.loads(path.read_text(encoding='utf-8')).get(f'{case}_{dimension}d',{}).get('selected_id')
+        if selected and (root/'work/cache'/selected/'status.json').exists():
+            raw=json.loads((root/'work/cache'/selected/'status.json').read_text(encoding='utf-8'))
+            if raw.get('mesh_mode') == mode and (not (root/'src/drying').exists() or raw['source_hash']==Case_GetSourceHash(root)):
+                return selected
+    choices=[]
+    for path in (root/'work/cache').glob(f'{case}_{dimension}d_{mode}_*/status.json'):
+        value=json.loads(path.read_text(encoding='utf-8'))
+        if value.get('complete') and value.get('nr') and not value.get('tag') and (not (root/'src/drying').exists() or value.get('source_hash')==Case_GetSourceHash(root)):
+            choices.append(value)
+    if choices:
+        return max(choices,key=lambda v:v['nr'])['case_id']
+    return Case_GetId(case,dimension,mesh_mode=mode)
+
+
+def Case_GetId(case, dim, nr=40, nz=125, dt=0.25, tag='', mesh_mode='uniform', mesh_hash=''):
+    return f'{case}_{dim}d_{mesh_mode}_nr{nr}_nz{nz if dim == 2 else 1}_dt{dt:g}' + (f'_m{mesh_hash[:12]}' if mesh_hash else '') + (f'_{tag}' if tag else '')
 
 
 def Case_GetSchedule(case, cap):
@@ -36,7 +68,7 @@ def Case_GetSchedule(case, cap):
     return np.unique(np.r_[early, late, min(1800, cap), cap])
 
 
-def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, replay_id=None):
+def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, replay_id=None, mesh_mode=None):
     root = Path(root)
     config = Case_LoadConfig(root)
     num = config['numerics']
@@ -45,7 +77,9 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
         nz = 1
     if nr < 2 or nz < 1 or dim not in (1, 2) or dt <= 0:
         raise ValueError('INPUT_VALUE_INVALID: numerical configuration')
-    case_id = Case_GetId(case, dim, nr, nz, dt, tag)
+    mode = mesh_mode or config['mesh']['mode']
+    mesh, mesh_metadata = Mesh_BuildAdaptive(root,case,nr,nz,mode)
+    case_id = Case_GetId(case, dim, nr, nz, dt, tag, mode, mesh_metadata['mesh_profile_hash'])
     folder = root/'work/cache'/case_id
     folder.mkdir(parents=True, exist_ok=True)
     model = dict(q1=1, q23=3, q4=4)[case]
@@ -55,10 +89,11 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
     inputs = Case_LoadInputs(root)
     input_hash = json.loads((root/'data/input_manifest.json').read_text(encoding='utf-8'))['hash']
     source_hash = Storage_HashFiles([root/'src/drying'/f for f in
-        ('materials.py', 'boundaries.py', 'operators.py', 'rk4.py', 'sampling.py', 'inputs.py', 'events.py')])
+        ('materials.py', 'boundaries.py', 'operators.py', 'rk4.py', 'sampling.py', 'inputs.py', 'events.py', 'geometry.py')])
     specification = dict(case=case, dim=dim, nr=nr, nz=nz, dt=dt, cap=cap,
                          input_hash=input_hash, source_hash=source_hash, replay_id=replay_id,
                          physics=config['physics'], numerics=num)
+    specification.update(mesh_metadata)
     fingerprint = hashlib.sha256(json.dumps(specification, sort_keys=True).encode()).hexdigest()
     status_path = folder/'status.json'
     if status_path.exists():
@@ -67,15 +102,22 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
             raise RuntimeError(f'CACHE_MISMATCH: {case_id}; choose a new --tag')
         if saved['complete']:
             logging.getLogger('drying').info('CACHE_REUSED %s', case_id)
+            Diagnostics_Record(root,'CACHE_REUSED',case_id=case_id)
             return saved
+    Storage_WriteArray(folder/'mesh.npz',xi_faces=mesh[0],eta_faces=mesh[1],mesh_profile_hash=mesh_metadata['mesh_profile_hash'])
     schedule = Case_GetSchedule(case, cap)
+    # A replay bisects an already accepted finite partition, including on a
+    # second bisection. Its resource guard must permit that known step count.
+    accepted_limit = num['max_steps']
+    if replay_id:
+        accepted_limit = max(accepted_limit,2*Case_ReadStatus(root,replay_id)['steps']+len(schedule))
     Tmin = min(301.15, inputs[0][:, 1].min(), inputs[2][0])
     Tmax = max(301.15, inputs[0][:, 1].max(), inputs[2][0])
     def Advance(state, start, end, replay=np.empty(0)):
         return Rk4_Advance(state, start, end, dt, model, *inputs, model == 4, dim == 2,
             num['safety'], num['min_dt_s'], num['max_rejections'],
             min(num['max_steps'], max(10000, int((end-start)/min(dt, 0.001))+100)),
-            Tmin, Tmax, replay)
+            Tmin, Tmax, replay, xi_faces=mesh[0], eta_faces=mesh[1])
     state = np.empty((2, nr, nz))
     state[0], state[1] = 301.15, 2.55
     t, chunk_no, steps, limited, peak, prior_wall = 0., 0, 0, 0, 0, 0.
@@ -102,7 +144,7 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
     process = psutil.Process()
     status = dict(case_id=case_id, **specification, fingerprint=fingerprint,
                   complete=False, status='RUNNING', drying_time_h=None, event=event,
-                  compile_or_load_s=compile_s, validation='PENDING')
+                  compile_or_load_s=compile_s, validation='PENDING', tag=tag)
     Storage_WriteJson(status_path, status)
     logging.getLogger('drying').info('START %s warmup %.2fs target %.2fh', case_id, compile_s, cap/3600)
     while t < cap-1e-8:
@@ -137,7 +179,8 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
                 Diagnostics_Record(root, 'RK_STEP_REJECTED', 'WARNING', case_id=case_id, dimension=dim,
                     simulated_time_s=ts, requested_dt_s=dt, accepted_dt_s=ds, rk_stage=int(stage),
                     reason=RkStepResult(int(failure)).name, cell_index=[int(i), int(j)],
-                    r_m=(i+.5)*R/nr, z_m=(j+.5)*.125/nz, xi=(i+.5)/nr,
+                    r_m=float((mesh[0][int(i)]+mesh[0][int(i)+1])*R/2),
+                    z_m=float((mesh[1][int(j)]+mesh[1][int(j)+1])*.125/2), xi=float((mesh[0][int(i)]+mesh[0][int(i)+1])/2),
                     R_m=R, T_K=Finite(T), C=Finite(C), environment_values=[Te, He], attempt=int(attempt),
                     rho=properties[0], cp=properties[1], k=properties[2], D=properties[3],
                     grid=[nr, nz], suggested_check='Inspect local state, conductances, and rejected RK stage')
@@ -150,12 +193,12 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
                                    requested_dt_s=dt, accepted_dt_s=mindt, simulated_time_s=t, grid=[nr, nz])
             limited += limited_steps
             steps += accepted.size
-            if steps > num['max_steps']:
+            if steps > accepted_limit:
                 raise RuntimeError('MAX_STEPS_REACHED')
             minimum_dt, maximum_dt = min(minimum_dt, mindt), max(maximum_dt, maxdt)
             partitions.append(accepted)
             if el >= 0 and event is None:
-                event, report_state = Event_Locate(el, er, es, Advance, model, inputs)
+                event, report_state = Event_Locate(el, er, es, Advance, model, inputs, mesh=mesh)
                 Storage_WriteArray(folder/'event.npz', state=report_state, time_s=event['report_s'])
                 Diagnostics_Record(root, 'DRYING_EVENT_LOCATED', case_id=case_id, **event)
             state, t = new_state, float(new_t)
@@ -172,7 +215,7 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
         Storage_WriteArray(folder/f'chunk_{chunk_no:04d}.npz', time_s=np.array(times),
                            fields=np.asarray(fields), step_ends=np.concatenate(partitions),
                            fingerprint=fingerprint)
-        r, z, nodes = Sampling_GetNodes(state, t, model, inputs)
+        r, z, nodes = Sampling_GetNodes(state, t, model, inputs, mesh)
         if not np.isfinite(nodes).all() or np.any(nodes[1]<=0):
             raise RuntimeError('BOUNDARY_RECONSTRUCTION_FAILED: invalid reconstructed field')
         index = np.unravel_index(nodes[1].argmax(), nodes[1].shape)
@@ -192,6 +235,7 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
     final_code = 'COMPUTED' if model == 1 else ('DRY' if event else ('NOT_DRY_WITHIN_72H' if cap == 259200 else 'PARTIAL_TIME_RANGE'))
     status.update(complete=True, status=final_code, drying_time_h=event['report_h'] if event else None,
         event=event, peak_rss_bytes=peak, final=diagnostics[-1],
+        dt_stable_without_limiting=limited==0,
         execution_note='Continued genuine integration to cap for paired comparison; official export stops at 1D report time')
     Storage_WriteJson(status_path, status)
     Diagnostics_Record(root, final_code, 'WARNING' if final_code == 'NOT_DRY_WITHIN_72H' else 'INFO',
@@ -218,9 +262,19 @@ def Case_ReadStatus(root, case_id):
     status = json.loads((root/'work/cache'/case_id/'status.json').read_text(encoding='utf-8'))
     current_input = json.loads((root/'data/input_manifest.json').read_text(encoding='utf-8'))['hash']
     current_source = Storage_HashFiles([root/'src/drying'/f for f in
-        ('materials.py', 'boundaries.py', 'operators.py', 'rk4.py', 'sampling.py', 'inputs.py', 'events.py')])
+        ('materials.py', 'boundaries.py', 'operators.py', 'rk4.py', 'sampling.py', 'inputs.py', 'events.py', 'geometry.py')])
     if current_input != status['input_hash'] or current_source != status['source_hash']:
         raise RuntimeError('CACHE_MISMATCH: postprocessing input or numerical core changed')
+    mesh = Case_LoadMesh(root,case_id)
+    if Mesh_GetHash(*mesh) != status.get('mesh_profile_hash'):
+        raise RuntimeError('CACHE_MISMATCH: nonuniform mesh profile changed')
+    if status.get('mesh_mode') == 'adaptive':
+        for axis in ['radial','axial']:
+            expected = status.get(axis+'_monitor_hash')
+            if expected is not None:
+                with np.load(root/f'work/validation/mesh_profiles/{status["case"]}_{axis}_monitor.npz') as saved:
+                    if Mesh_GetHash(saved['x'],saved['monitor']) != expected:
+                        raise RuntimeError('CACHE_MISMATCH: frozen monitor changed')
     return status
 
 
@@ -233,12 +287,15 @@ def Case_SolvePairEvents(root):
     for case,model in [('q23',3),('q4',4)]:
         validation_path=root/'work/validation/summary.json'
         validation=json.loads(validation_path.read_text(encoding='utf-8')) if validation_path.exists() else {}
-        ids=[validation.get(f'{case}_{dimension}d',{}).get('selected_id',Case_GetId(case,dimension)) for dimension in (1,2)]
+        ids=[Case_GetSelected(root,case,dimension) for dimension in (1,2)]
+        if not all((root/'work/cache'/case_id/'status.json').exists() for case_id in ids):
+            continue
         statuses=[Case_ReadStatus(root,case_id) for case_id in ids]
         if not all(status['complete'] for status in statuses):
             continue
         times=np.unique([status['event']['report_s'] for status in statuses if status['event']])
         for case_id,status in zip(ids,statuses):
+            mesh = Case_LoadMesh(root,case_id)
             destination=root/'work/cache'/case_id/'paired_events.npz'
             if destination.exists():
                 with np.load(destination) as data:
@@ -265,7 +322,7 @@ def Case_SolvePairEvents(root):
                     state=data['fields'][prior[1]].copy()
                 result=Rk4_Advance(state,prior[2],float(target),status['dt'],model,*inputs,model==4,
                     status['dim']==2,num['safety'],num['min_dt_s'],num['max_rejections'],100000,
-                    min(301.15,inputs[0][:,1].min()),max(301.15,inputs[0][:,1].max()),np.empty(0))
+                    min(301.15,inputs[0][:,1].min()),max(301.15,inputs[0][:,1].max()),np.empty(0),xi_faces=mesh[0],eta_faces=mesh[1])
                 if result[4]:
                     raise RuntimeError('COMPARISON_INCOMPLETE: paired endpoint integration failed')
                 fields.append(result[0])

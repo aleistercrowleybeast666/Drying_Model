@@ -3,9 +3,10 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from .cases import Case_LoadConfig, Case_LoadInputs, Case_ReadStatus
+from .cases import Case_LoadMesh, Case_LoadConfig, Case_LoadInputs, Case_ReadStatus
 from .sampling import Sampling_GetNodes
 from .storage import Storage_WriteJson
+from .geometry import Geometry_GetCells
 from .comparison import Comparison_IterFields, Comparison_EnsureQuestions, Comparison_ReadSnapshot
 from .outputs import Output_GetEnd, Output_GetSelected, Output_PrepareFolders, Output_UpdateSummary
 
@@ -24,8 +25,8 @@ def Plot_GetSnapshot(root, case_id, at_time):
     return Comparison_ReadSnapshot(root, case_id, at_time)
 
 
-def Plot_DrawSurface(fig, field, t, model, inputs, label, status, limits=None):
-    r,z,nodes = Sampling_GetNodes(field,t,model,inputs)
+def Plot_DrawSurface(fig, field, t, model, inputs, label, status, limits=None, mesh=None):
+    r,z,nodes = Sampling_GetNodes(field,t,model,inputs,mesh)
     # Display decimation is spatial sampling of a true 2D solution, not a 3D PDE.
     ri = np.unique(np.r_[np.arange(0,len(r),max(1,len(r)//32)),len(r)-1])
     zi = np.unique(np.r_[np.arange(0,len(z),max(1,len(z)//40)),len(z)-1])
@@ -61,8 +62,8 @@ def Plot_GetComparisonSection(root, info, model, inputs):
     t = info['max_abs_moisture']['time_s']
     one = Plot_GetSnapshot(root, info['one_id'], t)
     two = Plot_GetSnapshot(root, info['two_id'], t)
-    r1, _, values1 = Sampling_GetNodes(one, t, model, inputs)
-    r, z, actual = Sampling_GetNodes(two, t, model, inputs)
+    r1, _, values1 = Sampling_GetNodes(one, t, model, inputs, Case_LoadMesh(root,info['one_id']))
+    r, z, actual = Sampling_GetNodes(two, t, model, inputs, Case_LoadMesh(root,info['two_id']))
     reference = np.broadcast_to(np.stack([np.interp(r, r1, values1[p, :, 0]) for p in [0, 1]])[:, :, None], actual.shape)
     return t, r, z, actual, reference
 
@@ -134,6 +135,7 @@ def Plot_DrawCurves(root, q, case, model, inputs):
     case_id = Plot_GetSelected(root, case, 1)
     status = Case_ReadStatus(root, case_id)
     end = Output_GetEnd(q, status)
+    mesh = Case_LoadMesh(root,case_id)
     times, profiles, means, maxima, radii = [], [], [], [], []
     snapshots = {}
     keys = [100, 600, 1200, 1800] if q == 1 else [1800, 3600, 7200, 10800]
@@ -142,7 +144,7 @@ def Plot_DrawCurves(root, q, case, model, inputs):
     for t, field in Comparison_IterFields(root, case_id):
         if t > end+1e-8:
             break
-        r, _, nodes = Sampling_GetNodes(field, t, model, inputs)
+        r, _, nodes = Sampling_GetNodes(field, t, model, inputs, mesh)
         maximum_T = max(maximum_T, float(nodes[0].max()))
         minimum_C = min(minimum_C, float(nodes[1].min()))
         if t in keys:
@@ -151,7 +153,7 @@ def Plot_DrawCurves(root, q, case, model, inputs):
             times.append(t)
             positions = np.array([0, .25, .5, .75, 1])*r[-1]
             profiles.append(np.stack([np.interp(positions, r, nodes[p, :, 0]) for p in [0, 1]]))
-            means.append(np.average(field[1, :, 0], weights=2*np.arange(field.shape[1])+1))
+            means.append(np.average(field[1, :, 0], weights=Geometry_GetCells(field.shape[1],1,r[-1],mesh=mesh)[2][:,0]))
             maxima.append(nodes[1].max()); radii.append(r[-1])
     if not times or abs(times[-1]-end) > 1e-8:
         raise RuntimeError(f'PLOT_FAILED: q{q} endpoint absent from cache')
@@ -212,7 +214,7 @@ def Plot_Run(root):
         if q >= 3:
             end = info['time_range_s'][-1]
             field = Plot_GetSnapshot(root, info['two_id'], end)
-            r, z, nodes = Sampling_GetNodes(field, end, model, inputs)
+            r, z, nodes = Sampling_GetNodes(field, end, model, inputs, Case_LoadMesh(root,info['two_id']))
             i, j = np.unravel_index(nodes[1].argmax(), nodes[1].shape)
             location = dict(r_m=float(r[i]), z_m=float(z[j]), C=float(nodes[1, i, j]))
             info['endpoint_max_moisture_location'] = location
@@ -225,7 +227,7 @@ def Plot_Run(root):
             t = config['display']['snapshot_s']
             field = Plot_GetSnapshot(root, case_id, t)
             fig = plt.figure(figsize=(12, 5))
-            Plot_DrawSurface(fig, field, t, model, inputs, f'第{q}问', '独立二维 PDE 解')
+            Plot_DrawSurface(fig, field, t, model, inputs, f'第{q}问', '独立二维 PDE 解', mesh=Case_LoadMesh(root,case_id))
             path = root/f'results/q{q}/q{q}_3d.png'
             fig.savefig(path); plt.close(fig); manifest.append(str(path.relative_to(root)))
         print(f'PLOTS_GENERATED q{q}', flush=True)

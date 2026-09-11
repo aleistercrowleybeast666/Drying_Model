@@ -17,7 +17,7 @@ from drying.storage import Storage_WriteJson, Storage_HashFiles
 def Check_Run(cache_baseline=None):
     results = _ROOT/'results'
     assert {p.name for p in results.iterdir()} == {
-        'tables', 'q1', 'q2', 'q3', 'q4', 'status.json',
+        'tables', 'q1', 'q2', 'q3', 'q4', 'status.json', 'overview.md',
         'q3_q4_axial_section.gif', 'q3_q4_radial_section.gif'}
     assert {p.name for p in (results/'tables').iterdir()} == {f'result{q}.xlsx' for q in range(1, 5)}
     status = Output_ReadJson(results/'status.json')
@@ -85,7 +85,7 @@ def Check_Run(cache_baseline=None):
     report = dict(status='PASSED', questions=records, png_count=len(list(results.rglob('*.png'))),
         gif_count=4, test_count=len(tests['tests']), unchanged_solver_cache_files=unchanged,
         core_unchanged=unchanged is not None,
-        numerical_note='Existing end effects remain; spatial convergence is quantified but not certified.')
+        numerical_note='Numerical acceptance is read from results/status.json; publication checks do not change numerical PASS/FAIL.')
     Storage_WriteJson(_ROOT/'work/validation/presentation_checks.json', report)
     print(json.dumps(report, ensure_ascii=False, indent=2))
 
