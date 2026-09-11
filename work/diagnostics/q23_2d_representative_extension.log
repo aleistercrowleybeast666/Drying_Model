@@ -1,0 +1,3 @@
+DT_LIMITED_BY_STABILITY {"case_id": "q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_representative_extension_t5086", "requested_dt_s": 0.25, "accepted_dt_s": 0.046875, "simulated_time_s": 5085.0, "grid": [80, 125]}
+DT_LIMITED_BY_STABILITY {"case_id": "q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_representative_extension_t5086", "requested_dt_s": 0.25, "accepted_dt_s": 0.125, "simulated_time_s": 5085.0, "grid": [40, 250]}
+Q23_2D_REPRESENTATIVE_EXTENSION_COMPLETE

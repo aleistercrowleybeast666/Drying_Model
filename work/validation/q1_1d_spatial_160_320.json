@@ -1,0 +1,218 @@
+{
+  "coarse_id": "q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898",
+  "fine_id": "q1_1d_adaptive_nr320_nz1_dt0.25_mf0640d83d5fa_early_reference_t60",
+  "coarse_fingerprint": "003172110c7e7c7bc9fc6253e27585570f6bfb305e87ddaaf2bbe0efec38031e",
+  "fine_fingerprint": "0105c155a38442f6af5e7118872cf02bb9026d442deed99a60b07ae65dd3eaf8",
+  "maxima_temperature": {
+    "value": 8.787615968230966e-06,
+    "signed_difference": -8.787615968230966e-06,
+    "time_s": 60.0,
+    "r_m": 0.01997457589107424,
+    "z_m": 0.0,
+    "coarse_value": 301.2295177700639,
+    "fine_value": 301.22950898244795
+  },
+  "maxima_moisture": {
+    "value": 0.003469206669548086,
+    "signed_difference": 0.003469206669548086,
+    "time_s": 1.0,
+    "r_m": 0.01997457589107424,
+    "z_m": 0.0,
+    "coarse_value": 2.523532809197114,
+    "fine_value": 2.527002015866662
+  },
+  "official_temperature": {
+    "value": 8.772272224177868e-06,
+    "time_s": 59.995538404055175,
+    "r_m": 0.02,
+    "z_m": 0.0,
+    "coarse_value": 301.23029949470595,
+    "fine_value": 301.2302907224337,
+    "signed_difference": -8.772272224177868e-06
+  },
+  "official_moisture": {
+    "value": 0.010218109430190303,
+    "time_s": 0.00390625,
+    "r_m": 0.02,
+    "z_m": 0.0,
+    "coarse_value": 2.529247424852255,
+    "fine_value": 2.5394655342824453,
+    "signed_difference": 0.010218109430190303
+  },
+  "volume_L2_temperature": {
+    "value": 4.611808942830943e-06,
+    "time_s": 60.0
+  },
+  "volume_L2_moisture": {
+    "value": 0.0003525334293037311,
+    "time_s": 1.0
+  },
+  "event_difference_s": null,
+  "event_relative_difference": null,
+  "official_output_times_max_error": {
+    "temperature": {
+      "value": 8.772128239797894e-06,
+      "signed_difference": -8.772128239797894e-06,
+      "time_s": 60.0,
+      "r_m": 0.02,
+      "z_m": 0.0,
+      "coarse_value": 301.23030819819826,
+      "fine_value": 301.23029942607
+    },
+    "moisture": {
+      "value": 0.0034451987255907923,
+      "signed_difference": 0.0034451987255907923,
+      "time_s": 1.0,
+      "r_m": 0.02,
+      "z_m": 0.0,
+      "coarse_value": 2.513238207881469,
+      "fine_value": 2.5166834066070596
+    },
+    "sample_count": 61,
+    "time_range_s": [
+      0.0,
+      60.0
+    ],
+    "scope": "Common official scheduled timestamps up to the earlier drying report; different event timestamps are assessed separately by event difference."
+  },
+  "event_status_agrees": true,
+  "event_comparison_applicable": false,
+  "reference_complete": true,
+  "time_range_s": [
+    0.0,
+    60.0
+  ],
+  "sample_count": 61,
+  "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+  "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+  "all_internal_times_max_error": {
+    "coarse": "003172110c7e7c7bc9fc6253e27585570f6bfb305e87ddaaf2bbe0efec38031e",
+    "fine": "0105c155a38442f6af5e7118872cf02bb9026d442deed99a60b07ae65dd3eaf8",
+    "end": 60.0,
+    "audit_source_hash": "24136bf3f64be87c488533395333de8cc781542276d4e0c5f151c0b4b07d615f",
+    "complete": true,
+    "time_range_s": [
+      0.0,
+      60.0
+    ],
+    "sample_count": 16561,
+    "replay_endpoint_max_abs": 5.684341886080802e-14,
+    "temperature": {
+      "value": 8.772272224177868e-06,
+      "time_s": 59.995538404055175,
+      "r_m": 0.02,
+      "z_m": 0.0,
+      "coarse_value": 301.23029949470595,
+      "fine_value": 301.2302907224337,
+      "signed_difference": -8.772272224177868e-06
+    },
+    "moisture": {
+      "value": 0.010218109430190303,
+      "time_s": 0.00390625,
+      "r_m": 0.02,
+      "z_m": 0.0,
+      "coarse_value": 2.529247424852255,
+      "fine_value": 2.5394655342824453,
+      "signed_difference": 0.010218109430190303
+    },
+    "full_field_temperature": {
+      "value": 8.787760179984616e-06,
+      "time_s": 59.995538404055175,
+      "r_m": 0.01997457589107424,
+      "z_m": 0.0,
+      "coarse_value": 301.22950912052465,
+      "fine_value": 301.2295003327645,
+      "signed_difference": -8.787760179984616e-06
+    },
+    "full_field_moisture": {
+      "value": 0.010260310577619336,
+      "time_s": 0.00390625,
+      "r_m": 0.01997457589107424,
+      "z_m": 0.0,
+      "coarse_value": 2.539585199782871,
+      "fine_value": 2.5498455103604902,
+      "signed_difference": 0.010260310577619336
+    },
+    "volume_L2_temperature": {
+      "value": 4.611825710949865e-06,
+      "time_s": 59.995538404055175
+    },
+    "volume_L2_moisture": {
+      "value": 0.0007311890614903436,
+      "time_s": 0.00390625
+    },
+    "early_600s_temperature": {
+      "value": 8.772272224177868e-06,
+      "time_s": 59.995538404055175,
+      "r_m": 0.02,
+      "z_m": 0.0,
+      "coarse_value": 301.23029949470595,
+      "fine_value": 301.2302907224337,
+      "signed_difference": -8.772272224177868e-06
+    },
+    "early_600s_moisture": {
+      "value": 0.010218109430190303,
+      "time_s": 0.00390625,
+      "r_m": 0.02,
+      "z_m": 0.0,
+      "coarse_value": 2.529247424852255,
+      "fine_value": 2.5394655342824453,
+      "signed_difference": 0.010218109430190303
+    },
+    "switch_errors": [],
+    "wall_s": 1.8613388000085251,
+    "method": "All accepted step endpoints from both trajectories; exact RK4 partition replay; linear temporal interpolation of the other trajectory; union of physical radial nodes for Linf. Both sides of remesh boundaries checked. Not a continuous-time bound."
+  },
+  "saved_times_max_error": {
+    "temperature": {
+      "value": 8.772128239797894e-06,
+      "signed_difference": -8.772128239797894e-06,
+      "time_s": 60.0,
+      "r_m": 0.02,
+      "z_m": 0.0,
+      "coarse_value": 301.23030819819826,
+      "fine_value": 301.23029942607
+    },
+    "moisture": {
+      "value": 0.0034451987255907923,
+      "signed_difference": 0.0034451987255907923,
+      "time_s": 1.0,
+      "r_m": 0.02,
+      "z_m": 0.0,
+      "coarse_value": 2.513238207881469,
+      "fine_value": 2.5166834066070596
+    }
+  },
+  "passed": false,
+  "failure_reasons": [
+    "OFFICIAL_C_EXCEEDS_TOLERANCE"
+  ],
+  "thresholds": {
+    "temperature_abs_K": 0.01,
+    "moisture_abs": 0.01,
+    "drying_time_relative": 0.002,
+    "early_refined_nr": 320,
+    "require_decreasing_error": true,
+    "endpoint_window_s": 3600.0,
+    "endpoint_tail_s": 600.0
+  },
+  "assessment": "FAIL",
+  "convergence_trend": {
+    "passed": true,
+    "metrics": {
+      "official_temperature": {
+        "previous": 3.508839051846735e-05,
+        "current": 8.772272224177868e-06,
+        "decreasing": true
+      },
+      "official_moisture": {
+        "previous": 0.020185908518745688,
+        "current": 0.010218109430190303,
+        "decreasing": true
+      }
+    }
+  },
+  "local_reference_only": true,
+  "reference_end_s": 60.0,
+  "note": "320 is solved only in this early window; no full-time 320 or drying-event certificate."
+}

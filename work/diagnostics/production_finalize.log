@@ -1,0 +1,6 @@
+STAGE_COARSENING_TOO_AGGRESSIVE {"case_id": "q23_1d_stage_schedule_default_dt0.25_sb9b049c66d4c", "failure_reasons": ["DRYING_TIME_EXCEEDS_TOLERANCE"], "official_temperature": {"value": 0.0007560886703572578, "signed_difference": 0.0007560886703572578, "time_s": 300.0, "r_m": 0.02, "z_m": 0.0, "coarse_value": 301.7941478672935, "fine_value": 301.79490395596383}, "official_moisture": {"value": 0.0018330304210114612, "signed_difference": -0.0018330304210114612, "time_s": 300.0, "r_m": 0.02, "z_m": 0.0, "coarse_value": 2.088061375539562, "fine_value": 2.0862283451185504}, "event_relative_difference": 0.0057109832346343885}
+q23 {'fixed_grid_spatial_passed': False, 'stage_schedule_spatial_passed': True, 'spatial_convergence_passed': True}
+q4 {'fixed_grid_spatial_passed': False, 'stage_schedule_spatial_passed': True, 'spatial_convergence_passed': True}
+END_EFFECT_NOT_NEGLIGIBLE {"case_id": "q23", "max_abs_T": 4.093750627324312, "max_abs_C": 0.975394461576913, "relative_time_difference": 0.004030133199879361}
+END_EFFECT_NOT_NEGLIGIBLE {"case_id": "q4", "max_abs_T": 5.534772548343199, "max_abs_C": 1.7107525155079477, "relative_time_difference": 1.831685720720843e-05}
+PRODUCTION_CERTIFICATES_COMPLETE

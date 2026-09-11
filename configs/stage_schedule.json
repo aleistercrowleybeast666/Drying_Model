@@ -1,16 +1,19 @@
 {
   "q1": [
-    {"t_start": 0, "t_end": 300, "nr": 160, "nz": 1},
+    {"t_start": 0, "t_end": 60, "nr": 200, "nz": 1},
+    {"t_start": 60, "t_end": 300, "nr": 160, "nz": 1},
     {"t_start": 300, "t_end": 1200, "nr": 80, "nz": 1},
     {"t_start": 1200, "t_end": 1800, "nr": 40, "nz": 1}
   ],
   "q23": [
-    {"t_start": 0, "t_end": 1800, "nr": 160, "nz": 1},
+    {"t_start": 0, "t_end": 300, "nr": 200, "nz": 1},
+    {"t_start": 300, "t_end": 1800, "nr": 160, "nz": 1},
     {"t_start": 1800, "t_end": 21600, "nr": 80, "nz": 1},
     {"t_start": 21600, "t_end": null, "nr": 40, "nz": 1}
   ],
   "q4": [
-    {"t_start": 0, "t_end": 3600, "nr": 160, "nz": 1},
+    {"t_start": 0, "t_end": 600, "nr": 200, "nz": 1},
+    {"t_start": 600, "t_end": 3600, "nr": 160, "nz": 1},
     {"t_start": 3600, "t_end": 21600, "nr": 80, "nz": 1},
     {"t_start": 21600, "t_end": null, "nr": 40, "nz": 1}
   ]

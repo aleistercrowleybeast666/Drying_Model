@@ -1,18 +1,18 @@
 {
   "q1": {
     "status": "END_EFFECT_NOT_NEGLIGIBLE",
-    "one_id": "q1_1d_stage_schedule_default_dt0.25_s35c8e86f6109",
+    "one_id": "q1_1d_stage_schedule_default_dt0.25_s030d129157f2",
     "two_id": "q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542",
-    "one_fingerprint": "35c8e86f61097a8ead9287ef2afa1cea263f414e5797378b7c45878e3cdcef5a",
+    "one_fingerprint": "030d129157f288fa66f41cf509d2e5fe28453fec39bff330599bab5613f8454b",
     "two_fingerprint": "07c80e967e0b8dbc778c723630d879dc9c766821ccf304b3860136af64cb61e9",
     "max_abs_temperature": {
-      "value": 3.698125600962271,
+      "value": 3.6981255081287827,
       "time_s": 1800.0,
       "r_m": 0.0,
       "z_m": 0.125
     },
     "max_abs_moisture": {
-      "value": 0.9862253240649625,
+      "value": 0.9862253228122699,
       "time_s": 1800.0,
       "r_m": 0.0,
       "z_m": 0.125
@@ -36,7 +36,7 @@
     "coordinate_method": "Same physical time/r; linear radial interpolation of reconstructed 1D field; genuine 2D field",
     "scope_note": "Maxima only at stored sampled times; event times compared separately. Different radial cell counts mean these discrepancies include spatial error and cannot isolate physical end effects.",
     "one_grid": [
-      160,
+      200,
       1
     ],
     "two_grid": [
@@ -51,20 +51,20 @@
   },
   "q2": {
     "status": "END_EFFECT_NOT_NEGLIGIBLE",
-    "one_id": "q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006",
+    "one_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
     "two_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
-    "one_fingerprint": "32d9af8aa61acb6d615426eb2a187263ac83e44bb17ea9c0189f5b07fb48aa6b",
+    "one_fingerprint": "45cdf27de0841fb1cca3dd4b37007ef81bb4c703bcf05220fb2ffb5ae1d9fc01",
     "two_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
     "max_abs_temperature": {
-      "value": 4.093695653635564,
+      "value": 4.093750627324312,
       "time_s": 2520.0,
       "r_m": 0.0,
       "z_m": 0.125
     },
     "max_abs_moisture": {
-      "value": 0.9754244913361902,
-      "time_s": 5085.0,
-      "r_m": 0.00025883293742596944,
+      "value": 0.975394461576913,
+      "time_s": 5086.0,
+      "r_m": 0.0,
       "z_m": 0.125
     },
     "one_drying_time_h": null,
@@ -86,7 +86,7 @@
     "coordinate_method": "Same physical time/r; linear radial interpolation of reconstructed 1D field; genuine 2D field",
     "scope_note": "Maxima only at stored sampled times; event times compared separately. Different radial cell counts mean these discrepancies include spatial error and cannot isolate physical end effects.",
     "one_grid": [
-      160,
+      200,
       1
     ],
     "two_grid": [
@@ -101,29 +101,29 @@
   },
   "q3": {
     "status": "END_EFFECT_NOT_NEGLIGIBLE",
-    "one_id": "q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006",
+    "one_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
     "two_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
-    "one_fingerprint": "32d9af8aa61acb6d615426eb2a187263ac83e44bb17ea9c0189f5b07fb48aa6b",
+    "one_fingerprint": "45cdf27de0841fb1cca3dd4b37007ef81bb4c703bcf05220fb2ffb5ae1d9fc01",
     "two_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
     "max_abs_temperature": {
-      "value": 4.093695653635564,
+      "value": 4.093750627324312,
       "time_s": 2520.0,
       "r_m": 0.0,
       "z_m": 0.125
     },
     "max_abs_moisture": {
-      "value": 0.9754244913361902,
-      "time_s": 5085.0,
-      "r_m": 0.00025883293742596944,
+      "value": 0.975394461576913,
+      "time_s": 5086.0,
+      "r_m": 0.0,
       "z_m": 0.125
     },
-    "one_drying_time_h": 57.526599999999995,
+    "one_drying_time_h": 57.6215,
     "two_drying_time_h": 57.853699999999996,
-    "relative_drying_time_difference": 0.005687443366623636,
-    "sample_count": 14073,
+    "relative_drying_time_difference": 0.004030133199879361,
+    "sample_count": 14079,
     "time_range_s": [
       0.0,
-      207095.75999999998
+      207437.4
     ],
     "fully_numerically_verified": false,
     "thresholds": {
@@ -136,7 +136,7 @@
     "coordinate_method": "Same physical time/r; linear radial interpolation of reconstructed 1D field; genuine 2D field",
     "scope_note": "Maxima only at stored sampled times; event times compared separately. Different radial cell counts mean these discrepancies include spatial error and cannot isolate physical end effects.",
     "one_grid": [
-      160,
+      200,
       1
     ],
     "two_grid": [
@@ -151,29 +151,29 @@
   },
   "q4": {
     "status": "END_EFFECT_NOT_NEGLIGIBLE",
-    "one_id": "q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b",
+    "one_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
     "two_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
-    "one_fingerprint": "88a6467f67268801dcf5b108b61351c8f0dcb2b756f03bbff3dceaa2347baf8c",
+    "one_fingerprint": "33c788387cd3e240fdf822c3e9f55b437c217e7efa69c9614d6b11658119d1cc",
     "two_fingerprint": "6769b70db8f82b3fb975713f1b631381d0d3e18970452395f6374fe9554c8b22",
     "max_abs_temperature": {
-      "value": 5.534792666020849,
+      "value": 5.534772548343199,
       "time_s": 2520.0,
       "r_m": 0.0,
       "z_m": 0.125
     },
     "max_abs_moisture": {
-      "value": 1.7108088207014944,
+      "value": 1.7107525155079477,
       "time_s": 10320.0,
       "r_m": 0.0,
       "z_m": 0.125
     },
-    "one_drying_time_h": 51.1017,
+    "one_drying_time_h": 51.182399999999994,
     "two_drying_time_h": 51.1833,
-    "relative_drying_time_difference": 0.0015976120583443506,
-    "sample_count": 3068,
+    "relative_drying_time_difference": 1.831685720720843e-05,
+    "sample_count": 3072,
     "time_range_s": [
       0.0,
-      183966.12
+      184256.63999999998
     ],
     "fully_numerically_verified": false,
     "thresholds": {
@@ -186,7 +186,7 @@
     "coordinate_method": "Same physical time/r; linear radial interpolation of reconstructed 1D field; genuine 2D field",
     "scope_note": "Maxima only at stored sampled times; event times compared separately. Different radial cell counts mean these discrepancies include spatial error and cannot isolate physical end effects.",
     "one_grid": [
-      160,
+      200,
       1
     ],
     "two_grid": [

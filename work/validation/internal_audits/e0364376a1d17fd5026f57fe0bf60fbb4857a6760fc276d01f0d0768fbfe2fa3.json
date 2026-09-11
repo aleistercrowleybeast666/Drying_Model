@@ -1,0 +1,196 @@
+{
+  "coarse": "730fad2ba402483019011be28214b17d9ac5991fcf54a181447b2cef1a32beb8",
+  "fine": "003172110c7e7c7bc9fc6253e27585570f6bfb305e87ddaaf2bbe0efec38031e",
+  "end": 1800.0,
+  "audit_source_hash": "24136bf3f64be87c488533395333de8cc781542276d4e0c5f151c0b4b07d615f",
+  "complete": true,
+  "time_range_s": [
+    0.0,
+    1800.0
+  ],
+  "sample_count": 132361,
+  "replay_endpoint_max_abs": 1.1368683772161603e-13,
+  "temperature": {
+    "value": 0.0008857774976718247,
+    "time_s": 1242.375,
+    "r_m": 0.005,
+    "z_m": 0.0,
+    "coarse_value": 304.0576296837768,
+    "fine_value": 304.0567439062791,
+    "signed_difference": -0.0008857774976718247
+  },
+  "moisture": {
+    "value": 0.010218109430190303,
+    "time_s": 0.00390625,
+    "r_m": 0.02,
+    "z_m": 0.0,
+    "coarse_value": 2.5394655342824453,
+    "fine_value": 2.529247424852255,
+    "signed_difference": -0.010218109430190303
+  },
+  "full_field_temperature": {
+    "value": 0.0008935734196029443,
+    "time_s": 1274.125,
+    "r_m": 0.0004890141453528033,
+    "z_m": 0.0,
+    "coarse_value": 304.03544550454825,
+    "fine_value": 304.03455193112865,
+    "signed_difference": -0.0008935734196029443
+  },
+  "full_field_moisture": {
+    "value": 0.010260310577619336,
+    "time_s": 0.00390625,
+    "r_m": 0.01997457589107424,
+    "z_m": 0.0,
+    "coarse_value": 2.5498455103604902,
+    "fine_value": 2.539585199782871,
+    "signed_difference": -0.010260310577619336
+  },
+  "volume_L2_temperature": {
+    "value": 0.0006632981411460784,
+    "time_s": 1200.0
+  },
+  "volume_L2_moisture": {
+    "value": 0.0008787384739834527,
+    "time_s": 1200.0
+  },
+  "early_600s_temperature": {
+    "value": 0.0001241083863874337,
+    "time_s": 300.0,
+    "r_m": 0.02,
+    "z_m": 0.0,
+    "coarse_value": 301.9990028012826,
+    "fine_value": 301.9988786928962,
+    "signed_difference": -0.0001241083863874337
+  },
+  "early_600s_moisture": {
+    "value": 0.010218109430190303,
+    "time_s": 0.00390625,
+    "r_m": 0.02,
+    "z_m": 0.0,
+    "coarse_value": 2.5394655342824453,
+    "fine_value": 2.529247424852255,
+    "signed_difference": -0.010218109430190303
+  },
+  "switch_errors": [
+    {
+      "time_s": 60.0,
+      "temperature": {
+        "value": 5.017403680085408e-06,
+        "time_s": 60.0,
+        "r_m": 0.02,
+        "z_m": 0.0,
+        "coarse_value": 301.23031321560194,
+        "fine_value": 301.23030819819826,
+        "signed_difference": -5.017403680085408e-06
+      },
+      "moisture": {
+        "value": 0.0001790824615968134,
+        "time_s": 60.0,
+        "r_m": 0.02,
+        "z_m": 0.0,
+        "coarse_value": 2.3110531370426957,
+        "fine_value": 2.3112322195042925,
+        "signed_difference": 0.0001790824615968134
+      },
+      "first_interval_temperature": {
+        "value": 5.017403680085408e-06,
+        "time_s": 60.0,
+        "r_m": 0.02,
+        "z_m": 0.0,
+        "coarse_value": 301.23031321560194,
+        "fine_value": 301.23030819819826,
+        "signed_difference": -5.017403680085408e-06
+      },
+      "first_interval_moisture": {
+        "value": 0.0001790824615968134,
+        "time_s": 60.0,
+        "r_m": 0.02,
+        "z_m": 0.0,
+        "coarse_value": 2.3110531370426957,
+        "fine_value": 2.3112322195042925,
+        "signed_difference": 0.0001790824615968134
+      }
+    },
+    {
+      "time_s": 300.0,
+      "temperature": {
+        "value": 0.0001241083863874337,
+        "time_s": 300.0,
+        "r_m": 0.02,
+        "z_m": 0.0,
+        "coarse_value": 301.9990028012826,
+        "fine_value": 301.9988786928962,
+        "signed_difference": -0.0001241083863874337
+      },
+      "moisture": {
+        "value": 0.0007476003942752385,
+        "time_s": 300.0,
+        "r_m": 0.019,
+        "z_m": 0.0,
+        "coarse_value": 2.326947525253248,
+        "fine_value": 2.3276951256475233,
+        "signed_difference": 0.0007476003942752385
+      },
+      "first_interval_temperature": {
+        "value": 0.0001241083863874337,
+        "time_s": 300.0,
+        "r_m": 0.02,
+        "z_m": 0.0,
+        "coarse_value": 301.9990028012826,
+        "fine_value": 301.9988786928962,
+        "signed_difference": -0.0001241083863874337
+      },
+      "first_interval_moisture": {
+        "value": 0.0007476003942752385,
+        "time_s": 300.0,
+        "r_m": 0.019,
+        "z_m": 0.0,
+        "coarse_value": 2.326947525253248,
+        "fine_value": 2.3276951256475233,
+        "signed_difference": 0.0007476003942752385
+      }
+    },
+    {
+      "time_s": 1200.0,
+      "temperature": {
+        "value": 0.0008750309035008286,
+        "time_s": 1200.0,
+        "r_m": 0.005,
+        "z_m": 0.0,
+        "coarse_value": 303.8606750169754,
+        "fine_value": 303.8597999860719,
+        "signed_difference": -0.0008750309035008286
+      },
+      "moisture": {
+        "value": 0.0015630727296147562,
+        "time_s": 1200.0,
+        "r_m": 0.018000000000000002,
+        "z_m": 0.0,
+        "coarse_value": 2.1435917930188513,
+        "fine_value": 2.145154865748466,
+        "signed_difference": 0.0015630727296147562
+      },
+      "first_interval_temperature": {
+        "value": 0.0008755297979519128,
+        "time_s": 1201.0,
+        "r_m": 0.005,
+        "z_m": 0.0,
+        "coarse_value": 303.86526821811157,
+        "fine_value": 303.8643926883136,
+        "signed_difference": -0.0008755297979519128
+      },
+      "first_interval_moisture": {
+        "value": 0.0015630727296147562,
+        "time_s": 1200.0,
+        "r_m": 0.018000000000000002,
+        "z_m": 0.0,
+        "coarse_value": 2.1435917930188513,
+        "fine_value": 2.145154865748466,
+        "signed_difference": 0.0015630727296147562
+      }
+    }
+  ],
+  "wall_s": 9.826392399991164,
+  "method": "All accepted step endpoints from both trajectories; exact RK4 partition replay; linear temporal interpolation of the other trajectory; union of physical radial nodes for Linf. Both sides of remesh boundaries checked. Not a continuous-time bound."
+}

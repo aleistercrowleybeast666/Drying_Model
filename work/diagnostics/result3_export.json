@@ -1,24 +1,24 @@
 {
   "question": 3,
-  "case_id": "q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006",
-  "fingerprint": "32d9af8aa61acb6d615426eb2a187263ac83e44bb17ea9c0189f5b07fb48aa6b",
+  "case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+  "fingerprint": "45cdf27de0841fb1cca3dd4b37007ef81bb4c703bcf05220fb2ffb5ae1d9fc01",
   "dimension": 1,
   "path": "results\\tables\\result3.xlsx",
   "status": "GENERATED",
-  "numerical_validation": "SPATIAL_CONVERGENCE_FAILED",
-  "rows": 3452,
+  "numerical_validation": "PASS",
+  "rows": 3458,
   "columns": 22,
   "event": {
-    "left_s": 207095.453125,
-    "right_s": 207095.46875,
-    "width_s": 0.015625,
-    "raw_event_s": 207095.46875,
-    "report_s": 207095.75999999998,
-    "report_h": 57.526599999999995,
-    "left_max_C": 0.15000000342743258,
-    "right_max_C": 0.1499999988848572,
-    "report_max_C": 0.1499999142113726
+    "left_s": 207437.25,
+    "right_s": 207437.3125,
+    "width_s": 0.0625,
+    "raw_event_s": 207437.3125,
+    "report_s": 207437.4,
+    "report_h": 57.6215,
+    "left_max_C": 0.15000000443094458,
+    "right_max_C": 0.14999998632117795,
+    "report_max_C": 0.14999996096752208
   },
-  "workbook_hash": "7a5ce919cd069c83a2e0dd1c76e63fb15391b06da4bb5d301654671139ee14b5",
+  "workbook_hash": "7085a747fe0d30223b4b8b6b9aa7a69a7912a3292f245399d2a484601898273b",
   "readback": "PASSED: sheet names, all numeric cells, dimensions, time SI, precision, blanks, event deduplication, source"
 }

@@ -36,7 +36,7 @@ def Compute_Main():
     try:
         Record('RUNNING')
         cfg=Case_LoadConfig(_ROOT)
-        if cfg['stage_mesh']['mode'] not in ('fixed','stage_schedule'):
+        if cfg['stage_mesh']['mode'] not in ('fixed','stage_schedule','early_refined_stage_schedule'):
             raise ValueError('INPUT_VALUE_INVALID: stage_mesh.mode')
         if cfg['stage_mesh'].get('two_dimensional_mode','fixed') != 'fixed':
             raise ValueError('INPUT_VALUE_INVALID: this implementation keeps 2D fixed')
@@ -48,7 +48,7 @@ def Compute_Main():
                 Validation_Run(_ROOT,'1d',case)
                 fixed=json.loads((_ROOT/'work/validation/summary.json').read_text(encoding='utf-8'))[case+'_1d']
                 Storage_WriteJson(_ROOT/f'work/validation/{case}_fixed_summary.json',fixed)
-                if cfg['stage_mesh']['mode']=='stage_schedule':
+                if cfg['stage_mesh']['mode'] in ('stage_schedule','early_refined_stage_schedule'):
                     phase=case+': stage validation'; Record('RUNNING')
                     Stage_Validate(_ROOT,case,fixed)
                 phase=case+': official export'; Record('RUNNING')

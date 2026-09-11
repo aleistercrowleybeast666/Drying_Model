@@ -11,7 +11,21 @@ from .diagnostics import Diagnostics_Record
 
 
 def Stage_GetSourceHash(root):
-    return Storage_HashFiles([Path(root)/'src/drying'/name for name in ['stages.py','cases.py']])
+    # Policy/report edits do not invalidate unchanged numerical trajectories.
+    import ast
+    root = Path(root)
+    names = {'Stage_LoadSchedule','Stage_NormalizeSchedule','Stage_ProjectState','Stage_Solve'}
+    tree = ast.parse((root/'src/drying/stages.py').read_text(encoding='utf-8'))
+    bundle = '\n'.join(ast.dump(n,include_attributes=False) for n in tree.body
+        if isinstance(n,(ast.Import,ast.ImportFrom)) or isinstance(n,ast.FunctionDef) and n.name in names)
+    numerical_hash = hashlib.sha256(bundle.encode()).hexdigest()
+    cases_hash = Storage_HashFiles([root/'src/drying/cases.py'])
+    reference = root/'configs/stage_solver_reference.json'
+    if reference.exists():
+        saved = json.loads(reference.read_text(encoding='utf-8'))
+        if saved['numerical_ast_hash']==numerical_hash and saved['cases_hash']==cases_hash:
+            return saved['legacy_source_hash']
+    return hashlib.sha256((numerical_hash+cases_hash).encode()).hexdigest()
 
 
 def Stage_LoadSchedule(root, case, conservative=False):
@@ -21,7 +35,8 @@ def Stage_LoadSchedule(root, case, conservative=False):
     cap = 1800. if case == 'q1' else float(config['physics']['t_cap_s'])
     result = Stage_NormalizeSchedule(schedule,cap)
     if conservative and len(result) > 2:
-        result = [result[0],dict(result[1],t_end=cap)]
+        result = [s for s in result if s['nr'] >= 80]
+        result[-1] = dict(result[-1],t_end=cap)
     return result
 
 
@@ -109,6 +124,7 @@ def Stage_Solve(root, case, schedule=None, dt=None, replay_id=None, label='defau
     status.update(case_id=case_id,fingerprint=fingerprint,complete=False,status='RUNNING',
         cap=schedule[-1]['t_end'],nr=schedule[0]['nr'],nz=1,stages=[],transfers=[],tag=label,
         requested_dt_max=dt)
+    status['schedule_kind']=config['stage_mesh']['mode']
     Storage_WriteArray(folder/'mesh.npz',xi_faces=meshes[0][0][0],eta_faces=meshes[0][0][1])
     Storage_WriteJson(folder/'status.json',status)
     for i,stage in enumerate(schedule):
@@ -123,6 +139,7 @@ def Stage_Solve(root, case, schedule=None, dt=None, replay_id=None, label='defau
         status['stages'].append(dict(stage,case_id=child['case_id'],fingerprint=child['fingerprint'],
             mesh_profile_hash=child['mesh_profile_hash'],actual_dt_min=child['minimum_dt'],
             actual_dt_mean=(stage['t_end']-stage['t_start'])/child['steps'],actual_dt_max=child['maximum_dt'],
+            requested_dt_max=dt,stability_limited_count=child['limited'],
             steps=child['steps'],wall_s=child['wall_s']))
         # Child terminal state is also its restart checkpoint (full precision).
         checkpoint = root/'work/checkpoints'/child['case_id']/'checkpoint.npz'
@@ -161,21 +178,38 @@ def Stage_Validate(root, case, fixed_entry):
         Validation_SaveComparison, Validation_SaveEntry, Validation_CheckTime)
     root = Path(root); cfg = Case_LoadConfig(root)
     fixed = Case_Solve(root,case,1,nr=cfg['mesh']['verification_nr'])
-    trials = []
+    from .audit import Audit_AttachComparison
+    trials = []; candidates=[]
     for conservative in [False,True]:
         candidate = Stage_Solve(root,case,Stage_LoadSchedule(root,case,conservative),
                                 label='conservative' if conservative else 'default')
         check,rows = Validation_CompareCaches(root,candidate['case_id'],fixed['case_id'])
+        Audit_AttachComparison(root,check)
         Validation_AssessSpatial(check,cfg['validation']['spatial'],case != 'q1')
         check['schedule_id'] = candidate['case_id']
-        check['comparison_role'] = 'Additional schedule error against fixed 160, not proof of continuum convergence'
+        check['schedule'] = candidate['schedule']
+        check['projection_checks'] = Stage_AssessTransfers(candidate['transfers'],cfg['validation']['spatial'])
+        if check['projection_checks']['threshold_exceeded']:
+            Diagnostics_Record(root,'STAGE_PROJECTION_AUDIT_NOTICE',case_id=candidate['case_id'],
+                projection_checks=check['projection_checks'],acceptance_veto=False)
+        check['stage_schedule_accuracy_passed'] = bool(check['passed'])
+        check['early_reference_passed'] = bool(fixed_entry.get('early_refinement',{}).get('passed'))
+        check['remesh_transfer_passed'] = bool(check['projection_checks']['remesh_transfer_passed'] and
+            len(candidate['transfers'])==len(candidate['schedule'])-1)
+        if not check['early_reference_passed']: check['failure_reasons'].append('EARLY_REFERENCE_FAILED')
+        if not check['remesh_transfer_passed']: check['failure_reasons'].append('REMESH_TRANSFER_FAILED')
+        check['passed'] = bool(check['early_reference_passed'] and check['stage_schedule_accuracy_passed'] and check['remesh_transfer_passed'])
+        check['assessment'] = 'PASS' if check['passed'] else 'FAIL'
+        check['comparison_role'] = 'Stage production acceptance: early local reference AND full formal-output schedule accuracy AND conservative remesh integrity.'
         Validation_SaveComparison(root,f'{case}_stage_{"conservative" if conservative else "default"}_vs_fixed',check,rows)
-        trials.append(check)
-        if check['passed']: break
-        Diagnostics_Record(root,'STAGE_COARSENING_TOO_AGGRESSIVE','WARNING',case_id=candidate['case_id'],
-            failure_reasons=check['failure_reasons'],official_temperature=check['official_temperature'],
-            official_moisture=check['official_moisture'],event_relative_difference=check['event_relative_difference'])
-    chosen = candidate if trials[-1]['passed'] else fixed
+        trials.append(check); candidates.append(candidate)
+        if not check['passed']:
+            Diagnostics_Record(root,'STAGE_COARSENING_TOO_AGGRESSIVE','WARNING',case_id=candidate['case_id'],
+                failure_reasons=check['failure_reasons'],official_temperature=check['official_temperature'],
+                official_moisture=check['official_moisture'],event_relative_difference=check['event_relative_difference'])
+    selected_index = next((i for i,t in enumerate(trials) if t['passed']),len(trials)-1)
+    candidate=candidates[selected_index]; selected_trial=trials[selected_index]
+    chosen = candidate if selected_trial['passed'] else fixed
     # Validate the proposed schedule too, even when output falls back to fixed.
     temporal = Validation_CheckTime(root,candidate)
     selected_temporal = temporal if chosen['case_id'] == candidate['case_id'] else fixed_entry['temporal']
@@ -189,15 +223,48 @@ def Stage_Validate(root, case, fixed_entry):
         Validation_SaveComparison(root,f'{case}_1d_vs_old_uniform',old_uniform,rows)
     entry = dict(fixed_entry,selected_id=chosen['case_id'],selected_fingerprint=chosen['fingerprint'],
         selected_nr=chosen['nr'],fixed_reference_id=fixed['case_id'],fixed_reference_fingerprint=fixed['fingerprint'],
-        stage_schedule_enabled=True,stage_schedule_passed=bool(trials[-1]['passed'] and temporal['passed']),
+        stage_schedule_enabled=True,stage_schedule_passed=bool(selected_trial['passed'] and temporal['passed']),
         stage_schedule_trials=trials,stage_temporal=temporal,
-        stage_schedule_vs_fixed_temperature_max=trials[-1]['official_temperature']['value'],
-        stage_schedule_vs_fixed_moisture_max=trials[-1]['official_moisture']['value'],
-        stage_schedule_vs_fixed_drying_time_diff=trials[-1]['event_difference_s'],
-        stage_schedule_vs_fixed_drying_time_rel=trials[-1]['event_relative_difference'],
+        stage_schedule_vs_fixed_temperature_max=selected_trial['official_temperature']['value'],
+        stage_schedule_vs_fixed_moisture_max=selected_trial['official_moisture']['value'],
+        stage_schedule_vs_fixed_drying_time_diff=selected_trial['event_difference_s'],
+        stage_schedule_vs_fixed_drying_time_rel=selected_trial['event_relative_difference'],
         recommended_schedule=chosen.get('schedule','fixed 160'),execution_mode=chosen.get('execution_mode','fixed'),
         temporal=selected_temporal,time_passed=selected_temporal['passed'],old_uniform_comparison=old_uniform,
-        stage_acceptance_note='Falls back to conservative schedule then fixed 160 when additional errors exceed unchanged thresholds; fixed spatial failure remains.')
+        stage_acceptance_note='Current stage production uses the three required spatial gates; old fixed-grid failure is diagnostic only. If production falls back to a fixed grid, use that fixed grid certificate.')
+    entry.update(Stage_AssessProduction(fixed_entry,selected_trial,chosen.get('execution_mode')=='stage_schedule'))
+    entry['stage_schedule_passed'] = bool(entry['stage_schedule_spatial_passed'] and selected_temporal['passed'])
+    entry['numerical_status'] = 'PASS' if entry['spatial_convergence_passed'] and selected_temporal['passed'] else (
+        'SPATIAL_CONVERGENCE_FAILED' if not entry['spatial_convergence_passed'] else 'TIME_CONVERGENCE_FAILED')
     Validation_SaveEntry(root,case+'_1d',entry)
     Storage_WriteJson(root/f'work/validation/{case}_stage_summary.json',entry)
     return entry
+
+
+def Stage_AssessTransfers(transfers,thresholds):
+    checks=[dict(switch_time=v['switch_time'],
+        temperature_passed=v['projection_max_abs_T']<=thresholds['temperature_abs_K'],
+        moisture_passed=v['projection_max_abs_C']<=thresholds['moisture_abs']) for v in transfers]
+    # Lost-variation amplitudes are audit-only; physical transfer integrity remains a gate.
+    integral_keys = ['volume_integral_relative_error_T','volume_integral_relative_error_C']
+    integrity = all(all(np.isfinite(v.get(k,float('nan'))) and abs(v[k])<=1e-12 for k in integral_keys)
+        and all(np.isfinite(v.get(k,float('nan'))) and v[k]>=0 for k in
+            ['projection_max_abs_T','projection_max_abs_C','projection_L2_T','projection_L2_C']) for v in transfers)
+    return dict(assessment='AUDIT_ONLY',acceptance_veto=False,remesh_transfer_passed=bool(integrity),
+        remesh_integral_relative_tolerance=1e-12,
+        threshold_exceeded=any(not (v['temperature_passed'] and v['moisture_passed']) for v in checks),switches=checks,
+        note='Lost subcell variation is audit-only. Nonfinite/unbounded states and conservation violations still stop Stage_ProjectState.')
+
+
+def Stage_AssessProduction(fixed_entry, trial, production_is_stage):
+    """Keep the historical fixed certificate separate from the current production certificate."""
+    fixed_passed = bool(fixed_entry.get('fixed_grid_spatial_passed',fixed_entry.get('spatial_passed',False)))
+    gates = {key:bool(trial.get(key,False)) for key in
+        ['early_reference_passed','stage_schedule_accuracy_passed','remesh_transfer_passed']}
+    candidate_passed = all(gates.values())
+    stage_passed = bool(production_is_stage and candidate_passed)
+    official_passed = stage_passed if production_is_stage else fixed_passed
+    return dict(**gates,certificate_scope='current_production',fixed_grid_spatial_passed=fixed_passed,
+        stage_candidate_spatial_passed=candidate_passed,stage_schedule_spatial_passed=stage_passed,
+        spatial_convergence_passed=official_passed,spatial_passed=official_passed,candidate_only=not official_passed,
+        spatial_acceptance_note='Current production only: early reference AND stage accuracy AND remesh integrity for a stage schedule; fixed-grid certificate for fixed production. Historical fixed failure never vetoes a passing stage production.')

@@ -81,8 +81,11 @@ def Payload_Prepare(root):
         animation=dict(relative_progress=progress.tolist(),frames=count,fps=cfg['display']['fps'],
             surface_size_px=[cfg['display']['width_px'],cfg['display']['height_px']],
             layout=[['Q3 temperature','Q4 temperature'],['Q3 moisture','Q4 moisture']],
-            cutaway=dict(angle_deg=cfg['display'].get('cutaway_angle_deg',35.),
-                axial_tilt_deg=cfg['display'].get('cutaway_axial_tilt_deg',4.))),
+            cutaway=dict(angle_deg=cfg['display'].get('cutaway_angle_deg',45.),
+                azimuth_deg=cfg['display'].get('cutaway_azimuth_deg',35.),
+                boundary_width=cfg['display'].get('cutaway_boundary_width',1.8),
+                cut_width=cfg['display'].get('cutaway_cut_width',2.2),
+                geometry='Upright cylinder; transverse plane at model midsection; upper portion removed only for visibility')),
         overview_payload='work/plot_payload/overview_data.json',cross_question_gifs={})
     for q,case,model in [(1,'q1',1),(2,'q23',3),(3,'q23',3),(4,'q4',4)]:
         one,two=[Output_GetSelected(root,case,d) for d in [1,2]]

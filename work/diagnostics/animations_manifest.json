@@ -2824,16 +2824,19 @@
       }
     ],
     "cutaway": {
-      "angle_deg": 35.0,
-      "axial_tilt_deg": 4.0
+      "angle_deg": 45.0,
+      "azimuth_deg": 35.0,
+      "boundary_width": 1.8,
+      "cut_width": 2.2,
+      "geometry": "Upright cylinder; transverse plane at model midsection; upper portion removed only for visibility"
     },
     "path": "results\\q3_q4_cutaway_cylinder.gif",
     "frames": 240,
     "size_px": [
-      1100,
-      640
+      940,
+      1080
     ],
-    "wall_s": 128.60352360000252,
+    "wall_s": 117.08271289999539,
     "decode_check": "PASSED_ALL_FRAMES",
     "requested_fps": 24,
     "fixed_color_limits": [

@@ -1,54 +1,82 @@
 {
   "coarse_id": "q1_1d_nr40_nz1_dt0.25",
-  "fine_id": "q1_1d_stage_schedule_default_dt0.25_s35c8e86f6109",
+  "fine_id": "q1_1d_stage_schedule_default_dt0.25_s030d129157f2",
   "coarse_fingerprint": "7df7df45becfbc17ee307ada2d3925069fe99939df73459efa07e925dcfdda8c",
-  "fine_fingerprint": "35c8e86f61097a8ead9287ef2afa1cea263f414e5797378b7c45878e3cdcef5a",
+  "fine_fingerprint": "030d129157f288fa66f41cf509d2e5fe28453fec39bff330599bab5613f8454b",
   "maxima_temperature": {
-    "value": 0.000515765704790283,
-    "signed_difference": -0.000515765704790283,
+    "value": 0.0005156113469411139,
+    "signed_difference": -0.0005156113469411139,
     "time_s": 1199.0,
     "r_m": 0.0009772259989550857,
     "z_m": 0.0,
     "coarse_value": 303.69510464688864,
-    "fine_value": 303.69458888118385
+    "fine_value": 303.6945890355417
   },
   "maxima_moisture": {
-    "value": 0.0661139273407696,
-    "signed_difference": 0.0661139273407696,
+    "value": 0.06772360566090141,
+    "signed_difference": 0.06772360566090141,
     "time_s": 1.0,
-    "r_m": 0.01994915178214848,
+    "r_m": 0.019959321425718782,
     "z_m": 0.0,
-    "coarse_value": 2.46771348317199,
-    "fine_value": 2.5338274105127594
+    "coarse_value": 2.4637106542821674,
+    "fine_value": 2.531434259943069
   },
   "official_temperature": {
-    "value": 0.0004996641005163838,
-    "signed_difference": -0.0004996641005163838,
+    "value": 0.0004994502436943549,
+    "signed_difference": -0.0004994502436943549,
     "time_s": 299.0,
     "r_m": 0.02,
     "z_m": 0.0,
     "coarse_value": 301.994700671766,
-    "fine_value": 301.9942010076655
+    "fine_value": 301.9942012215223
   },
   "official_moisture": {
-    "value": 0.06553886915859541,
-    "signed_difference": 0.06553886915859541,
+    "value": 0.06724680330826471,
+    "signed_difference": 0.06724680330826471,
     "time_s": 1.0,
     "r_m": 0.02,
     "z_m": 0.0,
     "coarse_value": 2.4476993387228734,
-    "fine_value": 2.513238207881469
+    "fine_value": 2.514946142031138
   },
   "volume_L2_temperature": {
-    "value": 0.00034513669891211846,
+    "value": 0.0003450163175603664,
     "time_s": 1080.0
   },
   "volume_L2_moisture": {
-    "value": 0.0077533974652733584,
+    "value": 0.007797334438686223,
     "time_s": 1.0
   },
   "event_difference_s": null,
   "event_relative_difference": null,
+  "official_output_times_max_error": {
+    "temperature": {
+      "value": 0.0004994502436943549,
+      "signed_difference": -0.0004994502436943549,
+      "time_s": 299.0,
+      "r_m": 0.02,
+      "z_m": 0.0,
+      "coarse_value": 301.994700671766,
+      "fine_value": 301.9942012215223
+    },
+    "moisture": {
+      "value": 0.06724680330826471,
+      "signed_difference": 0.06724680330826471,
+      "time_s": 1.0,
+      "r_m": 0.02,
+      "z_m": 0.0,
+      "coarse_value": 2.4476993387228734,
+      "fine_value": 2.514946142031138
+    },
+    "sample_count": 1801,
+    "time_range_s": [
+      0.0,
+      1800.0
+    ],
+    "endpoint_times_s": [],
+    "complete": true,
+    "scope": "Official output timestamps through both drying reports, plus both genuine drying endpoint states; internal RK4 and arbitrary remesh times are audit-only."
+  },
   "event_status_agrees": true,
   "event_comparison_applicable": true,
   "reference_complete": true,

@@ -12,7 +12,7 @@ from .storage import Storage_WriteJson
 from .diagnostics import Diagnostics_RecordException
 
 
-def Presentation_Run(root,png=True,gif=True,case_filter='all'):
+def Presentation_Run(root,png=True,gif=True,case_filter='all',gif_scope='all'):
     root=Path(root); manifest=Payload_ReadManifest(root); Plot_SetStyle()
     limits=[manifest['color_limits'][key] for key in ['temperature_C','moisture_kg_kg']]
     # Validate every input before changing any final plot.
@@ -41,6 +41,7 @@ def Presentation_Run(root,png=True,gif=True,case_filter='all'):
     if gif:
         cfg=manifest['animation']; progress=np.array(cfg['relative_progress']); datasets={}
         for q in [3,4]:
+            if gif_scope=='cutaway': continue
             info=manifest['questions'][f'q{q}']
             if case_filter not in ('all',info['case']): continue
             dataset=Animation_ReadDataset(root,info['animations']['2d']); datasets[(q,'2d')]=dataset
@@ -54,6 +55,7 @@ def Presentation_Run(root,png=True,gif=True,case_filter='all'):
                 dict(source='genuine 2D PDE, sealed payload',case_id=dataset['case_id'],frame_times_s=dataset['times'].tolist())))
         if case_filter == 'all':
             for name,record in manifest['cross_question_gifs'].items():
+                if gif_scope=='cutaway' and name!='cutaway_cylinder': continue
                 selected=[]
                 for path in record['datasets']:
                     info=next(v for q in manifest['questions'].values() for v in q['animations'].values() if v['data_path']==path)
@@ -74,7 +76,7 @@ def Presentation_Run(root,png=True,gif=True,case_filter='all'):
                         Diagnostics_RecordException(root,'CUTAWAY_RENDER_FAILED',error,output=record['output'])
                     raise
         animation_manifest=root/'work/diagnostics/animations_manifest.json'
-        if case_filter != 'all' and animation_manifest.exists():
+        if (case_filter != 'all' or gif_scope != 'all') and animation_manifest.exists():
             previous=json.loads(animation_manifest.read_text(encoding='utf-8'))
             replaced={v['path'] for v in records}
             records=[v for v in previous if v['path'] not in replaced]+records

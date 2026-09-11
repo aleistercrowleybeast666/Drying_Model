@@ -1,0 +1,3 @@
+END_EFFECT_NOT_NEGLIGIBLE {"case_id": "q1", "max_abs_T": 3.6981255081287827, "max_abs_C": 0.9862253228122699, "relative_time_difference": null}
+2D_SPATIAL_VALIDATION_PARTIAL {"case_id": "q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542", "covered_refinement_time_s": [0, 1800.0], "endpoint_windows": []}
+Q1_EXPORT_AND_2D_COMPLETE

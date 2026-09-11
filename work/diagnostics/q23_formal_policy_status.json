@@ -1,0 +1,7 @@
+{
+  "status": "SUPERSEDED",
+  "phase": "waiting for independently running conservative audit",
+  "wall_s": 276.96129780000774,
+  "note": "Avoid duplicate conservative replay; final certificate uses the latest current-production policy.",
+  "replacement": "production_finalize_status.json"
+}

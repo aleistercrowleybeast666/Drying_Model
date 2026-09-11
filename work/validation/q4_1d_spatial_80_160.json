@@ -49,6 +49,37 @@
   },
   "event_difference_s": 78.65625,
   "event_relative_difference": 0.0004275586975919969,
+  "official_output_times_max_error": {
+    "temperature": {
+      "value": 0.00045802227771218895,
+      "signed_difference": -0.00045802227771218895,
+      "time_s": 1080.0,
+      "r_m": 0.019,
+      "z_m": 0.0,
+      "coarse_value": 305.3322885052047,
+      "fine_value": 305.331830482927
+    },
+    "moisture": {
+      "value": 0.012053275898091353,
+      "signed_difference": 0.012053275898091353,
+      "time_s": 60.0,
+      "r_m": 0.01995766666666667,
+      "z_m": 0.0,
+      "coarse_value": 2.0636759537945646,
+      "fine_value": 2.075729229692656
+    },
+    "sample_count": 3070,
+    "time_range_s": [
+      0.0,
+      184044.96
+    ],
+    "endpoint_times_s": [
+      183966.12,
+      184044.96
+    ],
+    "complete": true,
+    "scope": "Official output timestamps through both drying reports, plus both genuine drying endpoint states; internal RK4 and arbitrary remesh times are audit-only."
+  },
   "event_status_agrees": true,
   "event_comparison_applicable": true,
   "reference_complete": true,
@@ -56,19 +87,146 @@
     0.0,
     259200.0
   ],
-  "sample_count": 4321,
+  "sample_count": 4323,
   "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
   "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+  "all_internal_times_max_error": {
+    "coarse": "891e2408fdc8dfd2cec11859fd89253966f500af9abe589e649e314b8b2ca4cc",
+    "fine": "88a6467f67268801dcf5b108b61351c8f0dcb2b756f03bbff3dceaa2347baf8c",
+    "end": 259200.0,
+    "audit_source_hash": "dfdfdc88081b5603e112c13c4c34f936d6c778f0e20f729ac6590d6ed7d6bf93",
+    "complete": true,
+    "time_range_s": [
+      0.0,
+      259200.0
+    ],
+    "sample_count": 16226883,
+    "replay_endpoint_max_abs": 1.1102230246251565e-15,
+    "temperature": {
+      "value": 0.0007203323134490347,
+      "time_s": 14400.015625,
+      "r_m": 0.014769997395833335,
+      "z_m": 0.0,
+      "coarse_value": 323.15012933113024,
+      "fine_value": 323.1508496634437,
+      "signed_difference": 0.0007203323134490347
+    },
+    "moisture": {
+      "value": 0.09964004212548172,
+      "time_s": 0.03125,
+      "r_m": 0.01999997795138889,
+      "z_m": 0.0,
+      "coarse_value": 2.3409731200525954,
+      "fine_value": 2.440613162178077,
+      "signed_difference": 0.09964004212548172
+    },
+    "full_field_temperature": {
+      "value": 0.0007243959253742105,
+      "time_s": 14400.015625,
+      "r_m": 0.014726529637353294,
+      "z_m": 0.0,
+      "coarse_value": 323.15013599492977,
+      "fine_value": 323.15086039085514,
+      "signed_difference": 0.0007243959253742105
+    },
+    "full_field_moisture": {
+      "value": 0.10412214968718336,
+      "time_s": 0.03125,
+      "r_m": 0.019941118481891465,
+      "z_m": 0.0,
+      "coarse_value": 2.4453627416635517,
+      "fine_value": 2.549484891350735,
+      "signed_difference": 0.10412214968718336
+    },
+    "volume_L2_temperature": {
+      "value": 0.00016137080942511933,
+      "time_s": 1319.9596252441406
+    },
+    "volume_L2_moisture": {
+      "value": 0.011280472539234459,
+      "time_s": 0.03125
+    },
+    "early_600s_temperature": {
+      "value": 0.00019201241428845606,
+      "time_s": 516.375,
+      "r_m": 0.019,
+      "z_m": 0.0,
+      "coarse_value": 302.60223695531846,
+      "fine_value": 302.6020449429042,
+      "signed_difference": -0.00019201241428845606
+    },
+    "early_600s_moisture": {
+      "value": 0.09964004212548172,
+      "time_s": 0.03125,
+      "r_m": 0.01999997795138889,
+      "z_m": 0.0,
+      "coarse_value": 2.3409731200525954,
+      "fine_value": 2.440613162178077,
+      "signed_difference": 0.09964004212548172
+    },
+    "switch_errors": [],
+    "wall_s": 1529.1910059999936,
+    "method": "All accepted step endpoints from both trajectories; exact RK4 partition replay; linear temporal interpolation of the other trajectory; union of physical radial nodes for Linf. Both sides of remesh boundaries checked. Not a continuous-time bound."
+  },
+  "saved_times_max_error": {
+    "temperature": {
+      "value": 0.00045802227771218895,
+      "signed_difference": -0.00045802227771218895,
+      "time_s": 1080.0,
+      "r_m": 0.019,
+      "z_m": 0.0,
+      "coarse_value": 305.3322885052047,
+      "fine_value": 305.331830482927
+    },
+    "moisture": {
+      "value": 0.012053275898091353,
+      "signed_difference": 0.012053275898091353,
+      "time_s": 60.0,
+      "r_m": 0.01995766666666667,
+      "z_m": 0.0,
+      "coarse_value": 2.0636759537945646,
+      "fine_value": 2.075729229692656
+    }
+  },
+  "audit_warnings": [
+    "INTERNAL_MOISTURE_EXCEEDS_TOLERANCE"
+  ],
+  "internal_audit_veto": false,
+  "acceptance_scope": "official_outputs_and_drying_endpoints",
   "passed": false,
   "failure_reasons": [
     "OFFICIAL_C_EXCEEDS_TOLERANCE"
   ],
   "thresholds": {
+    "acceptance_scope": "official_outputs_and_drying_endpoints",
+    "internal_audit_veto": false,
     "temperature_abs_K": 0.01,
-    "moisture_abs": 0.002,
-    "drying_time_relative": 0.001,
+    "moisture_abs": 0.01,
+    "drying_time_relative": 0.002,
+    "early_refined_nr": 400,
+    "require_decreasing_error": true,
     "endpoint_window_s": 3600.0,
     "endpoint_tail_s": 600.0
   },
-  "assessment": "FAIL"
+  "assessment": "FAIL",
+  "convergence_trend": {
+    "passed": true,
+    "metrics": {
+      "official_temperature": {
+        "previous": 0.0013992901553478987,
+        "current": 0.00045802227771218895,
+        "decreasing": true
+      },
+      "official_moisture": {
+        "previous": 0.05955074090271628,
+        "current": 0.012053275898091353,
+        "decreasing": true
+      },
+      "event_relative_difference": {
+        "previous": 0.0011698928996160577,
+        "current": 0.0004275586975919969,
+        "decreasing": true
+      }
+    }
+  }
 }

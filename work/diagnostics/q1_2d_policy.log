@@ -1,0 +1,16 @@
+END_EFFECT_NOT_NEGLIGIBLE {"case_id": "q1", "max_abs_T": 3.6981255081287827, "max_abs_C": 0.9862253228122699, "relative_time_difference": null}
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "D:\��ѧ��ģ\A_Drying\src\drying\validation.py", line 390, in Validation_Run
+    comparisons = Comparison_Run(root,case)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\��ѧ��ģ\A_Drying\src\drying\comparison.py", line 147, in Comparison_Run
+    return Comparison_WriteQuestions(root, case_filter)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\��ѧ��ģ\A_Drying\src\drying\comparison.py", line 174, in Comparison_WriteQuestions
+    with destination.open('w', newline='', encoding='utf-8-sig') as stream:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chdxm\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'D:\\��ѧ��ģ\\A_Drying\\results\\q1\\q1_compare.csv'

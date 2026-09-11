@@ -1,7 +1,7 @@
 """Question-specific presentation metadata; never advances a PDE state."""
 import json
 from pathlib import Path
-from .cases import Case_GetId, Case_ReadStatus, Case_GetSelected
+from .cases import Case_GetId, Case_ReadStatus, Case_GetSelected, Case_LoadConfig
 from .storage import Storage_WriteJson, Storage_HashFiles
 
 
@@ -66,6 +66,11 @@ def Output_UpdateStatus(root):
         entry = validation.get(f'{case}_1d', {})
         if entry.get('selected_id', case_id) != case_id or entry.get('selected_fingerprint',status['fingerprint']) != status['fingerprint']:
             entry = {}
+        if (root/'configs/default.toml').exists() and entry.get('radial',{}).get('thresholds'):
+            if entry['radial']['thresholds'] != Case_LoadConfig(root)['validation']['spatial']:
+                # During per-case recomputation, never attach old acceptance to
+                # the new configuration or read superseded stage attempts.
+                entry = {}
         check = comparison.get(f'q{q}', {})
         export = next((item for item in manifest.get('outputs', []) if item['question'] == q), {})
         table = root/f'results/tables/result{q}.xlsx'
@@ -74,7 +79,7 @@ def Output_UpdateStatus(root):
                      export.get('workbook_hash') == Storage_HashFiles([table]))
         dry = bool(status.get('event') and status['event']['report_s'] <= end + 1e-8)
         time_passed = bool(entry.get('time_passed') and entry.get('time_full_time'))
-        space_passed = bool(entry.get('spatial_passed') and entry.get('spatial_full_time'))
+        space_passed = bool(entry.get('spatial_convergence_passed',entry.get('spatial_passed')) and entry.get('spatial_full_time'))
         two_id = Output_GetSelected(root, case, 2)
         two_path = root/'work/cache'/two_id/'status.json'
         two_status = Case_ReadStatus(root, two_id) if two_path.exists() else {}
@@ -108,6 +113,17 @@ def Output_UpdateStatus(root):
             stage_transfers=status.get('transfers',[]),
             **{key:value for key,value in entry.items() if key.startswith('stage_schedule_')},
             recommended_schedule=entry.get('recommended_schedule','fixed'))
+        for stage in record['stage_dt_statistics']:
+            stage.setdefault('requested_dt_max',status.get('dt'))
+            stage.setdefault('stability_limited_count',status.get('limited'))
+        record.update(**{key:bool(entry.get(key,False)) for key in ['fixed_grid_spatial_passed',
+            'stage_schedule_spatial_passed','early_reference_passed','stage_schedule_accuracy_passed','remesh_transfer_passed']})
+        active_check = next((trial for trial in entry.get('stage_schedule_trials',[]) if trial.get('schedule_id')==case_id),entry.get('radial',{}))
+        record.update(spatial_acceptance_scope='official_outputs_and_drying_endpoints',internal_audit_veto=False,
+            spatial_thresholds=Case_LoadConfig(root)['validation']['spatial'] if (root/'configs/default.toml').exists() else {},
+            early_refinement=entry.get('early_refinement'),spatial_pairs=entry.get('spatial_pairs',[]),
+            all_internal_times_max_error=active_check.get('all_internal_times_max_error'),
+            official_output_times_max_error=active_check.get('official_output_times_max_error'))
         attempts = []
         for trial in entry.get('stage_schedule_trials',[]):
             candidate = Case_ReadStatus(root,trial['schedule_id'])
@@ -120,6 +136,8 @@ def Output_UpdateStatus(root):
     Storage_WriteJson(root/'results/status.json', dict(questions=questions,
         time_convergence_passed=len(questions) == 4 and all(v['time_convergence_passed'] for v in questions.values()),
         spatial_convergence_passed=len(questions) == 4 and all(v['spatial_convergence_passed'] for v in questions.values()),
+        fixed_grid_spatial_passed=len(questions) == 4 and all(v['fixed_grid_spatial_passed'] for v in questions.values()),
+        stage_schedule_spatial_passed=len(questions) == 4 and all(v['stage_schedule_spatial_passed'] for v in questions.values()),
         two_dimensional_check_completed=len(questions) == 4 and all(v['two_dimensional_check_completed'] for v in questions.values()),
         drying_completed=all(questions.get(q, {}).get('drying_completed', False) for q in ['q3', 'q4']),
         official_output_generated=len(questions) == 4 and all(v['official_output_generated'] for v in questions.values()),

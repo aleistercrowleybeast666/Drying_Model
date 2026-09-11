@@ -1,0 +1,95 @@
+{
+  "coarse_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+  "fine_id": "q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_representative_extension_t5086",
+  "coarse_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
+  "fine_fingerprint": "9d2c3f08732d05a095c2d3140789a9466337c209b8b96ff68e72222db0adbb3b",
+  "maxima_temperature": {
+    "value": 0.00011849125723983889,
+    "signed_difference": -0.00011849125723983889,
+    "time_s": 5085.0,
+    "r_m": 0.0,
+    "z_m": 0.10286635496340824,
+    "coarse_value": 319.04091341919366,
+    "fine_value": 319.0407949279364
+  },
+  "maxima_moisture": {
+    "value": 0.0003564803594735544,
+    "signed_difference": 0.0003564803594735544,
+    "time_s": 5085.0,
+    "r_m": 0.0,
+    "z_m": 0.1115582462238282,
+    "coarse_value": 2.29343045714283,
+    "fine_value": 2.2937869375023037
+  },
+  "official_temperature": {
+    "value": 0.00011849125723983889,
+    "signed_difference": -0.00011849125723983889,
+    "time_s": 5085.0,
+    "r_m": 0.0,
+    "z_m": 0.10286635496340824,
+    "coarse_value": 319.04091341919366,
+    "fine_value": 319.0407949279364
+  },
+  "official_moisture": {
+    "value": 0.0003564803594735544,
+    "signed_difference": 0.0003564803594735544,
+    "time_s": 5085.0,
+    "r_m": 0.0,
+    "z_m": 0.1115582462238282,
+    "coarse_value": 2.29343045714283,
+    "fine_value": 2.2937869375023037
+  },
+  "volume_L2_temperature": {
+    "value": 5.097941966974552e-05,
+    "time_s": 5085.0
+  },
+  "volume_L2_moisture": {
+    "value": 9.483323432576508e-05,
+    "time_s": 5085.0
+  },
+  "event_difference_s": null,
+  "event_relative_difference": null,
+  "official_output_times_max_error": {
+    "temperature": {
+      "value": 0.00011849125723983889,
+      "signed_difference": -0.00011849125723983889,
+      "time_s": 5085.0,
+      "r_m": 0.0,
+      "z_m": 0.10286635496340824,
+      "coarse_value": 319.04091341919366,
+      "fine_value": 319.0407949279364
+    },
+    "moisture": {
+      "value": 0.0003564803594735544,
+      "signed_difference": 0.0003564803594735544,
+      "time_s": 5085.0,
+      "r_m": 0.0,
+      "z_m": 0.1115582462238282,
+      "coarse_value": 2.29343045714283,
+      "fine_value": 2.2937869375023037
+    },
+    "sample_count": 2,
+    "time_range_s": [
+      0.0,
+      5086.0
+    ],
+    "endpoint_times_s": [],
+    "complete": false,
+    "scope": "Official output timestamps through both drying reports, plus both genuine drying endpoint states; internal RK4 and arbitrary remesh times are audit-only."
+  },
+  "event_status_agrees": true,
+  "event_comparison_applicable": false,
+  "reference_complete": false,
+  "time_range_s": [
+    5085.0,
+    5086.0
+  ],
+  "sample_count": 2,
+  "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+  "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+  "assessment": "QUANTIFIED",
+  "window_reference_complete": true,
+  "inherited_reference_id": "q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification",
+  "inherited_reference_fingerprint": "e6abaf9f5ff30d46c384734af84ca80bead4dc45910093ee7a7295f9457c4fc2",
+  "note": "Genuine continuation of the complete 0-5085 s fine trajectory through 5086 s, using its exact checkpoint and unchanged mesh/RK4. This supplemental window covers the new representative time; 2D full-trajectory convergence remains unverified."
+}

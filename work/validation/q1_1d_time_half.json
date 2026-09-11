@@ -49,6 +49,34 @@
   },
   "event_difference_s": null,
   "event_relative_difference": null,
+  "official_output_times_max_error": {
+    "temperature": {
+      "value": 1.3528733688872308e-11,
+      "signed_difference": -1.3528733688872308e-11,
+      "time_s": 1588.0,
+      "r_m": 0.0,
+      "z_m": 0.0,
+      "coarse_value": 305.6038583578869,
+      "fine_value": 305.6038583578734
+    },
+    "moisture": {
+      "value": 1.787903158856352e-12,
+      "signed_difference": -1.787903158856352e-12,
+      "time_s": 1.0,
+      "r_m": 0.02,
+      "z_m": 0.0,
+      "coarse_value": 2.513238207881469,
+      "fine_value": 2.513238207879681
+    },
+    "sample_count": 1801,
+    "time_range_s": [
+      0.0,
+      1800.0
+    ],
+    "endpoint_times_s": [],
+    "complete": true,
+    "scope": "Official output timestamps through both drying reports, plus both genuine drying endpoint states; internal RK4 and arbitrary remesh times are audit-only."
+  },
   "event_status_agrees": true,
   "event_comparison_applicable": true,
   "reference_complete": true,

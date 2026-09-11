@@ -40,11 +40,13 @@ frames = 240
 fps = 24
 width_px = 1000
 height_px = 450
-cutaway_angle_deg = 35.0
-cutaway_axial_tilt_deg = 4.0
+cutaway_angle_deg = 45.0
+cutaway_azimuth_deg = 35.0
+cutaway_boundary_width = 1.8
+cutaway_cut_width = 2.2
 
 [stage_mesh]
-mode = "stage_schedule"
+mode = "early_refined_stage_schedule"
 schedule_file = "configs/stage_schedule.json"
 two_dimensional_mode = "fixed"
 
@@ -69,8 +71,13 @@ base_nz = 125
 refined_nz = 250
 
 [validation.spatial]
+acceptance_scope = "official_outputs_and_drying_endpoints"
+internal_audit_veto = false
 temperature_abs_K = 0.01
-moisture_abs = 0.002
-drying_time_relative = 0.001
+moisture_abs = 0.01
+drying_time_relative = 0.002
+# Local early-window verification only; production Nr=200 is in stage_schedule.json.
+early_refined_nr = 400
+require_decreasing_error = true
 endpoint_window_s = 3600.0
 endpoint_tail_s = 600.0

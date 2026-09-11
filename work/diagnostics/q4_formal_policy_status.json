@@ -1,0 +1,7 @@
+{
+  "status": "SUPERSEDED",
+  "phase": "waiting for independently running stage audits",
+  "wall_s": 1571.4578476000024,
+  "note": "Avoid duplicate stage audit replay; final stage certificate will use the latest production-state policy.",
+  "replacement": "production_finalize_status.json"
+}

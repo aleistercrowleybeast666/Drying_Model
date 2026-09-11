@@ -1,5 +1,6 @@
 """Acceptance, evidence completeness, conservative transfer and mesh provenance."""
 import json
+from pathlib import Path
 import numpy as np
 import pytest
 from drying.validation import Validation_AssessSpatial, Validation_ProjectAverages, Validation_SaveEntry
@@ -9,13 +10,13 @@ from drying.cases import Case_ReadStatus, Case_GetSourceHash
 from drying.storage import Storage_WriteJson, Storage_WriteArray
 
 
-def test_official_samples_and_event_control_acceptance_not_internal_spike():
-    tolerance = dict(temperature_abs_K=.01,moisture_abs=.002,drying_time_relative=.001)
+def test_strict_official_spatial_points_and_event_are_distinct_from_full_field_metric():
+    tolerance = dict(temperature_abs_K=.01,moisture_abs=.01,drying_time_relative=.002)
     value = dict(reference_complete=True,official_temperature=dict(value=.009),
-        official_moisture=dict(value=.0019),event_relative_difference=.0009,
+        official_moisture=dict(value=.0099),event_relative_difference=.0019,
         maxima_moisture=dict(value=.4))
     assert Validation_AssessSpatial(value,tolerance,True)['passed']
-    value['event_relative_difference'] = .00101
+    value['event_relative_difference'] = .00201
     assert not Validation_AssessSpatial(value,tolerance,True)['passed']
     value['event_relative_difference'] = None
     assert 'SPATIAL_REFERENCE_INCOMPLETE' in Validation_AssessSpatial(value,tolerance,True)['failure_reasons'][0]
@@ -68,3 +69,44 @@ def test_mesh_and_monitor_tampering_invalidates_current_cache(tmp_path):
     monitor[-1] += .01
     Storage_WriteArray(target,x=x,monitor=monitor)
     with pytest.raises(RuntimeError,match='frozen monitor changed'): Case_ReadStatus(tmp_path,'example')
+
+
+def test_internal_excess_and_incomplete_audit_do_not_veto_formal_acceptance():
+    tol = dict(temperature_abs_K=.01,moisture_abs=.01,drying_time_relative=.002)
+    value = dict(reference_complete=True,official_temperature=dict(value=20.),
+        official_moisture=dict(value=2.),event_relative_difference=.001,
+        official_output_times_max_error=dict(temperature=dict(value=.009),moisture=dict(value=.008),complete=True),
+        all_internal_times_max_error=dict(complete=False,temperature=dict(value=20.),moisture=dict(value=2.)))
+    result = Validation_AssessSpatial(value,tol,True)
+    assert result['passed'] and not result['internal_audit_veto']
+    assert len(result['audit_warnings']) == 3 and not result['failure_reasons']
+    value['reference_complete'] = False  # Missing non-formal saved rows cannot veto complete official coverage.
+    assert Validation_AssessSpatial(value,tol,True)['passed']
+    value['official_output_times_max_error']['complete'] = False
+    assert not Validation_AssessSpatial(value,tol,True)['passed']
+    value['official_output_times_max_error']['complete'] = True
+    value['official_output_times_max_error']['moisture']['value'] = .0101
+    assert not Validation_AssessSpatial(value,tol,True)['passed']
+
+
+def test_both_drying_endpoint_fields_are_formal_even_between_output_rows(monkeypatch,tmp_path):
+    import drying.validation as module
+    statuses = {key:dict(case='q4',cap=180.,complete=True,fingerprint=key,
+        event=dict(report_s=endpoint,raw_event_s=endpoint)) for key,endpoint in [('a',75.),('b',95.)]}
+    monkeypatch.setattr(module,'Case_ReadStatus',lambda root,key:statuses[key])
+    mesh = (np.linspace(0,1,5),np.array([0.,1.]))
+    monkeypatch.setattr(module,'Case_LoadMesh',lambda *args:mesh)
+    def State(key,t):
+        value=np.ones((2,4,1)); value[0]=301.15
+        if key=='a' and t==95.: value[1]+=.02
+        return value
+    monkeypatch.setattr(module,'Case_IterFields',lambda root,key:iter((t,State(key,t)) for t in [0.,60.,120.,180.]))
+    monkeypatch.setattr(module,'Validation_GetEndpointState',lambda root,key,t:State(key,t))
+    root=Path(__file__).resolve().parents[1]
+    value,rows=module.Validation_CompareCaches(root,'a','b')
+    formal=value['official_output_times_max_error']
+    assert formal['complete'] and formal['endpoint_times_s']==[75.,95.]
+    assert formal['sample_count']==4
+    assert formal['moisture']['time_s']==95. and formal['moisture']['value']>.01
+    assert 75. in [row[0] for row in rows] and 95. in [row[0] for row in rows]
+    assert not module.Validation_AssessSpatial(value,dict(temperature_abs_K=.01,moisture_abs=.01,drying_time_relative=.002),False)['passed']

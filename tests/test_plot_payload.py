@@ -43,11 +43,14 @@ def test_cut_plane_geometry_shrinks_and_samples_real_axial_field():
     for radius,shape in [(.02,large),(.012,small)]:
         x,y,z=shape['cut']
         np.testing.assert_allclose(shape['normal'][0]*x+shape['normal'][1]*y+shape['normal'][2]*z,0,atol=1e-17)
-        assert np.nanmax(np.hypot(y,z)) <= radius+1e-15
-        assert np.nanmax(abs(x))==.125
+        assert np.nanmax(np.hypot(x,y)) <= radius+1e-15
+        assert np.nanmax(abs(z))<=radius+1e-15
+        assert np.min(shape['shell'][2])==-.125
+        assert shape['model_axial_limits']==[-.125,.125]
+        assert abs(shape['normal'][2]/np.linalg.norm(shape['normal'])-np.sqrt(.5))<1e-14
         r,axial=np.linspace(0,radius,41),np.linspace(0,.125,126)
         rr,zz=np.meshgrid(r,axial,indexing='ij')
         nodes=np.stack([300+2*rr+3*zz,1+rr+zz])
         values=Cutaway_SampleSurface(r,axial,nodes,shape['cut'],1)
-        np.testing.assert_allclose(values,1+np.hypot(y,z)+abs(x),rtol=1e-14)
-    assert np.nanmax(np.hypot(*small['cut'][1:])) < np.nanmax(np.hypot(*large['cut'][1:]))
+        np.testing.assert_allclose(values,1+np.hypot(x,y)+abs(z),rtol=1e-14)
+    assert np.nanmax(np.hypot(*small['cut'][:2])) < np.nanmax(np.hypot(*large['cut'][:2]))

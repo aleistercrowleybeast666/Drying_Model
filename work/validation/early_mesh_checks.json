@@ -1,0 +1,74 @@
+[
+  {
+    "case": "q1",
+    "nr": 200,
+    "status": "VALID",
+    "mesh_profile_hash": "d2d30d0587febdc210a0e00d8e5187c1e07316481d30b824f5349ebe2e89554f",
+    "radial_initial": {
+      "min": 8.135714856243315e-05,
+      "max": 0.00011184527890304977,
+      "mean": 0.00010000000000000002,
+      "neighbor_ratio": 1.0058019593475207
+    }
+  },
+  {
+    "case": "q1",
+    "nr": 400,
+    "status": "VALID",
+    "mesh_profile_hash": "b959eaf2ef9f6a3bfafc6042212feca75b689ae6ff37d986792eab0c43fff690",
+    "radial_initial": {
+      "min": 4.0678574281216574e-05,
+      "max": 5.592782959804408e-05,
+      "mean": 5.000000000000001e-05,
+      "neighbor_ratio": 1.0029099847703156
+    }
+  },
+  {
+    "case": "q23",
+    "nr": 200,
+    "status": "VALID",
+    "mesh_profile_hash": "1ccbfdc27056e443fd5ff4d1b25280e1d8aaaf16f0f442ceed6f796a0a2d3979",
+    "radial_initial": {
+      "min": 8.762677765672411e-05,
+      "max": 0.00010357535415543875,
+      "mean": 0.00010000000000000002,
+      "neighbor_ratio": 1.0093331708161308
+    }
+  },
+  {
+    "case": "q23",
+    "nr": 400,
+    "status": "VALID",
+    "mesh_profile_hash": "2daefaf124e51efbfe487c8a47cd66eb3852cbeda0c0f6da5abfb81935726628",
+    "radial_initial": {
+      "min": 4.371388768873219e-05,
+      "max": 5.1790362042749916e-05,
+      "mean": 4.9999999999999996e-05,
+      "neighbor_ratio": 1.0046829947334837
+    }
+  },
+  {
+    "case": "q4",
+    "nr": 200,
+    "status": "VALID",
+    "mesh_profile_hash": "60a8c7b6b2c202a27253e61644f08087e73893fe76355702bd5158a56792ddc9",
+    "radial_initial": {
+      "min": 9.417525501755675e-05,
+      "max": 0.00010299599906950222,
+      "mean": 0.0001,
+      "neighbor_ratio": 1.0028283933954218
+    }
+  },
+  {
+    "case": "q4",
+    "nr": 400,
+    "status": "VALID",
+    "mesh_profile_hash": "30266bb16d2da7cc2f38b3590185fca5cd739ddcf6a400e35dcf3cb09de1f51d",
+    "radial_initial": {
+      "min": 4.7087627508777265e-05,
+      "max": 5.150004173133665e-05,
+      "mean": 5e-05,
+      "neighbor_ratio": 1.0014177720986004
+    }
+  }
+]

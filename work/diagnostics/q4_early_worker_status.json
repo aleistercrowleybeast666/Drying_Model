@@ -1,0 +1,6 @@
+{
+  "status": "SUPERSEDED",
+  "phase": "fixed/internal/early validation",
+  "wall_s": 0,
+  "note": "Stopped for the user-requested formal-time acceptance policy; completed numeric caches retained. Continued by *_formal_policy_status.json."
+}

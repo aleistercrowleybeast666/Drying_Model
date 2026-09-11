@@ -1,0 +1,110 @@
+{
+  "coarse_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+  "fine_id": "q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006",
+  "coarse_fingerprint": "45cdf27de0841fb1cca3dd4b37007ef81bb4c703bcf05220fb2ffb5ae1d9fc01",
+  "fine_fingerprint": "32d9af8aa61acb6d615426eb2a187263ac83e44bb17ea9c0189f5b07fb48aa6b",
+  "maxima_temperature": {
+    "value": 0.0007573059526748693,
+    "signed_difference": 0.0007573059526748693,
+    "time_s": 300.0,
+    "r_m": 0.019945170518348897,
+    "z_m": 0.0,
+    "coarse_value": 301.787728314492,
+    "fine_value": 301.7884856204447
+  },
+  "maxima_moisture": {
+    "value": 0.006702965045497902,
+    "signed_difference": 0.006702965045497902,
+    "time_s": 102600.0,
+    "r_m": 0.019834876714240404,
+    "z_m": 0.0,
+    "coarse_value": 0.08467781481743702,
+    "fine_value": 0.09138077986293493
+  },
+  "official_temperature": {
+    "value": 0.0007560886703572578,
+    "signed_difference": 0.0007560886703572578,
+    "time_s": 300.0,
+    "r_m": 0.02,
+    "z_m": 0.0,
+    "coarse_value": 301.7941478672935,
+    "fine_value": 301.79490395596383
+  },
+  "official_moisture": {
+    "value": 0.0018330304210114612,
+    "signed_difference": -0.0018330304210114612,
+    "time_s": 300.0,
+    "r_m": 0.02,
+    "z_m": 0.0,
+    "coarse_value": 2.088061375539562,
+    "fine_value": 2.0862283451185504
+  },
+  "volume_L2_temperature": {
+    "value": 0.0003077732730928836,
+    "time_s": 300.0
+  },
+  "volume_L2_moisture": {
+    "value": 0.0008812464591994489,
+    "time_s": 105300.0
+  },
+  "event_difference_s": 341.84375,
+  "event_relative_difference": 0.0016506577959591402,
+  "official_output_times_max_error": {
+    "temperature": {
+      "value": 0.0007560886703572578,
+      "signed_difference": 0.0007560886703572578,
+      "time_s": 300.0,
+      "r_m": 0.02,
+      "z_m": 0.0,
+      "coarse_value": 301.7941478672935,
+      "fine_value": 301.79490395596383
+    },
+    "moisture": {
+      "value": 0.0018330304210114612,
+      "signed_difference": -0.0018330304210114612,
+      "time_s": 300.0,
+      "r_m": 0.02,
+      "z_m": 0.0,
+      "coarse_value": 2.088061375539562,
+      "fine_value": 2.0862283451185504
+    },
+    "sample_count": 14080,
+    "time_range_s": [
+      0.0,
+      207437.4
+    ],
+    "endpoint_times_s": [
+      207095.75999999998,
+      207437.4
+    ],
+    "complete": true,
+    "scope": "Official output timestamps through both drying reports, plus both genuine drying endpoint states; internal RK4 and arbitrary remesh times are audit-only."
+  },
+  "event_status_agrees": true,
+  "event_comparison_applicable": true,
+  "reference_complete": true,
+  "time_range_s": [
+    0.0,
+    259200.0
+  ],
+  "sample_count": 14943,
+  "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+  "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+  "audit_warnings": [],
+  "internal_audit_veto": false,
+  "acceptance_scope": "official_outputs_and_drying_endpoints",
+  "passed": true,
+  "failure_reasons": [],
+  "thresholds": {
+    "acceptance_scope": "official_outputs_and_drying_endpoints",
+    "internal_audit_veto": false,
+    "temperature_abs_K": 0.01,
+    "moisture_abs": 0.01,
+    "drying_time_relative": 0.002,
+    "early_refined_nr": 400,
+    "require_decreasing_error": true,
+    "endpoint_window_s": 3600.0,
+    "endpoint_tail_s": 600.0
+  },
+  "assessment": "PASS"
+}

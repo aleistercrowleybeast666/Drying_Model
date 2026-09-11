@@ -1,0 +1,66 @@
+{
+  "status": "PASSED",
+  "checked_at": "2026-09-11T22:46:43.598928+08:00",
+  "files": [
+    {
+      "path": "src\\drying\\boundaries.py",
+      "sha256": "5b88490ad438f9831b84104cd53f983b8c6326c7bcdfbce3c884e9826b8d5905",
+      "unchanged": true
+    },
+    {
+      "path": "src\\drying\\events.py",
+      "sha256": "d03bdfe9f32e669bd6d55cf9a4d095b5376e26004b9cd52ca3f05b89397743bb",
+      "unchanged": true
+    },
+    {
+      "path": "src\\drying\\geometry.py",
+      "sha256": "87abb0138f2fae6833e1455363f99da62398b72de924838e0bcd6c4d2a685519",
+      "unchanged": true
+    },
+    {
+      "path": "src\\drying\\inputs.py",
+      "sha256": "a3d83290bd4d32a3e9ddaf74467d6215f9a0b3f030eca76a9dc96a9898c47a3a",
+      "unchanged": true
+    },
+    {
+      "path": "src\\drying\\materials.py",
+      "sha256": "83af1401abe6dc99073f619efa2a5406c8b8d56c34fb8043b72a369dad39cbdf",
+      "unchanged": true
+    },
+    {
+      "path": "src\\drying\\operators.py",
+      "sha256": "6c36fd3be577f379dde6aece12be7fce12a563c54cf5155c618dfd5b09b8ae43",
+      "unchanged": true
+    },
+    {
+      "path": "src\\drying\\rk4.py",
+      "sha256": "71b9f6b50b0f6b6656a2e79920f8b77c8d65679a89e0b8419940e629262d8709",
+      "unchanged": true
+    },
+    {
+      "path": "src\\drying\\sampling.py",
+      "sha256": "b335f20108608c04b4ceb5510233e89d05718928d82c6712b204fa9e9cb8717b",
+      "unchanged": true
+    },
+    {
+      "path": "results\\q3\\q3_3d.gif",
+      "sha256": "67a2982f9ddc554d80262880808b6b9124629b790cba6205cef6f2d04984302c",
+      "unchanged": true
+    },
+    {
+      "path": "results\\q4\\q4_3d.gif",
+      "sha256": "10ae7c1824e9f4b0851249ccb046d062fa545a90ab6f8f8f4482d2e583756f06",
+      "unchanged": true
+    },
+    {
+      "path": "results\\q3_q4_axial_section.gif",
+      "sha256": "0577f3fd51397ccbe74b1ee0cc66fe8f1092c89199a2e0b6a84e649a5dfeb4fa",
+      "unchanged": true
+    },
+    {
+      "path": "results\\q3_q4_radial_section.gif",
+      "sha256": "20317e3cdc4c3de5b268d516bf31d66c1a392de67323d87007270b7bdf3b633e",
+      "unchanged": true
+    }
+  ]
+}

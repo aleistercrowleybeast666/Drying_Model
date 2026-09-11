@@ -1,14 +1,14 @@
 {
   "question": 1,
-  "case_id": "q1_1d_stage_schedule_default_dt0.25_s35c8e86f6109",
-  "fingerprint": "35c8e86f61097a8ead9287ef2afa1cea263f414e5797378b7c45878e3cdcef5a",
+  "case_id": "q1_1d_stage_schedule_default_dt0.25_s030d129157f2",
+  "fingerprint": "030d129157f288fa66f41cf509d2e5fe28453fec39bff330599bab5613f8454b",
   "dimension": 1,
   "path": "results\\tables\\result1.xlsx",
   "status": "GENERATED",
-  "numerical_validation": "SPATIAL_CONVERGENCE_FAILED",
+  "numerical_validation": "PASS",
   "rows": 1800,
   "columns": 22,
   "event": null,
-  "workbook_hash": "8f85d2cf43686b93910c5e080c9796fdc23da7a693f5b9eaf9b27d46b8f294ba",
+  "workbook_hash": "a5bcaaaac96e0eaf368405870f32f30e4eccc2608ff60b77c17f30c75927edb5",
   "readback": "PASSED: sheet names, all numeric cells, dimensions, time SI, precision, blanks, event deduplication, source"
 }

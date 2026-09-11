@@ -1,0 +1,78 @@
+{
+  "coarse": "7292818ce9e8761fd592617ec98855c0c1ddc0b3749555d6b0defb0ce5200dd4",
+  "fine": "393b20708982bddbe7b2eacbb82901e11872608f92a2852365379482aef72293",
+  "end": 259200.0,
+  "audit_source_hash": "dfdfdc88081b5603e112c13c4c34f936d6c778f0e20f729ac6590d6ed7d6bf93",
+  "complete": true,
+  "time_range_s": [
+    0.0,
+    259200.0
+  ],
+  "sample_count": 4136339,
+  "replay_endpoint_max_abs": 0.0,
+  "temperature": {
+    "value": 0.0008434417418357043,
+    "time_s": 14400.0625,
+    "r_m": 0.02,
+    "z_m": 0.0,
+    "coarse_value": 323.14698878662955,
+    "fine_value": 323.1478322283714,
+    "signed_difference": 0.0008434417418357043
+  },
+  "moisture": {
+    "value": 0.03825270921039836,
+    "time_s": 0.0625,
+    "r_m": 0.02,
+    "z_m": 0.0,
+    "coarse_value": 2.4722235349308046,
+    "fine_value": 2.510476244141203,
+    "signed_difference": 0.03825270921039836
+  },
+  "full_field_temperature": {
+    "value": 0.0008495068121305849,
+    "time_s": 14400.0625,
+    "r_m": 0.019889706195891504,
+    "z_m": 0.0,
+    "coarse_value": 323.14697475544716,
+    "fine_value": 323.1478242622593,
+    "signed_difference": 0.0008495068121305849
+  },
+  "full_field_moisture": {
+    "value": 0.038851766312062,
+    "time_s": 0.0625,
+    "r_m": 0.019889706195891504,
+    "z_m": 0.0,
+    "coarse_value": 2.510582461610899,
+    "fine_value": 2.549434227922961,
+    "signed_difference": 0.038851766312062
+  },
+  "volume_L2_temperature": {
+    "value": 0.00037494036187323064,
+    "time_s": 1080.0
+  },
+  "volume_L2_moisture": {
+    "value": 0.005754499248301223,
+    "time_s": 0.0625
+  },
+  "early_600s_temperature": {
+    "value": 0.0003585572254678482,
+    "time_s": 540.375,
+    "r_m": 0.019,
+    "z_m": 0.0,
+    "coarse_value": 302.4513268969162,
+    "fine_value": 302.45096833969075,
+    "signed_difference": -0.0003585572254678482
+  },
+  "early_600s_moisture": {
+    "value": 0.03825270921039836,
+    "time_s": 0.0625,
+    "r_m": 0.02,
+    "z_m": 0.0,
+    "coarse_value": 2.4722235349308046,
+    "fine_value": 2.510476244141203,
+    "signed_difference": 0.03825270921039836
+  },
+  "switch_errors": [],
+  "wall_s": 212.35212959999626,
+  "method": "All accepted step endpoints from both trajectories; exact RK4 partition replay; linear temporal interpolation of the other trajectory; union of physical radial nodes for Linf. Both sides of remesh boundaries checked. Not a continuous-time bound."
+}

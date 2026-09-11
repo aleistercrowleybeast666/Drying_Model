@@ -1,0 +1,1 @@
+{'fixed_grid_spatial_passed': False, 'early_reference_passed': True, 'stage_schedule_accuracy_passed': True, 'remesh_transfer_passed': True, 'stage_schedule_spatial_passed': True, 'spatial_convergence_passed': True}

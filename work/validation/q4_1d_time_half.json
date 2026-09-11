@@ -49,6 +49,36 @@
   },
   "event_difference_s": 0.0078125,
   "event_relative_difference": 4.246709532669576e-08,
+  "official_output_times_max_error": {
+    "temperature": {
+      "value": 2.1962023311061785e-09,
+      "signed_difference": -2.1962023311061785e-09,
+      "time_s": 30420.0,
+      "r_m": 0.0,
+      "z_m": 0.0,
+      "coarse_value": 323.1489344246433,
+      "fine_value": 323.1489344224471
+    },
+    "moisture": {
+      "value": 1.9523604954940765e-11,
+      "signed_difference": 1.9523604954940765e-11,
+      "time_s": 40680.0,
+      "r_m": 0.0,
+      "z_m": 0.0,
+      "coarse_value": 0.805545101451621,
+      "fine_value": 0.8055451014711446
+    },
+    "sample_count": 3068,
+    "time_range_s": [
+      0.0,
+      183966.12
+    ],
+    "endpoint_times_s": [
+      183966.12
+    ],
+    "complete": true,
+    "scope": "Official output timestamps through both drying reports, plus both genuine drying endpoint states; internal RK4 and arbitrary remesh times are audit-only."
+  },
   "event_status_agrees": true,
   "event_comparison_applicable": true,
   "reference_complete": true,
@@ -56,7 +86,7 @@
     0.0,
     259200.0
   ],
-  "sample_count": 4321,
+  "sample_count": 4322,
   "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
   "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
   "passed": true,

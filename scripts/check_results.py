@@ -23,9 +23,22 @@ def Check_Run(cache_baseline=None):
     status = Output_ReadJson(results/'status.json')
     exports = Output_ReadJson(_ROOT/'work/diagnostics/export_manifest.json')['outputs']
     comparison = Output_ReadJson(_ROOT/'work/comparison/summary.json')
+    certificates = Output_ReadJson(_ROOT/'work/validation/summary.json')
     records = []
     for q in range(1, 5):
         summary = Output_ReadJson(results/f'q{q}/q{q}_summary.json')
+        question = status['questions'][f'q{q}']
+        certificate = certificates[question['source_case']+'_1d']
+        for flag in ['fixed_grid_spatial_passed','stage_schedule_spatial_passed','spatial_convergence_passed',
+                     'early_reference_passed','stage_schedule_accuracy_passed','remesh_transfer_passed']:
+            assert question[flag] == summary[flag] == certificate.get(flag,False), (q,flag)
+        assert question['one_id'] == certificate['selected_id']
+        if question['execution_mode']=='stage_schedule':
+            expected = all(question[k] for k in ['early_reference_passed','stage_schedule_accuracy_passed','remesh_transfer_passed'])
+            assert question['spatial_convergence_passed'] == question['stage_schedule_spatial_passed'] == expected
+        else:
+            assert question['spatial_convergence_passed'] == question['fixed_grid_spatial_passed']
+        assert certificate['spatial_passed'] == question['spatial_convergence_passed']
         data = np.loadtxt(results/f'q{q}/q{q}_compare.csv', delimiter=',', skiprows=1, ndmin=2)
         end = summary['simulation_end']
         assert data[0, 0] == 0 and abs(data[-1, 0]-end) < 1e-8
@@ -52,6 +65,8 @@ def Check_Run(cache_baseline=None):
             with Image.open(results/f'q{q}/q{q}_{suffix}.png') as picture:
                 picture.verify()
         records.append(dict(question=q, time_range_s=[0, end], compare_rows=len(data), workbook_readback='PASSED'))
+    for flag in ['fixed_grid_spatial_passed','stage_schedule_spatial_passed','spatial_convergence_passed']:
+        assert status[flag] == all(question[flag] for question in status['questions'].values()), flag
     assert comparison['q2']['one_id'] == comparison['q3']['one_id']
     assert comparison['q2']['two_id'] == comparison['q3']['two_id']
     animations = Output_ReadJson(_ROOT/'work/diagnostics/animations_manifest.json', [])
@@ -82,7 +97,7 @@ def Check_Run(cache_baseline=None):
         unchanged = len(baseline['files'])
     tests = Output_ReadJson(_ROOT/'work/validation/program_tests.json')
     assert tests['exit_status'] == 0 and all(item['outcome'] == 'passed' for item in tests['tests'])
-    report = dict(status='PASSED', questions=records, png_count=len(list(results.rglob('*.png'))),
+    report = dict(status='PASSED', production_state_consistency='PASSED_ALL_QUESTIONS', questions=records, png_count=len(list(results.rglob('*.png'))),
         gif_count=5, test_count=len(tests['tests']), unchanged_solver_cache_files=unchanged,
         core_unchanged=unchanged is not None,
         numerical_note='Numerical acceptance is read from results/status.json; publication checks do not change numerical PASS/FAIL.')

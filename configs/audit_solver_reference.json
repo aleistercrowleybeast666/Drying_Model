@@ -1,0 +1,9 @@
+{
+  "numerical_ast_hash": "67647296dad42e727c4fd7d15ae14e62e74de77c567c1a15d2098a213a5144ac",
+  "legacy_source_hash": "dfdfdc88081b5603e112c13c4c34f936d6c778f0e20f729ac6590d6ed7d6bf93",
+  "compatible_producer_hashes": [
+    "24136bf3f64be87c488533395333de8cc781542276d4e0c5f151c0b4b07d615f",
+    "acb3923c1676ba5050d57678d55fdb4ad9383895c47421beb5c7b465e5a61a59"
+  ],
+  "compatibility_note": "Earlier implementation called Sampling_Reconstruct and repeated identical axial columns; current 1D specialization is exactly equal, verified by test_nonuniform_surface_reconstruction_uses_actual_center_distance. RK4 replay and metrics unchanged. Preserve original producer hashes in reused evidence. The completed q23 default worker retained the pre-policy cache-reader file hash; its replay, reconstruction and aggregation kernels were unchanged. Original producer signature is retained."
+}

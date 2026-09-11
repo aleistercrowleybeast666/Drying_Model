@@ -1,0 +1,5 @@
+PLOT_PAYLOAD_PREPARED q1
+PLOT_PAYLOAD_PREPARED q2
+PLOT_PAYLOAD_PREPARED q3
+PLOT_PAYLOAD_PREPARED q4
+COMPUTE_COMPLETE: Excel and sealed plot payload ready; PNG/GIF rendering deferred to plot.py
