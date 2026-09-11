@@ -19,6 +19,6 @@
     "right_max_C": 0.1499999988848572,
     "report_max_C": 0.1499999142113726
   },
-  "workbook_hash": "bd77e92fa3470b8526085594297c1858fd0ce7988db37d86bdaa1979ab2c979e",
+  "workbook_hash": "7a5ce919cd069c83a2e0dd1c76e63fb15391b06da4bb5d301654671139ee14b5",
   "readback": "PASSED: sheet names, all numeric cells, dimensions, time SI, precision, blanks, event deduplication, source"
 }

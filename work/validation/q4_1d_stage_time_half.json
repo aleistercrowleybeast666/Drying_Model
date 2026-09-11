@@ -1,0 +1,65 @@
+{
+  "coarse_id": "q4_1d_stage_schedule_conservative_dt0.25_s6468a2bfff79",
+  "fine_id": "q4_1d_stage_schedule_half_steps_dt0.125_s9e6310a1cf6c",
+  "coarse_fingerprint": "6468a2bfff796f04a5d803c0d1de2a06f6c03179971b33eeafd7aeac3a8b8bbe",
+  "fine_fingerprint": "9e6310a1cf6c53e10adca2f475c462cc3206210a350d5b4cdf3ac22e091803aa",
+  "maxima_temperature": {
+    "value": 5.34441824129317e-10,
+    "signed_difference": -5.34441824129317e-10,
+    "time_s": 31680.0,
+    "r_m": 8.330096324810264e-05,
+    "z_m": 0.0,
+    "coarse_value": 323.1489344258356,
+    "fine_value": 323.14893442530115
+  },
+  "maxima_moisture": {
+    "value": 4.39959180198457e-12,
+    "signed_difference": 4.39959180198457e-12,
+    "time_s": 42060.0,
+    "r_m": 0.0,
+    "z_m": 0.0,
+    "coarse_value": 0.7672936887436219,
+    "fine_value": 0.7672936887480215
+  },
+  "official_temperature": {
+    "value": 5.343849807104561e-10,
+    "signed_difference": -5.343849807104561e-10,
+    "time_s": 31680.0,
+    "r_m": 0.0,
+    "z_m": 0.0,
+    "coarse_value": 323.14893442583553,
+    "fine_value": 323.14893442530115
+  },
+  "official_moisture": {
+    "value": 4.39959180198457e-12,
+    "signed_difference": 4.39959180198457e-12,
+    "time_s": 42060.0,
+    "r_m": 0.0,
+    "z_m": 0.0,
+    "coarse_value": 0.7672936887436219,
+    "fine_value": 0.7672936887480215
+  },
+  "volume_L2_temperature": {
+    "value": 4.2032949933001253e-10,
+    "time_s": 31680.0
+  },
+  "volume_L2_moisture": {
+    "value": 2.2523846481270018e-12,
+    "time_s": 45780.0
+  },
+  "event_difference_s": 0.0,
+  "event_relative_difference": 0.0,
+  "event_status_agrees": true,
+  "event_comparison_applicable": true,
+  "reference_complete": true,
+  "time_range_s": [
+    0.0,
+    259200.0
+  ],
+  "sample_count": 4321,
+  "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+  "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+  "passed": true,
+  "actual_base_partition_bisected": true,
+  "requested_dt_s": 0.125
+}

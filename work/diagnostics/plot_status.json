@@ -1,0 +1,30 @@
+{
+  "status": "COMPLETE",
+  "pde_solves": 0,
+  "manifest_hash": "0fedd4ba62d2733ff9aded8c32d4fdb90a068a20660dde0b0be282c71fae1a24",
+  "render_hash": "584deabbfd5a83c92846fe82da74c3b503b855472748e08a3cdee1defe36ef7b",
+  "png_files": [
+    "results\\q1\\q1_curves.png",
+    "results\\q1\\q1_1d_2d_compare.png",
+    "results\\q1\\q1_max_error_section.png",
+    "results\\q2\\q2_curves.png",
+    "results\\q2\\q2_1d_2d_compare.png",
+    "results\\q2\\q2_max_error_section.png",
+    "results\\q3\\q3_curves.png",
+    "results\\q3\\q3_1d_2d_compare.png",
+    "results\\q3\\q3_max_error_section.png",
+    "results/q3/q3_3d.png",
+    "results\\q4\\q4_curves.png",
+    "results\\q4\\q4_1d_2d_compare.png",
+    "results\\q4\\q4_max_error_section.png",
+    "results/q4/q4_3d.png"
+  ],
+  "gif_files": [
+    "results\\q3\\q3_3d.gif",
+    "results\\q4\\q4_3d.gif",
+    "results\\q3_q4_axial_section.gif",
+    "results\\q3_q4_radial_section.gif",
+    "results\\q3_q4_cutaway_cylinder.gif"
+  ],
+  "source": "work/plot_payload only"
+}

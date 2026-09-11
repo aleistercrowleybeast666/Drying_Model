@@ -30,6 +30,10 @@ def Run_Main():
     from drying.outputs import Output_PrepareFolders
     Output_PrepareFolders(_ROOT)
     Diagnostics_Open(_ROOT)
+    if args.command == 'all':
+        result = subprocess.run([sys.executable,str(_ROOT/'compute.py')],cwd=_ROOT)
+        if result.returncode: return result.returncode
+        return subprocess.run([sys.executable,str(_ROOT/'plot.py')],cwd=_ROOT).returncode
     commands = ['prepare', 'test', 'mesh', 'validate1', 'export', 'solve2', 'validate2', 'compare', 'plots', 'animate'] if args.command == 'all' else [args.command]
     exit_code = 0
     for command in commands:

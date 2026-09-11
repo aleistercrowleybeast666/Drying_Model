@@ -12,7 +12,7 @@ def Output_ReadJson(path, default=None):
 
 def Output_PrepareFolders(root):
     for directory in ['results/tables', *[f'results/q{q}' for q in range(1, 5)],
-                      *[f'work/{name}' for name in ['cache', 'checkpoints', 'validation', 'comparison', 'diagnostics']]]:
+                      *[f'work/{name}' for name in ['cache', 'checkpoints', 'validation', 'comparison', 'diagnostics','plot_payload']]]:
         (Path(root)/directory).mkdir(parents=True, exist_ok=True)
 
 
@@ -43,7 +43,7 @@ def Output_GetEndpoint(root, case_id, end):
         return {}
     state = Comparison_ReadSnapshot(root,case_id,end)
     r,z,values = Sampling_GetNodes(state,end,dict(q1=1,q23=3,q4=4)[status['case']],
-                                  Case_LoadInputs(root),Case_LoadMesh(root,case_id))
+                                  Case_LoadInputs(root),Case_LoadMesh(root,case_id,end))
     index = np.unravel_index(values[1].argmax(),values[1].shape)
     return dict(time_s=end,max_temperature_K=float(values[0].max()),min_temperature_K=float(values[0].min()),
         center_temperature_K=float(values[0,0,0]),surface_temperature_K=float(values[0,-1,0]),
@@ -101,6 +101,20 @@ def Output_UpdateStatus(root):
                 ('FAILED' if entry.get('spatial_quantified') else 'PENDING'),
             drying_note=('DRY' if dry else 'NOT_DRY_WITHIN_72H' if q >= 3 and end >= 259200 else
                          'FIXED_TIME_WINDOW' if q <= 2 else 'INCOMPLETE_TIME_RANGE'))
+        record.update(execution_mode=status.get('execution_mode','fixed'),requested_dt_max=status.get('dt'),
+            stage_dt_statistics=status.get('stage_dt_statistics',[dict(t_start=0.,t_end=status['cap'],
+                nr=status.get('nr'),nz=status.get('nz'),actual_dt_min=status.get('minimum_dt'),
+                actual_dt_mean=status['cap']/status['steps'] if status.get('steps') else None,actual_dt_max=status.get('maximum_dt'))]),
+            stage_transfers=status.get('transfers',[]),
+            **{key:value for key,value in entry.items() if key.startswith('stage_schedule_')},
+            recommended_schedule=entry.get('recommended_schedule','fixed'))
+        attempts = []
+        for trial in entry.get('stage_schedule_trials',[]):
+            candidate = Case_ReadStatus(root,trial['schedule_id'])
+            attempts.append(dict(case_id=candidate['case_id'],passed=trial['passed'],
+                schedule=candidate['schedule'],stage_dt_statistics=candidate['stage_dt_statistics'],
+                transfers=candidate['transfers'],drying_time_h=candidate.get('drying_time_h')))
+        record['stage_schedule_attempts'] = attempts
         Output_UpdateSummary(root, q, **record)
         questions[f'q{q}'] = record
     Storage_WriteJson(root/'results/status.json', dict(questions=questions,

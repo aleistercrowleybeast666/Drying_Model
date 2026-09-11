@@ -27,7 +27,15 @@ def Case_LoadConfig(root):
         return tomllib.load(stream)
 
 
-def Case_LoadMesh(root,case_id):
+def Case_LoadMesh(root,case_id,at_time=None):
+    if at_time is not None:
+        status_path = Path(root)/'work/cache'/case_id/'status.json'
+        if status_path.exists():
+            status = json.loads(status_path.read_text(encoding='utf-8'))
+            if status.get('execution_mode') == 'stage_schedule':
+                stages = status['stages']
+                stage = next((s for s in stages if at_time < s['t_end']-1e-8), stages[-1])
+                return Case_LoadMesh(root,stage['case_id'])
     with np.load(Path(root)/'work/cache'/case_id/'mesh.npz') as saved:
         return saved['xi_faces'].copy(),saved['eta_faces'].copy()
 
@@ -45,7 +53,9 @@ def Case_GetSelected(root,case,dimension):
         selected=json.loads(path.read_text(encoding='utf-8')).get(f'{case}_{dimension}d',{}).get('selected_id')
         if selected and (root/'work/cache'/selected/'status.json').exists():
             raw=json.loads((root/'work/cache'/selected/'status.json').read_text(encoding='utf-8'))
-            if raw.get('mesh_mode') == mode and (not (root/'src/drying').exists() or raw['source_hash']==Case_GetSourceHash(root)):
+            execution = Case_LoadConfig(root).get('stage_mesh',{}).get('mode','fixed') if (root/'configs/default.toml').exists() else 'fixed'
+            compatible = execution != 'fixed' or raw.get('execution_mode') != 'stage_schedule'
+            if compatible and raw.get('mesh_mode') == mode and (not (root/'src/drying').exists() or raw['source_hash']==Case_GetSourceHash(root)):
                 return selected
     choices=[]
     for path in (root/'work/cache').glob(f'{case}_{dimension}d_{mode}_*/status.json'):
@@ -68,7 +78,8 @@ def Case_GetSchedule(case, cap):
     return np.unique(np.r_[early, late, min(1800, cap), cap])
 
 
-def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, replay_id=None, mesh_mode=None):
+def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, replay_id=None, mesh_mode=None,
+               start_time=0., initial_state=None):
     root = Path(root)
     config = Case_LoadConfig(root)
     num = config['numerics']
@@ -94,6 +105,10 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
                          input_hash=input_hash, source_hash=source_hash, replay_id=replay_id,
                          physics=config['physics'], numerics=num)
     specification.update(mesh_metadata)
+    if start_time != 0 or initial_state is not None:
+        if initial_state is None or not 0 <= start_time < cap:
+            raise ValueError('INPUT_VALUE_INVALID: stage initial state/time')
+        specification.update(start_time=float(start_time),initial_state_hash=Mesh_GetHash(initial_state))
     fingerprint = hashlib.sha256(json.dumps(specification, sort_keys=True).encode()).hexdigest()
     status_path = folder/'status.json'
     if status_path.exists():
@@ -105,7 +120,7 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
             Diagnostics_Record(root,'CACHE_REUSED',case_id=case_id)
             return saved
     Storage_WriteArray(folder/'mesh.npz',xi_faces=mesh[0],eta_faces=mesh[1],mesh_profile_hash=mesh_metadata['mesh_profile_hash'])
-    schedule = Case_GetSchedule(case, cap)
+    schedule = np.unique(np.r_[Case_GetSchedule(case, cap),float(start_time)])
     # A replay bisects an already accepted finite partition, including on a
     # second bisection. Its resource guard must permit that known step count.
     accepted_limit = num['max_steps']
@@ -120,7 +135,11 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
             Tmin, Tmax, replay, xi_faces=mesh[0], eta_faces=mesh[1])
     state = np.empty((2, nr, nz))
     state[0], state[1] = 301.15, 2.55
-    t, chunk_no, steps, limited, peak, prior_wall = 0., 0, 0, 0, 0, 0.
+    if initial_state is not None:
+        if initial_state.shape != state.shape or not np.isfinite(initial_state).all() or np.any(initial_state[1] <= 0):
+            raise ValueError('REMESH_TRANSFER_FAILED: invalid initial state')
+        state[:] = initial_state
+    t, chunk_no, steps, limited, peak, prior_wall = float(start_time), 0, 0, 0, 0, 0.
     minimum_dt, maximum_dt = float('inf'), 0.
     event = None
     diagnostics = []
@@ -154,8 +173,8 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
         if estimated_block_bytes>4*1024**3:
             raise MemoryError('MEMORY_BUDGET_EXCEEDED: lower checkpoint_interval_s before solving this grid')
         times, fields, partitions = [], [], []
-        if t == 0:
-            times.append(0.)
+        if t == start_time:
+            times.append(t)
             fields.append(state.copy())
         replay = np.empty(0)
         if replay_id:
@@ -237,6 +256,10 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
         event=event, peak_rss_bytes=peak, final=diagnostics[-1],
         dt_stable_without_limiting=limited==0,
         execution_note='Continued genuine integration to cap for paired comparison; official export stops at 1D report time')
+    status.update(execution_mode='fixed',requested_dt_max=dt,
+        actual_dt_min=minimum_dt,actual_dt_max=maximum_dt,actual_dt_mean=(cap-start_time)/steps,
+        stage_dt_statistics=[dict(t_start=float(start_time),t_end=cap,nr=nr,nz=nz,
+            actual_dt_min=minimum_dt,actual_dt_mean=(cap-start_time)/steps,actual_dt_max=maximum_dt)])
     Storage_WriteJson(status_path, status)
     Diagnostics_Record(root, final_code, 'WARNING' if final_code == 'NOT_DRY_WITHIN_72H' else 'INFO',
         case_id=case_id, simulated_time_s=t, Cmax=diagnostics[-1]['Cmax'],
@@ -247,6 +270,12 @@ def Case_Solve(root, case, dim, nr=None, nz=None, dt=None, tag='', cap=None, rep
 def Case_IterFields(root, case_id):
     folder = Path(root)/'work/cache'/case_id
     status = Case_ReadStatus(root, case_id)
+    if status.get('execution_mode') == 'stage_schedule':
+        for index,stage in enumerate(status['stages']):
+            for t,field in Case_IterFields(root,stage['case_id']):
+                if index == len(status['stages'])-1 or t < stage['t_end']-1e-8:
+                    yield t,field
+        return
     expected = status['fingerprint']
     for path in sorted(folder.glob('chunk_*.npz')):
         with np.load(path) as block:
@@ -265,6 +294,14 @@ def Case_ReadStatus(root, case_id):
         ('materials.py', 'boundaries.py', 'operators.py', 'rk4.py', 'sampling.py', 'inputs.py', 'events.py', 'geometry.py')])
     if current_input != status['input_hash'] or current_source != status['source_hash']:
         raise RuntimeError('CACHE_MISMATCH: postprocessing input or numerical core changed')
+    if status.get('execution_mode') == 'stage_schedule':
+        from .stages import Stage_GetSourceHash
+        if status['stage_source_hash'] != Stage_GetSourceHash(root):
+            raise RuntimeError('CACHE_MISMATCH: stage solver changed')
+        for stage in status['stages']:
+            child = Case_ReadStatus(root,stage['case_id'])
+            if child['fingerprint'] != stage['fingerprint']:
+                raise RuntimeError('CACHE_MISMATCH: stage child changed')
     mesh = Case_LoadMesh(root,case_id)
     if Mesh_GetHash(*mesh) != status.get('mesh_profile_hash'):
         raise RuntimeError('CACHE_MISMATCH: nonuniform mesh profile changed')
@@ -295,7 +332,6 @@ def Case_SolvePairEvents(root):
             continue
         times=np.unique([status['event']['report_s'] for status in statuses if status['event']])
         for case_id,status in zip(ids,statuses):
-            mesh = Case_LoadMesh(root,case_id)
             destination=root/'work/cache'/case_id/'paired_events.npz'
             if destination.exists():
                 with np.load(destination) as data:
@@ -303,28 +339,24 @@ def Case_SolvePairEvents(root):
                         continue
             fields=[]
             for target in times:
+                mesh = Case_LoadMesh(root,case_id,float(target))
                 if status['event'] and abs(status['event']['report_s']-target)<1e-8:
                     with np.load(root/'work/cache'/case_id/'event.npz') as data:
                         fields.append(data['state'].copy())
                     continue
                 prior=None
-                for path in sorted((root/'work/cache'/case_id).glob('chunk_*.npz')):
-                    with np.load(path) as data:
-                        stored_times=data['time_s']
-                        eligible=np.flatnonzero(stored_times<=target+1e-9)
-                        if len(eligible):
-                            prior=(path,int(eligible[-1]),float(stored_times[eligible[-1]]))
-                        if stored_times[-1]>=target:
-                            break
+                for stored_time,stored_field in Case_IterFields(root,case_id):
+                    if stored_time > target+1e-9: break
+                    prior=(stored_time,stored_field.copy())
                 if prior is None:
                     raise RuntimeError('COMPARISON_INCOMPLETE: no event predecessor state')
-                with np.load(prior[0]) as data:
-                    state=data['fields'][prior[1]].copy()
-                result=Rk4_Advance(state,prior[2],float(target),status['dt'],model,*inputs,model==4,
+                state=prior[1]
+                result=Rk4_Advance(state,prior[0],float(target),status['dt'],model,*inputs,model==4,
                     status['dim']==2,num['safety'],num['min_dt_s'],num['max_rejections'],100000,
                     min(301.15,inputs[0][:,1].min()),max(301.15,inputs[0][:,1].max()),np.empty(0),xi_faces=mesh[0],eta_faces=mesh[1])
                 if result[4]:
                     raise RuntimeError('COMPARISON_INCOMPLETE: paired endpoint integration failed')
                 fields.append(result[0])
             if len(times):
-                Storage_WriteArray(destination,time_s=times,fields=np.array(fields),fingerprint=status['fingerprint'])
+                values = dict(fields=np.array(fields)) if len({f.shape for f in fields}) == 1 else {f'field_{i}':f for i,f in enumerate(fields)}
+                Storage_WriteArray(destination,time_s=times,**values,fingerprint=status['fingerprint'])

@@ -1,6 +1,6 @@
 {
-  "max_1d_2d_temperature_difference": 3.697590683434555,
-  "max_1d_2d_moisture_difference": 0.9862263314164501,
+  "max_1d_2d_temperature_difference": 3.698125600962271,
+  "max_1d_2d_moisture_difference": 0.9862253240649625,
   "time_of_max_difference": {
     "temperature": 1800.0,
     "moisture": 1800.0
@@ -23,14 +23,14 @@
   "comparison_scope": "Absolute 2D minus 1D differences at stored samples; z=0 is the midplane",
   "temperature_difference_unit": "K",
   "moisture_difference_unit": "kg/kg",
-  "max_temperature": 36.785574580143646,
-  "min_moisture": 1.5102308641429594,
+  "max_temperature": 36.785939554766856,
+  "min_moisture": 1.5097495480809653,
   "temperature_unit": "degC",
   "moisture_unit": "kg/kg",
   "extrema_source": "All stored 1D samples in question window",
   "source_case": "q1",
   "official_source": "1D",
-  "one_id": "q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898",
+  "one_id": "q1_1d_stage_schedule_default_dt0.25_s35c8e86f6109",
   "simulation_end": 1800.0,
   "drying_time": null,
   "drying_completed": false,
@@ -46,12 +46,12 @@
   "drying_note": "FIXED_TIME_WINDOW",
   "endpoint_values": {
     "time_s": 1800.0,
-    "max_temperature_K": 309.9355745801436,
-    "min_temperature_K": 306.7252910133418,
-    "center_temperature_K": 306.7252910133418,
-    "surface_temperature_K": 309.9355745801436,
-    "max_moisture": 2.549992270836312,
-    "min_moisture": 1.5102308641429594,
+    "max_temperature_K": 309.93593955476683,
+    "min_temperature_K": 306.7247560958141,
+    "center_temperature_K": 306.7247560958141,
+    "surface_temperature_K": 309.93593955476683,
+    "max_moisture": 2.5499912634848245,
+    "min_moisture": 1.5097495480809653,
     "controlling_r_m": 0.0,
     "controlling_z_m": 0.0
   },
@@ -61,9 +61,324 @@
   "requested_dt_s": 0.25,
   "actual_dt_range_s": [
     0.010712196255035167,
-    0.02121669240295887
+    0.25
   ],
-  "stability_limited_count": 433800,
+  "stability_limited_count": 98400,
   "candidate_only": true,
-  "mean_accepted_dt_s": 0.015384615384615385
+  "mean_accepted_dt_s": 0.049586776859504134,
+  "execution_mode": "stage_schedule",
+  "requested_dt_max": 0.25,
+  "stage_dt_statistics": [
+    {
+      "t_start": 0.0,
+      "t_end": 300.0,
+      "nr": 160,
+      "nz": 1,
+      "case_id": "q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898_stagepart_35c8e86f6109_0",
+      "fingerprint": "8eca28f452896d506d93b731a9b4248111503324f65fb63dab1ec9902735fdbd",
+      "mesh_profile_hash": "26b01dc0089856eaa32f6d68287688f2857015d88610fe7b0762801e14066cd9",
+      "actual_dt_min": 0.010712196255035167,
+      "actual_dt_mean": 0.015384615384615385,
+      "actual_dt_max": 0.02121669240295887,
+      "steps": 19500,
+      "wall_s": 1.3160831999994116
+    },
+    {
+      "t_start": 300.0,
+      "t_end": 1200.0,
+      "nr": 80,
+      "nz": 1,
+      "case_id": "q1_1d_adaptive_nr80_nz1_dt0.25_m2fb9c46fbeef_stagepart_35c8e86f6109_1",
+      "fingerprint": "ac0bd581e36cbf69bf01f00517a1a000d44b5f2a5e680e3a3b15fda23d3f2905",
+      "mesh_profile_hash": "2fb9c46fbeef408dac08434286ee8d5646515efd2b69ab592690255bb7a7e7a4",
+      "actual_dt_min": 0.046875,
+      "actual_dt_mean": 0.0625,
+      "actual_dt_max": 0.0703125,
+      "steps": 14400,
+      "wall_s": 0.6248759000009159
+    },
+    {
+      "t_start": 1200.0,
+      "t_end": 1800.0,
+      "nr": 40,
+      "nz": 1,
+      "case_id": "q1_1d_adaptive_nr40_nz1_dt0.25_mcecd4275aca0_stagepart_35c8e86f6109_2",
+      "fingerprint": "1948d082ee3ed2c2cb3b1b5ac5ca9ea09230bd77a09f8cf926f9bba2beccc561",
+      "mesh_profile_hash": "cecd4275aca095a95091243f77d37f47061c095c82e9e9233ab7119ae4a79c4d",
+      "actual_dt_min": 0.25,
+      "actual_dt_mean": 0.25,
+      "actual_dt_max": 0.25,
+      "steps": 2400,
+      "wall_s": 0.13357689999975264
+    }
+  ],
+  "stage_transfers": [
+    {
+      "switch_time": 300.0,
+      "old_mesh": [
+        160,
+        1
+      ],
+      "new_mesh": [
+        80,
+        1
+      ],
+      "projection_max_abs_T": 0.006920277984193035,
+      "projection_max_abs_C": 0.017362214511169594,
+      "projection_L2_T": 0.0038225365974270597,
+      "projection_L2_C": 0.005090051862388003,
+      "volume_integral_T_before": 301.5093774687989,
+      "volume_integral_T_after": 301.5093774687989,
+      "volume_integral_C_before": 2.4975348568287195,
+      "volume_integral_C_after": 2.497534856828719,
+      "volume_integral_relative_error_T": 0.0,
+      "volume_integral_relative_error_C": 1.7781101578456096e-16,
+      "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+      "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+    },
+    {
+      "switch_time": 1200.0,
+      "old_mesh": [
+        80,
+        1
+      ],
+      "new_mesh": [
+        40,
+        1
+      ],
+      "projection_max_abs_T": 0.031216672193181694,
+      "projection_max_abs_C": 0.03079833363136175,
+      "projection_L2_T": 0.023312520495898218,
+      "projection_L2_C": 0.012573558568401255,
+      "volume_integral_T_before": 305.09895229392737,
+      "volume_integral_T_after": 305.09895229392737,
+      "volume_integral_C_before": 2.367970950023701,
+      "volume_integral_C_after": 2.367970950023701,
+      "volume_integral_relative_error_T": 0.0,
+      "volume_integral_relative_error_C": 0.0,
+      "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+      "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+    }
+  ],
+  "stage_schedule_enabled": true,
+  "stage_schedule_passed": true,
+  "stage_schedule_trials": [
+    {
+      "coarse_id": "q1_1d_stage_schedule_default_dt0.25_s35c8e86f6109",
+      "fine_id": "q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898",
+      "coarse_fingerprint": "35c8e86f61097a8ead9287ef2afa1cea263f414e5797378b7c45878e3cdcef5a",
+      "fine_fingerprint": "003172110c7e7c7bc9fc6253e27585570f6bfb305e87ddaaf2bbe0efec38031e",
+      "maxima_temperature": {
+        "value": 0.0008934243449516543,
+        "signed_difference": -0.0008934243449516543,
+        "time_s": 1274.0,
+        "r_m": 0.0004890141453528033,
+        "z_m": 0.0,
+        "coarse_value": 304.0348593101394,
+        "fine_value": 304.03396588579443
+      },
+      "maxima_moisture": {
+        "value": 0.0021076152730428177,
+        "signed_difference": 0.0021076152730428177,
+        "time_s": 1200.0,
+        "r_m": 0.019644062475039345,
+        "z_m": 0.0,
+        "coarse_value": 1.7644757448413833,
+        "fine_value": 1.766583360114426
+      },
+      "official_temperature": {
+        "value": 0.0008856286900709165,
+        "signed_difference": -0.0008856286900709165,
+        "time_s": 1242.0,
+        "r_m": 0.005,
+        "z_m": 0.0,
+        "coarse_value": 304.05586625707963,
+        "fine_value": 304.05498062838956
+      },
+      "official_moisture": {
+        "value": 0.0015586769626660946,
+        "signed_difference": 0.0015586769626660946,
+        "time_s": 1200.0,
+        "r_m": 0.018000000000000002,
+        "z_m": 0.0,
+        "coarse_value": 2.1435961887858,
+        "fine_value": 2.145154865748466
+      },
+      "volume_L2_temperature": {
+        "value": 0.000663192449623794,
+        "time_s": 1200.0
+      },
+      "volume_L2_moisture": {
+        "value": 0.0008762836894898145,
+        "time_s": 1200.0
+      },
+      "event_difference_s": null,
+      "event_relative_difference": null,
+      "event_status_agrees": true,
+      "event_comparison_applicable": true,
+      "reference_complete": true,
+      "time_range_s": [
+        0.0,
+        1800.0
+      ],
+      "sample_count": 1801,
+      "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+      "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+      "passed": true,
+      "failure_reasons": [],
+      "thresholds": {
+        "temperature_abs_K": 0.01,
+        "moisture_abs": 0.002,
+        "drying_time_relative": 0.001,
+        "endpoint_window_s": 3600.0,
+        "endpoint_tail_s": 600.0
+      },
+      "assessment": "PASS",
+      "schedule_id": "q1_1d_stage_schedule_default_dt0.25_s35c8e86f6109",
+      "comparison_role": "Additional schedule error against fixed 160, not proof of continuum convergence"
+    }
+  ],
+  "stage_schedule_vs_fixed_temperature_max": 0.0008856286900709165,
+  "stage_schedule_vs_fixed_moisture_max": 0.0015586769626660946,
+  "stage_schedule_vs_fixed_drying_time_diff": null,
+  "stage_schedule_vs_fixed_drying_time_rel": null,
+  "recommended_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 300.0,
+      "nr": 160,
+      "nz": 1
+    },
+    {
+      "t_start": 300.0,
+      "t_end": 1200.0,
+      "nr": 80,
+      "nz": 1
+    },
+    {
+      "t_start": 1200.0,
+      "t_end": 1800.0,
+      "nr": 40,
+      "nz": 1
+    }
+  ],
+  "stage_schedule_attempts": [
+    {
+      "case_id": "q1_1d_stage_schedule_default_dt0.25_s35c8e86f6109",
+      "passed": true,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "stage_dt_statistics": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1,
+          "case_id": "q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898_stagepart_35c8e86f6109_0",
+          "fingerprint": "8eca28f452896d506d93b731a9b4248111503324f65fb63dab1ec9902735fdbd",
+          "mesh_profile_hash": "26b01dc0089856eaa32f6d68287688f2857015d88610fe7b0762801e14066cd9",
+          "actual_dt_min": 0.010712196255035167,
+          "actual_dt_mean": 0.015384615384615385,
+          "actual_dt_max": 0.02121669240295887,
+          "steps": 19500,
+          "wall_s": 1.3160831999994116
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1,
+          "case_id": "q1_1d_adaptive_nr80_nz1_dt0.25_m2fb9c46fbeef_stagepart_35c8e86f6109_1",
+          "fingerprint": "ac0bd581e36cbf69bf01f00517a1a000d44b5f2a5e680e3a3b15fda23d3f2905",
+          "mesh_profile_hash": "2fb9c46fbeef408dac08434286ee8d5646515efd2b69ab592690255bb7a7e7a4",
+          "actual_dt_min": 0.046875,
+          "actual_dt_mean": 0.0625,
+          "actual_dt_max": 0.0703125,
+          "steps": 14400,
+          "wall_s": 0.6248759000009159
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1,
+          "case_id": "q1_1d_adaptive_nr40_nz1_dt0.25_mcecd4275aca0_stagepart_35c8e86f6109_2",
+          "fingerprint": "1948d082ee3ed2c2cb3b1b5ac5ca9ea09230bd77a09f8cf926f9bba2beccc561",
+          "mesh_profile_hash": "cecd4275aca095a95091243f77d37f47061c095c82e9e9233ab7119ae4a79c4d",
+          "actual_dt_min": 0.25,
+          "actual_dt_mean": 0.25,
+          "actual_dt_max": 0.25,
+          "steps": 2400,
+          "wall_s": 0.13357689999975264
+        }
+      ],
+      "transfers": [
+        {
+          "switch_time": 300.0,
+          "old_mesh": [
+            160,
+            1
+          ],
+          "new_mesh": [
+            80,
+            1
+          ],
+          "projection_max_abs_T": 0.006920277984193035,
+          "projection_max_abs_C": 0.017362214511169594,
+          "projection_L2_T": 0.0038225365974270597,
+          "projection_L2_C": 0.005090051862388003,
+          "volume_integral_T_before": 301.5093774687989,
+          "volume_integral_T_after": 301.5093774687989,
+          "volume_integral_C_before": 2.4975348568287195,
+          "volume_integral_C_after": 2.497534856828719,
+          "volume_integral_relative_error_T": 0.0,
+          "volume_integral_relative_error_C": 1.7781101578456096e-16,
+          "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+          "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+        },
+        {
+          "switch_time": 1200.0,
+          "old_mesh": [
+            80,
+            1
+          ],
+          "new_mesh": [
+            40,
+            1
+          ],
+          "projection_max_abs_T": 0.031216672193181694,
+          "projection_max_abs_C": 0.03079833363136175,
+          "projection_L2_T": 0.023312520495898218,
+          "projection_L2_C": 0.012573558568401255,
+          "volume_integral_T_before": 305.09895229392737,
+          "volume_integral_T_after": 305.09895229392737,
+          "volume_integral_C_before": 2.367970950023701,
+          "volume_integral_C_after": 2.367970950023701,
+          "volume_integral_relative_error_T": 0.0,
+          "volume_integral_relative_error_C": 0.0,
+          "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+          "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+        }
+      ],
+      "drying_time_h": null
+    }
+  ]
 }

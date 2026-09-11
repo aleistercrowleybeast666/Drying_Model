@@ -40,6 +40,13 @@ frames = 240
 fps = 24
 width_px = 1000
 height_px = 450
+cutaway_angle_deg = 35.0
+cutaway_axial_tilt_deg = 4.0
+
+[stage_mesh]
+mode = "stage_schedule"
+schedule_file = "configs/stage_schedule.json"
+two_dimensional_mode = "fixed"
 
 [mesh]
 mode = "adaptive"

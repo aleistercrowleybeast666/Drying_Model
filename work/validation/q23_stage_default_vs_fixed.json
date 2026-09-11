@@ -1,0 +1,76 @@
+{
+  "coarse_id": "q23_1d_stage_schedule_default_dt0.25_s0f29ee9da8ff",
+  "fine_id": "q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006",
+  "coarse_fingerprint": "0f29ee9da8ff89a3c67312d529532c8130aa4ca93269d5da03c3dc3cb1a09995",
+  "fine_fingerprint": "32d9af8aa61acb6d615426eb2a187263ac83e44bb17ea9c0189f5b07fb48aa6b",
+  "maxima_temperature": {
+    "value": 0.00020438146827927994,
+    "signed_difference": -0.00020438146827927994,
+    "time_s": 1800.0,
+    "r_m": 0.017846412229506975,
+    "z_m": 0.0,
+    "coarse_value": 307.8770616324162,
+    "fine_value": 307.8768572509479
+  },
+  "maxima_moisture": {
+    "value": 0.012579992735658838,
+    "signed_difference": 0.012579992735658838,
+    "time_s": 100740.0,
+    "r_m": 0.019834876714240404,
+    "z_m": 0.0,
+    "coarse_value": 0.07935851837802418,
+    "fine_value": 0.09193851111368302
+  },
+  "official_temperature": {
+    "value": 0.00020226048980021005,
+    "signed_difference": -0.00020226048980021005,
+    "time_s": 1800.0,
+    "r_m": 0.016,
+    "z_m": 0.0,
+    "coarse_value": 307.3627335836362,
+    "fine_value": 307.3625313231464
+  },
+  "official_moisture": {
+    "value": 0.0013475257362906695,
+    "signed_difference": -0.0013475257362906695,
+    "time_s": 147360.0,
+    "r_m": 0.019,
+    "z_m": 0.0,
+    "coarse_value": 0.10786104825999086,
+    "fine_value": 0.1065135225237002
+  },
+  "volume_L2_temperature": {
+    "value": 0.0001966859825719598,
+    "time_s": 1800.0
+  },
+  "volume_L2_moisture": {
+    "value": 0.002139046176968615,
+    "time_s": 99600.0
+  },
+  "event_difference_s": 1182.71875,
+  "event_relative_difference": 0.0057109832346343885,
+  "event_status_agrees": true,
+  "event_comparison_applicable": true,
+  "reference_complete": true,
+  "time_range_s": [
+    0.0,
+    259200.0
+  ],
+  "sample_count": 14941,
+  "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+  "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+  "passed": false,
+  "failure_reasons": [
+    "DRYING_TIME_EXCEEDS_TOLERANCE"
+  ],
+  "thresholds": {
+    "temperature_abs_K": 0.01,
+    "moisture_abs": 0.002,
+    "drying_time_relative": 0.001,
+    "endpoint_window_s": 3600.0,
+    "endpoint_tail_s": 600.0
+  },
+  "assessment": "FAIL",
+  "schedule_id": "q23_1d_stage_schedule_default_dt0.25_s0f29ee9da8ff",
+  "comparison_role": "Additional schedule error against fixed 160, not proof of continuum convergence"
+}

@@ -97,11 +97,13 @@ def Export_Run(root, case_filter='all'):
             raise RuntimeError('EXPORT_FAILED: incomplete or non-1D source')
         samples = []
         for t, field in Case_IterFields(root, case_id):
+            if status.get('execution_mode') == 'stage_schedule': mesh = Case_LoadMesh(root,case_id,t)
             sampled, valid, surface, R = Sampling_GetRadial(field, t, model, inputs, np.arange(21)*.001, mesh)
             samples.append((t, sampled, valid, surface, R))
         if status['event']:
             with np.load(root/'work/cache'/case_id/'event.npz') as saved:
                 et, estate = float(saved['time_s']), saved['state']
+            mesh = Case_LoadMesh(root,case_id,et)
             sampled, valid, surface, R = Sampling_GetRadial(estate, et, model, inputs, np.arange(21)*.001, mesh)
             samples = [row for row in samples if abs(row[0]-et)>1e-8]+[(et,sampled,valid,surface,R)]
             samples.sort(key=lambda row:row[0])

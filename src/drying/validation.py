@@ -45,13 +45,15 @@ def Validation_CompareCaches(root, coarse_id, fine_id, legacy_reference=None):
             else: b = next(fine,None)
             continue
         t = a[0]
+        if sa.get('execution_mode') == 'stage_schedule': ma = Case_LoadMesh(root,coarse_id,t)
+        if sb.get('execution_mode') == 'stage_schedule': mb = Case_LoadMesh(root,fine_id,t)
         ra,za,va = Sampling_GetNodes(a[1],t,model,inputs,ma)
         rb,zb,vb = Sampling_GetNodes(b[1],t,model,inputs,mb)
         rr,zz = np.meshgrid(rb,zb,indexing='ij'); coordinates = np.column_stack((rr.ravel(),zz.ravel()))
         fixed = np.arange(21)*.001; radii = np.unique(np.r_[fixed[fixed <= rb[-1]+1e-14],rb[-1]])
         # 1D official radii and true surface; 2D also spans all reconstructed axial nodes.
         ro,zo = np.meshgrid(radii,zb,indexing='ij'); co = np.column_stack((ro.ravel(),zo.ravel()))
-        weights = Geometry_GetCells(sb['nr'],sb['nz'],rb[-1],mesh=mb)[2]
+        weights = Geometry_GetCells(b[1].shape[1],b[1].shape[2],rb[-1],mesh=mb)[2]
         metrics = []
         for p in range(2):
             interp = RegularGridInterpolator((ra,za),va[p],bounds_error=True)
@@ -72,6 +74,9 @@ def Validation_CompareCaches(root, coarse_id, fine_id, legacy_reference=None):
         difference = abs(sa['event']['raw_event_s']-sb['event']['raw_event_s'])
         relative = difference/sb['event']['raw_event_s']
     expected_times = Case_GetSchedule(sa['case'],min(sa['cap'],sb['cap']))
+    extra_a = [s['t_start'] for s in sa.get('stages',[])]
+    extra_b = [s['t_start'] for s in sb.get('stages',[])]
+    expected_times = np.intersect1d(np.unique(np.r_[expected_times,extra_a]),np.unique(np.r_[expected_times,extra_b]))
     complete = bool(sa['complete'] and sb['complete'] and len(rows) == len(expected_times) and
                     np.allclose(np.asarray(rows)[:,0],expected_times,rtol=0,atol=1e-8))
     return dict(coarse_id=coarse_id,fine_id=fine_id,coarse_fingerprint=sa['fingerprint'],fine_fingerprint=sb['fingerprint'],
@@ -135,17 +140,23 @@ def Validation_CheckTime(root, base):
         return (value['reference_complete'] and value['maxima_temperature']['value'] <= cfg['temperature_tolerance_K']
             and value['maxima_moisture']['value'] <= cfg['moisture_tolerance'] and value['event_status_agrees']
             and (value['event_difference_s'] is None or value['event_difference_s'] <= cfg['event_tolerance_s']))
-    fine = Case_Solve(root,base['case'],base['dim'],nr=base['nr'],nz=base['nz'],dt=base['dt']/2,
-        tag='half_steps',replay_id=base['case_id'],cap=cap,mesh_mode=base['mesh_mode'])
+    staged = base.get('execution_mode') == 'stage_schedule'
+    def SolveReference(parent, label):
+        if staged:
+            from .stages import Stage_Solve
+            return Stage_Solve(root,base['case'],base['schedule'],dt=parent['dt']/2,replay_id=parent['case_id'],label=label)
+        return Case_Solve(root,base['case'],base['dim'],nr=base['nr'],nz=base['nz'],dt=parent['dt']/2,
+            tag=label,replay_id=parent['case_id'],cap=cap,mesh_mode=base['mesh_mode'])
+    fine = SolveReference(base,'half_steps')
     result,rows = Validation_CompareCaches(root,base['case_id'],fine['case_id'])
     result.update(passed=Passed(result),actual_base_partition_bisected=True,requested_dt_s=fine['dt'])
-    Validation_SaveComparison(root,f"{base['case']}_{base['dim']}d_time_half",result,rows)
+    prefix = f"{base['case']}_{base['dim']}d_"+('stage_' if staged else '')
+    Validation_SaveComparison(root,prefix+'time_half',result,rows)
     if not result['passed']:
-        quarter = Case_Solve(root,base['case'],base['dim'],nr=base['nr'],nz=base['nz'],dt=fine['dt']/2,
-            tag='quarter_steps',replay_id=fine['case_id'],cap=cap,mesh_mode=base['mesh_mode'])
+        quarter = SolveReference(fine,'quarter_steps')
         second,rows = Validation_CompareCaches(root,fine['case_id'],quarter['case_id'])
         second.update(passed=Passed(second),actual_base_partition_bisected=True,requested_dt_s=quarter['dt'])
-        Validation_SaveComparison(root,f"{base['case']}_{base['dim']}d_time_quarter",second,rows)
+        Validation_SaveComparison(root,prefix+'time_quarter',second,rows)
         result['quarter_check'] = second
         Diagnostics_Record(root,'TIME_CONVERGENCE_FAILED','WARNING',case_id=base['case_id'],
             half_vs_quarter_passed=second['passed'],reason='Production requested dt retained; its own bisection failed.')
@@ -258,7 +269,10 @@ def Validation_Run(root, scope='all', case_filter='all'):
                 cap = min(base['cap'],max([cfg['two_dimensional_refinement_duration_s'],*representative]))
                 refinements = []
                 for direction,nr,nz in [('radial',mc['refined_nr'],base['nz']),('axial',base['nr'],mc['refined_nz'])]:
-                    fine = Case_Solve(root,case,2,nr=nr,nz=nz,tag=f'{direction}_verification',cap=cap)
+                    old_id = summary.get(f'{case}_2d',{}).get(direction,{}).get('fine_id')
+                    fine = Case_ReadStatus(root,old_id) if old_id else None
+                    if not (fine and fine['complete'] and fine['cap'] >= cap and fine['nr']==nr and fine['nz']==nz):
+                        fine = Case_Solve(root,case,2,nr=nr,nz=nz,tag=f'{direction}_verification_t{cap:g}',cap=cap)
                     value,rows = Validation_CompareCaches(root,base['case_id'],fine['case_id'])
                     value.update(assessment='QUANTIFIED',representative_times_s=representative,
                         note='Separate directional refinement; no combined-direction full-time certificate.')

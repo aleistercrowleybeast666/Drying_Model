@@ -1,5 +1,5 @@
 {
-  "source": "computed caches only",
+  "source": "sealed plot payload only",
   "files": [
     "results\\q1\\q1_curves.png",
     "results\\q1\\q1_1d_2d_compare.png",
@@ -10,10 +10,12 @@
     "results\\q3\\q3_curves.png",
     "results\\q3\\q3_1d_2d_compare.png",
     "results\\q3\\q3_max_error_section.png",
-    "results\\q3\\q3_3d.png",
+    "results/q3/q3_3d.png",
     "results\\q4\\q4_curves.png",
     "results\\q4\\q4_1d_2d_compare.png",
     "results\\q4\\q4_max_error_section.png",
-    "results\\q4\\q4_3d.png"
-  ]
+    "results/q4/q4_3d.png"
+  ],
+  "manifest_hash": "0fedd4ba62d2733ff9aded8c32d4fdb90a068a20660dde0b0be282c71fae1a24",
+  "render_hash": "584deabbfd5a83c92846fe82da74c3b503b855472748e08a3cdee1defe36ef7b"
 }

@@ -18,7 +18,7 @@ def Check_Run(cache_baseline=None):
     results = _ROOT/'results'
     assert {p.name for p in results.iterdir()} == {
         'tables', 'q1', 'q2', 'q3', 'q4', 'status.json', 'overview.md',
-        'q3_q4_axial_section.gif', 'q3_q4_radial_section.gif'}
+        'q3_q4_axial_section.gif', 'q3_q4_radial_section.gif','q3_q4_cutaway_cylinder.gif'}
     assert {p.name for p in (results/'tables').iterdir()} == {f'result{q}.xlsx' for q in range(1, 5)}
     status = Output_ReadJson(results/'status.json')
     exports = Output_ReadJson(_ROOT/'work/diagnostics/export_manifest.json')['outputs']
@@ -56,8 +56,8 @@ def Check_Run(cache_baseline=None):
     assert comparison['q2']['two_id'] == comparison['q3']['two_id']
     animations = Output_ReadJson(_ROOT/'work/diagnostics/animations_manifest.json', [])
     expected_frames = Case_LoadConfig(_ROOT)['display']['frames']
-    assert len(animations) == 4
-    assert len(list(results.rglob('*.gif'))) == 4
+    assert len(animations) == 5
+    assert len(list(results.rglob('*.gif'))) == 5
     for item in animations:
         assert item['decode_check'] == 'PASSED_ALL_FRAMES'
         assert item['fixed_color_limits'] == [['temperature_C', 28, 53], ['moisture_kg_kg', 0, 2.55]]
@@ -83,7 +83,7 @@ def Check_Run(cache_baseline=None):
     tests = Output_ReadJson(_ROOT/'work/validation/program_tests.json')
     assert tests['exit_status'] == 0 and all(item['outcome'] == 'passed' for item in tests['tests'])
     report = dict(status='PASSED', questions=records, png_count=len(list(results.rglob('*.png'))),
-        gif_count=4, test_count=len(tests['tests']), unchanged_solver_cache_files=unchanged,
+        gif_count=5, test_count=len(tests['tests']), unchanged_solver_cache_files=unchanged,
         core_unchanged=unchanged is not None,
         numerical_note='Numerical acceptance is read from results/status.json; publication checks do not change numerical PASS/FAIL.')
     Storage_WriteJson(_ROOT/'work/validation/presentation_checks.json', report)

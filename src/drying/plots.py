@@ -3,12 +3,6 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from .cases import Case_LoadMesh, Case_LoadConfig, Case_LoadInputs, Case_ReadStatus
-from .sampling import Sampling_GetNodes
-from .storage import Storage_WriteJson
-from .geometry import Geometry_GetCells
-from .comparison import Comparison_IterFields, Comparison_EnsureQuestions, Comparison_ReadSnapshot
-from .outputs import Output_GetEnd, Output_GetSelected, Output_PrepareFolders, Output_UpdateSummary
 
 
 def Plot_SetStyle():
@@ -17,16 +11,7 @@ def Plot_SetStyle():
         'savefig.dpi':150, 'axes.spines.top':False, 'axes.spines.right':False})
 
 
-def Plot_GetSelected(root, case, dim):
-    return Output_GetSelected(root, case, dim)
-
-
-def Plot_GetSnapshot(root, case_id, at_time):
-    return Comparison_ReadSnapshot(root, case_id, at_time)
-
-
-def Plot_DrawSurface(fig, field, t, model, inputs, label, status, limits=None, mesh=None):
-    r,z,nodes = Sampling_GetNodes(field,t,model,inputs,mesh)
+def Plot_DrawSurfaceNodes(fig, r, z, nodes, t, label, status, limits=None):
     # Display decimation is spatial sampling of a true 2D solution, not a 3D PDE.
     ri = np.unique(np.r_[np.arange(0,len(r),max(1,len(r)//32)),len(r)-1])
     zi = np.unique(np.r_[np.arange(0,len(z),max(1,len(z)//40)),len(z)-1])
@@ -58,19 +43,8 @@ def Plot_MirrorSection(r, z, nodes):
     return radial, axial, values
 
 
-def Plot_GetComparisonSection(root, info, model, inputs):
-    t = info['max_abs_moisture']['time_s']
-    one = Plot_GetSnapshot(root, info['one_id'], t)
-    two = Plot_GetSnapshot(root, info['two_id'], t)
-    r1, _, values1 = Sampling_GetNodes(one, t, model, inputs, Case_LoadMesh(root,info['one_id']))
-    r, z, actual = Sampling_GetNodes(two, t, model, inputs, Case_LoadMesh(root,info['two_id']))
-    reference = np.broadcast_to(np.stack([np.interp(r, r1, values1[p, :, 0]) for p in [0, 1]])[:, :, None], actual.shape)
-    return t, r, z, actual, reference
-
-
-def Plot_DrawComparison(root, q, info, section):
+def Plot_DrawComparison(root, q, info, section, data, destination):
     t, r, z, actual, reference = section
-    data = np.loadtxt(Path(root)/info['csv'], delimiter=',', skiprows=1, ndmin=2)
     long = q >= 3
     factor = 1 if q == 1 else 3600
     unit = 's' if q == 1 else 'h'
@@ -101,12 +75,12 @@ def Plot_DrawComparison(root, q, info, section):
         location = info['endpoint_max_moisture_location']
         title += f'\n终点二维最大含水率位置：r={location["r_m"]*100:.3g} cm，z={location["z_m"]*100:.3g} cm（中截面为 z=0）'
     fig.suptitle(title, fontsize=13)
-    path = Path(root)/f'results/q{q}/q{q}_1d_2d_compare.png'
+    path = Path(root)/destination
     fig.savefig(path); plt.close(fig)
     return str(path.relative_to(root))
 
 
-def Plot_DrawMaxSection(root, q, info, section):
+def Plot_DrawMaxSection(root, q, info, section, destination):
     t, r, z, actual, reference = section
     radial, axial, actual = Plot_MirrorSection(r, z, actual)
     reference = Plot_MirrorSection(r, z, reference)[2]
@@ -126,38 +100,17 @@ def Plot_DrawMaxSection(root, q, info, section):
             fig.colorbar(mesh, ax=axis, shrink=.8, label=('温差 / K' if col == 2 else '温度 / ℃') if p == 0 else 'C / (kg/kg)')
     fig.suptitle(f'第{q}问：最大含水率差时刻 t={t:.2f} s（{t/3600:.4f} h）\n'
         f'温度最大差时刻 {info["max_abs_temperature"]["time_s"]:.2f} s；z=0 为中截面，两端由对称性展开', fontsize=13)
-    path = Path(root)/f'results/q{q}/q{q}_max_error_section.png'
+    path = Path(root)/destination
     fig.savefig(path); plt.close(fig)
     return str(path.relative_to(root))
 
 
-def Plot_DrawCurves(root, q, case, model, inputs):
-    case_id = Plot_GetSelected(root, case, 1)
-    status = Case_ReadStatus(root, case_id)
-    end = Output_GetEnd(q, status)
-    mesh = Case_LoadMesh(root,case_id)
-    times, profiles, means, maxima, radii = [], [], [], [], []
-    snapshots = {}
-    keys = [100, 600, 1200, 1800] if q == 1 else [1800, 3600, 7200, 10800]
-    maximum_T, minimum_C = -np.inf, np.inf
-    # All extrema use all stored samples; plotted time curves keep a modest density.
-    for t, field in Comparison_IterFields(root, case_id):
-        if t > end+1e-8:
-            break
-        r, _, nodes = Sampling_GetNodes(field, t, model, inputs, mesh)
-        maximum_T = max(maximum_T, float(nodes[0].max()))
-        minimum_C = min(minimum_C, float(nodes[1].min()))
-        if t in keys:
-            snapshots[t] = (r, nodes[:, :, 0].copy())
-        if q <= 2 or abs(t/60-round(t/60)) < 1e-8 or abs(t-end) < 1e-8:
-            times.append(t)
-            positions = np.array([0, .25, .5, .75, 1])*r[-1]
-            profiles.append(np.stack([np.interp(positions, r, nodes[p, :, 0]) for p in [0, 1]]))
-            means.append(np.average(field[1, :, 0], weights=Geometry_GetCells(field.shape[1],1,r[-1],mesh=mesh)[2][:,0]))
-            maxima.append(nodes[1].max()); radii.append(r[-1])
-    if not times or abs(times[-1]-end) > 1e-8:
-        raise RuntimeError(f'PLOT_FAILED: q{q} endpoint absent from cache')
-    times, profiles = np.array(times), np.array(profiles)
+def Plot_DrawCurves(root, q, payload, destination):
+    times, profiles = payload['time_s'], payload['profiles']
+    means, maxima, radii = payload['mean_C'], payload['max_C'], payload['R_m']
+    end = float(times[-1])
+    snapshots = {float(t):(payload[f'snapshot_r_{i}'],payload[f'snapshot_nodes_{i}'])
+                 for i,t in enumerate(payload['snapshot_time_s'])}
     factor = 1 if q == 1 else 3600
     fig, axes = plt.subplots(2, 2, figsize=(12, 8), layout='constrained')
     labels = ['中心', 'r/R=0.25', 'r/R=0.50', 'r/R=0.75', '表面']
@@ -195,40 +148,11 @@ def Plot_DrawCurves(root, q, case, model, inputs):
     if q == 4:
         title += '\n曲线按当前相对半径取样；正式表仍使用固定空间 r'
     fig.suptitle(title, fontsize=13)
-    path = Path(root)/f'results/q{q}/q{q}_curves.png'
+    path = Path(root)/destination
     fig.savefig(path); plt.close(fig)
-    Output_UpdateSummary(root, q, max_temperature=maximum_T-273.15, min_moisture=minimum_C,
-                         temperature_unit='degC', moisture_unit='kg/kg', extrema_source='All stored 1D samples in question window')
     return str(path.relative_to(root))
 
 
 def Plot_Run(root):
-    root = Path(root)
-    Output_PrepareFolders(root); Plot_SetStyle()
-    inputs = Case_LoadInputs(root); config = Case_LoadConfig(root)
-    comparison = Comparison_EnsureQuestions(root)
-    manifest = []
-    for q, case, model in [(1, 'q1', 1), (2, 'q23', 3), (3, 'q23', 3), (4, 'q4', 4)]:
-        manifest.append(Plot_DrawCurves(root, q, case, model, inputs))
-        info = comparison[f'q{q}']
-        if q >= 3:
-            end = info['time_range_s'][-1]
-            field = Plot_GetSnapshot(root, info['two_id'], end)
-            r, z, nodes = Sampling_GetNodes(field, end, model, inputs, Case_LoadMesh(root,info['two_id']))
-            i, j = np.unravel_index(nodes[1].argmax(), nodes[1].shape)
-            location = dict(r_m=float(r[i]), z_m=float(z[j]), C=float(nodes[1, i, j]))
-            info['endpoint_max_moisture_location'] = location
-            Output_UpdateSummary(root, q, endpoint_2d_max_moisture_location=location)
-        section = Plot_GetComparisonSection(root, info, model, inputs)
-        manifest.append(Plot_DrawComparison(root, q, info, section))
-        manifest.append(Plot_DrawMaxSection(root, q, info, section))
-        if q >= 3:
-            case_id = Plot_GetSelected(root, case, 2)
-            t = config['display']['snapshot_s']
-            field = Plot_GetSnapshot(root, case_id, t)
-            fig = plt.figure(figsize=(12, 5))
-            Plot_DrawSurface(fig, field, t, model, inputs, f'第{q}问', '独立二维 PDE 解', mesh=Case_LoadMesh(root,case_id))
-            path = root/f'results/q{q}/q{q}_3d.png'
-            fig.savefig(path); plt.close(fig); manifest.append(str(path.relative_to(root)))
-        print(f'PLOTS_GENERATED q{q}', flush=True)
-    Storage_WriteJson(root/'work/diagnostics/plots_manifest.json', dict(source='computed caches only', files=manifest))
+    from .presentation import Presentation_Run
+    return Presentation_Run(root, png=True, gif=False)

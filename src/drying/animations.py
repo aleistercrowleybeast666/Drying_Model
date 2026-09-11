@@ -3,12 +3,8 @@ import time
 from pathlib import Path
 import numpy as np
 from PIL import Image, GifImagePlugin
-from .plots import Plot_SetStyle, Plot_GetSelected, Plot_DrawSurface, Plot_MirrorSection
+from .plots import Plot_SetStyle, Plot_DrawSurfaceNodes, Plot_MirrorSection
 import matplotlib.pyplot as plt
-from .cases import Case_LoadMesh, Case_LoadConfig, Case_LoadInputs, Case_ReadStatus
-from .comparison import Comparison_IterFields
-from .sampling import Sampling_GetNodes
-from .outputs import Output_GetEnd, Output_PrepareFolders, Output_ReadJson
 from .storage import Storage_WriteJson
 
 
@@ -27,38 +23,12 @@ def Animation_GetProgress(frame_count):
     return np.r_[np.linspace(0, .06, early, endpoint=False), np.linspace(.06, 1, frame_count-early)]
 
 
-def Animation_LoadFrames(root, case, q, dimension, progress):
-    case_id = Plot_GetSelected(root, case, dimension)
-    status = Case_ReadStatus(root, case_id)
-    if not status['complete']:
-        raise RuntimeError(f'ANIMATION_FAILED: {case_id} trajectory is still running')
-    end = Output_GetEnd(q, status)
-    times = []
-    for path in sorted((Path(root)/'work/cache'/case_id).glob('chunk_*.npz')):
-        with np.load(path) as block:
-            times.extend(block['time_s'].tolist())
-    if status.get('event'):
-        times.append(end)
-    times = np.unique(times)
-    times = times[times <= end+1e-8]
-    if len(times) < 2 or abs(times[0]) > 1e-8 or abs(times[-1]-end) > 1e-8:
-        raise RuntimeError(f'ANIMATION_FAILED: incomplete stored times for {case_id}')
-    selected = np.array([times[np.argmin(abs(times-fraction*end))] for fraction in progress])
-    wanted = set(selected.tolist())
-    frames = {}
-    for t, field in Comparison_IterFields(root, case_id):
-        if t in wanted:
-            frames[t] = field.copy()
-        if t >= selected[-1]:
-            break
-    if status.get('event') and end not in frames:
-        with np.load(Path(root)/'work/cache'/case_id/'event.npz') as block:
-            frames[end] = block['state'].copy()
-    if wanted-set(frames):
-        raise RuntimeError(f'ANIMATION_FAILED: missing actual fields for {case_id}')
-    return dict(case_id=case_id, status=status, end=end, times=selected, fields=frames,
-                question=q, model=4 if q == 4 else 3, dimension=dimension, mesh=Case_LoadMesh(root,case_id))
-
+def Animation_ReadDataset(root, info):
+    from .plot_contract import Payload_ResolvePath
+    with np.load(Payload_ResolvePath(root,info['data_path']),allow_pickle=False) as data:
+        frames = [(data[f'r_{i}'].copy(),data[f'z_{i}'].copy(),data[f'nodes_{i}'].copy())
+                  for i in range(len(info['frame_times_s']))]
+    return dict(info,frames=frames,times=np.array(info['frame_times_s']),end=info['end_s'])
 
 def Animation_MapRadial(r, profile, coordinates):
     x, y = np.meshgrid(coordinates, coordinates)
@@ -99,18 +69,18 @@ def Animation_WriteGif(root, path, frame_count, fps, draw, metadata):
                 fixed_color_limits=[['temperature_C', 28, 53], ['moisture_kg_kg', 0, 2.55]])
 
 
-def Animation_DrawSections(index, datasets, inputs, progress, radial=False):
+def Animation_DrawSections(index, datasets, progress, radial=False, limits=((28,53),(0,2.55))):
     fig, axes = plt.subplots(2, 2, figsize=(11, 7), dpi=100, layout='constrained')
     meshes = []
     coordinates = np.linspace(-.02, .02, 241)
     for col, dataset in enumerate(datasets):
         t = float(dataset['times'][index])
-        r, z, nodes = Sampling_GetNodes(dataset['fields'][t], t, dataset['model'], inputs, dataset['mesh'])
+        r, z, nodes = dataset['frames'][index]
         if not radial:
             rr, zz, mirrored = Plot_MirrorSection(r, z, nodes)
         for p in [0, 1]:
             axis = axes[p, col]
-            lower, upper = (28, 53) if p == 0 else (0, 2.55)
+            lower, upper = limits[p]
             cmap = 'inferno' if p == 0 else 'viridis'
             if radial:
                 field = Animation_MapRadial(r, nodes[p, :, 0]-(273.15 if p == 0 else 0), coordinates)
@@ -135,42 +105,5 @@ def Animation_DrawSections(index, datasets, inputs, progress, radial=False):
 
 
 def Animation_Run(root, case_filter='all'):
-    root = Path(root)
-    Output_PrepareFolders(root); Plot_SetStyle()
-    inputs = Case_LoadInputs(root); cfg = Case_LoadConfig(root)['display']
-    progress = Animation_GetProgress(cfg['frames'])
-    manifest_path = root/'work/diagnostics/animations_manifest.json'
-    manifest = Output_ReadJson(manifest_path, [])
-    two_d = []
-    for q, case in [(3, 'q23'), (4, 'q4')]:
-        if case_filter not in ('all', case):
-            continue
-        dataset = Animation_LoadFrames(root, case, q, 2, progress)
-        two_d.append(dataset)
-        def Animation_DrawSurfaceFrame(index):
-            t = float(dataset['times'][index])
-            fig = plt.figure(figsize=(cfg['width_px']/100, cfg['height_px']/100), dpi=100)
-            label = '真实二维解；物理时间非匀速映射'
-            if not dataset['status']['event']:
-                label += '；72 h 内未烘干' if dataset['end'] >= 259200 else '；未达烘干条件'
-            Plot_DrawSurface(fig, dataset['fields'][t], t, dataset['model'], inputs, f'第{q}问', label, [(28, 53), (0, 2.55)], mesh=dataset['mesh'])
-            return fig
-        record = Animation_WriteGif(root, root/f'results/q{q}/q{q}_3d.gif', len(progress), cfg['fps'],
-            Animation_DrawSurfaceFrame, dict(source='genuine 2D PDE', case_id=dataset['case_id'],
-                                            frame_times_s=dataset['times'].tolist()))
-        manifest = [item for item in manifest if item['path'] != record['path']]+[record]
-        Storage_WriteJson(manifest_path, manifest)
-    if case_filter != 'all':
-        return
-    for radial in [False, True]:
-        datasets = ([Animation_LoadFrames(root, case, q, 1, progress) for q, case in [(3, 'q23'), (4, 'q4')]]
-                    if radial else two_d)
-        name = 'radial' if radial else 'axial'
-        def Animation_DrawSectionFrame(index):
-            return Animation_DrawSections(index, datasets, inputs, progress, radial)
-        record = Animation_WriteGif(root, root/f'results/q3_q4_{name}_section.gif', len(progress), cfg['fps'],
-            Animation_DrawSectionFrame, dict(source='1D radial profiles' if radial else 'genuine 2D PDE',
-                relative_progress=progress.tolist(),
-                cases=[dict(case_id=d['case_id'], frame_times_s=d['times'].tolist(), end_s=d['end']) for d in datasets]))
-        manifest = [item for item in manifest if item['path'] != record['path']]+[record]
-        Storage_WriteJson(manifest_path, manifest)
+    from .presentation import Presentation_Run
+    return Presentation_Run(root, png=False, gif=True, case_filter=case_filter)

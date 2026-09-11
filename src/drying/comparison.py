@@ -17,7 +17,8 @@ def Comparison_IterFields(root, case_id):
         with np.load(path) as data:
             if str(data['fingerprint'])!=Case_ReadStatus(root,case_id)['fingerprint']:
                 raise RuntimeError('CACHE_MISMATCH: paired endpoint states')
-            extras=list(zip(data['time_s'].tolist(),data['fields']))
+            fields = data['fields'] if 'fields' in data else [data[f'field_{i}'] for i in range(len(data['time_s']))]
+            extras=list(zip(data['time_s'].tolist(),fields))
     status=Case_ReadStatus(root,case_id)
     if status.get('event') and not any(abs(t-status['event']['report_s'])<1e-8 for t,_ in extras):
         with np.load(Path(root)/'work/cache'/case_id/'event.npz') as saved:
@@ -50,7 +51,11 @@ def Comparison_ReadSnapshot(root, case_id, at_time):
                 raise RuntimeError('CACHE_MISMATCH: snapshot fingerprint')
             indices = np.flatnonzero(abs(block['time_s']-at_time) < 1e-8)
             if len(indices):
-                return block['fields'][indices[0]].copy()
+                index = int(indices[0])
+                return (block['fields'][index] if 'fields' in block else block[f'field_{index}']).copy()
+    if status.get('execution_mode') == 'stage_schedule':
+        stage = next((s for s in status['stages'] if at_time < s['t_end']-1e-8),status['stages'][-1])
+        return Comparison_ReadSnapshot(root,stage['case_id'],at_time)
     raise RuntimeError(f'PLOT_FAILED: exact cached field {case_id} at t={at_time} is unavailable')
 
 
@@ -91,6 +96,7 @@ def Comparison_Run(root, case_filter='all'):
                     else: two = next(stream2, None)
                     continue
                 t = one[0]
+                if one_status.get('execution_mode') == 'stage_schedule': mesh1 = Case_LoadMesh(root,one_id,t)
                 r1, _, values1 = Sampling_GetNodes(one[1], t, model, inputs, mesh1)
                 r2, z2, values2 = Sampling_GetNodes(two[1], t, model, inputs, mesh2)
                 reference = np.stack([np.interp(r2, r1, values1[p, :, 0]) for p in range(2)])
