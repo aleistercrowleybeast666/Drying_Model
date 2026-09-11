@@ -1660,8 +1660,8 @@
   "payload_files": [
     {
       "path": "work/plot_payload/overview_data.json",
-      "hash": "fdfde5e968a147a70210394f6ba6d0b5ebdecb249d1f2f691cb2d2a8e29c1ac3",
-      "size_bytes": 829635
+      "hash": "4c6d0a68bc82904becf6bb2ed2bbe820d44df4e821e6322ed5ab516f1d04ea09",
+      "size_bytes": 830763
     },
     {
       "path": "work/plot_payload/q1_plot_data.npz",
@@ -2026,5 +2026,5 @@
       ]
     }
   },
-  "manifest_hash": "3448d3561df8c56bc2b03e0899d2be6db0310ee8b033218931d3699b86f78bf9"
+  "manifest_hash": "41f90893b769f00ca0c8daf08455ed65ac017de0027abec21780b76e528a5999"
 }

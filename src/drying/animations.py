@@ -37,10 +37,17 @@ def Animation_MapRadial(r, profile, coordinates):
     return np.ma.array(values, mask=distance > r[-1]+1e-14)
 
 
-def Animation_WriteGif(root, path, frame_count, fps, draw, metadata):
+def Animation_WriteGif(root, path, frame_count, fps, draw, metadata, playback_rate=1.):
+    if not np.isfinite(playback_rate) or playback_rate<=0:
+        raise ValueError('ANIMATION_FAILED: playback rate must be positive')
     path = Path(path)
     temporary = path.with_suffix('.tmp.gif')
     started = time.perf_counter()
+    # GIF stores centiseconds. Scale the original encoded delay, including the
+    # final hold, so 0.5x is exactly twice the original playback duration.
+    base_duration_ms=max(10,10*(round(1000/fps)//10))
+    frame_duration_ms=max(10,10*round(base_duration_ms/(10*playback_rate)))
+    final_hold_ms=max(10,10*round(1000/(10*playback_rate)))
     try:
         with temporary.open('wb') as output:
             for index in range(frame_count):
@@ -48,7 +55,7 @@ def Animation_WriteGif(root, path, frame_count, fps, draw, metadata):
                 try:
                     fig.canvas.draw()
                     rgb = np.asarray(fig.canvas.buffer_rgba())[:, :, :3].copy()
-                    Animation_WriteFrame(output, rgb, 1000 if index == frame_count-1 else round(1000/fps), index == 0)
+                    Animation_WriteFrame(output, rgb, final_hold_ms if index == frame_count-1 else frame_duration_ms, index == 0)
                 finally:
                     plt.close(fig)
                 if index % 60 == 0:
@@ -66,6 +73,8 @@ def Animation_WriteGif(root, path, frame_count, fps, draw, metadata):
             temporary.unlink()
     return dict(metadata, path=str(path.relative_to(root)), frames=frame_count, size_px=size,
                 wall_s=time.perf_counter()-started, decode_check='PASSED_ALL_FRAMES', requested_fps=fps,
+                playback_rate=playback_rate,frame_duration_ms=frame_duration_ms,final_hold_ms=final_hold_ms,
+                total_duration_ms=(frame_count-1)*frame_duration_ms+final_hold_ms,
                 fixed_color_limits=[['temperature_C', 28, 53], ['moisture_kg_kg', 0, 2.55]])
 
 

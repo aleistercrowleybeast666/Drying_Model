@@ -966,6 +966,7 @@
     {
       "case_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
       "passed": true,
+      "role": "current production",
       "schedule": [
         {
           "t_start": 0.0,
@@ -1134,6 +1135,7 @@
     {
       "case_id": "q4_1d_stage_schedule_conservative_dt0.25_sa2901cc1ebe9",
       "passed": true,
+      "role": "legacy / diagnostic only",
       "schedule": [
         {
           "t_start": 0.0,
@@ -2194,5 +2196,8 @@
     ],
     "complete": true,
     "scope": "Official output timestamps through both drying reports, plus both genuine drying endpoint states; internal RK4 and arbitrary remesh times are audit-only."
-  }
+  },
+  "source_fingerprint": "33c788387cd3e240fdf822c3e9f55b437c217e7efa69c9614d6b11658119d1cc",
+  "solver_completed": true,
+  "fixed_grid_role": "legacy / diagnostic only"
 }

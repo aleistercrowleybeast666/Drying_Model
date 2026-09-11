@@ -1,0 +1,86 @@
+{
+  "status": "PASSED",
+  "summary_sync": "PASSED_Q1_Q2_Q3_Q4",
+  "official_spatial": {
+    "q1": true,
+    "q2": true,
+    "q3": true,
+    "q4": true
+  },
+  "fixed_grid_role": "legacy / diagnostic only",
+  "existing_production_values_unchanged": true,
+  "validation_evidence_unchanged": true,
+  "protected_files_unchanged": 2758,
+  "unchanged_outputs": {
+    "excel": 4,
+    "png": 14,
+    "other_gif": 4,
+    "comparison_csv": 4
+  },
+  "pde_solves": 0,
+  "gif_frames": 240,
+  "gif_full_decode": "PASSED_ALL_FRAMES",
+  "camera_yaw_before_deg": -55,
+  "camera_yaw_after_deg": -145,
+  "camera_elevation_deg": 23,
+  "plane_angle_deg": 45,
+  "plane_azimuth_deg": 35,
+  "display_lower_before_cm": -12.5,
+  "display_lower_after_cm": -6.25,
+  "lower_part_cropped_fraction": 0.5,
+  "physical_model_length_cm": 25,
+  "axial_compression": false,
+  "fixed_axis_limits_cm": [
+    [
+      -2.2,
+      2.2
+    ],
+    [
+      -2.2,
+      2.2
+    ],
+    [
+      -6.25,
+      2.5
+    ]
+  ],
+  "radius_start_end_cm": {
+    "q3": [
+      2.0,
+      2.0
+    ],
+    "q4": [
+      2.0,
+      1.2
+    ]
+  },
+  "independent_2d_end_times_s": {
+    "q3": 208273.31999999998,
+    "q4": 184259.88
+  },
+  "color_limits": [
+    [
+      "temperature_C",
+      28,
+      53
+    ],
+    [
+      "moisture_kg_kg",
+      0,
+      2.55
+    ]
+  ],
+  "boundary_min_pt": 1.1,
+  "cut_boundary_min_pt": 1.4,
+  "visual_review": "PASS: initial/middle/final frames and half-size preview; clear cut face and contours; no dense mesh",
+  "warnings": [
+    "legacy fixed 80->160 FAIL (diagnostic only)",
+    "rejected q23 default schedule (diagnostic only)",
+    "DT_LIMITED_BY_STABILITY",
+    "END_EFFECT_NOT_NEGLIGIBLE",
+    "2D_SPATIAL_VALIDATION_PARTIAL"
+  ],
+  "new_warning_or_fail": false,
+  "tests_passed": 64,
+  "contour_details": "work/validation/cutaway_contours_checks.json"
+}

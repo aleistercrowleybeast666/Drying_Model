@@ -6,8 +6,7 @@ import matplotlib.pyplot as plt
 from .plot_contract import Payload_ReadManifest, Payload_ResolvePath, Payload_GetRenderHash
 from .plots import Plot_SetStyle, Plot_DrawCurves, Plot_DrawComparison, Plot_DrawMaxSection, Plot_DrawSurfaceNodes
 from .animations import Animation_ReadDataset, Animation_DrawSections, Animation_WriteGif
-from .cutaway import Cutaway_DrawFrame
-from .overview import Overview_Write
+from .cutaway import Cutaway_DrawFrame, Cutaway_GetView
 from .storage import Storage_WriteJson
 from .diagnostics import Diagnostics_RecordException
 
@@ -70,20 +69,22 @@ def Presentation_Run(root,png=True,gif=True,case_filter='all',gif_scope='all'):
                         dict(source='sealed 1D radial payload' if name=='radial_section' else 'sealed genuine 2D payload',
                             relative_progress=progress.tolist(),layout=cfg['layout'],
                             cases=[dict(case_id=d['case_id'],frame_times_s=d['times'].tolist(),end_s=d['end']) for d in selected],
-                            cutaway=cfg['cutaway'] if name=='cutaway_cylinder' else None)))
+                            cutaway=dict(cfg['cutaway'],**Cutaway_GetView(cfg['cutaway'])) if name=='cutaway_cylinder' else None),
+                        playback_rate=Cutaway_GetView(cfg['cutaway'])['playback_rate'] if name=='cutaway_cylinder' else 1.))
                 except Exception as error:
                     if name=='cutaway_cylinder':
                         Diagnostics_RecordException(root,'CUTAWAY_RENDER_FAILED',error,output=record['output'])
                     raise
+        generated_gif_files=[v['path'] for v in records]
         animation_manifest=root/'work/diagnostics/animations_manifest.json'
         if (case_filter != 'all' or gif_scope != 'all') and animation_manifest.exists():
             previous=json.loads(animation_manifest.read_text(encoding='utf-8'))
             replaced={v['path'] for v in records}
             records=[v for v in previous if v['path'] not in replaced]+records
         Storage_WriteJson(animation_manifest,records)
-    data=json.loads(Payload_ResolvePath(root,manifest['overview_payload']).read_text(encoding='utf-8'))
-    Overview_Write(root,data)
+    # The payload's overview is a historical evidence snapshot. Publishing it
+    # here could overwrite newer official status; output generation owns summaries.
     Storage_WriteJson(root/'work/diagnostics/plot_status.json',dict(status='COMPLETE',pde_solves=0,
         manifest_hash=manifest['manifest_hash'],render_hash=Payload_GetRenderHash(root),png_files=png_files,
-        gif_files=[r['path'] for r in records],source='work/plot_payload only'))
-    return dict(png_files=png_files,gifs=records)
+        gif_files=generated_gif_files if gif else [],source='work/plot_payload only'))
+    return dict(png_files=png_files,gifs=records,generated_gif_files=generated_gif_files if gif else [])

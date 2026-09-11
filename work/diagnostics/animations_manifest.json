@@ -2826,19 +2826,36 @@
     "cutaway": {
       "angle_deg": 45.0,
       "azimuth_deg": 35.0,
-      "boundary_width": 1.8,
-      "cut_width": 2.2,
-      "geometry": "Upright cylinder; transverse plane at model midsection; upper portion removed only for visibility"
+      "boundary_width": 1.1,
+      "cut_width": 1.4,
+      "geometry": "Upright cylinder; transverse plane at model midsection; upper portion removed only for visibility",
+      "camera_yaw_deg": -145.0,
+      "camera_elevation_deg": 23.0,
+      "lower_half_crop_fraction": 0.5,
+      "size_px": [
+        1080,
+        960
+      ],
+      "playback_rate": 0.5,
+      "contour_width": 0.6,
+      "contour_temperature_interval_C": 0.5,
+      "contour_moisture_interval": 0.1,
+      "contour_scope": "actual oblique face; fixed equal-value levels shared by Q3/Q4 and every frame",
+      "physical_axis_scale": "equal; no axial compression"
     },
     "path": "results\\q3_q4_cutaway_cylinder.gif",
     "frames": 240,
     "size_px": [
-      940,
-      1080
+      1080,
+      960
     ],
-    "wall_s": 117.08271289999539,
+    "wall_s": 143.2377443000005,
     "decode_check": "PASSED_ALL_FRAMES",
     "requested_fps": 24,
+    "playback_rate": 0.5,
+    "frame_duration_ms": 80,
+    "final_hold_ms": 2000,
+    "total_duration_ms": 21120,
     "fixed_color_limits": [
       [
         "temperature_C",

@@ -1,0 +1,20 @@
+{
+  "status": "PASSED",
+  "frames": 240,
+  "playback_rate": 0.5,
+  "previous_duration_ms": 10560,
+  "duration_ms": 21120,
+  "all_frame_delays_exactly_doubled": true,
+  "normal_frame_ms": 80,
+  "final_hold_ms": 2000,
+  "early_progress_fraction": 0.06,
+  "early_frames": 160,
+  "early_playback_ms": 12800,
+  "relative_progress_unchanged": true,
+  "physical_data_regenerated": false,
+  "pde_solves": 0,
+  "protected_result_and_payload_files_unchanged": 63,
+  "tests_passed": 65,
+  "title": "前 6% 慢放 · 0.5 倍速",
+  "decode_check": "PASSED_ALL_FRAMES"
+}

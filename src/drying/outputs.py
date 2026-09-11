@@ -90,6 +90,7 @@ def Output_UpdateStatus(root):
                          check.get('time_range_s') == [0., end] and
                          (root/f'results/q{q}/q{q}_compare.csv').exists())
         record = dict(source_case=case, official_source='1D', one_id=case_id,
+            source_fingerprint=status['fingerprint'], solver_completed=bool(status['complete']),
             endpoint_values=Output_GetEndpoint(root,case_id,end),
             simulation_end=end, drying_time=status['drying_time_h']*3600 if dry else None,
             drying_completed=dry, time_convergence_passed=time_passed,
@@ -118,6 +119,8 @@ def Output_UpdateStatus(root):
             stage.setdefault('stability_limited_count',status.get('limited'))
         record.update(**{key:bool(entry.get(key,False)) for key in ['fixed_grid_spatial_passed',
             'stage_schedule_spatial_passed','early_reference_passed','stage_schedule_accuracy_passed','remesh_transfer_passed']})
+        record['fixed_grid_role'] = ('legacy / diagnostic only' if record['execution_mode']=='stage_schedule'
+                                     else 'current production')
         active_check = next((trial for trial in entry.get('stage_schedule_trials',[]) if trial.get('schedule_id')==case_id),entry.get('radial',{}))
         record.update(spatial_acceptance_scope='official_outputs_and_drying_endpoints',internal_audit_veto=False,
             spatial_thresholds=Case_LoadConfig(root)['validation']['spatial'] if (root/'configs/default.toml').exists() else {},
@@ -128,6 +131,7 @@ def Output_UpdateStatus(root):
         for trial in entry.get('stage_schedule_trials',[]):
             candidate = Case_ReadStatus(root,trial['schedule_id'])
             attempts.append(dict(case_id=candidate['case_id'],passed=trial['passed'],
+                role='current production' if candidate['case_id']==case_id else 'legacy / diagnostic only',
                 schedule=candidate['schedule'],stage_dt_statistics=candidate['stage_dt_statistics'],
                 transfers=candidate['transfers'],drying_time_h=candidate.get('drying_time_h')))
         record['stage_schedule_attempts'] = attempts
@@ -144,3 +148,8 @@ def Output_UpdateStatus(root):
         validation_details='work/validation/summary.json', comparison_details='work/comparison/summary.json',
         solver_details='work/cache', diagnostics='work/diagnostics',
         note='Validation flags describe the stored evidence. 2D comparison completion does not certify spatial convergence.'))
+    # Status and the human-readable overview are published by the same owner.
+    # An uninitialized/test workspace may not have model configuration yet.
+    if (root/'configs/default.toml').exists():
+        from .overview import Overview_Write
+        return Overview_Write(root)

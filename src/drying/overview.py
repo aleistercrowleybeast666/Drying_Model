@@ -37,17 +37,19 @@ def Overview_Render(data):
         '| 模型 | 当前正式/候选来源 | 阶段（s: Nr） | 实际 dt min / mean / max（s） |',
         '|---|---|---|---|']
     for case in ['q1','q23','q4']:
-        source = data['sources'].get(case+'_1d',{}); entry = val.get(case+'_1d',{})
+        question = {'q1':'q1','q23':'q3','q4':'q4'}[case]
+        source = data['status'].get('questions',{}).get(question,{})
+        entry = val.get(case+'_1d',{})
         stages = source.get('stage_dt_statistics') or [dict(t_start=0,t_end=source.get('cap'),nr=source.get('nr'),
             actual_dt_min=source.get('minimum_dt'),actual_dt_mean=source.get('cap',0)/source['steps'] if source.get('steps') else None,
             actual_dt_max=source.get('maximum_dt'))]
         schedule = '; '.join(f'{fmt(s["t_start"])}–{fmt(s["t_end"])}: {s["nr"]}' for s in stages)
         stats = '; '.join(' / '.join(fmt(s.get(k),5) for k in ['actual_dt_min','actual_dt_mean','actual_dt_max'])+
             f' (限步 {s.get("stability_limited_count",source.get("limited",0))})' for s in stages)
-        lines.append(f'| {case} | {source.get("execution_mode","fixed")} | {schedule} | {stats} |')
-        if source.get('limited'):
+        lines.append(f'| {case} | {source.get("execution_mode","fixed")}<br>`{source.get("one_id","—")}` | {schedule} | {stats} |')
+        if source.get('stability_limited_count'):
             warnings.append(case+': DT_LIMITED_BY_STABILITY（按稳定性减小实际步长，dt_max 上限保持不变）')
-        if not entry.get('spatial_passed'):
+        if not source.get('spatial_convergence_passed'):
             warnings.append(case+': SPATIAL_CONVERGENCE_FAILED（严格误差或下降趋势未通过；当前结果为候选）')
         if any(not t['passed'] for t in entry.get('stage_schedule_trials',[])):
             warnings.append(case+': STAGE_COARSENING_TOO_AGGRESSIVE（部分阶段方案超出附加误差阈值，已据实回退）')
@@ -56,18 +58,18 @@ def Overview_Render(data):
     def Flag(value): return 'PASS' if value else 'FAIL'
     for q in range(1,5):
         item = data['status'].get('questions',{}).get(f'q{q}',{})
-        source = data['sources'].get(item.get('source_case','')+'_1d',{})
-        stages = '/'.join([Flag(source.get('complete')),Flag(item.get('time_convergence_passed')),
+        stages = '/'.join([Flag(item.get('solver_completed')),Flag(item.get('time_convergence_passed')),
             Flag(item.get('spatial_convergence_passed')),Flag(item.get('stage_schedule_passed')) if item.get('stage_schedule_enabled') else 'SKIPPED'])
         drying = item.get('drying_time')
         lines.append(f'| Q{q} | {stages} | {fmt(drying/3600 if drying is not None else None)} | {fmt(item.get("endpoint_values",{}).get("max_moisture"),10)} | [result{q}.xlsx](tables/result{q}.xlsx) |')
         if not item.get('time_convergence_passed'): warnings.append(f'Q{q}: TIME_VALIDATION_INCOMPLETE_OR_FAILED')
-    lines += ['', '| 问题 | fixed-grid validation（诊断） | stage-schedule validation | official spatial convergence |',
+    lines += ['', '以下正式状态、来源、阶段网格及烘干时间均取自最新 status.json。',
+              '', '| 问题 | fixed-grid validation（legacy / diagnostic only） | stage-schedule validation | official spatial convergence |',
               '|---|---|---|---|']
     for q in range(1,5):
         item = data['status'].get('questions',{}).get(f'q{q}',{})
         lines.append(f'| Q{q} | {Flag(item.get("fixed_grid_spatial_passed"))} | {Flag(item.get("stage_schedule_spatial_passed"))} | {Flag(item.get("spatial_convergence_passed"))} |')
-    lines += ['', '| 模型 | 固定 80→160 最大 ΔT / ΔC | 阶段方案相对固定 160：ΔT / ΔC / Δt(s) / Δt(%) |',
+    lines += ['', '| 模型 | 固定 80→160 最大 ΔT / ΔC（legacy / diagnostic only） | 阶段方案相对固定 160：ΔT / ΔC / Δt(s) / Δt(%) |',
               '|---|---|---|']
     for case in ['q1','q23','q4']:
         entry = val.get(case+'_1d',{}); pair = (entry.get('spatial_pairs') or [{}])[-1]
@@ -75,14 +77,16 @@ def Overview_Render(data):
         trials = []
         for trial in entry.get('stage_schedule_trials',[]):
             relative = trial.get('event_relative_difference')
-            trials.append('→'.join(str(s['nr']) for s in trial.get('schedule',[]))+': '+
+            active_id=data['status'].get('questions',{}).get({'q1':'q1','q23':'q3','q4':'q4'}[case],{}).get('one_id')
+            role='current production' if trial.get('schedule_id')==active_id else 'legacy / diagnostic only'
+            trials.append('→'.join(str(s['nr']) for s in trial.get('schedule',[]))+f' ({role}): '+
                 ' / '.join([fmt(trial['official_temperature']['value']),fmt(trial['official_moisture']['value']),
                     fmt(trial.get('event_difference_s')),fmt(relative*100 if relative is not None else None)])+' '+Flag(trial['passed']))
         lines.append(f'| {case} | {baseline} | {"; ".join(trials) or "SKIPPED"} |')
         if not entry.get('fixed_grid_spatial_passed',entry.get('spatial_passed')):
             peak=pair.get('official_moisture',{})
             reason='早期表面含水率分辨率不足' if peak.get('time_s',float('inf'))<=600 and peak.get('value',0)>cfg['validation']['spatial']['moisture_abs'] else '固定网格正式误差或下降趋势超限'
-            projection_lines.append(f'- {case} 旧 fixed 80→160 FAIL（仅诊断）：{reason}；ΔC={fmt(peak.get("value"))}，t={fmt(peak.get("time_s"))} s，不否决已通过的正式阶段方案。')
+            projection_lines.append(f'- {case} 旧 fixed 80→160 FAIL（legacy / diagnostic only）：{reason}；ΔC={fmt(peak.get("value"))}，t={fmt(peak.get("time_s"))} s，不否决已通过的正式阶段方案。')
         early=entry.get('early_refinement')
         if early:
             peak=early['official_moisture']

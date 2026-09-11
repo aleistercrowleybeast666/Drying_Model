@@ -10,13 +10,14 @@ sys.path.insert(0,str(_ROOT/'src'))
 def Plot_Main():
     parser=argparse.ArgumentParser(description='仅从独立 payload 绘图，不求解 PDE')
     parser.add_argument('--gif',choices=['all','cutaway'],default='all',help='cutaway 仅重画斜砍 GIF，保留其他四个 GIF；PNG 正常更新')
+    parser.add_argument('--gif-only',action='store_true',help='只重画所选 GIF，不改动 PNG 或结果汇总')
     args=parser.parse_args()
     from drying.diagnostics import Diagnostics_Open, Diagnostics_RecordException
     from drying.presentation import Presentation_Run
     Diagnostics_Open(_ROOT)
     try:
-        Presentation_Run(_ROOT,gif_scope=args.gif)
-        print('PLOT_COMPLETE: 14 PNG, 5 GIF; PDE solves=0',flush=True)
+        result=Presentation_Run(_ROOT,png=not args.gif_only,gif_scope=args.gif)
+        print(f'PLOT_COMPLETE: {len(result["png_files"])} PNG, {len(result["generated_gif_files"])} GIF; PDE solves=0',flush=True)
         return 0
     except Exception as error:
         Diagnostics_RecordException(_ROOT,str(error).split(':')[0],error,phase='plot')

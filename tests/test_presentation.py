@@ -108,3 +108,26 @@ def test_status_separates_official_location_from_validation(tmp_path, monkeypatc
     assert result['questions']['q4']['drying_time'] is None
     assert result['questions']['q4']['drying_note'] == 'NOT_DRY_WITHIN_72H'
     assert {p.name for p in (tmp_path/'results').iterdir()} == {'q1', 'q2', 'q3', 'q4', 'tables', 'status.json'}
+
+
+@pytest.mark.parametrize('passed',[True,False])
+def test_overview_official_rows_follow_status_instead_of_old_evidence(passed):
+    from drying.overview import Overview_Render
+    questions={}
+    for q,case in [(1,'q1'),(2,'q23'),(3,'q23'),(4,'q4')]:
+        questions[f'q{q}']=dict(source_case=case,one_id=case+'_current_stage',
+            solver_completed=True,time_convergence_passed=True,spatial_convergence_passed=passed,
+            stage_schedule_enabled=True,stage_schedule_passed=passed,stage_schedule_spatial_passed=passed,
+            fixed_grid_spatial_passed=False,execution_mode='stage_schedule',drying_time=7200 if q>2 else None,
+            stage_dt_statistics=[dict(t_start=0,t_end=7200,nr=200)])
+    data=dict(generated_at='now',input_hash='input',source_hash='source',
+        config=dict(numerics=dict(dt_s=.25),validation=dict(spatial=dict(temperature_abs_K=.01,moisture_abs=.01,drying_time_relative=.002))),
+        status=dict(questions=questions),validation={case+'_1d':dict(spatial_passed=not passed) for case in ['q1','q23','q4']},
+        sources={case+'_1d':dict(case_id='old_fixed',execution_mode='fixed',complete=False) for case in ['q1','q23','q4']},comparison={})
+    text=Overview_Render(data); flag='PASS' if passed else 'FAIL'
+    for q in range(1,5):
+        assert f'| Q{q} | PASS/PASS/{flag}/{flag} |' in text
+        assert f'| Q{q} | FAIL | {flag} | {flag} |' in text
+    assert 'legacy / diagnostic only' in text
+    assert 'old_fixed' not in text
+    assert ('SPATIAL_CONVERGENCE_FAILED' in text)==(not passed)

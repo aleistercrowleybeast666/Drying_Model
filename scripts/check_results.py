@@ -12,6 +12,7 @@ sys.path.insert(0, str(_ROOT/'src'))
 from drying.outputs import Output_ReadJson
 from drying.cases import Case_LoadConfig
 from drying.storage import Storage_WriteJson, Storage_HashFiles
+from drying.overview import Overview_Render
 
 
 def Check_Run(cache_baseline=None):
@@ -19,8 +20,12 @@ def Check_Run(cache_baseline=None):
     assert {p.name for p in results.iterdir()} == {
         'tables', 'q1', 'q2', 'q3', 'q4', 'status.json', 'overview.md',
         'q3_q4_axial_section.gif', 'q3_q4_radial_section.gif','q3_q4_cutaway_cylinder.gif'}
-    assert {p.name for p in (results/'tables').iterdir()} == {f'result{q}.xlsx' for q in range(1, 5)}
+    # Excel's owner files are application metadata, not exported workbooks.
+    assert {p.name for p in (results/'tables').iterdir() if not (p.name.startswith('~$') and p.suffix=='.xlsx')} == {f'result{q}.xlsx' for q in range(1, 5)}
     status = Output_ReadJson(results/'status.json')
+    evidence = Output_ReadJson(_ROOT/'work/plot_payload/overview_data.json')
+    assert evidence['status'] == status, 'overview evidence is stale; refresh summaries'
+    assert (results/'overview.md').read_text(encoding='utf-8') == Overview_Render(evidence), 'overview differs from current evidence'
     exports = Output_ReadJson(_ROOT/'work/diagnostics/export_manifest.json')['outputs']
     comparison = Output_ReadJson(_ROOT/'work/comparison/summary.json')
     certificates = Output_ReadJson(_ROOT/'work/validation/summary.json')
@@ -29,11 +34,13 @@ def Check_Run(cache_baseline=None):
         summary = Output_ReadJson(results/f'q{q}/q{q}_summary.json')
         question = status['questions'][f'q{q}']
         certificate = certificates[question['source_case']+'_1d']
+        assert all(summary.get(key)==value for key,value in question.items()), (q,'summary differs from status')
         for flag in ['fixed_grid_spatial_passed','stage_schedule_spatial_passed','spatial_convergence_passed',
                      'early_reference_passed','stage_schedule_accuracy_passed','remesh_transfer_passed']:
             assert question[flag] == summary[flag] == certificate.get(flag,False), (q,flag)
         assert question['one_id'] == certificate['selected_id']
         if question['execution_mode']=='stage_schedule':
+            assert question['fixed_grid_role']=='legacy / diagnostic only'
             expected = all(question[k] for k in ['early_reference_passed','stage_schedule_accuracy_passed','remesh_transfer_passed'])
             assert question['spatial_convergence_passed'] == question['stage_schedule_spatial_passed'] == expected
         else:
@@ -92,7 +99,9 @@ def Check_Run(cache_baseline=None):
         for name, recorded in baseline['files'].items():
             path = _ROOT/name
             assert path.stat().st_size == recorded['size'] and path.stat().st_mtime_ns == recorded['mtime_ns'], name
-        for name, digest in baseline['core'].items():
+            if 'sha256' in recorded:
+                assert hashlib.sha256(path.read_bytes()).hexdigest() == recorded['sha256'], name
+        for name, digest in baseline.get('core',{}).items():
             assert hashlib.sha256((_ROOT/'src/drying'/name).read_bytes()).hexdigest() == digest, name
         unchanged = len(baseline['files'])
     tests = Output_ReadJson(_ROOT/'work/validation/program_tests.json')

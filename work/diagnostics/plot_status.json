@@ -1,14 +1,10 @@
 {
   "status": "COMPLETE",
   "pde_solves": 0,
-  "manifest_hash": "3448d3561df8c56bc2b03e0899d2be6db0310ee8b033218931d3699b86f78bf9",
-  "render_hash": "240fe94cc1d457dcff7539e5f2111bf5a7ba8e24ddb2d1d3e9caa18c318917c9",
+  "manifest_hash": "41f90893b769f00ca0c8daf08455ed65ac017de0027abec21780b76e528a5999",
+  "render_hash": "0c42f310a97a4fa9c581b75e58b959635e1f4e68fce27a97e2049f6ab287647d",
   "png_files": [],
   "gif_files": [
-    "results\\q3\\q3_3d.gif",
-    "results\\q4\\q4_3d.gif",
-    "results\\q3_q4_axial_section.gif",
-    "results\\q3_q4_radial_section.gif",
     "results\\q3_q4_cutaway_cylinder.gif"
   ],
   "source": "work/plot_payload only"

@@ -4,6 +4,8 @@
       "source_case": "q1",
       "official_source": "1D",
       "one_id": "q1_1d_stage_schedule_default_dt0.25_s030d129157f2",
+      "source_fingerprint": "030d129157f288fa66f41cf509d2e5fe28453fec39bff330599bab5613f8454b",
+      "solver_completed": true,
       "endpoint_values": {
         "time_s": 1800.0,
         "max_temperature_K": 309.93593960645006,
@@ -925,6 +927,7 @@
       "fixed_grid_spatial_passed": false,
       "early_reference_passed": true,
       "remesh_transfer_passed": true,
+      "fixed_grid_role": "legacy / diagnostic only",
       "spatial_acceptance_scope": "official_outputs_and_drying_endpoints",
       "internal_audit_veto": false,
       "spatial_thresholds": {
@@ -1848,6 +1851,7 @@
         {
           "case_id": "q1_1d_stage_schedule_default_dt0.25_s030d129157f2",
           "passed": true,
+          "role": "current production",
           "schedule": [
             {
               "t_start": 0.0,
@@ -2016,6 +2020,7 @@
         {
           "case_id": "q1_1d_stage_schedule_conservative_dt0.25_sf333b4df7245",
           "passed": true,
+          "role": "legacy / diagnostic only",
           "schedule": [
             {
               "t_start": 0.0,
@@ -2142,6 +2147,8 @@
       "source_case": "q23",
       "official_source": "1D",
       "one_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+      "source_fingerprint": "45cdf27de0841fb1cca3dd4b37007ef81bb4c703bcf05220fb2ffb5ae1d9fc01",
+      "solver_completed": true,
       "endpoint_values": {
         "time_s": 10800.0,
         "max_temperature_K": 323.11641162167285,
@@ -3026,6 +3033,7 @@
       "fixed_grid_spatial_passed": false,
       "early_reference_passed": true,
       "remesh_transfer_passed": true,
+      "fixed_grid_role": "legacy / diagnostic only",
       "spatial_acceptance_scope": "official_outputs_and_drying_endpoints",
       "internal_audit_veto": false,
       "spatial_thresholds": {
@@ -3927,6 +3935,7 @@
         {
           "case_id": "q23_1d_stage_schedule_default_dt0.25_sb9b049c66d4c",
           "passed": false,
+          "role": "legacy / diagnostic only",
           "schedule": [
             {
               "t_start": 0.0,
@@ -4095,6 +4104,7 @@
         {
           "case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
           "passed": true,
+          "role": "current production",
           "schedule": [
             {
               "t_start": 0.0,
@@ -4221,6 +4231,8 @@
       "source_case": "q23",
       "official_source": "1D",
       "one_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+      "source_fingerprint": "45cdf27de0841fb1cca3dd4b37007ef81bb4c703bcf05220fb2ffb5ae1d9fc01",
+      "solver_completed": true,
       "endpoint_values": {
         "time_s": 207437.4,
         "max_temperature_K": 323.14893442605694,
@@ -5105,6 +5117,7 @@
       "fixed_grid_spatial_passed": false,
       "early_reference_passed": true,
       "remesh_transfer_passed": true,
+      "fixed_grid_role": "legacy / diagnostic only",
       "spatial_acceptance_scope": "official_outputs_and_drying_endpoints",
       "internal_audit_veto": false,
       "spatial_thresholds": {
@@ -6006,6 +6019,7 @@
         {
           "case_id": "q23_1d_stage_schedule_default_dt0.25_sb9b049c66d4c",
           "passed": false,
+          "role": "legacy / diagnostic only",
           "schedule": [
             {
               "t_start": 0.0,
@@ -6174,6 +6188,7 @@
         {
           "case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
           "passed": true,
+          "role": "current production",
           "schedule": [
             {
               "t_start": 0.0,
@@ -6300,6 +6315,8 @@
       "source_case": "q4",
       "official_source": "1D",
       "one_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+      "source_fingerprint": "33c788387cd3e240fdf822c3e9f55b437c217e7efa69c9614d6b11658119d1cc",
+      "solver_completed": true,
       "endpoint_values": {
         "time_s": 184256.63999999998,
         "max_temperature_K": 323.1489344261897,
@@ -7231,6 +7248,7 @@
       "fixed_grid_spatial_passed": false,
       "early_reference_passed": true,
       "remesh_transfer_passed": true,
+      "fixed_grid_role": "legacy / diagnostic only",
       "spatial_acceptance_scope": "official_outputs_and_drying_endpoints",
       "internal_audit_veto": false,
       "spatial_thresholds": {
@@ -8170,6 +8188,7 @@
         {
           "case_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
           "passed": true,
+          "role": "current production",
           "schedule": [
             {
               "t_start": 0.0,
@@ -8338,6 +8357,7 @@
         {
           "case_id": "q4_1d_stage_schedule_conservative_dt0.25_sa2901cc1ebe9",
           "passed": true,
+          "role": "legacy / diagnostic only",
           "schedule": [
             {
               "t_start": 0.0,

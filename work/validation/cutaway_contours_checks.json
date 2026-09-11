@@ -1,0 +1,20 @@
+{
+  "status": "PASSED",
+  "scope": "cutaway GIF rendering only",
+  "tests_passed": 64,
+  "source": "unchanged sealed genuine 2D plot payload",
+  "boundary_width_pt": 1.1,
+  "cut_boundary_width_pt": 1.4,
+  "contour_width_pt": 0.6,
+  "temperature_contour_interval_C": 0.5,
+  "moisture_contour_interval_kg_kg": 0.1,
+  "contour_levels_fixed_across_questions_and_frames": true,
+  "contour_plane_unchanged": true,
+  "uniform_fields_have_no_artificial_contours": true,
+  "visual_review": "PASS: early/intermediate/final and half-size previews; labelled isolines on the cut face only",
+  "protected_result_payload_files": 63,
+  "gif_frames": 240,
+  "decode_check": "PASSED_ALL_FRAMES",
+  "protected_result_payload_files_unchanged": true,
+  "pde_solves": 0
+}
