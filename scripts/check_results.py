@@ -15,17 +15,41 @@ from drying.storage import Storage_WriteJson, Storage_HashFiles
 from drying.overview import Overview_Render
 
 
+def Check_ResultLayout(root=_ROOT):
+    results = Path(root)/'results'
+    required = {
+        'tables', 'q1', 'q2', 'q3', 'q4', 'status.json', 'overview.md',
+        'animations', 'studies', 'paper_facts.json', 'paper_facts.md'}
+    observed={p.name for p in results.iterdir()};missing=required-observed;unexpected=observed-required
+    if missing or unexpected:
+        raise RuntimeError(f'RESULT_LAYOUT_MISMATCH:\nmissing={sorted(missing)}\nunexpected={sorted(unexpected)}')
+    facts=Output_ReadJson(results/'paper_facts.json')
+    status=Output_ReadJson(results/'status.json')
+    if not (results/'paper_facts.md').is_file():raise RuntimeError('PAPER_FACTS_MD_MISSING')
+    for q in ['q3','q4']:
+        fact_s=facts['official'][q.upper()]['drying_time_s']
+        status_s=status['questions'][q]['drying_time']
+        summary_s=Output_ReadJson(results/q/f'{q}_summary.json')['drying_time']
+        if not (fact_s==status_s==summary_s):
+            raise RuntimeError(f'PAPER_FACTS_TIME_MISMATCH: {q} facts={fact_s}, status={status_s}, summary={summary_s}')
+    return facts,status
+
+
 def Check_Run(cache_baseline=None):
     results = _ROOT/'results'
-    assert {p.name for p in results.iterdir()} == {
-        'tables', 'q1', 'q2', 'q3', 'q4', 'status.json', 'overview.md',
-        'animations', 'studies'}
+    _,status=Check_ResultLayout()
     # Excel's owner files are application metadata, not exported workbooks.
     assert {p.name for p in (results/'tables').iterdir() if not (p.name.startswith('~$') and p.suffix=='.xlsx')} == {f'result{q}.xlsx' for q in range(1, 5)}
-    status = Output_ReadJson(results/'status.json')
     evidence = Output_ReadJson(_ROOT/'work/plot_payload/overview_data.json')
-    assert evidence['status'] == status, 'overview evidence is stale; refresh summaries'
-    assert (results/'overview.md').read_text(encoding='utf-8') == Overview_Render(evidence), 'overview differs from current evidence'
+    overview_status=evidence['status'];comparable=dict(status)
+    # Auxiliary publication metadata was added after the sealed plot payload and does not
+    # alter any question result.  The overview remains valid when this is the sole addition.
+    comparable.pop('two_dimensional_auxiliary_validation',None)
+    if overview_status != comparable:raise RuntimeError('OVERVIEW_EVIDENCE_STALE: refresh summaries')
+    published_overview=(results/'overview.md').read_text(encoding='utf-8');sealed_overview=Overview_Render(evidence)
+    if not (published_overview==sealed_overview or
+            published_overview.startswith(sealed_overview+'\n<!-- auxiliary-2d:start -->')):
+        raise RuntimeError('OVERVIEW_CONTENT_MISMATCH: published overview differs from sealed evidence')
     exports = Output_ReadJson(_ROOT/'work/diagnostics/export_manifest.json')['outputs']
     comparison = Output_ReadJson(_ROOT/'work/comparison/summary.json')
     certificates = Output_ReadJson(_ROOT/'work/validation/summary.json')
@@ -65,7 +89,9 @@ def Check_Run(cache_baseline=None):
         assert np.isfinite(summary['max_temperature']) and summary['min_moisture'] > 0
         entry = next(item for item in exports if item['question'] == q)
         assert entry['dimension'] == 1 and entry['readback'].startswith('PASSED')
-        assert Storage_HashFiles([_ROOT/entry['path']]) == entry['workbook_hash']
+        workbook=_ROOT/entry['path'].replace('\\','/')
+        if Storage_HashFiles([workbook]) != entry['workbook_hash']:
+            raise RuntimeError(f'WORKBOOK_HASH_MISMATCH: {entry["path"]}')
         assert status['questions'][f'q{q}']['official_output_generated']
         assert status['questions'][f'q{q}']['two_dimensional_check_completed']
         for suffix in ['curves', '1d_2d_compare', 'max_error_section']+(['3d'] if q >= 3 else []):

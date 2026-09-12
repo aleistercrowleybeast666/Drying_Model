@@ -18,6 +18,7 @@ def Compute_Main():
     options=parser.add_mutually_exclusive_group()
     options.add_argument('--payload-only',action='store_true',help='仅从已有有效计算缓存刷新绘图数据，不解 PDE')
     options.add_argument('--resume-finalize',action='store_true',help='所有求解/验证/导出已完成时，从比较汇总与数据打包恢复')
+    parser.add_argument('--case',choices=['q1','q23','q4'],help='只重新计算并导出所选正式 M00 轨迹；省略时保持原完整流程')
     args=parser.parse_args()
     from drying.cases import Case_LoadConfig, Case_ReadStatus, Case_SolvePairEvents
     from drying.inputs import Input_Prepare
@@ -48,7 +49,8 @@ def Compute_Main():
             raise ValueError('INPUT_VALUE_INVALID: this implementation keeps 2D fixed')
         if not args.payload_only and not args.resume_finalize:
             Input_Prepare(_ROOT,_ROOT/'data/raw')
-            for case in ['q1','q23','q4']:
+            selected_cases=[args.case] if args.case else ['q1','q23','q4']
+            for case in selected_cases:
                 phase=case+': mesh / fixed validation'; Record('RUNNING')
                 Mesh_PrepareCase(_ROOT,case)
                 Validation_Run(_ROOT,'1d',case)
@@ -59,7 +61,7 @@ def Compute_Main():
                     Stage_Validate(_ROOT,case,fixed)
                 phase=case+': official export'; Record('RUNNING')
                 Export_Run(_ROOT,case)
-            for case in ['q1','q23','q4']:
+            for case in selected_cases:
                 phase=case+': 2D verification'; Record('RUNNING')
                 Validation_Run(_ROOT,'2d',case)
         if args.resume_finalize:
@@ -69,7 +71,7 @@ def Compute_Main():
                     item=evidence[f'{case}_{dim}d']; source=Case_ReadStatus(_ROOT,item['selected_id'])
                     if not source['complete'] or source['fingerprint']!=item['selected_fingerprint']:
                         raise RuntimeError('SPATIAL_REFERENCE_INCOMPLETE: finalize requires completed matching evidence')
-        if not args.payload_only:
+        if not args.payload_only and not args.case:
             phase='paired endpoints'; Record('RUNNING')
             Case_SolvePairEvents(_ROOT)
         phase='comparison data'; Record('RUNNING')
