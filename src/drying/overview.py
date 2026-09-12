@@ -131,7 +131,10 @@ def Overview_Render(data):
     if run.get('status') == 'FAILED': warnings.append('COMPUTE_FAILED: '+run.get('error',''))
     lines += ['', '仍未解决的 WARNING/FAIL：','',*(['- '+w for w in dict.fromkeys(warnings)] or ['None.']),
         '', '[完整状态](status.json)；逐项验证见 work/validation；独立绘图入口为 plot.py。']
-    return '\n'.join(lines)+'\n'
+    from .auxiliary2d import Auxiliary_AppendBlock, KEY
+    text = '\n'.join(lines)+'\n'
+    auxiliary = data['status'].get(KEY)
+    return Auxiliary_AppendBlock(text, auxiliary) if auxiliary else text
 
 
 def Overview_Write(root, evidence=None):

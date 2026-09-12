@@ -5549,5 +5549,397 @@
       "source_sha256": "0288cf84ef268eea452b6d1e94cef3df47eccdcdc5350c4d6d356e4675ce574a",
       "note": "FP64 accepted-step RK4 conservation audit; detailed rounding/accumulation rationale in the policy file; existing convergence thresholds unchanged"
     }
+  },
+  "two_dimensional_auxiliary_validation": {
+    "schema_version": 1,
+    "role": "auxiliary_end_effect_and_model_reduction_validation",
+    "two_dimensional_auxiliary_validation_passed": true,
+    "two_dimensional_grid_independence_certified": false,
+    "grid_independence_status": "PARTIAL_2D",
+    "limitations": [
+      "Temporal evidence covers 0–1800 s only for Q23/Q4",
+      "Separate radial and axial refinements",
+      "Late-window endpoint experiments inherit earlier coarse-grid error",
+      "No full-time joint grid-independence certification"
+    ],
+    "pde_solves": 0,
+    "details": "work/validation/auxiliary_2d/summary.json",
+    "cases": {
+      "q1": {
+        "role": "auxiliary_end_effect_and_model_reduction_validation",
+        "two_dimensional_auxiliary_validation_passed": true,
+        "two_dimensional_grid_independence_certified": false,
+        "two_dimensional_validation_status": "AUXILIARY_VALIDATION_PASS",
+        "grid_independence_status": "PARTIAL_2D",
+        "gates": {
+          "temporal_pass": true,
+          "critical_window_refinement_completed": true,
+          "radial_refinement_available": true,
+          "axial_refinement_available": true,
+          "endpoint_sensitivity_pass_if_applicable": true,
+          "qualitative_spatial_consistency": true,
+          "evidence_source_matches": true,
+          "no_solver_failure": true,
+          "all_outputs_finite": true
+        },
+        "critical_window_s": [
+          0,
+          1800
+        ],
+        "directional_coverage": {
+          "radial": {
+            "time_ranges_s": [
+              [
+                0.0,
+                1800.0
+              ]
+            ],
+            "complete": true
+          },
+          "axial": {
+            "time_ranges_s": [
+              [
+                0.0,
+                1800.0
+              ]
+            ],
+            "complete": true
+          }
+        },
+        "qualitative_spatial_consistency": "PASS",
+        "end_effect_detected": true,
+        "warnings": [
+          "2D_GRID_INDEPENDENCE_NOT_CERTIFIED",
+          "SEPARATE_DIRECTIONAL_REFINEMENT_ONLY",
+          "LOCAL_BOUNDARY_LAYER_LINF_EXCEEDS_1D_TOLERANCE",
+          "EARLY_LOCAL_BOUNDARY_LAYER_SENSITIVE"
+        ],
+        "temporal_validation": {
+          "status": "PASS",
+          "time_range_s": [
+            0.0,
+            1800.0
+          ],
+          "full_time": true
+        },
+        "endpoint_sensitivity": {},
+        "local_Linf": {
+          "diagnostic_only": true,
+          "acceptance_veto": false,
+          "radial": {
+            "maxima_temperature": {
+              "value": 0.0006449430339898754,
+              "signed_difference": 0.0006449430339898754,
+              "time_s": 1800.0,
+              "r_m": 0.0,
+              "z_m": 0.0,
+              "coarse_value": 306.7244847763195,
+              "fine_value": 306.7251297193535
+            },
+            "maxima_moisture": {
+              "value": 0.03582087597718431,
+              "signed_difference": 0.03582087597718431,
+              "time_s": 1.0,
+              "r_m": 0.019898303564296956,
+              "z_m": 0.0,
+              "coarse_value": 2.5048964348030305,
+              "fine_value": 2.540717310780215
+            }
+          },
+          "axial": {
+            "maxima_temperature": {
+              "value": 0.0009661417062716282,
+              "signed_difference": -0.0009661417062716282,
+              "time_s": 300.0,
+              "r_m": 0.0,
+              "z_m": 0.1248097638209504,
+              "coarse_value": 301.9162631036178,
+              "fine_value": 301.9152969619115
+            },
+            "maxima_moisture": {
+              "value": 0.07083755884404619,
+              "signed_difference": 0.07083755884404619,
+              "time_s": 1.0,
+              "r_m": 0.01735573582317227,
+              "z_m": 0.1248097638209504,
+              "coarse_value": 2.4740922947821176,
+              "fine_value": 2.5449298536261638
+            }
+          }
+        },
+        "strict_grid_independence_assessment": {
+          "spatial_passed": false,
+          "spatial_full_time": true,
+          "numerical_status": "2D_SPATIAL_VALIDATION_PARTIAL",
+          "raw_evidence": "work/validation/summary.json#q1_2d"
+        }
+      },
+      "q23": {
+        "role": "auxiliary_end_effect_and_model_reduction_validation",
+        "two_dimensional_auxiliary_validation_passed": true,
+        "two_dimensional_grid_independence_certified": false,
+        "two_dimensional_validation_status": "AUXILIARY_VALIDATION_PASS",
+        "grid_independence_status": "PARTIAL_2D",
+        "gates": {
+          "temporal_pass": true,
+          "critical_window_refinement_completed": true,
+          "radial_refinement_available": true,
+          "axial_refinement_available": true,
+          "endpoint_sensitivity_pass_if_applicable": true,
+          "qualitative_spatial_consistency": true,
+          "evidence_source_matches": true,
+          "no_solver_failure": true,
+          "all_outputs_finite": true
+        },
+        "critical_window_s": [
+          0,
+          5086
+        ],
+        "directional_coverage": {
+          "radial": {
+            "time_ranges_s": [
+              [
+                0.0,
+                5085.0
+              ],
+              [
+                5085.0,
+                5086.0
+              ]
+            ],
+            "complete": true
+          },
+          "axial": {
+            "time_ranges_s": [
+              [
+                0.0,
+                5085.0
+              ],
+              [
+                5085.0,
+                5086.0
+              ]
+            ],
+            "complete": true
+          }
+        },
+        "qualitative_spatial_consistency": "PASS",
+        "end_effect_detected": true,
+        "warnings": [
+          "2D_GRID_INDEPENDENCE_NOT_CERTIFIED",
+          "SEPARATE_DIRECTIONAL_REFINEMENT_ONLY",
+          "LOCAL_BOUNDARY_LAYER_LINF_EXCEEDS_1D_TOLERANCE"
+        ],
+        "temporal_validation": {
+          "status": "PASS",
+          "time_range_s": [
+            0.0,
+            1800.0
+          ],
+          "full_time": false
+        },
+        "endpoint_sensitivity": {
+          "radial": {
+            "passed": true,
+            "event_difference_s": 21.375,
+            "event_relative_difference": 0.00010264010148765123,
+            "time_range_s": [
+              204660.0,
+              208873.31999999998
+            ],
+            "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence."
+          },
+          "axial": {
+            "passed": true,
+            "event_difference_s": 0.0,
+            "event_relative_difference": 0.0,
+            "time_range_s": [
+              204660.0,
+              208873.31999999998
+            ],
+            "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence."
+          }
+        },
+        "local_Linf": {
+          "diagnostic_only": true,
+          "acceptance_veto": false,
+          "radial": {
+            "maxima_temperature": {
+              "value": 0.0007500256799630733,
+              "signed_difference": 0.0007500256799630733,
+              "time_s": 3635.0,
+              "r_m": 0.0,
+              "z_m": 0.0,
+              "coarse_value": 313.67028716734177,
+              "fine_value": 313.67103719302173
+            },
+            "maxima_moisture": {
+              "value": 0.034886954746742305,
+              "signed_difference": 0.034886954746742305,
+              "time_s": 1.0,
+              "r_m": 0.019889706195891504,
+              "z_m": 0.0,
+              "coarse_value": 2.5065243472508607,
+              "fine_value": 2.541411301997603
+            }
+          },
+          "axial": {
+            "maxima_temperature": {
+              "value": 0.0013542182237529232,
+              "signed_difference": -0.0013542182237529232,
+              "time_s": 1080.0,
+              "r_m": 0.0,
+              "z_m": 0.12435279327527851,
+              "coarse_value": 304.94530523897026,
+              "fine_value": 304.9439510207465
+            },
+            "maxima_moisture": {
+              "value": 0.07061249653347845,
+              "signed_difference": 0.07061249653347845,
+              "time_s": 1.0,
+              "r_m": 0.0,
+              "z_m": 0.12478426442509283,
+              "coarse_value": 2.4749067950997987,
+              "fine_value": 2.545519291633277
+            }
+          }
+        },
+        "strict_grid_independence_assessment": {
+          "spatial_passed": false,
+          "spatial_full_time": false,
+          "numerical_status": "2D_SPATIAL_VALIDATION_PARTIAL",
+          "raw_evidence": "work/validation/summary.json#q23_2d"
+        }
+      },
+      "q4": {
+        "role": "auxiliary_end_effect_and_model_reduction_validation",
+        "two_dimensional_auxiliary_validation_passed": true,
+        "two_dimensional_grid_independence_certified": false,
+        "two_dimensional_validation_status": "AUXILIARY_VALIDATION_PASS",
+        "grid_independence_status": "PARTIAL_2D",
+        "gates": {
+          "temporal_pass": true,
+          "critical_window_refinement_completed": true,
+          "radial_refinement_available": true,
+          "axial_refinement_available": true,
+          "endpoint_sensitivity_pass_if_applicable": true,
+          "qualitative_spatial_consistency": true,
+          "evidence_source_matches": true,
+          "no_solver_failure": true,
+          "all_outputs_finite": true
+        },
+        "critical_window_s": [
+          0,
+          10320
+        ],
+        "directional_coverage": {
+          "radial": {
+            "time_ranges_s": [
+              [
+                0.0,
+                10320.0
+              ]
+            ],
+            "complete": true
+          },
+          "axial": {
+            "time_ranges_s": [
+              [
+                0.0,
+                10320.0
+              ]
+            ],
+            "complete": true
+          }
+        },
+        "qualitative_spatial_consistency": "PASS",
+        "end_effect_detected": true,
+        "warnings": [
+          "2D_GRID_INDEPENDENCE_NOT_CERTIFIED",
+          "SEPARATE_DIRECTIONAL_REFINEMENT_ONLY",
+          "LOCAL_BOUNDARY_LAYER_LINF_EXCEEDS_1D_TOLERANCE"
+        ],
+        "temporal_validation": {
+          "status": "PASS",
+          "time_range_s": [
+            0.0,
+            1800.0
+          ],
+          "full_time": false
+        },
+        "endpoint_sensitivity": {
+          "radial": {
+            "passed": true,
+            "event_difference_s": 16.1875,
+            "event_relative_difference": 8.785918377800596e-05,
+            "time_range_s": [
+              180600.0,
+              184859.88
+            ],
+            "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence."
+          },
+          "axial": {
+            "passed": true,
+            "event_difference_s": 0.0,
+            "event_relative_difference": 0.0,
+            "time_range_s": [
+              180600.0,
+              184859.88
+            ],
+            "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence."
+          }
+        },
+        "local_Linf": {
+          "diagnostic_only": true,
+          "acceptance_veto": false,
+          "radial": {
+            "maxima_temperature": {
+              "value": 0.0016598413186557082,
+              "signed_difference": -0.0016598413186557082,
+              "time_s": 1740.0,
+              "r_m": 0.01844085409353184,
+              "z_m": 0.01770822554757085,
+              "coarse_value": 308.548459278604,
+              "fine_value": 308.54679943728536
+            },
+            "maxima_moisture": {
+              "value": 0.06607616749517531,
+              "signed_difference": 0.06607616749517531,
+              "time_s": 60.0,
+              "r_m": 0.01984019676992362,
+              "z_m": 0.0005059493013593728,
+              "coarse_value": 2.1833680682925456,
+              "fine_value": 2.249444235787721
+            }
+          },
+          "axial": {
+            "maxima_temperature": {
+              "value": 0.005230467133799266,
+              "signed_difference": -0.005230467133799266,
+              "time_s": 1740.0,
+              "r_m": 0.0,
+              "z_m": 0.12430612667242141,
+              "coarse_value": 308.5056481871832,
+              "fine_value": 308.5004177200494
+            },
+            "maxima_moisture": {
+              "value": 0.22292803932494376,
+              "signed_difference": 0.22292803932494376,
+              "time_s": 60.0,
+              "r_m": 0.0,
+              "z_m": 0.12476870889080713,
+              "coarse_value": 2.139349101747969,
+              "fine_value": 2.3622771410729126
+            }
+          }
+        },
+        "strict_grid_independence_assessment": {
+          "spatial_passed": false,
+          "spatial_full_time": false,
+          "numerical_status": "2D_SPATIAL_VALIDATION_PARTIAL",
+          "raw_evidence": "work/validation/summary.json#q4_2d"
+        }
+      }
+    }
   }
 }

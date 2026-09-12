@@ -2,766 +2,857 @@
   "exit_status": 0,
   "tests": [
     {
+      "test": "tests/test_auxiliary_2d.py::test_each_required_gate_vetoes_auxiliary_acceptance[temporal_pass]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.00016400000095018186,
+      "error": null
+    },
+    {
+      "test": "tests/test_auxiliary_2d.py::test_each_required_gate_vetoes_auxiliary_acceptance[critical_window_refinement_completed]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.00019319999955769163,
+      "error": null
+    },
+    {
+      "test": "tests/test_auxiliary_2d.py::test_each_required_gate_vetoes_auxiliary_acceptance[radial_refinement_available]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.0003175000001647277,
+      "error": null
+    },
+    {
+      "test": "tests/test_auxiliary_2d.py::test_each_required_gate_vetoes_auxiliary_acceptance[axial_refinement_available]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.00021070000002509914,
+      "error": null
+    },
+    {
+      "test": "tests/test_auxiliary_2d.py::test_each_required_gate_vetoes_auxiliary_acceptance[endpoint_sensitivity_pass_if_applicable]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.00021360000027925707,
+      "error": null
+    },
+    {
+      "test": "tests/test_auxiliary_2d.py::test_each_required_gate_vetoes_auxiliary_acceptance[qualitative_spatial_consistency]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.00016180000056920107,
+      "error": null
+    },
+    {
+      "test": "tests/test_auxiliary_2d.py::test_each_required_gate_vetoes_auxiliary_acceptance[no_solver_failure]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.00016529999993508682,
+      "error": null
+    },
+    {
+      "test": "tests/test_auxiliary_2d.py::test_each_required_gate_vetoes_auxiliary_acceptance[all_outputs_finite]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.00012180000157968607,
+      "error": null
+    },
+    {
+      "test": "tests/test_auxiliary_2d.py::test_q23_requires_actual_continuation_to_5086",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.00011009999980160501,
+      "error": null
+    },
+    {
+      "test": "tests/test_auxiliary_2d.py::test_missing_exact_snapshot_never_integrates",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.008475199998429161,
+      "error": null
+    },
+    {
+      "test": "tests/test_auxiliary_2d.py::test_qualitative_boundary_layer_can_exceed_strict_linf_but_reversal_fails",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.0007544999989477219,
+      "error": null
+    },
+    {
+      "test": "tests/test_auxiliary_2d.py::test_metadata_exception_does_not_allow_formal_result_changes",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.01263440000002447,
+      "error": null
+    },
+    {
+      "test": "tests/test_auxiliary_2d.py::test_stale_validation_is_rejected",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.007690299999012495,
+      "error": null
+    },
+    {
       "test": "tests/test_final_technical.py::test_cross_has_independent_identity_and_own_refinements",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.05975590000161901,
+      "duration_s": 0.03581579999990936,
       "error": null
     },
     {
       "test": "tests/test_final_technical.py::test_cross_parameters_reach_real_original_kernel",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.39553669999986596,
+      "duration_s": 0.5119498000003659,
       "error": null
     },
     {
       "test": "tests/test_final_technical.py::test_volume_mean_uses_annular_and_axial_volumes_at_actual_radius",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.030411699999604025,
+      "duration_s": 0.02182129999891913,
       "error": null
     },
     {
       "test": "tests/test_final_technical.py::test_half_response_uses_earliest_crossing_and_handles_zero_change",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0007595999995828606,
+      "duration_s": 0.0005372000014176592,
       "error": null
     },
     {
       "test": "tests/test_final_technical.py::test_radius_maximum_keeps_full_disjoint_intervals_and_clips_window",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0004958999998052604,
+      "duration_s": 0.0006769999999960419,
       "error": null
     },
     {
       "test": "tests/test_final_technical.py::test_qualified_fraction_is_strict_and_integrates_multiple_crossings",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0005947999998170417,
+      "duration_s": 0.0004788999995071208,
       "error": null
     },
     {
       "test": "tests/test_final_technical.py::test_legacy_refresh_forwards_to_narrow_technical_export",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.004194600000118953,
+      "duration_s": 0.004545900001176051,
       "error": null
     },
     {
       "test": "tests/test_final_technical.py::test_legacy_refresh_rejects_changed_base_before_export",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0004015000013168901,
+      "duration_s": 0.00044379999962984584,
       "error": null
     },
     {
       "test": "tests/test_final_technical.py::test_optional_refinement_payload_only_never_solves",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.005512800000360585,
+      "duration_s": 0.004782899999554502,
       "error": null
     },
     {
       "test": "tests/test_internal_audit.py::test_replay_matches_actual_accepted_rk4_history_including_input_jump",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.07797580000078597,
+      "duration_s": 0.07735119999961171,
       "error": null
     },
     {
       "test": "tests/test_internal_audit.py::test_initial_surface_audit_exposes_subsecond_difference",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.053837200000998564,
+      "duration_s": 0.042218699998556986,
       "error": null
     },
     {
       "test": "tests/test_internal_audit.py::test_strict_trend_and_transfer_checks_cannot_be_overridden_by_small_error",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0002693999995244667,
+      "duration_s": 0.00021209999977145344,
       "error": null
     },
     {
       "test": "tests/test_internal_audit.py::test_conservative_schedule_keeps_early_200_160_then_80",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.007703299999775481,
+      "duration_s": 0.005256899999949383,
       "error": null
     },
     {
       "test": "tests/test_internal_audit.py::test_nonuniform_surface_reconstruction_uses_actual_center_distance",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.09699870000076771,
+      "duration_s": 0.07323229999929026,
       "error": null
     },
     {
       "test": "tests/test_internal_audit.py::test_radial_audit_specialization_matches_original_for_all_models",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.005884300000616349,
+      "duration_s": 0.004905099998723017,
       "error": null
     },
     {
       "test": "tests/test_internal_audit.py::test_invalid_transfer_still_stops_despite_audit_only_error_thresholds",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0006358000009640818,
+      "duration_s": 0.0016169000009540468,
       "error": null
     },
     {
       "test": "tests/test_internal_audit.py::test_audit_policy_edits_preserve_identity_but_numerical_edits_invalidate",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.08753819999947154,
+      "duration_s": 0.0706860999998753,
       "error": null
     },
     {
       "test": "tests/test_internal_audit.py::test_stage_policy_edits_preserve_identity_but_transfer_edits_invalidate",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.07311000000117929,
+      "duration_s": 0.06785209999907238,
       "error": null
     },
     {
       "test": "tests/test_internal_audit.py::test_stage_production_certificate_is_independent_of_failed_fixed_diagnostic",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.00018670000099518802,
+      "duration_s": 0.00018540000019129366,
       "error": null
     },
     {
       "test": "tests/test_internal_audit.py::test_remesh_integrity_gate_does_not_reintroduce_internal_amplitude_veto",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.00048739999874669593,
+      "duration_s": 0.0005657999990944518,
       "error": null
     },
     {
       "test": "tests/test_mass_balance.py::test_captured_boundary_is_signed_and_identical_to_original_operator",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 2.395591099999365,
+      "duration_s": 2.052648599999884,
       "error": null
     },
     {
       "test": "tests/test_mass_balance.py::test_instrumented_rk4_preserves_all_modes_and_counts_only_accepted_steps[M00]",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 11.865509900000689,
+      "duration_s": 10.481230600000345,
       "error": null
     },
     {
       "test": "tests/test_mass_balance.py::test_instrumented_rk4_preserves_all_modes_and_counts_only_accepted_steps[M10]",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 14.074533599999995,
+      "duration_s": 12.568687900000441,
       "error": null
     },
     {
       "test": "tests/test_mass_balance.py::test_instrumented_rk4_preserves_all_modes_and_counts_only_accepted_steps[M01]",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 11.340344899999764,
+      "duration_s": 12.430048900001566,
       "error": null
     },
     {
       "test": "tests/test_mass_balance.py::test_instrumented_rk4_preserves_all_modes_and_counts_only_accepted_steps[M11]",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 11.604248399999051,
+      "duration_s": 12.842491600000358,
       "error": null
     },
     {
       "test": "tests/test_mass_balance.py::test_shrinking_mass_and_remesh_conserve_full_cylinder_dry_basis",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0005760000003647292,
+      "duration_s": 0.0013148000016371952,
       "error": null
     },
     {
       "test": "tests/test_mass_report.py::test_export_residual_never_overrides_solver_pass",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.00016340000001946464,
+      "duration_s": 0.0001922999999806052,
       "error": null
     },
     {
       "test": "tests/test_mass_report.py::test_independent_mode_failure_and_remesh_failure_are_reported",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.00018490000002202578,
+      "duration_s": 0.0002514000007067807,
       "error": null
     },
     {
       "test": "tests/test_mass_report.py::test_missing_actual_partition_cannot_claim_solver_pass",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.00011079999967478216,
+      "duration_s": 0.000130899999930989,
       "error": null
     },
     {
       "test": "tests/test_mesh.py::test_equidistribution_is_nested_and_valid",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0016618999998172512,
+      "duration_s": 0.0026176999999734107,
       "error": null
     },
     {
       "test": "tests/test_mesh.py::test_nonuniform_geometry_volume_and_shrink_topology",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0016064999999798601,
+      "duration_s": 0.0012645000006159535,
       "error": null
     },
     {
       "test": "tests/test_mesh.py::test_nonuniform_constant_and_shared_flux_antisymmetry",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.02463710000120045,
+      "duration_s": 0.023779299999659997,
       "error": null
     },
     {
       "test": "tests/test_mesh.py::test_uniform_operator_regression_against_frozen_implementation",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.857484200001636,
+      "duration_s": 0.9655194000006304,
       "error": null
     },
     {
       "test": "tests/test_mesh.py::test_uniform_short_trajectory_matches_saved_pilot",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0473178000011103,
+      "duration_s": 0.053880699999353965,
       "error": null
     },
     {
       "test": "tests/test_mesh.py::test_arbitrary_cell_average_quadratic_symmetry_reconstruction",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.027876199999809614,
+      "duration_s": 0.03027269999984128,
       "error": null
     },
     {
       "test": "tests/test_mesh.py::test_nonuniform_sampling_surface_and_outside_domain",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.012398799999573384,
+      "duration_s": 0.019596300000557676,
       "error": null
     },
     {
       "test": "tests/test_mesh.py::test_nonuniform_robin_diffusion_has_decreasing_analytic_error",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.012305100000958191,
+      "duration_s": 0.012993299998925067,
       "error": null
     },
     {
       "test": "tests/test_numerics.py::test_material_initial_regressions",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.00040129999979399145,
+      "duration_s": 0.0006175999988045078,
       "error": null
     },
     {
       "test": "tests/test_numerics.py::test_rk4_order_and_polynomial",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0001830000001064036,
+      "duration_s": 0.0002012999993894482,
       "error": null
     },
     {
       "test": "tests/test_numerics.py::test_zero_exchange_uniform_shrink",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.00028359999851090834,
+      "duration_s": 0.00024959999973361846,
       "error": null
     },
     {
       "test": "tests/test_numerics.py::test_shared_flux_cancellation_and_local_balance",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.04290539999965404,
+      "duration_s": 0.05253669999910926,
       "error": null
     },
     {
       "test": "tests/test_numerics.py::test_closed_ends_reduce_to_1d",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.00048520000018470455,
+      "duration_s": 0.0004718000000139,
       "error": null
     },
     {
       "test": "tests/test_numerics.py::test_axis_and_midplane_cell_average_reconstruction",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0252476999994542,
+      "duration_s": 0.02731570000105421,
       "error": null
     },
     {
       "test": "tests/test_numerics.py::test_input_sides_and_radius_range",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.024934299999586074,
+      "duration_s": 0.026731400001153816,
       "error": null
     },
     {
       "test": "tests/test_numerics.py::test_rk4_constant_radius_fourth_appendix",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0009754000002430985,
+      "duration_s": 0.000985900000159745,
       "error": null
     },
     {
       "test": "tests/test_numerics.py::test_production_rk4_heat_time_order",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0016633999985060655,
+      "duration_s": 0.0015636000007361872,
       "error": null
     },
     {
       "test": "tests/test_numerics.py::test_production_shrinking_uniform_field_without_exchange",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.1336206999985734,
+      "duration_s": 0.12266789999921457,
       "error": null
     },
     {
       "test": "tests/test_numerics.py::test_independent_robin_cylinder_series",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.009316000001490465,
+      "duration_s": 0.008295400000861264,
       "error": null
     },
     {
       "test": "tests/test_plot_payload.py::test_plot_import_boundary_has_no_solver_or_input_modules",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 1.5810641000007308,
+      "duration_s": 1.6040499999999156,
       "error": null
     },
     {
       "test": "tests/test_plot_payload.py::test_manifest_missing_payload_version_and_integrity_errors_preserve_excel",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.024844900000971393,
+      "duration_s": 0.027635700000246288,
       "error": null
     },
     {
       "test": "tests/test_plot_payload.py::test_cut_plane_geometry_shrinks_and_samples_real_axial_field",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.004391200000100071,
+      "duration_s": 0.005763700000898098,
       "error": null
     },
     {
       "test": "tests/test_plot_payload.py::test_cutaway_crop_preserves_visible_coordinates_and_physical_sampling",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0017107999992731493,
+      "duration_s": 0.001571200000398676,
       "error": null
     },
     {
       "test": "tests/test_plot_payload.py::test_cutaway_camera_layout_fixed_scales_and_real_radius",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.14423549999992247,
+      "duration_s": 0.2933238000005076,
       "error": null
     },
     {
       "test": "tests/test_plot_payload.py::test_plot_does_not_republish_stale_overview",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.024586399998952402,
+      "duration_s": 0.02272649999940768,
       "error": null
     },
     {
       "test": "tests/test_plot_payload.py::test_cutaway_isolines_follow_field_on_unchanged_plane[0-0.02]",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.005959000000075321,
+      "duration_s": 0.004327500000727014,
       "error": null
     },
     {
       "test": "tests/test_plot_payload.py::test_cutaway_isolines_follow_field_on_unchanged_plane[0-0.012]",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.002880299998651026,
+      "duration_s": 0.0027657999999064486,
       "error": null
     },
     {
       "test": "tests/test_plot_payload.py::test_cutaway_isolines_follow_field_on_unchanged_plane[1-0.02]",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.003005200000188779,
+      "duration_s": 0.0037324999993870733,
       "error": null
     },
     {
       "test": "tests/test_plot_payload.py::test_cutaway_isolines_follow_field_on_unchanged_plane[1-0.012]",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.004187499998806743,
+      "duration_s": 0.0025815999997576,
       "error": null
     },
     {
       "test": "tests/test_plot_payload.py::test_gif_half_speed_doubles_encoded_delays_without_changing_frames",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.02092840000113938,
+      "duration_s": 0.022702500000377768,
       "error": null
     },
     {
       "test": "tests/test_presentation.py::test_question_windows_and_not_dry_endpoint",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.00012880000031145755,
+      "duration_s": 0.00024339999981748406,
       "error": null
     },
     {
       "test": "tests/test_presentation.py::test_q23_comparison_splits_peak_times_without_solver",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.035920599999371916,
+      "duration_s": 0.03466950000074576,
       "error": null
     },
     {
       "test": "tests/test_presentation.py::test_full_section_keeps_actual_axial_variation",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0005944000004092231,
+      "duration_s": 0.0009515000001556473,
       "error": null
     },
     {
       "test": "tests/test_presentation.py::test_circular_section_shrinks_in_fixed_physical_coordinates",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.002075299998978153,
+      "duration_s": 0.0018657999989954988,
       "error": null
     },
     {
       "test": "tests/test_presentation.py::test_numerical_failure_keeps_traceback_and_properties",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.013482800000929274,
+      "duration_s": 0.01093629999922996,
       "error": null
     },
     {
       "test": "tests/test_presentation.py::test_status_separates_official_location_from_validation",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.07371459999922081,
+      "duration_s": 0.05550070000026608,
       "error": null
     },
     {
       "test": "tests/test_presentation.py::test_overview_official_rows_follow_status_instead_of_old_evidence[True]",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0024561999998695683,
+      "duration_s": 0.002200799999627634,
       "error": null
     },
     {
       "test": "tests/test_presentation.py::test_overview_official_rows_follow_status_instead_of_old_evidence[False]",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0003567000003386056,
+      "duration_s": 0.00032529999953112565,
       "error": null
     },
     {
       "test": "tests/test_stages.py::test_stage_schedule_rejects_gaps_and_incomplete_coverage",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.00038750000021536835,
+      "duration_s": 0.00026500000058149453,
       "error": null
     },
     {
       "test": "tests/test_stages.py::test_stage_transfer_is_positive_volume_conservative_and_reports_lost_variation",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0008053000001382316,
+      "duration_s": 0.0006064000008336734,
       "error": null
     },
     {
       "test": "tests/test_stages.py::test_real_stage_trajectory_switch_restart_and_half_partition",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.8997022000003199,
+      "duration_s": 0.6385711999992054,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_frozen_official_outputs_and_cache",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 2.0064712000003055,
+      "duration_s": 2.00204819999999,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_front_edge_cases_and_nonmonotone_supremum",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0004905000005237525,
+      "duration_s": 0.0006006000003253575,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_uniform_maximum_reports_all_ties",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.00028139999994891696,
+      "duration_s": 0.0002524999999877764,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_annular_volume_fraction_not_cell_count_and_middle_depth",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0003795000011450611,
+      "duration_s": 0.0003800999984377995,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_clock_units_and_driver_identity",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0012538999999378575,
+      "duration_s": 0.0013901000002078945,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_derivative_does_not_cross_remesh_jump",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0004626000009011477,
+      "duration_s": 0.0005553999999392545,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_remesh_conserves_water_on_nonuniform_mesh",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0005830000009154901,
+      "duration_s": 0.0005038999988755677,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_actual_parameter_kernel_regression",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.020987699999750475,
+      "duration_s": 0.01800580000053742,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_water_units_domain_interpolation_and_saturation_derivative",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.014602399998693727,
+      "duration_s": 0.014392400000360794,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_signed_latent_flux_boundary_residual_and_real_cooling",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.01768650000121852,
+      "duration_s": 0.012276700001166319,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_sensible_uniform_temperature_zero_reference_shift_and_balance",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.04353609999998298,
+      "duration_s": 0.04018100000030245,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_thermal_kernel_reuses_original_rk4_and_allows_cooling",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 6.353763300001447,
+      "duration_s": 5.028084800000215,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_gui_commands_and_mode_filter_use_actual_cli",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.004568199999994249,
+      "duration_s": 0.004604600000675418,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_plot_entry_imports_no_solver_in_fresh_process",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 1.0683824999996432,
+      "duration_s": 0.8889576000001398,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_missing_study_payload_reports_compute_command",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0004126999992877245,
+      "duration_s": 0.0003950000009353971,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_common_animation_calendar_has_early_slowdown_and_no_frozen_endpoint",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.029887300001064432,
+      "duration_s": 0.025353100001666462,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_nondefault_event_threshold_reaches_actual_rk4_detection",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.016358599999875878,
+      "duration_s": 0.014916400001311558,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_thermal_disabled_flags_and_out_of_domain_boundary",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0002641000010044081,
+      "duration_s": 0.0002365000000281725,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_baseline_cli_stops_at_safe_phase_without_touching_overview",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.029682899999897927,
+      "duration_s": 0.021388999999544467,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_sealed_experiment_rejects_changed_cache",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.021822299999257666,
+      "duration_s": 0.01852850000068429,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_stage_classification_does_not_force_three_stages",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0008543999992980389,
+      "duration_s": 0.0007831000002624933,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_stage_classification_keeps_short_resolved_rise_before_long_tail",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.000553300000319723,
+      "duration_s": 0.00025889999960782006,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_series_preserves_real_requested_event_state",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.03965720000087458,
+      "duration_s": 0.03573820000019623,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_equivalent_role_reuse_checks_all_effective_settings",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.049329899999065674,
+      "duration_s": 0.04456220000065514,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_dry_run_lists_missing_inputs_without_creating_cache",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0021593000001303153,
+      "duration_s": 0.002323499998965417,
       "error": null
     },
     {
       "test": "tests/test_studies.py::test_exact_own_event_uses_saved_event_locator_state",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0048332999995182035,
+      "duration_s": 0.007276500000443775,
       "error": null
     },
     {
       "test": "tests/test_validation.py::test_strict_official_spatial_points_and_event_are_distinct_from_full_field_metric",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.00015109999912965577,
+      "duration_s": 0.0002663999985088594,
       "error": null
     },
     {
       "test": "tests/test_validation.py::test_projection_conserves_volume_integrals_and_constants",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0012444000003597466,
+      "duration_s": 0.0017198999994434416,
       "error": null
     },
     {
       "test": "tests/test_validation.py::test_independent_case_summaries_preserve_completed_evidence",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.01390729999911855,
+      "duration_s": 0.011354199999914272,
       "error": null
     },
     {
       "test": "tests/test_validation.py::test_mesh_and_monitor_tampering_invalidates_current_cache",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.07032840000101714,
+      "duration_s": 0.06470199999967008,
       "error": null
     },
     {
       "test": "tests/test_validation.py::test_internal_excess_and_incomplete_audit_do_not_veto_formal_acceptance",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0001609999999345746,
+      "duration_s": 0.00016229999891947955,
       "error": null
     },
     {
       "test": "tests/test_validation.py::test_both_drying_endpoint_fields_are_formal_even_between_output_rows",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0070328000001609325,
+      "duration_s": 0.00658339999972668,
       "error": null
     },
     {
       "test": "tests/test_workflow.py::test_real_attachment_tail_and_units",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0019460000003164168,
+      "duration_s": 0.0014107000006333692,
       "error": null
     },
     {
       "test": "tests/test_workflow.py::test_spatial_export_outside_domain_and_true_surface",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.05609590000130993,
+      "duration_s": 0.05244010000023991,
       "error": null
     },
     {
       "test": "tests/test_workflow.py::test_event_right_endpoint_strictly_dry_and_report_reintegrated",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.002450699999826611,
+      "duration_s": 0.0020973999999114312,
       "error": null
     },
     {
       "test": "tests/test_workflow.py::test_zip_traversal_and_original_preservation",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.03432040000006964,
+      "duration_s": 0.03232600000046659,
       "error": null
     },
     {
       "test": "tests/test_workflow.py::test_excel_roundtrip_numeric_blank_and_four_decimals",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.05571039999995264,
+      "duration_s": 0.046055800001340685,
       "error": null
     },
     {
       "test": "tests/test_workflow.py::test_atomic_full_precision_storage",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.013854500000888947,
+      "duration_s": 0.006129100000180188,
       "error": null
     },
     {
       "test": "tests/test_workflow.py::test_vscode_workspace_valid",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.0011447000015323283,
+      "duration_s": 0.0009369999988848576,
       "error": null
     }
   ]

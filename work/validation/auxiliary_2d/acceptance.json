@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "source_files_verified": 223,
+  "official_fields_unchanged": true,
+  "raw_2d_errors_unchanged": true,
+  "six_summaries_synchronized": true,
+  "grid_independence_status": "PARTIAL_2D",
+  "pde_solves": 0,
+  "baseline": {
+    "status": "PASS",
+    "baseline_id": "52a1433275fe31fa47ce7c80b1373e98c50508de5544f573123311138fdce7e2",
+    "protected_files": 410,
+    "official_workbooks_unchanged": true,
+    "production_arrays_and_events_unchanged": true
+  },
+  "full_regression_tests_passed": 122,
+  "auxiliary_regression_tests_passed": 13,
+  "existing_study_workbooks_and_figures_unchanged": true
+}

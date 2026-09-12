@@ -148,6 +148,13 @@ def Output_UpdateStatus(root):
         validation_details='work/validation/summary.json', comparison_details='work/comparison/summary.json',
         solver_details='work/cache', diagnostics='work/diagnostics',
         note='Validation flags describe the stored evidence. 2D comparison completion does not certify spatial convergence.'))
+    from .auxiliary2d import Auxiliary_ReadSummary, KEY
+    auxiliary = Auxiliary_ReadSummary(root)
+    if auxiliary:
+        status_path = root/'results/status.json'
+        current = json.loads(status_path.read_text(encoding='utf-8'))
+        current[KEY] = auxiliary
+        Storage_WriteJson(status_path, current)
     # Status and the human-readable overview are published by the same owner.
     # An uninitialized/test workspace may not have model configuration yet.
     if (root/'configs/default.toml').exists():

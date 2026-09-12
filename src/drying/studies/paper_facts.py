@@ -146,6 +146,9 @@ def PaperFacts_Build(root, manifest, technical, publish=True):
     from .mass_report import MassReport_ReadSummary
     mass_summary=MassReport_ReadSummary(root)
     if mass_summary:facts['solver_mass_balance']=mass_summary
+    from ..auxiliary2d import Auxiliary_ReadSummary, Auxiliary_AttachSummary, KEY
+    auxiliary = Auxiliary_ReadSummary(root)
+    if auxiliary:Auxiliary_AttachSummary(facts,auxiliary)
     if publish:
         Storage_WriteJson(root/'results/paper_facts.json',facts)
         PaperFacts_WriteMarkdown(root,facts)
@@ -197,5 +200,7 @@ def PaperFacts_WriteMarkdown(root,facts):
         '- 未提供论文初稿；当前正式汇总与数据源未发现数字冲突。']
     from .mass_report import MassReport_GetLines
     lines+=MassReport_GetLines(facts.get('solver_mass_balance'))
+    from ..auxiliary2d import Auxiliary_GetLines, KEY
+    lines+=Auxiliary_GetLines(facts.get(KEY))
     path=Path(root)/'results/paper_facts.md';temporary=path.with_suffix('.tmp.md')
     temporary.write_text('\n'.join(lines)+'\n',encoding='utf-8');temporary.replace(path)

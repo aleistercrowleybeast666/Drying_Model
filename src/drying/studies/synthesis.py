@@ -293,5 +293,7 @@ def Synthesis_RefreshOverview(root):
     lines += ['- '+w for w in manifest['warnings']]
     from .mass_report import MassReport_GetLines, MassReport_ReadSummary
     lines += MassReport_GetLines(MassReport_ReadSummary(root))
+    from ..auxiliary2d import Auxiliary_GetLines, Auxiliary_ReadSummary
+    lines += Auxiliary_GetLines(Auxiliary_ReadSummary(root))
     (root/'results/studies/overview.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     print(f'OVERVIEW_REFRESHED workbooks={books}/5 png={png}/9 gif={gif}/2',flush=True)

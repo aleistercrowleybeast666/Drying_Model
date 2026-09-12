@@ -1,0 +1,3790 @@
+{
+  "schema_version": 1,
+  "role": "auxiliary_end_effect_and_model_reduction_validation",
+  "cases": {
+    "q1": {
+      "role": "auxiliary_end_effect_and_model_reduction_validation",
+      "two_dimensional_auxiliary_validation_passed": true,
+      "two_dimensional_grid_independence_certified": false,
+      "two_dimensional_validation_status": "AUXILIARY_VALIDATION_PASS",
+      "grid_independence_status": "PARTIAL_2D",
+      "gates": {
+        "temporal_pass": true,
+        "critical_window_refinement_completed": true,
+        "radial_refinement_available": true,
+        "axial_refinement_available": true,
+        "endpoint_sensitivity_pass_if_applicable": true,
+        "qualitative_spatial_consistency": true,
+        "evidence_source_matches": true,
+        "no_solver_failure": true,
+        "all_outputs_finite": true
+      },
+      "temporal_validation": {
+        "status": "PASS",
+        "time_range_s": [
+          0.0,
+          1800.0
+        ],
+        "full_time": true,
+        "original_assessment": {
+          "coarse_id": "q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542",
+          "fine_id": "q1_2d_adaptive_nr40_nz125_dt0.125_md810aa408542_half_steps",
+          "coarse_fingerprint": "07c80e967e0b8dbc778c723630d879dc9c766821ccf304b3860136af64cb61e9",
+          "fine_fingerprint": "72096c1ef86e4421a0e66efc81f7d2fee470054206329a88bda0f10a68708177",
+          "maxima_temperature": {
+            "value": 7.468599960702704e-09,
+            "signed_difference": 7.468599960702704e-09,
+            "time_s": 1.0,
+            "r_m": 0.019389821385781738,
+            "z_m": 0.12385858292570237,
+            "coarse_value": 301.1500283748059,
+            "fine_value": 301.1500283822745
+          },
+          "maxima_moisture": {
+            "value": 1.390398907119561e-11,
+            "signed_difference": 1.390398907119561e-11,
+            "time_s": 10.0,
+            "r_m": 0.019389821385781738,
+            "z_m": 0.12461952764190079,
+            "coarse_value": 2.520614040072252,
+            "fine_value": 2.520614040086156
+          },
+          "official_temperature": {
+            "value": 5.782226253359113e-09,
+            "signed_difference": -5.782226253359113e-09,
+            "time_s": 1.0,
+            "r_m": 0.02,
+            "z_m": 0.12461952764190079,
+            "coarse_value": 301.15027698635794,
+            "fine_value": 301.1502769805757
+          },
+          "official_moisture": {
+            "value": 7.670752921740132e-12,
+            "signed_difference": -7.670752921740132e-12,
+            "time_s": 12.0,
+            "r_m": 0.02,
+            "z_m": 0.12461952764190079,
+            "coarse_value": 2.3934594601464996,
+            "fine_value": 2.393459460138829
+          },
+          "volume_L2_temperature": {
+            "value": 1.782858372107864e-09,
+            "time_s": 1.0
+          },
+          "volume_L2_moisture": {
+            "value": 3.4354563154117435e-12,
+            "time_s": 10.0
+          },
+          "event_difference_s": null,
+          "event_relative_difference": null,
+          "official_output_times_max_error": {
+            "temperature": {
+              "value": 5.782226253359113e-09,
+              "signed_difference": -5.782226253359113e-09,
+              "time_s": 1.0,
+              "r_m": 0.02,
+              "z_m": 0.12461952764190079,
+              "coarse_value": 301.15027698635794,
+              "fine_value": 301.1502769805757
+            },
+            "moisture": {
+              "value": 7.670752921740132e-12,
+              "signed_difference": -7.670752921740132e-12,
+              "time_s": 12.0,
+              "r_m": 0.02,
+              "z_m": 0.12461952764190079,
+              "coarse_value": 2.3934594601464996,
+              "fine_value": 2.393459460138829
+            },
+            "sample_count": 1801,
+            "time_range_s": [
+              0.0,
+              1800.0
+            ],
+            "endpoint_times_s": [],
+            "complete": true,
+            "scope": "Official output timestamps through both drying reports, plus both genuine drying endpoint states; internal RK4 and arbitrary remesh times are audit-only."
+          },
+          "event_status_agrees": true,
+          "event_comparison_applicable": true,
+          "reference_complete": true,
+          "time_range_s": [
+            0.0,
+            1800.0
+          ],
+          "sample_count": 1801,
+          "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+          "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+          "passed": true,
+          "actual_base_partition_bisected": true,
+          "requested_dt_s": 0.125
+        }
+      },
+      "critical_window_s": [
+        0,
+        1800
+      ],
+      "directional_coverage": {
+        "radial": {
+          "time_ranges_s": [
+            [
+              0.0,
+              1800.0
+            ]
+          ],
+          "complete": true
+        },
+        "axial": {
+          "time_ranges_s": [
+            [
+              0.0,
+              1800.0
+            ]
+          ],
+          "complete": true
+        }
+      },
+      "endpoint_sensitivity": {},
+      "qualitative_spatial_consistency": "PASS",
+      "end_effect_detected": true,
+      "qualitative_samples": [
+        {
+          "direction": "base",
+          "time_s": 300,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 0.6985214014997609,
+              "peak_z_over_half_length": 0.9969562211352063,
+              "end_mean_difference": 0.12205892579019326,
+              "middle_mean_difference": 5.4438635636491836e-05,
+              "bulk_change": 0.090026206301181,
+              "one_dimensional_bulk_change": 0.08992595129983624,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 0.36082417118144106,
+              "peak_z_over_half_length": 0.9969562211352063,
+              "end_mean_difference": 0.02051300066547213,
+              "middle_mean_difference": 0.00021014387334245248,
+              "bulk_change": -4.391542203801711e-10,
+              "one_dimensional_bulk_change": -3.6536352582841694e-11,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "base",
+          "time_s": 1800,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 3.5854754171503487,
+              "peak_z_over_half_length": 0.9969562211352063,
+              "end_mean_difference": 1.1858192904182119,
+              "middle_mean_difference": 0.0003740781110976219,
+              "bulk_change": 5.957746051452783,
+              "one_dimensional_bulk_change": 5.9576128335662695,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 0.8730636819279924,
+              "peak_z_over_half_length": 0.9969562211352063,
+              "end_mean_difference": 0.09234493262277288,
+              "middle_mean_difference": 0.00016772739105475103,
+              "bulk_change": -0.0027186654862304473,
+              "one_dimensional_bulk_change": -0.0026878061645537418,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "radial",
+          "time_s": 300,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 0.6984678790836938,
+              "peak_z_over_half_length": 0.9969562211352063,
+              "end_mean_difference": 0.12200518363531386,
+              "middle_mean_difference": 1.0516658700288808e-05,
+              "bulk_change": 0.09319430001899012,
+              "one_dimensional_bulk_change": 0.0931808548007193,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 0.36081785416852297,
+              "peak_z_over_half_length": 0.9969562211352063,
+              "end_mean_difference": 0.020367878992502253,
+              "middle_mean_difference": 5.435516589745661e-05,
+              "bulk_change": -1.835823110771668e-10,
+              "one_dimensional_bulk_change": -1.0148243831938421e-10,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "radial",
+          "time_s": 1800,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 3.5853057882411576,
+              "peak_z_over_half_length": 0.9969562211352063,
+              "end_mean_difference": 1.1861481621854546,
+              "middle_mean_difference": 0.0011628923390422847,
+              "bulk_change": 5.97942565875131,
+              "one_dimensional_bulk_change": 5.979559669012469,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 0.8730627944324652,
+              "peak_z_over_half_length": 0.9969562211352063,
+              "end_mean_difference": 0.09287939865538081,
+              "middle_mean_difference": 0.0012033497906793313,
+              "bulk_change": -0.0031374618288625136,
+              "one_dimensional_bulk_change": -0.0032123886147315825,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "axial",
+          "time_s": 300,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 0.7245145126285593,
+              "peak_z_over_half_length": 0.9984781105676032,
+              "end_mean_difference": 0.12213458373604413,
+              "middle_mean_difference": 5.443863550182003e-05,
+              "bulk_change": 0.09002620630095445,
+              "one_dimensional_bulk_change": 0.08992595129983624,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 0.42130565206294923,
+              "peak_z_over_half_length": 0.9984781105676032,
+              "end_mean_difference": 0.02065013695405158,
+              "middle_mean_difference": 0.00021014387334054968,
+              "bulk_change": -4.391536364202726e-10,
+              "one_dimensional_bulk_change": -3.6536352582841694e-11,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "axial",
+          "time_s": 1800,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 3.640860500523843,
+              "peak_z_over_half_length": 0.9984781105676032,
+              "end_mean_difference": 1.1861016242295686,
+              "middle_mean_difference": 0.00035338889285195264,
+              "bulk_change": 5.957717416191333,
+              "one_dimensional_bulk_change": 5.9576128335662695,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 0.9284760714555347,
+              "peak_z_over_half_length": 0.9984781105676032,
+              "end_mean_difference": 0.09253250340743885,
+              "middle_mean_difference": 0.00016772739105521943,
+              "bulk_change": -0.0027186654862317587,
+              "one_dimensional_bulk_change": -0.0026878061645537418,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "endpoint_control_regions": {},
+      "local_Linf": {
+        "diagnostic_only": true,
+        "acceptance_veto": false,
+        "radial": {
+          "coarse_id": "q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542",
+          "fine_id": "q1_2d_adaptive_nr80_nz125_dt0.25_m0663d58bba57_radial_verification",
+          "coarse_fingerprint": "07c80e967e0b8dbc778c723630d879dc9c766821ccf304b3860136af64cb61e9",
+          "fine_fingerprint": "777db0198375e12e82ec6775510f34332544100285e4a028a2a8981bc316c9a1",
+          "maxima_temperature": {
+            "value": 0.0006449430339898754,
+            "signed_difference": 0.0006449430339898754,
+            "time_s": 1800.0,
+            "r_m": 0.0,
+            "z_m": 0.0,
+            "coarse_value": 306.7244847763195,
+            "fine_value": 306.7251297193535
+          },
+          "maxima_moisture": {
+            "value": 0.03582087597718431,
+            "signed_difference": 0.03582087597718431,
+            "time_s": 1.0,
+            "r_m": 0.019898303564296956,
+            "z_m": 0.0,
+            "coarse_value": 2.5048964348030305,
+            "fine_value": 2.540717310780215
+          },
+          "official_temperature": {
+            "value": 0.0006449430339898754,
+            "signed_difference": 0.0006449430339898754,
+            "time_s": 1800.0,
+            "r_m": 0.0,
+            "z_m": 0.0,
+            "coarse_value": 306.7244847763195,
+            "fine_value": 306.7251297193535
+          },
+          "official_moisture": {
+            "value": 0.035214980157604714,
+            "signed_difference": 0.035214980157604714,
+            "time_s": 1.0,
+            "r_m": 0.02,
+            "z_m": 0.12081480406090875,
+            "coarse_value": 2.4645848348436012,
+            "fine_value": 2.499799815001206
+          },
+          "volume_L2_temperature": {
+            "value": 0.00034215078785735915,
+            "time_s": 1080.0
+          },
+          "volume_L2_moisture": {
+            "value": 0.005117235275139125,
+            "time_s": 1.0
+          },
+          "event_difference_s": null,
+          "event_relative_difference": null,
+          "official_output_times_max_error": {
+            "temperature": {
+              "value": 0.0006449430339898754,
+              "signed_difference": 0.0006449430339898754,
+              "time_s": 1800.0,
+              "r_m": 0.0,
+              "z_m": 0.0,
+              "coarse_value": 306.7244847763195,
+              "fine_value": 306.7251297193535
+            },
+            "moisture": {
+              "value": 0.035214980157604714,
+              "signed_difference": 0.035214980157604714,
+              "time_s": 1.0,
+              "r_m": 0.02,
+              "z_m": 0.12081480406090875,
+              "coarse_value": 2.4645848348436012,
+              "fine_value": 2.499799815001206
+            },
+            "sample_count": 1801,
+            "time_range_s": [
+              0.0,
+              1800.0
+            ],
+            "endpoint_times_s": [],
+            "complete": true,
+            "scope": "Official output timestamps through both drying reports, plus both genuine drying endpoint states; internal RK4 and arbitrary remesh times are audit-only."
+          },
+          "event_status_agrees": true,
+          "event_comparison_applicable": true,
+          "reference_complete": true,
+          "time_range_s": [
+            0.0,
+            1800.0
+          ],
+          "sample_count": 1801,
+          "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+          "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+          "assessment": "QUANTIFIED",
+          "representative_times_s": [
+            1800.0
+          ],
+          "note": "Separate directional refinement; no combined-direction full-time certificate."
+        },
+        "axial": {
+          "coarse_id": "q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542",
+          "fine_id": "q1_2d_adaptive_nr40_nz250_dt0.25_m86bafdbf4d10_axial_verification",
+          "coarse_fingerprint": "07c80e967e0b8dbc778c723630d879dc9c766821ccf304b3860136af64cb61e9",
+          "fine_fingerprint": "761ab80156998e5b46dcffa0f32f7f5257238fd5c86d907c7dff5aaf14da4687",
+          "maxima_temperature": {
+            "value": 0.0009661417062716282,
+            "signed_difference": -0.0009661417062716282,
+            "time_s": 300.0,
+            "r_m": 0.0,
+            "z_m": 0.1248097638209504,
+            "coarse_value": 301.9162631036178,
+            "fine_value": 301.9152969619115
+          },
+          "maxima_moisture": {
+            "value": 0.07083755884404619,
+            "signed_difference": 0.07083755884404619,
+            "time_s": 1.0,
+            "r_m": 0.01735573582317227,
+            "z_m": 0.1248097638209504,
+            "coarse_value": 2.4740922947821176,
+            "fine_value": 2.5449298536261638
+          },
+          "official_temperature": {
+            "value": 0.0009661417062716282,
+            "signed_difference": -0.0009661417062716282,
+            "time_s": 300.0,
+            "r_m": 0.0,
+            "z_m": 0.1248097638209504,
+            "coarse_value": 301.9162631036178,
+            "fine_value": 301.9152969619115
+          },
+          "official_moisture": {
+            "value": 0.07083755884404619,
+            "signed_difference": 0.07083755884404619,
+            "time_s": 1.0,
+            "r_m": 0.017,
+            "z_m": 0.1248097638209504,
+            "coarse_value": 2.474092294782118,
+            "fine_value": 2.544929853626164
+          },
+          "volume_L2_temperature": {
+            "value": 0.0002480182269014745,
+            "time_s": 1080.0
+          },
+          "volume_L2_moisture": {
+            "value": 0.003909339698457249,
+            "time_s": 1.0
+          },
+          "event_difference_s": null,
+          "event_relative_difference": null,
+          "official_output_times_max_error": {
+            "temperature": {
+              "value": 0.0009661417062716282,
+              "signed_difference": -0.0009661417062716282,
+              "time_s": 300.0,
+              "r_m": 0.0,
+              "z_m": 0.1248097638209504,
+              "coarse_value": 301.9162631036178,
+              "fine_value": 301.9152969619115
+            },
+            "moisture": {
+              "value": 0.07083755884404619,
+              "signed_difference": 0.07083755884404619,
+              "time_s": 1.0,
+              "r_m": 0.017,
+              "z_m": 0.1248097638209504,
+              "coarse_value": 2.474092294782118,
+              "fine_value": 2.544929853626164
+            },
+            "sample_count": 1801,
+            "time_range_s": [
+              0.0,
+              1800.0
+            ],
+            "endpoint_times_s": [],
+            "complete": true,
+            "scope": "Official output timestamps through both drying reports, plus both genuine drying endpoint states; internal RK4 and arbitrary remesh times are audit-only."
+          },
+          "event_status_agrees": true,
+          "event_comparison_applicable": true,
+          "reference_complete": true,
+          "time_range_s": [
+            0.0,
+            1800.0
+          ],
+          "sample_count": 1801,
+          "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+          "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+          "assessment": "QUANTIFIED",
+          "representative_times_s": [
+            1800.0
+          ],
+          "note": "Separate directional refinement; no combined-direction full-time certificate."
+        }
+      },
+      "strict_grid_independence_assessment": {
+        "spatial_passed": false,
+        "spatial_full_time": true,
+        "numerical_status": "2D_SPATIAL_VALIDATION_PARTIAL",
+        "radial": {
+          "coarse_id": "q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542",
+          "fine_id": "q1_2d_adaptive_nr80_nz125_dt0.25_m0663d58bba57_radial_verification",
+          "coarse_fingerprint": "07c80e967e0b8dbc778c723630d879dc9c766821ccf304b3860136af64cb61e9",
+          "fine_fingerprint": "777db0198375e12e82ec6775510f34332544100285e4a028a2a8981bc316c9a1",
+          "maxima_temperature": {
+            "value": 0.0006449430339898754,
+            "signed_difference": 0.0006449430339898754,
+            "time_s": 1800.0,
+            "r_m": 0.0,
+            "z_m": 0.0,
+            "coarse_value": 306.7244847763195,
+            "fine_value": 306.7251297193535
+          },
+          "maxima_moisture": {
+            "value": 0.03582087597718431,
+            "signed_difference": 0.03582087597718431,
+            "time_s": 1.0,
+            "r_m": 0.019898303564296956,
+            "z_m": 0.0,
+            "coarse_value": 2.5048964348030305,
+            "fine_value": 2.540717310780215
+          },
+          "official_temperature": {
+            "value": 0.0006449430339898754,
+            "signed_difference": 0.0006449430339898754,
+            "time_s": 1800.0,
+            "r_m": 0.0,
+            "z_m": 0.0,
+            "coarse_value": 306.7244847763195,
+            "fine_value": 306.7251297193535
+          },
+          "official_moisture": {
+            "value": 0.035214980157604714,
+            "signed_difference": 0.035214980157604714,
+            "time_s": 1.0,
+            "r_m": 0.02,
+            "z_m": 0.12081480406090875,
+            "coarse_value": 2.4645848348436012,
+            "fine_value": 2.499799815001206
+          },
+          "volume_L2_temperature": {
+            "value": 0.00034215078785735915,
+            "time_s": 1080.0
+          },
+          "volume_L2_moisture": {
+            "value": 0.005117235275139125,
+            "time_s": 1.0
+          },
+          "event_difference_s": null,
+          "event_relative_difference": null,
+          "official_output_times_max_error": {
+            "temperature": {
+              "value": 0.0006449430339898754,
+              "signed_difference": 0.0006449430339898754,
+              "time_s": 1800.0,
+              "r_m": 0.0,
+              "z_m": 0.0,
+              "coarse_value": 306.7244847763195,
+              "fine_value": 306.7251297193535
+            },
+            "moisture": {
+              "value": 0.035214980157604714,
+              "signed_difference": 0.035214980157604714,
+              "time_s": 1.0,
+              "r_m": 0.02,
+              "z_m": 0.12081480406090875,
+              "coarse_value": 2.4645848348436012,
+              "fine_value": 2.499799815001206
+            },
+            "sample_count": 1801,
+            "time_range_s": [
+              0.0,
+              1800.0
+            ],
+            "endpoint_times_s": [],
+            "complete": true,
+            "scope": "Official output timestamps through both drying reports, plus both genuine drying endpoint states; internal RK4 and arbitrary remesh times are audit-only."
+          },
+          "event_status_agrees": true,
+          "event_comparison_applicable": true,
+          "reference_complete": true,
+          "time_range_s": [
+            0.0,
+            1800.0
+          ],
+          "sample_count": 1801,
+          "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+          "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+          "assessment": "QUANTIFIED",
+          "representative_times_s": [
+            1800.0
+          ],
+          "note": "Separate directional refinement; no combined-direction full-time certificate."
+        },
+        "axial": {
+          "coarse_id": "q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542",
+          "fine_id": "q1_2d_adaptive_nr40_nz250_dt0.25_m86bafdbf4d10_axial_verification",
+          "coarse_fingerprint": "07c80e967e0b8dbc778c723630d879dc9c766821ccf304b3860136af64cb61e9",
+          "fine_fingerprint": "761ab80156998e5b46dcffa0f32f7f5257238fd5c86d907c7dff5aaf14da4687",
+          "maxima_temperature": {
+            "value": 0.0009661417062716282,
+            "signed_difference": -0.0009661417062716282,
+            "time_s": 300.0,
+            "r_m": 0.0,
+            "z_m": 0.1248097638209504,
+            "coarse_value": 301.9162631036178,
+            "fine_value": 301.9152969619115
+          },
+          "maxima_moisture": {
+            "value": 0.07083755884404619,
+            "signed_difference": 0.07083755884404619,
+            "time_s": 1.0,
+            "r_m": 0.01735573582317227,
+            "z_m": 0.1248097638209504,
+            "coarse_value": 2.4740922947821176,
+            "fine_value": 2.5449298536261638
+          },
+          "official_temperature": {
+            "value": 0.0009661417062716282,
+            "signed_difference": -0.0009661417062716282,
+            "time_s": 300.0,
+            "r_m": 0.0,
+            "z_m": 0.1248097638209504,
+            "coarse_value": 301.9162631036178,
+            "fine_value": 301.9152969619115
+          },
+          "official_moisture": {
+            "value": 0.07083755884404619,
+            "signed_difference": 0.07083755884404619,
+            "time_s": 1.0,
+            "r_m": 0.017,
+            "z_m": 0.1248097638209504,
+            "coarse_value": 2.474092294782118,
+            "fine_value": 2.544929853626164
+          },
+          "volume_L2_temperature": {
+            "value": 0.0002480182269014745,
+            "time_s": 1080.0
+          },
+          "volume_L2_moisture": {
+            "value": 0.003909339698457249,
+            "time_s": 1.0
+          },
+          "event_difference_s": null,
+          "event_relative_difference": null,
+          "official_output_times_max_error": {
+            "temperature": {
+              "value": 0.0009661417062716282,
+              "signed_difference": -0.0009661417062716282,
+              "time_s": 300.0,
+              "r_m": 0.0,
+              "z_m": 0.1248097638209504,
+              "coarse_value": 301.9162631036178,
+              "fine_value": 301.9152969619115
+            },
+            "moisture": {
+              "value": 0.07083755884404619,
+              "signed_difference": 0.07083755884404619,
+              "time_s": 1.0,
+              "r_m": 0.017,
+              "z_m": 0.1248097638209504,
+              "coarse_value": 2.474092294782118,
+              "fine_value": 2.544929853626164
+            },
+            "sample_count": 1801,
+            "time_range_s": [
+              0.0,
+              1800.0
+            ],
+            "endpoint_times_s": [],
+            "complete": true,
+            "scope": "Official output timestamps through both drying reports, plus both genuine drying endpoint states; internal RK4 and arbitrary remesh times are audit-only."
+          },
+          "event_status_agrees": true,
+          "event_comparison_applicable": true,
+          "reference_complete": true,
+          "time_range_s": [
+            0.0,
+            1800.0
+          ],
+          "sample_count": 1801,
+          "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+          "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+          "assessment": "QUANTIFIED",
+          "representative_times_s": [
+            1800.0
+          ],
+          "note": "Separate directional refinement; no combined-direction full-time certificate."
+        },
+        "endpoint_sensitivity": [],
+        "representative_extensions": []
+      },
+      "warnings": [
+        "2D_GRID_INDEPENDENCE_NOT_CERTIFIED",
+        "SEPARATE_DIRECTIONAL_REFINEMENT_ONLY",
+        "LOCAL_BOUNDARY_LAYER_LINF_EXCEEDS_1D_TOLERANCE",
+        "EARLY_LOCAL_BOUNDARY_LAYER_SENSITIVE"
+      ]
+    },
+    "q23": {
+      "role": "auxiliary_end_effect_and_model_reduction_validation",
+      "two_dimensional_auxiliary_validation_passed": true,
+      "two_dimensional_grid_independence_certified": false,
+      "two_dimensional_validation_status": "AUXILIARY_VALIDATION_PASS",
+      "grid_independence_status": "PARTIAL_2D",
+      "gates": {
+        "temporal_pass": true,
+        "critical_window_refinement_completed": true,
+        "radial_refinement_available": true,
+        "axial_refinement_available": true,
+        "endpoint_sensitivity_pass_if_applicable": true,
+        "qualitative_spatial_consistency": true,
+        "evidence_source_matches": true,
+        "no_solver_failure": true,
+        "all_outputs_finite": true
+      },
+      "temporal_validation": {
+        "status": "PASS",
+        "time_range_s": [
+          0.0,
+          1800.0
+        ],
+        "full_time": false,
+        "original_assessment": {
+          "coarse_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+          "fine_id": "q23_2d_adaptive_nr40_nz125_dt0.125_mfd6e5cf8c919_half_steps",
+          "coarse_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
+          "fine_fingerprint": "d28f777a26d5894685724afce8ff09779a3a83f7145c31213c641fe82880abc2",
+          "maxima_temperature": {
+            "value": 3.6540654946293216e-09,
+            "signed_difference": 3.6540654946293216e-09,
+            "time_s": 1021.0,
+            "r_m": 0.01932411935375711,
+            "z_m": 0.12456852885018567,
+            "coarse_value": 306.1580184800499,
+            "fine_value": 306.158018483704
+          },
+          "maxima_moisture": {
+            "value": 1.8594015216422122e-11,
+            "signed_difference": -1.8594015216422122e-11,
+            "time_s": 1.0,
+            "r_m": 0.02,
+            "z_m": 0.125,
+            "coarse_value": 2.3242137854856013,
+            "fine_value": 2.3242137854670073
+          },
+          "official_temperature": {
+            "value": 2.9914417609688826e-09,
+            "signed_difference": -2.9914417609688826e-09,
+            "time_s": 1021.0,
+            "r_m": 0.02,
+            "z_m": 0.12456852885018567,
+            "coarse_value": 306.28204011155094,
+            "fine_value": 306.2820401085595
+          },
+          "official_moisture": {
+            "value": 1.8594015216422122e-11,
+            "signed_difference": -1.8594015216422122e-11,
+            "time_s": 1.0,
+            "r_m": 0.02,
+            "z_m": 0.125,
+            "coarse_value": 2.3242137854856013,
+            "fine_value": 2.3242137854670073
+          },
+          "volume_L2_temperature": {
+            "value": 8.052079024007311e-10,
+            "time_s": 1021.0
+          },
+          "volume_L2_moisture": {
+            "value": 2.4825757898589484e-12,
+            "time_s": 12.0
+          },
+          "event_difference_s": null,
+          "event_relative_difference": null,
+          "event_status_agrees": true,
+          "event_comparison_applicable": false,
+          "reference_complete": true,
+          "time_range_s": [
+            0.0,
+            1800.0
+          ],
+          "sample_count": 1801,
+          "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+          "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+          "passed": true,
+          "actual_base_partition_bisected": true,
+          "requested_dt_s": 0.125
+        }
+      },
+      "critical_window_s": [
+        0,
+        5086
+      ],
+      "directional_coverage": {
+        "radial": {
+          "time_ranges_s": [
+            [
+              0.0,
+              5085.0
+            ],
+            [
+              5085.0,
+              5086.0
+            ]
+          ],
+          "complete": true
+        },
+        "axial": {
+          "time_ranges_s": [
+            [
+              0.0,
+              5085.0
+            ],
+            [
+              5085.0,
+              5086.0
+            ]
+          ],
+          "complete": true
+        }
+      },
+      "endpoint_sensitivity": {
+        "radial": {
+          "complete": true,
+          "status": "2D_SPATIAL_VALIDATION_PARTIAL",
+          "base_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+          "base_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
+          "mesh_profile_hash": "815d75810ebfac0ee119661061f0e189b5064b314b0d50ca80ab1640f88df47b",
+          "direction": "radial",
+          "nr": 80,
+          "nz": 125,
+          "time_range_s": [
+            204660.0,
+            208873.31999999998
+          ],
+          "event": {
+            "left_s": 208251.875,
+            "right_s": 208251.9375,
+            "width_s": 0.0625,
+            "raw_event_s": 208251.9375,
+            "report_s": 208252.08,
+            "report_h": 57.8478,
+            "left_max_C": 0.15000000487673323,
+            "right_max_C": 0.14999998690671323,
+            "report_max_C": 0.1499999459351059
+          },
+          "event_difference_s": 21.375,
+          "event_relative_difference": 0.00010264010148765123,
+          "wall_s": 207.22162340000068,
+          "steps": 67413,
+          "limited": 134613,
+          "projection_integral_difference": [
+            -1.4210854715202004e-14,
+            -6.938893903907228e-18
+          ],
+          "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence.",
+          "passed": true
+        },
+        "axial": {
+          "complete": true,
+          "status": "2D_SPATIAL_VALIDATION_PARTIAL",
+          "base_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+          "base_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
+          "mesh_profile_hash": "53a461f993b9d24970485c7cb3e3148717e09bec9ab1d7b8c235d3deeff4f9e3",
+          "direction": "axial",
+          "nr": 40,
+          "nz": 250,
+          "time_range_s": [
+            204660.0,
+            208873.31999999998
+          ],
+          "event": {
+            "left_s": 208273.25,
+            "right_s": 208273.3125,
+            "width_s": 0.0625,
+            "raw_event_s": 208273.3125,
+            "report_s": 208273.31999999998,
+            "report_h": 57.853699999999996,
+            "left_max_C": 0.15000001302081517,
+            "right_max_C": 0.14999999505576558,
+            "report_max_C": 0.14999999289996033
+          },
+          "event_difference_s": 0.0,
+          "event_relative_difference": 0.0,
+          "wall_s": 85.0127104000021,
+          "steps": 33707,
+          "limited": 33636,
+          "projection_integral_difference": [
+            -1.4210854715202004e-14,
+            -6.938893903907228e-18
+          ],
+          "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence.",
+          "passed": true
+        }
+      },
+      "qualitative_spatial_consistency": "PASS",
+      "end_effect_detected": true,
+      "qualitative_samples": [
+        {
+          "direction": "base",
+          "time_s": 1080,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 2.4777188070497687,
+              "peak_z_over_half_length": 0.9965482308014854,
+              "end_mean_difference": 0.7106425691054915,
+              "middle_mean_difference": 6.440544078047239e-05,
+              "bulk_change": 1.658796310161032,
+              "one_dimensional_bulk_change": 1.6587176622596718,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 0.6311008936987221,
+              "peak_z_over_half_length": 0.9965482308014854,
+              "end_mean_difference": 0.06486984961241092,
+              "middle_mean_difference": 0.00019549835625902562,
+              "bulk_change": -0.0005710131956123239,
+              "one_dimensional_bulk_change": -0.0005320771615122694,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "base",
+          "time_s": 3635,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 3.457508709694764,
+              "peak_z_over_half_length": 0.9965482308014854,
+              "end_mean_difference": 1.5066616736415845,
+              "middle_mean_difference": 0.00410440712227833,
+              "bulk_change": 12.877636424002217,
+              "one_dimensional_bulk_change": 12.873151158776489,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 0.8982073176047156,
+              "peak_z_over_half_length": 0.9965482308014854,
+              "end_mean_difference": 0.16635742650217694,
+              "middle_mean_difference": 0.00015642593426769437,
+              "bulk_change": -0.10603279035569482,
+              "one_dimensional_bulk_change": -0.10592149905045871,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "base",
+          "time_s": 5086,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 2.174131719976913,
+              "peak_z_over_half_length": 0.9965482308014854,
+              "end_mean_difference": 1.0597806600873776,
+              "middle_mean_difference": 0.008675157993441318,
+              "bulk_change": 17.362954395274453,
+              "one_dimensional_bulk_change": 17.352780510951938,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 0.9305116947698528,
+              "peak_z_over_half_length": 0.9965482308014854,
+              "end_mean_difference": 0.2050959115004551,
+              "middle_mean_difference": 0.00012507280575306488,
+              "bulk_change": -0.2566730688131826,
+              "one_dimensional_bulk_change": -0.25659587371551695,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "radial",
+          "time_s": 1080,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 2.4777240805785823,
+              "peak_z_over_half_length": 0.9965482308014854,
+              "end_mean_difference": 0.7106014272886585,
+              "middle_mean_difference": 3.11207434313092e-05,
+              "bulk_change": 1.6447163996751168,
+              "one_dimensional_bulk_change": 1.644719159297266,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 0.631103040972222,
+              "peak_z_over_half_length": 0.9965482308014854,
+              "end_mean_difference": 0.06476837751928834,
+              "middle_mean_difference": 5.2460983881449656e-05,
+              "bulk_change": -0.0004379364849588613,
+              "one_dimensional_bulk_change": -0.00043174967867700234,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "radial",
+          "time_s": 3635,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 3.457960573560001,
+              "peak_z_over_half_length": 0.9965482308014854,
+              "end_mean_difference": 1.5068990099932098,
+              "middle_mean_difference": 0.00426149236764698,
+              "bulk_change": 12.861381777220156,
+              "one_dimensional_bulk_change": 12.85639275871447,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 0.8981099613587644,
+              "peak_z_over_half_length": 0.9965482308014854,
+              "end_mean_difference": 0.16639302701682146,
+              "middle_mean_difference": 3.827815582139269e-05,
+              "bulk_change": -0.10112997157661549,
+              "one_dimensional_bulk_change": -0.10111970748675861,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "radial",
+          "time_s": 5086,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 2.17447564922918,
+              "peak_z_over_half_length": 0.9965482308014854,
+              "end_mean_difference": 1.05996784946356,
+              "middle_mean_difference": 0.009031819671126826,
+              "bulk_change": 17.353400341935327,
+              "one_dimensional_bulk_change": 17.342745524384334,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 0.9304850951413153,
+              "peak_z_over_half_length": 0.9965482308014854,
+              "end_mean_difference": 0.20513681461150798,
+              "middle_mean_difference": 5.2237986907515645e-05,
+              "bulk_change": -0.25030097616852537,
+              "one_dimensional_bulk_change": -0.2502593577650391,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "axial",
+          "time_s": 1080,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 2.5365766856787104,
+              "peak_z_over_half_length": 0.9982741154007426,
+              "end_mean_difference": 0.710963379900935,
+              "middle_mean_difference": 6.441542375233034e-05,
+              "bulk_change": 1.6587962155712848,
+              "one_dimensional_bulk_change": 1.6587176622596718,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 0.6795999000523567,
+              "peak_z_over_half_length": 0.9982741154007426,
+              "end_mean_difference": 0.06506509506593644,
+              "middle_mean_difference": 0.00019549832576860957,
+              "bulk_change": -0.0005710131941043107,
+              "one_dimensional_bulk_change": -0.0005320771615122694,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "axial",
+          "time_s": 3635,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 3.498972467956037,
+              "peak_z_over_half_length": 0.9982741154007426,
+              "end_mean_difference": 1.5069236245646573,
+              "middle_mean_difference": 0.004100350095204097,
+              "bulk_change": 12.877630753471085,
+              "one_dimensional_bulk_change": 12.873151158776489,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 0.9254981240061391,
+              "peak_z_over_half_length": 0.9982741154007426,
+              "end_mean_difference": 0.16652459477855536,
+              "middle_mean_difference": 0.00015641980704934162,
+              "bulk_change": -0.10603277017527492,
+              "one_dimensional_bulk_change": -0.10592149905045871,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "axial",
+          "time_s": 5086,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 2.193166458939004,
+              "peak_z_over_half_length": 0.9982741154007426,
+              "end_mean_difference": 1.0598989530227823,
+              "middle_mean_difference": 0.008671419586056906,
+              "bulk_change": 17.362949693060358,
+              "one_dimensional_bulk_change": 17.352780510951938,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 0.9529772684735305,
+              "peak_z_over_half_length": 0.9982741154007426,
+              "end_mean_difference": 0.20524367506680152,
+              "middle_mean_difference": 0.00012506175124698879,
+              "bulk_change": -0.2566730223285294,
+              "one_dimensional_bulk_change": -0.25659587371551695,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "endpoint_control_regions": {
+        "base": {
+          "max_moisture": 0.1499879438438383,
+          "r_over_R": 0.012941646871298472,
+          "z_over_half_length": 0.004098975922443633,
+          "category": "interior_core",
+          "all_outputs_finite": true
+        },
+        "radial": {
+          "max_moisture": 0.14999693034199643,
+          "r_over_R": 0.006472452154426734,
+          "z_over_half_length": 0.004098975922443633,
+          "category": "interior_core",
+          "all_outputs_finite": true
+        },
+        "axial": {
+          "max_moisture": 0.149987945245793,
+          "r_over_R": 0.012941646871298472,
+          "z_over_half_length": 0.0020494879614159304,
+          "category": "interior_core",
+          "all_outputs_finite": true
+        }
+      },
+      "local_Linf": {
+        "diagnostic_only": true,
+        "acceptance_veto": false,
+        "radial": {
+          "coarse_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+          "fine_id": "q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification",
+          "coarse_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
+          "fine_fingerprint": "05efc315ba79144d1554be4347cceb5e21c4faf24b2b4db27a79b00fe07ea558",
+          "maxima_temperature": {
+            "value": 0.0007500256799630733,
+            "signed_difference": 0.0007500256799630733,
+            "time_s": 3635.0,
+            "r_m": 0.0,
+            "z_m": 0.0,
+            "coarse_value": 313.67028716734177,
+            "fine_value": 313.67103719302173
+          },
+          "maxima_moisture": {
+            "value": 0.034886954746742305,
+            "signed_difference": 0.034886954746742305,
+            "time_s": 1.0,
+            "r_m": 0.019889706195891504,
+            "z_m": 0.0,
+            "coarse_value": 2.5065243472508607,
+            "fine_value": 2.541411301997603
+          },
+          "official_temperature": {
+            "value": 0.0007500256799630733,
+            "signed_difference": 0.0007500256799630733,
+            "time_s": 3635.0,
+            "r_m": 0.0,
+            "z_m": 0.0,
+            "coarse_value": 313.67028716734177,
+            "fine_value": 313.67103719302173
+          },
+          "official_moisture": {
+            "value": 0.03433843911780077,
+            "signed_difference": 0.03433843911780077,
+            "time_s": 1.0,
+            "r_m": 0.02,
+            "z_m": 0.0,
+            "coarse_value": 2.4682173532365352,
+            "fine_value": 2.502555792354336
+          },
+          "volume_L2_temperature": {
+            "value": 0.0003681064861218599,
+            "time_s": 1080.0
+          },
+          "volume_L2_moisture": {
+            "value": 0.005187651118338788,
+            "time_s": 1.0
+          },
+          "event_difference_s": null,
+          "event_relative_difference": null,
+          "event_status_agrees": true,
+          "event_comparison_applicable": false,
+          "reference_complete": true,
+          "time_range_s": [
+            0.0,
+            5085.0
+          ],
+          "sample_count": 5086,
+          "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+          "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+          "assessment": "QUANTIFIED",
+          "representative_times_s": [
+            2520.0,
+            5085.0
+          ],
+          "note": "Separate directional refinement; no combined-direction full-time certificate."
+        },
+        "axial": {
+          "coarse_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+          "fine_id": "q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification",
+          "coarse_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
+          "fine_fingerprint": "e6abaf9f5ff30d46c384734af84ca80bead4dc45910093ee7a7295f9457c4fc2",
+          "maxima_temperature": {
+            "value": 0.0013542182237529232,
+            "signed_difference": -0.0013542182237529232,
+            "time_s": 1080.0,
+            "r_m": 0.0,
+            "z_m": 0.12435279327527851,
+            "coarse_value": 304.94530523897026,
+            "fine_value": 304.9439510207465
+          },
+          "maxima_moisture": {
+            "value": 0.07061249653347845,
+            "signed_difference": 0.07061249653347845,
+            "time_s": 1.0,
+            "r_m": 0.0,
+            "z_m": 0.12478426442509283,
+            "coarse_value": 2.4749067950997987,
+            "fine_value": 2.545519291633277
+          },
+          "official_temperature": {
+            "value": 0.0013542182237529232,
+            "signed_difference": -0.0013542182237529232,
+            "time_s": 1080.0,
+            "r_m": 0.0,
+            "z_m": 0.12435279327527851,
+            "coarse_value": 304.94530523897026,
+            "fine_value": 304.9439510207465
+          },
+          "official_moisture": {
+            "value": 0.07061249653347934,
+            "signed_difference": 0.07061249653347934,
+            "time_s": 1.0,
+            "r_m": 0.014,
+            "z_m": 0.12478426442509283,
+            "coarse_value": 2.4749067950997983,
+            "fine_value": 2.5455192916332776
+          },
+          "volume_L2_temperature": {
+            "value": 0.0002842132910585711,
+            "time_s": 1320.0
+          },
+          "volume_L2_moisture": {
+            "value": 0.004149516289064432,
+            "time_s": 1.0
+          },
+          "event_difference_s": null,
+          "event_relative_difference": null,
+          "event_status_agrees": true,
+          "event_comparison_applicable": false,
+          "reference_complete": true,
+          "time_range_s": [
+            0.0,
+            5085.0
+          ],
+          "sample_count": 5086,
+          "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+          "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+          "assessment": "QUANTIFIED",
+          "representative_times_s": [
+            2520.0,
+            5085.0
+          ],
+          "note": "Separate directional refinement; no combined-direction full-time certificate."
+        }
+      },
+      "strict_grid_independence_assessment": {
+        "spatial_passed": false,
+        "spatial_full_time": false,
+        "numerical_status": "2D_SPATIAL_VALIDATION_PARTIAL",
+        "radial": {
+          "coarse_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+          "fine_id": "q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification",
+          "coarse_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
+          "fine_fingerprint": "05efc315ba79144d1554be4347cceb5e21c4faf24b2b4db27a79b00fe07ea558",
+          "maxima_temperature": {
+            "value": 0.0007500256799630733,
+            "signed_difference": 0.0007500256799630733,
+            "time_s": 3635.0,
+            "r_m": 0.0,
+            "z_m": 0.0,
+            "coarse_value": 313.67028716734177,
+            "fine_value": 313.67103719302173
+          },
+          "maxima_moisture": {
+            "value": 0.034886954746742305,
+            "signed_difference": 0.034886954746742305,
+            "time_s": 1.0,
+            "r_m": 0.019889706195891504,
+            "z_m": 0.0,
+            "coarse_value": 2.5065243472508607,
+            "fine_value": 2.541411301997603
+          },
+          "official_temperature": {
+            "value": 0.0007500256799630733,
+            "signed_difference": 0.0007500256799630733,
+            "time_s": 3635.0,
+            "r_m": 0.0,
+            "z_m": 0.0,
+            "coarse_value": 313.67028716734177,
+            "fine_value": 313.67103719302173
+          },
+          "official_moisture": {
+            "value": 0.03433843911780077,
+            "signed_difference": 0.03433843911780077,
+            "time_s": 1.0,
+            "r_m": 0.02,
+            "z_m": 0.0,
+            "coarse_value": 2.4682173532365352,
+            "fine_value": 2.502555792354336
+          },
+          "volume_L2_temperature": {
+            "value": 0.0003681064861218599,
+            "time_s": 1080.0
+          },
+          "volume_L2_moisture": {
+            "value": 0.005187651118338788,
+            "time_s": 1.0
+          },
+          "event_difference_s": null,
+          "event_relative_difference": null,
+          "event_status_agrees": true,
+          "event_comparison_applicable": false,
+          "reference_complete": true,
+          "time_range_s": [
+            0.0,
+            5085.0
+          ],
+          "sample_count": 5086,
+          "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+          "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+          "assessment": "QUANTIFIED",
+          "representative_times_s": [
+            2520.0,
+            5085.0
+          ],
+          "note": "Separate directional refinement; no combined-direction full-time certificate."
+        },
+        "axial": {
+          "coarse_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+          "fine_id": "q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification",
+          "coarse_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
+          "fine_fingerprint": "e6abaf9f5ff30d46c384734af84ca80bead4dc45910093ee7a7295f9457c4fc2",
+          "maxima_temperature": {
+            "value": 0.0013542182237529232,
+            "signed_difference": -0.0013542182237529232,
+            "time_s": 1080.0,
+            "r_m": 0.0,
+            "z_m": 0.12435279327527851,
+            "coarse_value": 304.94530523897026,
+            "fine_value": 304.9439510207465
+          },
+          "maxima_moisture": {
+            "value": 0.07061249653347845,
+            "signed_difference": 0.07061249653347845,
+            "time_s": 1.0,
+            "r_m": 0.0,
+            "z_m": 0.12478426442509283,
+            "coarse_value": 2.4749067950997987,
+            "fine_value": 2.545519291633277
+          },
+          "official_temperature": {
+            "value": 0.0013542182237529232,
+            "signed_difference": -0.0013542182237529232,
+            "time_s": 1080.0,
+            "r_m": 0.0,
+            "z_m": 0.12435279327527851,
+            "coarse_value": 304.94530523897026,
+            "fine_value": 304.9439510207465
+          },
+          "official_moisture": {
+            "value": 0.07061249653347934,
+            "signed_difference": 0.07061249653347934,
+            "time_s": 1.0,
+            "r_m": 0.014,
+            "z_m": 0.12478426442509283,
+            "coarse_value": 2.4749067950997983,
+            "fine_value": 2.5455192916332776
+          },
+          "volume_L2_temperature": {
+            "value": 0.0002842132910585711,
+            "time_s": 1320.0
+          },
+          "volume_L2_moisture": {
+            "value": 0.004149516289064432,
+            "time_s": 1.0
+          },
+          "event_difference_s": null,
+          "event_relative_difference": null,
+          "event_status_agrees": true,
+          "event_comparison_applicable": false,
+          "reference_complete": true,
+          "time_range_s": [
+            0.0,
+            5085.0
+          ],
+          "sample_count": 5086,
+          "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+          "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+          "assessment": "QUANTIFIED",
+          "representative_times_s": [
+            2520.0,
+            5085.0
+          ],
+          "note": "Separate directional refinement; no combined-direction full-time certificate."
+        },
+        "endpoint_sensitivity": [
+          {
+            "complete": true,
+            "status": "2D_SPATIAL_VALIDATION_PARTIAL",
+            "base_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+            "base_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
+            "mesh_profile_hash": "815d75810ebfac0ee119661061f0e189b5064b314b0d50ca80ab1640f88df47b",
+            "direction": "radial",
+            "nr": 80,
+            "nz": 125,
+            "time_range_s": [
+              204660.0,
+              208873.31999999998
+            ],
+            "event": {
+              "left_s": 208251.875,
+              "right_s": 208251.9375,
+              "width_s": 0.0625,
+              "raw_event_s": 208251.9375,
+              "report_s": 208252.08,
+              "report_h": 57.8478,
+              "left_max_C": 0.15000000487673323,
+              "right_max_C": 0.14999998690671323,
+              "report_max_C": 0.1499999459351059
+            },
+            "event_difference_s": 21.375,
+            "event_relative_difference": 0.00010264010148765123,
+            "wall_s": 207.22162340000068,
+            "steps": 67413,
+            "limited": 134613,
+            "projection_integral_difference": [
+              -1.4210854715202004e-14,
+              -6.938893903907228e-18
+            ],
+            "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence."
+          },
+          {
+            "complete": true,
+            "status": "2D_SPATIAL_VALIDATION_PARTIAL",
+            "base_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+            "base_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
+            "mesh_profile_hash": "53a461f993b9d24970485c7cb3e3148717e09bec9ab1d7b8c235d3deeff4f9e3",
+            "direction": "axial",
+            "nr": 40,
+            "nz": 250,
+            "time_range_s": [
+              204660.0,
+              208873.31999999998
+            ],
+            "event": {
+              "left_s": 208273.25,
+              "right_s": 208273.3125,
+              "width_s": 0.0625,
+              "raw_event_s": 208273.3125,
+              "report_s": 208273.31999999998,
+              "report_h": 57.853699999999996,
+              "left_max_C": 0.15000001302081517,
+              "right_max_C": 0.14999999505576558,
+              "report_max_C": 0.14999999289996033
+            },
+            "event_difference_s": 0.0,
+            "event_relative_difference": 0.0,
+            "wall_s": 85.0127104000021,
+            "steps": 33707,
+            "limited": 33636,
+            "projection_integral_difference": [
+              -1.4210854715202004e-14,
+              -6.938893903907228e-18
+            ],
+            "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence."
+          }
+        ],
+        "representative_extensions": [
+          {
+            "direction": "radial",
+            "source_reference_id": "q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification",
+            "extension_id": "q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_representative_extension_t5086",
+            "extension_fingerprint": "a0ac0dde0f4385c773fb3d519894470aa72c2ed58e299aef11b779c0719860a2",
+            "time_range_s": [
+              5085.0,
+              5086.0
+            ],
+            "window_reference_complete": true,
+            "comparison": {
+              "coarse_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+              "fine_id": "q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_representative_extension_t5086",
+              "coarse_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
+              "fine_fingerprint": "a0ac0dde0f4385c773fb3d519894470aa72c2ed58e299aef11b779c0719860a2",
+              "maxima_temperature": {
+                "value": 0.0006217354534783226,
+                "signed_difference": 0.0006217354534783226,
+                "time_s": 5085.0,
+                "r_m": 0.0,
+                "z_m": 0.0,
+                "coarse_value": 318.2873552315924,
+                "fine_value": 318.2879769670459
+              },
+              "maxima_moisture": {
+                "value": 0.0002900442691511351,
+                "signed_difference": 0.0002900442691511351,
+                "time_s": 5085.0,
+                "r_m": 0.0003882819805145041,
+                "z_m": 0.0,
+                "coarse_value": 2.418206151327394,
+                "fine_value": 2.418496195596545
+              },
+              "official_temperature": {
+                "value": 0.0006217354534783226,
+                "signed_difference": 0.0006217354534783226,
+                "time_s": 5085.0,
+                "r_m": 0.0,
+                "z_m": 0.0,
+                "coarse_value": 318.2873552315924,
+                "fine_value": 318.2879769670459
+              },
+              "official_moisture": {
+                "value": 0.00028871798771579193,
+                "signed_difference": 0.00028871798771579193,
+                "time_s": 5085.0,
+                "r_m": 0.001,
+                "z_m": 0.0,
+                "coarse_value": 2.4162627673402666,
+                "fine_value": 2.4165514853279824
+              },
+              "volume_L2_temperature": {
+                "value": 0.00017081476735582158,
+                "time_s": 5085.0
+              },
+              "volume_L2_moisture": {
+                "value": 0.00012301249080818623,
+                "time_s": 5085.0
+              },
+              "event_difference_s": null,
+              "event_relative_difference": null,
+              "official_output_times_max_error": {
+                "temperature": {
+                  "value": 0.0006217354534783226,
+                  "signed_difference": 0.0006217354534783226,
+                  "time_s": 5085.0,
+                  "r_m": 0.0,
+                  "z_m": 0.0,
+                  "coarse_value": 318.2873552315924,
+                  "fine_value": 318.2879769670459
+                },
+                "moisture": {
+                  "value": 0.00028871798771579193,
+                  "signed_difference": 0.00028871798771579193,
+                  "time_s": 5085.0,
+                  "r_m": 0.001,
+                  "z_m": 0.0,
+                  "coarse_value": 2.4162627673402666,
+                  "fine_value": 2.4165514853279824
+                },
+                "sample_count": 2,
+                "time_range_s": [
+                  0.0,
+                  5086.0
+                ],
+                "endpoint_times_s": [],
+                "complete": false,
+                "scope": "Official output timestamps through both drying reports, plus both genuine drying endpoint states; internal RK4 and arbitrary remesh times are audit-only."
+              },
+              "event_status_agrees": true,
+              "event_comparison_applicable": false,
+              "reference_complete": false,
+              "time_range_s": [
+                5085.0,
+                5086.0
+              ],
+              "sample_count": 2,
+              "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+              "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+              "assessment": "QUANTIFIED",
+              "window_reference_complete": true,
+              "inherited_reference_id": "q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification",
+              "inherited_reference_fingerprint": "05efc315ba79144d1554be4347cceb5e21c4faf24b2b4db27a79b00fe07ea558",
+              "note": "Genuine continuation of the complete 0-5085 s fine trajectory through 5086 s, using its exact checkpoint and unchanged mesh/RK4. This supplemental window covers the new representative time; 2D full-trajectory convergence remains unverified."
+            }
+          },
+          {
+            "direction": "axial",
+            "source_reference_id": "q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification",
+            "extension_id": "q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_representative_extension_t5086",
+            "extension_fingerprint": "9d2c3f08732d05a095c2d3140789a9466337c209b8b96ff68e72222db0adbb3b",
+            "time_range_s": [
+              5085.0,
+              5086.0
+            ],
+            "window_reference_complete": true,
+            "comparison": {
+              "coarse_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+              "fine_id": "q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_representative_extension_t5086",
+              "coarse_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
+              "fine_fingerprint": "9d2c3f08732d05a095c2d3140789a9466337c209b8b96ff68e72222db0adbb3b",
+              "maxima_temperature": {
+                "value": 0.00011849125723983889,
+                "signed_difference": -0.00011849125723983889,
+                "time_s": 5085.0,
+                "r_m": 0.0,
+                "z_m": 0.10286635496340824,
+                "coarse_value": 319.04091341919366,
+                "fine_value": 319.0407949279364
+              },
+              "maxima_moisture": {
+                "value": 0.0003564803594735544,
+                "signed_difference": 0.0003564803594735544,
+                "time_s": 5085.0,
+                "r_m": 0.0,
+                "z_m": 0.1115582462238282,
+                "coarse_value": 2.29343045714283,
+                "fine_value": 2.2937869375023037
+              },
+              "official_temperature": {
+                "value": 0.00011849125723983889,
+                "signed_difference": -0.00011849125723983889,
+                "time_s": 5085.0,
+                "r_m": 0.0,
+                "z_m": 0.10286635496340824,
+                "coarse_value": 319.04091341919366,
+                "fine_value": 319.0407949279364
+              },
+              "official_moisture": {
+                "value": 0.0003564803594735544,
+                "signed_difference": 0.0003564803594735544,
+                "time_s": 5085.0,
+                "r_m": 0.0,
+                "z_m": 0.1115582462238282,
+                "coarse_value": 2.29343045714283,
+                "fine_value": 2.2937869375023037
+              },
+              "volume_L2_temperature": {
+                "value": 5.097941966974552e-05,
+                "time_s": 5085.0
+              },
+              "volume_L2_moisture": {
+                "value": 9.483323432576508e-05,
+                "time_s": 5085.0
+              },
+              "event_difference_s": null,
+              "event_relative_difference": null,
+              "official_output_times_max_error": {
+                "temperature": {
+                  "value": 0.00011849125723983889,
+                  "signed_difference": -0.00011849125723983889,
+                  "time_s": 5085.0,
+                  "r_m": 0.0,
+                  "z_m": 0.10286635496340824,
+                  "coarse_value": 319.04091341919366,
+                  "fine_value": 319.0407949279364
+                },
+                "moisture": {
+                  "value": 0.0003564803594735544,
+                  "signed_difference": 0.0003564803594735544,
+                  "time_s": 5085.0,
+                  "r_m": 0.0,
+                  "z_m": 0.1115582462238282,
+                  "coarse_value": 2.29343045714283,
+                  "fine_value": 2.2937869375023037
+                },
+                "sample_count": 2,
+                "time_range_s": [
+                  0.0,
+                  5086.0
+                ],
+                "endpoint_times_s": [],
+                "complete": false,
+                "scope": "Official output timestamps through both drying reports, plus both genuine drying endpoint states; internal RK4 and arbitrary remesh times are audit-only."
+              },
+              "event_status_agrees": true,
+              "event_comparison_applicable": false,
+              "reference_complete": false,
+              "time_range_s": [
+                5085.0,
+                5086.0
+              ],
+              "sample_count": 2,
+              "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+              "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+              "assessment": "QUANTIFIED",
+              "window_reference_complete": true,
+              "inherited_reference_id": "q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification",
+              "inherited_reference_fingerprint": "e6abaf9f5ff30d46c384734af84ca80bead4dc45910093ee7a7295f9457c4fc2",
+              "note": "Genuine continuation of the complete 0-5085 s fine trajectory through 5086 s, using its exact checkpoint and unchanged mesh/RK4. This supplemental window covers the new representative time; 2D full-trajectory convergence remains unverified."
+            }
+          }
+        ]
+      },
+      "warnings": [
+        "2D_GRID_INDEPENDENCE_NOT_CERTIFIED",
+        "SEPARATE_DIRECTIONAL_REFINEMENT_ONLY",
+        "LOCAL_BOUNDARY_LAYER_LINF_EXCEEDS_1D_TOLERANCE"
+      ]
+    },
+    "q4": {
+      "role": "auxiliary_end_effect_and_model_reduction_validation",
+      "two_dimensional_auxiliary_validation_passed": true,
+      "two_dimensional_grid_independence_certified": false,
+      "two_dimensional_validation_status": "AUXILIARY_VALIDATION_PASS",
+      "grid_independence_status": "PARTIAL_2D",
+      "gates": {
+        "temporal_pass": true,
+        "critical_window_refinement_completed": true,
+        "radial_refinement_available": true,
+        "axial_refinement_available": true,
+        "endpoint_sensitivity_pass_if_applicable": true,
+        "qualitative_spatial_consistency": true,
+        "evidence_source_matches": true,
+        "no_solver_failure": true,
+        "all_outputs_finite": true
+      },
+      "temporal_validation": {
+        "status": "PASS",
+        "time_range_s": [
+          0.0,
+          1800.0
+        ],
+        "full_time": false,
+        "original_assessment": {
+          "coarse_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+          "fine_id": "q4_2d_adaptive_nr40_nz125_dt0.125_md7f14a4ef684_half_steps",
+          "coarse_fingerprint": "6769b70db8f82b3fb975713f1b631381d0d3e18970452395f6374fe9554c8b22",
+          "fine_fingerprint": "984ec58fa325f8ae886006b01dc56b7376dd10a0f87dea9d573b0788f685a544",
+          "maxima_temperature": {
+            "value": 1.9326762412674725e-12,
+            "signed_difference": -1.9326762412674725e-12,
+            "time_s": 60.0,
+            "r_m": 0.019722726873180572,
+            "z_m": 0.12453741778161428,
+            "coarse_value": 301.26186495907353,
+            "fine_value": 301.2618649590716
+          },
+          "maxima_moisture": {
+            "value": 1.056932319443149e-13,
+            "signed_difference": 1.056932319443149e-13,
+            "time_s": 1380.0,
+            "r_m": 0.0022003629167328957,
+            "z_m": 0.10853765494191096,
+            "coarse_value": 2.5499999999998937,
+            "fine_value": 2.5499999999999994
+          },
+          "official_temperature": {
+            "value": 1.8758328224066645e-12,
+            "signed_difference": -1.8758328224066645e-12,
+            "time_s": 60.0,
+            "r_m": 0.01995766666666667,
+            "z_m": 0.12453741778161428,
+            "coarse_value": 301.2710933026002,
+            "fine_value": 301.27109330259833
+          },
+          "official_moisture": {
+            "value": 1.056932319443149e-13,
+            "signed_difference": 1.056932319443149e-13,
+            "time_s": 1380.0,
+            "r_m": 0.002,
+            "z_m": 0.10853765494191096,
+            "coarse_value": 2.549999999999894,
+            "fine_value": 2.55
+          },
+          "volume_L2_temperature": {
+            "value": 2.940334167984333e-13,
+            "time_s": 60.0
+          },
+          "volume_L2_moisture": {
+            "value": 1.1773272637444282e-14,
+            "time_s": 60.0
+          },
+          "event_difference_s": null,
+          "event_relative_difference": null,
+          "event_status_agrees": true,
+          "event_comparison_applicable": false,
+          "reference_complete": true,
+          "time_range_s": [
+            0.0,
+            1800.0
+          ],
+          "sample_count": 31,
+          "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+          "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+          "passed": true,
+          "actual_base_partition_bisected": true,
+          "requested_dt_s": 0.125
+        }
+      },
+      "critical_window_s": [
+        0,
+        10320
+      ],
+      "directional_coverage": {
+        "radial": {
+          "time_ranges_s": [
+            [
+              0.0,
+              10320.0
+            ]
+          ],
+          "complete": true
+        },
+        "axial": {
+          "time_ranges_s": [
+            [
+              0.0,
+              10320.0
+            ]
+          ],
+          "complete": true
+        }
+      },
+      "endpoint_sensitivity": {
+        "radial": {
+          "complete": true,
+          "status": "2D_SPATIAL_VALIDATION_PARTIAL",
+          "base_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+          "base_fingerprint": "6769b70db8f82b3fb975713f1b631381d0d3e18970452395f6374fe9554c8b22",
+          "mesh_profile_hash": "338635beb33f8ce814c0d563afc33329ff07cea30317a41b99cd756eee1e5905",
+          "direction": "radial",
+          "nr": 80,
+          "nz": 125,
+          "time_range_s": [
+            180600.0,
+            184859.88
+          ],
+          "event": {
+            "left_s": 184243.625,
+            "right_s": 184243.6875,
+            "width_s": 0.0625,
+            "raw_event_s": 184243.6875,
+            "report_s": 184244.03999999998,
+            "report_h": 51.17889999999999,
+            "left_max_C": 0.1500000071166847,
+            "right_max_C": 0.14999997513568394,
+            "report_max_C": 0.14999979476331057
+          },
+          "event_difference_s": 16.1875,
+          "event_relative_difference": 8.785918377800596e-05,
+          "wall_s": 184.8497599000002,
+          "steps": 68158,
+          "limited": 136103,
+          "projection_integral_difference": [
+            0.0,
+            -6.938893903907228e-18
+          ],
+          "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence.",
+          "passed": true
+        },
+        "axial": {
+          "complete": true,
+          "status": "2D_SPATIAL_VALIDATION_PARTIAL",
+          "base_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+          "base_fingerprint": "6769b70db8f82b3fb975713f1b631381d0d3e18970452395f6374fe9554c8b22",
+          "mesh_profile_hash": "7c4f1999f23164edf2d3172123d366e10d065d3f1a0c86c73bb9d1c5b53dfa00",
+          "direction": "axial",
+          "nr": 40,
+          "nz": 250,
+          "time_range_s": [
+            180600.0,
+            184859.88
+          ],
+          "event": {
+            "left_s": 184259.8125,
+            "right_s": 184259.875,
+            "width_s": 0.0625,
+            "raw_event_s": 184259.875,
+            "report_s": 184259.88,
+            "report_h": 51.1833,
+            "left_max_C": 0.15000002353624386,
+            "right_max_C": 0.14999999156415228,
+            "report_max_C": 0.149999989006386
+          },
+          "event_difference_s": 0.0,
+          "event_relative_difference": 0.0,
+          "wall_s": 78.67727609999929,
+          "steps": 34079,
+          "limited": 34008,
+          "projection_integral_difference": [
+            1.4210854715202004e-14,
+            6.938893903907228e-18
+          ],
+          "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence.",
+          "passed": true
+        }
+      },
+      "qualitative_spatial_consistency": "PASS",
+      "end_effect_detected": true,
+      "qualitative_samples": [
+        {
+          "direction": "base",
+          "time_s": 1740,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 4.672061116542295,
+              "peak_z_over_half_length": 0.9962993422529143,
+              "end_mean_difference": 1.1646930717796689,
+              "middle_mean_difference": 0.000352065424019885,
+              "bulk_change": 3.3768495556173046,
+              "one_dimensional_bulk_change": 3.377086607150605,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 1.0594875971111513,
+              "peak_z_over_half_length": 0.9962993422529143,
+              "end_mean_difference": 0.07250616606499131,
+              "middle_mean_difference": 0.0009748217231837776,
+              "bulk_change": -3.2825847349164637e-07,
+              "one_dimensional_bulk_change": -1.1354002662118124e-07,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "base",
+          "time_s": 2520,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 5.291437129975577,
+              "peak_z_over_half_length": 0.9962993422529143,
+              "end_mean_difference": 1.5146190077792798,
+              "middle_mean_difference": 0.0004247881582683978,
+              "bulk_change": 6.82822076905829,
+              "one_dimensional_bulk_change": 6.828691783212717,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 1.1934776300805563,
+              "peak_z_over_half_length": 0.9962993422529143,
+              "end_mean_difference": 0.09569874090677986,
+              "middle_mean_difference": 0.0008047506186093183,
+              "bulk_change": -2.8221056509985757e-05,
+              "one_dimensional_bulk_change": -2.039647379436859e-05,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "base",
+          "time_s": 10320,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 0.17712578737859985,
+              "peak_z_over_half_length": 0.9888980267587427,
+              "end_mean_difference": 0.08788889691133656,
+              "middle_mean_difference": 0.0011450645781448093,
+              "bulk_change": 21.769377616501785,
+              "one_dimensional_bulk_change": 21.767958846203157,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 1.5789237231955646,
+              "peak_z_over_half_length": 0.9962993422529143,
+              "end_mean_difference": 0.21029735965336405,
+              "middle_mean_difference": 0.0002623971414243639,
+              "bulk_change": -0.23240486748230155,
+              "one_dimensional_bulk_change": -0.2323950505564793,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "radial",
+          "time_s": 1740,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 4.672347077307052,
+              "peak_z_over_half_length": 0.9962993422529143,
+              "end_mean_difference": 1.1648196487831173,
+              "middle_mean_difference": 0.00013613461495191588,
+              "bulk_change": 3.3489889538815283,
+              "one_dimensional_bulk_change": 3.3490866344550336,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 1.0594893623099328,
+              "peak_z_over_half_length": 0.9962993422529143,
+              "end_mean_difference": 0.0721214756138966,
+              "middle_mean_difference": 0.00026778764139300855,
+              "bulk_change": -8.424335561262625e-08,
+              "one_dimensional_bulk_change": -6.400057343191263e-08,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "radial",
+          "time_s": 2520,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 5.291916088561379,
+              "peak_z_over_half_length": 0.9962993422529143,
+              "end_mean_difference": 1.5147722218480046,
+              "middle_mean_difference": 0.00014376090302714486,
+              "bulk_change": 6.797643479509998,
+              "one_dimensional_bulk_change": 6.797750502260816,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 1.1934788718721923,
+              "peak_z_over_half_length": 0.9962993422529143,
+              "end_mean_difference": 0.09554442133959876,
+              "middle_mean_difference": 0.00022067791570005142,
+              "bulk_change": -1.5050061799118897e-05,
+              "one_dimensional_bulk_change": -1.3988729671155615e-05,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "radial",
+          "time_s": 10320,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 0.17716622876508836,
+              "peak_z_over_half_length": 0.9888980267587427,
+              "end_mean_difference": 0.08790739064370277,
+              "middle_mean_difference": 0.0011958464449368196,
+              "bulk_change": 21.76850871226464,
+              "one_dimensional_bulk_change": 21.76700890856326,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 1.5789395764860747,
+              "peak_z_over_half_length": 0.9962993422529143,
+              "end_mean_difference": 0.21041260860883323,
+              "middle_mean_difference": 6.862505287084349e-05,
+              "bulk_change": -0.22357140387263885,
+              "one_dimensional_bulk_change": -0.22359249919610116,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "axial",
+          "time_s": 1740,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 4.802024955416471,
+              "peak_z_over_half_length": 0.998149671126457,
+              "end_mean_difference": 1.1656834880842937,
+              "middle_mean_difference": 0.000352131491298118,
+              "bulk_change": 3.376849472656779,
+              "one_dimensional_bulk_change": 3.377086607150605,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 1.2242523151220166,
+              "peak_z_over_half_length": 0.998149671126457,
+              "end_mean_difference": 0.07377586418127424,
+              "middle_mean_difference": 0.0009748217111772521,
+              "bulk_change": -3.2825847208439833e-07,
+              "one_dimensional_bulk_change": -1.1354002662118124e-07,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "axial",
+          "time_s": 2520,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 5.4125807595737,
+              "peak_z_over_half_length": 0.998149671126457,
+              "end_mean_difference": 1.5155088176498641,
+              "middle_mean_difference": 0.00042524991301065666,
+              "bulk_change": 6.828220061531839,
+              "one_dimensional_bulk_change": 6.828691783212717,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 1.3274253528586788,
+              "peak_z_over_half_length": 0.998149671126457,
+              "end_mean_difference": 0.09678219900337973,
+              "middle_mean_difference": 0.0008047504706321179,
+              "bulk_change": -2.8221055373700325e-05,
+              "one_dimensional_bulk_change": -2.039647379436859e-05,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "direction": "axial",
+          "time_s": 10320,
+          "fields": [
+            {
+              "field": "temperature",
+              "max_difference": 0.1772354867877084,
+              "peak_z_over_half_length": 0.9907483556322856,
+              "end_mean_difference": 0.08788168126421425,
+              "middle_mean_difference": 0.0011447718832982086,
+              "bulk_change": 21.769377242775523,
+              "one_dimensional_bulk_change": 21.767958846203157,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            },
+            {
+              "field": "moisture",
+              "max_difference": 1.6441915960960465,
+              "peak_z_over_half_length": 0.998149671126457,
+              "end_mean_difference": 0.21065812997068148,
+              "middle_mean_difference": 0.00026240445131013514,
+              "bulk_change": -0.23240484854223728,
+              "one_dimensional_bulk_change": -0.2323950505564793,
+              "peak_near_end": true,
+              "end_effect_detected": true,
+              "decays_towards_middle": true,
+              "bulk_trend_agrees": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "endpoint_control_regions": {
+        "base": {
+          "max_moisture": 0.1499839449698096,
+          "r_over_R": 0.012870485716127145,
+          "z_over_half_length": 0.004047594410874982,
+          "category": "interior_core",
+          "all_outputs_finite": true
+        },
+        "radial": {
+          "max_moisture": 0.1499957832731273,
+          "r_over_R": 0.006436483020252097,
+          "z_over_half_length": 0.004047594410874982,
+          "category": "interior_core",
+          "all_outputs_finite": true
+        },
+        "axial": {
+          "max_moisture": 0.14998394497742631,
+          "r_over_R": 0.012870485716127145,
+          "z_over_half_length": 0.002023797205437477,
+          "category": "interior_core",
+          "all_outputs_finite": true
+        }
+      },
+      "local_Linf": {
+        "diagnostic_only": true,
+        "acceptance_veto": false,
+        "radial": {
+          "coarse_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+          "fine_id": "q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification",
+          "coarse_fingerprint": "6769b70db8f82b3fb975713f1b631381d0d3e18970452395f6374fe9554c8b22",
+          "fine_fingerprint": "b6a713ee07d474f2e441da83197a3e0b4c9767bc38927450832eb1b8606968b6",
+          "maxima_temperature": {
+            "value": 0.0016598413186557082,
+            "signed_difference": -0.0016598413186557082,
+            "time_s": 1740.0,
+            "r_m": 0.01844085409353184,
+            "z_m": 0.01770822554757085,
+            "coarse_value": 308.548459278604,
+            "fine_value": 308.54679943728536
+          },
+          "maxima_moisture": {
+            "value": 0.06607616749517531,
+            "signed_difference": 0.06607616749517531,
+            "time_s": 60.0,
+            "r_m": 0.01984019676992362,
+            "z_m": 0.0005059493013593728,
+            "coarse_value": 2.1833680682925456,
+            "fine_value": 2.249444235787721
+          },
+          "official_temperature": {
+            "value": 0.0013992901555752724,
+            "signed_difference": -0.0013992901555752724,
+            "time_s": 2340.0,
+            "r_m": 0.018000000000000002,
+            "z_m": 0.0035416451095156704,
+            "coarse_value": 311.2793697106565,
+            "fine_value": 311.27797042050094
+          },
+          "official_moisture": {
+            "value": 0.059550740902716726,
+            "signed_difference": 0.059550740902716726,
+            "time_s": 60.0,
+            "r_m": 0.01995766666666667,
+            "z_m": 0.10260828713856054,
+            "coarse_value": 2.0041252128918483,
+            "fine_value": 2.063675953794565
+          },
+          "volume_L2_temperature": {
+            "value": 0.0005899971418203394,
+            "time_s": 1320.0
+          },
+          "volume_L2_moisture": {
+            "value": 0.0130239627676407,
+            "time_s": 60.0
+          },
+          "event_difference_s": null,
+          "event_relative_difference": null,
+          "event_status_agrees": true,
+          "event_comparison_applicable": false,
+          "reference_complete": true,
+          "time_range_s": [
+            0.0,
+            10320.0
+          ],
+          "sample_count": 173,
+          "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+          "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+          "assessment": "QUANTIFIED",
+          "representative_times_s": [
+            2520.0,
+            10320.0
+          ],
+          "note": "Separate directional refinement; no combined-direction full-time certificate."
+        },
+        "axial": {
+          "coarse_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+          "fine_id": "q4_2d_adaptive_nr40_nz250_dt0.25_m7c4f1999f231_axial_verification",
+          "coarse_fingerprint": "6769b70db8f82b3fb975713f1b631381d0d3e18970452395f6374fe9554c8b22",
+          "fine_fingerprint": "ee04fb19ebf51cb81dcb479f4509a08a0a8c50a47c249fe6fdf5c0444d0658b7",
+          "maxima_temperature": {
+            "value": 0.005230467133799266,
+            "signed_difference": -0.005230467133799266,
+            "time_s": 1740.0,
+            "r_m": 0.0,
+            "z_m": 0.12430612667242141,
+            "coarse_value": 308.5056481871832,
+            "fine_value": 308.5004177200494
+          },
+          "maxima_moisture": {
+            "value": 0.22292803932494376,
+            "signed_difference": 0.22292803932494376,
+            "time_s": 60.0,
+            "r_m": 0.0,
+            "z_m": 0.12476870889080713,
+            "coarse_value": 2.139349101747969,
+            "fine_value": 2.3622771410729126
+          },
+          "official_temperature": {
+            "value": 0.005230467133799266,
+            "signed_difference": -0.005230467133799266,
+            "time_s": 1740.0,
+            "r_m": 0.0,
+            "z_m": 0.12430612667242141,
+            "coarse_value": 308.5056481871832,
+            "fine_value": 308.5004177200494
+          },
+          "official_moisture": {
+            "value": 0.22292803932494376,
+            "signed_difference": 0.22292803932494376,
+            "time_s": 60.0,
+            "r_m": 0.0,
+            "z_m": 0.12476870889080713,
+            "coarse_value": 2.139349101747969,
+            "fine_value": 2.3622771410729126
+          },
+          "volume_L2_temperature": {
+            "value": 0.0005233627183505843,
+            "time_s": 1320.0
+          },
+          "volume_L2_moisture": {
+            "value": 0.013862259257832759,
+            "time_s": 60.0
+          },
+          "event_difference_s": null,
+          "event_relative_difference": null,
+          "event_status_agrees": true,
+          "event_comparison_applicable": false,
+          "reference_complete": true,
+          "time_range_s": [
+            0.0,
+            10320.0
+          ],
+          "sample_count": 173,
+          "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+          "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+          "assessment": "QUANTIFIED",
+          "representative_times_s": [
+            2520.0,
+            10320.0
+          ],
+          "note": "Separate directional refinement; no combined-direction full-time certificate."
+        }
+      },
+      "strict_grid_independence_assessment": {
+        "spatial_passed": false,
+        "spatial_full_time": false,
+        "numerical_status": "2D_SPATIAL_VALIDATION_PARTIAL",
+        "radial": {
+          "coarse_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+          "fine_id": "q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification",
+          "coarse_fingerprint": "6769b70db8f82b3fb975713f1b631381d0d3e18970452395f6374fe9554c8b22",
+          "fine_fingerprint": "b6a713ee07d474f2e441da83197a3e0b4c9767bc38927450832eb1b8606968b6",
+          "maxima_temperature": {
+            "value": 0.0016598413186557082,
+            "signed_difference": -0.0016598413186557082,
+            "time_s": 1740.0,
+            "r_m": 0.01844085409353184,
+            "z_m": 0.01770822554757085,
+            "coarse_value": 308.548459278604,
+            "fine_value": 308.54679943728536
+          },
+          "maxima_moisture": {
+            "value": 0.06607616749517531,
+            "signed_difference": 0.06607616749517531,
+            "time_s": 60.0,
+            "r_m": 0.01984019676992362,
+            "z_m": 0.0005059493013593728,
+            "coarse_value": 2.1833680682925456,
+            "fine_value": 2.249444235787721
+          },
+          "official_temperature": {
+            "value": 0.0013992901555752724,
+            "signed_difference": -0.0013992901555752724,
+            "time_s": 2340.0,
+            "r_m": 0.018000000000000002,
+            "z_m": 0.0035416451095156704,
+            "coarse_value": 311.2793697106565,
+            "fine_value": 311.27797042050094
+          },
+          "official_moisture": {
+            "value": 0.059550740902716726,
+            "signed_difference": 0.059550740902716726,
+            "time_s": 60.0,
+            "r_m": 0.01995766666666667,
+            "z_m": 0.10260828713856054,
+            "coarse_value": 2.0041252128918483,
+            "fine_value": 2.063675953794565
+          },
+          "volume_L2_temperature": {
+            "value": 0.0005899971418203394,
+            "time_s": 1320.0
+          },
+          "volume_L2_moisture": {
+            "value": 0.0130239627676407,
+            "time_s": 60.0
+          },
+          "event_difference_s": null,
+          "event_relative_difference": null,
+          "event_status_agrees": true,
+          "event_comparison_applicable": false,
+          "reference_complete": true,
+          "time_range_s": [
+            0.0,
+            10320.0
+          ],
+          "sample_count": 173,
+          "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+          "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+          "assessment": "QUANTIFIED",
+          "representative_times_s": [
+            2520.0,
+            10320.0
+          ],
+          "note": "Separate directional refinement; no combined-direction full-time certificate."
+        },
+        "axial": {
+          "coarse_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+          "fine_id": "q4_2d_adaptive_nr40_nz250_dt0.25_m7c4f1999f231_axial_verification",
+          "coarse_fingerprint": "6769b70db8f82b3fb975713f1b631381d0d3e18970452395f6374fe9554c8b22",
+          "fine_fingerprint": "ee04fb19ebf51cb81dcb479f4509a08a0a8c50a47c249fe6fdf5c0444d0658b7",
+          "maxima_temperature": {
+            "value": 0.005230467133799266,
+            "signed_difference": -0.005230467133799266,
+            "time_s": 1740.0,
+            "r_m": 0.0,
+            "z_m": 0.12430612667242141,
+            "coarse_value": 308.5056481871832,
+            "fine_value": 308.5004177200494
+          },
+          "maxima_moisture": {
+            "value": 0.22292803932494376,
+            "signed_difference": 0.22292803932494376,
+            "time_s": 60.0,
+            "r_m": 0.0,
+            "z_m": 0.12476870889080713,
+            "coarse_value": 2.139349101747969,
+            "fine_value": 2.3622771410729126
+          },
+          "official_temperature": {
+            "value": 0.005230467133799266,
+            "signed_difference": -0.005230467133799266,
+            "time_s": 1740.0,
+            "r_m": 0.0,
+            "z_m": 0.12430612667242141,
+            "coarse_value": 308.5056481871832,
+            "fine_value": 308.5004177200494
+          },
+          "official_moisture": {
+            "value": 0.22292803932494376,
+            "signed_difference": 0.22292803932494376,
+            "time_s": 60.0,
+            "r_m": 0.0,
+            "z_m": 0.12476870889080713,
+            "coarse_value": 2.139349101747969,
+            "fine_value": 2.3622771410729126
+          },
+          "volume_L2_temperature": {
+            "value": 0.0005233627183505843,
+            "time_s": 1320.0
+          },
+          "volume_L2_moisture": {
+            "value": 0.013862259257832759,
+            "time_s": 60.0
+          },
+          "event_difference_s": null,
+          "event_relative_difference": null,
+          "event_status_agrees": true,
+          "event_comparison_applicable": false,
+          "reference_complete": true,
+          "time_range_s": [
+            0.0,
+            10320.0
+          ],
+          "sample_count": 173,
+          "method": "Same saved times; piecewise bilinear physical-coordinate reconstruction; official r=0:0.001:0.020 m plus true R(t); outside points excluded; volume-normalized L2 at fine cell centers",
+          "scope_note": "Sampled-time maxima, not a continuous-time bound. Spatial refinement may activate different unchanged RK4 safety partitions.",
+          "assessment": "QUANTIFIED",
+          "representative_times_s": [
+            2520.0,
+            10320.0
+          ],
+          "note": "Separate directional refinement; no combined-direction full-time certificate."
+        },
+        "endpoint_sensitivity": [
+          {
+            "complete": true,
+            "status": "2D_SPATIAL_VALIDATION_PARTIAL",
+            "base_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+            "base_fingerprint": "6769b70db8f82b3fb975713f1b631381d0d3e18970452395f6374fe9554c8b22",
+            "mesh_profile_hash": "338635beb33f8ce814c0d563afc33329ff07cea30317a41b99cd756eee1e5905",
+            "direction": "radial",
+            "nr": 80,
+            "nz": 125,
+            "time_range_s": [
+              180600.0,
+              184859.88
+            ],
+            "event": {
+              "left_s": 184243.625,
+              "right_s": 184243.6875,
+              "width_s": 0.0625,
+              "raw_event_s": 184243.6875,
+              "report_s": 184244.03999999998,
+              "report_h": 51.17889999999999,
+              "left_max_C": 0.1500000071166847,
+              "right_max_C": 0.14999997513568394,
+              "report_max_C": 0.14999979476331057
+            },
+            "event_difference_s": 16.1875,
+            "event_relative_difference": 8.785918377800596e-05,
+            "wall_s": 184.8497599000002,
+            "steps": 68158,
+            "limited": 136103,
+            "projection_integral_difference": [
+              0.0,
+              -6.938893903907228e-18
+            ],
+            "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence."
+          },
+          {
+            "complete": true,
+            "status": "2D_SPATIAL_VALIDATION_PARTIAL",
+            "base_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+            "base_fingerprint": "6769b70db8f82b3fb975713f1b631381d0d3e18970452395f6374fe9554c8b22",
+            "mesh_profile_hash": "7c4f1999f23164edf2d3172123d366e10d065d3f1a0c86c73bb9d1c5b53dfa00",
+            "direction": "axial",
+            "nr": 40,
+            "nz": 250,
+            "time_range_s": [
+              180600.0,
+              184859.88
+            ],
+            "event": {
+              "left_s": 184259.8125,
+              "right_s": 184259.875,
+              "width_s": 0.0625,
+              "raw_event_s": 184259.875,
+              "report_s": 184259.88,
+              "report_h": 51.1833,
+              "left_max_C": 0.15000002353624386,
+              "right_max_C": 0.14999999156415228,
+              "report_max_C": 0.149999989006386
+            },
+            "event_difference_s": 0.0,
+            "event_relative_difference": 0.0,
+            "wall_s": 78.67727609999929,
+            "steps": 34079,
+            "limited": 34008,
+            "projection_integral_difference": [
+              1.4210854715202004e-14,
+              6.938893903907228e-18
+            ],
+            "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence."
+          }
+        ],
+        "representative_extensions": []
+      },
+      "warnings": [
+        "2D_GRID_INDEPENDENCE_NOT_CERTIFIED",
+        "SEPARATE_DIRECTIONAL_REFINEMENT_ONLY",
+        "LOCAL_BOUNDARY_LAYER_LINF_EXCEEDS_1D_TOLERANCE"
+      ]
+    }
+  },
+  "two_dimensional_auxiliary_validation_passed": true,
+  "two_dimensional_grid_independence_certified": false,
+  "grid_independence_status": "PARTIAL_2D",
+  "limitations": [
+    "Temporal evidence covers 0–1800 s only for Q23/Q4",
+    "Separate radial and axial refinements",
+    "Late-window endpoint experiments inherit earlier coarse-grid error",
+    "No full-time joint grid-independence certification"
+  ],
+  "source_sha256": {
+    "configs/auxiliary_2d_validation.json": "8f62dc4b48f48f47008fda5b83d2cf26a5f6df379d60f5a8d98d588e673c2111",
+    "configs/default.toml": "756af142e368be269abc825b3b89858660390b75e8a2cda862252dea19c6119a",
+    "work/validation/summary.json": "c2d68800bfa735cde91090b8b5dd3e8dc892be10d1a3c62bc8277f9177b6a26a",
+    "work/cache/q1_1d_stage_schedule_default_dt0.25_s030d129157f2/status.json": "d9ef511200edc297d85e2cd7fc1b169258f33bfe808d67e65dcf408c5cf3f43f",
+    "work/cache/q1_1d_adaptive_nr200_nz1_dt0.25_md2d30d0587fe_stagepart_030d129157f2_0/status.json": "d0cbbafd93560ea99662bf64aa6ce4eaa75302a7ce09366ac7e902b9447201b9",
+    "work/cache/q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898_stagepart_030d129157f2_1/status.json": "94e062bcfc01f83d8bb43596774868d9d4ad0d48163ee013df9a2e2c262031a2",
+    "work/cache/q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898_stagepart_030d129157f2_1/chunk_0000.npz": "ca54c5d2b63f1657932655c78a2c8f254d7ed1a7cc4ba0c705187fe57c1d74f5",
+    "work/cache/q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898_stagepart_030d129157f2_1/mesh.npz": "d6bae3c975701de1efa8983d6d868ae0cdbc50651066163b13ac1d0c57dd4da6",
+    "work/cache/q1_1d_adaptive_nr80_nz1_dt0.25_m2fb9c46fbeef_stagepart_030d129157f2_2/status.json": "1caf9710b99ef4d041cea58b75173c71764878d19c67bd00158f4dbb9505c1ea",
+    "work/cache/q1_1d_adaptive_nr40_nz1_dt0.25_mcecd4275aca0_stagepart_030d129157f2_3/status.json": "37ca14c9482bc3c9672679a0abfa1d63f4404177813984402066776d21c00b91",
+    "work/cache/q1_1d_adaptive_nr40_nz1_dt0.25_mcecd4275aca0_stagepart_030d129157f2_3/chunk_0000.npz": "07f87edfe2a004f92e30d2333efb884fc18d338f8ec107730499804aa225a109",
+    "work/cache/q1_1d_adaptive_nr40_nz1_dt0.25_mcecd4275aca0_stagepart_030d129157f2_3/mesh.npz": "192a01c2a27e2eac5ee7ad3e8f5446681c23293a14a069016938d0b285db9a10",
+    "work/cache/q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542/status.json": "aa76cf02f82666dddeccfbd5cbbe8b742d2c268fb988baffe4b5d4573d6808a4",
+    "work/cache/q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542/chunk_0000.npz": "b86b30ceeeaed2f30f55d3cf0babde904493e384502e1d12662c9ee16ed19e95",
+    "work/cache/q1_2d_adaptive_nr40_nz125_dt0.125_md810aa408542_half_steps/status.json": "fcc266949fd024ed39a5c4f04318493832063a3b1c0fc5bdce49396d5d5ea170",
+    "work/cache/q1_2d_adaptive_nr40_nz125_dt0.125_md810aa408542_half_steps/chunk_0000.npz": "fe90a2d05243d3dd19bf2fbdb86c099d016e1723c718544315af0a9a5c58ed51",
+    "work/cache/q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542/mesh.npz": "187a8dcac6606daf2d5d33c36a663fad1fef9f4e3fae2acfdaadda60ab611106",
+    "work/cache/q1_2d_adaptive_nr80_nz125_dt0.25_m0663d58bba57_radial_verification/status.json": "514a0e371f5e33e9b91cd83112f89c3c6acedc703d69e5c600e7af1b6e153652",
+    "work/cache/q1_2d_adaptive_nr80_nz125_dt0.25_m0663d58bba57_radial_verification/chunk_0000.npz": "5c28a5e011b5f7cff196a52eeb1c28bcb2b4f336903c87e5726f8dc20bda80ec",
+    "work/cache/q1_2d_adaptive_nr80_nz125_dt0.25_m0663d58bba57_radial_verification/mesh.npz": "0cb7ddc56eb2d75540166dd03a202b459027a452460500f05e2ce2a2fab0ac07",
+    "work/cache/q1_2d_adaptive_nr40_nz250_dt0.25_m86bafdbf4d10_axial_verification/status.json": "799187ad7da66d9c7075b5d0cfb14fe3523427fd76e82a0a2b99add7f075014d",
+    "work/cache/q1_2d_adaptive_nr40_nz250_dt0.25_m86bafdbf4d10_axial_verification/chunk_0000.npz": "dd2715460263f98bfdf15747c74ad6264bf15bad520bf8c99f041b14e0fa3b7e",
+    "work/cache/q1_2d_adaptive_nr40_nz250_dt0.25_m86bafdbf4d10_axial_verification/mesh.npz": "10d8e09b616e0102bf3f09a29f63c4c632faca9cf5c80f3c13996cddb3d7c123",
+    "work/cache/q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084/status.json": "c1a2477a8645e6ce51236702848e3ed27f37fd9497458be3def7b9ffde38e4c4",
+    "work/cache/q23_1d_adaptive_nr200_nz1_dt0.25_m1ccbfdc27056_stagepart_45cdf27de084_0/status.json": "7bd63e003108a813b53df50d823e3d999c11f407da5b9d0c07ae330f8cf4033a",
+    "work/cache/q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006_stagepart_45cdf27de084_1/status.json": "17eec2c519274af2a4e99b7192b76c1a79ea45e684e8321314af2b0ac499088f",
+    "work/cache/q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006_stagepart_45cdf27de084_1/chunk_0000.npz": "585e07b6ed619d80852b186ce53bb54ee0be1e9f0bf5fe75beb53edee2507659",
+    "work/cache/q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006_stagepart_45cdf27de084_1/mesh.npz": "e7d092b875bbff663ea72ed473e9472ded1aa029615857d69cdb5b6654769fe3",
+    "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/status.json": "b287ffd43b00bec403de16384e869575cf9a574587f0ead85fe763ab434b0271",
+    "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0001.npz": "36f430958f8235189ecd40224db4993a1f58eeec567e269a5937929f46e703be",
+    "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/mesh.npz": "c71b4919f2632717f8c6544cd29f909eb7f7edef7e258cd2fc94881684dccb1b",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/status.json": "f96355325195a5a6187e52a74464b24802463921b499b257f1e88584e0dd85d6",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0000.npz": "c811f78905fb11e0a2fe0cb8fb8dbbc6768d7d1bc330c91b2576da82996cff54",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0001.npz": "d3728f829f3420482c96c89cb72520c5d0114ba81f1dc36718b29374ef233b44",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0002.npz": "ca04033903f4361a9d7201f63842425beb56d32ed9d820d8af77df177f92b302",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0003.npz": "05e980d40e2424fd12f82434617eacd395911052ef4faed7cbc0763b44fa3269",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0004.npz": "a395d99a17d79671ab9ab0b451f27c08635f89428a6e925024b1b45f3cf6e86f",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0005.npz": "9552cc3d2fad7f1033b88db50be0f50c93b6a32dadb17d281cd2d10cdd08f9c0",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0006.npz": "d4ae8e2c143801c2951b2e4b649c5fa60a7e2c95f077597e9a71248fe442322f",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0007.npz": "a01c1eddb21b5a656cd7d49b6edef5da6cdbabe754770d04ae32b639b8d8f7ed",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0008.npz": "01651b748247c426dc98d7fbe20693222b814ebe12f1f17cc603674617b6e75b",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0009.npz": "0de7819948c5b071c7e1f3af55d705dc06f91e356d37f505e086b8a005c28c51",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0010.npz": "f148fda472347b06697780e296845c28902b0617c7b295581e4fb514c8cfd946",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0011.npz": "efe60963e1bd5bed076719845243ffdd0da006cb0a7ea109250b117d4af610cc",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0012.npz": "54713c91497b80a3c0401586e05fd342c041c89259c99f12fba92ccdf85e7813",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0013.npz": "50e387c627c967fd39ccbd41788a988533f839944c51055ea7d915371297d07c",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0014.npz": "0067caaf1871d811ad5bd8a97dc4b0ef6f96b38c49c04aec950254aed888759a",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0015.npz": "822f37abe8d80d9bf668763899396ee7e23d15925dfe849c2af381bcfe2fdec9",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0016.npz": "39c553d914cbd275d364528b783a54802a1c01e3eaec961c0b7f5b638933d4ea",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0017.npz": "b9cd2932d6990c07159d8b23924586c7ec67ea391b5a79ea0d4e2828fa05ac4d",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0018.npz": "409195e61bd693a8f8051499f6413259b7c769048e0a5a90c304b5ba22717b6f",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0019.npz": "a6a2558c85d772ca0f0ec309eaede3a0b036e98b4815d674e685d81d47bf128d",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0020.npz": "2f4246374cb021f8334824f36beeba66b76ab75606c7085862a7faef13b508ce",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0021.npz": "2cac4d4145eb0796e969e189d0832f560ce6c5b3dc560e139b44feb56e988880",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0022.npz": "5528b14c2df9d7171b8c36c78c07dab5795717f102ac286cb2bc80a551611a31",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0023.npz": "45f6bbd468528e211fe35c72db6512f833d2102532c8fab155c12f5c33690117",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0024.npz": "8e8ad8bf902fd52e52c62cf253df06eea28b47e80265dec85162e4fdb4eb0308",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0025.npz": "d8ef26f288ff75f4015e546754405b487692bab20980d355f86a83258543c08d",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0026.npz": "22f1318697fe298203f371a51ca78befb854944142d2ffeb7691a7486c107911",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0027.npz": "5bf8c922119b45a3bc3073774318d414e0140046c4ac92c1b7b70820cf786912",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0028.npz": "cd87ada9bf6cbf40c5704909ee681658df6a20b249f5e53b0fcacf25f31220c2",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0029.npz": "4e780df5d2dae15239f11e260377a35f7ed857d167a0b24ef0a075ec5a623e24",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0030.npz": "865bcfe5a41d9a3682a803ae38d31d2f9d7c0c781c55110c83208b9fbce9e6c6",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0031.npz": "f92c402959cbfc7709d1066d3100be990d5e3b44eac65e262c5e23c45596e73c",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0032.npz": "bddcc6fb06b57f9998ba66f1ce9b2c32456d36a08af89b6397c6e47a588e1971",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0033.npz": "bcaba5ccc53f86a49aaf5052f1141693d1b240c2f28680831363b0996ad45eb3",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0034.npz": "a4e9e3e1a3e57e094bebcfdc1f9bd3e553915df816816967dfb25a3c01b64870",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0035.npz": "058f71243cf54b88ba2f1b86c747f016b47fb7e4236459f4d3f4994058b5c150",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0036.npz": "beb8395e1977dcfc7590085e8923b5be1b856f1af612acdd92c7bac6746d0660",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0037.npz": "a55138a37a7371b461d377b9b42275b6f1b6ea8426528e9633d5bf449d20c05c",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0038.npz": "11f03bb82620a4f6a86afb2b9d663199be81f69693e98fbf84f6164129ca5add",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0039.npz": "1a87f58cad47650f3dc816133ba517099ca4c89234acfc8873193b705d10d982",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0040.npz": "90bbe6edc88f632d20f97c283331986a8667d70ab304e60339aa9a54a6a692a0",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0041.npz": "f3e8275e9baadc26c5ca6a69c219e4c860f3c84132bc65b7e39794e2cca08b80",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0042.npz": "1d61947e7631b444bcc03cf8a62e4415b44cdc65ab680fd822926faa8891ec7d",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0043.npz": "f70f539cdafce8d256f025dfcfa8b78588271801c8935a06cdc810d8675d21b7",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0044.npz": "8a0b25b064f2171d3f30d7794f18cfc07b831fd94adbd5c339531d0a43bc11d9",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0045.npz": "eaa484908750de3583e4b7d84ee9df58adda8dd98a3a5d7c9f031a11ebf965d1",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0046.npz": "101e2682e6ed56be7b0a0ddfc83624fc4c60c940f78e8afcb447083083d147d0",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0047.npz": "d5a240b5d0bf4610ea12c039ca57d69fdebfc240572acf7da78a64cdcdd65612",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0048.npz": "5290960464ebfdbfc816cf04e70b8b8298d97f3125a2ef6fb7150666fd252838",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0049.npz": "77c32ba247a02edcc118bc7283b71afa6154abae140d5c5cdf6db985886b5d15",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0050.npz": "1068ed2ee5f0f61e33662a1ca8b0c8c256d28baac467202ea838261b1d69bb39",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0051.npz": "1df6d57e587a807f68a29ff68bb6ec49977e16e21a288c1aac95eae9d5c54e66",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0052.npz": "19ac7fb255412c6f2ff51a0bd82c28e3ff5264020eb10a82a58cf49603e127e0",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0053.npz": "852d31c821027e42dc27694f7f6b342881d5b273fa339a3f84fa5c8545ef9c1f",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0054.npz": "d29bdb7ad122a65917c691bc9668bf889149f8cccc86aa37d25232696200eb88",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0055.npz": "5e2ed0a2fac388f1df32160137eae305644a852258e0af6af314890c8765cce3",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0056.npz": "3123570ea12804c37cfe817adba8e4840b6869438a776c487a2c7f1bc89e50fb",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0057.npz": "96a054eaaaa15327c671724eb1270319c68d1f4f92c2eb7c81f9c7edb7582e01",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0058.npz": "cddbc40bf2dc3e91da16e9f767bc900ce05c0fa5648af7a2e2db529c128b02f0",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0059.npz": "2fa52ae01a805311cf9112e8e6cb0c289fcdb07bd9919bc8bccb41739313a10f",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0060.npz": "73ff023c9cd00dbf277d27468b15ba4cd06662cfe1bd834fa8871611df8dfb22",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0061.npz": "312a5e52f37fd57fa0e2713ba77afd6f4e686d1ae0d98eba905b62c2aa987f66",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0062.npz": "ba8310fd458a35ee05f2cafe51a4569a777c4fa3b3f6fe795888c0380fc6b048",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0063.npz": "b5db02bb6f65219932e076453095b5a0c551e2c402823c0e3145ac2999f95991",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0064.npz": "78599bf1a1909ad9efb48b0ff83cfec3ca4589aa72f41ccecfa8b22171dd7f90",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0065.npz": "a5cc25a7de2a71243a548130e05e55bba4c82465aefaf2002270e43e906a1ae8",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0066.npz": "3926f03e1c9921984805cf5887134b430133b6d3fef82f7cf561e0593fb3b64f",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0067.npz": "eefa63f1b0c311cfa50ce7799825c306bbe848574985cc92767ed89abbf667ee",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0068.npz": "07cd90f649a896c06270571c9da947ca338818f6a990452dcfbad88d63eebfb7",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0069.npz": "c0b6294c22340cab6185d8d6db36701b61ddd84607d8078f59ee7bdfad90744b",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0070.npz": "ec4afe093c1a0c085674eb6e21d539b9f40c4e4478f07102b1bc3ab44e3bc0fa",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/chunk_0071.npz": "2159aa7a33748c8a0c9b0b6f17069437381590345f8eaaa9ab1fe10b83e36086",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.125_mfd6e5cf8c919_half_steps/status.json": "efd38b99f48162e0e0e5fde78928135de4100e380271eeaee331b67dafade23a",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.125_mfd6e5cf8c919_half_steps/chunk_0000.npz": "2fdbe0dbc24d4c12f143b1ab56382adbcff48f217312ee44173fc5809198123c",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/mesh.npz": "a058010f8672ef70ee1da4f68c162280cbde3b2a4f1a2bec8db8f995ac67dab8",
+    "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/event.npz": "a49b9b5e699518c75b248062f6b5461a7341dc39f16bbad2aeedd1f45806b0c2",
+    "work/cache/q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification/status.json": "f6ec8848b579ddb44fa71391aec2e2bec18c2ca36065d8f8274f6a733bec7289",
+    "work/cache/q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification/chunk_0000.npz": "88dc5b3fb2aaf07c4a41d9d69e98c75e0e53098c3d0e088481a709356be2e196",
+    "work/cache/q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification/chunk_0001.npz": "9c9299ac27ff12e83729129492fabde953096f924e2a8d9b13c2b2c79f3d5eb2",
+    "work/cache/q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_representative_extension_t5086/status.json": "548d9303505c3401088bfd92f4e8b21f3bdba0b3a480b83afaee6757aaa5d50a",
+    "work/cache/q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_representative_extension_t5086/chunk_0000.npz": "fa805de6c68bb446153897c8ac3251c0342748a094f8ecaeb78ad1cf4c36dfaa",
+    "work/cache/q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification/mesh.npz": "c1d39effbe47f82ba8970f520a8e1658d0869c42bf236b676fa83a32a4742040",
+    "work/validation/q23_2d_endpoint_radial.npz": "092b096c47ae965083d14d9942c974c19adb04c4746e813749b1ee9a1f504325",
+    "work/validation/q23_2d_endpoint_radial.json": "ecfc8210504cdf47f481c418a7ce3d1d324ac880f1681cc2d7790f1caddfae52",
+    "work/cache/q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification/status.json": "5d3593ef6aa58cd4770e6ab335cf53b06f9791b388845c77b7b79036decea6d4",
+    "work/cache/q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification/chunk_0000.npz": "6a0cf71b69ffe26e58d5690971e3dd91e287225b496c30fc9ccca5e880c45acf",
+    "work/cache/q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification/chunk_0001.npz": "9b17d328300f790ed58e20953cd226f3ef7b042db9dd54bf9344cfad729fe2b3",
+    "work/cache/q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_representative_extension_t5086/status.json": "d3ebd026f53eb15d94a8067988203494b49356dfccf824e173b62b8bf098b6ca",
+    "work/cache/q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_representative_extension_t5086/chunk_0000.npz": "a48d8b8679d62773bd53d22fb1882d962cf3e6a9f6e32af68b23a3350bd9e39d",
+    "work/cache/q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification/mesh.npz": "1b6be3dfc9d71019ba65b0928fdae1ccef0d745542706b36e24b0b7ba78d75bc",
+    "work/validation/q23_2d_endpoint_axial.npz": "d29e3b53603538dbf015e402137f0a39cb8f10fa47155b859fa4b6f3f6c366f7",
+    "work/validation/q23_2d_endpoint_axial.json": "d282611eb0512123dfc5c40f43db58617866092874a78da70f677b1d28adc9e3",
+    "work/cache/q4_1d_stage_schedule_default_dt0.25_s33c788387cd3/status.json": "be405081003dd30003a0ee77e18ce3f2b939f2ddf1f4ea942ea68462c9b168ea",
+    "work/cache/q4_1d_adaptive_nr200_nz1_dt0.25_m60a8c7b6b2c2_stagepart_33c788387cd3_0/status.json": "743ba6797eb09b691940e38c26b0ce4fa23bd3613f5cf807ac88693c91040906",
+    "work/cache/q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b_stagepart_33c788387cd3_1/status.json": "96686ec5014ad0ef7c7d34ad9922b0175092e8f93a071fa46d4055d0f93b898b",
+    "work/cache/q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b_stagepart_33c788387cd3_1/chunk_0000.npz": "7653f3a3294fc8dac23298459ae21ff5a7023f07a96ac0ac2f54b4385ada5cb5",
+    "work/cache/q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b_stagepart_33c788387cd3_1/mesh.npz": "e8368469393b41ffc38cfc33da115a734b25f489f41c3e2e7fc5ce08dcbcea60",
+    "work/cache/q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe_stagepart_33c788387cd3_2/status.json": "aa336f460fab70599981cf1e4284e404b6db42dd751e9ea1ad1c3f493490839a",
+    "work/cache/q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe_stagepart_33c788387cd3_2/chunk_0001.npz": "f924778ff99db4f1fcba23ebfca3272445790e1d4357eb67d15fb32af206e0e5",
+    "work/cache/q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe_stagepart_33c788387cd3_2/mesh.npz": "11d4af87603ff07770015521ce7979c5075745139dfc8013ceb2a3c3ebf18761",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/status.json": "dea5007d3e17c6bce35dd032eb6512c38892a9a346ad01a561ac585202b092af",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0000.npz": "170e32377aa0cfa2c9d9c46d7bb1b655a4eaf7e8570583d4375ed5e93e574377",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0001.npz": "910267e735393d3a3bcae11569ace6c8e084ac6c764ab25d9f3913d674c85400",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0002.npz": "305e95a2838416e3256d0dcd30a71078253155bf88842356c9a5b15c6c8b514b",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0003.npz": "6f4665efe26d48d77bf342189cb40b40f9f9f3d35714e2180956c1d3886e0858",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0004.npz": "9ba3a9908ce48403fc36316c2ccf15c5f0f9efdf2cdadd182f7708c6d1f8aefc",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0005.npz": "3781abcbed9a91d61f785105dd0074f13474ce5f4036d7e9bdaf65476ea7e93d",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0006.npz": "eeb322ecc8c9f2a2cc5dd50c70f6d0421eb9d1ec446832a38cc6ee984ce1b54b",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0007.npz": "bbd4556705fbf43b1a76dbc9add24a2f62c796e3ac47a2778ef234a09288ee0f",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0008.npz": "3b6151da8a259dfe7e3097ce0d30b028a7bf0abafd91bb82c69dbb8257c21a7b",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0009.npz": "ed55c6ba93cdd8d947a37fe0d85dfd964d1d56c11c6bea47f0eddf22e2363bda",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0010.npz": "b10ba4add1eeea4217869b341b2979a18c92dbd940a14cb6f40de6fd8300e271",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0011.npz": "7e857bd37b8da71374f2fe459ec9cf7472368f71591ea12eb0862567931be845",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0012.npz": "a8eb8a89d5958e133ad6f5db7d39254e78797448fbe67dda714fd8414be408ac",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0013.npz": "ffaffb3047f87f0f3adb460fa749ece560c9482306f28fca1249721878777e7e",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0014.npz": "c146add15fd0c75969ae134177b805cf8e3b14441793c04aa6baa0bd46c2bc6d",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0015.npz": "cea8340a94b6c2bbb369bd01057cef020eec7b302f8aa4cd510775b3e8dbf609",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0016.npz": "25ab9b864b2c5ae6c6941269866e685f5b1c972a27e7a13d057a44f13bd53583",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0017.npz": "5e6d4cd4662f90bedba3a0d5ff9c60bab3fd798c8b860c048456894d7d617e37",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0018.npz": "1c6ed6a8c06b35dc168aa3bdec045f09222a46bb7208996cee110418485f956b",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0019.npz": "4639f40266048b465926594eef2aefdc986617bc9f7fe8fa19524ee2a6847119",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0020.npz": "4878bca2fff7a6344fe3d0485664ff0e6f8a1432180add5ffeb1bf76e6ac01f0",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0021.npz": "1be78016b66409a364ac5356db93ab124cdb611479913d941558e4a202e81079",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0022.npz": "3cb952a2fdfd5d17f61d77197e851337a83cf9c817b18a644b9dbec86e033a7e",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0023.npz": "755fa0a769c4a1138851ff512787488bfe0f0928c7de7f05305abfaea91a6554",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0024.npz": "b32d7eaa5b5cf819354cfce5179768e03f9663edcfb3c47c7574942aed7a36f1",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0025.npz": "e3e2ab7cc83f1ef1cdcc9695c5e00f71a207f0d823e96930afae12cbef941e16",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0026.npz": "24907a0a895450728c114c975dbb98e00672b675b3f3831c55f12717e25f0d97",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0027.npz": "a6825ad503afc320e45617f43bc383fd8e8f2b53cdcedee5ecf766fa508d5dde",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0028.npz": "8c9fd5655d7024ec57bd62e7d8c5af00b5581eac846638dd12da79db7eb06778",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0029.npz": "ba96140bead31ce5ee88fa8c80ee2e7c6a93f93eb1c2e1b021358b85a1a65dc6",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0030.npz": "087c17cecfddb16d5060d9f56cf987f2a0b0861e9a754374a938e625740b019c",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0031.npz": "4f862ba3e98a2883b3960c3d8978b84a8ca6f559ee7cc9c7e959fdc563f1a69d",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0032.npz": "0e9fd775654426ec3beab79498ba4b29a792b9b218be3fb039fbbcafc604097a",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0033.npz": "e1305578a80abb6473678920c9c2069844e34b7d1d4866e5c5a05174d7a22a44",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0034.npz": "f7265890b084eae7d0876feec83bdfe6c6b64afab781ff1fde45427352c53db4",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0035.npz": "c3d00e71cb2d65311ca97ddb0de0148232601a3de5353853c82c319a1e42305e",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0036.npz": "97b9cf94e52ddad31708e9dc77be0f5b8387007fca29508ead454a6e688b2156",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0037.npz": "d8745a411695936daa89332303ded56649983b39a75e184359c686ef184de26a",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0038.npz": "05e7c20202facc78a705a2500ff4157b5a7f3544a30884071a195a418976fd4a",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0039.npz": "2dfd112c01081f6266a621dc0af8ffbc992c4ff13d3ffb75982c231684594d2e",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0040.npz": "f840ed7a44e7b51e75eee522f9cfc39a7fcd6013b9df502eee487c08aaa9e69b",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0041.npz": "e66aa5e33f726bd3cecc95927d42cf90d934be51fa7253ce93b75f3b9ff319ed",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0042.npz": "a25cf012365d466f0cf9c6b8198389c4a67ec6a921693ee77a3b595ec367b576",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0043.npz": "6e0a9cd58dd9fc41003404ac5d2adae76655f202617eb601c15a420d69d4f86d",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0044.npz": "d6fa3e524bc0b44496237236770b60d698eba38871c1e4e2fcce3db50f7dabb2",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0045.npz": "83cef7f8931c6c9eb91f9e447b3201e38f86ca588d61fae902e346daa8b3e376",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0046.npz": "4ed30de86158d5d4ba7e7074d78f8e84239adb6536ee2446adab6d787d14093c",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0047.npz": "2d7661db8455f05c981884f692317914ccfb4e0edcd9447fad729bf64e5f00f9",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0048.npz": "263b8a19f14b5857a33e6f9b0696d2cf181c0ec28300fe71ab3a5f1579e59223",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0049.npz": "1174ef91cff32b84a030766962b024c8ad61fe519692997b7a44668307730b14",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0050.npz": "1a1bdc94db10afa2b22f553b8f4c3142b88ba7c2bc8d6f4b5362bf40ff589028",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0051.npz": "4ac3a856bcc470ca1ef4c450859642e0a161d6d665c5044c497b9f3d27e1222e",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0052.npz": "ca501caed9ae2776e82c80d3722cc588d392a78e13060392d40178cdcd5ecdb9",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0053.npz": "66ae17f776960ce7840ea562746d34f9421321c750f173376e2b8f6990d60010",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0054.npz": "61545652e599a7032d521d0d3ff3ee0ddf4b1952febfe4ebc57e9906d8e35bdd",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0055.npz": "f4f8369651f39f4672612d4f141f5c98ad38407b8a51fa5ba672cc3359120167",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0056.npz": "352f09522a63e33ab1522a84641cdd497096f54c00dae4658995bfd071f69522",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0057.npz": "e1d5e6840c7d257684005d7a5b0f590faa905462eb121611d25b7413dc525fc7",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0058.npz": "cf1d0b4f9206a942a8a8d655a5d2f971b348f1cfbbf87226ee944b120bf0da61",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0059.npz": "9a70c95052e6b2ffcea43222571d8a5b60ae65be872602bf5eadfd6d2047adc2",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0060.npz": "0659659d0646cb2e5e77bac4be0327d75ceb84978aa10e3f03a353d5e7d0008f",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0061.npz": "1b0fca77ff74daf489a0e1a183e8bcedcbe807be054396a4aeeac83b5ae9b73c",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0062.npz": "a26398d1ad576e054e2220f7d4ad88c4545dec408645a77339dec0301413ec03",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0063.npz": "3322c49241b035d66a5e781f5607998f4529497005dfcfa849af8dbca5aa083b",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0064.npz": "7353f7f89cdac8d974c21580b40e729389a23a864af093e0409b21d721269781",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0065.npz": "392fb8033e34ccdaa6fac27904adabedef930b94b121397ae6bb233ee7c8f661",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0066.npz": "e3d4229db8b4e1f9d2a0b1d5eab3b8c774dbb32dff1f9cb44804fbda5afbd76a",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0067.npz": "4ab55a22c9955786f7962ffa9aa60d7e9f9509da9986aa6854b1cf0782e394b4",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0068.npz": "ce4b4cffb3cd36e689a6ddf9c738a3635053d2b9e4d22a947205bf98b48fa721",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0069.npz": "aff111ba122f718e152348b54ea3bcb107027b684efb27cec93c7cdb6b7f7c2a",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0070.npz": "0c0abff78df9a7067f17ac634f3f16cd44c4d5d316de6c1c3d16abcb6bf46fef",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/chunk_0071.npz": "383ea276f380d6064f4c091e41df6e066d5caf807ae048816ec87f68f5793002",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.125_md7f14a4ef684_half_steps/status.json": "c7a5a6ad741a6cd9766ab170410435aa54c2d38463c441a9af9201a99f42c7f2",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.125_md7f14a4ef684_half_steps/chunk_0000.npz": "ea1db198402e0680e7274b13114bdd685312a6165de5259f3bb4b0a6c459710d",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/mesh.npz": "27718a224402ca8678ecadf46265b4076d0719a55780a98bd76a013fc24e28f9",
+    "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/event.npz": "a9d969ccc91b6d73de1f3e6cc396a5e9ad5879722755d7b1f0d884739ef60fd4",
+    "work/cache/q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification/status.json": "a9092da2170b46a940815d8bbdabdab0ecc7db86b13602474ede772ddd1f88e2",
+    "work/cache/q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification/chunk_0000.npz": "f76a2d3d71302a9940d68c57c0c7f6dbf93a5430b58cd595b4180de58278f524",
+    "work/cache/q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification/chunk_0001.npz": "00685c4f33e53d8f1d15e88b05f768716bf84ff1813486a1d3ff292a5058c7f9",
+    "work/cache/q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification/chunk_0002.npz": "6ce314aa6216cfc3a1cbbf5cfa34558cabda8785724fb16815bef3ae434d390b",
+    "work/cache/q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification/mesh.npz": "0c46d21fd9d12361cb1ce6cf29758f11121f4c535feafce46ceca146c814248e",
+    "work/validation/q4_2d_endpoint_radial.npz": "9191cb4a1cf5a4e1defd3dab423448a3e891e01597af71f1c14ada9f54bb4358",
+    "work/validation/q4_2d_endpoint_radial.json": "2ba045f7db4037e776fc88b9d42d49099e8373d393a9e89b14ab957ad96f6df4",
+    "work/cache/q4_2d_adaptive_nr40_nz250_dt0.25_m7c4f1999f231_axial_verification/status.json": "61a2a0ec0e14b344c7a835a762992b9ddb2a12c61e181c88baf2465ce7515e1c",
+    "work/cache/q4_2d_adaptive_nr40_nz250_dt0.25_m7c4f1999f231_axial_verification/chunk_0000.npz": "d3413978ae5b41f4fa0e8451fb84f18d1e795a4ca65cc6e7173ddc570f7b035e",
+    "work/cache/q4_2d_adaptive_nr40_nz250_dt0.25_m7c4f1999f231_axial_verification/chunk_0001.npz": "615a6f52510072261ddb463dc8e0b577b1f78c16f507ae27413a9b715676857d",
+    "work/cache/q4_2d_adaptive_nr40_nz250_dt0.25_m7c4f1999f231_axial_verification/chunk_0002.npz": "605b4de9d6e5c27a7f4a0fbdf015cb281973761a12366152edb28fc22e5b0aab",
+    "work/cache/q4_2d_adaptive_nr40_nz250_dt0.25_m7c4f1999f231_axial_verification/mesh.npz": "9228d0c913bd40a9105602bd1f815fd0fc89a82ae86f0a0f4350f5628af82cc3",
+    "work/validation/q4_2d_endpoint_axial.npz": "2ec543b9e02203f945aa28725dc03315f8234115567e068a21242bdbf7e40a85",
+    "work/validation/q4_2d_endpoint_axial.json": "99a9629757aa2fb2f07c1c490f05f306b44ea9ab9e18c18551db6bed922d38a7"
+  },
+  "trajectory_checks": {
+    "q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542": {
+      "all_outputs_finite": true,
+      "fingerprint_matches": true,
+      "no_solver_failure": true,
+      "saved_ranges_s": [
+        [
+          0.0,
+          1800.0
+        ]
+      ],
+      "snapshot_times_s": [
+        300,
+        1800
+      ],
+      "saved_time_count": 1801,
+      "max_saved_gap_s": 1.0,
+      "saved_times_strictly_increasing": true
+    },
+    "q1_2d_adaptive_nr40_nz125_dt0.125_md810aa408542_half_steps": {
+      "all_outputs_finite": true,
+      "fingerprint_matches": true,
+      "no_solver_failure": true,
+      "saved_ranges_s": [
+        [
+          0.0,
+          1800.0
+        ]
+      ],
+      "snapshot_times_s": [],
+      "saved_time_count": 1801,
+      "max_saved_gap_s": 1.0,
+      "saved_times_strictly_increasing": true
+    },
+    "q1_2d_adaptive_nr80_nz125_dt0.25_m0663d58bba57_radial_verification": {
+      "all_outputs_finite": true,
+      "fingerprint_matches": true,
+      "no_solver_failure": true,
+      "saved_ranges_s": [
+        [
+          0.0,
+          1800.0
+        ]
+      ],
+      "snapshot_times_s": [
+        300,
+        1800
+      ],
+      "saved_time_count": 1801,
+      "max_saved_gap_s": 1.0,
+      "saved_times_strictly_increasing": true
+    },
+    "q1_2d_adaptive_nr40_nz250_dt0.25_m86bafdbf4d10_axial_verification": {
+      "all_outputs_finite": true,
+      "fingerprint_matches": true,
+      "no_solver_failure": true,
+      "saved_ranges_s": [
+        [
+          0.0,
+          1800.0
+        ]
+      ],
+      "snapshot_times_s": [
+        300,
+        1800
+      ],
+      "saved_time_count": 1801,
+      "max_saved_gap_s": 1.0,
+      "saved_times_strictly_increasing": true
+    },
+    "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919": {
+      "all_outputs_finite": true,
+      "fingerprint_matches": true,
+      "no_solver_failure": true,
+      "saved_ranges_s": [
+        [
+          0.0,
+          3600.0
+        ],
+        [
+          3601.0,
+          7200.0
+        ],
+        [
+          7201.0,
+          10800.0
+        ],
+        [
+          10860.0,
+          14400.0
+        ],
+        [
+          14460.0,
+          18000.0
+        ],
+        [
+          18060.0,
+          21600.0
+        ],
+        [
+          21660.0,
+          25200.0
+        ],
+        [
+          25260.0,
+          28800.0
+        ],
+        [
+          28860.0,
+          32400.0
+        ],
+        [
+          32460.0,
+          36000.0
+        ],
+        [
+          36060.0,
+          39600.0
+        ],
+        [
+          39660.0,
+          43200.0
+        ],
+        [
+          43260.0,
+          46800.0
+        ],
+        [
+          46860.0,
+          50400.0
+        ],
+        [
+          50460.0,
+          54000.0
+        ],
+        [
+          54060.0,
+          57600.0
+        ],
+        [
+          57660.0,
+          61200.0
+        ],
+        [
+          61260.0,
+          64800.0
+        ],
+        [
+          64860.0,
+          68400.0
+        ],
+        [
+          68460.0,
+          72000.0
+        ],
+        [
+          72060.0,
+          75600.0
+        ],
+        [
+          75660.0,
+          79200.0
+        ],
+        [
+          79260.0,
+          82800.0
+        ],
+        [
+          82860.0,
+          86400.0
+        ],
+        [
+          86460.0,
+          90000.0
+        ],
+        [
+          90060.0,
+          93600.0
+        ],
+        [
+          93660.0,
+          97200.0
+        ],
+        [
+          97260.0,
+          100800.0
+        ],
+        [
+          100860.0,
+          104400.0
+        ],
+        [
+          104460.0,
+          108000.0
+        ],
+        [
+          108060.0,
+          111600.0
+        ],
+        [
+          111660.0,
+          115200.0
+        ],
+        [
+          115260.0,
+          118800.0
+        ],
+        [
+          118860.0,
+          122400.0
+        ],
+        [
+          122460.0,
+          126000.0
+        ],
+        [
+          126060.0,
+          129600.0
+        ],
+        [
+          129660.0,
+          133200.0
+        ],
+        [
+          133260.0,
+          136800.0
+        ],
+        [
+          136860.0,
+          140400.0
+        ],
+        [
+          140460.0,
+          144000.0
+        ],
+        [
+          144060.0,
+          147600.0
+        ],
+        [
+          147660.0,
+          151200.0
+        ],
+        [
+          151260.0,
+          154800.0
+        ],
+        [
+          154860.0,
+          158400.0
+        ],
+        [
+          158460.0,
+          162000.0
+        ],
+        [
+          162060.0,
+          165600.0
+        ],
+        [
+          165660.0,
+          169200.0
+        ],
+        [
+          169260.0,
+          172800.0
+        ],
+        [
+          172860.0,
+          176400.0
+        ],
+        [
+          176460.0,
+          180000.0
+        ],
+        [
+          180060.0,
+          183600.0
+        ],
+        [
+          183660.0,
+          187200.0
+        ],
+        [
+          187260.0,
+          190800.0
+        ],
+        [
+          190860.0,
+          194400.0
+        ],
+        [
+          194460.0,
+          198000.0
+        ],
+        [
+          198060.0,
+          201600.0
+        ],
+        [
+          201660.0,
+          205200.0
+        ],
+        [
+          205260.0,
+          208800.0
+        ],
+        [
+          208860.0,
+          212400.0
+        ],
+        [
+          212460.0,
+          216000.0
+        ],
+        [
+          216060.0,
+          219600.0
+        ],
+        [
+          219660.0,
+          223200.0
+        ],
+        [
+          223260.0,
+          226800.0
+        ],
+        [
+          226860.0,
+          230400.0
+        ],
+        [
+          230460.0,
+          234000.0
+        ],
+        [
+          234060.0,
+          237600.0
+        ],
+        [
+          237660.0,
+          241200.0
+        ],
+        [
+          241260.0,
+          244800.0
+        ],
+        [
+          244860.0,
+          248400.0
+        ],
+        [
+          248460.0,
+          252000.0
+        ],
+        [
+          252060.0,
+          255600.0
+        ],
+        [
+          255660.0,
+          259200.0
+        ]
+      ],
+      "snapshot_times_s": [
+        1080,
+        3635,
+        5086
+      ],
+      "saved_time_count": 14941,
+      "max_saved_gap_s": 60.0,
+      "saved_times_strictly_increasing": true
+    },
+    "q23_2d_adaptive_nr40_nz125_dt0.125_mfd6e5cf8c919_half_steps": {
+      "all_outputs_finite": true,
+      "fingerprint_matches": true,
+      "no_solver_failure": true,
+      "saved_ranges_s": [
+        [
+          0.0,
+          1800.0
+        ]
+      ],
+      "snapshot_times_s": [],
+      "saved_time_count": 1801,
+      "max_saved_gap_s": 1.0,
+      "saved_times_strictly_increasing": true
+    },
+    "q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification": {
+      "all_outputs_finite": true,
+      "fingerprint_matches": true,
+      "no_solver_failure": true,
+      "saved_ranges_s": [
+        [
+          0.0,
+          3600.0
+        ],
+        [
+          3601.0,
+          5085.0
+        ]
+      ],
+      "snapshot_times_s": [
+        1080,
+        3635
+      ],
+      "saved_time_count": 5086,
+      "max_saved_gap_s": 1.0,
+      "saved_times_strictly_increasing": true
+    },
+    "q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_representative_extension_t5086": {
+      "all_outputs_finite": true,
+      "fingerprint_matches": true,
+      "no_solver_failure": true,
+      "saved_ranges_s": [
+        [
+          5085.0,
+          5086.0
+        ]
+      ],
+      "snapshot_times_s": [
+        5086
+      ],
+      "saved_time_count": 2,
+      "max_saved_gap_s": 1.0,
+      "saved_times_strictly_increasing": true
+    },
+    "q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification": {
+      "all_outputs_finite": true,
+      "fingerprint_matches": true,
+      "no_solver_failure": true,
+      "saved_ranges_s": [
+        [
+          0.0,
+          3600.0
+        ],
+        [
+          3601.0,
+          5085.0
+        ]
+      ],
+      "snapshot_times_s": [
+        1080,
+        3635
+      ],
+      "saved_time_count": 5086,
+      "max_saved_gap_s": 1.0,
+      "saved_times_strictly_increasing": true
+    },
+    "q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_representative_extension_t5086": {
+      "all_outputs_finite": true,
+      "fingerprint_matches": true,
+      "no_solver_failure": true,
+      "saved_ranges_s": [
+        [
+          5085.0,
+          5086.0
+        ]
+      ],
+      "snapshot_times_s": [
+        5086
+      ],
+      "saved_time_count": 2,
+      "max_saved_gap_s": 1.0,
+      "saved_times_strictly_increasing": true
+    },
+    "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684": {
+      "all_outputs_finite": true,
+      "fingerprint_matches": true,
+      "no_solver_failure": true,
+      "saved_ranges_s": [
+        [
+          0.0,
+          3600.0
+        ],
+        [
+          3660.0,
+          7200.0
+        ],
+        [
+          7260.0,
+          10800.0
+        ],
+        [
+          10860.0,
+          14400.0
+        ],
+        [
+          14460.0,
+          18000.0
+        ],
+        [
+          18060.0,
+          21600.0
+        ],
+        [
+          21660.0,
+          25200.0
+        ],
+        [
+          25260.0,
+          28800.0
+        ],
+        [
+          28860.0,
+          32400.0
+        ],
+        [
+          32460.0,
+          36000.0
+        ],
+        [
+          36060.0,
+          39600.0
+        ],
+        [
+          39660.0,
+          43200.0
+        ],
+        [
+          43260.0,
+          46800.0
+        ],
+        [
+          46860.0,
+          50400.0
+        ],
+        [
+          50460.0,
+          54000.0
+        ],
+        [
+          54060.0,
+          57600.0
+        ],
+        [
+          57660.0,
+          61200.0
+        ],
+        [
+          61260.0,
+          64800.0
+        ],
+        [
+          64860.0,
+          68400.0
+        ],
+        [
+          68460.0,
+          72000.0
+        ],
+        [
+          72060.0,
+          75600.0
+        ],
+        [
+          75660.0,
+          79200.0
+        ],
+        [
+          79260.0,
+          82800.0
+        ],
+        [
+          82860.0,
+          86400.0
+        ],
+        [
+          86460.0,
+          90000.0
+        ],
+        [
+          90060.0,
+          93600.0
+        ],
+        [
+          93660.0,
+          97200.0
+        ],
+        [
+          97260.0,
+          100800.0
+        ],
+        [
+          100860.0,
+          104400.0
+        ],
+        [
+          104460.0,
+          108000.0
+        ],
+        [
+          108060.0,
+          111600.0
+        ],
+        [
+          111660.0,
+          115200.0
+        ],
+        [
+          115260.0,
+          118800.0
+        ],
+        [
+          118860.0,
+          122400.0
+        ],
+        [
+          122460.0,
+          126000.0
+        ],
+        [
+          126060.0,
+          129600.0
+        ],
+        [
+          129660.0,
+          133200.0
+        ],
+        [
+          133260.0,
+          136800.0
+        ],
+        [
+          136860.0,
+          140400.0
+        ],
+        [
+          140460.0,
+          144000.0
+        ],
+        [
+          144060.0,
+          147600.0
+        ],
+        [
+          147660.0,
+          151200.0
+        ],
+        [
+          151260.0,
+          154800.0
+        ],
+        [
+          154860.0,
+          158400.0
+        ],
+        [
+          158460.0,
+          162000.0
+        ],
+        [
+          162060.0,
+          165600.0
+        ],
+        [
+          165660.0,
+          169200.0
+        ],
+        [
+          169260.0,
+          172800.0
+        ],
+        [
+          172860.0,
+          176400.0
+        ],
+        [
+          176460.0,
+          180000.0
+        ],
+        [
+          180060.0,
+          183600.0
+        ],
+        [
+          183660.0,
+          187200.0
+        ],
+        [
+          187260.0,
+          190800.0
+        ],
+        [
+          190860.0,
+          194400.0
+        ],
+        [
+          194460.0,
+          198000.0
+        ],
+        [
+          198060.0,
+          201600.0
+        ],
+        [
+          201660.0,
+          205200.0
+        ],
+        [
+          205260.0,
+          208800.0
+        ],
+        [
+          208860.0,
+          212400.0
+        ],
+        [
+          212460.0,
+          216000.0
+        ],
+        [
+          216060.0,
+          219600.0
+        ],
+        [
+          219660.0,
+          223200.0
+        ],
+        [
+          223260.0,
+          226800.0
+        ],
+        [
+          226860.0,
+          230400.0
+        ],
+        [
+          230460.0,
+          234000.0
+        ],
+        [
+          234060.0,
+          237600.0
+        ],
+        [
+          237660.0,
+          241200.0
+        ],
+        [
+          241260.0,
+          244800.0
+        ],
+        [
+          244860.0,
+          248400.0
+        ],
+        [
+          248460.0,
+          252000.0
+        ],
+        [
+          252060.0,
+          255600.0
+        ],
+        [
+          255660.0,
+          259200.0
+        ]
+      ],
+      "snapshot_times_s": [
+        1740,
+        2520,
+        10320
+      ],
+      "saved_time_count": 4321,
+      "max_saved_gap_s": 60.0,
+      "saved_times_strictly_increasing": true
+    },
+    "q4_2d_adaptive_nr40_nz125_dt0.125_md7f14a4ef684_half_steps": {
+      "all_outputs_finite": true,
+      "fingerprint_matches": true,
+      "no_solver_failure": true,
+      "saved_ranges_s": [
+        [
+          0.0,
+          1800.0
+        ]
+      ],
+      "snapshot_times_s": [],
+      "saved_time_count": 31,
+      "max_saved_gap_s": 60.0,
+      "saved_times_strictly_increasing": true
+    },
+    "q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification": {
+      "all_outputs_finite": true,
+      "fingerprint_matches": true,
+      "no_solver_failure": true,
+      "saved_ranges_s": [
+        [
+          0.0,
+          3600.0
+        ],
+        [
+          3660.0,
+          7200.0
+        ],
+        [
+          7260.0,
+          10320.0
+        ]
+      ],
+      "snapshot_times_s": [
+        1740,
+        2520,
+        10320
+      ],
+      "saved_time_count": 173,
+      "max_saved_gap_s": 60.0,
+      "saved_times_strictly_increasing": true
+    },
+    "q4_2d_adaptive_nr40_nz250_dt0.25_m7c4f1999f231_axial_verification": {
+      "all_outputs_finite": true,
+      "fingerprint_matches": true,
+      "no_solver_failure": true,
+      "saved_ranges_s": [
+        [
+          0.0,
+          3600.0
+        ],
+        [
+          3660.0,
+          7200.0
+        ],
+        [
+          7260.0,
+          10320.0
+        ]
+      ],
+      "snapshot_times_s": [
+        1740,
+        2520,
+        10320
+      ],
+      "saved_time_count": 173,
+      "max_saved_gap_s": 60.0,
+      "saved_times_strictly_increasing": true
+    }
+  },
+  "method": "Compare cell-centred cached fields at common saved times. Use existing comparison end/middle zones, volume-weighted regional errors, peak location and bulk heating/drying direction; no new pointwise tolerance. Check endpoint control-region category on each actual cached event.",
+  "pde_solves": 0
+}

@@ -383,4 +383,11 @@ def Studies_Summarize(root,index):
         current_experiment_ids=expected,checks=manifest['checks'],thermal_audits=manifest['thermal_audits'],
         remesh_front_audits=manifest['remesh_front_audits'],end_effects=manifest['end_effects'],
         historical_checks=manifest['historical_checks'],historical_role='legacy / diagnostic only'))
+    from ..auxiliary2d import Auxiliary_ReadSummary, KEY
+    auxiliary = Auxiliary_ReadSummary(root)
+    if auxiliary:
+        summary_path = root/'results/studies/validation_summary.json'
+        summary = json.loads(summary_path.read_text(encoding='utf-8'))
+        summary[KEY] = auxiliary
+        Storage_WriteJson(summary_path,summary)
     print(f"STUDY_PAYLOAD_READY {len(manifest['series'])} trajectories, {len(manifest['checks'])} checks",flush=True)

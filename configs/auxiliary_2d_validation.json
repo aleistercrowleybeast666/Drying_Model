@@ -1,0 +1,10 @@
+{
+  "role": "auxiliary_end_effect_and_model_reduction_validation",
+  "critical_window_end_s": {"q1": 1800, "q23": 5086, "q4": 10320},
+  "representative_times_s": {"q1": [300, 1800], "q23": [1080, 3635, 5086], "q4": [1740, 2520, 10320]},
+  "endpoint_relative_tolerance": 0.002,
+  "local_Linf": {"diagnostic_only": true, "acceptance_veto": false},
+  "qualitative_method": "Compare cell-centred cached fields at common saved times. Use existing comparison end/middle zones, volume-weighted regional errors, peak location and bulk heating/drying direction; no new pointwise tolerance. Check endpoint control-region category on each actual cached event.",
+  "grid_independence_status": "PARTIAL_2D",
+  "limitations": ["Temporal evidence covers 0–1800 s only for Q23/Q4", "Separate radial and axial refinements", "Late-window endpoint experiments inherit earlier coarse-grid error", "No full-time joint grid-independence certification"]
+}

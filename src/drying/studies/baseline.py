@@ -93,7 +93,9 @@ def Baseline_Check(root):
     changed=[]
     for name,record in baseline['protected_files'].items():
         p=root/paths.get(name,name)
-        if not p.is_file() or Baseline_HashFile(p)!=record['sha256']:changed.append(name)
+        if not p.is_file() or Baseline_HashFile(p)!=record['sha256']:
+            from ..auxiliary2d import Auxiliary_CheckMetadata
+            if not p.is_file() or not Auxiliary_CheckMetadata(root,name,record['sha256']):changed.append(name)
     if changed:raise RuntimeError('BASELINE_OUTPUT_MODIFIED: '+', '.join(changed))
     return dict(status='PASS',baseline_id=baseline['baseline_id'],protected_files=len(baseline['protected_files']),
                 official_workbooks_unchanged=True,production_arrays_and_events_unchanged=True)

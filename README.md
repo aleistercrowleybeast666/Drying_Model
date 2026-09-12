@@ -162,6 +162,16 @@ plot_manifest.json 包含 schema/input/plot hash、每问正式来源与阶段�
 本轮图表只替换 03/05，两份汇总表只新增所需工作表/列。其他七张静态图、全部七个 GIF、三份热模式补充表和四份官方 Excel 均检查保留。`--technical-only` 仅读密封好的技术 payload；`scripts/check_study_render.py --technical-only` 禁止数值模块导入并核对全部数据哈希。
 
 `results/paper_facts.json` 与精简的 `paper_facts.md` 由已有数据自动导出，是后续论文直接引用数字的统一来源。JSON 保存未舍入值、source case id、源文件、输入/物理哈希、生成时间、二维状态和适用范围。正式来源或终点值冲突会阻止事实文件发布；未提供论文正文时只报告未执行初稿对照，不假称检查过论文。
+### 二维辅助验收
+
+`python validate_auxiliary_2d.py` 只读已有缓存，统一刷新六份状态/事实摘要，不积分 PDE、不导出 Excel、不画图。独立配置见 `configs/auxiliary_2d_validation.json`，用途为 `auxiliary_end_effect_and_model_reduction_validation`。正式一维阈值和生产结果不变。
+
+辅助 PASS 要求已有时间验证 PASS、径向及轴向覆盖 Q1 0–1800 s / Q23 0–5086 s / Q4 0–10320 s、适用终点相对差不超过原 0.2%、端面误差分布和主体变化趋势一致、终点控制区域稳定、缓存完整且有限。Q23 的 5085–5086 s 使用已有同网格真实续算。定性检查使用原端面/中部区域和体积权重，在明确列出的共同时刻比较缓存单元场；不另设局部点值阈值。
+
+`two_dimensional_auxiliary_validation_passed` 与 `two_dimensional_grid_independence_certified` 分开：当前辅助 PASS，网格独立性仍为 `PARTIAL_2D` / 未认证。Q23/Q4 时间验证仅覆盖 0–1800 s；末期终点细化继承早期粗网格误差。局部 Linf 仅诊断、不否决辅助验收；原严格 FAIL、完整误差、来源哈希和定性样本保存在 `work/validation/auxiliary_2d/summary.json`，旧 `work/validation/summary.json` 原样保留。
+
+冻结保护仍逐文件检查；仅 `status.json` / `overview.md` 允许加入可从上述审计重现的独立摘要。备份旧字节必须匹配原冻结哈希，任何正式字段或正文数值改变仍报错，不重新冻结基线。
+
 ### 水质量守恒审计
 
 `python compute_studies.py --group mass_balance --resume` 独立重放 M00/M10/M01/M11 的 Q1、Q23、Q4 全部实际接受步；`--payload-only` 仅复核审计记录并刷新摘要。生产状态、输入、模型、原收敛判据和图表不变。
