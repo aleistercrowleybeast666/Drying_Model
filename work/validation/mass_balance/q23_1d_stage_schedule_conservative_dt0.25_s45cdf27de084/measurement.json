@@ -1,0 +1,296 @@
+{
+  "schema_version": 1,
+  "complete": true,
+  "status": "MEASURED",
+  "case": "q23",
+  "mode": "M00",
+  "source_case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+  "signature": "8799e9e19ab0260c6d6e3576396e542324d8fb4b879aa40041bee8f9c59546dc",
+  "source": {
+    "source_case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+    "source_files": {
+      "work/cache/q23_1d_adaptive_nr200_nz1_dt0.25_m1ccbfdc27056_stagepart_45cdf27de084_0/status.json": "7bd63e003108a813b53df50d823e3d999c11f407da5b9d0c07ae330f8cf4033a",
+      "work/cache/q23_1d_adaptive_nr200_nz1_dt0.25_m1ccbfdc27056_stagepart_45cdf27de084_0/mesh.npz": "a480ee74c3d21ed986f4a05e2ecbc1143027c960bb346e5cb739cf3d5d15d894",
+      "work/cache/q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006_stagepart_45cdf27de084_1/status.json": "17eec2c519274af2a4e99b7192b76c1a79ea45e684e8321314af2b0ac499088f",
+      "work/cache/q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006_stagepart_45cdf27de084_1/mesh.npz": "e7d092b875bbff663ea72ed473e9472ded1aa029615857d69cdb5b6654769fe3",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/status.json": "b287ffd43b00bec403de16384e869575cf9a574587f0ead85fe763ab434b0271",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/mesh.npz": "c71b4919f2632717f8c6544cd29f909eb7f7edef7e258cd2fc94881684dccb1b",
+      "work/cache/q23_1d_adaptive_nr200_nz1_dt0.25_m1ccbfdc27056_stagepart_45cdf27de084_0/chunk_0000.npz": "6263a8618d69863ba9460388176f5e7d0b75231cf932d22655db82d91e405d61",
+      "work/cache/q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006_stagepart_45cdf27de084_1/chunk_0000.npz": "585e07b6ed619d80852b186ce53bb54ee0be1e9f0bf5fe75beb53edee2507659",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0000.npz": "1124c7dc2d422deb6d90872944158a2c780e15f08fcb6572174c00767cef24a3",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0001.npz": "36f430958f8235189ecd40224db4993a1f58eeec567e269a5937929f46e703be",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0002.npz": "bc8dad982b8176f5cfc3f1e4b85e1bc456957c88461dabe0cd9a1164a5438f0a",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0003.npz": "21f0acf6303a2484500ba814b42c5d50ccfcf1bb217ea7010fd606ddd60d6c4d",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0004.npz": "900e4999b7ccb311d926ed490068e8b7cb0de7ac970e0e12b0c1497f4b40608d",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0005.npz": "7164194af9b88e51d2a39d897348b558a2ce1120e688371e8ec1f5d317817e31",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0006.npz": "c3370de03c06f7913df68048c129f53d2cbc304d278e7d0dd11441d8b47d4f58",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0007.npz": "269226bb83b8f77733dcc4544beeb0bbd55db80be30cd5cf9008dab131e49098",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0008.npz": "0c5ac9a7d4a6dcbc4a75411430e892ff9eb75b57b00d1c015bfb5d3f82dac142",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0009.npz": "1eff4e4cd499d595a7af68a40556044e5c52f1d0b1adbace944820c3518883e1",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0010.npz": "60b7dc53e1331c389e54d1de37120000e7515784348ddb9a5f9b0bd77a4fdcb5",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0011.npz": "77e5f1aa2492b7887656d08012068be82d44c02ac8699e28f51a05c20fd51dbc",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0012.npz": "fcd0d76e3798afc94e58a2fe18fe1e046ec10730bfddfffe304cc73de49d3bd2",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0013.npz": "df5711f28ef21e9ebb0079e2c899ef5c444412dbb4e599333823480f1735f37a",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0014.npz": "36fb47a4ac0253c3cecb93d3c3b8ad995e307dab3cdbfa435bc77458b0b03649",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0015.npz": "c8a65c7745768746cf518f7196f0efb1260d1b747ee569f8ef7f3a335f04237a",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0016.npz": "e6089bd6aafe333f37e440237de4620c10695d06805640ecb51f8d02f36e4a5b",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0017.npz": "e2ff555b83b99b6ccf7f18dc9a2b82eebbb537e1b5b0702dee167531a05675b1",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0018.npz": "8c708bb0ce2b048f0ada1380cbb89f5e6d2dc16c18e1dd5cfa0e97bbf219009c",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0019.npz": "0927824aa4582bad11ffa0acb0521facc55aa5a9fe21a579f01c45c5570bca6d",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0020.npz": "89a96a828185032587d22d906a8b04beaa5e4d80679a00517e99bc14af245610",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0021.npz": "fbf736c63d97bc100398677a2533235827dafae05b803511df570f68d035711c",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0022.npz": "3e71f9df592621f649f0b1765208fcf5d0ef4e2c2d00b4184a679233637e9adc",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0023.npz": "94b385838dcf601c0f0925136b4d1b7c85125554cf77b1624d02c6f85092aab7",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0024.npz": "f40596eca1eeabe3eec66a765e58441d3a302ab8d08d5338c62d290121d1e6a3",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0025.npz": "d2210ee2a35b71e2ecd88e4ab300c26e78942ca291c19780f6da5df110f15aad",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0026.npz": "a5c4d6e05eee7cbb5093272a5b66959a4da203f11412e0f21ad60698f58ea699",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0027.npz": "effb765a21bebb7430caeae0300a77dbcf4ed7b3e93b9c11ad91245af5149002",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0028.npz": "b8da040f4749ec6931bd3a03364ca6bfebbbbe5c925a5f266e844e611203b587",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0029.npz": "7c62673be4feeef0540fe5715361e698394c9a11f5a193f0777ae7c3fc61d2c6",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0030.npz": "2ca53ac45249a148dd9f31893f1851ef3fec1414f57771243c850dd86b7e4d73",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0031.npz": "6cae7d37390db9f64d8af6434124380d6a013bc012818ff195eaf4ae1f559bf0",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0032.npz": "2225b7ac8659f31a99aefaf5481ca8be59ad3dc278375b08ee3d7685b6aa72a5",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0033.npz": "9f86e3e8305bb5d0d7aed3c1caf97e650b96052849a3b0558cb543d600ffd771",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0034.npz": "36ddb0a369accdaeaa8300350ecad27414b02c7b002b802cb6ccff319fc50eeb",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0035.npz": "9903de683690a8f22939c2a2d0137f5a5299cba00417855642d12d92736d0ce8",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0036.npz": "7890fa0db535de7a14034dbc24154cdbc2d4c2f8239a80c194888daa7f2b3490",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0037.npz": "014f6e239cf404581b3c91a61c9fe917c0e6a84e474657f8f1868ec4e6a0f28b",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0038.npz": "40a7696a2196e125843f1af7b2cc281429d81d58dd696dc6ea2ab9d276917397",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0039.npz": "6ae876de39206567f6f7a5082250c0138bf53fe124fa8043ae7e2421c9869f87",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0040.npz": "e205d18761d1e677f0352c62610f3bb1025c84488875ce82eb1669dbe69e46e6",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0041.npz": "2e7d3e941eaf1a34830a837a78d1ede4000b6de185d4725a6c2446c3be99cdc1",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0042.npz": "9255ce5800fc31edd4563d149d58d5531ab6699e5828e0e9abbc047e6a2ac33a",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0043.npz": "8c8fbebae0b1e1d7397d91004f28c7e1f9da8d7b93670ed99ad4fee85ac58bd8",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0044.npz": "20782eae5e625c45d9c86246763eb040b716b2df40e0664152eed3fa9e392a9b",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0045.npz": "67b46aeffcaeb2004212572dc8af7245378c21be21d149b7572f82db18290d40",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0046.npz": "e4193b9d8afa57a555a463d9540b7ed3c194eafc7bac97ccf1fdc289a6b15043",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0047.npz": "5bffd950ec8dfea88cdcf83cebb84aaacd233559b2e12d449ba8ac564c17802f",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0048.npz": "ed6713b5dacab8a6a1e9b249abdb338429151856c89e7709044b452cc800fdb0",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0049.npz": "fe814177c88d10a1b01ba1fcf0799ee5eb547452d8be5afde64d4e5fa4e3d867",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0050.npz": "ce0b627120e253809f949b65f707699296486f9f578ad9bcc9adf7303d0ac19e",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0051.npz": "711725f5ebbf4d3bfdcea7e6c28dd2777a7b7244193e6c5fb6b7ec4d9b833148",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0052.npz": "1759b26b718b1570e16fc7b7575de6593458aec5c3e19480d1a62b9a402d4148",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0053.npz": "ec4c2cdb4da0fc8aed62cc674905bb56953aafb994f423ecd5ef2331dd4f71ad",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0054.npz": "3678121c03314c331fe304581d69f7d92b7d9f5946275214259c22d1ac8180d6",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0055.npz": "1332f9b323681a96eaffd8eb2a78625bd0f4ab6eaf5b964c270693c6c2110d0e",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0056.npz": "904d3fea1d24717a0ce19375cde04d044ddd2c6dfb20ef98063d93718560224a",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0057.npz": "b9ef7138bc49115810a5994c801de1660be17e81b81efc8d3f124121742cfaa1",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0058.npz": "43c33a3d470489100d9b58fa32a1ba9cd4a66b62b74c8e35aafe0a8e6e1a892a",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0059.npz": "695aafeca8341bd4963cb33541d56d733cf9b8ad41a9bdb0985ecb26a3f36950",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0060.npz": "1866a5eecdfec0ae96d535881b0dc97cbc4fd2c2e320096a158ca107bba7a5d7",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0061.npz": "591acbbe88287c7bad895a653005ae6097712082ff631abf810ecadd16f68259",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0062.npz": "0defa18374db64159c8fa4365da924a13a4176a1870fc4d8ad6422101a3e500e",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0063.npz": "c05ff7da59e8fe1915e6c3ca4a38bde03b2a1cd770c3fbc925a8988a23839be8",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0064.npz": "ca0416cb2d85ad0c210696d4acc8b5a2736c1f7e7fc25b0018b64baf7b5a4e40",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0065.npz": "483a4a47fa50e6fa99640de06dfcde3639cfb8a1f383002cfb7bbe7b17d2ec67",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0066.npz": "b6ac1814e1393cc9e4c6f5f4f273497cb091434e51089a302cbfb7ba619a457c",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0067.npz": "da411b9dac4eda09f77708a9c8df33147abd7ec562b6109e61bbd5140e01ef0d",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0068.npz": "d49f0f9a515117922fc11a36d8e66063e701182300b67c28b4001a73bb234e58",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0069.npz": "28acd9dc1496f77272dc6ad8e93dbf929aa48f3943e6a4b3c7065a14fff7c828",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0070.npz": "b937600a552d138eb41006f3518b12f292e4947e6a4b4696c9ba2bccb9a6ec97",
+      "work/cache/q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2/chunk_0071.npz": "7d7719cd2b853acfca9ddeddd1fa2fb38c4de3e737c0407c2e2c9e9e67152c96"
+    },
+    "spec": {
+      "schema_version": 1,
+      "baseline_id": "52a1433275fe31fa47ce7c80b1373e98c50508de5544f573123311138fdce7e2",
+      "case": "q23",
+      "mode": "M00",
+      "kind": "production",
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "physics": {
+        "R0_m": 0.02,
+        "L_m": 0.25,
+        "T0_K": 301.15,
+        "C0": 2.55,
+        "h": 25.0,
+        "hm": 8e-07,
+        "threshold": 0.15,
+        "t_cap_s": 259200.0
+      },
+      "numerics": {
+        "nr": 40,
+        "nz": 125,
+        "dt_s": 0.25,
+        "safety": 0.5,
+        "min_dt_s": 1e-08,
+        "max_rejections": 20,
+        "max_steps": 20000000,
+        "event_width_s": 0.1,
+        "checkpoint_interval_s": 3600.0
+      },
+      "dt_max_s": 0.25,
+      "tail_minutes": 60,
+      "shrink": false,
+      "replay": null,
+      "source": {
+        "frozen_numerical_core_hash": "829d9811ef26a6abdfe29ca1179bebbd4b5572578c888f4f24940e3c4e5098ad"
+      },
+      "initial_origin": "original_uniform_state",
+      "monitor_hash": "8ce06aac4245a0359009e98e2998ee1ced8a7757f9f8931bf76fd16bc4e52d09",
+      "fingerprint": "45cdf27de0841fb1cca3dd4b37007ef81bb4c703bcf05220fb2ffb5ae1d9fc01",
+      "experiment_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+      "analysis_adapter_source": {
+        "trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8"
+      },
+      "origin": "frozen original production; adapter does not define the original solve identity"
+    },
+    "audit_sources": {
+      "mass_kernel.py": "6ccf9a6cca78ebecc6168f5c4f0e02333bfbc0f7c63d6ddd84cf22218ab11d87",
+      "mass_balance.py": "5cf788c05b4c178428045c132472f9ee93110325e1e860e600a14444c2649c76"
+    },
+    "numerical_sources": {
+      "src/drying/operators.py": "6c36fd3be577f379dde6aece12be7fce12a563c54cf5155c618dfd5b09b8ae43",
+      "src/drying/rk4.py": "71b9f6b50b0f6b6656a2e79920f8b77c8d65679a89e0b8419940e629262d8709",
+      "src/drying/stages.py": "69fe41afd196c95b26d76d5b669222991686ae6e65d106d12bd690487ac50b3f",
+      "src/drying/inputs.py": "a3d83290bd4d32a3e9ddaf74467d6215f9a0b3f030eca76a9dc96a9898c47a3a",
+      "src/drying/geometry.py": "87abb0138f2fae6833e1455363f99da62398b72de924838e0bcd6c4d2a685519",
+      "src/drying/materials.py": "83af1401abe6dc99073f619efa2a5406c8b8d56c34fb8043b72a369dad39cbdf",
+      "src/drying/boundaries.py": "5b88490ad438f9831b84104cd53f983b8c6326c7bcdfbce3c884e9826b8d5905",
+      "src/drying/studies/thermal.py": "536b304059ffcda2ee7e89a25020cacdeb5bb58ba57e0941b96ab6b56cb756b4",
+      "src/drying/studies/water.py": "2aef3bd19bdc53a0bef98db57aec8392350979e0b6dff6da697263cdbb994dd3",
+      "src/drying/studies/trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8"
+    }
+  },
+  "method": "solver_mass_balance",
+  "observation_start_s": 0.0,
+  "observation_end_s": 259200.0,
+  "full_accepted_partition_verified": true,
+  "effective_initial_dry_density_kg_m3": 275.0422535211268,
+  "physical_length_m": 0.25,
+  "definition": "Mw=b0*(R0/R)^2*integral_full_cylinder(C dV); signed outward boundary flux uses identical dry basis",
+  "accumulation": "exact original RK4 AST; actual FV boundary subtraction captured at all four stages; accepted steps only; Kahan outflow sum; continuous replay without checkpoint state resets",
+  "replay_verification": {
+    "status": "PASS",
+    "maximum_original_state_difference_T_K": 5.684341886080802e-14,
+    "maximum_original_state_difference_C": 3.1086244689504383e-15,
+    "maximum_physical_vs_reference_volume_mass_difference_kg": 8.326672684688674e-17
+  },
+  "export_mass_balance": {
+    "status": "DIAGNOSTIC_ONLY",
+    "affects_pass": false,
+    "method": "original saved FV moisture fields plus solver-integrated outflow at exported times; no inferred flux",
+    "max_mass_balance_abs_error_kg": 4.884981308350689e-15,
+    "max_mass_balance_rel_error": 2.217039523805832e-14
+  },
+  "solver_mass_balance": {
+    "initial_water_mass_kg": 0.22033803438763208,
+    "remaining_water_mass_kg": 0.009978557828319898,
+    "cumulative_outflow_water_mass_kg": 0.2103594765593168,
+    "max_mass_balance_abs_error_kg": 4.912736883966318e-15,
+    "max_mass_balance_rel_error": 2.2296363392820017e-14,
+    "final_mass_balance_abs_error_kg": 4.6074255521944e-15,
+    "final_mass_balance_rel_error": 2.091071369044137e-14,
+    "final_mass_balance_signed_error_kg": 4.6074255521944e-15,
+    "time_of_max_error_s": 124438.0,
+    "maximum_error_context": {
+      "time_s": 124438.0,
+      "stage": 2,
+      "dt_s": 0.0625,
+      "kind": "accepted_RK4_step",
+      "signed_error_kg": 4.912736883966318e-15,
+      "boundary_outflow_RK4_kg_s": [
+        4.9928525394272774e-08,
+        4.992849896099961e-08,
+        4.9928498961015036e-08,
+        4.992847252776436e-08
+      ],
+      "radius_m": 0.02
+    },
+    "accepted_steps": 4220852,
+    "integrated_absolute_boundary_flow_kg": 0.21035947655930803
+  },
+  "remesh": [
+    {
+      "time_s": 300.0,
+      "stage": 1,
+      "radius_m": 0.02,
+      "water_mass_before_remesh": 0.215756283717946,
+      "water_mass_after_remesh": 0.21575628371794603,
+      "remesh_water_mass_jump_abs": 2.7755575615628914e-17,
+      "remesh_water_mass_jump_rel": 1.2864318543747832e-16,
+      "remesh_water_mass_jump_signed_kg": 2.7755575615628914e-17,
+      "projection": {
+        "switch_time": 300.0,
+        "old_mesh": [
+          200,
+          1
+        ],
+        "new_mesh": [
+          160,
+          1
+        ],
+        "projection_max_abs_T": 0.002037047401699965,
+        "projection_max_abs_C": 0.005053813629674497,
+        "projection_L2_T": 0.0007787382046090625,
+        "projection_L2_C": 0.0011525505706543135,
+        "volume_integral_T_before": 301.40317075843154,
+        "volume_integral_T_after": 301.40317075843154,
+        "volume_integral_C_before": 2.4969748187589564,
+        "volume_integral_C_after": 2.4969748187589564,
+        "volume_integral_relative_error_T": 0.0,
+        "volume_integral_relative_error_C": 0.0,
+        "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+        "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+      }
+    },
+    {
+      "time_s": 1800.0,
+      "stage": 2,
+      "radius_m": 0.02,
+      "water_mass_before_remesh": 0.19723705042047504,
+      "water_mass_after_remesh": 0.19723705042047504,
+      "remesh_water_mass_jump_abs": 0.0,
+      "remesh_water_mass_jump_rel": 0.0,
+      "remesh_water_mass_jump_signed_kg": 0.0,
+      "projection": {
+        "switch_time": 1800.0,
+        "old_mesh": [
+          160,
+          1
+        ],
+        "new_mesh": [
+          80,
+          1
+        ],
+        "projection_max_abs_T": 0.01883647684473999,
+        "projection_max_abs_C": 0.010175691850589974,
+        "projection_L2_T": 0.014010221112608743,
+        "projection_L2_C": 0.005762725734055009,
+        "volume_integral_T_before": 306.92322749905736,
+        "volume_integral_T_after": 306.9232274990573,
+        "volume_integral_C_before": 2.282649384478865,
+        "volume_integral_C_after": 2.282649384478865,
+        "volume_integral_relative_error_T": 1.8520403074082295e-16,
+        "volume_integral_relative_error_C": 0.0,
+        "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+        "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+      }
+    }
+  ],
+  "audit_files": [
+    {
+      "path": "work/validation/mass_balance/q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084/trajectory.npz",
+      "sha256": "edb400c870d22dd29d7faecc5bbd51fe41d3471353971e4df9c8d672ae7f1cb3"
+    }
+  ],
+  "wall_s": 107.34399999999914
+}

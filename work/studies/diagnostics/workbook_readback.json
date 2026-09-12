@@ -2,7 +2,7 @@
   "outputs": [
     {
       "path": "results/studies/tables/study_summary.xlsx",
-      "sha256": "3ec53abf701cb35f6c892666dea12ac83d0bc16b1e3545a9cd6c19b889fd5ea2",
+      "sha256": "62b602586e92a44b5fefe1b49a663c196aa876f13d7131fb00c0a235879a4be8",
       "sheets": [
         "Index",
         "Verification",
@@ -15,24 +15,26 @@
         "Interactions",
         "EventEvidence",
         "EvidenceLayers",
-        "Sources"
+        "Sources",
+        "Geometry_Property_Cross"
       ],
       "readback": "PASSED_ALL_CELLS",
-      "checked_cells": 5389
+      "checked_cells": 5527
     },
     {
       "path": "results/studies/tables/study_timeseries.xlsx",
-      "sha256": "7bc9742f7aeeb351a1f0c83a3b59e3db16ee395dd5afa4cbbdae228dba5f1e67",
+      "sha256": "cb450eb98481ce5c9cf6c0c8a23666787d68767416f6ec2792e92b87acdbda04",
       "sheets": [
         "EndEffects",
         "Fronts",
         "Kinetics",
         "DiffusionClock",
         "Counterfactuals",
-        "ThermalSeries"
+        "ThermalSeries",
+        "Kinetics_Summary"
       ],
       "readback": "PASSED_ALL_CELLS",
-      "checked_cells": 340022
+      "checked_cells": 372488
     },
     {
       "path": "results/studies/thermal/M10/supplement.xlsx",
@@ -87,5 +89,6 @@
     }
   ],
   "timeseries_sampling": "Actual samples: 60s up to 4h, 600s later, include endpoints/rate extrema/remesh and genuine reintegrated event times. ThermalSeries uses common physical times for every available mode. Full arrays in sealed NPZ; supplements follow official question frequency and own event.",
-  "official_workbooks": "never written"
+  "official_workbooks": "never written",
+  "technical_edits": "only Geometry_Property_Cross and Kinetics columns/Kinetics_Summary; existing sheets/columns verified unchanged"
 }

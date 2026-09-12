@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "changed_workbook_views_reviewed": 14,
+  "rendered_view_index": "work\\studies\\diagnostics\\workbook_previews\\rendered.json",
+  "artifact_tool_error_scan": "zero error cells in both opening-view workbooks",
+  "figures_reviewed": [
+    {
+      "path": "results\\studies\\figures\\03_drying_kinetics.png",
+      "sha256": "b941d45eb13cc5e64c223d7d6b1a0886aaf31e93309668ef20689d53d40bc7ec"
+    },
+    {
+      "path": "results\\studies\\figures\\05_geometry_property_cross.png",
+      "sha256": "86c7210b5060aff37400b9a27f14236656a3a448586c78953d152e60ee3e1e62"
+    }
+  ],
+  "notes": "Labels, units, source IDs, actual endpoints and new workbook columns inspected; seven GIF files preserved."
+}

@@ -140,3 +140,32 @@ plot_manifest.json 包含 schema/input/plot hash、每问正式来源与阶段�
 真实表面 Robin 重构使用实际 R-r_center[-1]；仍保留既定的局部线性串联阻力公式，没有平滑或事后改写表面值。极早期初值与 Robin 边界不相容造成的离散表面误差由内部审计暴露，内部超阈值仅记日志，不参与正式 PASS/FAIL。正式空间收敛仅在题目实际要求的输出时刻及两条轨迹各自烘干终点判定，终点场值采用真实局部积分，不作时间插值；下降趋势也仅使用这些正式时刻的误差。
 
 只重画斜砍 GIF：`.\.venv\Scripts\python.exe plot.py --gif cutaway --gif-only`。14 张 PNG、其余四个 GIF 和结果汇总原样保留。省略 `--gif-only` 时也更新 PNG；不加参数时从独立 payload 重画全部图。绘图入口均不导入或调用 PDE 求解器。最终 results 中不额外输出斜砍静态 PNG。
+
+## 最终技术补全：交叉对照与论文事实
+
+新增 `geometry_cross_p3_shrink` 使用完整附录 3 物性及原附件 R(t)，通过既有随体径向 FV/RK4 内核求解。其独立生产方案为 200→160→80，完整参考为 400→320→160，半步轨迹重放本组生产的实际接受步长。每条轨迹保留至 72 h，真实烘干事件另存；不继承 Q3/Q4 的 PASS。空间采用原 0.01 K、0.01 kg/kg、事件相对差 0.2% 判据；时间验证继续沿用更严格的 0.001 K、1e-5 kg/kg、事件差 1 s。原 M00 和各热模式定义、官方来源、阈值均保持冻结。
+
+```powershell
+.\.venv\Scripts\python.exe compute_studies.py --group geometry_cross --resume --solve-only
+.\.venv\Scripts\python.exe compute_studies.py --group refine2d --resume
+.\.venv\Scripts\python.exe compute_studies.py --group geometry_cross --resume --payload-only
+.\.venv\Scripts\python.exe plot_studies.py --technical-only
+.\.venv\Scripts\python.exe compute_studies.py --output-status-only
+```
+
+`Geometry_Property_Cross` 表与 05 图覆盖 P3/P4 × fixed/shrink 四组。`Cmean` 为 FV 体积加权平均；达标体积分数按径向分段线性重构的严格 `C<0.15` 区域积分，等阈值的平台不计入达标体积。交互项按 P4收缩−P4固定−P3收缩＋P3固定计算；没有事件的组保持 `drying_time=null`，不计算缺失时长的交互。P4 fixed 仍未独立加密，因此交互是结构诊断。
+
+`Kinetics` 追加体积平均温度、含水率及三个变化率，`Kinetics_Summary` 记录 Q4 峰值区间、时差和 t50。体积权重使用当时实际 R(t)，不把边界重构节点当成等体积节点。差分只选真实保存的规则时刻，按网格阶段作三点中心差分/二阶单边端点差分；额外事件近重复时刻不参与差分。Q4 用实际 60 s 保存间隔，不虚构更密的 PDE 状态。半径使用附件的分段斜率，最大平台保留完整区间。原始 PDE 状态不平滑。t50 为相对初态到 Q4 正式终点总响应的最早线性插值交点；正时差表示目标晚于来源，负值表示提前，不称相位角。
+
+可选 `refine2d` 从原始初态对 Q3/Q4 各测量 60×188 前 60 s 的实际成本，扣除单独记录的编译/加载耗时。默认若线性估计全 72 h 超过每组 1 h 墙钟预算则停止增强并记录 `PARTIAL_2D`，以免阻塞主流程；该估计不保证后期耗时。显式 `--refine-force-full` 可绕过成本门槛。完整路径仍使用同一冻结连续 monitor 和稳定性控制，并比较原 40×125、代表时刻、真实事件、控制区域及端面效应；仅一轮加密最多称 `2D_FULL_TRAJECTORY_REFINED`，不宣称网格独立性。不会自动使用更大二维网格。
+
+本轮图表只替换 03/05，两份汇总表只新增所需工作表/列。其他七张静态图、全部七个 GIF、三份热模式补充表和四份官方 Excel 均检查保留。`--technical-only` 仅读密封好的技术 payload；`scripts/check_study_render.py --technical-only` 禁止数值模块导入并核对全部数据哈希。
+
+`results/paper_facts.json` 与精简的 `paper_facts.md` 由已有数据自动导出，是后续论文直接引用数字的统一来源。JSON 保存未舍入值、source case id、源文件、输入/物理哈希、生成时间、二维状态和适用范围。正式来源或终点值冲突会阻止事实文件发布；未提供论文正文时只报告未执行初稿对照，不假称检查过论文。
+### 水质量守恒审计
+
+`python compute_studies.py --group mass_balance --resume` 独立重放 M00/M10/M01/M11 的 Q1、Q23、Q4 全部实际接受步；`--payload-only` 仅复核审计记录并刷新摘要。生产状态、输入、模型、原收敛判据和图表不变。
+
+`solver_mass_balance` 直接捕获原有限体积算子的有符号边界含水通量，按同一步 RK4 的 1:2:2:1 权重积分，拒绝步不计入，累计量采用补偿求和。水质量使用 `b0=rho(C0)/(1+C0)`；Q4 使用 `bd=b0*(R0/R(t))^2` 与实际圆柱体积，轴向半域还原为完整 0.25 m 圆柱。每个接受步检查 `Mw+Mout-Mw(0)`，换网格前后单独记录质量跳变；连续重放不在输出检查点重置状态或累计量。重放状态和接受步分区必须与原缓存一致。`export_mass_balance` 仅诊断，不决定守恒 PASS。
+
+全轨迹记录、最大残差对应的时间/阶段/四个边界流量、换网格记录及阈值依据保存在 `work/validation/mass_balance/`；摘要进入 studies 验证页和 `paper_facts`。全部原始残差测量完成后，以接受步数和浮点通量累计的精度尺度冻结 `policy.json`，不以残差峰值拟合阈值，续跑不再改变该阈值。运行 `python scripts/check_mass_balance.py` 可复核源缓存、29,920,769 个接受步记录、摘要一致性和文件保护。本审计不新增图表或 GIF。

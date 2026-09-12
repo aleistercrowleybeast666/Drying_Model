@@ -9,7 +9,7 @@ def StudyPlot_GetHash(path):
     with Path(path).open('rb') as stream:return hashlib.file_digest(stream,'sha256').hexdigest()
 
 
-def StudyPlot_ReadManifest(root):
+def StudyPlot_ReadManifest(root, validate_technical=True):
     root=Path(root);path=root/'work/studies/plot_payload/study_manifest.json'
     if not path.is_file():raise FileNotFoundError(f'STUDY_PAYLOAD_MISSING: {path}; experiment=all; run .venv\\Scripts\\python.exe compute_studies.py --group all --resume')
     manifest=json.loads(path.read_text(encoding='utf-8'));seal=manifest.pop('seal',None)
@@ -23,6 +23,9 @@ def StudyPlot_ReadManifest(root):
         if not target.is_relative_to((root/'work/studies').resolve()):raise RuntimeError('STUDY_MANIFEST_VERSION_MISMATCH: escaped path')
         if not target.is_file():raise FileNotFoundError(f"STUDY_PAYLOAD_MISSING: {target}; experiment={entry.get('experiment_id',entry.get('case'))}; run compute_studies.py --group all --resume --payload-only")
         if StudyPlot_GetHash(target)!=entry['sha256']:raise RuntimeError('STUDY_MANIFEST_VERSION_MISMATCH: '+str(target))
+    if validate_technical and manifest.get('technical_extension'):
+        from .technical_contract import Technical_ReadPayload
+        Technical_ReadPayload(root,manifest)
     return manifest
 
 

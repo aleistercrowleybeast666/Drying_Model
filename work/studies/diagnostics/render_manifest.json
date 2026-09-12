@@ -1,12 +1,38 @@
 {
-  "manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d",
+  "manifest_seal": "d59923b8447bb6aef528891936e3fc3475d7589f9b1246f714f41d9fca3bf6e9",
   "numerical_data": "sealed NPZ only; no solver imports or cache discovery",
   "render_hash": {
-    "plots.py": "1678dbddb0ce100b1b4078b0deace83b901ad78572b5b8e7ceee9d7621155460",
+    "plots.py": "3e16c23957331ea09e4f53c3d341c9a1bef13168a61b453ba57fc19d25f7ba6a",
     "animations.py": "e095626d700b6ddf1103a0753944e5d7dfa2059eaad80da184ec05d46536b47a",
-    "plot_contract.py": "c0dc5a3f8ef5296213c5ee75bf079bfa6003122c252869b0595c8d785cdf49b6"
+    "plot_contract.py": "d9a9daee414eb94e5567feb5f80b969a64ba87d1009e0b06ab505f8d51b953da",
+    "technical_plots.py": "02a70e0a85c1e3d9504b85aa55497a59b5d896a1be746a7c2446654e4979afb4",
+    "technical_contract.py": "559d9c1ff371566e5f4d3d35e59d32e2e8b768c4e63fba6754e9a537494a79ad"
   },
   "files": [
+    {
+      "path": "results/studies/figures/03_drying_kinetics.png",
+      "sha256": "b941d45eb13cc5e64c223d7d6b1a0886aaf31e93309668ef20689d53d40bc7ec",
+      "render_hash": {
+        "plots.py": "3e16c23957331ea09e4f53c3d341c9a1bef13168a61b453ba57fc19d25f7ba6a",
+        "animations.py": "e095626d700b6ddf1103a0753944e5d7dfa2059eaad80da184ec05d46536b47a",
+        "plot_contract.py": "d9a9daee414eb94e5567feb5f80b969a64ba87d1009e0b06ab505f8d51b953da",
+        "technical_plots.py": "02a70e0a85c1e3d9504b85aa55497a59b5d896a1be746a7c2446654e4979afb4",
+        "technical_contract.py": "559d9c1ff371566e5f4d3d35e59d32e2e8b768c4e63fba6754e9a537494a79ad"
+      },
+      "manifest_seal": "d59923b8447bb6aef528891936e3fc3475d7589f9b1246f714f41d9fca3bf6e9"
+    },
+    {
+      "path": "results/studies/figures/05_geometry_property_cross.png",
+      "sha256": "86c7210b5060aff37400b9a27f14236656a3a448586c78953d152e60ee3e1e62",
+      "render_hash": {
+        "plots.py": "3e16c23957331ea09e4f53c3d341c9a1bef13168a61b453ba57fc19d25f7ba6a",
+        "animations.py": "e095626d700b6ddf1103a0753944e5d7dfa2059eaad80da184ec05d46536b47a",
+        "plot_contract.py": "d9a9daee414eb94e5567feb5f80b969a64ba87d1009e0b06ab505f8d51b953da",
+        "technical_plots.py": "02a70e0a85c1e3d9504b85aa55497a59b5d896a1be746a7c2446654e4979afb4",
+        "technical_contract.py": "559d9c1ff371566e5f4d3d35e59d32e2e8b768c4e63fba6754e9a537494a79ad"
+      },
+      "manifest_seal": "d59923b8447bb6aef528891936e3fc3475d7589f9b1246f714f41d9fca3bf6e9"
+    },
     {
       "path": "results/studies/figures/01_end_effect_extent.png",
       "sha256": "07d982e60d886ad056f32df5e205d575c1022403d50676962563ca56d1319a26",
@@ -15,7 +41,9 @@
         "animations.py": "e095626d700b6ddf1103a0753944e5d7dfa2059eaad80da184ec05d46536b47a",
         "plot_contract.py": "c0dc5a3f8ef5296213c5ee75bf079bfa6003122c252869b0595c8d785cdf49b6"
       },
-      "manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d"
+      "manifest_seal": "d59923b8447bb6aef528891936e3fc3475d7589f9b1246f714f41d9fca3bf6e9",
+      "carried_forward_from_manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d",
+      "preservation_reason": "requested byte-identical preservation; all original scientific payload hashes checked unchanged"
     },
     {
       "path": "results/studies/figures/02_drying_fronts.png",
@@ -25,17 +53,9 @@
         "animations.py": "e095626d700b6ddf1103a0753944e5d7dfa2059eaad80da184ec05d46536b47a",
         "plot_contract.py": "c0dc5a3f8ef5296213c5ee75bf079bfa6003122c252869b0595c8d785cdf49b6"
       },
-      "manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d"
-    },
-    {
-      "path": "results/studies/figures/03_drying_kinetics.png",
-      "sha256": "dc034e545861f096a0b6cea0c3b222a0b0e21c94c3e068524b150a29b7acc025",
-      "render_hash": {
-        "plots.py": "1678dbddb0ce100b1b4078b0deace83b901ad78572b5b8e7ceee9d7621155460",
-        "animations.py": "e095626d700b6ddf1103a0753944e5d7dfa2059eaad80da184ec05d46536b47a",
-        "plot_contract.py": "c0dc5a3f8ef5296213c5ee75bf079bfa6003122c252869b0595c8d785cdf49b6"
-      },
-      "manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d"
+      "manifest_seal": "d59923b8447bb6aef528891936e3fc3475d7589f9b1246f714f41d9fca3bf6e9",
+      "carried_forward_from_manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d",
+      "preservation_reason": "requested byte-identical preservation; all original scientific payload hashes checked unchanged"
     },
     {
       "path": "results/studies/figures/04_diffusion_clock_drivers.png",
@@ -45,17 +65,9 @@
         "animations.py": "e095626d700b6ddf1103a0753944e5d7dfa2059eaad80da184ec05d46536b47a",
         "plot_contract.py": "c0dc5a3f8ef5296213c5ee75bf079bfa6003122c252869b0595c8d785cdf49b6"
       },
-      "manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d"
-    },
-    {
-      "path": "results/studies/figures/05_geometry_control.png",
-      "sha256": "22c22135e5b86ab03949d4495a3576ecbbc93585102e30d07f1def3e9ec2cabe",
-      "render_hash": {
-        "plots.py": "1678dbddb0ce100b1b4078b0deace83b901ad78572b5b8e7ceee9d7621155460",
-        "animations.py": "e095626d700b6ddf1103a0753944e5d7dfa2059eaad80da184ec05d46536b47a",
-        "plot_contract.py": "c0dc5a3f8ef5296213c5ee75bf079bfa6003122c252869b0595c8d785cdf49b6"
-      },
-      "manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d"
+      "manifest_seal": "d59923b8447bb6aef528891936e3fc3475d7589f9b1246f714f41d9fca3bf6e9",
+      "carried_forward_from_manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d",
+      "preservation_reason": "requested byte-identical preservation; all original scientific payload hashes checked unchanged"
     },
     {
       "path": "results/studies/figures/06_environment_robustness.png",
@@ -65,7 +77,9 @@
         "animations.py": "e095626d700b6ddf1103a0753944e5d7dfa2059eaad80da184ec05d46536b47a",
         "plot_contract.py": "c0dc5a3f8ef5296213c5ee75bf079bfa6003122c252869b0595c8d785cdf49b6"
       },
-      "manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d"
+      "manifest_seal": "d59923b8447bb6aef528891936e3fc3475d7589f9b1246f714f41d9fca3bf6e9",
+      "carried_forward_from_manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d",
+      "preservation_reason": "requested byte-identical preservation; all original scientific payload hashes checked unchanged"
     },
     {
       "path": "results/studies/figures/07_thermal_modes.png",
@@ -75,7 +89,9 @@
         "animations.py": "e095626d700b6ddf1103a0753944e5d7dfa2059eaad80da184ec05d46536b47a",
         "plot_contract.py": "c0dc5a3f8ef5296213c5ee75bf079bfa6003122c252869b0595c8d785cdf49b6"
       },
-      "manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d"
+      "manifest_seal": "d59923b8447bb6aef528891936e3fc3475d7589f9b1246f714f41d9fca3bf6e9",
+      "carried_forward_from_manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d",
+      "preservation_reason": "requested byte-identical preservation; all original scientific payload hashes checked unchanged"
     },
     {
       "path": "results/studies/figures/08_thermal_interactions.png",
@@ -85,7 +101,9 @@
         "animations.py": "e095626d700b6ddf1103a0753944e5d7dfa2059eaad80da184ec05d46536b47a",
         "plot_contract.py": "c0dc5a3f8ef5296213c5ee75bf079bfa6003122c252869b0595c8d785cdf49b6"
       },
-      "manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d"
+      "manifest_seal": "d59923b8447bb6aef528891936e3fc3475d7589f9b1246f714f41d9fca3bf6e9",
+      "carried_forward_from_manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d",
+      "preservation_reason": "requested byte-identical preservation; all original scientific payload hashes checked unchanged"
     },
     {
       "path": "results/studies/figures/09_verification_evidence.png",
@@ -95,7 +113,9 @@
         "animations.py": "e095626d700b6ddf1103a0753944e5d7dfa2059eaad80da184ec05d46536b47a",
         "plot_contract.py": "c0dc5a3f8ef5296213c5ee75bf079bfa6003122c252869b0595c8d785cdf49b6"
       },
-      "manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d"
+      "manifest_seal": "d59923b8447bb6aef528891936e3fc3475d7589f9b1246f714f41d9fca3bf6e9",
+      "carried_forward_from_manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d",
+      "preservation_reason": "requested byte-identical preservation; all original scientific payload hashes checked unchanged"
     },
     {
       "path": "results/studies/animations/thermal_temperature.gif",
@@ -526,7 +546,9 @@
         "animations.py": "e095626d700b6ddf1103a0753944e5d7dfa2059eaad80da184ec05d46536b47a",
         "plot_contract.py": "c0dc5a3f8ef5296213c5ee75bf079bfa6003122c252869b0595c8d785cdf49b6"
       },
-      "manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d"
+      "manifest_seal": "d59923b8447bb6aef528891936e3fc3475d7589f9b1246f714f41d9fca3bf6e9",
+      "carried_forward_from_manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d",
+      "preservation_reason": "requested byte-identical preservation; all original scientific payload hashes checked unchanged"
     },
     {
       "path": "results/studies/animations/thermal_moisture.gif",
@@ -957,7 +979,9 @@
         "animations.py": "e095626d700b6ddf1103a0753944e5d7dfa2059eaad80da184ec05d46536b47a",
         "plot_contract.py": "c0dc5a3f8ef5296213c5ee75bf079bfa6003122c252869b0595c8d785cdf49b6"
       },
-      "manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d"
+      "manifest_seal": "d59923b8447bb6aef528891936e3fc3475d7589f9b1246f714f41d9fca3bf6e9",
+      "carried_forward_from_manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d",
+      "preservation_reason": "requested byte-identical preservation; all original scientific payload hashes checked unchanged"
     }
   ],
   "failures": [],

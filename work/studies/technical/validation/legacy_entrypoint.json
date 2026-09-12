@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "checked_legacy_jobs": 38,
+  "new_export_route": [
+    "geometry_cross"
+  ],
+  "solver_called": false,
+  "workbooks_written": false,
+  "source_hash": "83c99eaa41f578123e288146b13c263f38f87145a571fcfe5437e9681d63bcf1"
+}

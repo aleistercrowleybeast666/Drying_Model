@@ -1,0 +1,18 @@
+{
+  "status": "MEASURED",
+  "selected_cases": [
+    "q1_1d_stage_schedule_default_dt0.25_s030d129157f2",
+    "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+    "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+    "q1_M10_production_x1_tail60_3195d8f95b6d",
+    "q23_M10_production_x1_tail60_f001afde885f",
+    "q1_M01_production_x1_tail60_9528c86985e2",
+    "q23_M01_production_x1_tail60_182fbf89b7a4",
+    "q4_M10_production_x2_tail60_16fad782a30b",
+    "q4_M01_production_x1_tail60_c5eab22374c1",
+    "q1_M11_production_x1_tail60_5590317f2af6",
+    "q23_M11_production_x1_tail60_38ef6e17d315",
+    "q4_M11_production_x2_tail60_7848b38bac48"
+  ],
+  "failures": []
+}

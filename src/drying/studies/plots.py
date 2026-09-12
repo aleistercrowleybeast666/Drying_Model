@@ -29,6 +29,9 @@ def StudyPlot_Finish(fig,axes,path):
 
 
 def StudyPlot_Draw(root,manifest,name):
+    if manifest.get('technical_extension') and name in ['drying_kinetics','geometry_control','geometry_property_cross']:
+        from .technical_plots import Technical_Draw
+        return Technical_Draw(root,manifest,name)
     output=Path(root)/'results/studies/figures'
     base={c:StudyPlot_Load(root,StudyPlot_Find(manifest,c)) for c in ['q23','q4']}
     labels={'q23':'Q3','q4':'Q4'};colors={'q23':'#3465a4','q4':'#c65b38'}

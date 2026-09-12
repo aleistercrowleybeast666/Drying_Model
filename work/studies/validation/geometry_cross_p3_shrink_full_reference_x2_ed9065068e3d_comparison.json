@@ -1,0 +1,87 @@
+{
+  "case": "q23",
+  "mode": "M00",
+  "reference_id": "geometry_cross_p3_shrink_full_reference_x2_ed9065068e3d",
+  "production_id": "geometry_cross_p3_shrink_production_x1_fd48e0b0c765",
+  "status": "PASS",
+  "full_schedule_reference_passed": true,
+  "time_half_passed": null,
+  "max_abs_T_K": 0.0004978579260637161,
+  "max_abs_C": 0.004967445809766435,
+  "max_abs_Cmax": 6.827593345171135e-05,
+  "event_relative": 0.0008434207243914936,
+  "event_delta_s": 76.68000000000035,
+  "thresholds": {
+    "T_K": 0.01,
+    "C": 0.01,
+    "event_s": null,
+    "event_relative": 0.002
+  },
+  "common_output_count": 14941,
+  "common_time_range_s": [
+    0.0,
+    259200.0
+  ],
+  "events": [
+    {
+      "time_s": 90992.16,
+      "T_K": 1.2283862815820612e-09,
+      "C": 0.002496682571140302,
+      "Cmax": 6.133365060276286e-05,
+      "source": "genuine reintegration to exact common physical time"
+    },
+    {
+      "time_s": 90915.48,
+      "T_K": 1.2286136552575044e-09,
+      "C": 0.0024979544006401427,
+      "Cmax": 6.129667005347339e-05,
+      "source": "genuine reintegration to exact common physical time"
+    }
+  ],
+  "full_history_verified": true,
+  "reference_pairing_verified": true,
+  "reference_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 300.0,
+      "nr": 400,
+      "nz": 1
+    },
+    {
+      "t_start": 300.0,
+      "t_end": 1800.0,
+      "nr": 320,
+      "nz": 1
+    },
+    {
+      "t_start": 1800.0,
+      "t_end": 259200.0,
+      "nr": 160,
+      "nz": 1
+    }
+  ],
+  "production_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 300.0,
+      "nr": 200,
+      "nz": 1
+    },
+    {
+      "t_start": 300.0,
+      "t_end": 1800.0,
+      "nr": 160,
+      "nz": 1
+    },
+    {
+      "t_start": 1800.0,
+      "t_end": 259200.0,
+      "nr": 80,
+      "nz": 1
+    }
+  ],
+  "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+  "official_M00_status_unchanged": true,
+  "series_path": "work/studies/validation/geometry_cross_p3_shrink_full_reference_x2_ed9065068e3d_comparison.npz",
+  "series_sha256": "5c9c307b718a9d303fb7e13cf60cae32f5e4c77948d825da2d8bf61fd0bc3047"
+}

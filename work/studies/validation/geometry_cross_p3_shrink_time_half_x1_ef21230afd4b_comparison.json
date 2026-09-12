@@ -1,0 +1,87 @@
+{
+  "case": "q23",
+  "mode": "M00",
+  "reference_id": "geometry_cross_p3_shrink_time_half_x1_ef21230afd4b",
+  "production_id": "geometry_cross_p3_shrink_production_x1_fd48e0b0c765",
+  "status": "PASS",
+  "full_schedule_reference_passed": null,
+  "time_half_passed": true,
+  "max_abs_T_K": 5.466063157655299e-10,
+  "max_abs_C": 5.172307027123679e-12,
+  "max_abs_Cmax": 1.8276491431379327e-12,
+  "event_relative": 0.0,
+  "event_delta_s": 0.0,
+  "thresholds": {
+    "T_K": 0.001,
+    "C": 1e-05,
+    "event_s": 1.0,
+    "event_relative": null
+  },
+  "common_output_count": 14942,
+  "common_time_range_s": [
+    0.0,
+    259200.0
+  ],
+  "events": [
+    {
+      "time_s": 90992.16,
+      "T_K": 4.241655915393494e-10,
+      "C": 6.502576255229542e-13,
+      "Cmax": 6.502576255229542e-13,
+      "source": "genuine reintegration to exact common physical time"
+    },
+    {
+      "time_s": 90992.16,
+      "T_K": 4.241655915393494e-10,
+      "C": 6.502576255229542e-13,
+      "Cmax": 6.502576255229542e-13,
+      "source": "genuine reintegration to exact common physical time"
+    }
+  ],
+  "full_history_verified": true,
+  "reference_pairing_verified": true,
+  "reference_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 300.0,
+      "nr": 200,
+      "nz": 1
+    },
+    {
+      "t_start": 300.0,
+      "t_end": 1800.0,
+      "nr": 160,
+      "nz": 1
+    },
+    {
+      "t_start": 1800.0,
+      "t_end": 259200.0,
+      "nr": 80,
+      "nz": 1
+    }
+  ],
+  "production_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 300.0,
+      "nr": 200,
+      "nz": 1
+    },
+    {
+      "t_start": 300.0,
+      "t_end": 1800.0,
+      "nr": 160,
+      "nz": 1
+    },
+    {
+      "t_start": 1800.0,
+      "t_end": 259200.0,
+      "nr": 80,
+      "nz": 1
+    }
+  ],
+  "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+  "official_M00_status_unchanged": true,
+  "series_path": "work/studies/validation/geometry_cross_p3_shrink_time_half_x1_ef21230afd4b_comparison.npz",
+  "series_sha256": "7c075176241c1a0e59d24f27691b8b60540dffeca111a0d3717e68b23fbfed0a"
+}

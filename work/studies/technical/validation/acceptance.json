@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "problems": [],
+  "protected_existing_study_files": 84,
+  "old_scientific_arrays_and_artifacts_preserved": true,
+  "workbooks": [
+    {
+      "path": "results/studies/tables/study_summary.xlsx",
+      "sha256": "62b602586e92a44b5fefe1b49a663c196aa876f13d7131fb00c0a235879a4be8",
+      "original_sha256": "3ec53abf701cb35f6c892666dea12ac83d0bc16b1e3545a9cd6c19b889fd5ea2",
+      "original_sheets_preserved": [
+        "Index",
+        "Verification",
+        "EndEffects",
+        "FrontMilestones",
+        "DryingStages",
+        "Geometry",
+        "Environment",
+        "ThermalModes",
+        "Interactions",
+        "EventEvidence",
+        "EvidenceLayers",
+        "Sources"
+      ],
+      "status": "PASS"
+    },
+    {
+      "path": "results/studies/tables/study_timeseries.xlsx",
+      "sha256": "cb450eb98481ce5c9cf6c0c8a23666787d68767416f6ec2792e92b87acdbda04",
+      "original_sha256": "7bc9742f7aeeb351a1f0c83a3b59e3db16ee395dd5afa4cbbdae228dba5f1e67",
+      "original_sheets_preserved": [
+        "EndEffects",
+        "Fronts",
+        "Kinetics",
+        "DiffusionClock",
+        "Counterfactuals",
+        "ThermalSeries"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "new_1d_trajectories": 3,
+  "own_comparisons": 2,
+  "original_innovations_preserved": [
+    "B1/B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6",
+    "B7",
+    "B8",
+    "B10",
+    "B11",
+    "B12",
+    "M00/M10/M01/M11"
+  ],
+  "B11_event_method": "original Event_Locate numerical core remains frozen; own comparison samples use genuine reintegration",
+  "refinement2d_status": "PARTIAL_2D",
+  "paper_facts_source_consistency": "PASS"
+}

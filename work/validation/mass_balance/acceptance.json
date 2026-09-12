@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "q1",
+      "mode": "M00",
+      "status": "PASS",
+      "accepted_steps": 39720,
+      "maximum_error_is_an_actual_accepted_time": true
+    },
+    {
+      "case": "q23",
+      "mode": "M00",
+      "status": "PASS",
+      "accepted_steps": 4220852,
+      "maximum_error_is_an_actual_accepted_time": true
+    },
+    {
+      "case": "q4",
+      "mode": "M00",
+      "status": "PASS",
+      "accepted_steps": 1286630,
+      "maximum_error_is_an_actual_accepted_time": true
+    },
+    {
+      "case": "q1",
+      "mode": "M10",
+      "status": "PASS",
+      "accepted_steps": 39720,
+      "maximum_error_is_an_actual_accepted_time": true
+    },
+    {
+      "case": "q23",
+      "mode": "M10",
+      "status": "PASS",
+      "accepted_steps": 4221848,
+      "maximum_error_is_an_actual_accepted_time": true
+    },
+    {
+      "case": "q1",
+      "mode": "M01",
+      "status": "PASS",
+      "accepted_steps": 39720,
+      "maximum_error_is_an_actual_accepted_time": true
+    },
+    {
+      "case": "q23",
+      "mode": "M01",
+      "status": "PASS",
+      "accepted_steps": 4220858,
+      "maximum_error_is_an_actual_accepted_time": true
+    },
+    {
+      "case": "q4",
+      "mode": "M10",
+      "status": "PASS",
+      "accepted_steps": 5151321,
+      "maximum_error_is_an_actual_accepted_time": true
+    },
+    {
+      "case": "q4",
+      "mode": "M01",
+      "status": "PASS",
+      "accepted_steps": 1286839,
+      "maximum_error_is_an_actual_accepted_time": true
+    },
+    {
+      "case": "q1",
+      "mode": "M11",
+      "status": "PASS",
+      "accepted_steps": 39720,
+      "maximum_error_is_an_actual_accepted_time": true
+    },
+    {
+      "case": "q23",
+      "mode": "M11",
+      "status": "PASS",
+      "accepted_steps": 4221854,
+      "maximum_error_is_an_actual_accepted_time": true
+    },
+    {
+      "case": "q4",
+      "mode": "M11",
+      "status": "PASS",
+      "accepted_steps": 5151687,
+      "maximum_error_is_an_actual_accepted_time": true
+    }
+  ],
+  "accepted_steps_checked": 29920769,
+  "published_json_summaries_identical": true,
+  "published_markdown_summaries_identical": true,
+  "source_arrays_unchanged": true,
+  "baseline": {
+    "status": "PASS",
+    "baseline_id": "52a1433275fe31fa47ce7c80b1373e98c50508de5544f573123311138fdce7e2",
+    "protected_files": 410,
+    "official_workbooks_unchanged": true,
+    "production_arrays_and_events_unchanged": true
+  },
+  "existing_study_workbooks_and_figures_unchanged": true,
+  "additional_GIF_created": false
+}

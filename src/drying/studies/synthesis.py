@@ -274,6 +274,24 @@ def Synthesis_RefreshOverview(root):
         '入口：`compute_studies.py --group all --resume`；已有完整缓存只刷新数据用 `--payload-only`；绘图用 `plot_studies.py`；绘后核对本页用 `compute_studies.py --output-status-only`。GUI 为 `app.py`，仅调用 CLI。',
         '缓存源由 manifest 明确引用；修改绘图样式不改变数值缓存。'+gui_note,'',
         '需人工审阅的假设：干物质有效质量基准、独立经验热容量、饱和路径水焓/潜热、各热模式共享给定 R(t)。见 `work/studies/diagnostics/thermal_assumptions.md`；本扩展不是实验精度认证。','']
+    if manifest.get('technical_extension'):
+        from .technical_contract import Technical_ReadPayload
+        technical=Technical_ReadPayload(root,manifest);cross=technical['geometry_property_cross'];timing=technical['kinetics_summary']
+        lines += ['', '## 最终技术补全', '',
+            f"独立交叉轨迹 3/3（生产、完整加密、实际半步重放），验证 {technical['cross_validation']['status']}；原 38 个实验及原验证证据保留。", '',
+            '| 交叉组 | 烘干时间 / h | Cmax(72 h) / kg/kg | 验证状态 |', '|---|---:|---:|---|']
+        for row in cross['groups']:
+            td=f"{row['drying_time_h']:.4f}" if row['drying_time_h'] is not None else '72 h 未达标 / null'
+            lines.append(f"| {row['group']} | {td} | {row['Cmax_72h']:.6f} | {row['convergence_status']} |")
+        lines += ['',f"Q4 峰值时序：T={timing['t_T_peak']:.0f} s，C={timing['t_C_peak']:.0f} s；R 最大速率区间 {timing['R_peak_interval_start']:.0f}–{timing['R_peak_interval_end']:.0f} s。",
+            f"t50：T={timing['t_T50']:.1f} s，C={timing['t_C50']:.1f} s，R={timing['t_R50']:.1f} s。时差与导数定义见 `../paper_facts.json`。",
+            '本轮只更新 03/05 两张静态图；全部 7 个 GIF 保持字节一致。',
+            '本轮刷新：`compute_studies.py --group geometry_cross --resume --payload-only`；只重画两图：`plot_studies.py --technical-only`。',
+            '论文唯一直接引用数字来源：`../paper_facts.json` / `../paper_facts.md`；P4 固定组未独立加密，交互项为结构诊断。']
+        for case,record in technical['refinement2d'].get('cases',{}).items():
+            lines.append(f"二维 60×188 {case}：{record['status']}；{record['reason']}。")
     lines += ['- '+w for w in manifest['warnings']]
+    from .mass_report import MassReport_GetLines, MassReport_ReadSummary
+    lines += MassReport_GetLines(MassReport_ReadSummary(root))
     (root/'results/studies/overview.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     print(f'OVERVIEW_REFRESHED workbooks={books}/5 png={png}/9 gif={gif}/2',flush=True)

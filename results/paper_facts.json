@@ -1,0 +1,2245 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-12T05:47:23.839691+00:00",
+  "baseline_id": "52a1433275fe31fa47ce7c80b1373e98c50508de5544f573123311138fdce7e2",
+  "purpose": "only direct numerical quotation source for subsequent paper writing",
+  "units": {
+    "time": "s unless explicitly suffixed h",
+    "temperature": "K in arrays; C for Celsius display",
+    "moisture": "kg water/kg dry material",
+    "length": "m",
+    "volume_fraction": "dimensionless",
+    "diffusivity": "m²/s"
+  },
+  "official": {
+    "Q1": {
+      "source_case_id": "q1_1d_stage_schedule_default_dt0.25_s030d129157f2",
+      "source_file": "work/studies/plot_payload/q1_1d_stage_schedule_default_dt0.25_s030d129157f2_series.npz",
+      "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+      "physics_hash": "d23e1e5c3ef5e780d616822313497bd2c327c30f9eff7733aa6dfaba39f91dbc",
+      "study_id": "official_M00",
+      "generated_at": "2026-09-12T05:47:23.839691+00:00",
+      "question": "Q1",
+      "mode": "M00",
+      "official_Excel_path": "results/tables/result1.xlsx",
+      "key_values": {
+        "time_s": 1800.0,
+        "Tcenter_C": 33.5747561886476,
+        "Tsurface_C": 36.785939606450086,
+        "Ccenter": 2.549991262232132,
+        "Csurface": 1.5097463561277933,
+        "Cmax": 2.549991262232132,
+        "Cmean": 2.2936204555751356
+      },
+      "drying_completed": false,
+      "drying_time_s": null,
+      "drying_time_h": null,
+      "endpoint_Cmax": 2.549991262232132,
+      "controlling_location": {
+        "r_min_m": 0.0,
+        "r_max_m": 0.0,
+        "tied_node_count": 1,
+        "representative": "smallest r among tolerance-tied maxima; no resolved axial coordinate in 1D"
+      },
+      "convergence_status": {
+        "time": true,
+        "spatial": true
+      },
+      "array_sha256": "38b0b8ed1da21f5b03e4d2cd39a0967f41a24f8dd1e6bfcd3bc96987eef3388c"
+    },
+    "Q2": {
+      "source_case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+      "source_file": "work/studies/plot_payload/q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084_series.npz",
+      "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+      "physics_hash": "168eaa843d9c9c69ec13c86b4be1b88021dcd5153cb23d83f6aa56b6e2a25887",
+      "study_id": "official_M00",
+      "generated_at": "2026-09-12T05:47:23.839691+00:00",
+      "question": "Q2",
+      "mode": "M00",
+      "official_Excel_path": "results/tables/result2.xlsx",
+      "key_values": {
+        "time_s": 10800.0,
+        "Tcenter_C": 49.84948203674816,
+        "Tsurface_C": 49.966411621672876,
+        "Ccenter": 1.766210783948664,
+        "Csurface": 1.0081152192310312,
+        "Cmax": 1.766210783948664,
+        "Cmean": 1.3825512232765051
+      },
+      "drying_completed": false,
+      "drying_time_s": null,
+      "drying_time_h": null,
+      "endpoint_Cmax": 1.766210783948664,
+      "controlling_location": {
+        "r_min_m": 0.0,
+        "r_max_m": 0.0,
+        "tied_node_count": 1,
+        "representative": "smallest r among tolerance-tied maxima; no resolved axial coordinate in 1D"
+      },
+      "convergence_status": {
+        "time": true,
+        "spatial": true
+      },
+      "array_sha256": "4b8f77e932fc11de4bd2ae339395a9b7228c11e188e1ac09bde993f2dc8dc0d4"
+    },
+    "Q3": {
+      "source_case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+      "source_file": "work/studies/plot_payload/q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084_series.npz",
+      "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+      "physics_hash": "168eaa843d9c9c69ec13c86b4be1b88021dcd5153cb23d83f6aa56b6e2a25887",
+      "study_id": "official_M00",
+      "generated_at": "2026-09-12T05:47:23.839691+00:00",
+      "question": "Q3",
+      "mode": "M00",
+      "official_Excel_path": "results/tables/result3.xlsx",
+      "key_values": {
+        "time_s": 207437.4,
+        "Tcenter_C": 49.99893442587904,
+        "Tsurface_C": 49.99893442605696,
+        "Ccenter": 0.14999996096752208,
+        "Csurface": 0.05263900956677963,
+        "Cmax": 0.14999996096752208,
+        "Cmean": 0.12445395450982742
+      },
+      "drying_completed": true,
+      "drying_time_s": 207437.4,
+      "drying_time_h": 57.6215,
+      "endpoint_Cmax": 0.14999996096752208,
+      "controlling_location": {
+        "r_min_m": 0.0,
+        "r_max_m": 0.0,
+        "tied_node_count": 1,
+        "representative": "smallest r among tolerance-tied maxima; no resolved axial coordinate in 1D"
+      },
+      "convergence_status": {
+        "time": true,
+        "spatial": true
+      },
+      "array_sha256": "4b8f77e932fc11de4bd2ae339395a9b7228c11e188e1ac09bde993f2dc8dc0d4"
+    },
+    "Q4": {
+      "source_case_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+      "source_file": "work/studies/plot_payload/q4_1d_stage_schedule_default_dt0.25_s33c788387cd3_series.npz",
+      "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+      "physics_hash": "68f0b614eb975aacdc13bdc995b127f1224fd459c6b02f9f487ba04e7b229e0a",
+      "study_id": "official_M00",
+      "generated_at": "2026-09-12T05:47:23.839691+00:00",
+      "question": "Q4",
+      "mode": "M00",
+      "official_Excel_path": "results/tables/result4.xlsx",
+      "key_values": {
+        "time_s": 184256.63999999998,
+        "Tcenter_C": 49.99893442614541,
+        "Tsurface_C": 49.99893442618975,
+        "Ccenter": 0.1499999165528687,
+        "Csurface": 0.05259847382650168,
+        "Cmax": 0.1499999165528687,
+        "Cmean": 0.11841683652263095
+      },
+      "drying_completed": true,
+      "drying_time_s": 184256.63999999998,
+      "drying_time_h": 51.182399999999994,
+      "endpoint_Cmax": 0.1499999165528687,
+      "controlling_location": {
+        "r_min_m": 0.0,
+        "r_max_m": 0.0,
+        "tied_node_count": 1,
+        "representative": "smallest r among tolerance-tied maxima; no resolved axial coordinate in 1D"
+      },
+      "convergence_status": {
+        "time": true,
+        "spatial": true
+      },
+      "array_sha256": "9101cf4b28b85266933e5d28ca6dda045131e7880c6b1b9566ad71220b0194ba",
+      "R_at_endpoint_m": 0.012
+    }
+  },
+  "numerical": {
+    "Q1": {
+      "source_case_id": "q1_1d_stage_schedule_default_dt0.25_s030d129157f2",
+      "source_file": "results/status.json#questions/q1",
+      "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+      "physics_hash": "d23e1e5c3ef5e780d616822313497bd2c327c30f9eff7733aa6dfaba39f91dbc",
+      "study_id": "numerical_validation",
+      "generated_at": "2026-09-12T05:47:23.839691+00:00",
+      "method": "classical RK4",
+      "dt_max_s": 0.25,
+      "stage_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "actual_dt_min_s": 0.006880767643451691,
+      "actual_dt_mean_s": 0.045317220543806644,
+      "actual_dt_max_s": 0.25,
+      "stage_dt_statistics": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1,
+          "case_id": "q1_1d_adaptive_nr200_nz1_dt0.25_md2d30d0587fe_stagepart_030d129157f2_0",
+          "fingerprint": "fc1b6b92af28ce55264472cd2672e02685bd5c14f04c75daa3408515281998f9",
+          "mesh_profile_hash": "d2d30d0587febdc210a0e00d8e5187c1e07316481d30b824f5349ebe2e89554f",
+          "actual_dt_min": 0.006880767643451691,
+          "actual_dt_mean": 0.00819672131147541,
+          "actual_dt_max": 0.013448161019613991,
+          "requested_dt_max": 0.25,
+          "stability_limited_count": 34260,
+          "steps": 7320,
+          "wall_s": 0.7625524000031874
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1,
+          "case_id": "q1_1d_adaptive_nr160_nz1_dt0.25_m26b01dc00898_stagepart_030d129157f2_1",
+          "fingerprint": "02423ec24ce3820298f1d4776305bda24df76cf5aa4308bc7297e5b23fd9ad61",
+          "mesh_profile_hash": "26b01dc0089856eaa32f6d68287688f2857015d88610fe7b0762801e14066cd9",
+          "actual_dt_min": 0.010712196255035167,
+          "actual_dt_mean": 0.015384615384615385,
+          "actual_dt_max": 0.02121669240295887,
+          "requested_dt_max": 0.25,
+          "stability_limited_count": 57840,
+          "steps": 15600,
+          "wall_s": 1.2576343999971868
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1,
+          "case_id": "q1_1d_adaptive_nr80_nz1_dt0.25_m2fb9c46fbeef_stagepart_030d129157f2_2",
+          "fingerprint": "09e778164c163e4da1d44c52ad8d248ed9bfb7a80c825531d1145f96c28675ad",
+          "mesh_profile_hash": "2fb9c46fbeef408dac08434286ee8d5646515efd2b69ab592690255bb7a7e7a4",
+          "actual_dt_min": 0.046875,
+          "actual_dt_mean": 0.0625,
+          "actual_dt_max": 0.0703125,
+          "requested_dt_max": 0.25,
+          "stability_limited_count": 26100,
+          "steps": 14400,
+          "wall_s": 0.7303814999904716
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1,
+          "case_id": "q1_1d_adaptive_nr40_nz1_dt0.25_mcecd4275aca0_stagepart_030d129157f2_3",
+          "fingerprint": "4a9ed585f791058ddcc15fceff14439fcf41586ea3717b224c07d5fef2f1b964",
+          "mesh_profile_hash": "cecd4275aca095a95091243f77d37f47061c095c82e9e9233ab7119ae4a79c4d",
+          "actual_dt_min": 0.25,
+          "actual_dt_mean": 0.25,
+          "actual_dt_max": 0.25,
+          "requested_dt_max": 0.25,
+          "stability_limited_count": 0,
+          "steps": 2400,
+          "wall_s": 0.15918539999984205
+        }
+      ],
+      "full_schedule_reference": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "reference_case_id": "q1_M00_full_reference_x2_tail60_023569fa8604",
+      "max_delta_T_K": 0.000695156860501811,
+      "max_delta_C": 0.002117508330948592,
+      "drying_time_relative_difference": null,
+      "full_schedule_reference_passed": true,
+      "scope": "reference evidence covers the full shared trajectory; Q2/Q3 share q23; event errors use genuine reintegration"
+    },
+    "Q2": {
+      "source_case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+      "source_file": "results/status.json#questions/q2",
+      "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+      "physics_hash": "168eaa843d9c9c69ec13c86b4be1b88021dcd5153cb23d83f6aa56b6e2a25887",
+      "study_id": "numerical_validation",
+      "generated_at": "2026-09-12T05:47:23.839691+00:00",
+      "method": "classical RK4",
+      "dt_max_s": 0.25,
+      "stage_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "actual_dt_min_s": 0.008966682133120685,
+      "actual_dt_mean_s": 0.06140940265140782,
+      "actual_dt_max_s": 0.09375,
+      "stage_dt_statistics": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1,
+          "case_id": "q23_1d_adaptive_nr200_nz1_dt0.25_m1ccbfdc27056_stagepart_45cdf27de084_0",
+          "fingerprint": "2131b7930b1b58cb55981a0aa8b34d1aa5d4f1892431f799601e2bebfa0c979a",
+          "mesh_profile_hash": "1ccbfdc27056e443fd5ff4d1b25280e1d8aaaf16f0f442ceed6f796a0a2d3979",
+          "actual_dt_min": 0.008966682133120685,
+          "actual_dt_mean": 0.014925373134328358,
+          "actual_dt_max": 0.01864748355728807,
+          "requested_dt_max": 0.25,
+          "stability_limited_count": 75089,
+          "steps": 20100,
+          "wall_s": 1.672075099995709
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1,
+          "case_id": "q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006_stagepart_45cdf27de084_1",
+          "fingerprint": "148b50f4cbd7d36b9e24c29183d53b9a46c62ce13d15206e64c3e183cfb352b0",
+          "mesh_profile_hash": "94a220bc50061d36a574ee73b40c366ffe6b5d5c2cd922a512ddbca7425d837e",
+          "actual_dt_min": 0.01320699811913073,
+          "actual_dt_mean": 0.016408865162885335,
+          "actual_dt_max": 0.027734696050174534,
+          "requested_dt_max": 0.25,
+          "stability_limited_count": 338986,
+          "steps": 91414,
+          "wall_s": 10.044921099994099
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1,
+          "case_id": "q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2",
+          "fingerprint": "15cbb85ef93d2c3b929101477fa752c98b137237847298edcdfb35a5bd6b0792",
+          "mesh_profile_hash": "56c5bf06eb27fcc5e1e267860ad5746318f2c3928af5fec3d79c9ca13589bb9a",
+          "actual_dt_min": 0.046875,
+          "actual_dt_mean": 0.06263782633601811,
+          "actual_dt_max": 0.09375,
+          "requested_dt_max": 0.25,
+          "stability_limited_count": 8179256,
+          "steps": 4109338,
+          "wall_s": 210.71058650000487
+        }
+      ],
+      "full_schedule_reference": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 160,
+          "nz": 1
+        }
+      ],
+      "reference_case_id": "q23_M00_full_reference_x2_tail60_2d0bab7bb661",
+      "max_delta_T_K": 0.00043059672435674656,
+      "max_delta_C": 0.002025627860481549,
+      "drying_time_relative_difference": 0.0016496716301676556,
+      "full_schedule_reference_passed": true,
+      "scope": "reference evidence covers the full shared trajectory; Q2/Q3 share q23; event errors use genuine reintegration"
+    },
+    "Q3": {
+      "source_case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+      "source_file": "results/status.json#questions/q3",
+      "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+      "physics_hash": "168eaa843d9c9c69ec13c86b4be1b88021dcd5153cb23d83f6aa56b6e2a25887",
+      "study_id": "numerical_validation",
+      "generated_at": "2026-09-12T05:47:23.839691+00:00",
+      "method": "classical RK4",
+      "dt_max_s": 0.25,
+      "stage_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "actual_dt_min_s": 0.008966682133120685,
+      "actual_dt_mean_s": 0.06140940265140782,
+      "actual_dt_max_s": 0.09375,
+      "stage_dt_statistics": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1,
+          "case_id": "q23_1d_adaptive_nr200_nz1_dt0.25_m1ccbfdc27056_stagepart_45cdf27de084_0",
+          "fingerprint": "2131b7930b1b58cb55981a0aa8b34d1aa5d4f1892431f799601e2bebfa0c979a",
+          "mesh_profile_hash": "1ccbfdc27056e443fd5ff4d1b25280e1d8aaaf16f0f442ceed6f796a0a2d3979",
+          "actual_dt_min": 0.008966682133120685,
+          "actual_dt_mean": 0.014925373134328358,
+          "actual_dt_max": 0.01864748355728807,
+          "requested_dt_max": 0.25,
+          "stability_limited_count": 75089,
+          "steps": 20100,
+          "wall_s": 1.672075099995709
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1,
+          "case_id": "q23_1d_adaptive_nr160_nz1_dt0.25_m94a220bc5006_stagepart_45cdf27de084_1",
+          "fingerprint": "148b50f4cbd7d36b9e24c29183d53b9a46c62ce13d15206e64c3e183cfb352b0",
+          "mesh_profile_hash": "94a220bc50061d36a574ee73b40c366ffe6b5d5c2cd922a512ddbca7425d837e",
+          "actual_dt_min": 0.01320699811913073,
+          "actual_dt_mean": 0.016408865162885335,
+          "actual_dt_max": 0.027734696050174534,
+          "requested_dt_max": 0.25,
+          "stability_limited_count": 338986,
+          "steps": 91414,
+          "wall_s": 10.044921099994099
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1,
+          "case_id": "q23_1d_adaptive_nr80_nz1_dt0.25_m56c5bf06eb27_stagepart_45cdf27de084_2",
+          "fingerprint": "15cbb85ef93d2c3b929101477fa752c98b137237847298edcdfb35a5bd6b0792",
+          "mesh_profile_hash": "56c5bf06eb27fcc5e1e267860ad5746318f2c3928af5fec3d79c9ca13589bb9a",
+          "actual_dt_min": 0.046875,
+          "actual_dt_mean": 0.06263782633601811,
+          "actual_dt_max": 0.09375,
+          "requested_dt_max": 0.25,
+          "stability_limited_count": 8179256,
+          "steps": 4109338,
+          "wall_s": 210.71058650000487
+        }
+      ],
+      "full_schedule_reference": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 160,
+          "nz": 1
+        }
+      ],
+      "reference_case_id": "q23_M00_full_reference_x2_tail60_2d0bab7bb661",
+      "max_delta_T_K": 0.00043059672435674656,
+      "max_delta_C": 0.002025627860481549,
+      "drying_time_relative_difference": 0.0016496716301676556,
+      "full_schedule_reference_passed": true,
+      "scope": "reference evidence covers the full shared trajectory; Q2/Q3 share q23; event errors use genuine reintegration"
+    },
+    "Q4": {
+      "source_case_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+      "source_file": "results/status.json#questions/q4",
+      "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+      "physics_hash": "68f0b614eb975aacdc13bdc995b127f1224fd459c6b02f9f487ba04e7b229e0a",
+      "study_id": "numerical_validation",
+      "generated_at": "2026-09-12T05:47:23.839691+00:00",
+      "method": "classical RK4",
+      "dt_max_s": 0.25,
+      "stage_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "actual_dt_min_s": 0.018031954765319824,
+      "actual_dt_mean_s": 0.2014565181909329,
+      "actual_dt_max_s": 0.25,
+      "stage_dt_statistics": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 200,
+          "nz": 1,
+          "case_id": "q4_1d_adaptive_nr200_nz1_dt0.25_m60a8c7b6b2c2_stagepart_33c788387cd3_0",
+          "fingerprint": "dacc52999811472d5c6307cf0ce8255b38bc72c59c7172a3d11085c4e8584c41",
+          "mesh_profile_hash": "60a8c7b6b2c202a27253e61644f08087e73893fe76355702bd5158a56792ddc9",
+          "actual_dt_min": 0.018031954765319824,
+          "actual_dt_mean": 0.0312256049960968,
+          "actual_dt_max": 0.0366363525390625,
+          "requested_dt_max": 0.25,
+          "stability_limited_count": 57566,
+          "steps": 19215,
+          "wall_s": 1.4646967000007862
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 160,
+          "nz": 1,
+          "case_id": "q4_1d_adaptive_nr160_nz1_dt0.25_m1d7a05f7e44b_stagepart_33c788387cd3_1",
+          "fingerprint": "ca59aa3c6b7747e138b886303d41f6f81187dcb7569ebdf95e290b2d8dd0b3a3",
+          "mesh_profile_hash": "1d7a05f7e44bf42e3989ae2727861e45350a0b31d07f3cb1f3dfa672c0b5ee6e",
+          "actual_dt_min": 0.02355194091796875,
+          "actual_dt_mean": 0.031260094405485106,
+          "actual_dt_max": 0.0538330078125,
+          "requested_dt_max": 0.25,
+          "stability_limited_count": 287514,
+          "steps": 95969,
+          "wall_s": 10.857165000008536
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1,
+          "case_id": "q4_1d_adaptive_nr80_nz1_dt0.25_md66ccc838cbe_stagepart_33c788387cd3_2",
+          "fingerprint": "6cecf22ee296fbfca3b70b7a2a6bb733dde472d89b4487dd04b3dcb2fd442a66",
+          "mesh_profile_hash": "d66ccc838cbe21fba959c6dabcf7f55f685e0b7b34f44fc4e668f58e047c9179",
+          "actual_dt_min": 0.0625,
+          "actual_dt_mean": 0.0814310143590022,
+          "actual_dt_max": 0.125,
+          "requested_dt_max": 0.25,
+          "stability_limited_count": 374677,
+          "steps": 221046,
+          "wall_s": 13.932449100000667
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1,
+          "case_id": "q4_1d_adaptive_nr40_nz1_dt0.25_ma085877c28ed_stagepart_33c788387cd3_3",
+          "fingerprint": "304941fba849bd465ea8a349134d24ff469c27ae38050039fa8a2c36ebfb745b",
+          "mesh_profile_hash": "a085877c28ed4c1a5c753e29920c8977fac02465e17fa06a216fb0438e33feed",
+          "actual_dt_min": 0.25,
+          "actual_dt_mean": 0.25,
+          "actual_dt_max": 0.25,
+          "requested_dt_max": 0.25,
+          "stability_limited_count": 0,
+          "steps": 950400,
+          "wall_s": 30.461444800006575
+        }
+      ],
+      "full_schedule_reference": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "reference_case_id": "q4_M00_full_reference_x2_tail60_5e7f8e9d0fcc",
+      "max_delta_T_K": 0.0012761409195718443,
+      "max_delta_C": 0.004620363230718988,
+      "drying_time_relative_difference": 0.0011560286601215827,
+      "full_schedule_reference_passed": true,
+      "scope": "reference evidence covers the full shared trajectory; Q2/Q3 share q23; event errors use genuine reintegration"
+    }
+  },
+  "two_dimensional": {
+    "q23": {
+      "source_case_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+      "source_file": "work/studies/plot_payload/q23_end_effects.npz",
+      "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+      "physics_hash": "54e1dfc336bb66fb10b50d628c31137ef129d88c8403a4b3a3a49c2ce3253657",
+      "study_id": "two_dimensional_check",
+      "generated_at": "2026-09-12T05:47:23.839691+00:00",
+      "array_sha256": "68a608c16238846899bedcf06aebb79deb8e447ede669d78032ceacdc87c278f",
+      "validation_status": "PARTIAL_2D",
+      "refinement_status": "PARTIAL_2D",
+      "full_refinement_record": {
+        "status": "PARTIAL_2D",
+        "attempted": true,
+        "grid": [
+          60,
+          188
+        ],
+        "start_time_s": 0.0,
+        "initial_state": "original uniform T0=301.15 K, C0=2.55",
+        "coarse_source_case_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+        "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+        "physics": {
+          "R0_m": 0.02,
+          "L_m": 0.25,
+          "T0_K": 301.15,
+          "C0": 2.55,
+          "h": 25.0,
+          "hm": 8e-07,
+          "threshold": 0.15,
+          "t_cap_s": 259200.0
+        },
+        "monitor_source": "same frozen continuous radial/axial monitors; Mesh_BuildAdaptive",
+        "projected_wall_budget_s": 3600.0,
+        "complete_full_trajectory": false,
+        "independent_grid_certification": false,
+        "source_files": [
+          {
+            "path": "work/cache/q23_2d_adaptive_nr60_nz188_dt0.25_mb9ba0fa5472a_technical60x188_cost_probe/status.json",
+            "sha256": "b6f947bf9eb0343f5b7701518ae66a224318b24c96bde062b12b8a22fdb3e4ab",
+            "purpose": "independent 2D cost probe"
+          },
+          {
+            "path": "work/cache/q23_2d_adaptive_nr60_nz188_dt0.25_mb9ba0fa5472a_technical60x188_cost_probe/mesh.npz",
+            "sha256": "8d0af83f2a1848ff04c1212a0626f0c6c60505e6fdd2abc09786584cbc7612b7",
+            "purpose": "independent 2D cost probe"
+          },
+          {
+            "path": "work/cache/q23_2d_adaptive_nr60_nz188_dt0.25_mb9ba0fa5472a_technical60x188_cost_probe/chunk_0000.npz",
+            "sha256": "3bf715b850763f37b671739697d460df778efa635255e216eeba9f8efbfc61fe",
+            "purpose": "independent 2D cost probe"
+          }
+        ],
+        "source_file": "work/cache/q23_2d_adaptive_nr60_nz188_dt0.25_mb9ba0fa5472a_technical60x188_cost_probe/status.json",
+        "probe_source_case_id": "q23_2d_adaptive_nr60_nz188_dt0.25_mb9ba0fa5472a_technical60x188_cost_probe",
+        "probe_simulated_s": 60.0,
+        "probe_wall_s": 1.3126601999993,
+        "compile_or_load_s": 0.2575797000008606,
+        "projected_full_72h_wall_s": 5670.692063996976,
+        "cost_estimate_scope": "linear scaling of measured first 60 s excluding compilation; not a guarantee, later stability/geometry may change",
+        "probe_actual_dt_min_s": 0.125,
+        "probe_actual_dt_mean_s": 0.125,
+        "reason": "MANDATORY_WORK_PRIORITY: only cost probe retained; full refinement deferred for the newly requested solver mass audit; no full-trajectory or grid-independence claim"
+      },
+      "independent_grid_certification": false,
+      "end_effect_depth_T_m": 0.04356143343899438,
+      "end_effect_depth_C_m": 0.058907086132182096,
+      "affected_volume_fraction_T": 0.32757600981418217,
+      "affected_volume_fraction_C": 0.45203258184446515,
+      "controlling_point_conclusion": "STABLE_MIDPLANE_CENTER",
+      "control_checked_samples": 31,
+      "drying_time_h": 57.853699999999996,
+      "endpoint_sensitivity": [
+        {
+          "complete": true,
+          "status": "2D_SPATIAL_VALIDATION_PARTIAL",
+          "base_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+          "base_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
+          "mesh_profile_hash": "815d75810ebfac0ee119661061f0e189b5064b314b0d50ca80ab1640f88df47b",
+          "direction": "radial",
+          "nr": 80,
+          "nz": 125,
+          "time_range_s": [
+            204660.0,
+            208873.31999999998
+          ],
+          "event": {
+            "left_s": 208251.875,
+            "right_s": 208251.9375,
+            "width_s": 0.0625,
+            "raw_event_s": 208251.9375,
+            "report_s": 208252.08,
+            "report_h": 57.8478,
+            "left_max_C": 0.15000000487673323,
+            "right_max_C": 0.14999998690671323,
+            "report_max_C": 0.1499999459351059
+          },
+          "event_difference_s": 21.375,
+          "event_relative_difference": 0.00010264010148765123,
+          "wall_s": 207.22162340000068,
+          "steps": 67413,
+          "limited": 134613,
+          "projection_integral_difference": [
+            -1.4210854715202004e-14,
+            -6.938893903907228e-18
+          ],
+          "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence."
+        },
+        {
+          "complete": true,
+          "status": "2D_SPATIAL_VALIDATION_PARTIAL",
+          "base_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+          "base_fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004",
+          "mesh_profile_hash": "53a461f993b9d24970485c7cb3e3148717e09bec9ab1d7b8c235d3deeff4f9e3",
+          "direction": "axial",
+          "nr": 40,
+          "nz": 250,
+          "time_range_s": [
+            204660.0,
+            208873.31999999998
+          ],
+          "event": {
+            "left_s": 208273.25,
+            "right_s": 208273.3125,
+            "width_s": 0.0625,
+            "raw_event_s": 208273.3125,
+            "report_s": 208273.31999999998,
+            "report_h": 57.853699999999996,
+            "left_max_C": 0.15000001302081517,
+            "right_max_C": 0.14999999505576558,
+            "report_max_C": 0.14999999289996033
+          },
+          "event_difference_s": 0.0,
+          "event_relative_difference": 0.0,
+          "wall_s": 85.0127104000021,
+          "steps": 33707,
+          "limited": 33636,
+          "projection_integral_difference": [
+            -1.4210854715202004e-14,
+            -6.938893903907228e-18
+          ],
+          "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence."
+        }
+      ],
+      "terminology": "二维核验 / 二维加密结果 / 端面效应敏感性; not an exact or fully converged 2D solution"
+    },
+    "q4": {
+      "source_case_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+      "source_file": "work/studies/plot_payload/q4_end_effects.npz",
+      "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+      "physics_hash": "d38064e18e250e19da475b46a54c2b88387c29397278028200b29759c6b24701",
+      "study_id": "two_dimensional_check",
+      "generated_at": "2026-09-12T05:47:23.839691+00:00",
+      "array_sha256": "83c6f1b28f2b023ece07face9af1281ea37cfda8dba2cb884ae75bb5d8e57f44",
+      "validation_status": "PARTIAL_2D",
+      "refinement_status": "PARTIAL_2D",
+      "full_refinement_record": {
+        "status": "PARTIAL_2D",
+        "attempted": true,
+        "grid": [
+          60,
+          188
+        ],
+        "start_time_s": 0.0,
+        "initial_state": "original uniform T0=301.15 K, C0=2.55",
+        "coarse_source_case_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+        "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+        "physics": {
+          "R0_m": 0.02,
+          "L_m": 0.25,
+          "T0_K": 301.15,
+          "C0": 2.55,
+          "h": 25.0,
+          "hm": 8e-07,
+          "threshold": 0.15,
+          "t_cap_s": 259200.0
+        },
+        "monitor_source": "same frozen continuous radial/axial monitors; Mesh_BuildAdaptive",
+        "projected_wall_budget_s": 3600.0,
+        "complete_full_trajectory": false,
+        "independent_grid_certification": false,
+        "source_files": [
+          {
+            "path": "work/cache/q4_2d_adaptive_nr60_nz188_dt0.25_mee6f06a440f2_technical60x188_cost_probe/status.json",
+            "sha256": "3c82261048e8e39202e7288d65d47c78eef75a2fcb74e737329b9c889db01faa",
+            "purpose": "independent 2D cost probe"
+          },
+          {
+            "path": "work/cache/q4_2d_adaptive_nr60_nz188_dt0.25_mee6f06a440f2_technical60x188_cost_probe/mesh.npz",
+            "sha256": "8156ea1ceaf2b5c3b9eb1ebcc9f53d9b1ac5a27abe37a1594eebae5f23dcf8bc",
+            "purpose": "independent 2D cost probe"
+          },
+          {
+            "path": "work/cache/q4_2d_adaptive_nr60_nz188_dt0.25_mee6f06a440f2_technical60x188_cost_probe/chunk_0000.npz",
+            "sha256": "fa6068cf0792b9e464c6bd4bbb6ab56147a125e6fae4cc94f4639bf1e6c1a44e",
+            "purpose": "independent 2D cost probe"
+          }
+        ],
+        "source_file": "work/cache/q4_2d_adaptive_nr60_nz188_dt0.25_mee6f06a440f2_technical60x188_cost_probe/status.json",
+        "probe_source_case_id": "q4_2d_adaptive_nr60_nz188_dt0.25_mee6f06a440f2_technical60x188_cost_probe",
+        "probe_simulated_s": 60.0,
+        "probe_wall_s": 0.43320540000058827,
+        "compile_or_load_s": 0.0005703000006178627,
+        "projected_full_72h_wall_s": 1871.4473280025413,
+        "cost_estimate_scope": "linear scaling of measured first 60 s excluding compilation; not a guarantee, later stability/geometry may change",
+        "probe_actual_dt_min_s": 0.25,
+        "probe_actual_dt_mean_s": 0.25,
+        "reason": "MANDATORY_WORK_PRIORITY: only cost probe retained; full refinement deferred for the newly requested solver mass audit; no full-trajectory or grid-independence claim",
+        "resumable_partial_full_case": {
+          "source_case_id": "q4_2d_adaptive_nr60_nz188_dt0.25_mee6f06a440f2_technical60x188_full",
+          "simulated_time_s": 3600.0,
+          "complete": false,
+          "checkpoint": "work/checkpoints/q4_2d_adaptive_nr60_nz188_dt0.25_mee6f06a440f2_technical60x188_full/checkpoint.npz"
+        }
+      },
+      "independent_grid_certification": false,
+      "end_effect_depth_T_m": 0.035457320544259985,
+      "end_effect_depth_C_m": 0.03444759243075049,
+      "affected_volume_fraction_T": 0.26243475601931343,
+      "affected_volume_fraction_C": 0.25089791428516867,
+      "controlling_point_conclusion": "TIED_OR_NOT_CENTER",
+      "control_checked_samples": 31,
+      "drying_time_h": 51.1833,
+      "endpoint_sensitivity": [
+        {
+          "complete": true,
+          "status": "2D_SPATIAL_VALIDATION_PARTIAL",
+          "base_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+          "base_fingerprint": "6769b70db8f82b3fb975713f1b631381d0d3e18970452395f6374fe9554c8b22",
+          "mesh_profile_hash": "338635beb33f8ce814c0d563afc33329ff07cea30317a41b99cd756eee1e5905",
+          "direction": "radial",
+          "nr": 80,
+          "nz": 125,
+          "time_range_s": [
+            180600.0,
+            184859.88
+          ],
+          "event": {
+            "left_s": 184243.625,
+            "right_s": 184243.6875,
+            "width_s": 0.0625,
+            "raw_event_s": 184243.6875,
+            "report_s": 184244.03999999998,
+            "report_h": 51.17889999999999,
+            "left_max_C": 0.1500000071166847,
+            "right_max_C": 0.14999997513568394,
+            "report_max_C": 0.14999979476331057
+          },
+          "event_difference_s": 16.1875,
+          "event_relative_difference": 8.785918377800596e-05,
+          "wall_s": 184.8497599000002,
+          "steps": 68158,
+          "limited": 136103,
+          "projection_integral_difference": [
+            0.0,
+            -6.938893903907228e-18
+          ],
+          "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence."
+        },
+        {
+          "complete": true,
+          "status": "2D_SPATIAL_VALIDATION_PARTIAL",
+          "base_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+          "base_fingerprint": "6769b70db8f82b3fb975713f1b631381d0d3e18970452395f6374fe9554c8b22",
+          "mesh_profile_hash": "7c4f1999f23164edf2d3172123d366e10d065d3f1a0c86c73bb9d1c5b53dfa00",
+          "direction": "axial",
+          "nr": 40,
+          "nz": 250,
+          "time_range_s": [
+            180600.0,
+            184859.88
+          ],
+          "event": {
+            "left_s": 184259.8125,
+            "right_s": 184259.875,
+            "width_s": 0.0625,
+            "raw_event_s": 184259.875,
+            "report_s": 184259.88,
+            "report_h": 51.1833,
+            "left_max_C": 0.15000002353624386,
+            "right_max_C": 0.14999999156415228,
+            "report_max_C": 0.149999989006386
+          },
+          "event_difference_s": 0.0,
+          "event_relative_difference": 0.0,
+          "wall_s": 78.67727609999929,
+          "steps": 34079,
+          "limited": 34008,
+          "projection_integral_difference": [
+            1.4210854715202004e-14,
+            6.938893903907228e-18
+          ],
+          "note": "Conservative projection of base state then genuine fine-grid late-window integration; inherited earlier coarse-grid error is NOT measured. This cannot establish full-time spatial convergence."
+        }
+      ],
+      "terminology": "二维核验 / 二维加密结果 / 端面效应敏感性; not an exact or fully converged 2D solution"
+    }
+  },
+  "studies": {
+    "B4": [
+      {
+        "case": "q23",
+        "mode": "M00",
+        "threshold_kg_kg": 2.0,
+        "first_non_all_wet_sample_h": 0.125,
+        "preceding_non_all_wet_sample_h": 0.12472222222222222,
+        "first_center_threshold_sample_h": 2.395,
+        "first_all_dry_sample_h": 2.395,
+        "preceding_sample_h": 2.394722222222222,
+        "multiple_or_non_core_samples": 0,
+        "official_threshold": false,
+        "source": "sample bracket; official endpoint uses Event_Locate",
+        "status": "REACHED",
+        "source_case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+        "source_file": "work/studies/plot_payload/q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084_series.npz",
+        "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+        "physics_hash": "168eaa843d9c9c69ec13c86b4be1b88021dcd5153cb23d83f6aa56b6e2a25887",
+        "study_id": "B4",
+        "generated_at": "2026-09-12T05:47:23.839691+00:00"
+      },
+      {
+        "case": "q23",
+        "mode": "M00",
+        "threshold_kg_kg": 1.0,
+        "first_non_all_wet_sample_h": 3.05,
+        "preceding_non_all_wet_sample_h": 3.033333333333333,
+        "first_center_threshold_sample_h": 6.116666666666666,
+        "first_all_dry_sample_h": 6.116666666666666,
+        "preceding_sample_h": 6.1,
+        "multiple_or_non_core_samples": 0,
+        "official_threshold": false,
+        "source": "sample bracket; official endpoint uses Event_Locate",
+        "status": "REACHED",
+        "source_case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+        "source_file": "work/studies/plot_payload/q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084_series.npz",
+        "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+        "physics_hash": "168eaa843d9c9c69ec13c86b4be1b88021dcd5153cb23d83f6aa56b6e2a25887",
+        "study_id": "B4",
+        "generated_at": "2026-09-12T05:47:23.839691+00:00"
+      },
+      {
+        "case": "q23",
+        "mode": "M00",
+        "threshold_kg_kg": 0.5,
+        "first_non_all_wet_sample_h": 6.316666666666666,
+        "preceding_non_all_wet_sample_h": 6.3,
+        "first_center_threshold_sample_h": 11.116666666666667,
+        "first_all_dry_sample_h": 11.116666666666667,
+        "preceding_sample_h": 11.1,
+        "multiple_or_non_core_samples": 0,
+        "official_threshold": false,
+        "source": "sample bracket; official endpoint uses Event_Locate",
+        "status": "REACHED",
+        "source_case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+        "source_file": "work/studies/plot_payload/q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084_series.npz",
+        "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+        "physics_hash": "168eaa843d9c9c69ec13c86b4be1b88021dcd5153cb23d83f6aa56b6e2a25887",
+        "study_id": "B4",
+        "generated_at": "2026-09-12T05:47:23.839691+00:00"
+      },
+      {
+        "case": "q23",
+        "mode": "M00",
+        "threshold_kg_kg": 0.15,
+        "first_non_all_wet_sample_h": 12.566666666666666,
+        "preceding_non_all_wet_sample_h": 12.55,
+        "first_center_threshold_sample_h": 57.6215,
+        "first_all_dry_sample_h": 57.6215,
+        "preceding_sample_h": 57.61666666666667,
+        "multiple_or_non_core_samples": 0,
+        "official_threshold": true,
+        "source": "sample bracket; official endpoint uses Event_Locate",
+        "status": "REACHED",
+        "source_case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+        "source_file": "work/studies/plot_payload/q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084_series.npz",
+        "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+        "physics_hash": "168eaa843d9c9c69ec13c86b4be1b88021dcd5153cb23d83f6aa56b6e2a25887",
+        "study_id": "B4",
+        "generated_at": "2026-09-12T05:47:23.839691+00:00"
+      },
+      {
+        "case": "q4",
+        "mode": "M00",
+        "threshold_kg_kg": 2.0,
+        "first_non_all_wet_sample_h": 0.03333333333333333,
+        "preceding_non_all_wet_sample_h": 0.016666666666666666,
+        "first_center_threshold_sample_h": 4.933333333333334,
+        "first_all_dry_sample_h": 4.933333333333334,
+        "preceding_sample_h": 4.916666666666667,
+        "multiple_or_non_core_samples": 0,
+        "official_threshold": false,
+        "source": "sample bracket; official endpoint uses Event_Locate",
+        "status": "REACHED",
+        "source_case_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+        "source_file": "work/studies/plot_payload/q4_1d_stage_schedule_default_dt0.25_s33c788387cd3_series.npz",
+        "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+        "physics_hash": "68f0b614eb975aacdc13bdc995b127f1224fd459c6b02f9f487ba04e7b229e0a",
+        "study_id": "B4",
+        "generated_at": "2026-09-12T05:47:23.839691+00:00"
+      },
+      {
+        "case": "q4",
+        "mode": "M00",
+        "threshold_kg_kg": 1.0,
+        "first_non_all_wet_sample_h": 0.9333333333333333,
+        "preceding_non_all_wet_sample_h": 0.9166666666666666,
+        "first_center_threshold_sample_h": 9.7,
+        "first_all_dry_sample_h": 9.7,
+        "preceding_sample_h": 9.683333333333334,
+        "multiple_or_non_core_samples": 0,
+        "official_threshold": false,
+        "source": "sample bracket; official endpoint uses Event_Locate",
+        "status": "REACHED",
+        "source_case_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+        "source_file": "work/studies/plot_payload/q4_1d_stage_schedule_default_dt0.25_s33c788387cd3_series.npz",
+        "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+        "physics_hash": "68f0b614eb975aacdc13bdc995b127f1224fd459c6b02f9f487ba04e7b229e0a",
+        "study_id": "B4",
+        "generated_at": "2026-09-12T05:47:23.839691+00:00"
+      },
+      {
+        "case": "q4",
+        "mode": "M00",
+        "threshold_kg_kg": 0.5,
+        "first_non_all_wet_sample_h": 4.9,
+        "preceding_non_all_wet_sample_h": 4.883333333333334,
+        "first_center_threshold_sample_h": 15.616666666666667,
+        "first_all_dry_sample_h": 15.616666666666667,
+        "preceding_sample_h": 15.6,
+        "multiple_or_non_core_samples": 0,
+        "official_threshold": false,
+        "source": "sample bracket; official endpoint uses Event_Locate",
+        "status": "REACHED",
+        "source_case_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+        "source_file": "work/studies/plot_payload/q4_1d_stage_schedule_default_dt0.25_s33c788387cd3_series.npz",
+        "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+        "physics_hash": "68f0b614eb975aacdc13bdc995b127f1224fd459c6b02f9f487ba04e7b229e0a",
+        "study_id": "B4",
+        "generated_at": "2026-09-12T05:47:23.839691+00:00"
+      },
+      {
+        "case": "q4",
+        "mode": "M00",
+        "threshold_kg_kg": 0.15,
+        "first_non_all_wet_sample_h": 12.8,
+        "preceding_non_all_wet_sample_h": 12.783333333333333,
+        "first_center_threshold_sample_h": 51.182399999999994,
+        "first_all_dry_sample_h": 51.182399999999994,
+        "preceding_sample_h": 51.172799999999995,
+        "multiple_or_non_core_samples": 0,
+        "official_threshold": true,
+        "source": "sample bracket; official endpoint uses Event_Locate",
+        "status": "REACHED",
+        "source_case_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+        "source_file": "work/studies/plot_payload/q4_1d_stage_schedule_default_dt0.25_s33c788387cd3_series.npz",
+        "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+        "physics_hash": "68f0b614eb975aacdc13bdc995b127f1224fd459c6b02f9f487ba04e7b229e0a",
+        "study_id": "B4",
+        "generated_at": "2026-09-12T05:47:23.839691+00:00"
+      }
+    ],
+    "B5_B6": [
+      {
+        "case": "q23",
+        "mode": "M00",
+        "tT_s": 10379.0,
+        "tC_h": 57.6215,
+        "tT_status": "REACHED",
+        "tC_over_tT": 19.98626071875903,
+        "peak_mean_loss_time_h": 0.0,
+        "peak_mean_loss_kg_kg_s": 0.00020098528417866746,
+        "reason": "thermal equilibration to environment applies only to M00; no forced three-stage pattern",
+        "rule_source": "configs/studies_analysis.json",
+        "Cmax_stage_status": "SLOW_FAST_SLOW",
+        "Cmax_three_stage": true,
+        "Cmax_peak_time_s": 6940.0,
+        "Cmax_peak_rate_kg_kg_s": 0.00012371621396067845,
+        "Cmax_initial_median_rate_kg_kg_s": 0.0,
+        "Cmax_final_median_rate_kg_kg_s": 3.1827917127053885e-07,
+        "Cmax_rising_limb_identified": true,
+        "Cmax_falling_limb_identified": true,
+        "Cmax_observation_end_s": 207437.4,
+        "Cmax_initial_rate_window_end_s": 694.0,
+        "Cmax_final_rate_window_start_s": 187387.66,
+        "Cmean_stage_status": "NO_THREE_STAGE_PATTERN",
+        "Cmean_three_stage": false,
+        "Cmean_peak_time_s": 0.0,
+        "Cmean_peak_rate_kg_kg_s": 0.00020098528417866746,
+        "Cmean_initial_median_rate_kg_kg_s": 0.00020098528417866746,
+        "Cmean_final_median_rate_kg_kg_s": 2.3299059284252917e-07,
+        "Cmean_rising_limb_identified": false,
+        "Cmean_falling_limb_identified": true,
+        "Cmean_observation_end_s": 207437.4,
+        "Cmean_initial_rate_window_end_s": 0.0,
+        "Cmean_final_rate_window_start_s": 186693.66,
+        "source_case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+        "source_file": "work/studies/plot_payload/q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084_series.npz",
+        "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+        "physics_hash": "168eaa843d9c9c69ec13c86b4be1b88021dcd5153cb23d83f6aa56b6e2a25887",
+        "study_id": "B5_B6",
+        "generated_at": "2026-09-12T05:47:23.839691+00:00"
+      },
+      {
+        "case": "q4",
+        "mode": "M00",
+        "tT_s": 10620.0,
+        "tC_h": 51.182399999999994,
+        "tT_status": "REACHED",
+        "tC_over_tT": 17.349966101694914,
+        "peak_mean_loss_time_h": 0.0,
+        "peak_mean_loss_kg_kg_s": 0.0001848209635476987,
+        "reason": "thermal equilibration to environment applies only to M00; no forced three-stage pattern",
+        "rule_source": "configs/studies_analysis.json",
+        "Cmax_stage_status": "SLOW_FAST_SLOW",
+        "Cmax_three_stage": true,
+        "Cmax_peak_time_s": 17340.0,
+        "Cmax_peak_rate_kg_kg_s": 7.396345699328307e-05,
+        "Cmax_initial_median_rate_kg_kg_s": 0.0,
+        "Cmax_final_median_rate_kg_kg_s": 5.695160890989339e-07,
+        "Cmax_rising_limb_identified": true,
+        "Cmax_falling_limb_identified": true,
+        "Cmax_observation_end_s": 184256.63999999998,
+        "Cmax_initial_rate_window_end_s": 1734.0,
+        "Cmax_final_rate_window_start_s": 167564.976,
+        "Cmean_stage_status": "NO_THREE_STAGE_PATTERN",
+        "Cmean_three_stage": false,
+        "Cmean_peak_time_s": 0.0,
+        "Cmean_peak_rate_kg_kg_s": 0.0001848209635476987,
+        "Cmean_initial_median_rate_kg_kg_s": 0.0001848209635476987,
+        "Cmean_final_median_rate_kg_kg_s": 3.9012330958255754e-07,
+        "Cmean_rising_limb_identified": false,
+        "Cmean_falling_limb_identified": true,
+        "Cmean_observation_end_s": 184256.63999999998,
+        "Cmean_initial_rate_window_end_s": 0.0,
+        "Cmean_final_rate_window_start_s": 165830.976,
+        "source_case_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+        "source_file": "work/studies/plot_payload/q4_1d_stage_schedule_default_dt0.25_s33c788387cd3_series.npz",
+        "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+        "physics_hash": "68f0b614eb975aacdc13bdc995b127f1224fd459c6b02f9f487ba04e7b229e0a",
+        "study_id": "B5_B6",
+        "generated_at": "2026-09-12T05:47:23.839691+00:00"
+      }
+    ],
+    "B7": [
+      {
+        "source_case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+        "source_file": "work/studies/plot_payload/q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084_series.npz",
+        "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+        "physics_hash": "168eaa843d9c9c69ec13c86b4be1b88021dcd5153cb23d83f6aa56b6e2a25887",
+        "study_id": "B7",
+        "generated_at": "2026-09-12T05:47:23.839691+00:00",
+        "case": "q23",
+        "official_endpoint_s": 207437.4,
+        "theta_V_endpoint": 1.3850795511673066,
+        "theta_c_endpoint": 1.8319728226602288,
+        "theta_V_72h": 1.4373770870672797,
+        "theta_c_72h": 1.9224437866546895,
+        "quadrature": {
+          "full": 1.4373770870672797,
+          "half_sampling": 1.4373774251063722,
+          "absolute_difference": 3.3803909249563446e-07,
+          "units": "dimensionless"
+        },
+        "meaning": "state/geometry diagnostic; not an exact constant-coefficient PDE transform"
+      },
+      {
+        "source_case_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+        "source_file": "work/studies/plot_payload/q4_1d_stage_schedule_default_dt0.25_s33c788387cd3_series.npz",
+        "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+        "physics_hash": "68f0b614eb975aacdc13bdc995b127f1224fd459c6b02f9f487ba04e7b229e0a",
+        "study_id": "B7",
+        "generated_at": "2026-09-12T05:47:23.839691+00:00",
+        "case": "q4",
+        "official_endpoint_s": 184256.63999999998,
+        "theta_V_endpoint": 0.9396315438595411,
+        "theta_c_endpoint": 1.2783916918792961,
+        "theta_V_72h": 1.0353616761409132,
+        "theta_c_72h": 1.4379877361931506,
+        "quadrature": {
+          "full": 1.0353616761409132,
+          "half_sampling": 1.0353621032672145,
+          "absolute_difference": 4.2712630121677364e-07,
+          "units": "dimensionless"
+        },
+        "meaning": "state/geometry diagnostic; not an exact constant-coefficient PDE transform"
+      }
+    ],
+    "geometry_2x2": {
+      "groups": [
+        {
+          "group": "P3_fixed",
+          "row_kind": "model",
+          "drying_completed": true,
+          "drying_time_h": 57.6215,
+          "endpoint_time_s": 207437.4,
+          "endpoint_Cmax": 0.14999996096752208,
+          "endpoint_Cmean": 0.12445395450982744,
+          "source_case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+          "convergence_status": "PASS",
+          "material_appendix": 3,
+          "shrinking_radius": false,
+          "qualified_fraction_definition": "annular volume where reconstructed C<0.15; not water mass fraction",
+          "endpoint_reason": "own genuine drying event",
+          "Cmax_24h": 0.2378502189810997,
+          "Cmean_24h": 0.18608630823294398,
+          "qualified_volume_fraction_24h": 0.18130616455451426,
+          "Cmax_48h": 0.16197432400831244,
+          "Cmean_48h": 0.13316110376701584,
+          "qualified_volume_fraction_48h": 0.7318841712523403,
+          "Cmax_72h": 0.13783179387198036,
+          "Cmean_72h": 0.11548311453777771,
+          "qualified_volume_fraction_72h": 1.0,
+          "source_file": "work/studies/technical/plot_payload/geometry_property_cross.npz",
+          "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+          "physics_hash": "168eaa843d9c9c69ec13c86b4be1b88021dcd5153cb23d83f6aa56b6e2a25887",
+          "study_id": "geometry_property_cross",
+          "generated_at": "2026-09-12T05:47:23.839691+00:00"
+        },
+        {
+          "group": "P3_shrink",
+          "row_kind": "model",
+          "drying_completed": true,
+          "drying_time_h": 25.2756,
+          "endpoint_time_s": 90992.16,
+          "endpoint_Cmax": 0.1499997092753358,
+          "endpoint_Cmean": 0.1244367693179635,
+          "source_case_id": "geometry_cross_p3_shrink_production_x1_fd48e0b0c765",
+          "convergence_status": "PASS",
+          "material_appendix": 3,
+          "shrinking_radius": true,
+          "qualified_fraction_definition": "annular volume where reconstructed C<0.15; not water mass fraction",
+          "endpoint_reason": "own genuine drying event",
+          "Cmax_24h": 0.15390620051090528,
+          "Cmean_24h": 0.12728807320887386,
+          "qualified_volume_fraction_24h": 0.8997532174998643,
+          "Cmax_48h": 0.11658520791460963,
+          "Cmean_48h": 0.09950643060287692,
+          "qualified_volume_fraction_48h": 1.0,
+          "Cmax_72h": 0.10343864901367536,
+          "Cmean_72h": 0.08941932610606057,
+          "qualified_volume_fraction_72h": 1.0,
+          "source_file": "work/studies/technical/plot_payload/geometry_property_cross.npz",
+          "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+          "physics_hash": "787abfe191a1c36c9099baa199038eb92ab906d64307cc3ac8cd42f2c036ebe4",
+          "study_id": "geometry_property_cross",
+          "generated_at": "2026-09-12T05:47:23.839691+00:00"
+        },
+        {
+          "group": "P4_fixed",
+          "row_kind": "model",
+          "drying_completed": false,
+          "drying_time_h": null,
+          "endpoint_time_s": 259200.0,
+          "endpoint_Cmax": 0.22492510179893085,
+          "endpoint_Cmean": 0.1675711871504475,
+          "source_case_id": "q4_M00_fixed_radius_x1_tail60_707cc7210098",
+          "convergence_status": "NOT_INDEPENDENTLY_REFINED",
+          "material_appendix": 4,
+          "shrinking_radius": false,
+          "qualified_fraction_definition": "annular volume where reconstructed C<0.15; not water mass fraction",
+          "endpoint_reason": "NOT_DRY_WITHIN_72H; endpoint is final observation, not drying time",
+          "Cmax_24h": 0.7019713762484209,
+          "Cmean_24h": 0.4448628038420377,
+          "qualified_volume_fraction_24h": 0.024613206901228153,
+          "Cmax_48h": 0.32441728360341754,
+          "Cmean_48h": 0.2288844814004985,
+          "qualified_volume_fraction_48h": 0.13063507545261915,
+          "Cmax_72h": 0.22492510179893085,
+          "Cmean_72h": 0.16757118715044747,
+          "qualified_volume_fraction_72h": 0.31582543316177,
+          "source_file": "work/studies/technical/plot_payload/geometry_property_cross.npz",
+          "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+          "physics_hash": "6b482c3cce0e40e8659a19b4795527fc1aa88263a9e41462b46eac2965832a19",
+          "study_id": "geometry_property_cross",
+          "generated_at": "2026-09-12T05:47:23.839691+00:00"
+        },
+        {
+          "group": "P4_shrink",
+          "row_kind": "model",
+          "drying_completed": true,
+          "drying_time_h": 51.182399999999994,
+          "endpoint_time_s": 184256.63999999998,
+          "endpoint_Cmax": 0.1499999165528687,
+          "endpoint_Cmean": 0.11841683652263099,
+          "source_case_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+          "convergence_status": "PASS",
+          "material_appendix": 4,
+          "shrinking_radius": true,
+          "qualified_fraction_definition": "annular volume where reconstructed C<0.15; not water mass fraction",
+          "endpoint_reason": "own genuine drying event",
+          "Cmax_24h": 0.2851967736086408,
+          "Cmean_24h": 0.2054483849908848,
+          "qualified_volume_fraction_24h": 0.1743473312313379,
+          "Cmax_48h": 0.15631743942012347,
+          "Cmean_48h": 0.12270212431053866,
+          "qualified_volume_fraction_48h": 0.8811487605033012,
+          "Cmax_72h": 0.12375496776576667,
+          "Cmean_72h": 0.10030599839379391,
+          "qualified_volume_fraction_72h": 1.0,
+          "source_file": "work/studies/technical/plot_payload/geometry_property_cross.npz",
+          "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+          "physics_hash": "68f0b614eb975aacdc13bdc995b127f1224fd459c6b02f9f487ba04e7b229e0a",
+          "study_id": "geometry_property_cross",
+          "generated_at": "2026-09-12T05:47:23.839691+00:00"
+        }
+      ],
+      "interactions": {
+        "Cmax_72h": -0.06677698917485919,
+        "Cmean_72h": -0.04120140032493641,
+        "qualified_volume_fraction_72h": 0.68417456683823,
+        "drying_time_h": null,
+        "drying_time_reason": "P4_fixed has no drying event within 72 h"
+      },
+      "interaction_definition": "Y(P4,shrink)-Y(P4,fixed)-Y(P3,shrink)+Y(P3,fixed)",
+      "inference_scope": "factorial model contrasts; P4_fixed lacks independent refinement, so no fully certified interaction error bound",
+      "array_sha256": "eb27f474485c3597d5b5c28e7b897114452b9dd18048c2f593636ae9d3e7208f",
+      "source_file": "work/studies/technical/plot_payload/geometry_property_cross.npz",
+      "source_case_id": [
+        "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+        "geometry_cross_p3_shrink_production_x1_fd48e0b0c765",
+        "q4_M00_fixed_radius_x1_tail60_707cc7210098",
+        "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3"
+      ],
+      "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+      "physics_hash": [
+        "168eaa843d9c9c69ec13c86b4be1b88021dcd5153cb23d83f6aa56b6e2a25887",
+        "787abfe191a1c36c9099baa199038eb92ab906d64307cc3ac8cd42f2c036ebe4",
+        "6b482c3cce0e40e8659a19b4795527fc1aa88263a9e41462b46eac2965832a19",
+        "68f0b614eb975aacdc13bdc995b127f1224fd459c6b02f9f487ba04e7b229e0a"
+      ],
+      "study_id": "geometry_property_cross",
+      "generated_at": "2026-09-12T05:47:23.839691+00:00",
+      "new_cross_validation": {
+        "status": "PASS",
+        "inherited_pass": false,
+        "source_file": "work/studies/technical/validation/cross_summary.json",
+        "production_id": "geometry_cross_p3_shrink_production_x1_fd48e0b0c765",
+        "checks": [
+          {
+            "case": "q23",
+            "mode": "M00",
+            "reference_id": "geometry_cross_p3_shrink_full_reference_x2_ed9065068e3d",
+            "production_id": "geometry_cross_p3_shrink_production_x1_fd48e0b0c765",
+            "status": "PASS",
+            "full_schedule_reference_passed": true,
+            "time_half_passed": null,
+            "max_abs_T_K": 0.0004978579260637161,
+            "max_abs_C": 0.004967445809766435,
+            "max_abs_Cmax": 6.827593345171135e-05,
+            "event_relative": 0.0008434207243914936,
+            "event_delta_s": 76.68000000000035,
+            "thresholds": {
+              "T_K": 0.01,
+              "C": 0.01,
+              "event_s": null,
+              "event_relative": 0.002
+            },
+            "common_output_count": 14941,
+            "common_time_range_s": [
+              0.0,
+              259200.0
+            ],
+            "events": [
+              {
+                "time_s": 90992.16,
+                "T_K": 1.2283862815820612e-09,
+                "C": 0.002496682571140302,
+                "Cmax": 6.133365060276286e-05,
+                "source": "genuine reintegration to exact common physical time"
+              },
+              {
+                "time_s": 90915.48,
+                "T_K": 1.2286136552575044e-09,
+                "C": 0.0024979544006401427,
+                "Cmax": 6.129667005347339e-05,
+                "source": "genuine reintegration to exact common physical time"
+              }
+            ],
+            "full_history_verified": true,
+            "reference_pairing_verified": true,
+            "reference_schedule": [
+              {
+                "t_start": 0.0,
+                "t_end": 300.0,
+                "nr": 400,
+                "nz": 1
+              },
+              {
+                "t_start": 300.0,
+                "t_end": 1800.0,
+                "nr": 320,
+                "nz": 1
+              },
+              {
+                "t_start": 1800.0,
+                "t_end": 259200.0,
+                "nr": 160,
+                "nz": 1
+              }
+            ],
+            "production_schedule": [
+              {
+                "t_start": 0.0,
+                "t_end": 300.0,
+                "nr": 200,
+                "nz": 1
+              },
+              {
+                "t_start": 300.0,
+                "t_end": 1800.0,
+                "nr": 160,
+                "nz": 1
+              },
+              {
+                "t_start": 1800.0,
+                "t_end": 259200.0,
+                "nr": 80,
+                "nz": 1
+              }
+            ],
+            "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+            "official_M00_status_unchanged": true,
+            "series_path": "work/studies/validation/geometry_cross_p3_shrink_full_reference_x2_ed9065068e3d_comparison.npz",
+            "series_sha256": "5c9c307b718a9d303fb7e13cf60cae32f5e4c77948d825da2d8bf61fd0bc3047"
+          },
+          {
+            "case": "q23",
+            "mode": "M00",
+            "reference_id": "geometry_cross_p3_shrink_time_half_x1_ef21230afd4b",
+            "production_id": "geometry_cross_p3_shrink_production_x1_fd48e0b0c765",
+            "status": "PASS",
+            "full_schedule_reference_passed": null,
+            "time_half_passed": true,
+            "max_abs_T_K": 5.466063157655299e-10,
+            "max_abs_C": 5.172307027123679e-12,
+            "max_abs_Cmax": 1.8276491431379327e-12,
+            "event_relative": 0.0,
+            "event_delta_s": 0.0,
+            "thresholds": {
+              "T_K": 0.001,
+              "C": 1e-05,
+              "event_s": 1.0,
+              "event_relative": null
+            },
+            "common_output_count": 14942,
+            "common_time_range_s": [
+              0.0,
+              259200.0
+            ],
+            "events": [
+              {
+                "time_s": 90992.16,
+                "T_K": 4.241655915393494e-10,
+                "C": 6.502576255229542e-13,
+                "Cmax": 6.502576255229542e-13,
+                "source": "genuine reintegration to exact common physical time"
+              },
+              {
+                "time_s": 90992.16,
+                "T_K": 4.241655915393494e-10,
+                "C": 6.502576255229542e-13,
+                "Cmax": 6.502576255229542e-13,
+                "source": "genuine reintegration to exact common physical time"
+              }
+            ],
+            "full_history_verified": true,
+            "reference_pairing_verified": true,
+            "reference_schedule": [
+              {
+                "t_start": 0.0,
+                "t_end": 300.0,
+                "nr": 200,
+                "nz": 1
+              },
+              {
+                "t_start": 300.0,
+                "t_end": 1800.0,
+                "nr": 160,
+                "nz": 1
+              },
+              {
+                "t_start": 1800.0,
+                "t_end": 259200.0,
+                "nr": 80,
+                "nz": 1
+              }
+            ],
+            "production_schedule": [
+              {
+                "t_start": 0.0,
+                "t_end": 300.0,
+                "nr": 200,
+                "nz": 1
+              },
+              {
+                "t_start": 300.0,
+                "t_end": 1800.0,
+                "nr": 160,
+                "nz": 1
+              },
+              {
+                "t_start": 1800.0,
+                "t_end": 259200.0,
+                "nr": 80,
+                "nz": 1
+              }
+            ],
+            "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+            "official_M00_status_unchanged": true,
+            "series_path": "work/studies/validation/geometry_cross_p3_shrink_time_half_x1_ef21230afd4b_comparison.npz",
+            "series_sha256": "7c075176241c1a0e59d24f27691b8b60540dffeca111a0d3717e68b23fbfed0a"
+          }
+        ],
+        "remesh_transfer_statuses": [
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "event_check_statuses": [
+          "PASS",
+          "PASS",
+          "PASS"
+        ]
+      }
+    },
+    "B10": [
+      {
+        "case": "q23",
+        "values": [
+          {
+            "source_case_id": "q23_M00_tail_x1_tail30_0dfa28dfa3b2",
+            "source_file": "work/studies/plot_payload/q23_M00_tail_x1_tail30_0dfa28dfa3b2_series.npz",
+            "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+            "physics_hash": "168eaa843d9c9c69ec13c86b4be1b88021dcd5153cb23d83f6aa56b6e2a25887",
+            "study_id": "B10",
+            "generated_at": "2026-09-12T05:47:23.839691+00:00",
+            "tail_minutes": 30,
+            "sample_count": 31,
+            "drying_time_h": 57.5952,
+            "relative_change_to_60min": -0.0004564268545594805
+          },
+          {
+            "source_case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+            "source_file": "work/studies/plot_payload/q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084_series.npz",
+            "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+            "physics_hash": "168eaa843d9c9c69ec13c86b4be1b88021dcd5153cb23d83f6aa56b6e2a25887",
+            "study_id": "B10",
+            "generated_at": "2026-09-12T05:47:23.839691+00:00",
+            "tail_minutes": 60,
+            "sample_count": 61,
+            "drying_time_h": 57.6215,
+            "relative_change_to_60min": 0.0
+          },
+          {
+            "source_case_id": "q23_M00_tail_x1_tail90_1bce5959ff42",
+            "source_file": "work/studies/plot_payload/q23_M00_tail_x1_tail90_1bce5959ff42_series.npz",
+            "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+            "physics_hash": "168eaa843d9c9c69ec13c86b4be1b88021dcd5153cb23d83f6aa56b6e2a25887",
+            "study_id": "B10",
+            "generated_at": "2026-09-12T05:47:23.839691+00:00",
+            "tail_minutes": 90,
+            "sample_count": 91,
+            "drying_time_h": 57.610499999999995,
+            "relative_change_to_60min": -0.0001909009657853889
+          }
+        ],
+        "max_absolute_relative_change": 0.0004564268545594805,
+        "meaning": "input-tail sensitivity; not a confidence interval"
+      },
+      {
+        "case": "q4",
+        "values": [
+          {
+            "source_case_id": "q4_M00_tail_x1_tail30_2fe57be4db9c",
+            "source_file": "work/studies/plot_payload/q4_M00_tail_x1_tail30_2fe57be4db9c_series.npz",
+            "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+            "physics_hash": "68f0b614eb975aacdc13bdc995b127f1224fd459c6b02f9f487ba04e7b229e0a",
+            "study_id": "B10",
+            "generated_at": "2026-09-12T05:47:23.839691+00:00",
+            "tail_minutes": 30,
+            "sample_count": 31,
+            "drying_time_h": 51.1594,
+            "relative_change_to_60min": -0.00044937322204500254
+          },
+          {
+            "source_case_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+            "source_file": "work/studies/plot_payload/q4_1d_stage_schedule_default_dt0.25_s33c788387cd3_series.npz",
+            "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+            "physics_hash": "68f0b614eb975aacdc13bdc995b127f1224fd459c6b02f9f487ba04e7b229e0a",
+            "study_id": "B10",
+            "generated_at": "2026-09-12T05:47:23.839691+00:00",
+            "tail_minutes": 60,
+            "sample_count": 61,
+            "drying_time_h": 51.182399999999994,
+            "relative_change_to_60min": 0.0
+          },
+          {
+            "source_case_id": "q4_M00_tail_x1_tail90_76b11a5ee89a",
+            "source_file": "work/studies/plot_payload/q4_M00_tail_x1_tail90_76b11a5ee89a_series.npz",
+            "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+            "physics_hash": "68f0b614eb975aacdc13bdc995b127f1224fd459c6b02f9f487ba04e7b229e0a",
+            "study_id": "B10",
+            "generated_at": "2026-09-12T05:47:23.839691+00:00",
+            "tail_minutes": 90,
+            "sample_count": 91,
+            "drying_time_h": 51.172799999999995,
+            "relative_change_to_60min": -0.00018756447528835976
+          }
+        ],
+        "max_absolute_relative_change": 0.00044937322204500254,
+        "meaning": "input-tail sensitivity; not a confidence interval"
+      }
+    ],
+    "thermal": {
+      "results": [
+        {
+          "case": "q23",
+          "mode": "M00",
+          "latent": false,
+          "explicit_moisture_heat": false,
+          "drying_time_h": 57.6215,
+          "event_reason": "",
+          "final_Cmax": 0.13783179387198036,
+          "final_Cmean": 0.11548311453777771,
+          "last_real_time_h": 72.0,
+          "balance_verification": "NOT_APPLICABLE_M00",
+          "water_domain_status": "NOT_APPLICABLE_M00",
+          "minimum_temperature_C": 27.999999999999943,
+          "minimum_moisture": 0.051765709359404305,
+          "status": "DRY",
+          "time_verification": "BASELINE_CERTIFIED",
+          "space_verification": "PASS",
+          "source_case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+          "source_file": "work/studies/plot_payload/q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084_series.npz",
+          "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+          "physics_hash": "168eaa843d9c9c69ec13c86b4be1b88021dcd5153cb23d83f6aa56b6e2a25887",
+          "study_id": "thermal_modes",
+          "generated_at": "2026-09-12T05:47:23.839691+00:00",
+          "relative_change_to_M00": 0.0
+        },
+        {
+          "case": "q4",
+          "mode": "M00",
+          "latent": false,
+          "explicit_moisture_heat": false,
+          "drying_time_h": 51.182399999999994,
+          "event_reason": "",
+          "final_Cmax": 0.12375496776576667,
+          "final_Cmean": 0.10030599839379391,
+          "last_real_time_h": 72.0,
+          "balance_verification": "NOT_APPLICABLE_M00",
+          "water_domain_status": "NOT_APPLICABLE_M00",
+          "minimum_temperature_C": 28.0,
+          "minimum_moisture": 0.05125433701626838,
+          "status": "DRY",
+          "time_verification": "BASELINE_CERTIFIED",
+          "space_verification": "PASS",
+          "source_case_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+          "source_file": "work/studies/plot_payload/q4_1d_stage_schedule_default_dt0.25_s33c788387cd3_series.npz",
+          "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+          "physics_hash": "68f0b614eb975aacdc13bdc995b127f1224fd459c6b02f9f487ba04e7b229e0a",
+          "study_id": "thermal_modes",
+          "generated_at": "2026-09-12T05:47:23.839691+00:00",
+          "relative_change_to_M00": 0.0
+        },
+        {
+          "case": "q23",
+          "mode": "M10",
+          "latent": true,
+          "explicit_moisture_heat": false,
+          "drying_time_h": 60.6681,
+          "event_reason": "",
+          "final_Cmax": 0.14003194220506643,
+          "final_Cmean": 0.11711463832011314,
+          "last_real_time_h": 72.0,
+          "balance_verification": "PASS",
+          "water_domain_status": "PASS",
+          "minimum_temperature_C": 10.223373358447816,
+          "minimum_moisture": 0.0519044676459167,
+          "status": "DRY",
+          "time_verification": "PASS",
+          "space_verification": "PASS",
+          "source_case_id": "q23_M10_production_x1_tail60_f001afde885f",
+          "source_file": "work/studies/plot_payload/q23_M10_production_x1_tail60_f001afde885f_series.npz",
+          "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+          "physics_hash": "5359f3dfec6866fb095741bada48ef78fca456df6350296d8e1c9b618e4bd182",
+          "study_id": "thermal_modes",
+          "generated_at": "2026-09-12T05:47:23.839691+00:00",
+          "relative_change_to_M00": 0.05287262566923814
+        },
+        {
+          "case": "q23",
+          "mode": "M01",
+          "latent": false,
+          "explicit_moisture_heat": true,
+          "drying_time_h": 57.6227,
+          "event_reason": "",
+          "final_Cmax": 0.13783257192941245,
+          "final_Cmean": 0.11548369225284541,
+          "last_real_time_h": 72.0,
+          "balance_verification": "PASS",
+          "water_domain_status": "PASS",
+          "minimum_temperature_C": 27.999999999999943,
+          "minimum_moisture": 0.05176575820588138,
+          "status": "DRY",
+          "time_verification": "PASS",
+          "space_verification": "PASS",
+          "source_case_id": "q23_M01_production_x1_tail60_182fbf89b7a4",
+          "source_file": "work/studies/plot_payload/q23_M01_production_x1_tail60_182fbf89b7a4_series.npz",
+          "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+          "physics_hash": "5432afca434fd4f3cb71081b70bb95837e5480d85159fb6cf5a483487ae3d9dd",
+          "study_id": "thermal_modes",
+          "generated_at": "2026-09-12T05:47:23.839691+00:00",
+          "relative_change_to_M00": 2.082555990393011e-05
+        },
+        {
+          "case": "q4",
+          "mode": "M10",
+          "latent": true,
+          "explicit_moisture_heat": false,
+          "drying_time_h": 56.5393,
+          "event_reason": "",
+          "final_Cmax": 0.1288266332442723,
+          "final_Cmean": 0.10384797873152507,
+          "last_real_time_h": 72.0,
+          "balance_verification": "PASS",
+          "water_domain_status": "PASS",
+          "minimum_temperature_C": 14.079095878251962,
+          "minimum_moisture": 0.05147147124086718,
+          "status": "DRY",
+          "time_verification": "PASS",
+          "space_verification": "PASS",
+          "source_case_id": "q4_M10_production_x2_tail60_16fad782a30b",
+          "source_file": "work/studies/plot_payload/q4_M10_production_x2_tail60_16fad782a30b_series.npz",
+          "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+          "physics_hash": "3e2bc545ddac6af1f1fddef90e0d7b6c31fc98260bf60e997c0da81917bbea70",
+          "study_id": "thermal_modes",
+          "generated_at": "2026-09-12T05:47:23.839691+00:00",
+          "relative_change_to_M00": 0.10466293100753392
+        },
+        {
+          "case": "q4",
+          "mode": "M01",
+          "latent": false,
+          "explicit_moisture_heat": true,
+          "drying_time_h": 51.1834,
+          "event_reason": "",
+          "final_Cmax": 0.12375586109201615,
+          "final_Cmean": 0.10030662353900423,
+          "last_real_time_h": 72.0,
+          "balance_verification": "PASS",
+          "water_domain_status": "PASS",
+          "minimum_temperature_C": 28.0,
+          "minimum_moisture": 0.051254373799170395,
+          "status": "DRY",
+          "time_verification": "PASS",
+          "space_verification": "PASS",
+          "source_case_id": "q4_M01_production_x1_tail60_c5eab22374c1",
+          "source_file": "work/studies/plot_payload/q4_M01_production_x1_tail60_c5eab22374c1_series.npz",
+          "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+          "physics_hash": "09a22f2fd80dae639c9b13812dcd0ec10941d510bcfcd3e8e615b51a7660608c",
+          "study_id": "thermal_modes",
+          "generated_at": "2026-09-12T05:47:23.839691+00:00",
+          "relative_change_to_M00": 1.953796617596625e-05
+        },
+        {
+          "case": "q23",
+          "mode": "M11",
+          "latent": true,
+          "explicit_moisture_heat": true,
+          "drying_time_h": 60.66929999999999,
+          "event_reason": "",
+          "final_Cmax": 0.14003290486947573,
+          "final_Cmean": 0.11711535125132183,
+          "last_real_time_h": 72.0,
+          "balance_verification": "PASS",
+          "water_domain_status": "PASS",
+          "minimum_temperature_C": 10.252915823584487,
+          "minimum_moisture": 0.05190453095500891,
+          "status": "DRY",
+          "time_verification": "PASS",
+          "space_verification": "PASS",
+          "source_case_id": "q23_M11_production_x1_tail60_38ef6e17d315",
+          "source_file": "work/studies/plot_payload/q23_M11_production_x1_tail60_38ef6e17d315_series.npz",
+          "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+          "physics_hash": "d433a28b8b18e5323d1064fa698de63c00aeb2fe329771761c4c779b6edcaca5",
+          "study_id": "thermal_modes",
+          "generated_at": "2026-09-12T05:47:23.839691+00:00",
+          "relative_change_to_M00": 0.05289345122914182
+        },
+        {
+          "case": "q4",
+          "mode": "M11",
+          "latent": true,
+          "explicit_moisture_heat": true,
+          "drying_time_h": 56.5404,
+          "event_reason": "",
+          "final_Cmax": 0.1288278241003254,
+          "final_Cmean": 0.10384880743299543,
+          "last_real_time_h": 72.0,
+          "balance_verification": "PASS",
+          "water_domain_status": "PASS",
+          "minimum_temperature_C": 14.095101241785244,
+          "minimum_moisture": 0.05147152475379364,
+          "status": "DRY",
+          "time_verification": "PASS",
+          "space_verification": "PASS",
+          "source_case_id": "q4_M11_production_x2_tail60_7848b38bac48",
+          "source_file": "work/studies/plot_payload/q4_M11_production_x2_tail60_7848b38bac48_series.npz",
+          "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+          "physics_hash": "7e010aadd6528f5baefd4c7debaf692d096d0c59b260aa95facfe956da389e46",
+          "study_id": "thermal_modes",
+          "generated_at": "2026-09-12T05:47:23.839691+00:00",
+          "relative_change_to_M00": 0.1046844227703274
+        }
+      ],
+      "conclusions": [
+        {
+          "case": "q23",
+          "latent_models_dry_later": true,
+          "qualification": "supplemental effective-model structural comparison under prescribed common R(t), not experimental validation"
+        },
+        {
+          "case": "q4",
+          "latent_models_dry_later": true,
+          "qualification": "supplemental effective-model structural comparison under prescribed common R(t), not experimental validation"
+        }
+      ]
+    },
+    "kinetics": {
+      "case": "q4",
+      "mode": "M00",
+      "source_case_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+      "study_id": "q4_peak_response_timing",
+      "time_unit": "s",
+      "observation_start_s": 0.0,
+      "observation_end_s": 184256.63999999998,
+      "t_T_peak": 1800.0,
+      "vT_peak": 0.004624243963511295,
+      "vT_unit": "K/s",
+      "t_C_peak": 0.0,
+      "vC_peak": 0.0001848209635476987,
+      "vC_unit": "(kg/kg)/s",
+      "T_peak_at_window_boundary": false,
+      "C_peak_at_window_boundary": true,
+      "R_peak_interval_start": 0.0,
+      "R_peak_interval_end": 1800.0,
+      "R_peak_intervals_s": [
+        [
+          0.0,
+          1800.0
+        ]
+      ],
+      "vR_peak": 7.055555555555557e-07,
+      "vR_unit": "m/s",
+      "delta_R_to_T_interval_start_s": 1800.0,
+      "delta_R_to_T_interval_end_s": 0.0,
+      "delta_R_to_C_interval_start_s": 0.0,
+      "delta_R_to_C_interval_end_s": -1800.0,
+      "delta_T_to_C": -1800.0,
+      "radius_interval_relations": [
+        {
+          "start_s": 0.0,
+          "end_s": 1800.0,
+          "delta_R_to_T_s": [
+            1800.0,
+            0.0
+          ],
+          "delta_R_to_C_s": [
+            0.0,
+            -1800.0
+          ]
+        }
+      ],
+      "t_T50": 3055.747451616657,
+      "t_C50": 16018.477624764218,
+      "t_R50": 8450.000000000005,
+      "half_response_details": {
+        "T": {
+          "status": "REACHED",
+          "time_s": 3055.747451616657,
+          "bracket_s": [
+            3000.0,
+            3060.0
+          ],
+          "method": "earliest crossing; piecewise linear interpolation of saved volume averages, not drying-event localization"
+        },
+        "C": {
+          "status": "REACHED",
+          "time_s": 16018.477624764218,
+          "bracket_s": [
+            15960.0,
+            16020.0
+          ],
+          "method": "earliest crossing; piecewise linear interpolation of saved volume averages, not drying-event localization"
+        },
+        "R": {
+          "status": "REACHED",
+          "time_s": 8450.000000000005,
+          "bracket_s": [
+            7200.0,
+            9000.0
+          ],
+          "method": "earliest crossing; piecewise linear interpolation of saved volume averages, not drying-event localization"
+        }
+      },
+      "T_initial_K": 301.15,
+      "T_final_K": 323.1489344261675,
+      "C_initial": 2.5500000000000003,
+      "C_endpoint": 0.11841683652263099,
+      "R_initial_m": 0.02,
+      "R_endpoint_m": 0.012,
+      "derivative_method": "three-point centered differences on canonical saved outputs within each remesh stage; second-order one-sided edges; additional near-duplicate event times excluded",
+      "derivative_sampling": "10 s where saved; Q4 uses its actual 60 s outputs; late outputs 60 s; no invented denser PDE samples",
+      "smoothing_method": "none; regular output selection prevents near-duplicate-time noise",
+      "lag_convention": "target time minus source time; positive means later response; interval endpoint relations are not a phase angle",
+      "t50_reference": "initial to exact frozen Q4 formal drying endpoint for T, C and R",
+      "delta_R50_to_T50": -5394.252548383349,
+      "delta_R50_to_C50": 7568.477624764213,
+      "delta_T50_to_C50": 12962.730173147562,
+      "source_file": "work/studies/technical/plot_payload/q4_1d_stage_schedule_default_dt0.25_s33c788387cd3_kinetics.npz",
+      "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+      "physics_hash": "68f0b614eb975aacdc13bdc995b127f1224fd459c6b02f9f487ba04e7b229e0a",
+      "generated_at": "2026-09-12T05:47:23.839691+00:00",
+      "array_sha256": "9ca37a4d5be7137c89746fa135b3ebc7217c8f114f8fb95c9e4cba370d586071"
+    }
+  },
+  "source_conflicts": [],
+  "draft_comparison": {
+    "status": "NO_PAPER_DRAFT_PROVIDED",
+    "scope": "current official status versus payload checked; historical fixed results remain labeled diagnostics"
+  },
+  "warnings": [
+    "2D remains PARTIAL_2D; one finer complete trajectory cannot certify grid independence",
+    "P4_fixed lacks independent refinement; factorial interactions are diagnostic",
+    "Peak times resolve saved output times; t50 values are interpolated response clocks, not Event_Locate events",
+    "P4_fixed has no drying event within 72 h; no drying-time interaction",
+    "Q4 mean-moisture rate maximum is a window-boundary estimate, not an identified interior peak"
+  ],
+  "solver_mass_balance": {
+    "schema_version": 1,
+    "status": "PASS",
+    "method": "solver_mass_balance",
+    "completed_case_count": 12,
+    "expected_case_count": 12,
+    "missing_cases": [],
+    "export_mass_balance_affects_pass": false,
+    "tolerance_status": "FROZEN_AFTER_MEASUREMENT",
+    "max_mass_balance_abs_error_kg": 1.1213252548714081e-13,
+    "max_mass_balance_rel_error": 5.021738630516916e-13,
+    "q4_max_remesh_water_mass_jump_abs_kg": 2.7755575615628914e-17,
+    "q4_max_remesh_water_mass_jump_rel": 1.4496896637710953e-16,
+    "failures": [],
+    "nonphysical_mass_source_or_sink_detected": false,
+    "details_path": "work/validation/mass_balance/summary.json",
+    "details_sha256": "cba024de71aea88c12b6d0fe763c3996e7ad7f12d879c5001b552787bf7fb66e",
+    "cases": [
+      {
+        "case": "q1",
+        "mode": "M00",
+        "source_case_id": "q1_1d_stage_schedule_default_dt0.25_s030d129157f2",
+        "status": "PASS",
+        "initial_water_mass_kg": 0.18504423207482415,
+        "remaining_water_mass_kg": 0.16643970034235664,
+        "cumulative_outflow_water_mass_kg": 0.018604531732466695,
+        "max_mass_balance_abs_error_kg": 9.211381657436846e-16,
+        "max_mass_balance_rel_error": 4.9779350343177125e-15,
+        "final_mass_balance_abs_error_kg": 8.153200337090993e-16,
+        "final_mass_balance_rel_error": 4.4060818571173725e-15,
+        "time_of_max_error_s": 945.9296875,
+        "accepted_steps": 39720,
+        "source_file": "work/validation/mass_balance/q1_1d_stage_schedule_default_dt0.25_s030d129157f2/measurement.json",
+        "source_sha256": "d3c85fc28c4e29a499c041adb8adee70520d263218e2ca4d9d614180db161058",
+        "max_remesh_water_mass_jump_abs_kg": 0.0,
+        "max_remesh_water_mass_jump_rel": 0.0
+      },
+      {
+        "case": "q23",
+        "mode": "M00",
+        "source_case_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+        "status": "PASS",
+        "initial_water_mass_kg": 0.22033803438763208,
+        "remaining_water_mass_kg": 0.009978557828319898,
+        "cumulative_outflow_water_mass_kg": 0.2103594765593168,
+        "max_mass_balance_abs_error_kg": 4.912736883966318e-15,
+        "max_mass_balance_rel_error": 2.2296363392820017e-14,
+        "final_mass_balance_abs_error_kg": 4.6074255521944e-15,
+        "final_mass_balance_rel_error": 2.091071369044137e-14,
+        "time_of_max_error_s": 124438.0,
+        "accepted_steps": 4220852,
+        "source_file": "work/validation/mass_balance/q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084/measurement.json",
+        "source_sha256": "6f960b5de5f3f6146ae3e1453437e1561eec015be120cd89f697fbb9e019bc2f",
+        "max_remesh_water_mass_jump_abs_kg": 2.7755575615628914e-17,
+        "max_remesh_water_mass_jump_rel": 1.2864318543747832e-16
+      },
+      {
+        "case": "q4",
+        "mode": "M00",
+        "source_case_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+        "status": "PASS",
+        "initial_water_mass_kg": 0.22329422882687622,
+        "remaining_water_mass_kg": 0.00878343159139299,
+        "cumulative_outflow_water_mass_kg": 0.21451079723547514,
+        "max_mass_balance_abs_error_kg": 9.797718192317006e-15,
+        "max_mass_balance_rel_error": 4.3878062786447307e-14,
+        "final_mass_balance_abs_error_kg": 8.076872504148014e-15,
+        "final_mass_balance_rel_error": 3.6171434195059957e-14,
+        "time_of_max_error_s": 14680.8125,
+        "accepted_steps": 1286630,
+        "source_file": "work/validation/mass_balance/q4_1d_stage_schedule_default_dt0.25_s33c788387cd3/measurement.json",
+        "source_sha256": "6e3c7602acba9cdff9097c0d65754417886c3df9c5e1e91d868966115d59bf12",
+        "max_remesh_water_mass_jump_abs_kg": 0.0,
+        "max_remesh_water_mass_jump_rel": 0.0
+      },
+      {
+        "case": "q1",
+        "mode": "M10",
+        "source_case_id": "q1_M10_production_x1_tail60_3195d8f95b6d",
+        "status": "PASS",
+        "initial_water_mass_kg": 0.18504423207482415,
+        "remaining_water_mass_kg": 0.16643970034235664,
+        "cumulative_outflow_water_mass_kg": 0.018604531732466695,
+        "max_mass_balance_abs_error_kg": 9.211381657436846e-16,
+        "max_mass_balance_rel_error": 4.9779350343177125e-15,
+        "final_mass_balance_abs_error_kg": 8.153200337090993e-16,
+        "final_mass_balance_rel_error": 4.4060818571173725e-15,
+        "time_of_max_error_s": 945.9296875,
+        "accepted_steps": 39720,
+        "source_file": "work/validation/mass_balance/q1_M10_production_x1_tail60_3195d8f95b6d/measurement.json",
+        "source_sha256": "7f12326c8ea835fa54fdac850cba1d3cca99affc45d93ca0f31139e89c280bd8",
+        "max_remesh_water_mass_jump_abs_kg": 0.0,
+        "max_remesh_water_mass_jump_rel": 0.0
+      },
+      {
+        "case": "q23",
+        "mode": "M10",
+        "source_case_id": "q23_M10_production_x1_tail60_f001afde885f",
+        "status": "PASS",
+        "initial_water_mass_kg": 0.22033803438763208,
+        "remaining_water_mass_kg": 0.010119533021753798,
+        "cumulative_outflow_water_mass_kg": 0.21021850136587866,
+        "max_mass_balance_abs_error_kg": 5.9119376061289586e-15,
+        "max_mass_balance_rel_error": 2.6831216964241036e-14,
+        "final_mass_balance_abs_error_kg": 3.885780586188048e-16,
+        "final_mass_balance_rel_error": 1.76355416666373e-15,
+        "time_of_max_error_s": 9307.75,
+        "accepted_steps": 4221848,
+        "source_file": "work/validation/mass_balance/q23_M10_production_x1_tail60_f001afde885f/measurement.json",
+        "source_sha256": "50086b6db533d8d4d91aae75db64402fa5f4fe2a0e10fa19d1ff84a92f4ac30e",
+        "max_remesh_water_mass_jump_abs_kg": 0.0,
+        "max_remesh_water_mass_jump_rel": 0.0
+      },
+      {
+        "case": "q1",
+        "mode": "M01",
+        "source_case_id": "q1_M01_production_x1_tail60_9528c86985e2",
+        "status": "PASS",
+        "initial_water_mass_kg": 0.18504423207482415,
+        "remaining_water_mass_kg": 0.16643970034235664,
+        "cumulative_outflow_water_mass_kg": 0.018604531732466695,
+        "max_mass_balance_abs_error_kg": 9.211381657436846e-16,
+        "max_mass_balance_rel_error": 4.9779350343177125e-15,
+        "final_mass_balance_abs_error_kg": 8.153200337090993e-16,
+        "final_mass_balance_rel_error": 4.4060818571173725e-15,
+        "time_of_max_error_s": 945.9296875,
+        "accepted_steps": 39720,
+        "source_file": "work/validation/mass_balance/q1_M01_production_x1_tail60_9528c86985e2/measurement.json",
+        "source_sha256": "24053babd84d8974503edd163c5c1f3bd46ab6ea3ada1f2d4b172b02b960c28a",
+        "max_remesh_water_mass_jump_abs_kg": 0.0,
+        "max_remesh_water_mass_jump_rel": 0.0
+      },
+      {
+        "case": "q23",
+        "mode": "M01",
+        "source_case_id": "q23_M01_production_x1_tail60_182fbf89b7a4",
+        "status": "PASS",
+        "initial_water_mass_kg": 0.22033803438763208,
+        "remaining_water_mass_kg": 0.00997860774698752,
+        "cumulative_outflow_water_mass_kg": 0.2103594266406473,
+        "max_mass_balance_abs_error_kg": 3.858025010572419e-15,
+        "max_mass_balance_rel_error": 1.7509573511875604e-14,
+        "final_mass_balance_abs_error_kg": 2.7478019859472624e-15,
+        "final_mass_balance_rel_error": 1.2470847321407806e-14,
+        "time_of_max_error_s": 13420.6875,
+        "accepted_steps": 4220858,
+        "source_file": "work/validation/mass_balance/q23_M01_production_x1_tail60_182fbf89b7a4/measurement.json",
+        "source_sha256": "8e095bb0f0759fd9ae18136989cec751f97b39079139f8f29494da786a7256ed",
+        "max_remesh_water_mass_jump_abs_kg": 0.0,
+        "max_remesh_water_mass_jump_rel": 0.0
+      },
+      {
+        "case": "q4",
+        "mode": "M10",
+        "source_case_id": "q4_M10_production_x2_tail60_16fad782a30b",
+        "status": "PASS",
+        "initial_water_mass_kg": 0.22329422882687622,
+        "remaining_water_mass_kg": 0.009093589931798329,
+        "cumulative_outflow_water_mass_kg": 0.21420063889496904,
+        "max_mass_balance_abs_error_kg": 1.1213252548714081e-13,
+        "max_mass_balance_rel_error": 5.021738630516916e-13,
+        "final_mass_balance_abs_error_kg": 1.088573675644966e-13,
+        "final_mass_balance_rel_error": 4.875064086358253e-13,
+        "time_of_max_error_s": 23590.0625,
+        "accepted_steps": 5151321,
+        "source_file": "work/validation/mass_balance/q4_M10_production_x2_tail60_16fad782a30b/measurement.json",
+        "source_sha256": "7f8744a169c2c0a436e289b4505c8ad5cc23f81a72d358783e8f683370aee973",
+        "max_remesh_water_mass_jump_abs_kg": 1.3877787807814457e-17,
+        "max_remesh_water_mass_jump_rel": 1.161255195401916e-16
+      },
+      {
+        "case": "q4",
+        "mode": "M01",
+        "source_case_id": "q4_M01_production_x1_tail60_c5eab22374c1",
+        "status": "PASS",
+        "initial_water_mass_kg": 0.22329422882687622,
+        "remaining_water_mass_kg": 0.008783486333086172,
+        "cumulative_outflow_water_mass_kg": 0.21451074249378227,
+        "max_mass_balance_abs_error_kg": 9.56179579958416e-15,
+        "max_mass_balance_rel_error": 4.282150886666033e-14,
+        "final_mass_balance_abs_error_kg": 7.771561172376096e-15,
+        "final_mass_balance_rel_error": 3.4804129122394466e-14,
+        "time_of_max_error_s": 8893.375,
+        "accepted_steps": 1286839,
+        "source_file": "work/validation/mass_balance/q4_M01_production_x1_tail60_c5eab22374c1/measurement.json",
+        "source_sha256": "a635f7adf0c7a02c27dd056b70f0cba88f19d0caba56485b9275d1ca5ddb5664",
+        "max_remesh_water_mass_jump_abs_kg": 2.7755575615628914e-17,
+        "max_remesh_water_mass_jump_rel": 1.4496896637710953e-16
+      },
+      {
+        "case": "q1",
+        "mode": "M11",
+        "source_case_id": "q1_M11_production_x1_tail60_5590317f2af6",
+        "status": "PASS",
+        "initial_water_mass_kg": 0.18504423207482415,
+        "remaining_water_mass_kg": 0.16643970034235664,
+        "cumulative_outflow_water_mass_kg": 0.018604531732466695,
+        "max_mass_balance_abs_error_kg": 9.211381657436846e-16,
+        "max_mass_balance_rel_error": 4.9779350343177125e-15,
+        "final_mass_balance_abs_error_kg": 8.153200337090993e-16,
+        "final_mass_balance_rel_error": 4.4060818571173725e-15,
+        "time_of_max_error_s": 945.9296875,
+        "accepted_steps": 39720,
+        "source_file": "work/validation/mass_balance/q1_M11_production_x1_tail60_5590317f2af6/measurement.json",
+        "source_sha256": "0bcf2a1a669a584396f1b55f999d700e89d23488ccea816a1e0471be7f4d677c",
+        "max_remesh_water_mass_jump_abs_kg": 0.0,
+        "max_remesh_water_mass_jump_rel": 0.0
+      },
+      {
+        "case": "q23",
+        "mode": "M11",
+        "source_case_id": "q23_M11_production_x1_tail60_38ef6e17d315",
+        "status": "PASS",
+        "initial_water_mass_kg": 0.22033803438763208,
+        "remaining_water_mass_kg": 0.010119594624052299,
+        "cumulative_outflow_water_mass_kg": 0.21021843976358,
+        "max_mass_balance_abs_error_kg": 5.7870375158586285e-15,
+        "max_mass_balance_rel_error": 2.626436026781341e-14,
+        "final_mass_balance_abs_error_kg": 2.220446049250313e-16,
+        "final_mass_balance_rel_error": 1.00774523809356e-15,
+        "time_of_max_error_s": 14055.5625,
+        "accepted_steps": 4221854,
+        "source_file": "work/validation/mass_balance/q23_M11_production_x1_tail60_38ef6e17d315/measurement.json",
+        "source_sha256": "19ee246e1b2afda214f6f3fcbb91d66f8cf7e45a5b21773c3ac092d36030108c",
+        "max_remesh_water_mass_jump_abs_kg": 2.7755575615628914e-17,
+        "max_remesh_water_mass_jump_rel": 1.2855497569768994e-16
+      },
+      {
+        "case": "q4",
+        "mode": "M11",
+        "source_case_id": "q4_M11_production_x2_tail60_7848b38bac48",
+        "status": "PASS",
+        "initial_water_mass_kg": 0.22329422882687622,
+        "remaining_water_mass_kg": 0.009093662498173128,
+        "cumulative_outflow_water_mass_kg": 0.21420056632859502,
+        "max_mass_balance_abs_error_kg": 1.1189660309440796e-13,
+        "max_mass_balance_rel_error": 5.011173091319046e-13,
+        "final_mass_balance_abs_error_kg": 1.0808021144725899e-13,
+        "final_mass_balance_rel_error": 4.840259957235858e-13,
+        "time_of_max_error_s": 17685.140625,
+        "accepted_steps": 5151687,
+        "source_file": "work/validation/mass_balance/q4_M11_production_x2_tail60_7848b38bac48/measurement.json",
+        "source_sha256": "d9066c6d5cf0933a4fbed362d21c39838f84c8e344f13c6dce208b752ad38870",
+        "max_remesh_water_mass_jump_abs_kg": 0.0,
+        "max_remesh_water_mass_jump_rel": 0.0
+      }
+    ],
+    "policy": {
+      "relative_tolerance": 1e-10,
+      "remesh_relative_tolerance": 1e-12,
+      "source_file": "work/validation/mass_balance/policy.json",
+      "source_sha256": "0288cf84ef268eea452b6d1e94cef3df47eccdcdc5350c4d6d356e4675ce574a",
+      "note": "FP64 accepted-step RK4 conservation audit; detailed rounding/accumulation rationale in the policy file; existing convergence thresholds unchanged"
+    }
+  }
+}

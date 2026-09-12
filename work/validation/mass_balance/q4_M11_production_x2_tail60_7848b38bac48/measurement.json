@@ -1,0 +1,361 @@
+{
+  "schema_version": 1,
+  "complete": true,
+  "status": "MEASURED",
+  "case": "q4",
+  "mode": "M11",
+  "source_case_id": "q4_M11_production_x2_tail60_7848b38bac48",
+  "signature": "543d35043d1eea08a3d283da6d98ea99b29c9357bc68b4ade8d5e6d83ef93a20",
+  "source": {
+    "source_case_id": "q4_M11_production_x2_tail60_7848b38bac48",
+    "source_files": {
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/spec.json": "f12dc298d718cfe81c7e1ca86cb14a161c96876c90355d9bc27b5ed5244f813e",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/status.json": "6e442e65d2a04cb5dfeabadbf30c2bfaa5f74b5cc9bc2e682538b341fde49797",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/remesh_1.npz": "cc4491a800ed41567d6688afad24e45afce788782403f3d707e258194697bbe0",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/remesh_2.npz": "f84586d4f5689d969686228121f14f8df2acba9696ebf9f4fe8cc534e77e8b27",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/remesh_3.npz": "43019822f15c5d080619ef242399792f8a31375a98d4128560ddc0e7f560d86b",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00000000.000_0.npz": "79c1f511c8a568c62468a7b7ba51e053e21458d81d44948cea1e4ef84af26225",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00000600.000_1.npz": "66580d5e8a7cae78487c820d897289615b299ec07254061e8a65ff954bd25870",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00003600.000_2.npz": "1abf7949961d4315c7e387c3ee9b19f2e47b2339ff53563e594bfce65ffaaf22",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00007200.000_2.npz": "8e68ef2e45b678bcb0a370caafe278f15de1a3c79551862ceea3a79869f5846c",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00010800.000_2.npz": "4d5b66cf5931777265b9c55ab8cb0d8f4a039061d9b2962c122f3261943d361d",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00014400.000_2.npz": "e00d5b26968e8b009465e1685670726760d31105f73a29475f68b19716457ad8",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00018000.000_2.npz": "cf9849c8f043769c3f8fab2c37634241ae6fa48346aa0e2afbe3949746dbff0e",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00021600.000_3.npz": "811a3ab4db20c8487c365fb45332e21f38e8fe6952b1ec63da11eee35754752d",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00025200.000_3.npz": "4b73a32fae86ff3c838ea513b692228600f272ff85732c11767f17e16156ea90",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00028800.000_3.npz": "000746f7d79016b50c328b930a8a896afe6a7b3815d644305f947fd0109e17ac",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00032400.000_3.npz": "2adaa115dcb5e8911774a14df81453f7d70e1075e25907b8a13863cfe1559ccc",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00036000.000_3.npz": "7d1a35b7193dd9bb237eebf7878732481f7ad514a03310fd7a561f45e7ae5f26",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00039600.000_3.npz": "94ee6b2ceda9d19d2c511a97e99344fdc8abe3d371047886db31a92d3d690e09",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00043200.000_3.npz": "3e5a4aeb43cd78deb7514ed11c5d0ed608708b1d7024fde1396f5cbb352fa06a",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00046800.000_3.npz": "b4f0d510e2171a6c83fc0a76ecf040f9791dbc77be0944fc2f2e2fd3354df615",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00050400.000_3.npz": "92a8bcff203cbae5370aaba227288e380bfd1f17a54d8689fcdbb39c9678c0e8",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00054000.000_3.npz": "cb494e1b6d7251d52cacb38fe393f02f68d517e5c7d1ea189fa307fbc7557553",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00057600.000_3.npz": "946e7bbac505042524057715d62c86aea4d8facc5431bf623209d9ec58cfd0e6",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00061200.000_3.npz": "f6b8558d663c34b46ed3af5b24b22301394164e219f4397d60b73f31bcc4f93d",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00064800.000_3.npz": "26ab12da638697ba1f10a8d0c48e135fef1d0bc6576919271756a798574f5e70",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00068400.000_3.npz": "a21988c408f7a39b5563f78d8efa00431d547f3014113f90de33c6f0e2bce28c",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00072000.000_3.npz": "5b7aaa7c5c031234005ca793c29840c64d6c6fd2b4c781e559c26a07d61e5a40",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00075600.000_3.npz": "09aa4b55295fa8d5677665a3c297b04c43c3a90121bea244606053da7ee94f5b",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00079200.000_3.npz": "6d22bb7612db0e7ec19205689a605531251631a222e2d6a642831ed0fab5b474",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00082800.000_3.npz": "c300d10c40b795c34a89b028f2ff0e3f54a583e24e1526e2a941092d7c3b7c62",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00086400.000_3.npz": "b5765366bbc091dd5a5854f42afd970ef17335d4df8f97e32f95206b48943eda",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00090000.000_3.npz": "46913edff71ea82f4195d33f42388a4adb68ac9c1442fc2ba8c1c4a5e344bff7",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00093600.000_3.npz": "ca51be1e41e0bb1d1f96052f3b3f8fc1a1ad76d1543974e5e7e61f0500190602",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00097200.000_3.npz": "56a061509ef48fc0f0dcbc4386e8e806a8c105585e41ae022d43db12d73b9cfb",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00100800.000_3.npz": "83caeadcabf3cf1a7dcd588392204d2c7ab3adcdc231942d3fcf2e2c2c889324",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00104400.000_3.npz": "f1ebd9c22237ccf0f9ce61fb741d13e891ee536f3fd85836cba21f0a031c3fe6",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00108000.000_3.npz": "37f39f9721d3c34c74195ff3fd45b0f992cb077907f5218215cf2939547cc6a0",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00111600.000_3.npz": "4b158410abb20e5433066f6ad89840c991464771e5fdadf5533e8c2f7d96a89b",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00115200.000_3.npz": "5382d6aefef2f2e3361fd6d9691466d8dd00dd843edde0ed39a0bb27c0849e3b",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00118800.000_3.npz": "6afc911aa4099a656a4e6be3f6caee1a65559dca2112c3537e288d42213a72b8",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00122400.000_3.npz": "4828959abc8068a7c323aef067bdb064b3e5aeab36da516dfd495d65a87fe513",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00126000.000_3.npz": "25b81223e267538b4f011110447cc61d9758bede8ea1fe8a30cc1cc9bb02c3bf",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00129600.000_3.npz": "0298b45032875317daacc3e8943c3bf2045beefce5f4168b22f6378816061e1f",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00133200.000_3.npz": "5ab7bca74f9477c2c762ebe2f304752b5102cf19af8119a9130877c9ebcef763",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00136800.000_3.npz": "326567dd560d481f7f4cd8e95859198f4de71d73a15c1c709476ee484eb76474",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00140400.000_3.npz": "4151a0a23f07747620f2ceeaac1c6818374eb6006f00172193aba417ad289a4a",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00144000.000_3.npz": "f6f4a05e53a1b47ac4ffd4c67379a24640f93a74e55dd5b726f7cf02432680d0",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00147600.000_3.npz": "b8f91be509b94cf7ebaf827f2e7a16ea704ece4739ffc706fb255e6960530cec",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00151200.000_3.npz": "fb80cdc16f3f265ee6852e46609fc4ec33453a73b2cf608602c6b3922778828b",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00154800.000_3.npz": "6de97ad3c1ab7cb4e2e08840faadbba61b707a466755b2450319a674e6080691",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00158400.000_3.npz": "b28aedb41adb6cf5202fbed9918db81e23598149e2e1a5bedb5db3f3a8ecef47",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00162000.000_3.npz": "26b47954ee1cd0b2f0a5fdf5e821e7dfdea9b7b185d1cbd677b29ebbd6c6f12b",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00165600.000_3.npz": "577a0b6fd0d4bcbf9d9748ac8631fbecca73170012d206fbc487558d2189a308",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00169200.000_3.npz": "575c55b18db7db01bba280e2bbc66e1b750afb2af277b72e89008fa2c8020a98",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00172800.000_3.npz": "441d41a4f62111f74b71fd24896dba9a65eed275a663442051af062025c6f0d6",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00176400.000_3.npz": "6fd9e46146a9e4722a75497a0f258d99f6d4e697dd745f6a715997e4f4456074",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00180000.000_3.npz": "cc5af3db93cc7ea94c341ade4cf445d1e38500e9c6b1fc980e79d8ab4dc57c03",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00183600.000_3.npz": "49ca2df747cd433144480bb90166e4ad67510455fb6cb1feefb3a3d655f7db17",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00187200.000_3.npz": "4da27593b5b22e2452534f2469b0294aac3f05f0dc4103fa9b385582667ab989",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00190800.000_3.npz": "b0fc559c03590591b5e26959f81901e6daeb13aec9972c40d045502421417c91",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00194400.000_3.npz": "54c8e4113b270ec30ff417f163c33a378e2e198daf70e4b3e3e71a145daee120",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00198000.000_3.npz": "377d29a3998e7b88e79461733ad293b32f1515bf96ba97a85c6e5c2205ab49a8",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00201600.000_3.npz": "f827d244b6df1c6b4e84fdab8eb36bc66db8648ffef954c1d3aa0f04d44255cb",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00205200.000_3.npz": "4b95c23582159f0a6fec145e63cff990862454ec3a97c16a5316ca92592c9f96",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00208800.000_3.npz": "ecd11a55b057c2fcc8e655984365ed7cd5ddfe9771dbd0586345cb29ee8dad76",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00212400.000_3.npz": "cbd72ab63a2d9e83bf6da3bba3c5923b36e42c15a16a4b660ab90e19d9f98645",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00216000.000_3.npz": "00c3355167190d6c807f6d60a66b8b6a707b76798d47fdc9e4f8b31fae0f6bba",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00219600.000_3.npz": "f9ae85ec489be18882e86ebd8eeedace12f3c7c8258ee0a74030ee0610d650c8",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00223200.000_3.npz": "a5d9dbc47cbc0c1c6432fe475b44b4da9f9b78ee22a4d173f439dc72045e1caa",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00226800.000_3.npz": "df68c16b32820df7b53f050d3c19180309c2fce209c547541a7cc92607be0082",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00230400.000_3.npz": "8df4e6389c1c88a1cca897b69983ed137a6b303a7d88193deec2543cc9bf874c",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00234000.000_3.npz": "497135793a76605cf16db77c97de59955196233eacdf591c6a89401a35964250",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00237600.000_3.npz": "22895bd02b25b7ffaf44a7e5d3962a8266a15fdf15e1f768a88833014ed34b9e",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00241200.000_3.npz": "2c7e200f8d7c8efada61a4e45e8963435b005ea42567e2640329e574f79ba841",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00244800.000_3.npz": "8fd2c737a97620b7fec89bdae2c4a5f9c170fb8628ab4004f342d444361a5b7f",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00248400.000_3.npz": "30d2d5a316485497e7ccb64b7076fedf5a5a8c8e8e12d1ad923baa2516c763be",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00252000.000_3.npz": "6a9cd7f7e911027d00832a02f55dfbb83c24f3ad948e2b383cc1db479716c74a",
+      "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/chunk_00255600.000_3.npz": "69dc725f627948f91b9a86cc871e51b1eac648b6e0f3f0d6c282d2b84bf7dba5"
+    },
+    "spec": {
+      "schema_version": 1,
+      "baseline_id": "52a1433275fe31fa47ce7c80b1373e98c50508de5544f573123311138fdce7e2",
+      "case": "q4",
+      "mode": "M11",
+      "kind": "production",
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "physics": {
+        "R0_m": 0.02,
+        "L_m": 0.25,
+        "T0_K": 301.15,
+        "C0": 2.55,
+        "h": 25.0,
+        "hm": 8e-07,
+        "threshold": 0.15,
+        "t_cap_s": 259200.0
+      },
+      "numerics": {
+        "nr": 40,
+        "nz": 125,
+        "dt_s": 0.25,
+        "safety": 0.5,
+        "min_dt_s": 1e-08,
+        "max_rejections": 20,
+        "max_steps": 20000000,
+        "event_width_s": 0.1,
+        "checkpoint_interval_s": 3600.0
+      },
+      "dt_max_s": 0.25,
+      "tail_minutes": 60,
+      "shrink": true,
+      "replay": null,
+      "source": {
+        "trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8",
+        "thermal.py": "536b304059ffcda2ee7e89a25020cacdeb5bb58ba57e0941b96ab6b56cb756b4",
+        "water.py": "2aef3bd19bdc53a0bef98db57aec8392350979e0b6dff6da697263cdbb994dd3"
+      },
+      "initial_origin": "original_uniform_state",
+      "monitor_hash": "0d26b6197e2d1807cf55e1cbce62eeeeb6b05cfaecc3485730178cbda4fe228a",
+      "water": {
+        "library": "iapws",
+        "library_version": "1.5.5",
+        "formulation": "IAPWS-IF97",
+        "state_path": "saturation at T; x=0 liquid, x=1 vapor; Lv=hv-hl",
+        "temperature_range_K": [
+          273.16,
+          373.15
+        ],
+        "units": {
+          "temperature": "K",
+          "liquid_enthalpy": "J/kg",
+          "latent_heat": "J/kg"
+        },
+        "conversion": "IAPWS h [kJ/kg] multiplied by 1000",
+        "interpolation": "piecewise linear, 1001 nodes; all 1000 interval midpoints independently checked",
+        "interpolation_max_abs_J_kg": {
+          "hl": 0.004456258122473855,
+          "Lv": 0.00849967822432518
+        },
+        "derivative": "dhl/dT along the saturation path, not constant-pressure cp",
+        "out_of_range": "THERMAL_MODEL_OUT_OF_DOMAIN; no clipping, extrapolation or ice model",
+        "sources": [
+          "https://iapws.org/technical-guidance/release/IF97-Rev",
+          "https://iapws.readthedocs.io/en/stable/iapws.iapws97.html"
+        ],
+        "implementation_sha256": "9272a239bbe9245ad71afa747b211e68a1fddea097966fb098e55bcb9b098f9e",
+        "table_path": "work/studies/diagnostics/water_properties.npz",
+        "table_sha256": "0b660e541397ed56edd22f58ae56780aa36f138a1590ab896cf54dbec1fe2a99"
+      },
+      "fingerprint": "7848b38bac484f35aa8812cdffda0dfa95e269173d7e933b4c9416d135bb0adf",
+      "experiment_id": "q4_M11_production_x2_tail60_7848b38bac48"
+    },
+    "audit_sources": {
+      "mass_kernel.py": "6ccf9a6cca78ebecc6168f5c4f0e02333bfbc0f7c63d6ddd84cf22218ab11d87",
+      "mass_balance.py": "5cf788c05b4c178428045c132472f9ee93110325e1e860e600a14444c2649c76"
+    },
+    "numerical_sources": {
+      "src/drying/operators.py": "6c36fd3be577f379dde6aece12be7fce12a563c54cf5155c618dfd5b09b8ae43",
+      "src/drying/rk4.py": "71b9f6b50b0f6b6656a2e79920f8b77c8d65679a89e0b8419940e629262d8709",
+      "src/drying/stages.py": "69fe41afd196c95b26d76d5b669222991686ae6e65d106d12bd690487ac50b3f",
+      "src/drying/inputs.py": "a3d83290bd4d32a3e9ddaf74467d6215f9a0b3f030eca76a9dc96a9898c47a3a",
+      "src/drying/geometry.py": "87abb0138f2fae6833e1455363f99da62398b72de924838e0bcd6c4d2a685519",
+      "src/drying/materials.py": "83af1401abe6dc99073f619efa2a5406c8b8d56c34fb8043b72a369dad39cbdf",
+      "src/drying/boundaries.py": "5b88490ad438f9831b84104cd53f983b8c6326c7bcdfbce3c884e9826b8d5905",
+      "src/drying/studies/thermal.py": "536b304059ffcda2ee7e89a25020cacdeb5bb58ba57e0941b96ab6b56cb756b4",
+      "src/drying/studies/water.py": "2aef3bd19bdc53a0bef98db57aec8392350979e0b6dff6da697263cdbb994dd3",
+      "src/drying/studies/trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8"
+    }
+  },
+  "method": "solver_mass_balance",
+  "observation_start_s": 0.0,
+  "observation_end_s": 259200.0,
+  "full_accepted_partition_verified": true,
+  "effective_initial_dry_density_kg_m3": 278.7323943661972,
+  "physical_length_m": 0.25,
+  "definition": "Mw=b0*(R0/R)^2*integral_full_cylinder(C dV); signed outward boundary flux uses identical dry basis",
+  "accumulation": "exact original RK4 AST; actual FV boundary subtraction captured at all four stages; accepted steps only; Kahan outflow sum; continuous replay without checkpoint state resets",
+  "replay_verification": {
+    "status": "PASS",
+    "maximum_original_state_difference_T_K": 2.8421709430404007e-13,
+    "maximum_original_state_difference_C": 4.440892098500626e-15,
+    "maximum_physical_vs_reference_volume_mass_difference_kg": 8.326672684688674e-17
+  },
+  "export_mass_balance": {
+    "status": "DIAGNOSTIC_ONLY",
+    "affects_pass": false,
+    "method": "original saved FV moisture fields plus solver-integrated outflow at exported times; no inferred flux",
+    "max_mass_balance_abs_error_kg": 1.1188272530660015e-13,
+    "max_mass_balance_rel_error": 5.010551589013289e-13
+  },
+  "solver_mass_balance": {
+    "initial_water_mass_kg": 0.22329422882687622,
+    "remaining_water_mass_kg": 0.009093662498173128,
+    "cumulative_outflow_water_mass_kg": 0.21420056632859502,
+    "max_mass_balance_abs_error_kg": 1.1189660309440796e-13,
+    "max_mass_balance_rel_error": 5.011173091319046e-13,
+    "final_mass_balance_abs_error_kg": 1.0808021144725899e-13,
+    "final_mass_balance_rel_error": 4.840259957235858e-13,
+    "final_mass_balance_signed_error_kg": -1.0808021144725899e-13,
+    "time_of_max_error_s": 17685.140625,
+    "maximum_error_context": {
+      "time_s": 17685.140625,
+      "stage": 2,
+      "dt_s": 0.015625,
+      "kind": "accepted_RK4_step",
+      "signed_error_kg": -1.1189660309440796e-13,
+      "boundary_outflow_RK4_kg_s": [
+        3.700158009052598e-06,
+        3.700157268884989e-06,
+        3.7001572688855587e-06,
+        3.7001565287184127e-06
+      ],
+      "radius_m": 0.01428023203125
+    },
+    "accepted_steps": 5151687,
+    "integrated_absolute_boundary_flow_kg": 0.21420056632862497
+  },
+  "remesh": [
+    {
+      "time_s": 600.0,
+      "stage": 1,
+      "radius_m": 0.019576666666666666,
+      "water_mass_before_remesh": 0.21680420570773995,
+      "water_mass_after_remesh": 0.21680420570773995,
+      "remesh_water_mass_jump_abs": 0.0,
+      "remesh_water_mass_jump_rel": 0.0,
+      "remesh_water_mass_jump_signed_kg": 0.0,
+      "projection": {
+        "switch_time": 600.0,
+        "old_mesh": [
+          400,
+          1
+        ],
+        "new_mesh": [
+          320,
+          1
+        ],
+        "projection_max_abs_T": 0.008469269132319823,
+        "projection_max_abs_C": 0.01676023027666651,
+        "projection_L2_T": 0.005132951073835129,
+        "projection_L2_C": 0.0025220913031452213,
+        "volume_integral_T_before": 292.54887866242416,
+        "volume_integral_T_after": 292.5488786624242,
+        "volume_integral_C_before": 2.4758845199862787,
+        "volume_integral_C_after": 2.4758845199862787,
+        "volume_integral_relative_error_T": 1.94304005268126e-16,
+        "volume_integral_relative_error_C": 0.0,
+        "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+        "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+      }
+    },
+    {
+      "time_s": 3600.0,
+      "stage": 2,
+      "radius_m": 0.01794,
+      "water_mass_before_remesh": 0.19760126346094517,
+      "water_mass_after_remesh": 0.19760126346094517,
+      "remesh_water_mass_jump_abs": 0.0,
+      "remesh_water_mass_jump_rel": 0.0,
+      "remesh_water_mass_jump_signed_kg": 0.0,
+      "projection": {
+        "switch_time": 3600.0,
+        "old_mesh": [
+          320,
+          1
+        ],
+        "new_mesh": [
+          160,
+          1
+        ],
+        "projection_max_abs_T": 0.011306508639563617,
+        "projection_max_abs_C": 0.021774293503245223,
+        "projection_L2_T": 0.0070295440013745285,
+        "projection_L2_C": 0.008215120045389976,
+        "volume_integral_T_before": 295.9845000134875,
+        "volume_integral_T_after": 295.9845000134875,
+        "volume_integral_C_before": 2.256588647510811,
+        "volume_integral_C_after": 2.256588647510811,
+        "volume_integral_relative_error_T": 0.0,
+        "volume_integral_relative_error_C": 0.0,
+        "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+        "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+      }
+    },
+    {
+      "time_s": 21600.0,
+      "stage": 3,
+      "radius_m": 0.013740000000000002,
+      "water_mass_before_remesh": 0.11951514035214349,
+      "water_mass_after_remesh": 0.11951514035214349,
+      "remesh_water_mass_jump_abs": 0.0,
+      "remesh_water_mass_jump_rel": 0.0,
+      "remesh_water_mass_jump_signed_kg": 0.0,
+      "projection": {
+        "switch_time": 21600.0,
+        "old_mesh": [
+          160,
+          1
+        ],
+        "new_mesh": [
+          80,
+          1
+        ],
+        "projection_max_abs_T": 0.0009179065681337306,
+        "projection_max_abs_C": 0.014424881929569755,
+        "projection_L2_T": 0.0005918468873964119,
+        "projection_L2_C": 0.008447308461958633,
+        "volume_integral_T_before": 307.7612809454819,
+        "volume_integral_T_after": 307.7612809454819,
+        "volume_integral_C_before": 1.3648521482131735,
+        "volume_integral_C_after": 1.3648521482131732,
+        "volume_integral_relative_error_T": 0.0,
+        "volume_integral_relative_error_C": 1.6268766196816698e-16,
+        "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+        "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+      }
+    }
+  ],
+  "audit_files": [
+    {
+      "path": "work/validation/mass_balance/q4_M11_production_x2_tail60_7848b38bac48/trajectory.npz",
+      "sha256": "f92dc4ef636e4f11eac9922c744f7f760da53675a533450853f35857d4e926bd"
+    }
+  ],
+  "wall_s": 266.0460000000003
+}

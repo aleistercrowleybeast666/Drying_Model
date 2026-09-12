@@ -11,7 +11,7 @@ from drying.storage import Storage_WriteJson
 
 class RenderSolverImportGuard(importlib.abc.MetaPathFinder):
     def find_spec(self,fullname,path=None,target=None):
-        forbidden=['drying.rk4','drying.operators','drying.cases','drying.studies.trajectory','drying.studies.thermal','drying.studies.analysis','drying.studies.synthesis']
+        forbidden=['drying.rk4','drying.operators','drying.cases','drying.studies.trajectory','drying.studies.thermal','drying.studies.analysis','drying.studies.synthesis','drying.studies.technical_analysis','drying.studies.kinetics','drying.studies.refinement2d','drying.studies.mass_kernel','drying.studies.mass_balance']
         if any(fullname==name or fullname.startswith(name+'.') for name in forbidden):
             raise RuntimeError('SOLVER_IMPORT_DURING_RENDER: '+fullname)
         return None

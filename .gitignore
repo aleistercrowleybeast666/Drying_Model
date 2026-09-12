@@ -19,3 +19,12 @@ work/studies/diagnostics/visual_previews/
 work/studies/compute.lock
 work/studies/STOP
 work/studies/BASELINE_STOP
+
+# Final technical extension: reproducible arrays and local visual QA.
+work/studies/technical/plot_payload/
+work/studies/technical/original_workbooks/
+work/studies/technical/*preview*
+work/studies/technical/pre_extension_manifest.json
+work/test_cache_final/
+work/studies/technical/validation/early_progress_audit.json
+work/validation/mass_balance/*/checkpoint.npz

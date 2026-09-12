@@ -1,0 +1,114 @@
+{
+  "case": "q23",
+  "mode": "M01",
+  "source_case_id": "q23_M01_production_x1_tail60_182fbf89b7a4",
+  "status": "PASS",
+  "checks": {
+    "full_trajectory": true,
+    "replay_identity": true,
+    "finite_positive_initial_mass": true,
+    "integrated_mass_balance": true,
+    "remesh_mass_balance": true
+  },
+  "absolute_tolerance_kg": 2.2033803438763207e-11,
+  "relative_tolerance": 1e-10,
+  "remesh_relative_tolerance": 1e-12,
+  "nonphysical_mass_source_or_sink_detected": false,
+  "export_mass_balance_affects_pass": false,
+  "policy_sha256": "0288cf84ef268eea452b6d1e94cef3df47eccdcdc5350c4d6d356e4675ce574a",
+  "solver_mass_balance": {
+    "initial_water_mass_kg": 0.22033803438763208,
+    "remaining_water_mass_kg": 0.00997860774698752,
+    "cumulative_outflow_water_mass_kg": 0.2103594266406473,
+    "max_mass_balance_abs_error_kg": 3.858025010572419e-15,
+    "max_mass_balance_rel_error": 1.7509573511875604e-14,
+    "final_mass_balance_abs_error_kg": 2.7478019859472624e-15,
+    "final_mass_balance_rel_error": 1.2470847321407806e-14,
+    "final_mass_balance_signed_error_kg": 2.7478019859472624e-15,
+    "time_of_max_error_s": 13420.6875,
+    "maximum_error_context": {
+      "time_s": 13420.6875,
+      "stage": 2,
+      "dt_s": 0.0625,
+      "kind": "accepted_RK4_step",
+      "signed_error_kg": -3.858025010572419e-15,
+      "boundary_outflow_RK4_kg_s": [
+        5.6284727203978045e-06,
+        5.628461430638257e-06,
+        5.628461430480601e-06,
+        5.628450140563453e-06
+      ],
+      "radius_m": 0.02
+    },
+    "accepted_steps": 4220858,
+    "integrated_absolute_boundary_flow_kg": 0.21035942664068386
+  },
+  "remesh": [
+    {
+      "time_s": 300.0,
+      "stage": 1,
+      "radius_m": 0.02,
+      "water_mass_before_remesh": 0.21575629132533988,
+      "water_mass_after_remesh": 0.21575629132533988,
+      "remesh_water_mass_jump_abs": 0.0,
+      "remesh_water_mass_jump_rel": 0.0,
+      "remesh_water_mass_jump_signed_kg": 0.0,
+      "projection": {
+        "switch_time": 300.0,
+        "old_mesh": [
+          200,
+          1
+        ],
+        "new_mesh": [
+          160,
+          1
+        ],
+        "projection_max_abs_T": 0.00203822523656072,
+        "projection_max_abs_C": 0.005054163744833584,
+        "projection_L2_T": 0.0007768811991577148,
+        "projection_L2_C": 0.0011525968847963274,
+        "volume_integral_T_before": 301.4023209469976,
+        "volume_integral_T_after": 301.4023209469976,
+        "volume_integral_C_before": 2.4969749068002898,
+        "volume_integral_C_after": 2.4969749068002898,
+        "volume_integral_relative_error_T": 0.0,
+        "volume_integral_relative_error_C": 0.0,
+        "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+        "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+      }
+    },
+    {
+      "time_s": 1800.0,
+      "stage": 2,
+      "radius_m": 0.02,
+      "water_mass_before_remesh": 0.1972386701989864,
+      "water_mass_after_remesh": 0.1972386701989864,
+      "remesh_water_mass_jump_abs": 0.0,
+      "remesh_water_mass_jump_rel": 0.0,
+      "remesh_water_mass_jump_signed_kg": 0.0,
+      "projection": {
+        "switch_time": 1800.0,
+        "old_mesh": [
+          160,
+          1
+        ],
+        "new_mesh": [
+          80,
+          1
+        ],
+        "projection_max_abs_T": 0.018912672618910165,
+        "projection_max_abs_C": 0.010187266653209015,
+        "projection_L2_T": 0.013996763806226366,
+        "projection_L2_C": 0.005766644381027825,
+        "volume_integral_T_before": 306.89201507443124,
+        "volume_integral_T_after": 306.89201507443124,
+        "volume_integral_C_before": 2.282668130380885,
+        "volume_integral_C_after": 2.282668130380885,
+        "volume_integral_relative_error_T": 0.0,
+        "volume_integral_relative_error_C": 0.0,
+        "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+        "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+      }
+    }
+  ]
+}

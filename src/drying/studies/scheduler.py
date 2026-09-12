@@ -28,6 +28,8 @@ def Studies_Run(root,args):
     if args.dry_run:return Studies_ShowPlan(root,args)
     Baseline_Freeze(root);Baseline_Check(root)
     jobs=Studies_GetPlan(args)
+    if (root/'work/studies/technical/plot_payload/technical_manifest.json').exists():
+        return Studies_RefreshFrozenExtension(root,args,jobs)
     folder=root/'work/studies';folder.mkdir(exist_ok=True)
     index_path=root/'results/studies/study_index.json'
     index=Baseline_ReadJson(index_path) if index_path.exists() else dict(schema_version=1,experiments={})
@@ -112,3 +114,26 @@ def Studies_ShowPlan(root,args):
         rows.append(row)
     print(json.dumps(dict(sequential_heavy_workers=1,read_only=True,jobs=rows,missing_inputs=sorted(set(missing)),
         cache_note='Expected identity match only; actual execution verifies all sealed numerical files. No solve or cache creation in this preview.'),ensure_ascii=False,indent=2))
+
+
+def Studies_RefreshFrozenExtension(root,args,jobs):
+    """Keep legacy entry points from silently dropping the newly published sheets."""
+    from types import SimpleNamespace
+    from .plot_contract import StudyPlot_ReadManifest
+    from .cache import Cache_SealExperiment
+    from .technical_run import Technical_Run,TechnicalRunResult
+    manifest=StudyPlot_ReadManifest(root,validate_technical=False)
+    for job in jobs:
+        request=dict(job)
+        if request['kind']=='time_half':
+            parent=Trajectory_GetSpec(root,request['case'],request.get('mode','M00'),factor=request.get('factor',1))
+            request['replay']=parent['experiment_id']
+        spec=Trajectory_GetSpec(root,**request);key=spec['experiment_id']
+        if key not in manifest['statuses'] or spec['fingerprint']!=manifest['specs'][key]['fingerprint']:
+            raise RuntimeError('FROZEN_STUDY_SOURCE_CHANGED: '+key+'; existing technical publication refers to a different base study configuration')
+        Cache_SealExperiment(root,spec,manifest['statuses'][key])
+    print('FROZEN_STUDIES_REUSED: refresh technical additions while retaining all existing tables/figures',flush=True)
+    forwarded=SimpleNamespace(**vars(args));forwarded.group='geometry_cross'
+    result=Technical_Run(root,forwarded)
+    if result==TechnicalRunResult.FAILED:raise RuntimeError('TECHNICAL_VALIDATION_FAILED')
+    return result

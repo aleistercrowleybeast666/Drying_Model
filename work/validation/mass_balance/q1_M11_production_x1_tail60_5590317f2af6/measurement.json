@@ -1,0 +1,292 @@
+{
+  "schema_version": 1,
+  "complete": true,
+  "status": "MEASURED",
+  "case": "q1",
+  "mode": "M11",
+  "source_case_id": "q1_M11_production_x1_tail60_5590317f2af6",
+  "signature": "a196974e604262de8971fb69a8f398121341033a819ae18725116817fca8f232",
+  "source": {
+    "source_case_id": "q1_M11_production_x1_tail60_5590317f2af6",
+    "source_files": {
+      "work/studies/experiments/q1_M11_production_x1_tail60_5590317f2af6/spec.json": "8c5929fabe8a74820009f1170f8fa74281eaff3c712b07912996b542a5e73829",
+      "work/studies/experiments/q1_M11_production_x1_tail60_5590317f2af6/status.json": "f749fe7323a3af20f7b5651fe7e7b797e9e8ed9c1d89ad06634ada39fdbdb79b",
+      "work/studies/experiments/q1_M11_production_x1_tail60_5590317f2af6/remesh_1.npz": "2c19af9d6f522aed7e713edec59c57184d0ef2b7fa281e1e579ef02594ad8d95",
+      "work/studies/experiments/q1_M11_production_x1_tail60_5590317f2af6/remesh_2.npz": "6466ff80aca3806e9a971b5cae56516b84fcdd0a0a08a7919d0c787c315b41af",
+      "work/studies/experiments/q1_M11_production_x1_tail60_5590317f2af6/remesh_3.npz": "c67370ffd22596344fbd15b4ed9ed697504a7bc7bbb675136c74802e3ae81a8b",
+      "work/studies/experiments/q1_M11_production_x1_tail60_5590317f2af6/chunk_00000000.000_0.npz": "5052f0390dc57bd27ed93801d73b66fef23b50bc84fadbbcd579fe22af65f76f",
+      "work/studies/experiments/q1_M11_production_x1_tail60_5590317f2af6/chunk_00000060.000_1.npz": "0400308853ce1ca7c1cff1d11dc24b6f3afda9e7ad8023e0750486179df4de8b",
+      "work/studies/experiments/q1_M11_production_x1_tail60_5590317f2af6/chunk_00000300.000_2.npz": "3f95c1b357761dbf5fd8d9c67c62256540853cd98799a4c1ac06fa5419daa29e",
+      "work/studies/experiments/q1_M11_production_x1_tail60_5590317f2af6/chunk_00001200.000_3.npz": "092fa44a0f431de30d150cc93e0559ec34240885ddfed9fc4da9037bf9b606f5"
+    },
+    "spec": {
+      "schema_version": 1,
+      "baseline_id": "52a1433275fe31fa47ce7c80b1373e98c50508de5544f573123311138fdce7e2",
+      "case": "q1",
+      "mode": "M11",
+      "kind": "production",
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "physics": {
+        "R0_m": 0.02,
+        "L_m": 0.25,
+        "T0_K": 301.15,
+        "C0": 2.55,
+        "h": 25.0,
+        "hm": 8e-07,
+        "threshold": 0.15,
+        "t_cap_s": 259200.0
+      },
+      "numerics": {
+        "nr": 40,
+        "nz": 125,
+        "dt_s": 0.25,
+        "safety": 0.5,
+        "min_dt_s": 1e-08,
+        "max_rejections": 20,
+        "max_steps": 20000000,
+        "event_width_s": 0.1,
+        "checkpoint_interval_s": 3600.0
+      },
+      "dt_max_s": 0.25,
+      "tail_minutes": 60,
+      "shrink": false,
+      "replay": null,
+      "source": {
+        "trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8",
+        "thermal.py": "536b304059ffcda2ee7e89a25020cacdeb5bb58ba57e0941b96ab6b56cb756b4",
+        "water.py": "2aef3bd19bdc53a0bef98db57aec8392350979e0b6dff6da697263cdbb994dd3"
+      },
+      "initial_origin": "original_uniform_state",
+      "monitor_hash": "16ad66346f151016317f6b9abf7db029c0109c6608cc83e49c4cced69da2091c",
+      "water": {
+        "library": "iapws",
+        "library_version": "1.5.5",
+        "formulation": "IAPWS-IF97",
+        "state_path": "saturation at T; x=0 liquid, x=1 vapor; Lv=hv-hl",
+        "temperature_range_K": [
+          273.16,
+          373.15
+        ],
+        "units": {
+          "temperature": "K",
+          "liquid_enthalpy": "J/kg",
+          "latent_heat": "J/kg"
+        },
+        "conversion": "IAPWS h [kJ/kg] multiplied by 1000",
+        "interpolation": "piecewise linear, 1001 nodes; all 1000 interval midpoints independently checked",
+        "interpolation_max_abs_J_kg": {
+          "hl": 0.004456258122473855,
+          "Lv": 0.00849967822432518
+        },
+        "derivative": "dhl/dT along the saturation path, not constant-pressure cp",
+        "out_of_range": "THERMAL_MODEL_OUT_OF_DOMAIN; no clipping, extrapolation or ice model",
+        "sources": [
+          "https://iapws.org/technical-guidance/release/IF97-Rev",
+          "https://iapws.readthedocs.io/en/stable/iapws.iapws97.html"
+        ],
+        "implementation_sha256": "9272a239bbe9245ad71afa747b211e68a1fddea097966fb098e55bcb9b098f9e",
+        "table_path": "work/studies/diagnostics/water_properties.npz",
+        "table_sha256": "0b660e541397ed56edd22f58ae56780aa36f138a1590ab896cf54dbec1fe2a99"
+      },
+      "fingerprint": "5590317f2af61d6de15b207e830a651ced47965b6226678c1f1ecb4d7514d7e4",
+      "experiment_id": "q1_M11_production_x1_tail60_5590317f2af6"
+    },
+    "audit_sources": {
+      "mass_kernel.py": "6ccf9a6cca78ebecc6168f5c4f0e02333bfbc0f7c63d6ddd84cf22218ab11d87",
+      "mass_balance.py": "5cf788c05b4c178428045c132472f9ee93110325e1e860e600a14444c2649c76"
+    },
+    "numerical_sources": {
+      "src/drying/operators.py": "6c36fd3be577f379dde6aece12be7fce12a563c54cf5155c618dfd5b09b8ae43",
+      "src/drying/rk4.py": "71b9f6b50b0f6b6656a2e79920f8b77c8d65679a89e0b8419940e629262d8709",
+      "src/drying/stages.py": "69fe41afd196c95b26d76d5b669222991686ae6e65d106d12bd690487ac50b3f",
+      "src/drying/inputs.py": "a3d83290bd4d32a3e9ddaf74467d6215f9a0b3f030eca76a9dc96a9898c47a3a",
+      "src/drying/geometry.py": "87abb0138f2fae6833e1455363f99da62398b72de924838e0bcd6c4d2a685519",
+      "src/drying/materials.py": "83af1401abe6dc99073f619efa2a5406c8b8d56c34fb8043b72a369dad39cbdf",
+      "src/drying/boundaries.py": "5b88490ad438f9831b84104cd53f983b8c6326c7bcdfbce3c884e9826b8d5905",
+      "src/drying/studies/thermal.py": "536b304059ffcda2ee7e89a25020cacdeb5bb58ba57e0941b96ab6b56cb756b4",
+      "src/drying/studies/water.py": "2aef3bd19bdc53a0bef98db57aec8392350979e0b6dff6da697263cdbb994dd3",
+      "src/drying/studies/trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8"
+    }
+  },
+  "method": "solver_mass_balance",
+  "observation_start_s": 0.0,
+  "observation_end_s": 1800.0,
+  "full_accepted_partition_verified": true,
+  "effective_initial_dry_density_kg_m3": 230.98591549295776,
+  "physical_length_m": 0.25,
+  "definition": "Mw=b0*(R0/R)^2*integral_full_cylinder(C dV); signed outward boundary flux uses identical dry basis",
+  "accumulation": "exact original RK4 AST; actual FV boundary subtraction captured at all four stages; accepted steps only; Kahan outflow sum; continuous replay without checkpoint state resets",
+  "replay_verification": {
+    "status": "PASS",
+    "maximum_original_state_difference_T_K": 3.410605131648481e-13,
+    "maximum_original_state_difference_C": 3.552713678800501e-15,
+    "maximum_physical_vs_reference_volume_mass_difference_kg": 5.551115123125783e-17
+  },
+  "export_mass_balance": {
+    "status": "DIAGNOSTIC_ONLY",
+    "affects_pass": false,
+    "method": "original saved FV moisture fields plus solver-integrated outflow at exported times; no inferred flux",
+    "max_mass_balance_abs_error_kg": 9.384854005034526e-16,
+    "max_mass_balance_rel_error": 5.071681456809572e-15
+  },
+  "solver_mass_balance": {
+    "initial_water_mass_kg": 0.18504423207482415,
+    "remaining_water_mass_kg": 0.16643970034235664,
+    "cumulative_outflow_water_mass_kg": 0.018604531732466695,
+    "max_mass_balance_abs_error_kg": 9.211381657436846e-16,
+    "max_mass_balance_rel_error": 4.9779350343177125e-15,
+    "final_mass_balance_abs_error_kg": 8.153200337090993e-16,
+    "final_mass_balance_rel_error": 4.4060818571173725e-15,
+    "final_mass_balance_signed_error_kg": -8.153200337090993e-16,
+    "time_of_max_error_s": 945.9296875,
+    "maximum_error_context": {
+      "time_s": 945.9296875,
+      "stage": 2,
+      "dt_s": 0.0703125,
+      "kind": "accepted_RK4_step",
+      "signed_error_kg": -9.211381657436846e-16,
+      "boundary_outflow_RK4_kg_s": [
+        9.936711060304224e-06,
+        9.936639942772716e-06,
+        9.936639944599698e-06,
+        9.936568828893113e-06
+      ],
+      "radius_m": 0.02
+    },
+    "accepted_steps": 39720,
+    "integrated_absolute_boundary_flow_kg": 0.01860453173246676
+  },
+  "remesh": [
+    {
+      "time_s": 60.0,
+      "stage": 1,
+      "radius_m": 0.02,
+      "water_mass_before_remesh": 0.18421924685951774,
+      "water_mass_after_remesh": 0.18421924685951774,
+      "remesh_water_mass_jump_abs": 0.0,
+      "remesh_water_mass_jump_rel": 0.0,
+      "remesh_water_mass_jump_signed_kg": 0.0,
+      "projection": {
+        "switch_time": 60.0,
+        "old_mesh": [
+          200,
+          1
+        ],
+        "new_mesh": [
+          160,
+          1
+        ],
+        "projection_max_abs_T": 0.03548154891853983,
+        "projection_max_abs_C": 0.005723191294542129,
+        "projection_L2_T": 0.012521846208695115,
+        "projection_L2_C": 0.0008396982150371725,
+        "volume_integral_T_before": 298.6143610790856,
+        "volume_integral_T_after": 298.61436107908565,
+        "volume_integral_C_before": 2.538631300335907,
+        "volume_integral_C_after": 2.538631300335907,
+        "volume_integral_relative_error_T": 1.903572844098864e-16,
+        "volume_integral_relative_error_C": 0.0,
+        "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+        "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+      }
+    },
+    {
+      "time_s": 300.0,
+      "stage": 2,
+      "radius_m": 0.02,
+      "water_mass_before_remesh": 0.18123685180510887,
+      "water_mass_after_remesh": 0.18123685180510887,
+      "remesh_water_mass_jump_abs": 0.0,
+      "remesh_water_mass_jump_rel": 0.0,
+      "remesh_water_mass_jump_signed_kg": 0.0,
+      "projection": {
+        "switch_time": 300.0,
+        "old_mesh": [
+          160,
+          1
+        ],
+        "new_mesh": [
+          80,
+          1
+        ],
+        "projection_max_abs_T": 0.06446350422186242,
+        "projection_max_abs_C": 0.017362169894122204,
+        "projection_L2_T": 0.05395203376680687,
+        "projection_L2_C": 0.005090044409903758,
+        "volume_integral_T_before": 291.9138995267947,
+        "volume_integral_T_after": 291.9138995267947,
+        "volume_integral_C_before": 2.4975324381694417,
+        "volume_integral_C_after": 2.4975324381694417,
+        "volume_integral_relative_error_T": 0.0,
+        "volume_integral_relative_error_C": 0.0,
+        "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+        "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+      }
+    },
+    {
+      "time_s": 1200.0,
+      "stage": 3,
+      "radius_m": 0.02,
+      "water_mass_before_remesh": 0.17183489905836125,
+      "water_mass_after_remesh": 0.17183489905836125,
+      "remesh_water_mass_jump_abs": 0.0,
+      "remesh_water_mass_jump_rel": 0.0,
+      "remesh_water_mass_jump_signed_kg": 0.0,
+      "projection": {
+        "switch_time": 1200.0,
+        "old_mesh": [
+          80,
+          1
+        ],
+        "new_mesh": [
+          40,
+          1
+        ],
+        "projection_max_abs_T": 0.020137149280515132,
+        "projection_max_abs_C": 0.030798301254391536,
+        "projection_L2_T": 0.015855175436268635,
+        "projection_L2_C": 0.012573574133790556,
+        "volume_integral_T_before": 283.3636168977414,
+        "volume_integral_T_after": 283.3636168977414,
+        "volume_integral_C_before": 2.3679689319991333,
+        "volume_integral_C_after": 2.3679689319991333,
+        "volume_integral_relative_error_T": 0.0,
+        "volume_integral_relative_error_C": 0.0,
+        "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+        "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+      }
+    }
+  ],
+  "audit_files": [
+    {
+      "path": "work/validation/mass_balance/q1_M11_production_x1_tail60_5590317f2af6/trajectory.npz",
+      "sha256": "defd640128872989183751c63c04ae564061cabea5479521e6944c2dc835177c"
+    }
+  ],
+  "wall_s": 9.078000000001339
+}

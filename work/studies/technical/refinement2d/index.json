@@ -1,0 +1,120 @@
+{
+  "study_id": "optional_full_2d_60x188",
+  "cases": {
+    "q23": {
+      "status": "PARTIAL_2D",
+      "attempted": true,
+      "grid": [
+        60,
+        188
+      ],
+      "start_time_s": 0.0,
+      "initial_state": "original uniform T0=301.15 K, C0=2.55",
+      "coarse_source_case_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+      "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+      "physics": {
+        "R0_m": 0.02,
+        "L_m": 0.25,
+        "T0_K": 301.15,
+        "C0": 2.55,
+        "h": 25.0,
+        "hm": 8e-07,
+        "threshold": 0.15,
+        "t_cap_s": 259200.0
+      },
+      "monitor_source": "same frozen continuous radial/axial monitors; Mesh_BuildAdaptive",
+      "projected_wall_budget_s": 3600.0,
+      "complete_full_trajectory": false,
+      "independent_grid_certification": false,
+      "source_files": [
+        {
+          "path": "work/cache/q23_2d_adaptive_nr60_nz188_dt0.25_mb9ba0fa5472a_technical60x188_cost_probe/status.json",
+          "sha256": "b6f947bf9eb0343f5b7701518ae66a224318b24c96bde062b12b8a22fdb3e4ab",
+          "purpose": "independent 2D cost probe"
+        },
+        {
+          "path": "work/cache/q23_2d_adaptive_nr60_nz188_dt0.25_mb9ba0fa5472a_technical60x188_cost_probe/mesh.npz",
+          "sha256": "8d0af83f2a1848ff04c1212a0626f0c6c60505e6fdd2abc09786584cbc7612b7",
+          "purpose": "independent 2D cost probe"
+        },
+        {
+          "path": "work/cache/q23_2d_adaptive_nr60_nz188_dt0.25_mb9ba0fa5472a_technical60x188_cost_probe/chunk_0000.npz",
+          "sha256": "3bf715b850763f37b671739697d460df778efa635255e216eeba9f8efbfc61fe",
+          "purpose": "independent 2D cost probe"
+        }
+      ],
+      "source_file": "work/cache/q23_2d_adaptive_nr60_nz188_dt0.25_mb9ba0fa5472a_technical60x188_cost_probe/status.json",
+      "probe_source_case_id": "q23_2d_adaptive_nr60_nz188_dt0.25_mb9ba0fa5472a_technical60x188_cost_probe",
+      "probe_simulated_s": 60.0,
+      "probe_wall_s": 1.3126601999993,
+      "compile_or_load_s": 0.2575797000008606,
+      "projected_full_72h_wall_s": 5670.692063996976,
+      "cost_estimate_scope": "linear scaling of measured first 60 s excluding compilation; not a guarantee, later stability/geometry may change",
+      "probe_actual_dt_min_s": 0.125,
+      "probe_actual_dt_mean_s": 0.125,
+      "reason": "MANDATORY_WORK_PRIORITY: only cost probe retained; full refinement deferred for the newly requested solver mass audit; no full-trajectory or grid-independence claim"
+    },
+    "q4": {
+      "status": "PARTIAL_2D",
+      "attempted": true,
+      "grid": [
+        60,
+        188
+      ],
+      "start_time_s": 0.0,
+      "initial_state": "original uniform T0=301.15 K, C0=2.55",
+      "coarse_source_case_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+      "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+      "physics": {
+        "R0_m": 0.02,
+        "L_m": 0.25,
+        "T0_K": 301.15,
+        "C0": 2.55,
+        "h": 25.0,
+        "hm": 8e-07,
+        "threshold": 0.15,
+        "t_cap_s": 259200.0
+      },
+      "monitor_source": "same frozen continuous radial/axial monitors; Mesh_BuildAdaptive",
+      "projected_wall_budget_s": 3600.0,
+      "complete_full_trajectory": false,
+      "independent_grid_certification": false,
+      "source_files": [
+        {
+          "path": "work/cache/q4_2d_adaptive_nr60_nz188_dt0.25_mee6f06a440f2_technical60x188_cost_probe/status.json",
+          "sha256": "3c82261048e8e39202e7288d65d47c78eef75a2fcb74e737329b9c889db01faa",
+          "purpose": "independent 2D cost probe"
+        },
+        {
+          "path": "work/cache/q4_2d_adaptive_nr60_nz188_dt0.25_mee6f06a440f2_technical60x188_cost_probe/mesh.npz",
+          "sha256": "8156ea1ceaf2b5c3b9eb1ebcc9f53d9b1ac5a27abe37a1594eebae5f23dcf8bc",
+          "purpose": "independent 2D cost probe"
+        },
+        {
+          "path": "work/cache/q4_2d_adaptive_nr60_nz188_dt0.25_mee6f06a440f2_technical60x188_cost_probe/chunk_0000.npz",
+          "sha256": "fa6068cf0792b9e464c6bd4bbb6ab56147a125e6fae4cc94f4639bf1e6c1a44e",
+          "purpose": "independent 2D cost probe"
+        }
+      ],
+      "source_file": "work/cache/q4_2d_adaptive_nr60_nz188_dt0.25_mee6f06a440f2_technical60x188_cost_probe/status.json",
+      "probe_source_case_id": "q4_2d_adaptive_nr60_nz188_dt0.25_mee6f06a440f2_technical60x188_cost_probe",
+      "probe_simulated_s": 60.0,
+      "probe_wall_s": 0.43320540000058827,
+      "compile_or_load_s": 0.0005703000006178627,
+      "projected_full_72h_wall_s": 1871.4473280025413,
+      "cost_estimate_scope": "linear scaling of measured first 60 s excluding compilation; not a guarantee, later stability/geometry may change",
+      "probe_actual_dt_min_s": 0.25,
+      "probe_actual_dt_mean_s": 0.25,
+      "reason": "MANDATORY_WORK_PRIORITY: only cost probe retained; full refinement deferred for the newly requested solver mass audit; no full-trajectory or grid-independence claim",
+      "resumable_partial_full_case": {
+        "source_case_id": "q4_2d_adaptive_nr60_nz188_dt0.25_mee6f06a440f2_technical60x188_full",
+        "simulated_time_s": 3600.0,
+        "complete": false,
+        "checkpoint": "work/checkpoints/q4_2d_adaptive_nr60_nz188_dt0.25_mee6f06a440f2_technical60x188_full/checkpoint.npz"
+      }
+    }
+  },
+  "status": "PARTIAL_2D",
+  "independent_grid_certification": false,
+  "larger_grid_attempted": false
+}

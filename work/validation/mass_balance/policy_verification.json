@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "residual_peak_changed_by_factor": 1e+20,
+  "tolerance_unchanged": true,
+  "resume_policy_immutable": true,
+  "selection_scale": 6.324091986092393e-11
+}

@@ -1,0 +1,2068 @@
+{
+  "study_id": "geometry_cross_p3_shrink",
+  "status": "PASS",
+  "specs": [
+    {
+      "schema_version": 1,
+      "baseline_id": "52a1433275fe31fa47ce7c80b1373e98c50508de5544f573123311138fdce7e2",
+      "case": "q23",
+      "mode": "M00",
+      "kind": "production",
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "physics": {
+        "R0_m": 0.02,
+        "L_m": 0.25,
+        "T0_K": 301.15,
+        "C0": 2.55,
+        "h": 25.0,
+        "hm": 8e-07,
+        "threshold": 0.15,
+        "t_cap_s": 259200.0
+      },
+      "numerics": {
+        "nr": 40,
+        "nz": 125,
+        "dt_s": 0.25,
+        "safety": 0.5,
+        "min_dt_s": 1e-08,
+        "max_rejections": 20,
+        "max_steps": 20000000,
+        "event_width_s": 0.1,
+        "checkpoint_interval_s": 3600.0
+      },
+      "dt_max_s": 0.25,
+      "tail_minutes": 60,
+      "shrink": true,
+      "replay": null,
+      "source": {
+        "trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8",
+        "cross_spec.py": "290903a066ab3d1c79a11338773721ff0ba5585ef29bf4266ff3942d7aa67cdc"
+      },
+      "initial_origin": "original_uniform_state",
+      "monitor_hash": "8ce06aac4245a0359009e98e2998ee1ced8a7757f9f8931bf76fd16bc4e52d09",
+      "study_id": "geometry_cross_p3_shrink",
+      "material_appendix": 3,
+      "geometry_source": "attachment_2_R(t); original Q4 material-coordinate geometry",
+      "monitor_source": "frozen q23 continuous radial monitor",
+      "dimension": 1,
+      "fingerprint": "fd48e0b0c76555b1a58116dc659b2d0e22eddbc3562f94d75467cc04bac41894",
+      "experiment_id": "geometry_cross_p3_shrink_production_x1_fd48e0b0c765",
+      "case_id": "geometry_cross_p3_shrink_production_x1_fd48e0b0c765"
+    },
+    {
+      "schema_version": 1,
+      "baseline_id": "52a1433275fe31fa47ce7c80b1373e98c50508de5544f573123311138fdce7e2",
+      "case": "q23",
+      "mode": "M00",
+      "kind": "full_reference",
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 160,
+          "nz": 1
+        }
+      ],
+      "physics": {
+        "R0_m": 0.02,
+        "L_m": 0.25,
+        "T0_K": 301.15,
+        "C0": 2.55,
+        "h": 25.0,
+        "hm": 8e-07,
+        "threshold": 0.15,
+        "t_cap_s": 259200.0
+      },
+      "numerics": {
+        "nr": 40,
+        "nz": 125,
+        "dt_s": 0.25,
+        "safety": 0.5,
+        "min_dt_s": 1e-08,
+        "max_rejections": 20,
+        "max_steps": 20000000,
+        "event_width_s": 0.1,
+        "checkpoint_interval_s": 3600.0
+      },
+      "dt_max_s": 0.25,
+      "tail_minutes": 60,
+      "shrink": true,
+      "replay": null,
+      "source": {
+        "trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8",
+        "cross_spec.py": "290903a066ab3d1c79a11338773721ff0ba5585ef29bf4266ff3942d7aa67cdc"
+      },
+      "initial_origin": "original_uniform_state",
+      "monitor_hash": "8ce06aac4245a0359009e98e2998ee1ced8a7757f9f8931bf76fd16bc4e52d09",
+      "study_id": "geometry_cross_p3_shrink",
+      "material_appendix": 3,
+      "geometry_source": "attachment_2_R(t); original Q4 material-coordinate geometry",
+      "monitor_source": "frozen q23 continuous radial monitor",
+      "dimension": 1,
+      "fingerprint": "ed9065068e3dcca30f9be3666d51282132a1c268000f5383ea671c3f01e8db84",
+      "experiment_id": "geometry_cross_p3_shrink_full_reference_x2_ed9065068e3d",
+      "case_id": "geometry_cross_p3_shrink_full_reference_x2_ed9065068e3d"
+    },
+    {
+      "schema_version": 1,
+      "baseline_id": "52a1433275fe31fa47ce7c80b1373e98c50508de5544f573123311138fdce7e2",
+      "case": "q23",
+      "mode": "M00",
+      "kind": "time_half",
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "physics": {
+        "R0_m": 0.02,
+        "L_m": 0.25,
+        "T0_K": 301.15,
+        "C0": 2.55,
+        "h": 25.0,
+        "hm": 8e-07,
+        "threshold": 0.15,
+        "t_cap_s": 259200.0
+      },
+      "numerics": {
+        "nr": 40,
+        "nz": 125,
+        "dt_s": 0.25,
+        "safety": 0.5,
+        "min_dt_s": 1e-08,
+        "max_rejections": 20,
+        "max_steps": 20000000,
+        "event_width_s": 0.1,
+        "checkpoint_interval_s": 3600.0
+      },
+      "dt_max_s": 0.125,
+      "tail_minutes": 60,
+      "shrink": true,
+      "replay": "geometry_cross_p3_shrink_production_x1_fd48e0b0c765",
+      "source": {
+        "trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8",
+        "cross_spec.py": "290903a066ab3d1c79a11338773721ff0ba5585ef29bf4266ff3942d7aa67cdc"
+      },
+      "initial_origin": "original_uniform_state",
+      "monitor_hash": "8ce06aac4245a0359009e98e2998ee1ced8a7757f9f8931bf76fd16bc4e52d09",
+      "study_id": "geometry_cross_p3_shrink",
+      "material_appendix": 3,
+      "geometry_source": "attachment_2_R(t); original Q4 material-coordinate geometry",
+      "monitor_source": "frozen q23 continuous radial monitor",
+      "dimension": 1,
+      "fingerprint": "ef21230afd4b8dbadea195886458669e853b86836e46b0bf1d397967d2f081ae",
+      "experiment_id": "geometry_cross_p3_shrink_time_half_x1_ef21230afd4b",
+      "case_id": "geometry_cross_p3_shrink_time_half_x1_ef21230afd4b"
+    }
+  ],
+  "statuses": [
+    {
+      "experiment_id": "geometry_cross_p3_shrink_production_x1_fd48e0b0c765",
+      "fingerprint": "fd48e0b0c76555b1a58116dc659b2d0e22eddbc3562f94d75467cc04bac41894",
+      "complete": true,
+      "status": "DRY",
+      "event": {
+        "left_s": 90991.796875,
+        "right_s": 90991.8125,
+        "width_s": 0.015625,
+        "raw_event_s": 90991.8125,
+        "report_s": 90992.16,
+        "report_h": 25.2756,
+        "left_max_C": 0.15000000034961775,
+        "right_max_C": 0.14999998782485152,
+        "report_max_C": 0.1499997092753358
+      },
+      "drying_time_h": 25.2756,
+      "steps": 14994256,
+      "minimum_dt": 0.008741007917478782,
+      "maximum_dt": 0.09375,
+      "transfers": [
+        {
+          "switch_time": 300.0,
+          "old_mesh": [
+            200,
+            1
+          ],
+          "new_mesh": [
+            160,
+            1
+          ],
+          "projection_max_abs_T": 0.0020157878739723856,
+          "projection_max_abs_C": 0.005004469512810417,
+          "projection_L2_T": 0.0007744194861447155,
+          "projection_L2_C": 0.001146716212750304,
+          "volume_integral_T_before": 301.4049306468804,
+          "volume_integral_T_after": 301.4049306468805,
+          "volume_integral_C_before": 2.4966929593519893,
+          "volume_integral_C_after": 2.496692959351989,
+          "volume_integral_relative_error_T": 1.885948539023887e-16,
+          "volume_integral_relative_error_C": 1.7787097455720983e-16,
+          "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+          "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+        },
+        {
+          "switch_time": 1800.0,
+          "old_mesh": [
+            160,
+            1
+          ],
+          "new_mesh": [
+            80,
+            1
+          ],
+          "projection_max_abs_T": 0.01739220197305258,
+          "projection_max_abs_C": 0.009554632151626663,
+          "projection_L2_T": 0.013042912504841733,
+          "projection_L2_C": 0.00557174106582963,
+          "volume_integral_T_before": 307.1289826718286,
+          "volume_integral_T_after": 307.1289826718286,
+          "volume_integral_C_before": 2.2738569627569403,
+          "volume_integral_C_after": 2.2738569627569403,
+          "volume_integral_relative_error_T": 0.0,
+          "volume_integral_relative_error_C": 0.0,
+          "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+          "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+        }
+      ],
+      "chunks": [
+        "chunk_00000000.000_0.npz",
+        "chunk_00000300.000_1.npz",
+        "chunk_00001800.000_2.npz",
+        "chunk_00005400.000_2.npz",
+        "chunk_00009000.000_2.npz",
+        "chunk_00012600.000_2.npz",
+        "chunk_00016200.000_2.npz",
+        "chunk_00019800.000_2.npz",
+        "chunk_00023400.000_2.npz",
+        "chunk_00027000.000_2.npz",
+        "chunk_00030600.000_2.npz",
+        "chunk_00034200.000_2.npz",
+        "chunk_00037800.000_2.npz",
+        "chunk_00041400.000_2.npz",
+        "chunk_00045000.000_2.npz",
+        "chunk_00048600.000_2.npz",
+        "chunk_00052200.000_2.npz",
+        "chunk_00055800.000_2.npz",
+        "chunk_00059400.000_2.npz",
+        "chunk_00063000.000_2.npz",
+        "chunk_00066600.000_2.npz",
+        "chunk_00070200.000_2.npz",
+        "chunk_00073800.000_2.npz",
+        "chunk_00077400.000_2.npz",
+        "chunk_00081000.000_2.npz",
+        "chunk_00084600.000_2.npz",
+        "chunk_00088200.000_2.npz",
+        "chunk_00091800.000_2.npz",
+        "chunk_00095400.000_2.npz",
+        "chunk_00099000.000_2.npz",
+        "chunk_00102600.000_2.npz",
+        "chunk_00106200.000_2.npz",
+        "chunk_00109800.000_2.npz",
+        "chunk_00113400.000_2.npz",
+        "chunk_00117000.000_2.npz",
+        "chunk_00120600.000_2.npz",
+        "chunk_00124200.000_2.npz",
+        "chunk_00127800.000_2.npz",
+        "chunk_00131400.000_2.npz",
+        "chunk_00135000.000_2.npz",
+        "chunk_00138600.000_2.npz",
+        "chunk_00142200.000_2.npz",
+        "chunk_00145800.000_2.npz",
+        "chunk_00149400.000_2.npz",
+        "chunk_00153000.000_2.npz",
+        "chunk_00156600.000_2.npz",
+        "chunk_00160200.000_2.npz",
+        "chunk_00163800.000_2.npz",
+        "chunk_00167400.000_2.npz",
+        "chunk_00171000.000_2.npz",
+        "chunk_00174600.000_2.npz",
+        "chunk_00178200.000_2.npz",
+        "chunk_00181800.000_2.npz",
+        "chunk_00185400.000_2.npz",
+        "chunk_00189000.000_2.npz",
+        "chunk_00192600.000_2.npz",
+        "chunk_00196200.000_2.npz",
+        "chunk_00199800.000_2.npz",
+        "chunk_00203400.000_2.npz",
+        "chunk_00207000.000_2.npz",
+        "chunk_00210600.000_2.npz",
+        "chunk_00214200.000_2.npz",
+        "chunk_00217800.000_2.npz",
+        "chunk_00221400.000_2.npz",
+        "chunk_00225000.000_2.npz",
+        "chunk_00228600.000_2.npz",
+        "chunk_00232200.000_2.npz",
+        "chunk_00235800.000_2.npz",
+        "chunk_00239400.000_2.npz",
+        "chunk_00243000.000_2.npz",
+        "chunk_00246600.000_2.npz",
+        "chunk_00250200.000_2.npz",
+        "chunk_00253800.000_2.npz",
+        "chunk_00257400.000_2.npz"
+      ],
+      "simulated_time_s": 259200.0,
+      "wall_s": 534.9219999999996,
+      "full_history_verified": true,
+      "actual_parameters": {
+        "R0_m": 0.02,
+        "L_m": 0.25,
+        "T0_K": 301.15,
+        "C0": 2.55,
+        "h": 25.0,
+        "hm": 8e-07,
+        "threshold": 0.15,
+        "t_cap_s": 259200.0
+      },
+      "thermal_flags": {
+        "latent": false,
+        "moisture_sensible": false
+      },
+      "data_files": {
+        "chunk_00000000.000_0.npz": {
+          "sha256": "8ca828c1fee4ea37473b36c6b11ab57501efe8bbeae3426f9d58911f5926ce30",
+          "size_bytes": 1130536
+        },
+        "chunk_00000300.000_1.npz": {
+          "sha256": "597a9882665ae031719d541652ca52fd67119747ca971ef7c47ca421d35cfbe3",
+          "size_bytes": 4603528
+        },
+        "chunk_00001800.000_2.npz": {
+          "sha256": "20ccd8f236fb6c338e783d6c2963f352e7c47ecc469d0a8ff373842bbaff9a4a",
+          "size_bytes": 5099984
+        },
+        "chunk_00005400.000_2.npz": {
+          "sha256": "cb700f5aeaa1f9f2e0547a8b2b6881d7431b340702502c814d4fcd00a89d2a7a",
+          "size_bytes": 5143720
+        },
+        "chunk_00009000.000_2.npz": {
+          "sha256": "bc709bb1fe5961734eba2d313b825e2af8c82811fd8daa6bcca357fdaeb6e650",
+          "size_bytes": 3251600
+        },
+        "chunk_00012600.000_2.npz": {
+          "sha256": "b13f84e67bebfd5d37ee07f2e94f32d1705b567e528eebbc71ec75cdb819af00",
+          "size_bytes": 1002120
+        },
+        "chunk_00016200.000_2.npz": {
+          "sha256": "8b9e1b81826aeb266ba8364ddb321b2c7ead1e7d661594c3d2013bf9d6966220",
+          "size_bytes": 1002584
+        },
+        "chunk_00019800.000_2.npz": {
+          "sha256": "70d7c279c86aa40f6715082d6e809512f4ea842af3e1412cb3487dbc83c90c1b",
+          "size_bytes": 1002896
+        },
+        "chunk_00023400.000_2.npz": {
+          "sha256": "9817e4f6065118b2620b10958db56fcaaac4965e6764ae54b24750206dfdd04b",
+          "size_bytes": 1003080
+        },
+        "chunk_00027000.000_2.npz": {
+          "sha256": "9a87562046fb688c56087f66188be00e304f5887c9ef99f272e2ecba14f30422",
+          "size_bytes": 1003400
+        },
+        "chunk_00030600.000_2.npz": {
+          "sha256": "47b85b39b4b54a51753fc41919efd1f9461db2bb4b34d9304159730943c7c40a",
+          "size_bytes": 1003560
+        },
+        "chunk_00034200.000_2.npz": {
+          "sha256": "0fb899e84248e291777c6894fa1eb9fd95c368653966aaeebcff74e3e80bfb91",
+          "size_bytes": 1003560
+        },
+        "chunk_00037800.000_2.npz": {
+          "sha256": "f9d31c1efc3fba08962d3adfbb579f37c399ee9f1eb88638c0cf1c84da7fb793",
+          "size_bytes": 1003560
+        },
+        "chunk_00041400.000_2.npz": {
+          "sha256": "5380086c47aa17168012c03593a5c3b5e7ead52f6f0b816ee24588f7d559e88d",
+          "size_bytes": 1003560
+        },
+        "chunk_00045000.000_2.npz": {
+          "sha256": "b9dc09db4c09ea555bbed6bb6118123902328fe47e40456aed912995bac5c474",
+          "size_bytes": 1263656
+        },
+        "chunk_00048600.000_2.npz": {
+          "sha256": "547d61ce909529107f323780baf1d0f0bacb98cf9e083ccbef4b42bcfdf66b40",
+          "size_bytes": 1921800
+        },
+        "chunk_00052200.000_2.npz": {
+          "sha256": "522f1b0d41325257dda4661addf0c201182def71274a3ef356fa15e373d79146",
+          "size_bytes": 1921800
+        },
+        "chunk_00055800.000_2.npz": {
+          "sha256": "b8d0e8afbf5dd662e1d7dc74492fb2a9f34c6d80f33f471edf1032559e0ff46d",
+          "size_bytes": 1921800
+        },
+        "chunk_00059400.000_2.npz": {
+          "sha256": "442440a25f3ed6a3593e25f7a2d4cdd16cfc4f3539d076d6c7da30a131671322",
+          "size_bytes": 1921800
+        },
+        "chunk_00063000.000_2.npz": {
+          "sha256": "d6e8b8b4ab6cc62339b0d15c6485309e6c6d5ec237358d0b9ac4e06fd6e79259",
+          "size_bytes": 1921800
+        },
+        "chunk_00066600.000_2.npz": {
+          "sha256": "0971ddacc12ec37550c3063516c70948214b994fbfcd565159d04880e914f7eb",
+          "size_bytes": 1921800
+        },
+        "chunk_00070200.000_2.npz": {
+          "sha256": "426b092b8068cc4744824e61bbb21d2c24b99cfafbedcba20e258f5f9444eac4",
+          "size_bytes": 1921800
+        },
+        "chunk_00073800.000_2.npz": {
+          "sha256": "d76e6a3af7ece0ec7af0b150f31222bec4af663439d45d99ee21cc3ce682f16c",
+          "size_bytes": 1921904
+        },
+        "chunk_00077400.000_2.npz": {
+          "sha256": "54e55b2d5b9800946ffb5faf9af79e3dfba9bf7a727c78a9ebc53da022b0a201",
+          "size_bytes": 1922280
+        },
+        "chunk_00081000.000_2.npz": {
+          "sha256": "a3716b2ade1a67484a98c50fcc38673d5bf87af886a8aa171918435cc0e3b7fd",
+          "size_bytes": 1922280
+        },
+        "chunk_00084600.000_2.npz": {
+          "sha256": "6b93bad10e631c2c9facd5d5297279830146c67baef7a4f563647f2b740e6197",
+          "size_bytes": 1922280
+        },
+        "chunk_00088200.000_2.npz": {
+          "sha256": "847c4f0ba5344d1cc88c2bc001e25d632e0c44fde127c7c8b0809fd7fd0eb703",
+          "size_bytes": 1922280
+        },
+        "chunk_00091800.000_2.npz": {
+          "sha256": "8378a06352e5af8724194230b2efd804413b1658d06599808118b1f39fc74cb8",
+          "size_bytes": 1922280
+        },
+        "chunk_00095400.000_2.npz": {
+          "sha256": "0bf57a381640c867cccff31f9bb6e8062144ff39a67e56119f9a66db69cba1a0",
+          "size_bytes": 1922280
+        },
+        "chunk_00099000.000_2.npz": {
+          "sha256": "b5757b755e62664ca6f0fa4ad55bc4b6f68df9873e9bcbf5aa1bd905a4418cd5",
+          "size_bytes": 1922280
+        },
+        "chunk_00102600.000_2.npz": {
+          "sha256": "04fc2886cc952666d5ffb0b0cdd80e0934ce9da0be96d37d2743e36c4560ca8f",
+          "size_bytes": 1922280
+        },
+        "chunk_00106200.000_2.npz": {
+          "sha256": "d01d19f4e6006af1e8052f2aeff4ae0b44244c915c4b60bb48cff822b1d3f628",
+          "size_bytes": 1922280
+        },
+        "chunk_00109800.000_2.npz": {
+          "sha256": "23441cde7fdf6966253873a9ec07b5992acfd18ce4cbb2f7ae1b94239d0687fa",
+          "size_bytes": 1922280
+        },
+        "chunk_00113400.000_2.npz": {
+          "sha256": "4d747539b623622b3165c66514b3bf082bfcdf74e55bb05064800cba3dcf9277",
+          "size_bytes": 1922280
+        },
+        "chunk_00117000.000_2.npz": {
+          "sha256": "05a2b46ca403be6fa7cfaa763c59b2b919efef02be52f66447c92841108f9fe6",
+          "size_bytes": 1922280
+        },
+        "chunk_00120600.000_2.npz": {
+          "sha256": "0b3902edeaa4a1cfddd26954f2a5330831f546b00ba20e524b98c842bc775928",
+          "size_bytes": 1922280
+        },
+        "chunk_00124200.000_2.npz": {
+          "sha256": "d3822dc98a59e1413c914cc40d80e8a806970ff58f95661650cc4f92d5da935f",
+          "size_bytes": 1922280
+        },
+        "chunk_00127800.000_2.npz": {
+          "sha256": "9837b11ab8f4cd669955bc5fd6902bf0b722a1b19cf46c791212eadc8e712973",
+          "size_bytes": 1922280
+        },
+        "chunk_00131400.000_2.npz": {
+          "sha256": "4b63c3fa258943fba4b2ba3b25718c4c8e7fdd0d1e23f4b27ebf604c40123217",
+          "size_bytes": 1922280
+        },
+        "chunk_00135000.000_2.npz": {
+          "sha256": "d87077f9843bcdbff93ebddb246c3e26ce0d6a0756f95a0a14efe0b40939f7a4",
+          "size_bytes": 1922280
+        },
+        "chunk_00138600.000_2.npz": {
+          "sha256": "df5f3ec628d4516afafffba881c23ff019edb55dda09c6cb3a5639297ce4d47f",
+          "size_bytes": 1922280
+        },
+        "chunk_00142200.000_2.npz": {
+          "sha256": "c76700c0bc5465e905767c868413142e161b494fc10ae669ae13301ddf2841c7",
+          "size_bytes": 1922280
+        },
+        "chunk_00145800.000_2.npz": {
+          "sha256": "53bb5e4765fbc2727c43ff3f40d6186964a813272a3468ac62e13f20e76ef037",
+          "size_bytes": 1922280
+        },
+        "chunk_00149400.000_2.npz": {
+          "sha256": "46d9a2139c4305e082dfa93124a10e9bd48eb8c2edbc20666709002a2de45dd8",
+          "size_bytes": 1922280
+        },
+        "chunk_00153000.000_2.npz": {
+          "sha256": "447de3422a31aaa0c65771cbdc693684f45ee41b501d3560956e187f1f5df511",
+          "size_bytes": 1922280
+        },
+        "chunk_00156600.000_2.npz": {
+          "sha256": "5ad65af2d63a72b4564d949ebc85b13ce104cdfa15408d9452edbcb50cfc5041",
+          "size_bytes": 1922280
+        },
+        "chunk_00160200.000_2.npz": {
+          "sha256": "926df88cc6a1d6c1a309974d5d9c95e61b87b413390eff9cdd085b0566bb8c92",
+          "size_bytes": 1922280
+        },
+        "chunk_00163800.000_2.npz": {
+          "sha256": "6d91d999f74c2adc01e0176695ccf868b8a2df4e9274992161aaca3b04525d77",
+          "size_bytes": 1922280
+        },
+        "chunk_00167400.000_2.npz": {
+          "sha256": "d0a46606b98dbd942553a24495fb823a3417c4a8124e0f1d292c225f3688d7f8",
+          "size_bytes": 1922280
+        },
+        "chunk_00171000.000_2.npz": {
+          "sha256": "c21f1be23c6617db3a24dfa1823cdaf8ad9edc2564af66cdcb4ead3744992af3",
+          "size_bytes": 1922280
+        },
+        "chunk_00174600.000_2.npz": {
+          "sha256": "040ce81f5f39a16d3f5a585291ca87771ed83fa2db29895dc969b1959c4fe3b4",
+          "size_bytes": 1922280
+        },
+        "chunk_00178200.000_2.npz": {
+          "sha256": "853ba38360edb0fdca93a17d25e6e6636018e24fed73c99287a85bd92e4a615c",
+          "size_bytes": 1922280
+        },
+        "chunk_00181800.000_2.npz": {
+          "sha256": "649380dd594ff378f71bd02dec52862eac99418c65d0078e0c7d4c426585eb1c",
+          "size_bytes": 1922280
+        },
+        "chunk_00185400.000_2.npz": {
+          "sha256": "13f10f0ce5ea1f1c8bd656c3aebc77da2260bc85393fe082147e4f94f49450b2",
+          "size_bytes": 1922280
+        },
+        "chunk_00189000.000_2.npz": {
+          "sha256": "c4bcd85232c5528f58c2c83ffc1634cc94063ac230e06b9daea26ef03f96f931",
+          "size_bytes": 1922280
+        },
+        "chunk_00192600.000_2.npz": {
+          "sha256": "30dfbca37dd59358aa9fdd2b2fcb8e386a5badde1ddf550c69eb44a1af0f9475",
+          "size_bytes": 1922280
+        },
+        "chunk_00196200.000_2.npz": {
+          "sha256": "17912de8ee50844f143f7acef71616145bcd01a78be3a2b7aab1aed9074fb850",
+          "size_bytes": 1922280
+        },
+        "chunk_00199800.000_2.npz": {
+          "sha256": "f74205d0ad863ca2540c5ed596d02b8cbe261635ecfb7e33ad9cb9c1f0f6049e",
+          "size_bytes": 1922280
+        },
+        "chunk_00203400.000_2.npz": {
+          "sha256": "fbf1953f205846ff634f960c36a06a7b67b1318a201817765d9d20c3d41c7d0f",
+          "size_bytes": 1922280
+        },
+        "chunk_00207000.000_2.npz": {
+          "sha256": "34da18df5a649f3e65096c3ae291e5ce767d2893e5705917492214a19cca15c3",
+          "size_bytes": 1922280
+        },
+        "chunk_00210600.000_2.npz": {
+          "sha256": "c1d730c48db4fcc57ac9fbb6c4b536e19a3cc2104a2a25b12adcba4479aeb8c6",
+          "size_bytes": 1922280
+        },
+        "chunk_00214200.000_2.npz": {
+          "sha256": "85101b25cd44d81933b199e798da72e4e66706241c655d67ccb4ce88b91559a5",
+          "size_bytes": 1922280
+        },
+        "chunk_00217800.000_2.npz": {
+          "sha256": "b43f79b87a14785264351f67b106cce1ebf249d6aaf2dae1ba6d6e3c73fa9fbe",
+          "size_bytes": 1922280
+        },
+        "chunk_00221400.000_2.npz": {
+          "sha256": "865c9a8e444b7e4e1b4828607ba5f365a2daf479cb2622992f0ceb4491e4ec6d",
+          "size_bytes": 1922280
+        },
+        "chunk_00225000.000_2.npz": {
+          "sha256": "3971c7f05566a801c95c9174228951833d96230b10062a35393e8bc9457a4611",
+          "size_bytes": 1922280
+        },
+        "chunk_00228600.000_2.npz": {
+          "sha256": "d354665e6d888103975bd54e1356c2d82c51ab2509374cb53561b0650a16ce59",
+          "size_bytes": 1922280
+        },
+        "chunk_00232200.000_2.npz": {
+          "sha256": "8c525ac48fd362bb5bdc997754e567b8a8cb43e146eee4867894ce1220e9a0f9",
+          "size_bytes": 1922280
+        },
+        "chunk_00235800.000_2.npz": {
+          "sha256": "e8fe199bc4a248d2fd2c4dc752502e3452016f560728e0992eab9391b35505a2",
+          "size_bytes": 1922280
+        },
+        "chunk_00239400.000_2.npz": {
+          "sha256": "2b4e6004f6617bbf02fe5cee84e8efe8fe70b36249eeb99105de379162ec5be5",
+          "size_bytes": 1922280
+        },
+        "chunk_00243000.000_2.npz": {
+          "sha256": "131309b598a128caf6fffe44711eafdf6bdefc01e6c8605598db9d75f0ced897",
+          "size_bytes": 1922280
+        },
+        "chunk_00246600.000_2.npz": {
+          "sha256": "c1b9462c8c8d203879e2434c3aca6ee3fc4c3ef7ff16ac6bfe4709e0c59db609",
+          "size_bytes": 1922280
+        },
+        "chunk_00250200.000_2.npz": {
+          "sha256": "f0c87423b407dd661c8fb5b33342ed54f4c87cdfb3dba9a53974d1d3febe1be1",
+          "size_bytes": 1922280
+        },
+        "chunk_00253800.000_2.npz": {
+          "sha256": "c2dbb161b33081710cf5059108c83d51f4722d5bf4b0389534cae02482806d9e",
+          "size_bytes": 1922280
+        },
+        "chunk_00257400.000_2.npz": {
+          "sha256": "38e1338c58108052d230e0b02e4530369661d6dc881a6d171ee706380a4cf771",
+          "size_bytes": 963000
+        },
+        "checkpoint.npz": {
+          "sha256": "651899d04e6094a47b35bee21a9bab228d2dc18743db4c42562c0b54d86ddeef",
+          "size_bytes": 2958
+        },
+        "event.npz": {
+          "sha256": "24b722d66e221bf92407b6fcba09379e517f1c9d2a35ccb658d47f5bd58b0708",
+          "size_bytes": 2958
+        },
+        "remesh_1.npz": {
+          "sha256": "b02ddaec3cd8d3b7f82628fb669ddc9e5074864dd476cbc74d5c460ef4f1e541",
+          "size_bytes": 9904
+        },
+        "remesh_2.npz": {
+          "sha256": "a06a9cb5bd24c382d074377a4b8efa47375a348e14b27ca866d84907cb075805",
+          "size_bytes": 7024
+        }
+      }
+    },
+    {
+      "experiment_id": "geometry_cross_p3_shrink_full_reference_x2_ed9065068e3d",
+      "fingerprint": "ed9065068e3dcca30f9be3666d51282132a1c268000f5383ea671c3f01e8db84",
+      "complete": true,
+      "status": "DRY",
+      "event": {
+        "left_s": 90915.3984375,
+        "right_s": 90915.40234375,
+        "width_s": 0.00390625,
+        "raw_event_s": 90915.40234375,
+        "report_s": 90915.48,
+        "report_h": 25.2543,
+        "left_max_C": 0.15000000309259054,
+        "right_max_C": 0.1499999999534216,
+        "report_max_C": 0.14999993754680738
+      },
+      "drying_time_h": 25.2543,
+      "steps": 60942529,
+      "minimum_dt": 0.002147147613076328,
+      "maximum_dt": 0.02285268534410534,
+      "transfers": [
+        {
+          "switch_time": 300.0,
+          "old_mesh": [
+            400,
+            1
+          ],
+          "new_mesh": [
+            320,
+            1
+          ],
+          "projection_max_abs_T": 0.001009751444144058,
+          "projection_max_abs_C": 0.002530211929841375,
+          "projection_L2_T": 0.0003870674830240033,
+          "projection_L2_C": 0.0005725006719388188,
+          "volume_integral_T_before": 301.4049332088822,
+          "volume_integral_T_after": 301.4049332088822,
+          "volume_integral_C_before": 2.496688806206868,
+          "volume_integral_C_after": 2.496688806206868,
+          "volume_integral_relative_error_T": 0.0,
+          "volume_integral_relative_error_C": 0.0,
+          "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+          "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+        },
+        {
+          "switch_time": 1800.0,
+          "old_mesh": [
+            320,
+            1
+          ],
+          "new_mesh": [
+            160,
+            1
+          ],
+          "projection_max_abs_T": 0.008698258754748167,
+          "projection_max_abs_C": 0.004777465334439457,
+          "projection_L2_T": 0.006521633558618397,
+          "projection_L2_C": 0.002786023636415227,
+          "volume_integral_T_before": 307.1290090199629,
+          "volume_integral_T_after": 307.1290090199629,
+          "volume_integral_C_before": 2.273850641341186,
+          "volume_integral_C_after": 2.273850641341186,
+          "volume_integral_relative_error_T": 0.0,
+          "volume_integral_relative_error_C": 0.0,
+          "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+          "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+        }
+      ],
+      "chunks": [
+        "chunk_00000000.000_0.npz",
+        "chunk_00000300.000_1.npz",
+        "chunk_00001800.000_2.npz",
+        "chunk_00005400.000_2.npz",
+        "chunk_00009000.000_2.npz",
+        "chunk_00012600.000_2.npz",
+        "chunk_00016200.000_2.npz",
+        "chunk_00019800.000_2.npz",
+        "chunk_00023400.000_2.npz",
+        "chunk_00027000.000_2.npz",
+        "chunk_00030600.000_2.npz",
+        "chunk_00034200.000_2.npz",
+        "chunk_00037800.000_2.npz",
+        "chunk_00041400.000_2.npz",
+        "chunk_00045000.000_2.npz",
+        "chunk_00048600.000_2.npz",
+        "chunk_00052200.000_2.npz",
+        "chunk_00055800.000_2.npz",
+        "chunk_00059400.000_2.npz",
+        "chunk_00063000.000_2.npz",
+        "chunk_00066600.000_2.npz",
+        "chunk_00070200.000_2.npz",
+        "chunk_00073800.000_2.npz",
+        "chunk_00077400.000_2.npz",
+        "chunk_00081000.000_2.npz",
+        "chunk_00084600.000_2.npz",
+        "chunk_00088200.000_2.npz",
+        "chunk_00091800.000_2.npz",
+        "chunk_00095400.000_2.npz",
+        "chunk_00099000.000_2.npz",
+        "chunk_00102600.000_2.npz",
+        "chunk_00106200.000_2.npz",
+        "chunk_00109800.000_2.npz",
+        "chunk_00113400.000_2.npz",
+        "chunk_00117000.000_2.npz",
+        "chunk_00120600.000_2.npz",
+        "chunk_00124200.000_2.npz",
+        "chunk_00127800.000_2.npz",
+        "chunk_00131400.000_2.npz",
+        "chunk_00135000.000_2.npz",
+        "chunk_00138600.000_2.npz",
+        "chunk_00142200.000_2.npz",
+        "chunk_00145800.000_2.npz",
+        "chunk_00149400.000_2.npz",
+        "chunk_00153000.000_2.npz",
+        "chunk_00156600.000_2.npz",
+        "chunk_00160200.000_2.npz",
+        "chunk_00163800.000_2.npz",
+        "chunk_00167400.000_2.npz",
+        "chunk_00171000.000_2.npz",
+        "chunk_00174600.000_2.npz",
+        "chunk_00178200.000_2.npz",
+        "chunk_00181800.000_2.npz",
+        "chunk_00185400.000_2.npz",
+        "chunk_00189000.000_2.npz",
+        "chunk_00192600.000_2.npz",
+        "chunk_00196200.000_2.npz",
+        "chunk_00199800.000_2.npz",
+        "chunk_00203400.000_2.npz",
+        "chunk_00207000.000_2.npz",
+        "chunk_00210600.000_2.npz",
+        "chunk_00214200.000_2.npz",
+        "chunk_00217800.000_2.npz",
+        "chunk_00221400.000_2.npz",
+        "chunk_00225000.000_2.npz",
+        "chunk_00228600.000_2.npz",
+        "chunk_00232200.000_2.npz",
+        "chunk_00235800.000_2.npz",
+        "chunk_00239400.000_2.npz",
+        "chunk_00243000.000_2.npz",
+        "chunk_00246600.000_2.npz",
+        "chunk_00250200.000_2.npz",
+        "chunk_00253800.000_2.npz",
+        "chunk_00257400.000_2.npz"
+      ],
+      "simulated_time_s": 259200.0,
+      "wall_s": 4535.093999999999,
+      "full_history_verified": true,
+      "actual_parameters": {
+        "R0_m": 0.02,
+        "L_m": 0.25,
+        "T0_K": 301.15,
+        "C0": 2.55,
+        "h": 25.0,
+        "hm": 8e-07,
+        "threshold": 0.15,
+        "t_cap_s": 259200.0
+      },
+      "thermal_flags": {
+        "latent": false,
+        "moisture_sensible": false
+      },
+      "data_files": {
+        "chunk_00000000.000_0.npz": {
+          "sha256": "26561d594bc4452ba87602eb572ec7f090853d39b3e84c3e691d25398dbb191a",
+          "size_bytes": 2586368
+        },
+        "chunk_00000300.000_1.npz": {
+          "sha256": "2af55d7f64a2ae4413de68e5e2b454221d63813f279d0c2ea570a660baffb0ba",
+          "size_bytes": 10716088
+        },
+        "chunk_00001800.000_2.npz": {
+          "sha256": "b2ed7be58c7c550c02ebdbcd7aec4c9441998065f67cb3bf6b435265a045e08e",
+          "size_bytes": 11130152
+        },
+        "chunk_00005400.000_2.npz": {
+          "sha256": "fcde76629258d28e2b4c37866fb63c9ff4183805afddcf65d8e119d64eb1782f",
+          "size_bytes": 11614472
+        },
+        "chunk_00009000.000_2.npz": {
+          "sha256": "d4ec91acff0933cbad4f41f02038fed5af3c3bd7d9279f464580644a8ee80488",
+          "size_bytes": 8272304
+        },
+        "chunk_00012600.000_2.npz": {
+          "sha256": "2b31a8c9cccacc65c8dadbc2f65142c3d12a53b338d3ace5db3c7942601011fa",
+          "size_bytes": 3844848
+        },
+        "chunk_00016200.000_2.npz": {
+          "sha256": "766ead037a44d7987233b6e1bc58065927243b83ff14fb86a61b2f86cdb9c1d2",
+          "size_bytes": 3846496
+        },
+        "chunk_00019800.000_2.npz": {
+          "sha256": "47f950dc6d8fe28dcfcd9e010fcdca1527336d8fa01e52220b5b3cc930cfe26a",
+          "size_bytes": 3847960
+        },
+        "chunk_00023400.000_2.npz": {
+          "sha256": "f07e53ecb5ae17dede87da920deedbb5f8641f1113979f994b7b6bb644b22764",
+          "size_bytes": 3849088
+        },
+        "chunk_00027000.000_2.npz": {
+          "sha256": "adf06f71b5d944a9f4d36691d5627c8ff0a317dfd0782117eac95b6433cef9cc",
+          "size_bytes": 3849960
+        },
+        "chunk_00030600.000_2.npz": {
+          "sha256": "dbfc93251106b132973d38a94de36e2bddb0e575760b27b5dbb6deba90e7aa62",
+          "size_bytes": 3850600
+        },
+        "chunk_00034200.000_2.npz": {
+          "sha256": "6eab381f718d117899488982f8d4f3861ea9704ac566d29a8418c68f9c0d27d2",
+          "size_bytes": 3851096
+        },
+        "chunk_00037800.000_2.npz": {
+          "sha256": "d387988a1ce611608431477e7b618b0a7a12ab8f95056962bce4f42b42b57666",
+          "size_bytes": 4767464
+        },
+        "chunk_00041400.000_2.npz": {
+          "sha256": "207c5efcaa687286938021f0ef4ed1990ac48a7c662aabd51c9cc68fba5ddde1",
+          "size_bytes": 7523128
+        },
+        "chunk_00045000.000_2.npz": {
+          "sha256": "10a794f7a186e7820ba3cda777ec97ef9014d655b4b039818bd64222fce43905",
+          "size_bytes": 7523544
+        },
+        "chunk_00048600.000_2.npz": {
+          "sha256": "d1df45c73b2a5500a0ad5c4b4e8ced7d62e6fa7b2d4f1ce15248803b1dda7146",
+          "size_bytes": 7523896
+        },
+        "chunk_00052200.000_2.npz": {
+          "sha256": "17663d38822d99357b459074a98519032781faff3b47a0bb74b0a7131581f861",
+          "size_bytes": 7524360
+        },
+        "chunk_00055800.000_2.npz": {
+          "sha256": "77e5d27f27e3313659ba29f2420a23dc909c73ca1ca9d2f73eff67359abf467d",
+          "size_bytes": 7524488
+        },
+        "chunk_00059400.000_2.npz": {
+          "sha256": "5698c28af5764ba1edc442212521b82dee32428979d3fe1da652125d5d7767a3",
+          "size_bytes": 7524840
+        },
+        "chunk_00063000.000_2.npz": {
+          "sha256": "be7139f0cca3a0b2352b12f7898a3e93c2e3f6710b8d2ca67fe6729e8e713df5",
+          "size_bytes": 7524840
+        },
+        "chunk_00066600.000_2.npz": {
+          "sha256": "e8adb65e89c3873e8fc2b02d494f6f70c87a604844a3d8eba3725c75b84eccda",
+          "size_bytes": 7524912
+        },
+        "chunk_00070200.000_2.npz": {
+          "sha256": "86cae406097d0632c6d8cf762ae75304e6d5136a39f03d067a18cdb7f231113c",
+          "size_bytes": 7525320
+        },
+        "chunk_00073800.000_2.npz": {
+          "sha256": "4a19ba9345c7a61026079cdef654cee703deaabe990b34101220106edbb79017",
+          "size_bytes": 7525320
+        },
+        "chunk_00077400.000_2.npz": {
+          "sha256": "5c2c362b1c41f2981f187cc65b997c95b34d5190f3cb5c907f2edfc90731b67e",
+          "size_bytes": 7525320
+        },
+        "chunk_00081000.000_2.npz": {
+          "sha256": "a4778169c250dc76de402c11b151eb5360412eefca65f58cbd74e3fc21aac804",
+          "size_bytes": 7525320
+        },
+        "chunk_00084600.000_2.npz": {
+          "sha256": "421badbc4cbdce7db0560cf8f1b0adc3f205e38ed2ecdbda3df16a6d593b204b",
+          "size_bytes": 7525320
+        },
+        "chunk_00088200.000_2.npz": {
+          "sha256": "98178e92014a6f2a31a7a4921182200ad89e8f62ff5b90bf73c616c5d49742fc",
+          "size_bytes": 7525320
+        },
+        "chunk_00091800.000_2.npz": {
+          "sha256": "090c45a41ae9f5d9a4d2089d5b713af2c834fcc5ebce9b3e20a95bdf84218756",
+          "size_bytes": 7525568
+        },
+        "chunk_00095400.000_2.npz": {
+          "sha256": "069896eb9b92f74f5369d095b3a46687fc0cc43eb4a5d0db959ca7789e897b88",
+          "size_bytes": 7525800
+        },
+        "chunk_00099000.000_2.npz": {
+          "sha256": "732999aeed04cd4a23d13dbb6fa75c151a8fbbda880b9f945d5a9df06398aea6",
+          "size_bytes": 7525800
+        },
+        "chunk_00102600.000_2.npz": {
+          "sha256": "bada6e270e39925e7a84cbf53e13095f78acc290959c4924443ecd3d6503d35c",
+          "size_bytes": 7525800
+        },
+        "chunk_00106200.000_2.npz": {
+          "sha256": "15dee886a43f1db61dfa981f755285f52f7f6c2c10b375697b7a85dd81895a6a",
+          "size_bytes": 7525800
+        },
+        "chunk_00109800.000_2.npz": {
+          "sha256": "1d6c1580834081b302ced0920d7b5b4ad82000bbdec47b1ffb6b9d2974e7c206",
+          "size_bytes": 7525800
+        },
+        "chunk_00113400.000_2.npz": {
+          "sha256": "0a57f7c60618d14d9391e1138b3985a96672aaee38f99e1e9d0309a6c411b788",
+          "size_bytes": 7525800
+        },
+        "chunk_00117000.000_2.npz": {
+          "sha256": "37164fe5582defaf92cf63f6151e2c12762584cecddd186019c2dbab95e87868",
+          "size_bytes": 7525800
+        },
+        "chunk_00120600.000_2.npz": {
+          "sha256": "7b8f0317382fa0e588d39f132487e10f76cd1a21cc9d7d6db8ddeec2ff2b8c59",
+          "size_bytes": 7525800
+        },
+        "chunk_00124200.000_2.npz": {
+          "sha256": "3fd38f88b66d38842ff9b892cddcd8876526992f97ab13c1fc8dfb13aedbe784",
+          "size_bytes": 7525800
+        },
+        "chunk_00127800.000_2.npz": {
+          "sha256": "a572adf950394c5d07b57e7e0f03642582a3f880378e89eae8a4a9d2c24e5738",
+          "size_bytes": 7525800
+        },
+        "chunk_00131400.000_2.npz": {
+          "sha256": "e207f4c0eb97614f5548600d1daae53951a5a329bc709cccbde4db497e359088",
+          "size_bytes": 7525800
+        },
+        "chunk_00135000.000_2.npz": {
+          "sha256": "5194e825963a106cd614aec51d4fbf4c314497e02134711cda02319dd2abf3a4",
+          "size_bytes": 7525800
+        },
+        "chunk_00138600.000_2.npz": {
+          "sha256": "4c74f2be5ff56802efe001c8a2a8d97618a5e5dc131377984a9da1e21506d93b",
+          "size_bytes": 7525800
+        },
+        "chunk_00142200.000_2.npz": {
+          "sha256": "c1f759b4d3819be7d39e53b797ab96e060455e4d038fcbeabdc898282832af9e",
+          "size_bytes": 7525800
+        },
+        "chunk_00145800.000_2.npz": {
+          "sha256": "c2e37267bd137b122edec688a7bc13708d04bf23f03f4caca63a4d7261ff230c",
+          "size_bytes": 7525800
+        },
+        "chunk_00149400.000_2.npz": {
+          "sha256": "5930590de31be0f92cbb251c6a68b3ab1fded0c2bf335d724226089616a5ee35",
+          "size_bytes": 7525800
+        },
+        "chunk_00153000.000_2.npz": {
+          "sha256": "bd98d59f8a60703f94ddc11c7cdb30fa0b923576c95627ae722655fb608b9e76",
+          "size_bytes": 7525800
+        },
+        "chunk_00156600.000_2.npz": {
+          "sha256": "26fb52443fb6624dc53b65d311953010388b2fe4909384c4d5cb1bcda2892bb3",
+          "size_bytes": 7525800
+        },
+        "chunk_00160200.000_2.npz": {
+          "sha256": "907c98784ac985497c20da226c9922477db2af77d5642b33b8e4e4136e7f2812",
+          "size_bytes": 7525800
+        },
+        "chunk_00163800.000_2.npz": {
+          "sha256": "2a6a4aa9e35cc557c87b7d9cdd83ae18c2f9d14f94803bd05922b450b566d031",
+          "size_bytes": 7525800
+        },
+        "chunk_00167400.000_2.npz": {
+          "sha256": "1408c2df4facf88b787db62b59124a00585b0048267f19a76ca507dce9c7085a",
+          "size_bytes": 7525800
+        },
+        "chunk_00171000.000_2.npz": {
+          "sha256": "29f130cdadb76982fbf3d22d88577fa9338edfe7b3e8ef6a5b85701be709919a",
+          "size_bytes": 7525800
+        },
+        "chunk_00174600.000_2.npz": {
+          "sha256": "93506c3ad6d711eb7755f2980018117b00cd480e3897fb6df00ed3b00ca0dc85",
+          "size_bytes": 7525800
+        },
+        "chunk_00178200.000_2.npz": {
+          "sha256": "b1ce902b64f3560e53ed04ec4111ddc324168d7343cc3cf591ec35193d01c332",
+          "size_bytes": 7525800
+        },
+        "chunk_00181800.000_2.npz": {
+          "sha256": "ce065f8b3c7f79c0f77d1deed37dfc687f6c455c5f05ce2d8aecf75fa5751b7b",
+          "size_bytes": 7525800
+        },
+        "chunk_00185400.000_2.npz": {
+          "sha256": "5c3bdd572f98ac7abde202466e93610ee9afee3fb6faca33d85aa5a92f7c06c1",
+          "size_bytes": 7525800
+        },
+        "chunk_00189000.000_2.npz": {
+          "sha256": "012d95d21d5b625785852901a3579d8ce07b09c059c6b70c93040aeef3d7eb6b",
+          "size_bytes": 7525800
+        },
+        "chunk_00192600.000_2.npz": {
+          "sha256": "7d39aad415434db118afb6aa6951fa4bddd696d97e41af6932260fbafc98d2c3",
+          "size_bytes": 7525800
+        },
+        "chunk_00196200.000_2.npz": {
+          "sha256": "d80017db4b9f89b6d5607770803b64dd7a02352233713bdbfb30842b862466b3",
+          "size_bytes": 7525800
+        },
+        "chunk_00199800.000_2.npz": {
+          "sha256": "bda150e8847cc9f74e1a2eb8bed535bc3c23a7433c96518295d01c380ae1f60d",
+          "size_bytes": 7525800
+        },
+        "chunk_00203400.000_2.npz": {
+          "sha256": "9d5a7640a68c77f8fbbb4d2b25bfe229493575d45a4cdc779be956856f54792b",
+          "size_bytes": 7525800
+        },
+        "chunk_00207000.000_2.npz": {
+          "sha256": "bd8a24b612d03ec34069c21fd5cc9f253619efae81d162a9cda799a610a35dd9",
+          "size_bytes": 7525800
+        },
+        "chunk_00210600.000_2.npz": {
+          "sha256": "a97763f6bbec33cfed69dd28cba711407a25a056186c7fc37d7ab3e1b1d3c112",
+          "size_bytes": 7525800
+        },
+        "chunk_00214200.000_2.npz": {
+          "sha256": "9f228d3dfb5348e29c042e268031ad9b92002ffd6c30a205e52d9693bc5e2a83",
+          "size_bytes": 7525800
+        },
+        "chunk_00217800.000_2.npz": {
+          "sha256": "734320ea5e108547a1f2536efc48ab85170b089a8cfecfb83b9aa157a51d6327",
+          "size_bytes": 7525800
+        },
+        "chunk_00221400.000_2.npz": {
+          "sha256": "556a67c8bd36c451682e69c6050218268c8b5ed63722cd58c2f3cf25cea46e1a",
+          "size_bytes": 7525800
+        },
+        "chunk_00225000.000_2.npz": {
+          "sha256": "32ed34aef0493080efb0ce7a06f53cf2fe969c603f85aaf553fcc4d3e33b52e9",
+          "size_bytes": 7525800
+        },
+        "chunk_00228600.000_2.npz": {
+          "sha256": "6074e9e81a75a49592cce6cda017975dc4220367fbce7f3b1f5e6f5c28f212ba",
+          "size_bytes": 7525800
+        },
+        "chunk_00232200.000_2.npz": {
+          "sha256": "ad69988efa6d9ddcd5826448b8aa7cf966d2e77ede76a289c87e9952f9e48042",
+          "size_bytes": 7525800
+        },
+        "chunk_00235800.000_2.npz": {
+          "sha256": "8373af122fceb5e3f06af5eb25d64c8e16ed0c244f8ec95257fff39a251f8112",
+          "size_bytes": 7525800
+        },
+        "chunk_00239400.000_2.npz": {
+          "sha256": "850f101f94e96a8359358b28b0394d6b376761b32fe723b2e18e2b1973e8fdfa",
+          "size_bytes": 7525800
+        },
+        "chunk_00243000.000_2.npz": {
+          "sha256": "44637ef4c1ea6601a98eaec3c01fe58c91f914c18af4abba5ccad1c24a7eace2",
+          "size_bytes": 7525800
+        },
+        "chunk_00246600.000_2.npz": {
+          "sha256": "efc294b066dfc96964aa90319926f3144aa88b70e012c93e88b07d1a03f5b641",
+          "size_bytes": 7525800
+        },
+        "chunk_00250200.000_2.npz": {
+          "sha256": "52b102a91e7c46651c36e605560e7fbcf654f54e18b9f3efb0efb21631b4ea94",
+          "size_bytes": 7525800
+        },
+        "chunk_00253800.000_2.npz": {
+          "sha256": "fd4e2ed76045531d8620c6e1789d6a93b9ec6dfeb1a077d7a18591c088f6ad65",
+          "size_bytes": 7525800
+        },
+        "chunk_00257400.000_2.npz": {
+          "sha256": "f6d788bf8fc9e45da8439f78568f2b7c57393dcc7a9debaaac7756bb46330080",
+          "size_bytes": 3765720
+        },
+        "checkpoint.npz": {
+          "sha256": "590f70024f38b2802e6855848962cfe54822684d420f6c75279cf1a51f7bf4e0",
+          "size_bytes": 4878
+        },
+        "event.npz": {
+          "sha256": "8b3904b314d9ae49a33747b9dd96e228ded90312760a529f17d159e41872fac5",
+          "size_bytes": 4878
+        },
+        "remesh_1.npz": {
+          "sha256": "e7e551563a93b4a2001d3469cb153b27faede912f027993587102d1afb343eba",
+          "size_bytes": 18544
+        },
+        "remesh_2.npz": {
+          "sha256": "5d4c910eae701ab2ee6eb6e3efba08756abeb6df164cb4c97c64d465108b6cd1",
+          "size_bytes": 12784
+        }
+      }
+    },
+    {
+      "experiment_id": "geometry_cross_p3_shrink_time_half_x1_ef21230afd4b",
+      "fingerprint": "ef21230afd4b8dbadea195886458669e853b86836e46b0bf1d397967d2f081ae",
+      "complete": true,
+      "status": "DRY",
+      "event": {
+        "left_s": 90991.796875,
+        "right_s": 90991.8046875,
+        "width_s": 0.0078125,
+        "raw_event_s": 90991.8046875,
+        "report_s": 90992.16,
+        "report_h": 25.2756,
+        "left_max_C": 0.15000000034896743,
+        "right_max_C": 0.1499999940865837,
+        "report_max_C": 0.14999970927468553
+      },
+      "drying_time_h": 25.2756,
+      "steps": 29988512,
+      "minimum_dt": 0.004370503958739391,
+      "maximum_dt": 0.046875,
+      "transfers": [
+        {
+          "switch_time": 300.0,
+          "old_mesh": [
+            200,
+            1
+          ],
+          "new_mesh": [
+            160,
+            1
+          ],
+          "projection_max_abs_T": 0.0020157878739723856,
+          "projection_max_abs_C": 0.0050044695128099725,
+          "projection_L2_T": 0.0007744194861425309,
+          "projection_L2_C": 0.0011467162127502273,
+          "volume_integral_T_before": 301.4049306468844,
+          "volume_integral_T_after": 301.4049306468844,
+          "volume_integral_C_before": 2.496692959351976,
+          "volume_integral_C_after": 2.496692959351976,
+          "volume_integral_relative_error_T": 0.0,
+          "volume_integral_relative_error_C": 0.0,
+          "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+          "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+        },
+        {
+          "switch_time": 1800.0,
+          "old_mesh": [
+            160,
+            1
+          ],
+          "new_mesh": [
+            80,
+            1
+          ],
+          "projection_max_abs_T": 0.017392201973109422,
+          "projection_max_abs_C": 0.009554632151627773,
+          "projection_L2_T": 0.013042912504852629,
+          "projection_L2_C": 0.0055717410658296315,
+          "volume_integral_T_before": 307.1289826718247,
+          "volume_integral_T_after": 307.1289826718247,
+          "volume_integral_C_before": 2.2738569627569056,
+          "volume_integral_C_after": 2.2738569627569056,
+          "volume_integral_relative_error_T": 0.0,
+          "volume_integral_relative_error_C": 0.0,
+          "metric_note": "Max/L2 compare old averages with conservatively back-projected new averages; T integral is not nonlinear enthalpy.",
+          "method": "Exact annular-volume overlap in frozen xi coordinates; positive weights"
+        }
+      ],
+      "chunks": [
+        "chunk_00000000.000_0.npz",
+        "chunk_00000300.000_1.npz",
+        "chunk_00001800.000_2.npz",
+        "chunk_00005400.000_2.npz",
+        "chunk_00009000.000_2.npz",
+        "chunk_00012600.000_2.npz",
+        "chunk_00016200.000_2.npz",
+        "chunk_00019800.000_2.npz",
+        "chunk_00023400.000_2.npz",
+        "chunk_00027000.000_2.npz",
+        "chunk_00030600.000_2.npz",
+        "chunk_00034200.000_2.npz",
+        "chunk_00037800.000_2.npz",
+        "chunk_00041400.000_2.npz",
+        "chunk_00045000.000_2.npz",
+        "chunk_00048600.000_2.npz",
+        "chunk_00052200.000_2.npz",
+        "chunk_00055800.000_2.npz",
+        "chunk_00059400.000_2.npz",
+        "chunk_00063000.000_2.npz",
+        "chunk_00066600.000_2.npz",
+        "chunk_00070200.000_2.npz",
+        "chunk_00073800.000_2.npz",
+        "chunk_00077400.000_2.npz",
+        "chunk_00081000.000_2.npz",
+        "chunk_00084600.000_2.npz",
+        "chunk_00088200.000_2.npz",
+        "chunk_00091800.000_2.npz",
+        "chunk_00095400.000_2.npz",
+        "chunk_00099000.000_2.npz",
+        "chunk_00102600.000_2.npz",
+        "chunk_00106200.000_2.npz",
+        "chunk_00109800.000_2.npz",
+        "chunk_00113400.000_2.npz",
+        "chunk_00117000.000_2.npz",
+        "chunk_00120600.000_2.npz",
+        "chunk_00124200.000_2.npz",
+        "chunk_00127800.000_2.npz",
+        "chunk_00131400.000_2.npz",
+        "chunk_00135000.000_2.npz",
+        "chunk_00138600.000_2.npz",
+        "chunk_00142200.000_2.npz",
+        "chunk_00145800.000_2.npz",
+        "chunk_00149400.000_2.npz",
+        "chunk_00153000.000_2.npz",
+        "chunk_00156600.000_2.npz",
+        "chunk_00160200.000_2.npz",
+        "chunk_00163800.000_2.npz",
+        "chunk_00167400.000_2.npz",
+        "chunk_00171000.000_2.npz",
+        "chunk_00174600.000_2.npz",
+        "chunk_00178200.000_2.npz",
+        "chunk_00181800.000_2.npz",
+        "chunk_00185400.000_2.npz",
+        "chunk_00189000.000_2.npz",
+        "chunk_00192600.000_2.npz",
+        "chunk_00196200.000_2.npz",
+        "chunk_00199800.000_2.npz",
+        "chunk_00203400.000_2.npz",
+        "chunk_00207000.000_2.npz",
+        "chunk_00210600.000_2.npz",
+        "chunk_00214200.000_2.npz",
+        "chunk_00217800.000_2.npz",
+        "chunk_00221400.000_2.npz",
+        "chunk_00225000.000_2.npz",
+        "chunk_00228600.000_2.npz",
+        "chunk_00232200.000_2.npz",
+        "chunk_00235800.000_2.npz",
+        "chunk_00239400.000_2.npz",
+        "chunk_00243000.000_2.npz",
+        "chunk_00246600.000_2.npz",
+        "chunk_00250200.000_2.npz",
+        "chunk_00253800.000_2.npz",
+        "chunk_00257400.000_2.npz"
+      ],
+      "simulated_time_s": 259200.0,
+      "wall_s": 735.8130000000001,
+      "full_history_verified": true,
+      "actual_parameters": {
+        "R0_m": 0.02,
+        "L_m": 0.25,
+        "T0_K": 301.15,
+        "C0": 2.55,
+        "h": 25.0,
+        "hm": 8e-07,
+        "threshold": 0.15,
+        "t_cap_s": 259200.0
+      },
+      "thermal_flags": {
+        "latent": false,
+        "moisture_sensible": false
+      },
+      "data_files": {
+        "chunk_00000000.000_0.npz": {
+          "sha256": "9a21f4b4f6154cc3949ac667f2be6e54681965d76950dcaadf2c5e77314a901c",
+          "size_bytes": 1292072
+        },
+        "chunk_00000300.000_1.npz": {
+          "sha256": "80ab06b7505f471c7b877671d45036be1d4f41fa1c1365ee30cb4ba21f14d3ea",
+          "size_bytes": 5349416
+        },
+        "chunk_00001800.000_2.npz": {
+          "sha256": "6e46d77644a62ec3edf272f315f9e7c168c60828e268b1c0a33f6d339acb149f",
+          "size_bytes": 5559448
+        },
+        "chunk_00005400.000_2.npz": {
+          "sha256": "f08f333991688e9864e80224e3ef834cdb86f7ec1247b3d0dc38054338a0c275",
+          "size_bytes": 5646920
+        },
+        "chunk_00009000.000_2.npz": {
+          "sha256": "bfdf8c962acff4038969a45d919a59da68f6da81068a1c5fcaa71b65e67b6f2e",
+          "size_bytes": 4142440
+        },
+        "chunk_00012600.000_2.npz": {
+          "sha256": "57ba68c9eed372ebdfff8a5b0cd2e6c3e2c28b3b75d9b42daa30ac0385bda789",
+          "size_bytes": 1923240
+        },
+        "chunk_00016200.000_2.npz": {
+          "sha256": "43dd651b71c7035b132f874a32e3cd9bfcf60bbc4cf87f528d9f41a58a182ca1",
+          "size_bytes": 1924168
+        },
+        "chunk_00019800.000_2.npz": {
+          "sha256": "9f8c9aa5426879a857b5e8802cd42c9bebc238bfbb481b0ae7e617c4884c6d7e",
+          "size_bytes": 1924792
+        },
+        "chunk_00023400.000_2.npz": {
+          "sha256": "597b1ae078b4776a997df15c63f3f99a22777fe9f7f4844aa93d4558ea18a333",
+          "size_bytes": 1925160
+        },
+        "chunk_00027000.000_2.npz": {
+          "sha256": "28c0478a0137a8c8f0c40c13a1671825f791eae5bdc391368ef7bc0672b2573b",
+          "size_bytes": 1925800
+        },
+        "chunk_00030600.000_2.npz": {
+          "sha256": "f25b8193a27ecd0351ceaeb6ac08af1a8b40e55ce4e1996dd61ae1882e90cd46",
+          "size_bytes": 1926120
+        },
+        "chunk_00034200.000_2.npz": {
+          "sha256": "cc186135a17098b9576c9c342e5c3e1ba75ad88e25bacc0b37a7d6de9505ef3f",
+          "size_bytes": 1926120
+        },
+        "chunk_00037800.000_2.npz": {
+          "sha256": "ad66cce59cba89706c04b6824e495f08c66ca82a6e16d3f58a1987210dcfd8d9",
+          "size_bytes": 1926120
+        },
+        "chunk_00041400.000_2.npz": {
+          "sha256": "5d39274e4b9a073893eabaceeeddb145923f587c7c425ed316f2ec8ad3d9dde7",
+          "size_bytes": 1926120
+        },
+        "chunk_00045000.000_2.npz": {
+          "sha256": "e87b2e7f814d09e06a91c4e71dc2cc0d5c9ea7080dbecab064109832443d13d0",
+          "size_bytes": 2446312
+        },
+        "chunk_00048600.000_2.npz": {
+          "sha256": "ef0bafd52132f8120ab6498b61869f4b239470f3129ac6fd22600d24d437409b",
+          "size_bytes": 3762600
+        },
+        "chunk_00052200.000_2.npz": {
+          "sha256": "5bb8bbf89151885bf88d99bf32c5be62b33bd6992cbb6b30680e90e7466497f2",
+          "size_bytes": 3762600
+        },
+        "chunk_00055800.000_2.npz": {
+          "sha256": "fd1f898cc5ed24e32b9ea560601aab352b1c7c54146083a580b59daa30f668ea",
+          "size_bytes": 3762600
+        },
+        "chunk_00059400.000_2.npz": {
+          "sha256": "eb1815982b21b4b8ec858b2ba6e6d6d1e71bef8be25b30df5645c59c2dd5a2a8",
+          "size_bytes": 3762600
+        },
+        "chunk_00063000.000_2.npz": {
+          "sha256": "5671eb74c7d2460f6c41fcd5a67127316d293ff5b8a1e33a8744fb7eb21b212a",
+          "size_bytes": 3762600
+        },
+        "chunk_00066600.000_2.npz": {
+          "sha256": "854217ef4407da473db4e0379bf530a37745a367185a658365a1318e4db878cb",
+          "size_bytes": 3762600
+        },
+        "chunk_00070200.000_2.npz": {
+          "sha256": "860a885a495ccdd1466e295af1a8981b86bc6a1c800aeb78e79e8f5990100c35",
+          "size_bytes": 3762600
+        },
+        "chunk_00073800.000_2.npz": {
+          "sha256": "0a4470fbe819f0e14430384bb09c86949b4df6d18b368865d0ff11f4a69842c3",
+          "size_bytes": 3762808
+        },
+        "chunk_00077400.000_2.npz": {
+          "sha256": "70f162ab9e0d8bd9c06f8342e4d44a717524efa1366d97af8999c148ae82edc3",
+          "size_bytes": 3763560
+        },
+        "chunk_00081000.000_2.npz": {
+          "sha256": "5315adcf74e0484ff55f5df9ece86cbdca15393530e0d2d43c40658d83692276",
+          "size_bytes": 3763560
+        },
+        "chunk_00084600.000_2.npz": {
+          "sha256": "b594161dc838554cdd1546782f682e08ddce8124f59ae094f253268e744e5d49",
+          "size_bytes": 3763560
+        },
+        "chunk_00088200.000_2.npz": {
+          "sha256": "bbf41443445b2b5cfb4f081f1818703933928e500656b9d87b7ade634fb0d712",
+          "size_bytes": 3763560
+        },
+        "chunk_00091800.000_2.npz": {
+          "sha256": "e73e126651a129b862ebfd4cdf6f20d457e09c9caf7b1df1f0aa020a83011315",
+          "size_bytes": 3763560
+        },
+        "chunk_00095400.000_2.npz": {
+          "sha256": "8635946087e6d7be57ee1cc2a39c8e28b1caba7202b5de98b5e4902fb178a2e4",
+          "size_bytes": 3763560
+        },
+        "chunk_00099000.000_2.npz": {
+          "sha256": "3a93618db8a78cfbbddfa1224d9a0082e38180dcce682c3d765e27c5bf6c2d9b",
+          "size_bytes": 3763560
+        },
+        "chunk_00102600.000_2.npz": {
+          "sha256": "0340e94ccbb5db0460da4abcf012d3301d017ec0325cc18ea7f6eb8ae7f35576",
+          "size_bytes": 3763560
+        },
+        "chunk_00106200.000_2.npz": {
+          "sha256": "022b18d09a1d8ca31fa538cc5b5b1418b8ea9bbe9ce83638fb8d0a2bcbac4847",
+          "size_bytes": 3763560
+        },
+        "chunk_00109800.000_2.npz": {
+          "sha256": "0f3bb1b2021904a9f59a7b3de8e63554178c32a0f7495f8aa63c13c7dad283ad",
+          "size_bytes": 3763560
+        },
+        "chunk_00113400.000_2.npz": {
+          "sha256": "4874a2be0a708cef46cf544982b93f3b4a778930fc161bffd07d220badd5b3fb",
+          "size_bytes": 3763560
+        },
+        "chunk_00117000.000_2.npz": {
+          "sha256": "e85d239872c674782b3d0bc119a0b7b5c106f47236b0a99301e2a50878672a2d",
+          "size_bytes": 3763560
+        },
+        "chunk_00120600.000_2.npz": {
+          "sha256": "baaa47bbefe8e5b5483e3ab5846ea9760e2649a22fda08509d09e6ae7fb50318",
+          "size_bytes": 3763560
+        },
+        "chunk_00124200.000_2.npz": {
+          "sha256": "4a59c12ad60d9b27c0b1db6e03bef8901ae5a929caabdbdad517009b300699e4",
+          "size_bytes": 3763560
+        },
+        "chunk_00127800.000_2.npz": {
+          "sha256": "bee82586dffe436ff17b7ddd9a7261b0516eaa37c280873d97ffc40f35d478be",
+          "size_bytes": 3763560
+        },
+        "chunk_00131400.000_2.npz": {
+          "sha256": "08eb2eea46e0db28c7ffbd408615b4c9383ee83d3cb54681e28de6ff325293a0",
+          "size_bytes": 3763560
+        },
+        "chunk_00135000.000_2.npz": {
+          "sha256": "aa6627163340b7a277e9adb5f31d91e8a0ca71889caa75f7fa4f7b945845f21d",
+          "size_bytes": 3763560
+        },
+        "chunk_00138600.000_2.npz": {
+          "sha256": "7a6d88b71d82b0bb8591384630e6e6744fc68e146ad03dd197aab1bab4ecd67b",
+          "size_bytes": 3763560
+        },
+        "chunk_00142200.000_2.npz": {
+          "sha256": "ab9d7a525fe997b3b16576ae66e5e602625f813050ddb21d1d9793b92b65feae",
+          "size_bytes": 3763560
+        },
+        "chunk_00145800.000_2.npz": {
+          "sha256": "04607e23f8cc1c04242790d2a46086c8f30055989cd1c048553172e45687ac81",
+          "size_bytes": 3763560
+        },
+        "chunk_00149400.000_2.npz": {
+          "sha256": "8b7e9855174845518110ea9d0a8ff990e238a87f19c58bf80bcd426a0ba61b3a",
+          "size_bytes": 3763560
+        },
+        "chunk_00153000.000_2.npz": {
+          "sha256": "d4b8346aabaa6b0ec716ab6b715d6842b953eb815394f6a01886346927f6cff2",
+          "size_bytes": 3763560
+        },
+        "chunk_00156600.000_2.npz": {
+          "sha256": "90a6f9d46ebf5bd066aac2d1adc1c8fa73e926bf399cfd17e111c4e341627c77",
+          "size_bytes": 3763560
+        },
+        "chunk_00160200.000_2.npz": {
+          "sha256": "77c9ca9e31218709b562a7c0dffa83048f66a6d863abfddb13564f19e94f97e7",
+          "size_bytes": 3763560
+        },
+        "chunk_00163800.000_2.npz": {
+          "sha256": "e5ccf67620503af7acf2ac8ca8384ecdb4180b7835e45f705062d0236d53424a",
+          "size_bytes": 3763560
+        },
+        "chunk_00167400.000_2.npz": {
+          "sha256": "730a7b0ed71d2eb53f046a8e79899625091591906613d146d2cb0b9ff10b776b",
+          "size_bytes": 3763560
+        },
+        "chunk_00171000.000_2.npz": {
+          "sha256": "1e716a03a2da21a3f22875f73a66d200bf64bc0ad02e57442308bcf7342d5060",
+          "size_bytes": 3763560
+        },
+        "chunk_00174600.000_2.npz": {
+          "sha256": "aa3ea2c6d36c226a68342cd6649596699f8d560f9326e78b0e9d76eee932bca5",
+          "size_bytes": 3763560
+        },
+        "chunk_00178200.000_2.npz": {
+          "sha256": "86bce4012c9db305005de2a91e4f36564b4b57d86a8822c40967d5da361a2c14",
+          "size_bytes": 3763560
+        },
+        "chunk_00181800.000_2.npz": {
+          "sha256": "cdb959116c5269a575983c41cad3505cd2041b275558d4522dd60b634b0773ec",
+          "size_bytes": 3763560
+        },
+        "chunk_00185400.000_2.npz": {
+          "sha256": "477cf4279102e69636b3b7e33733aa161f20bd3b2660ec20c7568244d7074e58",
+          "size_bytes": 3763560
+        },
+        "chunk_00189000.000_2.npz": {
+          "sha256": "f2e5f5dcf0e2ab6f0aa2ccb81bdc7540d5eb88ead6727abcb067208e65653942",
+          "size_bytes": 3763560
+        },
+        "chunk_00192600.000_2.npz": {
+          "sha256": "2f525e42754ef429158dceaca818f74abcda09a89d0960b2c1b95acefd3ce55c",
+          "size_bytes": 3763560
+        },
+        "chunk_00196200.000_2.npz": {
+          "sha256": "ff581d6a753a3e6850d3efcff16a185d606a6e2f49feabcf0642ed74897e2b36",
+          "size_bytes": 3763560
+        },
+        "chunk_00199800.000_2.npz": {
+          "sha256": "2693ecf677471ed652d89dac2fe67d3292e9ed7376f417fd2f0e6720cc1d79d6",
+          "size_bytes": 3763560
+        },
+        "chunk_00203400.000_2.npz": {
+          "sha256": "1e8637d3bfc0eb42de526b0a7f7d60de265738bd0e7b9d758d9977dea8b503a0",
+          "size_bytes": 3763560
+        },
+        "chunk_00207000.000_2.npz": {
+          "sha256": "f10f2de87690555f3ae804a69bf92805dc3a2fd966c833e9be5df29aa824cb71",
+          "size_bytes": 3763560
+        },
+        "chunk_00210600.000_2.npz": {
+          "sha256": "75679d818728a84476f7102c5192b3e95aa0ab4e55db5849737e0ff3f57f4e21",
+          "size_bytes": 3763560
+        },
+        "chunk_00214200.000_2.npz": {
+          "sha256": "86ce063d301fbc818de5ba9bbfe3c00195043d55f2a16f57aadfd040e763b211",
+          "size_bytes": 3763560
+        },
+        "chunk_00217800.000_2.npz": {
+          "sha256": "658af4a1442fb24e9d6cd3365bcb3c449e210a54f0f1f8bd7aa26fbbb012a88e",
+          "size_bytes": 3763560
+        },
+        "chunk_00221400.000_2.npz": {
+          "sha256": "096f4334d90992e027fff8b821a63301f5b7bacb941a4bde81ef24751e83c8d3",
+          "size_bytes": 3763560
+        },
+        "chunk_00225000.000_2.npz": {
+          "sha256": "bc3eca333c1193ace03c58b5ccf739427e6baf1f09759f8c701552032bc20344",
+          "size_bytes": 3763560
+        },
+        "chunk_00228600.000_2.npz": {
+          "sha256": "2abc01c6641f809d35fdd65ca89a98d23c682748ce9a4ed66ec5383c490c4897",
+          "size_bytes": 3763560
+        },
+        "chunk_00232200.000_2.npz": {
+          "sha256": "2444852bb4034d217871f3cffb0c098f03a1e4e252c86647ad0ba124efff37ae",
+          "size_bytes": 3763560
+        },
+        "chunk_00235800.000_2.npz": {
+          "sha256": "79d8b74a3fd338be3bff68acbee44bb1cf48391e79a77e2012f23fa9f8bccabf",
+          "size_bytes": 3763560
+        },
+        "chunk_00239400.000_2.npz": {
+          "sha256": "d51ac86a0394afc5853e619ad330f8220aaee699bee9233f941339b462049c16",
+          "size_bytes": 3763560
+        },
+        "chunk_00243000.000_2.npz": {
+          "sha256": "706a48c001f2d54d1779acf1095d9dddcbd2e17717bc30b067be9e3fb9c67bf1",
+          "size_bytes": 3763560
+        },
+        "chunk_00246600.000_2.npz": {
+          "sha256": "f21f65af6646de9db4c8c36d8ff4c90d3ad80c9307d8a43fce6a40f8ca065d1e",
+          "size_bytes": 3763560
+        },
+        "chunk_00250200.000_2.npz": {
+          "sha256": "78dc720f5f23bb745a50a907430697e930de3af446e10a0d69b8f1022af4bcea",
+          "size_bytes": 3763560
+        },
+        "chunk_00253800.000_2.npz": {
+          "sha256": "a7d0259136e034eb3f427c93960e3a7c0acf3d78da5dd7573bfdc4253b11c2ef",
+          "size_bytes": 3763560
+        },
+        "chunk_00257400.000_2.npz": {
+          "sha256": "452529fb2e7859a2af7663a54291c53e61f024f55bcad4791ff88736e40a83d0",
+          "size_bytes": 1883640
+        },
+        "checkpoint.npz": {
+          "sha256": "305f0ed456f7cab5af076d1e46c622c6660f975826fed2e9e3baf8e790f63c23",
+          "size_bytes": 2958
+        },
+        "event.npz": {
+          "sha256": "90597b64a3d7f83281497fd36f0a19ecf130ba6c0c183db139e5ddb054d364aa",
+          "size_bytes": 2958
+        },
+        "remesh_1.npz": {
+          "sha256": "e2e16b9198205b0e09fad14d8132327cfa9ebe2ddb010495d8cc25926b2e8fe3",
+          "size_bytes": 9904
+        },
+        "remesh_2.npz": {
+          "sha256": "983f00c126e1d8eac591e268e679812499988deef6f05c5519bbdbd0f5b2625b",
+          "size_bytes": 7024
+        }
+      }
+    }
+  ],
+  "entries": [
+    {
+      "experiment_id": "geometry_cross_p3_shrink_production_x1_fd48e0b0c765",
+      "case": "q23",
+      "mode": "M00",
+      "kind": "production",
+      "baseline": false,
+      "path": "work/studies/plot_payload/geometry_cross_p3_shrink_production_x1_fd48e0b0c765_series.npz",
+      "sha256": "a7f9b39e4d09185ee6809cd198099136693adcb7286b23bbdec81da146322048",
+      "analysis_hash": "be62d7933df175729083f50d78eead939a3b00e4505a76671fd857cc852808ade586640d412452ad9a4dffcb792918632fb60aa716d9e3a732f03d31251b8121[90992.16]",
+      "time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "sample_count": 14942,
+      "clock_quadrature": {
+        "full": 1.8151108374715812,
+        "half_sampling": 1.8151115774287003,
+        "absolute_difference": 7.399571191335497e-07,
+        "units": "dimensionless"
+      },
+      "clock_center_quadrature": {
+        "full": 2.4447866107665894,
+        "half_sampling": 2.4447869347895814,
+        "absolute_difference": 3.240229919931892e-07,
+        "units": "dimensionless"
+      },
+      "drivers_identity_error": 5.329070518200751e-15,
+      "thermal_equilibration_time_s": 9388.0,
+      "thermal_equilibration_status": "REACHED",
+      "thermal_equilibration_scope": "whole valid observation through cap; env criterion M00 only",
+      "derivative_method": "np.gradient on real timestamps separately within each grid stage; no display smoothing",
+      "front_thresholds": [
+        2.0,
+        1.0,
+        0.5,
+        0.15
+      ],
+      "front_volume_meaning": "wet geometric volume for monotone core; not water mass",
+      "exact_event_times_s": [
+        90992.16
+      ],
+      "event_state_source": "genuine state/reintegration; no time interpolation or endpoint freezing",
+      "tied_maximum_tolerance": 1e-09,
+      "profile_resampling": "201 xi points for visualization only; metrics on full FV/reconstructed nodes"
+    },
+    {
+      "experiment_id": "geometry_cross_p3_shrink_full_reference_x2_ed9065068e3d",
+      "case": "q23",
+      "mode": "M00",
+      "kind": "full_reference",
+      "baseline": false,
+      "path": "work/studies/plot_payload/geometry_cross_p3_shrink_full_reference_x2_ed9065068e3d_series.npz",
+      "sha256": "d5900903e16565e8235b25a129830c8030bb8a5159e23a1824d10ecbc3abc18a",
+      "analysis_hash": "be62d7933df175729083f50d78eead939a3b00e4505a76671fd857cc852808ade586640d412452ad9a4dffcb792918632fb60aa716d9e3a732f03d31251b8121[90915.48]",
+      "time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "sample_count": 14942,
+      "clock_quadrature": {
+        "full": 1.8137727785954543,
+        "half_sampling": 1.8137735184056105,
+        "absolute_difference": 7.398101562472448e-07,
+        "units": "dimensionless"
+      },
+      "clock_center_quadrature": {
+        "full": 2.443690351701198,
+        "half_sampling": 2.4436906752051883,
+        "absolute_difference": 3.2350399026270793e-07,
+        "units": "dimensionless"
+      },
+      "drivers_identity_error": 5.329070518200751e-15,
+      "thermal_equilibration_time_s": 9388.0,
+      "thermal_equilibration_status": "REACHED",
+      "thermal_equilibration_scope": "whole valid observation through cap; env criterion M00 only",
+      "derivative_method": "np.gradient on real timestamps separately within each grid stage; no display smoothing",
+      "front_thresholds": [
+        2.0,
+        1.0,
+        0.5,
+        0.15
+      ],
+      "front_volume_meaning": "wet geometric volume for monotone core; not water mass",
+      "exact_event_times_s": [
+        90915.48
+      ],
+      "event_state_source": "genuine state/reintegration; no time interpolation or endpoint freezing",
+      "tied_maximum_tolerance": 1e-09,
+      "profile_resampling": "201 xi points for visualization only; metrics on full FV/reconstructed nodes"
+    },
+    {
+      "experiment_id": "geometry_cross_p3_shrink_time_half_x1_ef21230afd4b",
+      "case": "q23",
+      "mode": "M00",
+      "kind": "time_half",
+      "baseline": false,
+      "path": "work/studies/plot_payload/geometry_cross_p3_shrink_time_half_x1_ef21230afd4b_series.npz",
+      "sha256": "4d4655faf51e32845b0efd6722dd41742af694cbe97cbd620ed11bb37fcc0bb9",
+      "analysis_hash": "be62d7933df175729083f50d78eead939a3b00e4505a76671fd857cc852808ade586640d412452ad9a4dffcb792918632fb60aa716d9e3a732f03d31251b8121[90992.16]",
+      "time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "sample_count": 14942,
+      "clock_quadrature": {
+        "full": 1.8151108374774,
+        "half_sampling": 1.8151115774345281,
+        "absolute_difference": 7.399571280153339e-07,
+        "units": "dimensionless"
+      },
+      "clock_center_quadrature": {
+        "full": 2.444786610777412,
+        "half_sampling": 2.4447869348004274,
+        "absolute_difference": 3.240230155299173e-07,
+        "units": "dimensionless"
+      },
+      "drivers_identity_error": 5.329070518200751e-15,
+      "thermal_equilibration_time_s": 9388.0,
+      "thermal_equilibration_status": "REACHED",
+      "thermal_equilibration_scope": "whole valid observation through cap; env criterion M00 only",
+      "derivative_method": "np.gradient on real timestamps separately within each grid stage; no display smoothing",
+      "front_thresholds": [
+        2.0,
+        1.0,
+        0.5,
+        0.15
+      ],
+      "front_volume_meaning": "wet geometric volume for monotone core; not water mass",
+      "exact_event_times_s": [
+        90992.16
+      ],
+      "event_state_source": "genuine state/reintegration; no time interpolation or endpoint freezing",
+      "tied_maximum_tolerance": 1e-09,
+      "profile_resampling": "201 xi points for visualization only; metrics on full FV/reconstructed nodes"
+    }
+  ],
+  "checks": [
+    {
+      "case": "q23",
+      "mode": "M00",
+      "reference_id": "geometry_cross_p3_shrink_full_reference_x2_ed9065068e3d",
+      "production_id": "geometry_cross_p3_shrink_production_x1_fd48e0b0c765",
+      "status": "PASS",
+      "full_schedule_reference_passed": true,
+      "time_half_passed": null,
+      "max_abs_T_K": 0.0004978579260637161,
+      "max_abs_C": 0.004967445809766435,
+      "max_abs_Cmax": 6.827593345171135e-05,
+      "event_relative": 0.0008434207243914936,
+      "event_delta_s": 76.68000000000035,
+      "thresholds": {
+        "T_K": 0.01,
+        "C": 0.01,
+        "event_s": null,
+        "event_relative": 0.002
+      },
+      "common_output_count": 14941,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 90992.16,
+          "T_K": 1.2283862815820612e-09,
+          "C": 0.002496682571140302,
+          "Cmax": 6.133365060276286e-05,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 90915.48,
+          "T_K": 1.2286136552575044e-09,
+          "C": 0.0024979544006401427,
+          "Cmax": 6.129667005347339e-05,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 160,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/geometry_cross_p3_shrink_full_reference_x2_ed9065068e3d_comparison.npz",
+      "series_sha256": "5c9c307b718a9d303fb7e13cf60cae32f5e4c77948d825da2d8bf61fd0bc3047"
+    },
+    {
+      "case": "q23",
+      "mode": "M00",
+      "reference_id": "geometry_cross_p3_shrink_time_half_x1_ef21230afd4b",
+      "production_id": "geometry_cross_p3_shrink_production_x1_fd48e0b0c765",
+      "status": "PASS",
+      "full_schedule_reference_passed": null,
+      "time_half_passed": true,
+      "max_abs_T_K": 5.466063157655299e-10,
+      "max_abs_C": 5.172307027123679e-12,
+      "max_abs_Cmax": 1.8276491431379327e-12,
+      "event_relative": 0.0,
+      "event_delta_s": 0.0,
+      "thresholds": {
+        "T_K": 0.001,
+        "C": 1e-05,
+        "event_s": 1.0,
+        "event_relative": null
+      },
+      "common_output_count": 14942,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 90992.16,
+          "T_K": 4.241655915393494e-10,
+          "C": 6.502576255229542e-13,
+          "Cmax": 6.502576255229542e-13,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 90992.16,
+          "T_K": 4.241655915393494e-10,
+          "C": 6.502576255229542e-13,
+          "Cmax": 6.502576255229542e-13,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/geometry_cross_p3_shrink_time_half_x1_ef21230afd4b_comparison.npz",
+      "series_sha256": "7c075176241c1a0e59d24f27691b8b60540dffeca111a0d3717e68b23fbfed0a"
+    }
+  ],
+  "transfers": [
+    {
+      "experiment_id": "geometry_cross_p3_shrink_production_x1_fd48e0b0c765",
+      "status": "PASS",
+      "expected_transfers": 2,
+      "records": [
+        {
+          "time_s": 300.0,
+          "relative_T_volume_error": 1.885948539023887e-16,
+          "relative_C_volume_error": 5.336129236716296e-16,
+          "finite": true,
+          "positive_moisture": true
+        },
+        {
+          "time_s": 1800.0,
+          "relative_T_volume_error": 1.8507995685169826e-16,
+          "relative_C_volume_error": 0.0,
+          "finite": true,
+          "positive_moisture": true
+        }
+      ],
+      "scope": "original conservative FV transfer; no claim of nonlinear total enthalpy conservation"
+    },
+    {
+      "experiment_id": "geometry_cross_p3_shrink_full_reference_x2_ed9065068e3d",
+      "status": "PASS",
+      "expected_transfers": 2,
+      "records": [
+        {
+          "time_s": 300.0,
+          "relative_T_volume_error": 1.8859485229929509e-16,
+          "relative_C_volume_error": 0.0,
+          "finite": true,
+          "positive_moisture": true
+        },
+        {
+          "time_s": 1800.0,
+          "relative_T_volume_error": 3.701598819479361e-16,
+          "relative_C_volume_error": 3.9060543535799305e-16,
+          "finite": true,
+          "positive_moisture": true
+        }
+      ],
+      "scope": "original conservative FV transfer; no claim of nonlinear total enthalpy conservation"
+    },
+    {
+      "experiment_id": "geometry_cross_p3_shrink_time_half_x1_ef21230afd4b",
+      "status": "PASS",
+      "expected_transfers": 2,
+      "records": [
+        {
+          "time_s": 300.0,
+          "relative_T_volume_error": 0.0,
+          "relative_C_volume_error": 3.5574194911442167e-16,
+          "finite": true,
+          "positive_moisture": true
+        },
+        {
+          "time_s": 1800.0,
+          "relative_T_volume_error": 0.0,
+          "relative_C_volume_error": 0.0,
+          "finite": true,
+          "positive_moisture": true
+        }
+      ],
+      "scope": "original conservative FV transfer; no claim of nonlinear total enthalpy conservation"
+    }
+  ],
+  "events": [
+    {
+      "experiment_id": "geometry_cross_p3_shrink_production_x1_fd48e0b0c765",
+      "status": "PASS",
+      "event": {
+        "left_s": 90991.796875,
+        "right_s": 90991.8125,
+        "width_s": 0.015625,
+        "raw_event_s": 90991.8125,
+        "report_s": 90992.16,
+        "report_h": 25.2756,
+        "left_max_C": 0.15000000034961775,
+        "right_max_C": 0.14999998782485152,
+        "report_max_C": 0.1499997092753358
+      },
+      "method": "original Event_Locate; saved genuinely reintegrated state"
+    },
+    {
+      "experiment_id": "geometry_cross_p3_shrink_full_reference_x2_ed9065068e3d",
+      "status": "PASS",
+      "event": {
+        "left_s": 90915.3984375,
+        "right_s": 90915.40234375,
+        "width_s": 0.00390625,
+        "raw_event_s": 90915.40234375,
+        "report_s": 90915.48,
+        "report_h": 25.2543,
+        "left_max_C": 0.15000000309259054,
+        "right_max_C": 0.1499999999534216,
+        "report_max_C": 0.14999993754680738
+      },
+      "method": "original Event_Locate; saved genuinely reintegrated state"
+    },
+    {
+      "experiment_id": "geometry_cross_p3_shrink_time_half_x1_ef21230afd4b",
+      "status": "PASS",
+      "event": {
+        "left_s": 90991.796875,
+        "right_s": 90991.8046875,
+        "width_s": 0.0078125,
+        "raw_event_s": 90991.8046875,
+        "report_s": 90992.16,
+        "report_h": 25.2756,
+        "left_max_C": 0.15000000034896743,
+        "right_max_C": 0.1499999940865837,
+        "report_max_C": 0.14999970927468553
+      },
+      "method": "original Event_Locate; saved genuinely reintegrated state"
+    }
+  ],
+  "material_appendix": 3,
+  "shrinking_radius": true,
+  "inherited_pass": false
+}

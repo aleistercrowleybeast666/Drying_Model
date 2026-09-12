@@ -80,12 +80,17 @@ def Studies_Check(root,allow_incomplete=False):
     numerical_failures=[c['reference_id'] for c in manifest['checks'] if c['status']!='PASS']
     numerical_failures += [a['experiment_id'] for a in manifest.get('thermal_audits',[]) if a['status']!='PASS']
     numerical_failures += [a['case']+'_M00_remesh' for a in manifest.get('remesh_front_audits',[]) if a['status']!='PASS']
+    technical=None
+    if manifest.get('technical_extension'):
+        from drying.studies.technical_audit import Technical_CheckFinal
+        technical=Technical_CheckFinal(root,manifest)
+        numerical_failures+=technical['problems']
     gui_path=root/'work/studies/diagnostics/gui_cli_check.json'
     gui=Baseline_ReadJson(gui_path) if gui_path.exists() else dict(status='NOT_RUN',manual_interaction=False)
     if gui.get('status')=='PASS' and gui.get('app_sha256')!=Baseline_HashFile(root/'app.py'):gui=dict(gui,status='STALE_TEST')
     result=dict(status='INCOMPLETE' if problems else 'NUMERICAL_CHECK_FAILED' if numerical_failures else 'PASS',baseline=baseline,artifact_issues=problems,
         current_trajectories=index.get('current_complete_count'),expected_trajectories=38,checks=len(manifest['checks']),
-        numerical_failures=numerical_failures,thermal_audits=manifest.get('thermal_audits',[]),
+        technical_extension=technical,numerical_failures=numerical_failures,thermal_audits=manifest.get('thermal_audits',[]),
         gui=gui,gui_scope='hidden Tk configuration and actual read-only child process; no full manual clicking session claimed',
         notes=['2D remains PARTIAL','fixed-radius appendix-4 control may be NOT_DRY_WITHIN_72H','legacy fixed grid is diagnostic only'])
     Storage_WriteJson(root/'work/studies/validation/acceptance.json',result)

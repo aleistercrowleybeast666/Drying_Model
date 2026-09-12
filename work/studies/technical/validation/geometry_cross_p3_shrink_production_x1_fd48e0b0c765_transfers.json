@@ -1,0 +1,22 @@
+{
+  "experiment_id": "geometry_cross_p3_shrink_production_x1_fd48e0b0c765",
+  "status": "PASS",
+  "expected_transfers": 2,
+  "records": [
+    {
+      "time_s": 300.0,
+      "relative_T_volume_error": 1.885948539023887e-16,
+      "relative_C_volume_error": 5.336129236716296e-16,
+      "finite": true,
+      "positive_moisture": true
+    },
+    {
+      "time_s": 1800.0,
+      "relative_T_volume_error": 1.8507995685169826e-16,
+      "relative_C_volume_error": 0.0,
+      "finite": true,
+      "positive_moisture": true
+    }
+  ],
+  "scope": "original conservative FV transfer; no claim of nonlinear total enthalpy conservation"
+}
