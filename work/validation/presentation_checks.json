@@ -41,8 +41,8 @@
   ],
   "png_count": 14,
   "gif_count": 5,
-  "test_count": 65,
-  "unchanged_solver_cache_files": 2758,
+  "test_count": 91,
+  "unchanged_solver_cache_files": 340,
   "core_unchanged": true,
   "numerical_note": "Numerical acceptance is read from results/status.json; publication checks do not change numerical PASS/FAIL."
 }

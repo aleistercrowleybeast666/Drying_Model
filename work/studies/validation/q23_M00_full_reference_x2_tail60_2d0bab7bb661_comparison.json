@@ -1,0 +1,87 @@
+{
+  "case": "q23",
+  "mode": "M00",
+  "reference_id": "q23_M00_full_reference_x2_tail60_2d0bab7bb661",
+  "production_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+  "status": "PASS",
+  "full_schedule_reference_passed": true,
+  "time_half_passed": null,
+  "max_abs_T_K": 0.00043059672435674656,
+  "max_abs_C": 0.002025627860481549,
+  "max_abs_Cmax": 9.976979392101182e-05,
+  "event_relative": 0.0016496716301676556,
+  "event_delta_s": 341.64000000000954,
+  "thresholds": {
+    "T_K": 0.01,
+    "C": 0.01,
+    "event_s": null,
+    "event_relative": 0.002
+  },
+  "common_output_count": 14941,
+  "common_time_range_s": [
+    0.0,
+    259200.0
+  ],
+  "events": [
+    {
+      "time_s": 207437.4,
+      "T_K": 9.463292371947318e-10,
+      "C": 0.0004382186982105074,
+      "Cmax": 9.923043593762504e-05,
+      "source": "genuine reintegration to exact common physical time"
+    },
+    {
+      "time_s": 207095.75999999998,
+      "T_K": 9.466134542890359e-10,
+      "C": 0.0004386188753449233,
+      "Cmax": 9.921135374882373e-05,
+      "source": "genuine reintegration to exact common physical time"
+    }
+  ],
+  "full_history_verified": true,
+  "reference_pairing_verified": true,
+  "reference_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 300.0,
+      "nr": 400,
+      "nz": 1
+    },
+    {
+      "t_start": 300.0,
+      "t_end": 1800.0,
+      "nr": 320,
+      "nz": 1
+    },
+    {
+      "t_start": 1800.0,
+      "t_end": 259200.0,
+      "nr": 160,
+      "nz": 1
+    }
+  ],
+  "production_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 300.0,
+      "nr": 200,
+      "nz": 1
+    },
+    {
+      "t_start": 300.0,
+      "t_end": 1800.0,
+      "nr": 160,
+      "nz": 1
+    },
+    {
+      "t_start": 1800.0,
+      "t_end": 259200.0,
+      "nr": 80,
+      "nz": 1
+    }
+  ],
+  "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+  "official_M00_status_unchanged": true,
+  "series_path": "work/studies/validation/q23_M00_full_reference_x2_tail60_2d0bab7bb661_comparison.npz",
+  "series_sha256": "9a1c808bda8d76c3fe007f464d4a599912ff0dce32aa499a9f7d2aa0486e9b4a"
+}

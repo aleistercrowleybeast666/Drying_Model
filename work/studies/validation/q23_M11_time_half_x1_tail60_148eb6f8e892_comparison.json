@@ -1,0 +1,87 @@
+{
+  "case": "q23",
+  "mode": "M11",
+  "reference_id": "q23_M11_time_half_x1_tail60_148eb6f8e892",
+  "production_id": "q23_M11_production_x1_tail60_38ef6e17d315",
+  "status": "PASS",
+  "full_schedule_reference_passed": null,
+  "time_half_passed": true,
+  "max_abs_T_K": 1.8405330592941027e-09,
+  "max_abs_C": 5.498712596363475e-12,
+  "max_abs_Cmax": 1.1302070390684094e-12,
+  "event_relative": 0.0,
+  "event_delta_s": 0.0,
+  "thresholds": {
+    "T_K": 0.001,
+    "C": 1e-05,
+    "event_s": 1.0,
+    "event_relative": null
+  },
+  "common_output_count": 14942,
+  "common_time_range_s": [
+    0.0,
+    259200.0
+  ],
+  "events": [
+    {
+      "time_s": 218409.47999999998,
+      "T_K": 1.3221779227023944e-10,
+      "C": 2.3370194668359545e-14,
+      "Cmax": 2.2648549702353193e-14,
+      "source": "genuine reintegration to exact common physical time"
+    },
+    {
+      "time_s": 218409.47999999998,
+      "T_K": 1.3221779227023944e-10,
+      "C": 2.3370194668359545e-14,
+      "Cmax": 2.2648549702353193e-14,
+      "source": "genuine reintegration to exact common physical time"
+    }
+  ],
+  "full_history_verified": true,
+  "reference_pairing_verified": true,
+  "reference_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 300.0,
+      "nr": 200,
+      "nz": 1
+    },
+    {
+      "t_start": 300.0,
+      "t_end": 1800.0,
+      "nr": 160,
+      "nz": 1
+    },
+    {
+      "t_start": 1800.0,
+      "t_end": 259200.0,
+      "nr": 80,
+      "nz": 1
+    }
+  ],
+  "production_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 300.0,
+      "nr": 200,
+      "nz": 1
+    },
+    {
+      "t_start": 300.0,
+      "t_end": 1800.0,
+      "nr": 160,
+      "nz": 1
+    },
+    {
+      "t_start": 1800.0,
+      "t_end": 259200.0,
+      "nr": 80,
+      "nz": 1
+    }
+  ],
+  "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+  "official_M00_status_unchanged": true,
+  "series_path": "work/studies/validation/q23_M11_time_half_x1_tail60_148eb6f8e892_comparison.npz",
+  "series_sha256": "42f5d379892a29b4ebba92c16627203a23bd7667576f95c24156dd414bc96763"
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "changed": [],
+  "checked_study_files": 2299,
+  "frozen_baseline_before": {
+    "status": "PASS",
+    "baseline_id": "52a1433275fe31fa47ce7c80b1373e98c50508de5544f573123311138fdce7e2",
+    "protected_files": 410,
+    "official_workbooks_unchanged": true,
+    "production_arrays_and_events_unchanged": true
+  },
+  "frozen_baseline_after": {
+    "status": "PASS",
+    "baseline_id": "52a1433275fe31fa47ce7c80b1373e98c50508de5544f573123311138fdce7e2",
+    "protected_files": 410,
+    "official_workbooks_unchanged": true,
+    "production_arrays_and_events_unchanged": true
+  },
+  "solver_imports_forbidden": true
+}

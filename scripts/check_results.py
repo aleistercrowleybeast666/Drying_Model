@@ -19,7 +19,7 @@ def Check_Run(cache_baseline=None):
     results = _ROOT/'results'
     assert {p.name for p in results.iterdir()} == {
         'tables', 'q1', 'q2', 'q3', 'q4', 'status.json', 'overview.md',
-        'q3_q4_axial_section.gif', 'q3_q4_radial_section.gif','q3_q4_cutaway_cylinder.gif'}
+        'animations', 'studies'}
     # Excel's owner files are application metadata, not exported workbooks.
     assert {p.name for p in (results/'tables').iterdir() if not (p.name.startswith('~$') and p.suffix=='.xlsx')} == {f'result{q}.xlsx' for q in range(1, 5)}
     status = Output_ReadJson(results/'status.json')
@@ -79,7 +79,7 @@ def Check_Run(cache_baseline=None):
     animations = Output_ReadJson(_ROOT/'work/diagnostics/animations_manifest.json', [])
     expected_frames = Case_LoadConfig(_ROOT)['display']['frames']
     assert len(animations) == 5
-    assert len(list(results.rglob('*.gif'))) == 5
+    assert len(list((results/'animations').glob('*.gif'))) == 5
     for item in animations:
         assert item['decode_check'] == 'PASSED_ALL_FRAMES'
         assert item['fixed_color_limits'] == [['temperature_C', 28, 53], ['moisture_kg_kg', 0, 2.55]]
@@ -93,7 +93,7 @@ def Check_Run(cache_baseline=None):
                 assert len(case['frame_times_s']) == item['frames']
                 assert case['frame_times_s'][0] == 0 and case['frame_times_s'][-1] == case['end_s']
                 assert np.all(np.diff(case['frame_times_s']) >= 0)
-    unchanged = None
+    unchanged = None; core_unchanged = None
     if cache_baseline:
         baseline = Output_ReadJson(_ROOT/cache_baseline)
         for name, recorded in baseline['files'].items():
@@ -103,12 +103,13 @@ def Check_Run(cache_baseline=None):
                 assert hashlib.sha256(path.read_bytes()).hexdigest() == recorded['sha256'], name
         for name, digest in baseline.get('core',{}).items():
             assert hashlib.sha256((_ROOT/'src/drying'/name).read_bytes()).hexdigest() == digest, name
+        if baseline.get('core'):core_unchanged=True
         unchanged = len(baseline['files'])
     tests = Output_ReadJson(_ROOT/'work/validation/program_tests.json')
     assert tests['exit_status'] == 0 and all(item['outcome'] == 'passed' for item in tests['tests'])
-    report = dict(status='PASSED', production_state_consistency='PASSED_ALL_QUESTIONS', questions=records, png_count=len(list(results.rglob('*.png'))),
+    report = dict(status='PASSED', production_state_consistency='PASSED_ALL_QUESTIONS', questions=records, png_count=len(list(results.glob('q*/*.png'))),
         gif_count=5, test_count=len(tests['tests']), unchanged_solver_cache_files=unchanged,
-        core_unchanged=unchanged is not None,
+        core_unchanged=core_unchanged,
         numerical_note='Numerical acceptance is read from results/status.json; publication checks do not change numerical PASS/FAIL.')
     Storage_WriteJson(_ROOT/'work/validation/presentation_checks.json', report)
     print(json.dumps(report, ensure_ascii=False, indent=2))

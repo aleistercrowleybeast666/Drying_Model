@@ -9,6 +9,10 @@ _ROOT=Path(__file__).resolve().parent
 sys.path.insert(0,str(_ROOT/'src'))
 
 
+class ComputeStopped(Exception):
+    """Cooperative orchestration stop after the previous phase saved its cache."""
+
+
 def Compute_Main():
     parser=argparse.ArgumentParser(description='计算、验证、导出并生成独立绘图数据；不生成 PNG/GIF')
     options=parser.add_mutually_exclusive_group()
@@ -32,6 +36,8 @@ def Compute_Main():
     path=_ROOT/'work/diagnostics'/('payload_status.json' if args.payload_only else 'compute_status.json')
     prior_wall=json.loads(path.read_text(encoding='utf-8')).get('wall_s',0.) if args.resume_finalize and path.exists() else 0.
     def Record(status,**extra):
+        if status=='RUNNING' and (_ROOT/'work/studies/BASELINE_STOP').exists():
+            raise ComputeStopped('STOPPED_AT_PHASE_BOUNDARY: completed numerical phases retain their checkpoints')
         Storage_WriteJson(path,dict(status=status,phase=phase,wall_s=prior_wall+time.perf_counter()-start,**extra))
     try:
         Record('RUNNING')
@@ -91,6 +97,10 @@ def Compute_Main():
         manifest['manifest_hash']=Payload_GetSeal(manifest); Storage_WriteJson(manifest_path,manifest)
         print('COMPUTE_COMPLETE: Excel and sealed plot payload ready; PNG/GIF rendering deferred to plot.py',flush=True)
         return 0
+    except ComputeStopped as error:
+        Record('STOPPED',reason=str(error))
+        print(str(error),flush=True)
+        return 2
     except Exception as error:
         Record('FAILED',error=str(error))
         Diagnostics_RecordException(_ROOT,str(error).split(':')[0],error,phase=phase)

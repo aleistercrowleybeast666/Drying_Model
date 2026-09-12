@@ -944,7 +944,7 @@
         "compare": "results/q3/q3_1d_2d_compare.png",
         "section": "results/q3/q3_max_error_section.png",
         "surface_png": "results/q3/q3_3d.png",
-        "surface_gif": "results/q3/q3_3d.gif"
+        "surface_gif": "results/animations/q3_3d.gif"
       },
       "representative_times_s": [
         1800.0,
@@ -1631,7 +1631,7 @@
         "compare": "results/q4/q4_1d_2d_compare.png",
         "section": "results/q4/q4_max_error_section.png",
         "surface_png": "results/q4/q4_3d.png",
-        "surface_gif": "results/q4/q4_3d.gif"
+        "surface_gif": "results/animations/q4_3d.gif"
       },
       "representative_times_s": [
         1800.0,
@@ -1715,15 +1715,15 @@
     "results/q3/q3_1d_2d_compare.png",
     "results/q3/q3_max_error_section.png",
     "results/q3/q3_3d.png",
-    "results/q3/q3_3d.gif",
+    "results/animations/q3_3d.gif",
     "results/q4/q4_curves.png",
     "results/q4/q4_1d_2d_compare.png",
     "results/q4/q4_max_error_section.png",
     "results/q4/q4_3d.png",
-    "results/q4/q4_3d.gif",
-    "results/q3_q4_axial_section.gif",
-    "results/q3_q4_radial_section.gif",
-    "results/q3_q4_cutaway_cylinder.gif"
+    "results/animations/q4_3d.gif",
+    "results/animations/q3_q4_axial_section.gif",
+    "results/animations/q3_q4_radial_section.gif",
+    "results/animations/q3_q4_cutaway_cylinder.gif"
   ],
   "color_limits": {
     "temperature_C": [
@@ -2005,26 +2005,26 @@
   "overview_payload": "work/plot_payload/overview_data.json",
   "cross_question_gifs": {
     "axial_section": {
-      "output": "results/q3_q4_axial_section.gif",
+      "output": "results/animations/q3_q4_axial_section.gif",
       "datasets": [
         "work/plot_payload/q3_2d_frames.npz",
         "work/plot_payload/q4_2d_frames.npz"
       ]
     },
     "radial_section": {
-      "output": "results/q3_q4_radial_section.gif",
+      "output": "results/animations/q3_q4_radial_section.gif",
       "datasets": [
         "work/plot_payload/q3_1d_frames.npz",
         "work/plot_payload/q4_1d_frames.npz"
       ]
     },
     "cutaway_cylinder": {
-      "output": "results/q3_q4_cutaway_cylinder.gif",
+      "output": "results/animations/q3_q4_cutaway_cylinder.gif",
       "datasets": [
         "work/plot_payload/q3_2d_frames.npz",
         "work/plot_payload/q4_2d_frames.npz"
       ]
     }
   },
-  "manifest_hash": "41f90893b769f00ca0c8daf08455ed65ac017de0027abec21780b76e528a5999"
+  "manifest_hash": "3ae965f4e60b3cd1f3f22de3a59e47b38a0b956eea995262fd331d98791456a9"
 }

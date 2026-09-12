@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "manifest_seal": "098bb602f8ee805b75f5eccb3e7fe61ee0644881637fc4c3ef130c217e50b55d",
+  "figures": "All nine final figures checked as a contact sheet",
+  "gifs": "Early, middle and final decoded frames checked; final label spacing rechecked on temperature frame 199 and moisture frames 10 and 199",
+  "gif_geometry": "Q3 fixed radius; Q4 actual shrinking radius; common physical axes and time",
+  "workbooks": "All 45 sheets rendered; representative source, units, mode and surface panels visually reviewed; all 9559 preview cells and styles match final sources",
+  "automated_full_decode": "Both GIFs: 200 frames, 1800x900, all frames decoded",
+  "files": [
+    {
+      "path": "results/studies/figures/01_end_effect_extent.png",
+      "sha256": "07d982e60d886ad056f32df5e205d575c1022403d50676962563ca56d1319a26"
+    },
+    {
+      "path": "results/studies/figures/02_drying_fronts.png",
+      "sha256": "0094a7a17b5c1b9e65a65e1660c5661a6a9d1ec5ea2cd7b03bc4d7c3f14545ec"
+    },
+    {
+      "path": "results/studies/figures/03_drying_kinetics.png",
+      "sha256": "dc034e545861f096a0b6cea0c3b222a0b0e21c94c3e068524b150a29b7acc025"
+    },
+    {
+      "path": "results/studies/figures/04_diffusion_clock_drivers.png",
+      "sha256": "d199a9a6ace31ec6b9c7abe972dace9b4c0394d66e2516ead81384977f809d27"
+    },
+    {
+      "path": "results/studies/figures/05_geometry_control.png",
+      "sha256": "22c22135e5b86ab03949d4495a3576ecbbc93585102e30d07f1def3e9ec2cabe"
+    },
+    {
+      "path": "results/studies/figures/06_environment_robustness.png",
+      "sha256": "9c1ea0b0a9fc0655134835375092d15ab6255d6f379994c2a51cda090330ee8a"
+    },
+    {
+      "path": "results/studies/figures/07_thermal_modes.png",
+      "sha256": "8d28148d6c570fde663b28ccf26cf1a83e55c437792bdcc2f625157785ae9792"
+    },
+    {
+      "path": "results/studies/figures/08_thermal_interactions.png",
+      "sha256": "56ec9970cc287a426c0414cd9d13e0bf53456183f297f2904e4b20c97d0cf78e"
+    },
+    {
+      "path": "results/studies/figures/09_verification_evidence.png",
+      "sha256": "0e7323423d61d34c7ec67545f24f6f168cb40b6adafa40d6fa3603553a13b007"
+    },
+    {
+      "path": "results/studies/animations/thermal_temperature.gif",
+      "sha256": "d860d9999d288ddcbc61e86a9580b6f66b5dac2ae03bdc37b5ffaf2c3ed21af8"
+    },
+    {
+      "path": "results/studies/animations/thermal_moisture.gif",
+      "sha256": "09747e5f86410352b3ee8095d3b8a808dd5fe653b94d61d646a9a769476c9c58"
+    }
+  ]
+}

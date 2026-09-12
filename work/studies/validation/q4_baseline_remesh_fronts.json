@@ -1,0 +1,220 @@
+{
+  "case": "q4",
+  "mode": "M00",
+  "status": "PASS",
+  "records": [
+    {
+      "time_s": 600.0,
+      "fronts_before": [
+        {
+          "radius_m": 0.018964397064124748,
+          "relative_radius": 0.9687245222607568,
+          "wet_volume_fraction": 0.9384272000293314,
+          "status": "MONOTONE_CORE",
+          "crossings": 1
+        },
+        {
+          "radius_m": 0.019576666666666666,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.019576666666666666,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.019576666666666666,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        }
+      ],
+      "fronts_after": [
+        {
+          "radius_m": 0.018966324527328025,
+          "relative_radius": 0.9688229794310246,
+          "wet_volume_fraction": 0.9386179654736074,
+          "status": "MONOTONE_CORE",
+          "crossings": 1
+        },
+        {
+          "radius_m": 0.019576666666666666,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.019576666666666666,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.019576666666666666,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        }
+      ],
+      "front_radius_change_m": [
+        1.927463203276608e-06,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relative_volume_integral_C_error": 3.5997535687740123e-16,
+      "note": "Front jumps are projection diagnostics at a common time; not physical recession rates."
+    },
+    {
+      "time_s": 3600.0,
+      "fronts_before": [
+        {
+          "radius_m": 0.015229846376878478,
+          "relative_radius": 0.8489323509965706,
+          "wet_volume_fraction": 0.7206861365685645,
+          "status": "MONOTONE_CORE",
+          "crossings": 1
+        },
+        {
+          "radius_m": 0.017905439281675886,
+          "relative_radius": 0.9980735385549546,
+          "wet_volume_fraction": 0.9961507883636085,
+          "status": "MONOTONE_CORE",
+          "crossings": 1
+        },
+        {
+          "radius_m": 0.01794,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.01794,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        }
+      ],
+      "fronts_after": [
+        {
+          "radius_m": 0.015227796096856407,
+          "relative_radius": 0.8488180655995767,
+          "wet_volume_fraction": 0.7204921084882073,
+          "status": "MONOTONE_CORE",
+          "crossings": 1
+        },
+        {
+          "radius_m": 0.017905277796032744,
+          "relative_radius": 0.998064537125571,
+          "wet_volume_fraction": 0.9961328202676802,
+          "status": "MONOTONE_CORE",
+          "crossings": 1
+        },
+        {
+          "radius_m": 0.01794,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.01794,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        }
+      ],
+      "front_radius_change_m": [
+        -2.050280022071471e-06,
+        -1.6148564314227842e-07,
+        0.0,
+        0.0
+      ],
+      "relative_volume_integral_C_error": 0.0,
+      "note": "Front jumps are projection diagnostics at a common time; not physical recession rates."
+    },
+    {
+      "time_s": 21600.0,
+      "fronts_before": [
+        {
+          "radius_m": 0.0,
+          "relative_radius": 0.0,
+          "wet_volume_fraction": 0.0,
+          "status": "ALL_DRY",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.010169104288015684,
+          "relative_radius": 0.7401094823883321,
+          "wet_volume_fraction": 0.5477620459211249,
+          "status": "MONOTONE_CORE",
+          "crossings": 1
+        },
+        {
+          "radius_m": 0.013348185681919145,
+          "relative_radius": 0.9714836740843626,
+          "wet_volume_fraction": 0.9437805290124521,
+          "status": "MONOTONE_CORE",
+          "crossings": 1
+        },
+        {
+          "radius_m": 0.013740000000000002,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        }
+      ],
+      "fronts_after": [
+        {
+          "radius_m": 0.0,
+          "relative_radius": 0.0,
+          "wet_volume_fraction": 0.0,
+          "status": "ALL_DRY",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.010167135769388267,
+          "relative_radius": 0.7399662132014749,
+          "wet_volume_fraction": 0.5475499966797307,
+          "status": "MONOTONE_CORE",
+          "crossings": 1
+        },
+        {
+          "radius_m": 0.013344634715275961,
+          "relative_radius": 0.9712252340084395,
+          "wet_volume_fraction": 0.9432784551747481,
+          "status": "MONOTONE_CORE",
+          "crossings": 1
+        },
+        {
+          "radius_m": 0.013740000000000002,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        }
+      ],
+      "front_radius_change_m": [
+        0.0,
+        -1.9685186274168154e-06,
+        -3.550966643183634e-06,
+        0.0
+      ],
+      "relative_volume_integral_C_error": 2.084378786412378e-16,
+      "note": "Front jumps are projection diagnostics at a common time; not physical recession rates."
+    }
+  ]
+}

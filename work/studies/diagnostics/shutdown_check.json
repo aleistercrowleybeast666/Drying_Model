@@ -1,0 +1,8 @@
+{
+  "checked_at": "2026-09-12T06:34:11.7005771+08:00",
+  "shutdown_executed": false,
+  "reason": "Another Codex task latest turn is interrupted; all-other-tasks-completed condition is not satisfied",
+  "unfinished_thread_id": "01a070f7-0ba7-7d53-ba0f-9e025b94256d",
+  "latest_turn_status": "interrupted",
+  "this_study_acceptance": "PASS"
+}

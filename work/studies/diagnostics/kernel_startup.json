@@ -1,0 +1,141 @@
+{
+  "measured_at": "2026-09-12T03:55:03.440488+08:00",
+  "records": [
+    {
+      "mode": "M00",
+      "case": "q1",
+      "experiment_id": "q1_M00_production_x1_tail60_967c1c2e3544",
+      "compile_or_load_s": 0.369798500003526,
+      "physical_steps": 0,
+      "source": {
+        "trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8"
+      },
+      "interpretation": "fresh process; compile/load plus wrapper setup; zero-duration call, no trajectory recomputation"
+    },
+    {
+      "mode": "M10",
+      "case": "q1",
+      "experiment_id": "q1_M10_production_x1_tail60_3195d8f95b6d",
+      "compile_or_load_s": 8.767483600007836,
+      "physical_steps": 0,
+      "source": {
+        "trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8",
+        "thermal.py": "536b304059ffcda2ee7e89a25020cacdeb5bb58ba57e0941b96ab6b56cb756b4",
+        "water.py": "2aef3bd19bdc53a0bef98db57aec8392350979e0b6dff6da697263cdbb994dd3"
+      },
+      "interpretation": "fresh process; compile/load plus wrapper setup; zero-duration call, no trajectory recomputation"
+    },
+    {
+      "mode": "M10",
+      "case": "q23",
+      "experiment_id": "q23_M10_production_x1_tail60_f001afde885f",
+      "compile_or_load_s": 5.08022480001091,
+      "physical_steps": 0,
+      "source": {
+        "trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8",
+        "thermal.py": "536b304059ffcda2ee7e89a25020cacdeb5bb58ba57e0941b96ab6b56cb756b4",
+        "water.py": "2aef3bd19bdc53a0bef98db57aec8392350979e0b6dff6da697263cdbb994dd3"
+      },
+      "interpretation": "fresh process; compile/load plus wrapper setup; zero-duration call, no trajectory recomputation"
+    },
+    {
+      "mode": "M10",
+      "case": "q4",
+      "experiment_id": "q4_M10_production_x2_tail60_16fad782a30b",
+      "compile_or_load_s": 5.175691599986749,
+      "physical_steps": 0,
+      "source": {
+        "trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8",
+        "thermal.py": "536b304059ffcda2ee7e89a25020cacdeb5bb58ba57e0941b96ab6b56cb756b4",
+        "water.py": "2aef3bd19bdc53a0bef98db57aec8392350979e0b6dff6da697263cdbb994dd3"
+      },
+      "interpretation": "fresh process; compile/load plus wrapper setup; zero-duration call, no trajectory recomputation"
+    },
+    {
+      "mode": "M01",
+      "case": "q1",
+      "experiment_id": "q1_M01_production_x1_tail60_9528c86985e2",
+      "compile_or_load_s": 5.259234800003469,
+      "physical_steps": 0,
+      "source": {
+        "trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8",
+        "thermal.py": "536b304059ffcda2ee7e89a25020cacdeb5bb58ba57e0941b96ab6b56cb756b4",
+        "water.py": "2aef3bd19bdc53a0bef98db57aec8392350979e0b6dff6da697263cdbb994dd3"
+      },
+      "interpretation": "fresh process; compile/load plus wrapper setup; zero-duration call, no trajectory recomputation"
+    },
+    {
+      "mode": "M01",
+      "case": "q23",
+      "experiment_id": "q23_M01_production_x1_tail60_182fbf89b7a4",
+      "compile_or_load_s": 5.2415287000039825,
+      "physical_steps": 0,
+      "source": {
+        "trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8",
+        "thermal.py": "536b304059ffcda2ee7e89a25020cacdeb5bb58ba57e0941b96ab6b56cb756b4",
+        "water.py": "2aef3bd19bdc53a0bef98db57aec8392350979e0b6dff6da697263cdbb994dd3"
+      },
+      "interpretation": "fresh process; compile/load plus wrapper setup; zero-duration call, no trajectory recomputation"
+    },
+    {
+      "mode": "M01",
+      "case": "q4",
+      "experiment_id": "q4_M01_production_x1_tail60_c5eab22374c1",
+      "compile_or_load_s": 5.21111249999376,
+      "physical_steps": 0,
+      "source": {
+        "trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8",
+        "thermal.py": "536b304059ffcda2ee7e89a25020cacdeb5bb58ba57e0941b96ab6b56cb756b4",
+        "water.py": "2aef3bd19bdc53a0bef98db57aec8392350979e0b6dff6da697263cdbb994dd3"
+      },
+      "interpretation": "fresh process; compile/load plus wrapper setup; zero-duration call, no trajectory recomputation"
+    },
+    {
+      "mode": "M11",
+      "case": "q1",
+      "experiment_id": "q1_M11_production_x1_tail60_5590317f2af6",
+      "compile_or_load_s": 5.563358600003994,
+      "physical_steps": 0,
+      "source": {
+        "trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8",
+        "thermal.py": "536b304059ffcda2ee7e89a25020cacdeb5bb58ba57e0941b96ab6b56cb756b4",
+        "water.py": "2aef3bd19bdc53a0bef98db57aec8392350979e0b6dff6da697263cdbb994dd3"
+      },
+      "interpretation": "fresh process; compile/load plus wrapper setup; zero-duration call, no trajectory recomputation"
+    },
+    {
+      "mode": "M11",
+      "case": "q23",
+      "experiment_id": "q23_M11_production_x1_tail60_38ef6e17d315",
+      "compile_or_load_s": 5.656260400006431,
+      "physical_steps": 0,
+      "source": {
+        "trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8",
+        "thermal.py": "536b304059ffcda2ee7e89a25020cacdeb5bb58ba57e0941b96ab6b56cb756b4",
+        "water.py": "2aef3bd19bdc53a0bef98db57aec8392350979e0b6dff6da697263cdbb994dd3"
+      },
+      "interpretation": "fresh process; compile/load plus wrapper setup; zero-duration call, no trajectory recomputation"
+    },
+    {
+      "mode": "M11",
+      "case": "q4",
+      "experiment_id": "q4_M11_production_x2_tail60_7848b38bac48",
+      "compile_or_load_s": 5.299114400011604,
+      "physical_steps": 0,
+      "source": {
+        "trajectory.py": "3fa149c3fb16316bb3cb6df53c5818a589420b2820fb869b276e695aa7819ab8",
+        "thermal.py": "536b304059ffcda2ee7e89a25020cacdeb5bb58ba57e0941b96ab6b56cb756b4",
+        "water.py": "2aef3bd19bdc53a0bef98db57aec8392350979e0b6dff6da697263cdbb994dd3"
+      },
+      "interpretation": "fresh process; compile/load plus wrapper setup; zero-duration call, no trajectory recomputation"
+    }
+  ],
+  "historical_trajectory_timing": "trajectory wall_s records actual solver time including any original JIT; this fresh benchmark is separate and is not subtracted retroactively",
+  "baseline": {
+    "status": "PASS",
+    "baseline_id": "52a1433275fe31fa47ce7c80b1373e98c50508de5544f573123311138fdce7e2",
+    "protected_files": 410,
+    "official_workbooks_unchanged": true,
+    "production_arrays_and_events_unchanged": true
+  }
+}

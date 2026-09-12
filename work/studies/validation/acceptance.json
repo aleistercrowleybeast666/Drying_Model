@@ -1,0 +1,258 @@
+{
+  "status": "PASS",
+  "baseline": {
+    "status": "PASS",
+    "baseline_id": "52a1433275fe31fa47ce7c80b1373e98c50508de5544f573123311138fdce7e2",
+    "protected_files": 410,
+    "official_workbooks_unchanged": true,
+    "production_arrays_and_events_unchanged": true
+  },
+  "artifact_issues": [],
+  "current_trajectories": 38,
+  "expected_trajectories": 38,
+  "checks": 21,
+  "numerical_failures": [],
+  "thermal_audits": [
+    {
+      "experiment_id": "q1_M10_production_x1_tail60_3195d8f95b6d",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q1_M10_full_reference_x2_tail60_9bf79114004f",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q1_M10_time_half_x1_tail60_49c14e8ae0fa",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q23_M10_production_x1_tail60_f001afde885f",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q23_M10_full_reference_x2_tail60_b7daa96bab55",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q23_M10_time_half_x1_tail60_01be6b03ca18",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q1_M01_production_x1_tail60_9528c86985e2",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q1_M01_full_reference_x2_tail60_554bbde84f81",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q1_M01_time_half_x1_tail60_e0b5e7d57975",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q23_M01_production_x1_tail60_182fbf89b7a4",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q23_M01_full_reference_x2_tail60_aa672f156f14",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q23_M01_time_half_x1_tail60_192c7ddd1c43",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q4_M10_production_x2_tail60_16fad782a30b",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    },
+    {
+      "experiment_id": "q4_M10_full_reference_x4_tail60_a4090c2138dc",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    },
+    {
+      "experiment_id": "q4_M10_time_half_x2_tail60_a20c2d50a328",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    },
+    {
+      "experiment_id": "q4_M01_production_x1_tail60_c5eab22374c1",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    },
+    {
+      "experiment_id": "q4_M01_full_reference_x2_tail60_1bb3397ee620",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    },
+    {
+      "experiment_id": "q4_M01_time_half_x1_tail60_afbcb4ff8274",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    },
+    {
+      "experiment_id": "q1_M11_production_x1_tail60_5590317f2af6",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q1_M11_full_reference_x2_tail60_f7c4a25eb396",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q1_M11_time_half_x1_tail60_1d6b6b868900",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q23_M11_production_x1_tail60_38ef6e17d315",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q23_M11_full_reference_x2_tail60_1ecd520edbf1",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q23_M11_time_half_x1_tail60_148eb6f8e892",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q4_M11_production_x2_tail60_7848b38bac48",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    },
+    {
+      "experiment_id": "q4_M11_full_reference_x4_tail60_9b8599aae541",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    },
+    {
+      "experiment_id": "q4_M11_time_half_x2_tail60_977f90c756d0",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    }
+  ],
+  "gui": {
+    "command": [
+      "D:\\数学建模\\A_Drying\\.venv\\Scripts\\python.exe",
+      "D:\\数学建模\\A_Drying\\compute_studies.py",
+      "--group",
+      "thermal",
+      "--dry-run",
+      "--case",
+      "q4",
+      "--mode",
+      "M11"
+    ],
+    "status": "PASS",
+    "hidden_window": true,
+    "actual_readonly_child": true,
+    "exit_code": 0,
+    "manual_interaction": false,
+    "app_sha256": "3baf88b5b75bde244bf91682cd31af157b585720608707d388c0f2fc2b855e98"
+  },
+  "gui_scope": "hidden Tk configuration and actual read-only child process; no full manual clicking session claimed",
+  "notes": [
+    "2D remains PARTIAL",
+    "fixed-radius appendix-4 control may be NOT_DRY_WITHIN_72H",
+    "legacy fixed grid is diagnostic only"
+  ]
+}

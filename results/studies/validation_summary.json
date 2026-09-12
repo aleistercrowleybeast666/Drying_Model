@@ -1,0 +1,3107 @@
+{
+  "baseline_id": "52a1433275fe31fa47ce7c80b1373e98c50508de5544f573123311138fdce7e2",
+  "generation_status": "COMPUTED",
+  "validation_status": "PASS",
+  "current_experiment_ids": [
+    "q1_M00_full_reference_x2_tail60_023569fa8604",
+    "q23_M00_full_reference_x2_tail60_2d0bab7bb661",
+    "q4_M00_full_reference_x2_tail60_5e7f8e9d0fcc",
+    "q1_M00_matched_x1_tail60_98bacf28c121",
+    "q23_M00_matched_x1_tail60_7a5ac154cbd8",
+    "q4_M00_matched_x1_tail60_fb365f390c41",
+    "q4_M00_fixed_radius_x1_tail60_707cc7210098",
+    "q23_M00_tail_x1_tail30_0dfa28dfa3b2",
+    "q23_M00_tail_x1_tail90_1bce5959ff42",
+    "q4_M00_tail_x1_tail30_2fe57be4db9c",
+    "q4_M00_tail_x1_tail90_76b11a5ee89a",
+    "q1_M10_production_x1_tail60_3195d8f95b6d",
+    "q1_M10_full_reference_x2_tail60_9bf79114004f",
+    "q1_M10_time_half_x1_tail60_49c14e8ae0fa",
+    "q23_M10_production_x1_tail60_f001afde885f",
+    "q23_M10_full_reference_x2_tail60_b7daa96bab55",
+    "q23_M10_time_half_x1_tail60_01be6b03ca18",
+    "q4_M10_production_x2_tail60_16fad782a30b",
+    "q4_M10_full_reference_x4_tail60_a4090c2138dc",
+    "q4_M10_time_half_x2_tail60_a20c2d50a328",
+    "q1_M01_production_x1_tail60_9528c86985e2",
+    "q1_M01_full_reference_x2_tail60_554bbde84f81",
+    "q1_M01_time_half_x1_tail60_e0b5e7d57975",
+    "q23_M01_production_x1_tail60_182fbf89b7a4",
+    "q23_M01_full_reference_x2_tail60_aa672f156f14",
+    "q23_M01_time_half_x1_tail60_192c7ddd1c43",
+    "q4_M01_production_x1_tail60_c5eab22374c1",
+    "q4_M01_full_reference_x2_tail60_1bb3397ee620",
+    "q4_M01_time_half_x1_tail60_afbcb4ff8274",
+    "q1_M11_production_x1_tail60_5590317f2af6",
+    "q1_M11_full_reference_x2_tail60_f7c4a25eb396",
+    "q1_M11_time_half_x1_tail60_1d6b6b868900",
+    "q23_M11_production_x1_tail60_38ef6e17d315",
+    "q23_M11_full_reference_x2_tail60_1ecd520edbf1",
+    "q23_M11_time_half_x1_tail60_148eb6f8e892",
+    "q4_M11_production_x2_tail60_7848b38bac48",
+    "q4_M11_full_reference_x4_tail60_9b8599aae541",
+    "q4_M11_time_half_x2_tail60_977f90c756d0"
+  ],
+  "checks": [
+    {
+      "case": "q1",
+      "mode": "M00",
+      "reference_id": "q1_M00_full_reference_x2_tail60_023569fa8604",
+      "production_id": "q1_1d_stage_schedule_default_dt0.25_s030d129157f2",
+      "status": "PASS",
+      "full_schedule_reference_passed": true,
+      "time_half_passed": null,
+      "max_abs_T_K": 0.000695156860501811,
+      "max_abs_C": 0.002117508330948592,
+      "max_abs_Cmax": 8.58187510388575e-07,
+      "event_relative": null,
+      "event_delta_s": null,
+      "thresholds": {
+        "T_K": 0.01,
+        "C": 0.01,
+        "event_s": null,
+        "event_relative": 0.002
+      },
+      "common_output_count": 1801,
+      "common_time_range_s": [
+        0.0,
+        1800.0
+      ],
+      "events": [],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q1_M00_full_reference_x2_tail60_023569fa8604_comparison.npz",
+      "series_sha256": "d880110843fe6bfbd5b50debeb66e65040d4f87f64bccacb86e7d67ecd270322"
+    },
+    {
+      "case": "q23",
+      "mode": "M00",
+      "reference_id": "q23_M00_full_reference_x2_tail60_2d0bab7bb661",
+      "production_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+      "status": "PASS",
+      "full_schedule_reference_passed": true,
+      "time_half_passed": null,
+      "max_abs_T_K": 0.00043059672435674656,
+      "max_abs_C": 0.002025627860481549,
+      "max_abs_Cmax": 9.976979392101182e-05,
+      "event_relative": 0.0016496716301676556,
+      "event_delta_s": 341.64000000000954,
+      "thresholds": {
+        "T_K": 0.01,
+        "C": 0.01,
+        "event_s": null,
+        "event_relative": 0.002
+      },
+      "common_output_count": 14941,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 207437.4,
+          "T_K": 9.463292371947318e-10,
+          "C": 0.0004382186982105074,
+          "Cmax": 9.923043593762504e-05,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 207095.75999999998,
+          "T_K": 9.466134542890359e-10,
+          "C": 0.0004386188753449233,
+          "Cmax": 9.921135374882373e-05,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 160,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q23_M00_full_reference_x2_tail60_2d0bab7bb661_comparison.npz",
+      "series_sha256": "9a1c808bda8d76c3fe007f464d4a599912ff0dce32aa499a9f7d2aa0486e9b4a"
+    },
+    {
+      "case": "q4",
+      "mode": "M00",
+      "reference_id": "q4_M00_full_reference_x2_tail60_5e7f8e9d0fcc",
+      "production_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+      "status": "PASS",
+      "full_schedule_reference_passed": true,
+      "time_half_passed": null,
+      "max_abs_T_K": 0.0012761409195718443,
+      "max_abs_C": 0.004620363230718988,
+      "max_abs_Cmax": 0.0001097421462795678,
+      "event_relative": 0.0011560286601215827,
+      "event_delta_s": 212.75999999997737,
+      "thresholds": {
+        "T_K": 0.01,
+        "C": 0.01,
+        "event_s": null,
+        "event_relative": 0.002
+      },
+      "common_output_count": 4321,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 184256.63999999998,
+          "T_K": 1.9491608327371068e-10,
+          "C": 0.0002158183732491742,
+          "Cmax": 0.00010895837308758094,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 184043.88,
+          "T_K": 1.9491608327371068e-10,
+          "C": 0.00021607938288122075,
+          "Cmax": 0.00010897892841663093,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q4_M00_full_reference_x2_tail60_5e7f8e9d0fcc_comparison.npz",
+      "series_sha256": "3e1420b9ca748d69b32c4435cb1c4782decf6ba530f75ac579997860f189d497"
+    },
+    {
+      "case": "q1",
+      "mode": "M10",
+      "reference_id": "q1_M10_full_reference_x2_tail60_9bf79114004f",
+      "production_id": "q1_M10_production_x1_tail60_3195d8f95b6d",
+      "status": "PASS",
+      "full_schedule_reference_passed": true,
+      "time_half_passed": null,
+      "max_abs_T_K": 0.007489974526606602,
+      "max_abs_C": 0.0021175083309472598,
+      "max_abs_Cmax": 8.58187510388575e-07,
+      "event_relative": null,
+      "event_delta_s": null,
+      "thresholds": {
+        "T_K": 0.01,
+        "C": 0.01,
+        "event_s": null,
+        "event_relative": 0.002
+      },
+      "common_output_count": 1801,
+      "common_time_range_s": [
+        0.0,
+        1800.0
+      ],
+      "events": [],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q1_M10_full_reference_x2_tail60_9bf79114004f_comparison.npz",
+      "series_sha256": "995bea5c2a322a7299163b6b4de9d7e73def687be70e2f4f6f2b441df5a94847"
+    },
+    {
+      "case": "q1",
+      "mode": "M10",
+      "reference_id": "q1_M10_time_half_x1_tail60_49c14e8ae0fa",
+      "production_id": "q1_M10_production_x1_tail60_3195d8f95b6d",
+      "status": "PASS",
+      "full_schedule_reference_passed": null,
+      "time_half_passed": true,
+      "max_abs_T_K": 2.5504050427116454e-08,
+      "max_abs_C": 6.359357485052897e-13,
+      "max_abs_Cmax": 1.2034817586936697e-13,
+      "event_relative": null,
+      "event_delta_s": null,
+      "thresholds": {
+        "T_K": 0.001,
+        "C": 1e-05,
+        "event_s": 1.0,
+        "event_relative": null
+      },
+      "common_output_count": 1801,
+      "common_time_range_s": [
+        0.0,
+        1800.0
+      ],
+      "events": [],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q1_M10_time_half_x1_tail60_49c14e8ae0fa_comparison.npz",
+      "series_sha256": "5b9168346879297b481b7b20661ba9d22d0342872df11150ce98851616f652c4"
+    },
+    {
+      "case": "q23",
+      "mode": "M10",
+      "reference_id": "q23_M10_full_reference_x2_tail60_b7daa96bab55",
+      "production_id": "q23_M10_production_x1_tail60_f001afde885f",
+      "status": "PASS",
+      "full_schedule_reference_passed": true,
+      "time_half_passed": null,
+      "max_abs_T_K": 0.007324868518821859,
+      "max_abs_C": 0.002175117684325212,
+      "max_abs_Cmax": 0.00010034640452710741,
+      "event_relative": 0.0015815810197070956,
+      "event_delta_s": 344.8800000000148,
+      "thresholds": {
+        "T_K": 0.01,
+        "C": 0.01,
+        "event_s": null,
+        "event_relative": 0.002
+      },
+      "common_output_count": 14941,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 218405.16,
+          "T_K": 4.270309341336542e-05,
+          "C": 0.00043884343824637795,
+          "Cmax": 9.987924126966807e-05,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 218060.28,
+          "T_K": 4.242786894792516e-05,
+          "C": 0.0004392491686911054,
+          "Cmax": 9.986137407394513e-05,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 160,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q23_M10_full_reference_x2_tail60_b7daa96bab55_comparison.npz",
+      "series_sha256": "02be7e9bb231df550cc9f88bc710b8731dd280dfc30ae529b8faa819944dace2"
+    },
+    {
+      "case": "q23",
+      "mode": "M10",
+      "reference_id": "q23_M10_time_half_x1_tail60_01be6b03ca18",
+      "production_id": "q23_M10_production_x1_tail60_f001afde885f",
+      "status": "PASS",
+      "full_schedule_reference_passed": null,
+      "time_half_passed": true,
+      "max_abs_T_K": 1.8349624042457435e-09,
+      "max_abs_C": 5.4924953474255744e-12,
+      "max_abs_Cmax": 1.1608491945480637e-12,
+      "event_relative": 1.6483154216938033e-06,
+      "event_delta_s": 0.36000000001195076,
+      "thresholds": {
+        "T_K": 0.001,
+        "C": 1e-05,
+        "event_s": 1.0,
+        "event_relative": null
+      },
+      "common_output_count": 14941,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 218405.16,
+          "T_K": 1.3147882782504894e-10,
+          "C": 1.992850329202156e-14,
+          "Cmax": 1.9817480989559044e-14,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 218404.8,
+          "T_K": 1.3210410543251783e-10,
+          "C": 1.9872992140790302e-14,
+          "Cmax": 1.9845236565174673e-14,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q23_M10_time_half_x1_tail60_01be6b03ca18_comparison.npz",
+      "series_sha256": "ac058a7eb99e8c4de73808ac6c4ea7edb3b711601173e6ab67993383abe5ff57"
+    },
+    {
+      "case": "q1",
+      "mode": "M01",
+      "reference_id": "q1_M01_full_reference_x2_tail60_554bbde84f81",
+      "production_id": "q1_M01_production_x1_tail60_9528c86985e2",
+      "status": "PASS",
+      "full_schedule_reference_passed": true,
+      "time_half_passed": null,
+      "max_abs_T_K": 0.0014085121097764386,
+      "max_abs_C": 0.0021175083309472598,
+      "max_abs_Cmax": 8.58187510388575e-07,
+      "event_relative": null,
+      "event_delta_s": null,
+      "thresholds": {
+        "T_K": 0.01,
+        "C": 0.01,
+        "event_s": null,
+        "event_relative": 0.002
+      },
+      "common_output_count": 1801,
+      "common_time_range_s": [
+        0.0,
+        1800.0
+      ],
+      "events": [],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q1_M01_full_reference_x2_tail60_554bbde84f81_comparison.npz",
+      "series_sha256": "92374a5190d873f5bcf74ae5cc248aeb3a5fb77ca3322591af94c9cdfe57bfc4"
+    },
+    {
+      "case": "q1",
+      "mode": "M01",
+      "reference_id": "q1_M01_time_half_x1_tail60_e0b5e7d57975",
+      "production_id": "q1_M01_production_x1_tail60_9528c86985e2",
+      "status": "PASS",
+      "full_schedule_reference_passed": null,
+      "time_half_passed": true,
+      "max_abs_T_K": 3.873537934850901e-09,
+      "max_abs_C": 6.359357485052897e-13,
+      "max_abs_Cmax": 1.2034817586936697e-13,
+      "event_relative": null,
+      "event_delta_s": null,
+      "thresholds": {
+        "T_K": 0.001,
+        "C": 1e-05,
+        "event_s": 1.0,
+        "event_relative": null
+      },
+      "common_output_count": 1801,
+      "common_time_range_s": [
+        0.0,
+        1800.0
+      ],
+      "events": [],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q1_M01_time_half_x1_tail60_e0b5e7d57975_comparison.npz",
+      "series_sha256": "35f7bb32910c23d07270a3f435751c8423a8d555fc18475bc4c6b1bad7ae0e9c"
+    },
+    {
+      "case": "q23",
+      "mode": "M01",
+      "reference_id": "q23_M01_full_reference_x2_tail60_aa672f156f14",
+      "production_id": "q23_M01_production_x1_tail60_182fbf89b7a4",
+      "status": "PASS",
+      "full_schedule_reference_passed": true,
+      "time_half_passed": null,
+      "max_abs_T_K": 0.0009828627021306602,
+      "max_abs_C": 0.0020256278591537225,
+      "max_abs_Cmax": 9.975803376421899e-05,
+      "event_relative": 0.0016513783794589192,
+      "event_delta_s": 341.9999999999959,
+      "thresholds": {
+        "T_K": 0.01,
+        "C": 0.01,
+        "event_s": null,
+        "event_relative": 0.002
+      },
+      "common_output_count": 14941,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 207441.72,
+          "T_K": 9.464997674513143e-10,
+          "C": 0.00043821196811887064,
+          "Cmax": 9.921634726131612e-05,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 207099.72,
+          "T_K": 9.467839845456183e-10,
+          "C": 0.00043861254862444243,
+          "Cmax": 9.919720059481385e-05,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 160,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q23_M01_full_reference_x2_tail60_aa672f156f14_comparison.npz",
+      "series_sha256": "9d4fb93421e2fc9240c76b48b294ee6fb518df1c0b64cfdffde2024d47c3dcc6"
+    },
+    {
+      "case": "q23",
+      "mode": "M01",
+      "reference_id": "q23_M01_time_half_x1_tail60_192c7ddd1c43",
+      "production_id": "q23_M01_production_x1_tail60_182fbf89b7a4",
+      "status": "PASS",
+      "full_schedule_reference_passed": null,
+      "time_half_passed": true,
+      "max_abs_T_K": 6.008349373587407e-10,
+      "max_abs_C": 5.171418848703979e-12,
+      "max_abs_Cmax": 2.2773449792623524e-12,
+      "event_relative": 1.735430195848845e-06,
+      "event_delta_s": 0.36000000001195076,
+      "thresholds": {
+        "T_K": 0.001,
+        "C": 1e-05,
+        "event_s": 1.0,
+        "event_relative": null
+      },
+      "common_output_count": 14941,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 207441.72,
+          "T_K": 3.4214053812320344e-10,
+          "C": 5.489775301015243e-13,
+          "Cmax": 5.489775301015243e-13,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 207441.36,
+          "T_K": 3.618652044679038e-10,
+          "C": 5.490885524039868e-13,
+          "Cmax": 5.490885524039868e-13,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q23_M01_time_half_x1_tail60_192c7ddd1c43_comparison.npz",
+      "series_sha256": "2b0a3e9c6058ebc937b68862a235ec4ff0f587f56aae419167e91272bbe8f5e9"
+    },
+    {
+      "case": "q4",
+      "mode": "M10",
+      "reference_id": "q4_M10_full_reference_x4_tail60_a4090c2138dc",
+      "production_id": "q4_M10_production_x2_tail60_16fad782a30b",
+      "status": "PASS",
+      "full_schedule_reference_passed": true,
+      "time_half_passed": null,
+      "max_abs_T_K": 0.0057678444778161975,
+      "max_abs_C": 0.002771108568887737,
+      "max_abs_Cmax": 4.112767731825895e-05,
+      "event_relative": 0.00039280147070529096,
+      "event_delta_s": 79.9199999999928,
+      "thresholds": {
+        "T_K": 0.01,
+        "C": 0.01,
+        "event_s": null,
+        "event_relative": 0.002
+      },
+      "common_output_count": 4321,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 203541.47999999998,
+          "T_K": 4.6602394718320284e-05,
+          "C": 5.7247459626277863e-05,
+          "Cmax": 4.0602757735902495e-05,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 203461.56,
+          "T_K": 4.6543818825739436e-05,
+          "C": 5.727251978680792e-05,
+          "Cmax": 4.0606852169833285e-05,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 800,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 640,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 160,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q4_M10_full_reference_x4_tail60_a4090c2138dc_comparison.npz",
+      "series_sha256": "90c11399606ee709963acbffef033d8546d307ee8acb507594b7292762484b17"
+    },
+    {
+      "case": "q4",
+      "mode": "M10",
+      "reference_id": "q4_M10_time_half_x2_tail60_a20c2d50a328",
+      "production_id": "q4_M10_production_x2_tail60_16fad782a30b",
+      "status": "PASS",
+      "full_schedule_reference_passed": null,
+      "time_half_passed": true,
+      "max_abs_T_K": 1.4796341929468326e-10,
+      "max_abs_C": 4.5563552930616424e-12,
+      "max_abs_Cmax": 2.6347812820404215e-12,
+      "event_relative": 0.0,
+      "event_delta_s": 0.0,
+      "thresholds": {
+        "T_K": 0.001,
+        "C": 1e-05,
+        "event_s": 1.0,
+        "event_relative": null
+      },
+      "common_output_count": 4322,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 203541.47999999998,
+          "T_K": 1.972466634470038e-11,
+          "C": 2.88935542158697e-14,
+          "Cmax": 2.88935542158697e-14,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 203541.47999999998,
+          "T_K": 1.972466634470038e-11,
+          "C": 2.88935542158697e-14,
+          "Cmax": 2.88935542158697e-14,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q4_M10_time_half_x2_tail60_a20c2d50a328_comparison.npz",
+      "series_sha256": "4bbcc3ca6f1d9705c1ea14d39d5471e5a9516f17fb33d6bfc0f2a28190ec39e8"
+    },
+    {
+      "case": "q4",
+      "mode": "M01",
+      "reference_id": "q4_M01_full_reference_x2_tail60_1bb3397ee620",
+      "production_id": "q4_M01_production_x1_tail60_c5eab22374c1",
+      "status": "PASS",
+      "full_schedule_reference_passed": true,
+      "time_half_passed": null,
+      "max_abs_T_K": 0.0012221120751974013,
+      "max_abs_C": 0.0046199730262385386,
+      "max_abs_Cmax": 0.00010970515961064575,
+      "event_relative": 0.0011540477736657546,
+      "event_delta_s": 212.399999999991,
+      "thresholds": {
+        "T_K": 0.01,
+        "C": 0.01,
+        "event_s": null,
+        "event_relative": 0.002
+      },
+      "common_output_count": 4321,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 184260.24,
+          "T_K": 1.9485923985484987e-10,
+          "C": 0.00021580503046227106,
+          "Cmax": 0.00010892808426760103,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 184047.84,
+          "T_K": 1.9485923985484987e-10,
+          "C": 0.00021606556586062364,
+          "Cmax": 0.0001089485236752119,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q4_M01_full_reference_x2_tail60_1bb3397ee620_comparison.npz",
+      "series_sha256": "b814108bf51b94cdbdf3569b63903d27708c077cdd064565ef9c69ab51dc2006"
+    },
+    {
+      "case": "q4",
+      "mode": "M01",
+      "reference_id": "q4_M01_time_half_x1_tail60_afbcb4ff8274",
+      "production_id": "q4_M01_production_x1_tail60_c5eab22374c1",
+      "status": "PASS",
+      "full_schedule_reference_passed": null,
+      "time_half_passed": true,
+      "max_abs_T_K": 1.3011458577238955e-10,
+      "max_abs_C": 1.085798118083403e-12,
+      "max_abs_Cmax": 1.085798118083403e-12,
+      "event_relative": 0.0,
+      "event_delta_s": 0.0,
+      "thresholds": {
+        "T_K": 0.001,
+        "C": 1e-05,
+        "event_s": 1.0,
+        "event_relative": null
+      },
+      "common_output_count": 4322,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 184260.24,
+          "T_K": 8.770939530222677e-11,
+          "C": 1.874889132835733e-13,
+          "Cmax": 1.874889132835733e-13,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 184260.24,
+          "T_K": 8.770939530222677e-11,
+          "C": 1.874889132835733e-13,
+          "Cmax": 1.874889132835733e-13,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q4_M01_time_half_x1_tail60_afbcb4ff8274_comparison.npz",
+      "series_sha256": "e219dce19b4ca7cb488552d8373f00118cf200dd2c5d9a7bd44f620c34e4ec1c"
+    },
+    {
+      "case": "q1",
+      "mode": "M11",
+      "reference_id": "q1_M11_full_reference_x2_tail60_f7c4a25eb396",
+      "production_id": "q1_M11_production_x1_tail60_5590317f2af6",
+      "status": "PASS",
+      "full_schedule_reference_passed": true,
+      "time_half_passed": null,
+      "max_abs_T_K": 0.006817574387241621,
+      "max_abs_C": 0.0021175083309472598,
+      "max_abs_Cmax": 8.58187510388575e-07,
+      "event_relative": null,
+      "event_delta_s": null,
+      "thresholds": {
+        "T_K": 0.01,
+        "C": 0.01,
+        "event_s": null,
+        "event_relative": 0.002
+      },
+      "common_output_count": 1801,
+      "common_time_range_s": [
+        0.0,
+        1800.0
+      ],
+      "events": [],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q1_M11_full_reference_x2_tail60_f7c4a25eb396_comparison.npz",
+      "series_sha256": "0f2fc437fad23c37447735ae3bb86061ab914e356f6cd08c86d444a5b3f2b755"
+    },
+    {
+      "case": "q1",
+      "mode": "M11",
+      "reference_id": "q1_M11_time_half_x1_tail60_1d6b6b868900",
+      "production_id": "q1_M11_production_x1_tail60_5590317f2af6",
+      "status": "PASS",
+      "full_schedule_reference_passed": null,
+      "time_half_passed": true,
+      "max_abs_T_K": 2.556640765760676e-08,
+      "max_abs_C": 6.359357485052897e-13,
+      "max_abs_Cmax": 1.2034817586936697e-13,
+      "event_relative": null,
+      "event_delta_s": null,
+      "thresholds": {
+        "T_K": 0.001,
+        "C": 1e-05,
+        "event_s": 1.0,
+        "event_relative": null
+      },
+      "common_output_count": 1801,
+      "common_time_range_s": [
+        0.0,
+        1800.0
+      ],
+      "events": [],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q1_M11_time_half_x1_tail60_1d6b6b868900_comparison.npz",
+      "series_sha256": "ea2fdfc4d67462291761875f08bd8fb27c58951153881516dbedaee0f8d03d2b"
+    },
+    {
+      "case": "q23",
+      "mode": "M11",
+      "reference_id": "q23_M11_full_reference_x2_tail60_1ecd520edbf1",
+      "production_id": "q23_M11_production_x1_tail60_38ef6e17d315",
+      "status": "PASS",
+      "full_schedule_reference_passed": true,
+      "time_half_passed": null,
+      "max_abs_T_K": 0.006511724976689948,
+      "max_abs_C": 0.002175133139025842,
+      "max_abs_Cmax": 0.000100334201168506,
+      "event_relative": 0.0015798961924005455,
+      "event_delta_s": 344.51999999997724,
+      "thresholds": {
+        "T_K": 0.01,
+        "C": 0.01,
+        "event_s": null,
+        "event_relative": 0.002
+      },
+      "common_output_count": 14941,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 218409.47999999998,
+          "T_K": 4.267803382163038e-05,
+          "C": 0.0004388372406067681,
+          "Cmax": 9.986477491946699e-05,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 218064.96,
+          "T_K": 4.2402968290389254e-05,
+          "C": 0.0004392425286633417,
+          "Cmax": 9.984688051103974e-05,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 160,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q23_M11_full_reference_x2_tail60_1ecd520edbf1_comparison.npz",
+      "series_sha256": "4a56e92ac0bb3f7340fb859618934ab7fd2de63ae0c075c734431c7b83d5076e"
+    },
+    {
+      "case": "q23",
+      "mode": "M11",
+      "reference_id": "q23_M11_time_half_x1_tail60_148eb6f8e892",
+      "production_id": "q23_M11_production_x1_tail60_38ef6e17d315",
+      "status": "PASS",
+      "full_schedule_reference_passed": null,
+      "time_half_passed": true,
+      "max_abs_T_K": 1.8405330592941027e-09,
+      "max_abs_C": 5.498712596363475e-12,
+      "max_abs_Cmax": 1.1302070390684094e-12,
+      "event_relative": 0.0,
+      "event_delta_s": 0.0,
+      "thresholds": {
+        "T_K": 0.001,
+        "C": 1e-05,
+        "event_s": 1.0,
+        "event_relative": null
+      },
+      "common_output_count": 14942,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 218409.47999999998,
+          "T_K": 1.3221779227023944e-10,
+          "C": 2.3370194668359545e-14,
+          "Cmax": 2.2648549702353193e-14,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 218409.47999999998,
+          "T_K": 1.3221779227023944e-10,
+          "C": 2.3370194668359545e-14,
+          "Cmax": 2.2648549702353193e-14,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q23_M11_time_half_x1_tail60_148eb6f8e892_comparison.npz",
+      "series_sha256": "42f5d379892a29b4ebba92c16627203a23bd7667576f95c24156dd414bc96763"
+    },
+    {
+      "case": "q4",
+      "mode": "M11",
+      "reference_id": "q4_M11_full_reference_x4_tail60_9b8599aae541",
+      "production_id": "q4_M11_production_x2_tail60_7848b38bac48",
+      "status": "PASS",
+      "full_schedule_reference_passed": true,
+      "time_half_passed": null,
+      "max_abs_T_K": 0.005172119193218805,
+      "max_abs_C": 0.002763094857819448,
+      "max_abs_Cmax": 4.1103533629571753e-05,
+      "event_relative": 0.00039102379229372927,
+      "event_delta_s": 79.55999999998085,
+      "thresholds": {
+        "T_K": 0.01,
+        "C": 0.01,
+        "event_s": null,
+        "event_relative": 0.002
+      },
+      "common_output_count": 4321,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 203545.44,
+          "T_K": 4.653256922892979e-05,
+          "C": 5.723677253959003e-05,
+          "Cmax": 4.058393687994544e-05,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 203465.88,
+          "T_K": 4.647415090630602e-05,
+          "C": 5.7261709924746884e-05,
+          "Cmax": 4.058799414669023e-05,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 800,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 640,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 160,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q4_M11_full_reference_x4_tail60_9b8599aae541_comparison.npz",
+      "series_sha256": "dd8ef51f00cd57ed1662a9930286f44bda2c6889a7896c64f42e61939125131c"
+    },
+    {
+      "case": "q4",
+      "mode": "M11",
+      "reference_id": "q4_M11_time_half_x2_tail60_977f90c756d0",
+      "production_id": "q4_M11_production_x2_tail60_7848b38bac48",
+      "status": "PASS",
+      "full_schedule_reference_passed": null,
+      "time_half_passed": true,
+      "max_abs_T_K": 1.4858869690215215e-10,
+      "max_abs_C": 4.559463917530593e-12,
+      "max_abs_Cmax": 2.665423437520076e-12,
+      "event_relative": 0.0,
+      "event_delta_s": 0.0,
+      "thresholds": {
+        "T_K": 0.001,
+        "C": 1e-05,
+        "event_s": 1.0,
+        "event_relative": null
+      },
+      "common_output_count": 4322,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 203545.44,
+          "T_K": 1.9838353182421997e-11,
+          "C": 2.65898414397725e-14,
+          "Cmax": 2.65898414397725e-14,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 203545.44,
+          "T_K": 1.9838353182421997e-11,
+          "C": 2.65898414397725e-14,
+          "Cmax": 2.65898414397725e-14,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q4_M11_time_half_x2_tail60_977f90c756d0_comparison.npz",
+      "series_sha256": "07758b89d7c424e8454cebad6633801e6b2ace49cdf5b87ed8f6eb46c560a491"
+    }
+  ],
+  "thermal_audits": [
+    {
+      "experiment_id": "q1_M10_production_x1_tail60_3195d8f95b6d",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q1_M10_full_reference_x2_tail60_9bf79114004f",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q1_M10_time_half_x1_tail60_49c14e8ae0fa",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q23_M10_production_x1_tail60_f001afde885f",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q23_M10_full_reference_x2_tail60_b7daa96bab55",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q23_M10_time_half_x1_tail60_01be6b03ca18",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q1_M01_production_x1_tail60_9528c86985e2",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q1_M01_full_reference_x2_tail60_554bbde84f81",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q1_M01_time_half_x1_tail60_e0b5e7d57975",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q23_M01_production_x1_tail60_182fbf89b7a4",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q23_M01_full_reference_x2_tail60_aa672f156f14",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q23_M01_time_half_x1_tail60_192c7ddd1c43",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q4_M10_production_x2_tail60_16fad782a30b",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    },
+    {
+      "experiment_id": "q4_M10_full_reference_x4_tail60_a4090c2138dc",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    },
+    {
+      "experiment_id": "q4_M10_time_half_x2_tail60_a20c2d50a328",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    },
+    {
+      "experiment_id": "q4_M01_production_x1_tail60_c5eab22374c1",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    },
+    {
+      "experiment_id": "q4_M01_full_reference_x2_tail60_1bb3397ee620",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    },
+    {
+      "experiment_id": "q4_M01_time_half_x1_tail60_afbcb4ff8274",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    },
+    {
+      "experiment_id": "q1_M11_production_x1_tail60_5590317f2af6",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q1_M11_full_reference_x2_tail60_f7c4a25eb396",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q1_M11_time_half_x1_tail60_1d6b6b868900",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 230.98591549295776,
+      "dry_mass_kg": 0.07256636551953889
+    },
+    {
+      "experiment_id": "q23_M11_production_x1_tail60_38ef6e17d315",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q23_M11_full_reference_x2_tail60_1ecd520edbf1",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q23_M11_time_half_x1_tail60_148eb6f8e892",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 275.0422535211268,
+      "dry_mass_kg": 0.08640707230887533
+    },
+    {
+      "experiment_id": "q4_M11_production_x2_tail60_7848b38bac48",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    },
+    {
+      "experiment_id": "q4_M11_full_reference_x4_tail60_9b8599aae541",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    },
+    {
+      "experiment_id": "q4_M11_time_half_x2_tail60_977f90c756d0",
+      "status": "PASS",
+      "reverse_flux_sample_count": 0,
+      "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+      "b0_kg_m3": 278.7323943661972,
+      "dry_mass_kg": 0.08756636424583382
+    }
+  ],
+  "remesh_front_audits": [
+    {
+      "case": "q1",
+      "mode": "M00",
+      "status": "PASS",
+      "records": [
+        {
+          "time_s": 60.0,
+          "fronts_before": [
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            }
+          ],
+          "fronts_after": [
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            }
+          ],
+          "front_radius_change_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "relative_volume_integral_C_error": 3.498650708287586e-16,
+          "note": "Front jumps are projection diagnostics at a common time; not physical recession rates."
+        },
+        {
+          "time_s": 300.0,
+          "fronts_before": [
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            }
+          ],
+          "fronts_after": [
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            }
+          ],
+          "front_radius_change_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "relative_volume_integral_C_error": 0.0,
+          "note": "Front jumps are projection diagnostics at a common time; not physical recession rates."
+        },
+        {
+          "time_s": 1200.0,
+          "fronts_before": [
+            {
+              "radius_m": 0.018726555639979835,
+              "relative_radius": 0.9363277819989918,
+              "wet_volume_fraction": 0.8767097153431516,
+              "status": "MONOTONE_CORE",
+              "crossings": 1
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            }
+          ],
+          "fronts_after": [
+            {
+              "radius_m": 0.0187199244530715,
+              "relative_radius": 0.935996222653575,
+              "wet_volume_fraction": 0.8760889288217607,
+              "status": "MONOTONE_CORE",
+              "crossings": 1
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            }
+          ],
+          "front_radius_change_m": [
+            -6.631186908336029e-06,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "relative_volume_integral_C_error": 1.8754013359252348e-16,
+          "note": "Front jumps are projection diagnostics at a common time; not physical recession rates."
+        }
+      ]
+    },
+    {
+      "case": "q23",
+      "mode": "M00",
+      "status": "PASS",
+      "records": [
+        {
+          "time_s": 300.0,
+          "fronts_before": [
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            }
+          ],
+          "fronts_after": [
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            }
+          ],
+          "front_radius_change_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "relative_volume_integral_C_error": 0.0,
+          "note": "Front jumps are projection diagnostics at a common time; not physical recession rates."
+        },
+        {
+          "time_s": 1800.0,
+          "fronts_before": [
+            {
+              "radius_m": 0.01789619600328484,
+              "relative_radius": 0.894809800164242,
+              "wet_volume_fraction": 0.8006845784699708,
+              "status": "MONOTONE_CORE",
+              "crossings": 1
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            }
+          ],
+          "fronts_after": [
+            {
+              "radius_m": 0.017894888098081117,
+              "relative_radius": 0.8947444049040558,
+              "wet_volume_fraction": 0.800567550107113,
+              "status": "MONOTONE_CORE",
+              "crossings": 1
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.02,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            }
+          ],
+          "front_radius_change_m": [
+            -1.3079052037234806e-06,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "relative_volume_integral_C_error": 1.9454990015974327e-16,
+          "note": "Front jumps are projection diagnostics at a common time; not physical recession rates."
+        }
+      ]
+    },
+    {
+      "case": "q4",
+      "mode": "M00",
+      "status": "PASS",
+      "records": [
+        {
+          "time_s": 600.0,
+          "fronts_before": [
+            {
+              "radius_m": 0.018964397064124748,
+              "relative_radius": 0.9687245222607568,
+              "wet_volume_fraction": 0.9384272000293314,
+              "status": "MONOTONE_CORE",
+              "crossings": 1
+            },
+            {
+              "radius_m": 0.019576666666666666,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.019576666666666666,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.019576666666666666,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            }
+          ],
+          "fronts_after": [
+            {
+              "radius_m": 0.018966324527328025,
+              "relative_radius": 0.9688229794310246,
+              "wet_volume_fraction": 0.9386179654736074,
+              "status": "MONOTONE_CORE",
+              "crossings": 1
+            },
+            {
+              "radius_m": 0.019576666666666666,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.019576666666666666,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.019576666666666666,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            }
+          ],
+          "front_radius_change_m": [
+            1.927463203276608e-06,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "relative_volume_integral_C_error": 3.5997535687740123e-16,
+          "note": "Front jumps are projection diagnostics at a common time; not physical recession rates."
+        },
+        {
+          "time_s": 3600.0,
+          "fronts_before": [
+            {
+              "radius_m": 0.015229846376878478,
+              "relative_radius": 0.8489323509965706,
+              "wet_volume_fraction": 0.7206861365685645,
+              "status": "MONOTONE_CORE",
+              "crossings": 1
+            },
+            {
+              "radius_m": 0.017905439281675886,
+              "relative_radius": 0.9980735385549546,
+              "wet_volume_fraction": 0.9961507883636085,
+              "status": "MONOTONE_CORE",
+              "crossings": 1
+            },
+            {
+              "radius_m": 0.01794,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.01794,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            }
+          ],
+          "fronts_after": [
+            {
+              "radius_m": 0.015227796096856407,
+              "relative_radius": 0.8488180655995767,
+              "wet_volume_fraction": 0.7204921084882073,
+              "status": "MONOTONE_CORE",
+              "crossings": 1
+            },
+            {
+              "radius_m": 0.017905277796032744,
+              "relative_radius": 0.998064537125571,
+              "wet_volume_fraction": 0.9961328202676802,
+              "status": "MONOTONE_CORE",
+              "crossings": 1
+            },
+            {
+              "radius_m": 0.01794,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.01794,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            }
+          ],
+          "front_radius_change_m": [
+            -2.050280022071471e-06,
+            -1.6148564314227842e-07,
+            0.0,
+            0.0
+          ],
+          "relative_volume_integral_C_error": 0.0,
+          "note": "Front jumps are projection diagnostics at a common time; not physical recession rates."
+        },
+        {
+          "time_s": 21600.0,
+          "fronts_before": [
+            {
+              "radius_m": 0.0,
+              "relative_radius": 0.0,
+              "wet_volume_fraction": 0.0,
+              "status": "ALL_DRY",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.010169104288015684,
+              "relative_radius": 0.7401094823883321,
+              "wet_volume_fraction": 0.5477620459211249,
+              "status": "MONOTONE_CORE",
+              "crossings": 1
+            },
+            {
+              "radius_m": 0.013348185681919145,
+              "relative_radius": 0.9714836740843626,
+              "wet_volume_fraction": 0.9437805290124521,
+              "status": "MONOTONE_CORE",
+              "crossings": 1
+            },
+            {
+              "radius_m": 0.013740000000000002,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            }
+          ],
+          "fronts_after": [
+            {
+              "radius_m": 0.0,
+              "relative_radius": 0.0,
+              "wet_volume_fraction": 0.0,
+              "status": "ALL_DRY",
+              "crossings": 0
+            },
+            {
+              "radius_m": 0.010167135769388267,
+              "relative_radius": 0.7399662132014749,
+              "wet_volume_fraction": 0.5475499966797307,
+              "status": "MONOTONE_CORE",
+              "crossings": 1
+            },
+            {
+              "radius_m": 0.013344634715275961,
+              "relative_radius": 0.9712252340084395,
+              "wet_volume_fraction": 0.9432784551747481,
+              "status": "MONOTONE_CORE",
+              "crossings": 1
+            },
+            {
+              "radius_m": 0.013740000000000002,
+              "relative_radius": 1.0,
+              "wet_volume_fraction": 1.0,
+              "status": "ALL_WET",
+              "crossings": 0
+            }
+          ],
+          "front_radius_change_m": [
+            0.0,
+            -1.9685186274168154e-06,
+            -3.550966643183634e-06,
+            0.0
+          ],
+          "relative_volume_integral_C_error": 2.084378786412378e-16,
+          "note": "Front jumps are projection diagnostics at a common time; not physical recession rates."
+        }
+      ]
+    }
+  ],
+  "end_effects": [
+    {
+      "case": "q1",
+      "question": "Q1",
+      "path": "work/studies/plot_payload/q1_end_effects.npz",
+      "sha256": "3ea6415e9a807a91d95a5639e8258f41f3625556981e314742523a8ddad812dd",
+      "status": "PARTIAL_2D",
+      "matched_1d_id": "q1_M00_matched_x1_tail60_98bacf28c121",
+      "official_1d_id": "q1_1d_stage_schedule_default_dt0.25_s030d129157f2",
+      "frozen_2d_id": "q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542",
+      "resolution": {
+        "nr": 40,
+        "nz": 125
+      },
+      "thresholds": {
+        "T_K": 0.2,
+        "C": 0.003
+      },
+      "time_range_s": [
+        0.0,
+        1800.0
+      ],
+      "control_tolerance_kg_kg": 1e-09,
+      "control_representative_rule": "full tied coordinate range; z=0 is midplane",
+      "event_control_status": "NO_EVENT_NEIGHBORHOOD",
+      "control_check_window_s": 1800.0,
+      "control_checked_samples": 0,
+      "exact_event_times_s": [],
+      "event_source": "frozen true 2D event field plus genuine matched 1D state",
+      "max_depth_T_m": 0.0306194404337249,
+      "max_depth_C_m": 0.011424338449683186,
+      "max_volume_fraction_T": 0.22934921357740118,
+      "max_volume_fraction_C": 0.08968705010412235,
+      "interpretation": "dimension difference at matched radial FV resolution; not experimental validation; 2D refinement remains partial",
+      "peak_depth_T_m_time_s": 1732.0,
+      "peak_depth_C_m_time_s": 1790.0,
+      "peak_volume_fraction_T_time_s": 1794.0,
+      "peak_volume_fraction_C_time_s": 1799.0
+    },
+    {
+      "case": "q23",
+      "question": "Q3",
+      "path": "work/studies/plot_payload/q23_end_effects.npz",
+      "sha256": "68a608c16238846899bedcf06aebb79deb8e447ede669d78032ceacdc87c278f",
+      "status": "PARTIAL_2D",
+      "matched_1d_id": "q23_M00_matched_x1_tail60_7a5ac154cbd8",
+      "official_1d_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+      "frozen_2d_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+      "resolution": {
+        "nr": 40,
+        "nz": 125
+      },
+      "thresholds": {
+        "T_K": 0.2,
+        "C": 0.003
+      },
+      "time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "control_tolerance_kg_kg": 1e-09,
+      "control_representative_rule": "full tied coordinate range; z=0 is midplane",
+      "event_control_status": "STABLE_MIDPLANE_CENTER",
+      "control_check_window_s": 1800.0,
+      "control_checked_samples": 31,
+      "exact_event_times_s": [
+        208273.31999999998
+      ],
+      "event_source": "frozen true 2D event field plus genuine matched 1D state",
+      "max_depth_T_m": 0.04356143343899438,
+      "max_depth_C_m": 0.058907086132182096,
+      "max_volume_fraction_T": 0.32757600981418217,
+      "max_volume_fraction_C": 0.45203258184446515,
+      "interpretation": "dimension difference at matched radial FV resolution; not experimental validation; 2D refinement remains partial",
+      "peak_depth_T_m_time_s": 4101.0,
+      "peak_depth_C_m_time_s": 29040.0,
+      "peak_volume_fraction_T_time_s": 4547.0,
+      "peak_volume_fraction_C_time_s": 32280.0
+    },
+    {
+      "case": "q23",
+      "question": "Q2",
+      "path": "work/studies/plot_payload/q23_end_effects.npz",
+      "sha256": "68a608c16238846899bedcf06aebb79deb8e447ede669d78032ceacdc87c278f",
+      "status": "PARTIAL_2D",
+      "matched_1d_id": "q23_M00_matched_x1_tail60_7a5ac154cbd8",
+      "official_1d_id": "q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084",
+      "frozen_2d_id": "q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919",
+      "resolution": {
+        "nr": 40,
+        "nz": 125
+      },
+      "thresholds": {
+        "T_K": 0.2,
+        "C": 0.003
+      },
+      "time_range_s": [
+        0.0,
+        10800.0
+      ],
+      "control_tolerance_kg_kg": 1e-09,
+      "control_representative_rule": "full tied coordinate range; z=0 is midplane",
+      "event_control_status": "NO_DRYING_EVENT_REQUIRED",
+      "control_check_window_s": 1800.0,
+      "control_checked_samples": 0,
+      "exact_event_times_s": [],
+      "event_source": "frozen true 2D event field plus genuine matched 1D state",
+      "max_depth_T_m": 0.04356143343899438,
+      "max_depth_C_m": 0.04560399175977124,
+      "max_volume_fraction_T": 0.32757600981418217,
+      "max_volume_fraction_C": 0.33443089240373236,
+      "interpretation": "dimension difference at matched radial FV resolution; not experimental validation; 2D refinement remains partial",
+      "peak_depth_T_m_time_s": 4101.0,
+      "peak_depth_C_m_time_s": 10685.0,
+      "peak_volume_fraction_T_time_s": 4547.0,
+      "peak_volume_fraction_C_time_s": 10788.0
+    },
+    {
+      "case": "q4",
+      "question": "Q4",
+      "path": "work/studies/plot_payload/q4_end_effects.npz",
+      "sha256": "83c6f1b28f2b023ece07face9af1281ea37cfda8dba2cb884ae75bb5d8e57f44",
+      "status": "PARTIAL_2D",
+      "matched_1d_id": "q4_M00_matched_x1_tail60_fb365f390c41",
+      "official_1d_id": "q4_1d_stage_schedule_default_dt0.25_s33c788387cd3",
+      "frozen_2d_id": "q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684",
+      "resolution": {
+        "nr": 40,
+        "nz": 125
+      },
+      "thresholds": {
+        "T_K": 0.2,
+        "C": 0.003
+      },
+      "time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "control_tolerance_kg_kg": 1e-09,
+      "control_representative_rule": "full tied coordinate range; z=0 is midplane",
+      "event_control_status": "TIED_OR_NOT_CENTER",
+      "control_check_window_s": 1800.0,
+      "control_checked_samples": 31,
+      "exact_event_times_s": [
+        184259.88
+      ],
+      "event_source": "frozen true 2D event field plus genuine matched 1D state",
+      "max_depth_T_m": 0.035457320544259985,
+      "max_depth_C_m": 0.03444759243075049,
+      "max_volume_fraction_T": 0.26243475601931343,
+      "max_volume_fraction_C": 0.25089791428516867,
+      "interpretation": "dimension difference at matched radial FV resolution; not experimental validation; 2D refinement remains partial",
+      "peak_depth_T_m_time_s": 4140.0,
+      "peak_depth_C_m_time_s": 39420.0,
+      "peak_volume_fraction_T_time_s": 4860.0,
+      "peak_volume_fraction_C_time_s": 43740.0
+    }
+  ],
+  "historical_checks": [
+    {
+      "case": "q4",
+      "mode": "M10",
+      "reference_id": "q4_M10_full_reference_x2_tail60_80eb1365fc7f",
+      "production_id": "q4_M10_production_x1_tail60_cccc3b4f23f5",
+      "status": "FAIL",
+      "full_schedule_reference_passed": false,
+      "time_half_passed": null,
+      "max_abs_T_K": 0.023114617182500297,
+      "max_abs_C": 0.004586737771516525,
+      "max_abs_Cmax": 0.0001450314914122064,
+      "event_relative": 0.0010559027083815935,
+      "event_delta_s": 214.9199999999979,
+      "thresholds": {
+        "T_K": 0.01,
+        "C": 0.01,
+        "event_s": null,
+        "event_relative": 0.002
+      },
+      "common_output_count": 4321,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 203756.4,
+          "T_K": 8.201163836929481e-06,
+          "C": 0.00021665376008049575,
+          "Cmax": 0.00010959015081465906,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 203541.47999999998,
+          "T_K": 8.901951730422297e-06,
+          "C": 0.00021691918359638407,
+          "Cmax": 0.00010961133977688275,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q4_M10_full_reference_x2_tail60_80eb1365fc7f_comparison.npz",
+      "series_sha256": "b40fc4189e31bdc946a456ee93af0e5871ba90196615d963abada88e2a783b7a",
+      "role": "historical / diagnostic only; superseded supplemental mesh"
+    },
+    {
+      "case": "q4",
+      "mode": "M10",
+      "reference_id": "q4_M10_time_half_x1_tail60_8515da56fa26",
+      "production_id": "q4_M10_production_x1_tail60_cccc3b4f23f5",
+      "status": "PASS",
+      "full_schedule_reference_passed": null,
+      "time_half_passed": true,
+      "max_abs_T_K": 3.859668140648864e-11,
+      "max_abs_C": 7.700506898800086e-13,
+      "max_abs_Cmax": 4.587441537751147e-13,
+      "event_relative": 0.0,
+      "event_delta_s": 0.0,
+      "thresholds": {
+        "T_K": 0.001,
+        "C": 1e-05,
+        "event_s": 1.0,
+        "event_relative": null
+      },
+      "common_output_count": 4321,
+      "common_time_range_s": [
+        0.0,
+        259200.0
+      ],
+      "events": [
+        {
+          "time_s": 203756.4,
+          "T_K": 5.684341886080801e-13,
+          "C": 3.552713678800501e-15,
+          "Cmax": 3.2751579226442118e-15,
+          "source": "genuine reintegration to exact common physical time"
+        },
+        {
+          "time_s": 203756.4,
+          "T_K": 5.684341886080801e-13,
+          "C": 3.552713678800501e-15,
+          "Cmax": 3.2751579226442118e-15,
+          "source": "genuine reintegration to exact common physical time"
+        }
+      ],
+      "full_history_verified": true,
+      "reference_pairing_verified": true,
+      "reference_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "production_schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+      "official_M00_status_unchanged": true,
+      "series_path": "work/studies/validation/q4_M10_time_half_x1_tail60_8515da56fa26_comparison.npz",
+      "series_sha256": "eb8128b6340eda83b89edb530adf4456fb39e44cd76cc5a9a0d6ca3463a600e6",
+      "role": "historical / diagnostic only; superseded supplemental mesh"
+    }
+  ],
+  "historical_role": "legacy / diagnostic only"
+}

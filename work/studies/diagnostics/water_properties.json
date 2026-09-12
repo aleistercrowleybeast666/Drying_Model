@@ -1,0 +1,30 @@
+{
+  "library": "iapws",
+  "library_version": "1.5.5",
+  "formulation": "IAPWS-IF97",
+  "state_path": "saturation at T; x=0 liquid, x=1 vapor; Lv=hv-hl",
+  "temperature_range_K": [
+    273.16,
+    373.15
+  ],
+  "units": {
+    "temperature": "K",
+    "liquid_enthalpy": "J/kg",
+    "latent_heat": "J/kg"
+  },
+  "conversion": "IAPWS h [kJ/kg] multiplied by 1000",
+  "interpolation": "piecewise linear, 1001 nodes; all 1000 interval midpoints independently checked",
+  "interpolation_max_abs_J_kg": {
+    "hl": 0.004456258122473855,
+    "Lv": 0.00849967822432518
+  },
+  "derivative": "dhl/dT along the saturation path, not constant-pressure cp",
+  "out_of_range": "THERMAL_MODEL_OUT_OF_DOMAIN; no clipping, extrapolation or ice model",
+  "sources": [
+    "https://iapws.org/technical-guidance/release/IF97-Rev",
+    "https://iapws.readthedocs.io/en/stable/iapws.iapws97.html"
+  ],
+  "implementation_sha256": "9272a239bbe9245ad71afa747b211e68a1fddea097966fb098e55bcb9b098f9e",
+  "table_path": "work/studies/diagnostics/water_properties.npz",
+  "table_sha256": "0b660e541397ed56edd22f58ae56780aa36f138a1590ab896cf54dbec1fe2a99"
+}

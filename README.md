@@ -14,7 +14,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe plot.py
 
 # 测试；仅刷新绘图数据（不解 PDE）：
-.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe -m pytest -q -o cache_dir=work/studies/pytest_cache --basetemp=work/studies/pytest_tmp
 .\.venv\Scripts\python.exe compute.py --payload-only
 # 求解、验证和导出均完成，只有最后汇总/打包失败时：
 .\.venv\Scripts\python.exe compute.py --resume-finalize
@@ -33,11 +33,12 @@ results/
   q1/q1_curves.png, q1_1d_2d_compare.png, q1_max_error_section.png
      q1_compare.csv, q1_summary.json, q1_key_values.csv
   q2/（同 q1，以 q2 命名）
-  q3/（同 q1，另有 q3_3d.png、q3_3d.gif）
-  q4/（同 q1，另有 q4_3d.png、q4_3d.gif、q4_radius_history.csv）
-  q3_q4_axial_section.gif
-  q3_q4_radial_section.gif
-  q3_q4_cutaway_cylinder.gif
+  q3/（同 q1，另有 q3_3d.png）
+  q4/（同 q1，另有 q4_3d.png、q4_radius_history.csv）
+  animations/    # 原有 5 个 GIF，迁移时逐字节验证，保留画面与播放设置
+    q3_3d.gif, q4_3d.gif
+    q3_q4_axial_section.gif, q3_q4_radial_section.gif, q3_q4_cutaway_cylinder.gif
+  studies/       # 独立扩展，绝不替换上面的正式四表
   status.json
   overview.md     # 自动生成的简要数值结果、阶段状态和未解决警告
 work/
@@ -51,6 +52,53 @@ logs/
   run.log
   events.jsonl
 ```
+
+新增扩展入口（一次只运行一个重计算进程）：
+
+```powershell
+# 首次在新环境安装扩展水物性依赖；启动器不会自动安装。
+.\.venv\Scripts\python.exe -m pip install -r requirements-studies.txt
+.\.venv\Scripts\python.exe compute_studies.py --group all --dry-run
+.\.venv\Scripts\python.exe compute_studies.py --group all --resume
+# verify / postprocess / geometry / environment / thermal 可单独选择；可附 --case q23 --mode M10。
+.\.venv\Scripts\python.exe compute_studies.py --group all --resume --payload-only
+.\.venv\Scripts\python.exe plot_studies.py
+.\.venv\Scripts\python.exe compute_studies.py --output-status-only
+.\.venv\Scripts\python.exe plot_studies.py --fig thermal_modes
+.\.venv\Scripts\python.exe plot_studies.py --gif thermal_temperature --gif-only
+.\.venv\Scripts\python.exe app.py
+```
+
+`work/baseline_snapshot/baseline_manifest.json` 冻结当前真实 M00 的输入、配置、轨迹、事件、四表和原有图像。
+双击 `studies_compute.bat` 只显示任务、预计缓存命中和缺失输入；实际计算需传入如 `--group all --resume`。`open_gui.bat` 只打开控制界面。两者不联网安装依赖、不自行发起全量重算。
+完成且指纹匹配的轨迹始终复用；未完成轨迹需 `--resume` 续算。若只改变生产/参考用途且所有生效参数完全一致，可逐数组核验后复用，记录原轨迹和复用耗时，不把历史求解耗时算成本轮重算。
+轨迹 `wall_s` 是实际执行耗时（包含该进程首次 JIT/加载）。`scripts/benchmark_study_startup.py` 另在新进程以零物理步测量内核编译/加载，写 `work/studies/diagnostics/kernel_startup.json`；不倒推或回填历史耗时，不作为精度收益分析。
+完整阶段参考从原始初态开始，使用同一个冻结 monitor、同一组切换时刻，各阶段 Nr 加倍。
+`full_schedule_reference_passed` 是新增独立证据，不替换旧“早期参考 AND 阶段附加误差 AND 换网格”正式认证。
+旧 fixed-grid FAIL 保留 `legacy / diagnostic only`；不影响已经通过的正式阶段方案。
+`results/studies/overview.md`、`study_index.json` 和 `validation_summary.json` 汇总扩展证据；根目录正式 overview/status 保持冻结。
+
+补充 M10（仅潜热）、M01（仅显式携热）、M11（两者均计）复用原 FV/RK4，分别进行自身半步重放、完整阶段空间参考和真实事件定位。
+`configs/studies_numerics.json` 仅记录补充热模式的保守空间倍数；每条生产方案都对应再加倍的完整参考及同网格半步验证。旧未通过尝试保留诊断，不覆盖 M00 配置或放宽阈值。
+新增水物性采用固定版本 IAPWS-IF97 饱和路径，kJ/kg 转 J/kg，有效域 273.16–373.15 K，不对冰区外推。
+干料质量换算、带符号凝结通量和有效温度方程假设详见 `work/studies/diagnostics/thermal_assumptions.md`。
+新结果是模型比较，不是实验验证；二维精度仍为 PARTIAL；证据层不合并为一个物理误差。
+扩散时钟 ΘV 仅作状态与几何尺度诊断，不把非线性 PDE 精确变成常系数方程，也不要求曲线重合。B8/B10 控制组及匹配网格的一维对照未单独增加完整加密求解；主方案参考只为这些模型差提供数值分辨率背景，不冒充控制组独立精度认证。
+
+正式扩展输出为两份汇总工作簿、M10/M01/M11 各一份 `thermal/<模式>/supplement.xlsx`、九张 `figures/*.png` 和两张 `animations/thermal_*.gif`。
+每份补充工作簿包含 Q1–Q4 的温度与含水率；Q3/Q4 温度表明确标为 `_extension`，沿用对应问题的坐标、分钟采样和本模式真实终点，不改写原题官方表。
+汇总表抽取真实保存时刻；补充表保持 Q1/Q2 每秒、Q3/Q4 每分钟及各自真实事件。72 h 未达标时事件为空。
+汇总时间序列保留真实事件：在各热模式的事件时刻对其他模式作真实短程积分，四模式按共同物理时刻导出中心/表面温度、最大/平均含水率与达标状态。
+阶段识别只影响诊断，配置在 `configs/studies_analysis.json`：围绕实际速率峰值，分别取峰前区间最初 10% 和峰后区间最后 10% 的速率中位数，两侧各有至少三个样本且峰值相对两端的差均超过峰值的 15% 才标记“慢—快—慢”。窗口按两侧各自的时长定义，避免长尾掩盖短暂升速段；分别判断 Cmax/Cbar，不平滑正式状态。
+绘后运行 `compute_studies.py --output-status-only`，由计算侧按当前 payload 和渲染回执的 hash 核对实际产物并刷新扩展 overview；不重新求解、导出工作簿或改变数值清单。
+新增动画是 1D 径向场的圆盘映射：两行 Q3/Q4、四列 M00/M10/M01/M11，八图相同物理时间，前 6% 慢放，Q4 半径真实变化。
+绘图只读取已密封的 `work/studies/plot_payload/study_manifest.json` 与所列 NPZ；缺数据时列出路径和计算命令，不隐式求解。
+渲染样式 hash 与数值缓存指纹分开，渲染失败只写绘图诊断。
+
+GUI 只调用 CLI；参数与来源只读，实验组/轨迹/热模式选择实际进入命令。扩展“停止”写 `work/studies/STOP`，在下一保存点退出；恢复前移除标记。
+关闭正在运行的窗口会等待子进程安全结束。主任务使用 `work/studies/BASELINE_STOP`，在当前完整计算阶段保存缓存后停止；扩展任务在下一输出保存点停止。
+命令行恢复前删除相应停止标记；GUI 的计算/恢复按钮会清除本任务标记。停止不强行终止进程，不改正式数值内核。
+若本机 Python 缺 Tcl/Tk，GUI 明确报 `GUI_UNAVAILABLE`，上述 CLI 仍可独立使用。
 
 四份 Excel 只使用一维结果，保存后逐单元回读校验；不会因验证状态而复制到不同目录。72 h 未烘干时，summary 中 `drying_time` 为 null，表中保留已计算时序，不添加烘干终点行。`status.json` 的 `time_convergence_passed`、`spatial_convergence_passed`、`two_dimensional_check_completed`、`drying_completed`、`official_output_generated` 分别记录对应状态；完成二维比较不等于空间精度已认证。summary 时间单位为秒。
 
@@ -66,7 +114,7 @@ plot.py 生成五个 GIF：原有两张真实二维场的 3D 动画、一张 q3/
 
 二维主轨迹覆盖完整时段，时间减半仍按原方案覆盖前 1800 s。独立径向/轴向加密覆盖早期及当前一维/二维最大差代表时刻；长时终点采用最后一小时粗网格单元平均值的守恒投影，并在加密网格真实积分至终点附近，分别量化两方向敏感性。这是诊断窗口，继承了更早的粗网格误差，故保留 `2D_SPATIAL_VALIDATION_PARTIAL`，不宣称完整二维空间收敛。二维生产过程保持固定网格；一维可采用下述阶段网格。compute.py 及旧 export 命令更新正式状态时同步刷新 results/overview.md；plot.py 只重画图像，不用旧 payload 快照覆盖当前汇总。
 
-本工程不引入题面以外的材料参数，不外推72 h之后的半径，不生成论文或报告。原始 PDF 的辅助预览脚本仅用于本机查阅，不是求解依赖。
+正式 M00 不引入题面以外的材料参数；M10/M01/M11 仅使用已声明的补充水物性。不外推72 h之后的半径，不生成论文或报告。原始 PDF 的辅助预览脚本仅用于本机查阅，不是求解依赖。
 
 
 阶段配置位于 configs/stage_schedule.json，configs/default.toml 的 stage_mesh.mode 支持 fixed / stage_schedule / early_refined_stage_schedule。默认 early_refined_stage_schedule：Q1 在 60、300、1200 s，Q23 在 300、1800、21600 s，Q4 在 600、3600、21600 s 执行 200→160→80→40。另对三组均实测后期保持 80 的 200→160→80 方案。正式候选早期使用 200；400 仅作同一早期窗口的局部核验，不全程使用。二维保持 40×125。每个固定拓扑子阶段拥有独立缓存、指纹和检查点；聚合轨迹在切换时采用新网格的状态，时间点不重复。

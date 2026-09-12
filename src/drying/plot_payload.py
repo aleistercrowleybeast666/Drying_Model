@@ -109,7 +109,7 @@ def Payload_Prepare(root):
             Output_UpdateSummary(root,q,endpoint_2d_max_moisture_location=location)
             st=float(cfg['display']['snapshot_s']); sr,sz,sn=Payload_GetNodes(root,two,st,model,inputs)
             arrays.update(surface_time_s=st,surface_r=sr,surface_z=sz,surface_nodes=sn)
-            output.update(surface_png=f'results/q{q}/q{q}_3d.png',surface_gif=f'results/q{q}/q{q}_3d.gif')
+            output.update(surface_png=f'results/q{q}/q{q}_3d.png',surface_gif=f'results/animations/q{q}_3d.gif')
             for dim,case_id in [(1,one),(2,two)]:
                 animation[f'{dim}d']=Payload_PrepareFrames(root,q,case_id,model,inputs,progress,dim)
         path=folder/f'q{q}_plot_data.npz'; Storage_WriteArray(path,**arrays)
@@ -123,7 +123,7 @@ def Payload_Prepare(root):
         manifest['outputs'].extend(output.values())
         print(f'PLOT_PAYLOAD_PREPARED q{q}',flush=True)
     for name,dim in [('axial_section','2d'),('radial_section','1d'),('cutaway_cylinder','2d')]:
-        output=f'results/q3_q4_{name}.gif'
+        output=f'results/animations/q3_q4_{name}.gif'
         manifest['cross_question_gifs'][name]=dict(output=output,
             datasets=[manifest['questions'][q]['animations'][dim]['data_path'] for q in ['q3','q4']])
         manifest['outputs'].append(output)

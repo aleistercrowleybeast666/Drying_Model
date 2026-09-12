@@ -1,0 +1,87 @@
+{
+  "case": "q23",
+  "mode": "M01",
+  "reference_id": "q23_M01_time_half_x1_tail60_192c7ddd1c43",
+  "production_id": "q23_M01_production_x1_tail60_182fbf89b7a4",
+  "status": "PASS",
+  "full_schedule_reference_passed": null,
+  "time_half_passed": true,
+  "max_abs_T_K": 6.008349373587407e-10,
+  "max_abs_C": 5.171418848703979e-12,
+  "max_abs_Cmax": 2.2773449792623524e-12,
+  "event_relative": 1.735430195848845e-06,
+  "event_delta_s": 0.36000000001195076,
+  "thresholds": {
+    "T_K": 0.001,
+    "C": 1e-05,
+    "event_s": 1.0,
+    "event_relative": null
+  },
+  "common_output_count": 14941,
+  "common_time_range_s": [
+    0.0,
+    259200.0
+  ],
+  "events": [
+    {
+      "time_s": 207441.72,
+      "T_K": 3.4214053812320344e-10,
+      "C": 5.489775301015243e-13,
+      "Cmax": 5.489775301015243e-13,
+      "source": "genuine reintegration to exact common physical time"
+    },
+    {
+      "time_s": 207441.36,
+      "T_K": 3.618652044679038e-10,
+      "C": 5.490885524039868e-13,
+      "Cmax": 5.490885524039868e-13,
+      "source": "genuine reintegration to exact common physical time"
+    }
+  ],
+  "full_history_verified": true,
+  "reference_pairing_verified": true,
+  "reference_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 300.0,
+      "nr": 200,
+      "nz": 1
+    },
+    {
+      "t_start": 300.0,
+      "t_end": 1800.0,
+      "nr": 160,
+      "nz": 1
+    },
+    {
+      "t_start": 1800.0,
+      "t_end": 259200.0,
+      "nr": 80,
+      "nz": 1
+    }
+  ],
+  "production_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 300.0,
+      "nr": 200,
+      "nz": 1
+    },
+    {
+      "t_start": 300.0,
+      "t_end": 1800.0,
+      "nr": 160,
+      "nz": 1
+    },
+    {
+      "t_start": 1800.0,
+      "t_end": 259200.0,
+      "nr": 80,
+      "nz": 1
+    }
+  ],
+  "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+  "official_M00_status_unchanged": true,
+  "series_path": "work/studies/validation/q23_M01_time_half_x1_tail60_192c7ddd1c43_comparison.npz",
+  "series_sha256": "2b0a3e9c6058ebc937b68862a235ec4ff0f587f56aae419167e91272bbe8f5e9"
+}

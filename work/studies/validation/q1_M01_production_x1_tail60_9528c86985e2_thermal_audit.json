@@ -1,0 +1,289 @@
+{
+  "experiment_id": "q1_M01_production_x1_tail60_9528c86985e2",
+  "status": "PASS",
+  "samples": [
+    {
+      "time_s": 0.0,
+      "temperature_surface_K": 301.15,
+      "moisture_surface": 2.533432153815212,
+      "signed_Jw_kg_m2_s": 0.00046452231349374066,
+      "heat_balance_abs_W_per_rad": 0.0,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 1e-12
+    },
+    {
+      "time_s": 60.0,
+      "temperature_surface_K": 301.2300051281201,
+      "moisture_surface": 2.3131979832663205,
+      "signed_Jw_kg_m2_s": 0.00042375345268245247,
+      "heat_balance_abs_W_per_rad": 7.954123470987895e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.027934985115180617
+    },
+    {
+      "time_s": 300.0,
+      "temperature_surface_K": 301.9966720454934,
+      "moisture_surface": 2.050006101828652,
+      "signed_Jw_kg_m2_s": 0.000374769307830872,
+      "heat_balance_abs_W_per_rad": 1.5956680421425062e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.1236249565761324
+    },
+    {
+      "time_s": 600.0,
+      "temperature_surface_K": 303.3085187775494,
+      "moisture_surface": 1.8766125761639267,
+      "signed_Jw_kg_m2_s": 0.0003422901887221228,
+      "heat_balance_abs_W_per_rad": 5.850875339774575e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.18900106561626814
+    },
+    {
+      "time_s": 1200.0,
+      "temperature_surface_K": 306.559858809269,
+      "moisture_surface": 1.6584308375998753,
+      "signed_Jw_kg_m2_s": 0.0003011170899902868,
+      "heat_balance_abs_W_per_rad": 1.919020498064583e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.2772692437241248
+    },
+    {
+      "time_s": 1200.0,
+      "temperature_surface_K": 306.56042870019996,
+      "moisture_surface": 1.6574836273646725,
+      "signed_Jw_kg_m2_s": 0.00030094205621161274,
+      "heat_balance_abs_W_per_rad": 1.180722186688854e-13,
+      "water_balance_abs_kg_s_per_rad": 3.1763735522036263e-22,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.27732893528443103
+    },
+    {
+      "time_s": 1800.0,
+      "temperature_surface_K": 309.90968391405806,
+      "moisture_surface": 1.5097463561277933,
+      "signed_Jw_kg_m2_s": 0.00027287315200558664,
+      "heat_balance_abs_W_per_rad": 4.9960036108132044e-15,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.29455201042093165
+    }
+  ],
+  "remesh": [
+    {
+      "time_s": 60.0,
+      "volume_integral_C_before": 0.0007975345443308388,
+      "volume_integral_C_after": 0.0007975345443308388,
+      "effective_storage_J_before": 18764.93774093782,
+      "effective_storage_J_after": 18764.93774093782,
+      "effective_storage_change_J": 0.0,
+      "fronts_before": [
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        }
+      ],
+      "fronts_after": [
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        }
+      ],
+      "meaning": "K(T,C)*(T-273.15) volume indicator, not total mixture enthalpy; properties recomputed after transfer"
+    },
+    {
+      "time_s": 300.0,
+      "volume_integral_C_before": 0.0007846229559855321,
+      "volume_integral_C_after": 0.0007846229559855321,
+      "effective_storage_J_before": 18993.98907077471,
+      "effective_storage_J_after": 18993.98907077471,
+      "effective_storage_change_J": 0.0,
+      "fronts_before": [
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        }
+      ],
+      "fronts_after": [
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        }
+      ],
+      "meaning": "K(T,C)*(T-273.15) volume indicator, not total mixture enthalpy; properties recomputed after transfer"
+    },
+    {
+      "time_s": 1200.0,
+      "volume_integral_C_before": 0.0007439193800697344,
+      "volume_integral_C_after": 0.0007439193800697344,
+      "effective_storage_J_before": 21388.321582997556,
+      "effective_storage_J_after": 21388.321582997556,
+      "effective_storage_change_J": 0.0,
+      "fronts_before": [
+        {
+          "radius_m": 0.018726555639979835,
+          "relative_radius": 0.9363277819989918,
+          "wet_volume_fraction": 0.8767097153431516,
+          "status": "MONOTONE_CORE",
+          "crossings": 1
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        }
+      ],
+      "fronts_after": [
+        {
+          "radius_m": 0.0187199244530715,
+          "relative_radius": 0.935996222653575,
+          "wet_volume_fraction": 0.8760889288217607,
+          "status": "MONOTONE_CORE",
+          "crossings": 1
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        }
+      ],
+      "meaning": "K(T,C)*(T-273.15) volume indicator, not total mixture enthalpy; properties recomputed after transfer"
+    }
+  ],
+  "reverse_flux_sample_count": 0,
+  "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+  "b0_kg_m3": 230.98591549295776,
+  "dry_mass_kg": 0.07256636551953889
+}

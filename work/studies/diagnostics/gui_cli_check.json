@@ -1,0 +1,19 @@
+{
+  "command": [
+    "D:\\数学建模\\A_Drying\\.venv\\Scripts\\python.exe",
+    "D:\\数学建模\\A_Drying\\compute_studies.py",
+    "--group",
+    "thermal",
+    "--dry-run",
+    "--case",
+    "q4",
+    "--mode",
+    "M11"
+  ],
+  "status": "PASS",
+  "hidden_window": true,
+  "actual_readonly_child": true,
+  "exit_code": 0,
+  "manual_interaction": false,
+  "app_sha256": "3baf88b5b75bde244bf91682cd31af157b585720608707d388c0f2fc2b855e98"
+}

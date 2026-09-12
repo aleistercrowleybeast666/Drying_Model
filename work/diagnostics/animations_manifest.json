@@ -244,7 +244,7 @@
       205800.0,
       208273.31999999998
     ],
-    "path": "results\\q3\\q3_3d.gif",
+    "path": "results/animations/q3_3d.gif",
     "frames": 240,
     "size_px": [
       1000,
@@ -511,7 +511,7 @@
       182040.0,
       184259.88
     ],
-    "path": "results\\q4\\q4_3d.gif",
+    "path": "results/animations/q4_3d.gif",
     "frames": 240,
     "size_px": [
       1000,
@@ -1282,7 +1282,7 @@
       }
     ],
     "cutaway": null,
-    "path": "results\\q3_q4_axial_section.gif",
+    "path": "results/animations/q3_q4_axial_section.gif",
     "frames": 240,
     "size_px": [
       1100,
@@ -2053,7 +2053,7 @@
       }
     ],
     "cutaway": null,
-    "path": "results\\q3_q4_radial_section.gif",
+    "path": "results/animations/q3_q4_radial_section.gif",
     "frames": 240,
     "size_px": [
       1100,
@@ -2843,7 +2843,7 @@
       "contour_scope": "actual oblique face; fixed equal-value levels shared by Q3/Q4 and every frame",
       "physical_axis_scale": "equal; no axial compression"
     },
-    "path": "results\\q3_q4_cutaway_cylinder.gif",
+    "path": "results/animations/q3_q4_cutaway_cylinder.gif",
     "frames": 240,
     "size_px": [
       1080,

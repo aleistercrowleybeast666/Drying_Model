@@ -1,0 +1,87 @@
+{
+  "case": "q23",
+  "mode": "M10",
+  "reference_id": "q23_M10_full_reference_x2_tail60_b7daa96bab55",
+  "production_id": "q23_M10_production_x1_tail60_f001afde885f",
+  "status": "PASS",
+  "full_schedule_reference_passed": true,
+  "time_half_passed": null,
+  "max_abs_T_K": 0.007324868518821859,
+  "max_abs_C": 0.002175117684325212,
+  "max_abs_Cmax": 0.00010034640452710741,
+  "event_relative": 0.0015815810197070956,
+  "event_delta_s": 344.8800000000148,
+  "thresholds": {
+    "T_K": 0.01,
+    "C": 0.01,
+    "event_s": null,
+    "event_relative": 0.002
+  },
+  "common_output_count": 14941,
+  "common_time_range_s": [
+    0.0,
+    259200.0
+  ],
+  "events": [
+    {
+      "time_s": 218405.16,
+      "T_K": 4.270309341336542e-05,
+      "C": 0.00043884343824637795,
+      "Cmax": 9.987924126966807e-05,
+      "source": "genuine reintegration to exact common physical time"
+    },
+    {
+      "time_s": 218060.28,
+      "T_K": 4.242786894792516e-05,
+      "C": 0.0004392491686911054,
+      "Cmax": 9.986137407394513e-05,
+      "source": "genuine reintegration to exact common physical time"
+    }
+  ],
+  "full_history_verified": true,
+  "reference_pairing_verified": true,
+  "reference_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 300.0,
+      "nr": 400,
+      "nz": 1
+    },
+    {
+      "t_start": 300.0,
+      "t_end": 1800.0,
+      "nr": 320,
+      "nz": 1
+    },
+    {
+      "t_start": 1800.0,
+      "t_end": 259200.0,
+      "nr": 160,
+      "nz": 1
+    }
+  ],
+  "production_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 300.0,
+      "nr": 200,
+      "nz": 1
+    },
+    {
+      "t_start": 300.0,
+      "t_end": 1800.0,
+      "nr": 160,
+      "nz": 1
+    },
+    {
+      "t_start": 1800.0,
+      "t_end": 259200.0,
+      "nr": 80,
+      "nz": 1
+    }
+  ],
+  "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+  "official_M00_status_unchanged": true,
+  "series_path": "work/studies/validation/q23_M10_full_reference_x2_tail60_b7daa96bab55_comparison.npz",
+  "series_sha256": "02be7e9bb231df550cc9f88bc710b8731dd280dfc30ae529b8faa819944dace2"
+}

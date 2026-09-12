@@ -1,0 +1,91 @@
+{
+  "outputs": [
+    {
+      "path": "results/studies/tables/study_summary.xlsx",
+      "sha256": "3ec53abf701cb35f6c892666dea12ac83d0bc16b1e3545a9cd6c19b889fd5ea2",
+      "sheets": [
+        "Index",
+        "Verification",
+        "EndEffects",
+        "FrontMilestones",
+        "DryingStages",
+        "Geometry",
+        "Environment",
+        "ThermalModes",
+        "Interactions",
+        "EventEvidence",
+        "EvidenceLayers",
+        "Sources"
+      ],
+      "readback": "PASSED_ALL_CELLS",
+      "checked_cells": 5389
+    },
+    {
+      "path": "results/studies/tables/study_timeseries.xlsx",
+      "sha256": "7bc9742f7aeeb351a1f0c83a3b59e3db16ee395dd5afa4cbbdae228dba5f1e67",
+      "sheets": [
+        "EndEffects",
+        "Fronts",
+        "Kinetics",
+        "DiffusionClock",
+        "Counterfactuals",
+        "ThermalSeries"
+      ],
+      "readback": "PASSED_ALL_CELLS",
+      "checked_cells": 340022
+    },
+    {
+      "path": "results/studies/thermal/M10/supplement.xlsx",
+      "sha256": "0879572d15840fcfcc843f5fee2ce63d28a6e4af6186449776309e2ed3a6ce09",
+      "sheets": [
+        "Config_Status",
+        "Q1_Temperature_C",
+        "Q1_Moisture_kg_kg",
+        "Q2_Temperature_C",
+        "Q2_Moisture_kg_kg",
+        "Q3_Moisture_kg_kg",
+        "Q3_Temperature_C_extension",
+        "Q4_Moisture_kg_kg",
+        "Q4_Temperature_C_extension"
+      ],
+      "readback": "PASSED_ALL_CELLS",
+      "checked_cells": 871623
+    },
+    {
+      "path": "results/studies/thermal/M01/supplement.xlsx",
+      "sha256": "2591c9ca1b13c214a0794e54752bdf0f98cde4163929fafcced2166080fc98bb",
+      "sheets": [
+        "Config_Status",
+        "Q1_Temperature_C",
+        "Q1_Moisture_kg_kg",
+        "Q2_Temperature_C",
+        "Q2_Moisture_kg_kg",
+        "Q3_Moisture_kg_kg",
+        "Q3_Temperature_C_extension",
+        "Q4_Moisture_kg_kg",
+        "Q4_Temperature_C_extension"
+      ],
+      "readback": "PASSED_ALL_CELLS",
+      "checked_cells": 848805
+    },
+    {
+      "path": "results/studies/thermal/M11/supplement.xlsx",
+      "sha256": "5984306581279561fbd06e4758bb8bc3d5e289e7aaa19c39034407b97249114a",
+      "sheets": [
+        "Config_Status",
+        "Q1_Temperature_C",
+        "Q1_Moisture_kg_kg",
+        "Q2_Temperature_C",
+        "Q2_Moisture_kg_kg",
+        "Q3_Moisture_kg_kg",
+        "Q3_Temperature_C_extension",
+        "Q4_Moisture_kg_kg",
+        "Q4_Temperature_C_extension"
+      ],
+      "readback": "PASSED_ALL_CELLS",
+      "checked_cells": 871623
+    }
+  ],
+  "timeseries_sampling": "Actual samples: 60s up to 4h, 600s later, include endpoints/rate extrema/remesh and genuine reintegrated event times. ThermalSeries uses common physical times for every available mode. Full arrays in sealed NPZ; supplements follow official question frequency and own event.",
+  "official_workbooks": "never written"
+}

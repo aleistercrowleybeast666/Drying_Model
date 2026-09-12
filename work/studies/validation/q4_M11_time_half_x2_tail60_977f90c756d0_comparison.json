@@ -1,0 +1,99 @@
+{
+  "case": "q4",
+  "mode": "M11",
+  "reference_id": "q4_M11_time_half_x2_tail60_977f90c756d0",
+  "production_id": "q4_M11_production_x2_tail60_7848b38bac48",
+  "status": "PASS",
+  "full_schedule_reference_passed": null,
+  "time_half_passed": true,
+  "max_abs_T_K": 1.4858869690215215e-10,
+  "max_abs_C": 4.559463917530593e-12,
+  "max_abs_Cmax": 2.665423437520076e-12,
+  "event_relative": 0.0,
+  "event_delta_s": 0.0,
+  "thresholds": {
+    "T_K": 0.001,
+    "C": 1e-05,
+    "event_s": 1.0,
+    "event_relative": null
+  },
+  "common_output_count": 4322,
+  "common_time_range_s": [
+    0.0,
+    259200.0
+  ],
+  "events": [
+    {
+      "time_s": 203545.44,
+      "T_K": 1.9838353182421997e-11,
+      "C": 2.65898414397725e-14,
+      "Cmax": 2.65898414397725e-14,
+      "source": "genuine reintegration to exact common physical time"
+    },
+    {
+      "time_s": 203545.44,
+      "T_K": 1.9838353182421997e-11,
+      "C": 2.65898414397725e-14,
+      "Cmax": 2.65898414397725e-14,
+      "source": "genuine reintegration to exact common physical time"
+    }
+  ],
+  "full_history_verified": true,
+  "reference_pairing_verified": true,
+  "reference_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 600.0,
+      "nr": 400,
+      "nz": 1
+    },
+    {
+      "t_start": 600.0,
+      "t_end": 3600.0,
+      "nr": 320,
+      "nz": 1
+    },
+    {
+      "t_start": 3600.0,
+      "t_end": 21600.0,
+      "nr": 160,
+      "nz": 1
+    },
+    {
+      "t_start": 21600.0,
+      "t_end": 259200.0,
+      "nr": 80,
+      "nz": 1
+    }
+  ],
+  "production_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 600.0,
+      "nr": 400,
+      "nz": 1
+    },
+    {
+      "t_start": 600.0,
+      "t_end": 3600.0,
+      "nr": 320,
+      "nz": 1
+    },
+    {
+      "t_start": 3600.0,
+      "t_end": 21600.0,
+      "nr": 160,
+      "nz": 1
+    },
+    {
+      "t_start": 21600.0,
+      "t_end": 259200.0,
+      "nr": 80,
+      "nz": 1
+    }
+  ],
+  "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+  "official_M00_status_unchanged": true,
+  "series_path": "work/studies/validation/q4_M11_time_half_x2_tail60_977f90c756d0_comparison.npz",
+  "series_sha256": "07758b89d7c424e8454cebad6633801e6b2ace49cdf5b87ed8f6eb46c560a491"
+}

@@ -1,0 +1,7 @@
+{
+  "stage_identification": {
+    "endpoint_window_fraction": 0.1,
+    "minimum_peak_contrast_fraction": 0.15,
+    "minimum_samples": 6
+  }
+}

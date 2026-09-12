@@ -1,0 +1,57 @@
+{
+  "paths": {
+    "results/q3/q3_3d.gif": "results/animations/q3_3d.gif",
+    "results/q3_q4_axial_section.gif": "results/animations/q3_q4_axial_section.gif",
+    "results/q3_q4_cutaway_cylinder.gif": "results/animations/q3_q4_cutaway_cylinder.gif",
+    "results/q3_q4_radial_section.gif": "results/animations/q3_q4_radial_section.gif",
+    "results/q4/q4_3d.gif": "results/animations/q4_3d.gif"
+  },
+  "files": [
+    {
+      "path": "results/q3/q3_3d.gif",
+      "sha256": "67a2982f9ddc554d80262880808b6b9124629b790cba6205cef6f2d04984302c",
+      "size_px": [
+        1000,
+        450
+      ],
+      "frames": 240
+    },
+    {
+      "path": "results/q3_q4_axial_section.gif",
+      "sha256": "0577f3fd51397ccbe74b1ee0cc66fe8f1092c89199a2e0b6a84e649a5dfeb4fa",
+      "size_px": [
+        1100,
+        700
+      ],
+      "frames": 240
+    },
+    {
+      "path": "results/q3_q4_cutaway_cylinder.gif",
+      "sha256": "daffad569039b8618cf9ddc6de5a261de43c9e27f4952a03703281152e20dfda",
+      "size_px": [
+        1080,
+        960
+      ],
+      "frames": 240
+    },
+    {
+      "path": "results/q3_q4_radial_section.gif",
+      "sha256": "20317e3cdc4c3de5b268d516bf31d66c1a392de67323d87007270b7bdf3b633e",
+      "size_px": [
+        1100,
+        700
+      ],
+      "frames": 240
+    },
+    {
+      "path": "results/q4/q4_3d.gif",
+      "sha256": "10ae7c1824e9f4b0851249ccb046d062fa545a90ab6f8f8f4482d2e583756f06",
+      "size_px": [
+        1000,
+        450
+      ],
+      "frames": 240
+    }
+  ],
+  "policy": "copy, verify SHA-256, update manifest, then remove old copy; no rendering"
+}

@@ -1,0 +1,84 @@
+{
+  "case": "q1",
+  "mode": "M11",
+  "reference_id": "q1_M11_full_reference_x2_tail60_f7c4a25eb396",
+  "production_id": "q1_M11_production_x1_tail60_5590317f2af6",
+  "status": "PASS",
+  "full_schedule_reference_passed": true,
+  "time_half_passed": null,
+  "max_abs_T_K": 0.006817574387241621,
+  "max_abs_C": 0.0021175083309472598,
+  "max_abs_Cmax": 8.58187510388575e-07,
+  "event_relative": null,
+  "event_delta_s": null,
+  "thresholds": {
+    "T_K": 0.01,
+    "C": 0.01,
+    "event_s": null,
+    "event_relative": 0.002
+  },
+  "common_output_count": 1801,
+  "common_time_range_s": [
+    0.0,
+    1800.0
+  ],
+  "events": [],
+  "full_history_verified": true,
+  "reference_pairing_verified": true,
+  "reference_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 60.0,
+      "nr": 400,
+      "nz": 1
+    },
+    {
+      "t_start": 60.0,
+      "t_end": 300.0,
+      "nr": 320,
+      "nz": 1
+    },
+    {
+      "t_start": 300.0,
+      "t_end": 1200.0,
+      "nr": 160,
+      "nz": 1
+    },
+    {
+      "t_start": 1200.0,
+      "t_end": 1800.0,
+      "nr": 80,
+      "nz": 1
+    }
+  ],
+  "production_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 60.0,
+      "nr": 200,
+      "nz": 1
+    },
+    {
+      "t_start": 60.0,
+      "t_end": 300.0,
+      "nr": 160,
+      "nz": 1
+    },
+    {
+      "t_start": 300.0,
+      "t_end": 1200.0,
+      "nr": 80,
+      "nz": 1
+    },
+    {
+      "t_start": 1200.0,
+      "t_end": 1800.0,
+      "nr": 40,
+      "nz": 1
+    }
+  ],
+  "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+  "official_M00_status_unchanged": true,
+  "series_path": "work/studies/validation/q1_M11_full_reference_x2_tail60_f7c4a25eb396_comparison.npz",
+  "series_sha256": "0f2fc437fad23c37447735ae3bb86061ab914e356f6cd08c86d444a5b3f2b755"
+}

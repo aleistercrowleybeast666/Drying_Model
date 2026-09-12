@@ -1,0 +1,4780 @@
+{
+  "experiment_id": "q23_M01_time_half_x1_tail60_192c7ddd1c43",
+  "status": "PASS",
+  "samples": [
+    {
+      "time_s": 0.0,
+      "temperature_surface_K": 301.15,
+      "moisture_surface": 2.5343763485643533,
+      "signed_Jw_kg_m2_s": 0.0005533292021945317,
+      "heat_balance_abs_W_per_rad": 0.0,
+      "water_balance_abs_kg_s_per_rad": 2.117582368135751e-22,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 1e-12
+    },
+    {
+      "time_s": 300.0,
+      "temperature_surface_K": 301.7922937852562,
+      "moisture_surface": 2.088049811190045,
+      "signed_Jw_kg_m2_s": 0.0004546205998075403,
+      "heat_balance_abs_W_per_rad": 4.874989301129062e-13,
+      "water_balance_abs_kg_s_per_rad": 2.117582368135751e-22,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.13632878566176113
+    },
+    {
+      "time_s": 600.0,
+      "temperature_surface_K": 302.8429553496364,
+      "moisture_surface": 1.9322235788665507,
+      "signed_Jw_kg_m2_s": 0.0004198120812180958,
+      "heat_balance_abs_W_per_rad": 3.207156762385921e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.21783873639489454
+    },
+    {
+      "time_s": 1200.0,
+      "temperature_surface_K": 305.56527636766583,
+      "moisture_surface": 1.7546332971979324,
+      "signed_Jw_kg_m2_s": 0.0003797174596921828,
+      "heat_balance_abs_W_per_rad": 2.6834090505190034e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.3385459842782871
+    },
+    {
+      "time_s": 1800.0,
+      "temperature_surface_K": 308.5304855334166,
+      "moisture_surface": 1.6482651209784605,
+      "signed_Jw_kg_m2_s": 0.0003553975247601958,
+      "heat_balance_abs_W_per_rad": 6.278866315767573e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.3790804196645335
+    },
+    {
+      "time_s": 1800.0,
+      "temperature_surface_K": 308.5306075682092,
+      "moisture_surface": 1.6481765803617177,
+      "signed_Jw_kg_m2_s": 0.00035537804283159016,
+      "heat_balance_abs_W_per_rad": 4.463096558993129e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.37914288434299825
+    },
+    {
+      "time_s": 2400.0,
+      "temperature_surface_K": 311.3782820785917,
+      "moisture_surface": 1.574583927894363,
+      "signed_Jw_kg_m2_s": 0.00033833364083291404,
+      "heat_balance_abs_W_per_rad": 2.0800028366352308e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.3625469809334751
+    },
+    {
+      "time_s": 3000.0,
+      "temperature_surface_K": 313.91867838774675,
+      "moisture_surface": 1.5180615080509587,
+      "signed_Jw_kg_m2_s": 0.00032519929069542674,
+      "heat_balance_abs_W_per_rad": 4.8683279629813114e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.3181587481780866
+    },
+    {
+      "time_s": 3600.0,
+      "temperature_surface_K": 316.09132058991406,
+      "moisture_surface": 1.4703972848251612,
+      "signed_Jw_kg_m2_s": 0.0003141372621753887,
+      "heat_balance_abs_W_per_rad": 3.909095269705176e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.27994174836019003
+    },
+    {
+      "time_s": 4200.0,
+      "temperature_surface_K": 317.82094197228815,
+      "moisture_surface": 1.4273423817749822,
+      "signed_Jw_kg_m2_s": 0.00030419945680340116,
+      "heat_balance_abs_W_per_rad": 6.941391905712635e-13,
+      "water_balance_abs_kg_s_per_rad": 2.117582368135751e-22,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.21509385400014241
+    },
+    {
+      "time_s": 4800.0,
+      "temperature_surface_K": 319.2399134782471,
+      "moisture_surface": 1.3866889014739567,
+      "signed_Jw_kg_m2_s": 0.0002949242662307992,
+      "heat_balance_abs_W_per_rad": 2.0003443346183758e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.1777832795864333
+    },
+    {
+      "time_s": 5400.0,
+      "temperature_surface_K": 320.2432860888245,
+      "moisture_surface": 1.346959992947385,
+      "signed_Jw_kg_m2_s": 0.00028597353129325675,
+      "heat_balance_abs_W_per_rad": 4.4536596632838155e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.12438688081168675
+    },
+    {
+      "time_s": 5400.0,
+      "temperature_surface_K": 320.2432860888245,
+      "moisture_surface": 1.346959992947385,
+      "signed_Jw_kg_m2_s": 0.00028597353129325675,
+      "heat_balance_abs_W_per_rad": 4.4536596632838155e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.12438688081168675
+    },
+    {
+      "time_s": 6000.0,
+      "temperature_surface_K": 321.09853904112407,
+      "moisture_surface": 1.3079595047374593,
+      "signed_Jw_kg_m2_s": 0.00027714346736352796,
+      "heat_balance_abs_W_per_rad": 5.697525784498225e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.11050978821960816
+    },
+    {
+      "time_s": 6600.0,
+      "temperature_surface_K": 321.682025307938,
+      "moisture_surface": 1.2693034974286486,
+      "signed_Jw_kg_m2_s": 0.0002686004333271735,
+      "heat_balance_abs_W_per_rad": 2.645800245559826e-13,
+      "water_balance_abs_kg_s_per_rad": 1.0587911840678754e-22,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.0708028859814783
+    },
+    {
+      "time_s": 7200.0,
+      "temperature_surface_K": 322.12649019396673,
+      "moisture_surface": 1.230761397469179,
+      "signed_Jw_kg_m2_s": 0.0002600406563355282,
+      "heat_balance_abs_W_per_rad": 1.57519830512598e-13,
+      "water_balance_abs_kg_s_per_rad": 1.0587911840678754e-22,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.05390306564440663
+    },
+    {
+      "time_s": 7800.0,
+      "temperature_surface_K": 322.37629216064846,
+      "moisture_surface": 1.1921457005808416,
+      "signed_Jw_kg_m2_s": 0.0002514690862078048,
+      "heat_balance_abs_W_per_rad": 3.265929193752015e-13,
+      "water_balance_abs_kg_s_per_rad": 1.0587911840678754e-22,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.029986970709531408
+    },
+    {
+      "time_s": 8400.0,
+      "temperature_surface_K": 322.62427219684713,
+      "moisture_surface": 1.154163340738156,
+      "signed_Jw_kg_m2_s": 0.00024299726555419393,
+      "heat_balance_abs_W_per_rad": 7.327818907221229e-14,
+      "water_balance_abs_kg_s_per_rad": 1.0587911840678754e-22,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.02718701534644279
+    },
+    {
+      "time_s": 9000.0,
+      "temperature_surface_K": 322.7990449333167,
+      "moisture_surface": 1.1165697177009926,
+      "signed_Jw_kg_m2_s": 0.00023472319737763366,
+      "heat_balance_abs_W_per_rad": 4.2117698217936095e-13,
+      "water_balance_abs_kg_s_per_rad": 1.0587911840678754e-22,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.031845278504785246
+    },
+    {
+      "time_s": 9000.0,
+      "temperature_surface_K": 322.7990449333167,
+      "moisture_surface": 1.1165697177009926,
+      "signed_Jw_kg_m2_s": 0.00023472319737763366,
+      "heat_balance_abs_W_per_rad": 4.2117698217936095e-13,
+      "water_balance_abs_kg_s_per_rad": 1.0587911840678754e-22,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.031845278504785246
+    },
+    {
+      "time_s": 9600.0,
+      "temperature_surface_K": 322.91787057096417,
+      "moisture_surface": 1.0797674911866362,
+      "signed_Jw_kg_m2_s": 0.000226537450004424,
+      "heat_balance_abs_W_per_rad": 5.866414125310637e-13,
+      "water_balance_abs_kg_s_per_rad": 2.117582368135751e-22,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.0020978122004194056
+    },
+    {
+      "time_s": 10200.0,
+      "temperature_surface_K": 323.01464118139353,
+      "moisture_surface": 1.0435816109668703,
+      "signed_Jw_kg_m2_s": 0.00021860393756575823,
+      "heat_balance_abs_W_per_rad": 2.8926080281044264e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.0017758894866602816
+    },
+    {
+      "time_s": 10800.0,
+      "temperature_surface_K": 323.11156450596604,
+      "moisture_surface": 1.0081942776021988,
+      "signed_Jw_kg_m2_s": 0.0002108857385128534,
+      "heat_balance_abs_W_per_rad": 5.024973492862017e-14,
+      "water_balance_abs_kg_s_per_rad": 1.0587911840678754e-22,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.01444181380782334
+    },
+    {
+      "time_s": 11400.0,
+      "temperature_surface_K": 323.1245293422946,
+      "moisture_surface": 0.9736508597163741,
+      "signed_Jw_kg_m2_s": 0.00020320360640609976,
+      "heat_balance_abs_W_per_rad": 1.942578042868348e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.015143787616149118
+    },
+    {
+      "time_s": 12000.0,
+      "temperature_surface_K": 323.1214335049215,
+      "moisture_surface": 0.9399311227664913,
+      "signed_Jw_kg_m2_s": 0.0001958523349339047,
+      "heat_balance_abs_W_per_rad": 6.033281513273536e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.010430779509714511
+    },
+    {
+      "time_s": 12600.0,
+      "temperature_surface_K": 323.11732098799195,
+      "moisture_surface": 0.9071998849476054,
+      "signed_Jw_kg_m2_s": 0.00018857114403669678,
+      "heat_balance_abs_W_per_rad": 2.686583594480041e-13,
+      "water_balance_abs_kg_s_per_rad": 5.293955920339377e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.008070757760209378
+    },
+    {
+      "time_s": 12600.0,
+      "temperature_surface_K": 323.11732098799195,
+      "moisture_surface": 0.9071998849476054,
+      "signed_Jw_kg_m2_s": 0.00018857114403669678,
+      "heat_balance_abs_W_per_rad": 2.686583594480041e-13,
+      "water_balance_abs_kg_s_per_rad": 5.293955920339377e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.008070757760209378
+    },
+    {
+      "time_s": 13200.0,
+      "temperature_surface_K": 323.1134388330382,
+      "moisture_surface": 0.8756076723680809,
+      "signed_Jw_kg_m2_s": 0.0001817012018704663,
+      "heat_balance_abs_W_per_rad": 4.558853294867049e-15,
+      "water_balance_abs_kg_s_per_rad": 5.293955920339377e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.0039560023864903485
+    },
+    {
+      "time_s": 13800.0,
+      "temperature_surface_K": 323.0954074212001,
+      "moisture_surface": 0.8450087646987459,
+      "signed_Jw_kg_m2_s": 0.0001749310021074604,
+      "heat_balance_abs_W_per_rad": 1.7982924177539772e-13,
+      "water_balance_abs_kg_s_per_rad": 5.293955920339377e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.00778782315219324
+    },
+    {
+      "time_s": 14400.0,
+      "temperature_surface_K": 323.1490224368056,
+      "moisture_surface": 0.8155100546925411,
+      "signed_Jw_kg_m2_s": 0.00016846889316096838,
+      "heat_balance_abs_W_per_rad": 1.0541741091163459e-13,
+      "water_balance_abs_kg_s_per_rad": 5.293955920339377e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.010363834663181408
+    },
+    {
+      "time_s": 15000.0,
+      "temperature_surface_K": 323.1460709355013,
+      "moisture_surface": 0.7869778775873387,
+      "signed_Jw_kg_m2_s": 0.00016216278640222742,
+      "heat_balance_abs_W_per_rad": 1.389393970967906e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.00017728144670315068
+    },
+    {
+      "time_s": 15600.0,
+      "temperature_surface_K": 323.1471999002373,
+      "moisture_surface": 0.7594281973976619,
+      "signed_Jw_kg_m2_s": 0.00015610092550370335,
+      "heat_balance_abs_W_per_rad": 2.119848486201517e-13,
+      "water_balance_abs_kg_s_per_rad": 1.0587911840678754e-22,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 0.00010735030289926594
+    },
+    {
+      "time_s": 16200.0,
+      "temperature_surface_K": 323.1478705778689,
+      "moisture_surface": 0.7328507345769814,
+      "signed_Jw_kg_m2_s": 0.0001502529852900442,
+      "heat_balance_abs_W_per_rad": 1.2227909928098218e-13,
+      "water_balance_abs_kg_s_per_rad": 1.0587911840678754e-22,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 6.586057016808187e-05
+    },
+    {
+      "time_s": 16200.0,
+      "temperature_surface_K": 323.1478705778689,
+      "moisture_surface": 0.7328507345769814,
+      "signed_Jw_kg_m2_s": 0.0001502529852900442,
+      "heat_balance_abs_W_per_rad": 1.2227909928098218e-13,
+      "water_balance_abs_kg_s_per_rad": 1.0587911840678754e-22,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 6.586057016808187e-05
+    },
+    {
+      "time_s": 16800.0,
+      "temperature_surface_K": 323.14828526273715,
+      "moisture_surface": 0.7072207479098941,
+      "signed_Jw_kg_m2_s": 0.00014461352185753853,
+      "heat_balance_abs_W_per_rad": 1.3650430612244246e-14,
+      "water_balance_abs_kg_s_per_rad": 5.293955920339377e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 4.0199749927540395e-05
+    },
+    {
+      "time_s": 17400.0,
+      "temperature_surface_K": 323.1485404267783,
+      "moisture_surface": 0.6825110497062133,
+      "signed_Jw_kg_m2_s": 0.00013917655299532469,
+      "heat_balance_abs_W_per_rad": 3.2101757572165247e-13,
+      "water_balance_abs_kg_s_per_rad": 1.0587911840678754e-22,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4405323820704474e-05
+    },
+    {
+      "time_s": 18000.0,
+      "temperature_surface_K": 323.1486965668495,
+      "moisture_surface": 0.6586932846221283,
+      "signed_Jw_kg_m2_s": 0.00013393583956927381,
+      "heat_balance_abs_W_per_rad": 1.060181080431025e-13,
+      "water_balance_abs_kg_s_per_rad": 5.293955920339377e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 1.4737548889220743e-05
+    },
+    {
+      "time_s": 18600.0,
+      "temperature_surface_K": 323.1487915872505,
+      "moisture_surface": 0.6357385903206035,
+      "signed_Jw_kg_m2_s": 0.00012888503088960988,
+      "heat_balance_abs_W_per_rad": 5.501881959871007e-13,
+      "water_balance_abs_kg_s_per_rad": 5.293955920339377e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 8.852466245143521e-06
+    },
+    {
+      "time_s": 19200.0,
+      "temperature_surface_K": 323.14884909765635,
+      "moisture_surface": 0.6136180451950616,
+      "signed_Jw_kg_m2_s": 0.00012401776322525402,
+      "heat_balance_abs_W_per_rad": 8.247390062012493e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 5.289580480707189e-06
+    },
+    {
+      "time_s": 19800.0,
+      "temperature_surface_K": 323.14888371738834,
+      "moisture_surface": 0.5923029799179615,
+      "signed_Jw_kg_m2_s": 0.0001193277283550432,
+      "heat_balance_abs_W_per_rad": 4.2363374491518105e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.1442458397685285e-06
+    },
+    {
+      "time_s": 19800.0,
+      "temperature_surface_K": 323.14888371738834,
+      "moisture_surface": 0.5923029799179615,
+      "signed_Jw_kg_m2_s": 0.0001193277283550432,
+      "heat_balance_abs_W_per_rad": 4.2363374491518105e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.1442458397685285e-06
+    },
+    {
+      "time_s": 20400.0,
+      "temperature_surface_K": 323.1489044459717,
+      "moisture_surface": 0.5717651935784221,
+      "signed_Jw_kg_m2_s": 0.00011480872112531334,
+      "heat_balance_abs_W_per_rad": 8.73457766347157e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 1.8593931767276046e-06
+    },
+    {
+      "time_s": 21000.0,
+      "temperature_surface_K": 323.1489167913843,
+      "moisture_surface": 0.5519771016142567,
+      "signed_Jw_kg_m2_s": 0.00011045467199994745,
+      "heat_balance_abs_W_per_rad": 7.795765138843887e-14,
+      "water_balance_abs_kg_s_per_rad": 5.293955920339377e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 1.0939755918504057e-06
+    },
+    {
+      "time_s": 21600.0,
+      "temperature_surface_K": 323.14892410537243,
+      "moisture_surface": 0.5329118346817765,
+      "signed_Jw_kg_m2_s": 0.00010625966881507452,
+      "heat_balance_abs_W_per_rad": 4.40456521649723e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 6.403967397559718e-07
+    },
+    {
+      "time_s": 22200.0,
+      "temperature_surface_K": 323.14892841597816,
+      "moisture_surface": 0.5145433021885931,
+      "signed_Jw_kg_m2_s": 0.00010221797075843356,
+      "heat_balance_abs_W_per_rad": 1.7416586593470098e-13,
+      "water_balance_abs_kg_s_per_rad": 5.293955920339377e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.73010282749906e-07
+    },
+    {
+      "time_s": 22800.0,
+      "temperature_surface_K": 323.1489309434296,
+      "moisture_surface": 0.4968462304099384,
+      "signed_Jw_kg_m2_s": 9.832401675625249e-05,
+      "heat_balance_abs_W_per_rad": 3.699864244628194e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1619647429640887e-07
+    },
+    {
+      "time_s": 23400.0,
+      "temperature_surface_K": 323.1489324178256,
+      "moisture_surface": 0.4797961823833904,
+      "signed_Jw_kg_m2_s": 9.457242985076032e-05,
+      "heat_balance_abs_W_per_rad": 1.357655174478117e-13,
+      "water_balance_abs_kg_s_per_rad": 2.6469779601696886e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 1.2469831793775032e-07
+    },
+    {
+      "time_s": 23400.0,
+      "temperature_surface_K": 323.1489324178256,
+      "moisture_surface": 0.4797961823833904,
+      "signed_Jw_kg_m2_s": 9.457242985076032e-05,
+      "heat_balance_abs_W_per_rad": 1.357655174478117e-13,
+      "water_balance_abs_kg_s_per_rad": 2.6469779601696886e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 1.2469831793775032e-07
+    },
+    {
+      "time_s": 24000.0,
+      "temperature_surface_K": 323.14893327359886,
+      "moisture_surface": 0.4633695648076656,
+      "signed_Jw_kg_m2_s": 9.095801871815465e-05,
+      "heat_balance_abs_W_per_rad": 1.5054048377096778e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 7.157919573704768e-08
+    },
+    {
+      "time_s": 24600.0,
+      "temperature_surface_K": 323.14893376784715,
+      "moisture_surface": 0.44754362574195394,
+      "signed_Jw_kg_m2_s": 8.747577716237755e-05,
+      "heat_balance_abs_W_per_rad": 8.463267969958237e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 4.089408594985571e-08
+    },
+    {
+      "time_s": 25200.0,
+      "temperature_surface_K": 323.14893405190514,
+      "moisture_surface": 0.4322964458627679,
+      "signed_Jw_kg_m2_s": 8.41208821913269e-05,
+      "heat_balance_abs_W_per_rad": 1.980539845499571e-15,
+      "water_balance_abs_kg_s_per_rad": 2.6469779601696886e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.325476677801082e-08
+    },
+    {
+      "time_s": 25800.0,
+      "temperature_surface_K": 323.14893421436506,
+      "moisture_surface": 0.41760692527803334,
+      "signed_Jw_kg_m2_s": 8.088869111551061e-05,
+      "heat_balance_abs_W_per_rad": 1.3167828844183754e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 1.316443833904071e-08
+    },
+    {
+      "time_s": 26400.0,
+      "temperature_surface_K": 323.1489343068495,
+      "moisture_surface": 0.4034547673458343,
+      "signed_Jw_kg_m2_s": 7.777473798762346e-05,
+      "heat_balance_abs_W_per_rad": 4.737572906107442e-14,
+      "water_balance_abs_kg_s_per_rad": 5.293955920339377e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 7.419144483954032e-09
+    },
+    {
+      "time_s": 27000.0,
+      "temperature_surface_K": 323.1489343592569,
+      "moisture_surface": 0.38982046054082603,
+      "signed_Jw_kg_m2_s": 7.477472961254514e-05,
+      "heat_balance_abs_W_per_rad": 4.359944533222225e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 4.162938146808609e-09
+    },
+    {
+      "time_s": 27000.0,
+      "temperature_surface_K": 323.1489343592569,
+      "moisture_surface": 0.38982046054082603,
+      "signed_Jw_kg_m2_s": 7.477472961254514e-05,
+      "heat_balance_abs_W_per_rad": 4.359944533222225e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 4.162938146808609e-09
+    },
+    {
+      "time_s": 27600.0,
+      "temperature_surface_K": 323.14893438881353,
+      "moisture_surface": 0.376685259115323,
+      "signed_Jw_kg_m2_s": 7.188454129212574e-05,
+      "heat_balance_abs_W_per_rad": 1.1896581470759385e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3261016187074826e-09
+    },
+    {
+      "time_s": 28200.0,
+      "temperature_surface_K": 323.148934405411,
+      "moisture_surface": 0.36403116308292327,
+      "signed_Jw_kg_m2_s": 6.910021242090655e-05,
+      "heat_balance_abs_W_per_rad": 1.8912092962050532e-13,
+      "water_balance_abs_kg_s_per_rad": 2.6469779601696886e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 1.2946597029799947e-09
+    },
+    {
+      "time_s": 28800.0,
+      "temperature_surface_K": 323.14893441468524,
+      "moisture_surface": 0.35184089789053724,
+      "signed_Jw_kg_m2_s": 6.641794201327935e-05,
+      "heat_balance_abs_W_per_rad": 3.0191008175162256e-13,
+      "water_balance_abs_kg_s_per_rad": 2.6469779601696886e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 7.179164584551559e-10
+    },
+    {
+      "time_s": 29400.0,
+      "temperature_surface_K": 323.1489344198395,
+      "moisture_surface": 0.34009789402255086,
+      "signed_Jw_kg_m2_s": 6.383408421571272e-05,
+      "heat_balance_abs_W_per_rad": 1.7469226309436323e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.9743650530190295e-10
+    },
+    {
+      "time_s": 30000.0,
+      "temperature_surface_K": 323.14893442266816,
+      "moisture_surface": 0.3287862666882695,
+      "signed_Jw_kg_m2_s": 6.134514383730318e-05,
+      "heat_balance_abs_W_per_rad": 5.090637909122214e-14,
+      "water_balance_abs_kg_s_per_rad": 2.6469779601696886e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2159464525153032e-10
+    },
+    {
+      "time_s": 30600.0,
+      "temperature_surface_K": 323.1489344242089,
+      "moisture_surface": 0.31789079567187417,
+      "signed_Jw_kg_m2_s": 5.8947771916084393e-05,
+      "heat_balance_abs_W_per_rad": 2.0540200001014615e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 1.257170094603479e-10
+    },
+    {
+      "time_s": 30600.0,
+      "temperature_surface_K": 323.1489344242089,
+      "moisture_surface": 0.31789079567187417,
+      "signed_Jw_kg_m2_s": 5.8947771916084393e-05,
+      "heat_balance_abs_W_per_rad": 2.0540200001014615e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 1.257170094603479e-10
+    },
+    {
+      "time_s": 31200.0,
+      "temperature_surface_K": 323.1489344250775,
+      "moisture_surface": 0.3073969053668247,
+      "signed_Jw_kg_m2_s": 5.6638761325920935e-05,
+      "heat_balance_abs_W_per_rad": 5.794146423474122e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 7.169828428640068e-11
+    },
+    {
+      "time_s": 31800.0,
+      "temperature_surface_K": 323.14893442557764,
+      "moisture_surface": 0.29729064497049396,
+      "signed_Jw_kg_m2_s": 5.441504241865844e-05,
+      "heat_balance_abs_W_per_rad": 1.8952315275146685e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 4.058866758371859e-11
+    },
+    {
+      "time_s": 32400.0,
+      "temperature_surface_K": 323.1489344256627,
+      "moisture_surface": 0.28755866877460246,
+      "signed_Jw_kg_m2_s": 5.227367868735288e-05,
+      "heat_balance_abs_W_per_rad": 3.049291842177529e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.528849906222856e-11
+    },
+    {
+      "time_s": 33000.0,
+      "temperature_surface_K": 323.1489344256667,
+      "moisture_surface": 0.2781882164567342,
+      "signed_Jw_kg_m2_s": 5.021186242973788e-05,
+      "heat_balance_abs_W_per_rad": 7.034803086638678e-14,
+      "water_balance_abs_kg_s_per_rad": 2.6469779601696886e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.5115495418045554e-11
+    },
+    {
+      "time_s": 33600.0,
+      "temperature_surface_K": 323.1489344256701,
+      "moisture_surface": 0.2691670932434724,
+      "signed_Jw_kg_m2_s": 4.8226910383444054e-05,
+      "heat_balance_abs_W_per_rad": 3.495025883619383e-14,
+      "water_balance_abs_kg_s_per_rad": 2.6469779601696886e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.487152273099257e-11
+    },
+    {
+      "time_s": 34200.0,
+      "temperature_surface_K": 323.14893442567444,
+      "moisture_surface": 0.2604836497943039,
+      "signed_Jw_kg_m2_s": 4.6316259299777994e-05,
+      "heat_balance_abs_W_per_rad": 3.0804908950251416e-13,
+      "water_balance_abs_kg_s_per_rad": 1.3234889800848443e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.456832539207117e-11
+    },
+    {
+      "time_s": 34200.0,
+      "temperature_surface_K": 323.14893442567444,
+      "moisture_surface": 0.2604836497943039,
+      "signed_Jw_kg_m2_s": 4.6316259299777994e-05,
+      "heat_balance_abs_W_per_rad": 3.0804908950251416e-13,
+      "water_balance_abs_kg_s_per_rad": 1.3234889800848443e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.456832539207117e-11
+    },
+    {
+      "time_s": 34800.0,
+      "temperature_surface_K": 323.1489344256782,
+      "moisture_surface": 0.2521267616335943,
+      "signed_Jw_kg_m2_s": 4.4477461418061536e-05,
+      "heat_balance_abs_W_per_rad": 6.031375401271082e-14,
+      "water_balance_abs_kg_s_per_rad": 1.3234889800848443e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.4402409990038555e-11
+    },
+    {
+      "time_s": 35400.0,
+      "temperature_surface_K": 323.1489344256847,
+      "moisture_surface": 0.24408580793900259,
+      "signed_Jw_kg_m2_s": 4.2708179798365905e-05,
+      "heat_balance_abs_W_per_rad": 1.3144606738569822e-13,
+      "water_balance_abs_kg_s_per_rad": 1.3234889800848443e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.393995011565436e-11
+    },
+    {
+      "time_s": 36000.0,
+      "temperature_surface_K": 323.1489344256877,
+      "moisture_surface": 0.23635064948474177,
+      "signed_Jw_kg_m2_s": 4.1006183468283595e-05,
+      "heat_balance_abs_W_per_rad": 1.6404436931422086e-13,
+      "water_balance_abs_kg_s_per_rad": 1.3234889800848443e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.375549508524518e-11
+    },
+    {
+      "time_s": 36600.0,
+      "temperature_surface_K": 323.14893442569104,
+      "moisture_surface": 0.2289116055347562,
+      "signed_Jw_kg_m2_s": 3.93693423386462e-05,
+      "heat_balance_abs_W_per_rad": 1.6931685653631913e-13,
+      "water_balance_abs_kg_s_per_rad": 1.3234889800848443e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.354984370536358e-11
+    },
+    {
+      "time_s": 37200.0,
+      "temperature_surface_K": 323.1489344256971,
+      "moisture_surface": 0.2217594294877042,
+      "signed_Jw_kg_m2_s": 3.7795621844597394e-05,
+      "heat_balance_abs_W_per_rad": 3.5763407244293057e-13,
+      "water_balance_abs_kg_s_per_rad": 1.3234889800848443e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.317203044190175e-11
+    },
+    {
+      "time_s": 37800.0,
+      "temperature_surface_K": 323.1489344257032,
+      "moisture_surface": 0.21488528309562863,
+      "signed_Jw_kg_m2_s": 3.628307727282893e-05,
+      "heat_balance_abs_W_per_rad": 1.7650143304644335e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.297768593315872e-11
+    },
+    {
+      "time_s": 37800.0,
+      "temperature_surface_K": 323.1489344257032,
+      "moisture_surface": 0.21488528309562863,
+      "signed_Jw_kg_m2_s": 3.628307727282893e-05,
+      "heat_balance_abs_W_per_rad": 1.7650143304644335e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.297768593315872e-11
+    },
+    {
+      "time_s": 38400.0,
+      "temperature_surface_K": 323.1489344257062,
+      "moisture_surface": 0.20828070911414145,
+      "signed_Jw_kg_m2_s": 3.482984774369674e-05,
+      "heat_balance_abs_W_per_rad": 1.687350642499724e-13,
+      "water_balance_abs_kg_s_per_rad": 1.3234889800848443e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.278509618511966e-11
+    },
+    {
+      "time_s": 39000.0,
+      "temperature_surface_K": 323.14893442571196,
+      "moisture_surface": 0.20193760229658336,
+      "signed_Jw_kg_m2_s": 3.343414982895562e-05,
+      "heat_balance_abs_W_per_rad": 1.5726984434146595e-14,
+      "water_balance_abs_kg_s_per_rad": 1.3234889800848443e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.225953311056452e-11
+    },
+    {
+      "time_s": 39600.0,
+      "temperature_surface_K": 323.14893442571474,
+      "moisture_surface": 0.1958481787207893,
+      "signed_Jw_kg_m2_s": 3.209427080261076e-05,
+      "heat_balance_abs_W_per_rad": 2.319624189518621e-14,
+      "water_balance_abs_kg_s_per_rad": 1.3234889800848443e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.2088629876482134e-11
+    },
+    {
+      "time_s": 40200.0,
+      "temperature_surface_K": 323.1489344257202,
+      "moisture_surface": 0.19000494353554012,
+      "signed_Jw_kg_m2_s": 3.080856154404686e-05,
+      "heat_balance_abs_W_per_rad": 1.407350705559504e-13,
+      "water_balance_abs_kg_s_per_rad": 1.3234889800848443e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.1893425439841334e-11
+    },
+    {
+      "time_s": 40800.0,
+      "temperature_surface_K": 323.1489344257228,
+      "moisture_surface": 0.18440065733438646,
+      "signed_Jw_kg_m2_s": 2.957542913913273e-05,
+      "heat_balance_abs_W_per_rad": 1.3486727896858302e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.172708009005309e-11
+    },
+    {
+      "time_s": 41400.0,
+      "temperature_surface_K": 323.1489344257263,
+      "moisture_surface": 0.17902830150431878,
+      "signed_Jw_kg_m2_s": 2.839332925575739e-05,
+      "heat_balance_abs_W_per_rad": 1.563737819089233e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.137567292338766e-11
+    },
+    {
+      "time_s": 41400.0,
+      "temperature_surface_K": 323.1489344257263,
+      "moisture_surface": 0.17902830150431878,
+      "signed_Jw_kg_m2_s": 2.839332925575739e-05,
+      "heat_balance_abs_W_per_rad": 1.563737819089233e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.137567292338766e-11
+    },
+    {
+      "time_s": 42000.0,
+      "temperature_surface_K": 323.1489344257287,
+      "moisture_surface": 0.17388104304938581,
+      "signed_Jw_kg_m2_s": 2.726075840383704e-05,
+      "heat_balance_abs_W_per_rad": 1.833832048078526e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.141252940334516e-11
+    },
+    {
+      "time_s": 42600.0,
+      "temperature_surface_K": 323.1489344257333,
+      "moisture_surface": 0.16895219954563948,
+      "signed_Jw_kg_m2_s": 2.617624622421835e-05,
+      "heat_balance_abs_W_per_rad": 2.574211226661012e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.094567140846884e-11
+    },
+    {
+      "time_s": 43200.0,
+      "temperature_surface_K": 323.14893442573543,
+      "moisture_surface": 0.16423520502997965,
+      "signed_Jw_kg_m2_s": 2.5138347983071255e-05,
+      "heat_balance_abs_W_per_rad": 3.4326962706099016e-14,
+      "water_balance_abs_kg_s_per_rad": 1.3234889800848443e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.0813107394408245e-11
+    },
+    {
+      "time_s": 43800.0,
+      "temperature_surface_K": 323.1489344257399,
+      "moisture_surface": 0.15972357774601065,
+      "signed_Jw_kg_m2_s": 2.4145637474887063e-05,
+      "heat_balance_abs_W_per_rad": 2.306588062581071e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.053304690646322e-11
+    },
+    {
+      "time_s": 44400.0,
+      "temperature_surface_K": 323.1489344257418,
+      "moisture_surface": 0.15541089074646044,
+      "signed_Jw_kg_m2_s": 2.319670055401702e-05,
+      "heat_balance_abs_W_per_rad": 9.219026322363156e-14,
+      "water_balance_abs_kg_s_per_rad": 1.3234889800848443e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.0513659134518954e-11
+    },
+    {
+      "time_s": 45000.0,
+      "temperature_surface_K": 323.14893442574373,
+      "moisture_surface": 0.15129074636776657,
+      "signed_Jw_kg_m2_s": 2.2290129518218326e-05,
+      "heat_balance_abs_W_per_rad": 8.646459005764875e-14,
+      "water_balance_abs_kg_s_per_rad": 6.617444900424222e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.0389427030985284e-11
+    },
+    {
+      "time_s": 45000.0,
+      "temperature_surface_K": 323.14893442574373,
+      "moisture_surface": 0.15129074636776657,
+      "signed_Jw_kg_m2_s": 2.2290129518218326e-05,
+      "heat_balance_abs_W_per_rad": 8.646459005764875e-14,
+      "water_balance_abs_kg_s_per_rad": 6.617444900424222e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.0389427030985284e-11
+    },
+    {
+      "time_s": 45600.0,
+      "temperature_surface_K": 323.1489344257455,
+      "moisture_surface": 0.14735675553343164,
+      "signed_Jw_kg_m2_s": 2.142451855469278e-05,
+      "heat_balance_abs_W_per_rad": 7.56300195948866e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 3.027045286600801e-11
+    },
+    {
+      "time_s": 46200.0,
+      "temperature_surface_K": 323.14893442574987,
+      "moisture_surface": 0.14360252270195328,
+      "signed_Jw_kg_m2_s": 2.0598460428122534e-05,
+      "heat_balance_abs_W_per_rad": 1.0031098288771095e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.992158872794111e-11
+    },
+    {
+      "time_s": 46800.0,
+      "temperature_surface_K": 323.1489344257516,
+      "moisture_surface": 0.14002163705358447,
+      "signed_Jw_kg_m2_s": 1.981054454145948e-05,
+      "heat_balance_abs_W_per_rad": 1.029452717990176e-13,
+      "water_balance_abs_kg_s_per_rad": 6.617444900424222e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.981686777889777e-11
+    },
+    {
+      "time_s": 47400.0,
+      "temperature_surface_K": 323.1489344257557,
+      "moisture_surface": 0.1366076702200153,
+      "signed_Jw_kg_m2_s": 1.9059356436378478e-05,
+      "heat_balance_abs_W_per_rad": 2.7918461748241606e-13,
+      "water_balance_abs_kg_s_per_rad": 1.3234889800848443e-23,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.95576527043088e-11
+    },
+    {
+      "time_s": 48000.0,
+      "temperature_surface_K": 323.1489344257572,
+      "moisture_surface": 0.13335418052419093,
+      "signed_Jw_kg_m2_s": 1.834347872618064e-05,
+      "heat_balance_abs_W_per_rad": 4.364846331679849e-14,
+      "water_balance_abs_kg_s_per_rad": 6.617444900424222e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.9514118248583196e-11
+    },
+    {
+      "time_s": 48600.0,
+      "temperature_surface_K": 323.1489344257598,
+      "moisture_surface": 0.1302547233447567,
+      "signed_Jw_kg_m2_s": 1.766149337632158e-05,
+      "heat_balance_abs_W_per_rad": 1.1170181642785245e-13,
+      "water_balance_abs_kg_s_per_rad": 6.617444900424222e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.942124639914889e-11
+    },
+    {
+      "time_s": 48600.0,
+      "temperature_surface_K": 323.1489344257598,
+      "moisture_surface": 0.1302547233447567,
+      "signed_Jw_kg_m2_s": 1.766149337632158e-05,
+      "heat_balance_abs_W_per_rad": 1.1170181642785245e-13,
+      "water_balance_abs_kg_s_per_rad": 6.617444900424222e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.942124639914889e-11
+    },
+    {
+      "time_s": 49200.0,
+      "temperature_surface_K": 323.14893442576147,
+      "moisture_surface": 0.1273028668848358,
+      "signed_Jw_kg_m2_s": 1.7011985174075545e-05,
+      "heat_balance_abs_W_per_rad": 2.0206261132159351e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.9204699111882826e-11
+    },
+    {
+      "time_s": 49800.0,
+      "temperature_surface_K": 323.1489344257647,
+      "moisture_surface": 0.12449221234252042,
+      "signed_Jw_kg_m2_s": 1.6393546166725297e-05,
+      "heat_balance_abs_W_per_rad": 8.559941667966975e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.9005124931211982e-11
+    },
+    {
+      "time_s": 50400.0,
+      "temperature_surface_K": 323.14893442576613,
+      "moisture_surface": 0.12181641727750694,
+      "signed_Jw_kg_m2_s": 1.5804780803011683e-05,
+      "heat_balance_abs_W_per_rad": 7.753479541084388e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.8917821763669615e-11
+    },
+    {
+      "time_s": 51000.0,
+      "temperature_surface_K": 323.14893442576965,
+      "moisture_surface": 0.11926922086275268,
+      "signed_Jw_kg_m2_s": 1.5244311489351724e-05,
+      "heat_balance_abs_W_per_rad": 6.446354475523299e-14,
+      "water_balance_abs_kg_s_per_rad": 6.617444900424222e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.8765037205072965e-11
+    },
+    {
+      "time_s": 51600.0,
+      "temperature_surface_K": 323.14893442577096,
+      "moisture_surface": 0.1168444697061414,
+      "signed_Jw_kg_m2_s": 1.4710784271477862e-05,
+      "heat_balance_abs_W_per_rad": 7.310175924219396e-14,
+      "water_balance_abs_kg_s_per_rad": 6.617444900424222e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.8693367358768464e-11
+    },
+    {
+      "time_s": 52200.0,
+      "temperature_surface_K": 323.14893442577244,
+      "moisture_surface": 0.11453614301795553,
+      "signed_Jw_kg_m2_s": 1.4202874372132582e-05,
+      "heat_balance_abs_W_per_rad": 2.2636288079488517e-13,
+      "water_balance_abs_kg_s_per_rad": 6.617444900424222e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.8525854701652108e-11
+    },
+    {
+      "time_s": 52200.0,
+      "temperature_surface_K": 323.14893442577244,
+      "moisture_surface": 0.11453614301795553,
+      "signed_Jw_kg_m2_s": 1.4202874372132582e-05,
+      "heat_balance_abs_W_per_rad": 2.2636288079488517e-13,
+      "water_balance_abs_kg_s_per_rad": 6.617444900424222e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.8525854701652108e-11
+    },
+    {
+      "time_s": 52800.0,
+      "temperature_surface_K": 323.1489344257751,
+      "moisture_surface": 0.11233837606698494,
+      "signed_Jw_kg_m2_s": 1.3719291352205215e-05,
+      "heat_balance_abs_W_per_rad": 1.2575391621314246e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.8361261644673864e-11
+    },
+    {
+      "time_s": 53400.0,
+      "temperature_surface_K": 323.1489344257765,
+      "moisture_surface": 0.11024548108738125,
+      "signed_Jw_kg_m2_s": 1.3258783710946612e-05,
+      "heat_balance_abs_W_per_rad": 1.0284023112118714e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.8277376977958722e-11
+    },
+    {
+      "time_s": 54000.0,
+      "temperature_surface_K": 323.1489344257779,
+      "moisture_surface": 0.10825196504294922,
+      "signed_Jw_kg_m2_s": 1.2820142794713729e-05,
+      "heat_balance_abs_W_per_rad": 7.34471455464893e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.8189957561311506e-11
+    },
+    {
+      "time_s": 54600.0,
+      "temperature_surface_K": 323.1489344257799,
+      "moisture_surface": 0.10635254390054949,
+      "signed_Jw_kg_m2_s": 1.2402205937600695e-05,
+      "heat_balance_abs_W_per_rad": 6.1130509897268585e-15,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.8067480547115713e-11
+    },
+    {
+      "time_s": 55200.0,
+      "temperature_surface_K": 323.1489344257814,
+      "moisture_surface": 0.1045421532892361,
+      "signed_Jw_kg_m2_s": 1.2003858806809394e-05,
+      "heat_balance_abs_W_per_rad": 3.574988750865476e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.800873638517533e-11
+    },
+    {
+      "time_s": 55800.0,
+      "temperature_surface_K": 323.1489344257827,
+      "moisture_surface": 0.10281595561255003,
+      "signed_Jw_kg_m2_s": 1.1624036967594454e-05,
+      "heat_balance_abs_W_per_rad": 2.5213469356103905e-13,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.788903639899462e-11
+    },
+    {
+      "time_s": 55800.0,
+      "temperature_surface_K": 323.1489344257827,
+      "moisture_surface": 0.10281595561255003,
+      "signed_Jw_kg_m2_s": 1.1624036967594454e-05,
+      "heat_balance_abs_W_per_rad": 2.5213469356103905e-13,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.788903639899462e-11
+    },
+    {
+      "time_s": 56400.0,
+      "temperature_surface_K": 323.1489344257845,
+      "moisture_surface": 0.10116934383026974,
+      "signed_Jw_kg_m2_s": 1.126172671537621e-05,
+      "heat_balance_abs_W_per_rad": 1.9082047343793167e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.778058999685425e-11
+    },
+    {
+      "time_s": 57000.0,
+      "temperature_surface_K": 323.148934425786,
+      "moisture_surface": 0.09959794223117768,
+      "signed_Jw_kg_m2_s": 1.0915965245775425e-05,
+      "heat_balance_abs_W_per_rad": 1.7570903924684522e-13,
+      "water_balance_abs_kg_s_per_rad": 6.617444900424222e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.7865278812320075e-11
+    },
+    {
+      "time_s": 57600.0,
+      "temperature_surface_K": 323.1489344257874,
+      "moisture_surface": 0.09809760458265006,
+      "signed_Jw_kg_m2_s": 1.0585840247460522e-05,
+      "heat_balance_abs_W_per_rad": 1.0042484991634133e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.7602053515545157e-11
+    },
+    {
+      "time_s": 58200.0,
+      "temperature_surface_K": 323.14893442578887,
+      "moisture_surface": 0.09666441007162535,
+      "signed_Jw_kg_m2_s": 1.027048900902345e-05,
+      "heat_balance_abs_W_per_rad": 5.0509854360612925e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.751110101808291e-11
+    },
+    {
+      "time_s": 58800.0,
+      "temperature_surface_K": 323.1489344257901,
+      "moisture_surface": 0.09529465745214974,
+      "signed_Jw_kg_m2_s": 9.969097131241813e-06,
+      "heat_balance_abs_W_per_rad": 1.2830342361089488e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.743411601058666e-11
+    },
+    {
+      "time_s": 59400.0,
+      "temperature_surface_K": 323.14893442579165,
+      "moisture_surface": 0.09398485779436419,
+      "signed_Jw_kg_m2_s": 9.680896931610984e-06,
+      "heat_balance_abs_W_per_rad": 4.412895387833438e-14,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.7383657042816362e-11
+    },
+    {
+      "time_s": 59400.0,
+      "temperature_surface_K": 323.14893442579165,
+      "moisture_surface": 0.09398485779436419,
+      "signed_Jw_kg_m2_s": 9.680896931610984e-06,
+      "heat_balance_abs_W_per_rad": 4.412895387833438e-14,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.7383657042816362e-11
+    },
+    {
+      "time_s": 60000.0,
+      "temperature_surface_K": 323.1489344257932,
+      "moisture_surface": 0.0927317261956611,
+      "signed_Jw_kg_m2_s": 9.405165620518321e-06,
+      "heat_balance_abs_W_per_rad": 1.026991090621213e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.734763028448893e-11
+    },
+    {
+      "time_s": 60600.0,
+      "temperature_surface_K": 323.14893442579455,
+      "moisture_surface": 0.09153217277255196,
+      "signed_Jw_kg_m2_s": 9.141223319149586e-06,
+      "heat_balance_abs_W_per_rad": 1.5224550365449173e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.731321823466989e-11
+    },
+    {
+      "time_s": 61200.0,
+      "temperature_surface_K": 323.1489344257958,
+      "moisture_surface": 0.09038329320636881,
+      "signed_Jw_kg_m2_s": 8.888430979223679e-06,
+      "heat_balance_abs_W_per_rad": 1.961937278603089e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.7280137190255247e-11
+    },
+    {
+      "time_s": 61800.0,
+      "temperature_surface_K": 323.1489344257973,
+      "moisture_surface": 0.08928235907063592,
+      "signed_Jw_kg_m2_s": 8.646188254687431e-06,
+      "heat_balance_abs_W_per_rad": 5.803439808637301e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.698931579108899e-11
+    },
+    {
+      "time_s": 62400.0,
+      "temperature_surface_K": 323.1489344257986,
+      "moisture_surface": 0.08822680812516032,
+      "signed_Jw_kg_m2_s": 8.413931366087454e-06,
+      "heat_balance_abs_W_per_rad": 7.59636065870889e-15,
+      "water_balance_abs_kg_s_per_rad": 6.617444900424222e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.690875442869571e-11
+    },
+    {
+      "time_s": 63000.0,
+      "temperature_surface_K": 323.14893442579967,
+      "moisture_surface": 0.08721423472319911,
+      "signed_Jw_kg_m2_s": 8.191130989822687e-06,
+      "heat_balance_abs_W_per_rad": 2.997158118109685e-14,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.6872224423877474e-11
+    },
+    {
+      "time_s": 63000.0,
+      "temperature_surface_K": 323.14893442579967,
+      "moisture_surface": 0.08721423472319911,
+      "signed_Jw_kg_m2_s": 8.191130989822687e-06,
+      "heat_balance_abs_W_per_rad": 2.997158118109685e-14,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.6872224423877474e-11
+    },
+    {
+      "time_s": 63600.0,
+      "temperature_surface_K": 323.1489344258008,
+      "moisture_surface": 0.08624238044391246,
+      "signed_Jw_kg_m2_s": 7.977290196967363e-06,
+      "heat_balance_abs_W_per_rad": 7.216954974309562e-14,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.6844423029054562e-11
+    },
+    {
+      "time_s": 64200.0,
+      "temperature_surface_K": 323.1489344258022,
+      "moisture_surface": 0.08530912503319285,
+      "signed_Jw_kg_m2_s": 7.77194245994728e-06,
+      "heat_balance_abs_W_per_rad": 1.329880596652871e-13,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.6817618467430567e-11
+    },
+    {
+      "time_s": 64800.0,
+      "temperature_surface_K": 323.14893442580325,
+      "moisture_surface": 0.08441247771159296,
+      "signed_Jw_kg_m2_s": 7.574649739990068e-06,
+      "heat_balance_abs_W_per_rad": 1.4169219375824053e-13,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.6618102331328035e-11
+    },
+    {
+      "time_s": 65400.0,
+      "temperature_surface_K": 323.1489344258047,
+      "moisture_surface": 0.08355056888806492,
+      "signed_Jw_kg_m2_s": 7.385000663867749e-06,
+      "heat_balance_abs_W_per_rad": 7.51236820357833e-14,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.652694643828529e-11
+    },
+    {
+      "time_s": 66000.0,
+      "temperature_surface_K": 323.1489344258061,
+      "moisture_surface": 0.08272164230223247,
+      "signed_Jw_kg_m2_s": 7.202608794931005e-06,
+      "heat_balance_abs_W_per_rad": 1.4700424004297666e-14,
+      "water_balance_abs_kg_s_per_rad": 6.617444900424222e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.6442819262394234e-11
+    },
+    {
+      "time_s": 66600.0,
+      "temperature_surface_K": 323.14893442580717,
+      "moisture_surface": 0.08192404760529697,
+      "signed_Jw_kg_m2_s": 7.027111000657693e-06,
+      "heat_balance_abs_W_per_rad": 2.8992000760316514e-14,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.6405291363550023e-11
+    },
+    {
+      "time_s": 66600.0,
+      "temperature_surface_K": 323.14893442580717,
+      "moisture_surface": 0.08192404760529697,
+      "signed_Jw_kg_m2_s": 7.027111000657693e-06,
+      "heat_balance_abs_W_per_rad": 2.8992000760316514e-14,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.6405291363550023e-11
+    },
+    {
+      "time_s": 67200.0,
+      "temperature_surface_K": 323.1489344258083,
+      "moisture_surface": 0.08115623337994526,
+      "signed_Jw_kg_m2_s": 6.858165916796642e-06,
+      "heat_balance_abs_W_per_rad": 7.69884637206738e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.6383210294245862e-11
+    },
+    {
+      "time_s": 67800.0,
+      "temperature_surface_K": 323.1489344258094,
+      "moisture_surface": 0.08041674059235018,
+      "signed_Jw_kg_m2_s": 6.695452506586427e-06,
+      "heat_balance_abs_W_per_rad": 1.2222209409769985e-13,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.636187959078334e-11
+    },
+    {
+      "time_s": 68400.0,
+      "temperature_surface_K": 323.14893442581047,
+      "moisture_surface": 0.07970419646399893,
+      "signed_Jw_kg_m2_s": 6.538668712350445e-06,
+      "heat_balance_abs_W_per_rad": 1.4209463237213947e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.6169568457484398e-11
+    },
+    {
+      "time_s": 69000.0,
+      "temperature_surface_K": 323.1489344258116,
+      "moisture_surface": 0.07901730874735127,
+      "signed_Jw_kg_m2_s": 6.387530195948246e-06,
+      "heat_balance_abs_W_per_rad": 9.17176468690513e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.609946879089381e-11
+    },
+    {
+      "time_s": 69600.0,
+      "temperature_surface_K": 323.14893442581257,
+      "moisture_surface": 0.07835486038682449,
+      "signed_Jw_kg_m2_s": 6.241769164011715e-06,
+      "heat_balance_abs_W_per_rad": 5.1244391217054626e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.6039908065991603e-11
+    },
+    {
+      "time_s": 70200.0,
+      "temperature_surface_K": 323.1489344258136,
+      "moisture_surface": 0.07771570454510529,
+      "signed_Jw_kg_m2_s": 6.1011332735656035e-06,
+      "heat_balance_abs_W_per_rad": 6.654238145672427e-15,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5976827009076473e-11
+    },
+    {
+      "time_s": 70200.0,
+      "temperature_surface_K": 323.1489344258136,
+      "moisture_surface": 0.07771570454510529,
+      "signed_Jw_kg_m2_s": 6.1011332735656035e-06,
+      "heat_balance_abs_W_per_rad": 6.654238145672427e-15,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5976827009076473e-11
+    },
+    {
+      "time_s": 70800.0,
+      "temperature_surface_K": 323.14893442581473,
+      "moisture_surface": 0.07709875997402368,
+      "signed_Jw_kg_m2_s": 5.965384613463275e-06,
+      "heat_balance_abs_W_per_rad": 4.553643920458154e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5952251999500573e-11
+    },
+    {
+      "time_s": 71400.0,
+      "temperature_surface_K": 323.1489344258158,
+      "moisture_surface": 0.07650300670905444,
+      "signed_Jw_kg_m2_s": 5.834298757031505e-06,
+      "heat_balance_abs_W_per_rad": 2.1436321656232412e-13,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.583659812103805e-11
+    },
+    {
+      "time_s": 72000.0,
+      "temperature_surface_K": 323.14893442581666,
+      "moisture_surface": 0.07592748206674785,
+      "signed_Jw_kg_m2_s": 5.7076638813699494e-06,
+      "heat_balance_abs_W_per_rad": 1.784600551531713e-13,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5784051679363097e-11
+    },
+    {
+      "time_s": 72600.0,
+      "temperature_surface_K": 323.1489344258178,
+      "moisture_surface": 0.07537127692491336,
+      "signed_Jw_kg_m2_s": 5.585279948865793e-06,
+      "heat_balance_abs_W_per_rad": 1.2450130958466057e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.571391536593053e-11
+    },
+    {
+      "time_s": 73200.0,
+      "temperature_surface_K": 323.14893442581894,
+      "moisture_surface": 0.07483353226618045,
+      "signed_Jw_kg_m2_s": 5.466957946660313e-06,
+      "heat_balance_abs_W_per_rad": 7.007335613544563e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5643775529111646e-11
+    },
+    {
+      "time_s": 73800.0,
+      "temperature_surface_K": 323.14893442581956,
+      "moisture_surface": 0.07431343596640608,
+      "signed_Jw_kg_m2_s": 5.3525191799899615e-06,
+      "heat_balance_abs_W_per_rad": 4.6811530592609674e-14,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5605278754177242e-11
+    },
+    {
+      "time_s": 73800.0,
+      "temperature_surface_K": 323.14893442581956,
+      "moisture_surface": 0.07431343596640608,
+      "signed_Jw_kg_m2_s": 5.3525191799899615e-06,
+      "heat_balance_abs_W_per_rad": 4.6811530592609674e-14,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5605278754177242e-11
+    },
+    {
+      "time_s": 74400.0,
+      "temperature_surface_K": 323.1489344258207,
+      "moisture_surface": 0.07381021981042062,
+      "signed_Jw_kg_m2_s": 5.241794615549575e-06,
+      "heat_balance_abs_W_per_rad": 8.493035890673098e-15,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5543630207870712e-11
+    },
+    {
+      "time_s": 75000.0,
+      "temperature_surface_K": 323.14893442582184,
+      "moisture_surface": 0.07332315671859237,
+      "signed_Jw_kg_m2_s": 5.134624271242848e-06,
+      "heat_balance_abs_W_per_rad": 6.420716180247607e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5529194873764524e-11
+    },
+    {
+      "time_s": 75600.0,
+      "temperature_surface_K": 323.1489344258225,
+      "moisture_surface": 0.07285155816874811,
+      "signed_Jw_kg_m2_s": 5.030856648917681e-06,
+      "heat_balance_abs_W_per_rad": 9.221218938477557e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5515167128480748e-11
+    },
+    {
+      "time_s": 76200.0,
+      "temperature_surface_K": 323.14893442582354,
+      "moisture_surface": 0.07239477179900294,
+      "signed_Jw_kg_m2_s": 4.930348206907725e-06,
+      "heat_balance_abs_W_per_rad": 1.6595570045725253e-13,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5356310045358552e-11
+    },
+    {
+      "time_s": 76800.0,
+      "temperature_surface_K": 323.1489344258247,
+      "moisture_surface": 0.07195217917804565,
+      "signed_Jw_kg_m2_s": 4.832962869419792e-06,
+      "heat_balance_abs_W_per_rad": 1.0894926666125873e-13,
+      "water_balance_abs_kg_s_per_rad": 3.308722450212111e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5286150016365634e-11
+    },
+    {
+      "time_s": 77400.0,
+      "temperature_surface_K": 323.1489344258256,
+      "moisture_surface": 0.07152319373038471,
+      "signed_Jw_kg_m2_s": 4.738571570017843e-06,
+      "heat_balance_abs_W_per_rad": 6.565267324451732e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5230053389402228e-11
+    },
+    {
+      "time_s": 77400.0,
+      "temperature_surface_K": 323.1489344258256,
+      "moisture_surface": 0.07152319373038471,
+      "signed_Jw_kg_m2_s": 4.738571570017843e-06,
+      "heat_balance_abs_W_per_rad": 6.565267324451732e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5230053389402228e-11
+    },
+    {
+      "time_s": 78000.0,
+      "temperature_surface_K": 323.14893442582644,
+      "moisture_surface": 0.07110725880498481,
+      "signed_Jw_kg_m2_s": 4.64705182665774e-06,
+      "heat_balance_abs_W_per_rad": 2.554192894751895e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.517746534401241e-11
+    },
+    {
+      "time_s": 78600.0,
+      "temperature_surface_K": 323.1489344258276,
+      "moisture_surface": 0.07070384587655254,
+      "signed_Jw_kg_m2_s": 4.558287345909285e-06,
+      "heat_balance_abs_W_per_rad": 3.2445027492150473e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.513973769451822e-11
+    },
+    {
+      "time_s": 79200.0,
+      "temperature_surface_K": 323.14893442582866,
+      "moisture_surface": 0.07031245286958757,
+      "signed_Jw_kg_m2_s": 4.472167654190841e-06,
+      "heat_balance_abs_W_per_rad": 8.7220438307346e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5127850061963593e-11
+    },
+    {
+      "time_s": 79800.0,
+      "temperature_surface_K": 323.148934425829,
+      "moisture_surface": 0.06993260259603096,
+      "signed_Jw_kg_m2_s": 4.38858775399914e-06,
+      "heat_balance_abs_W_per_rad": 9.662274496927696e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5116270452485946e-11
+    },
+    {
+      "time_s": 80400.0,
+      "temperature_surface_K": 323.14893442582957,
+      "moisture_surface": 0.06956384129807623,
+      "signed_Jw_kg_m2_s": 4.307447803278465e-06,
+      "heat_balance_abs_W_per_rad": 1.2035343513974307e-13,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5104949883658808e-11
+    },
+    {
+      "time_s": 81000.0,
+      "temperature_surface_K": 323.14893442583025,
+      "moisture_surface": 0.06920573728833809,
+      "signed_Jw_kg_m2_s": 4.228652816211801e-06,
+      "heat_balance_abs_W_per_rad": 1.5137677785970703e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5093899816796148e-11
+    },
+    {
+      "time_s": 81000.0,
+      "temperature_surface_K": 323.14893442583025,
+      "moisture_surface": 0.06920573728833809,
+      "signed_Jw_kg_m2_s": 4.228652816211801e-06,
+      "heat_balance_abs_W_per_rad": 1.5137677785970703e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.5093899816796148e-11
+    },
+    {
+      "time_s": 81600.0,
+      "temperature_surface_K": 323.1489344258313,
+      "moisture_surface": 0.06885787968021657,
+      "signed_Jw_kg_m2_s": 4.152112383858033e-06,
+      "heat_balance_abs_W_per_rad": 9.903081298440058e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4872332065406566e-11
+    },
+    {
+      "time_s": 82200.0,
+      "temperature_surface_K": 323.14893442583195,
+      "moisture_surface": 0.06851987720181676,
+      "signed_Jw_kg_m2_s": 4.0777404131741854e-06,
+      "heat_balance_abs_W_per_rad": 7.088176843337381e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.483377152969789e-11
+    },
+    {
+      "time_s": 82800.0,
+      "temperature_surface_K": 323.1489344258325,
+      "moisture_surface": 0.068191357087328,
+      "signed_Jw_kg_m2_s": 4.005454883081377e-06,
+      "heat_balance_abs_W_per_rad": 4.60091267970289e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4798716759016707e-11
+    },
+    {
+      "time_s": 83400.0,
+      "temperature_surface_K": 323.14893442583315,
+      "moisture_surface": 0.06787196404024023,
+      "signed_Jw_kg_m2_s": 3.9351776163373785e-06,
+      "heat_balance_abs_W_per_rad": 1.7396616660428857e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4760137060408582e-11
+    },
+    {
+      "time_s": 84000.0,
+      "temperature_surface_K": 323.14893442583394,
+      "moisture_surface": 0.06756135926320839,
+      "signed_Jw_kg_m2_s": 3.866834066073967e-06,
+      "heat_balance_abs_W_per_rad": 2.837903981426259e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4707500906832272e-11
+    },
+    {
+      "time_s": 84600.0,
+      "temperature_surface_K": 323.1489344258348,
+      "moisture_surface": 0.06725921954976727,
+      "signed_Jw_kg_m2_s": 3.8003531159435057e-06,
+      "heat_balance_abs_W_per_rad": 2.4057635671120276e-13,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.465486772076291e-11
+    },
+    {
+      "time_s": 84600.0,
+      "temperature_surface_K": 323.1489344258348,
+      "moisture_surface": 0.06725921954976727,
+      "signed_Jw_kg_m2_s": 3.8003531159435057e-06,
+      "heat_balance_abs_W_per_rad": 2.4057635671120276e-13,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.465486772076291e-11
+    },
+    {
+      "time_s": 85200.0,
+      "temperature_surface_K": 323.14893442583536,
+      "moisture_surface": 0.06696523643351644,
+      "signed_Jw_kg_m2_s": 3.735666892910875e-06,
+      "heat_balance_abs_W_per_rad": 9.080027700098922e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4714120242939202e-11
+    },
+    {
+      "time_s": 85800.0,
+      "temperature_surface_K": 323.1489344258361,
+      "moisture_surface": 0.06667911539068044,
+      "signed_Jw_kg_m2_s": 3.672710591789733e-06,
+      "heat_balance_abs_W_per_rad": 1.7813694226442516e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4574202342319615e-11
+    },
+    {
+      "time_s": 86400.0,
+      "temperature_surface_K": 323.14893442583696,
+      "moisture_surface": 0.06640057509230536,
+      "signed_Jw_kg_m2_s": 3.6114223107005095e-06,
+      "heat_balance_abs_W_per_rad": 1.343387766790976e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.452156802749541e-11
+    },
+    {
+      "time_s": 87000.0,
+      "temperature_surface_K": 323.1489344258378,
+      "moisture_surface": 0.06612934670261328,
+      "signed_Jw_kg_m2_s": 3.551742896684654e-06,
+      "heat_balance_abs_W_per_rad": 9.035897591237158e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4468930269825098e-11
+    },
+    {
+      "time_s": 87600.0,
+      "temperature_surface_K": 323.1489344258383,
+      "moisture_surface": 0.06586517322032297,
+      "signed_Jw_kg_m2_s": 3.4936158007729354e-06,
+      "heat_balance_abs_W_per_rad": 6.727723033055917e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.443737360725424e-11
+    },
+    {
+      "time_s": 88200.0,
+      "temperature_surface_K": 323.14893442583883,
+      "moisture_surface": 0.06560780885998015,
+      "signed_Jw_kg_m2_s": 3.436986941857164e-06,
+      "heat_balance_abs_W_per_rad": 4.4025469738535534e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4405804733458588e-11
+    },
+    {
+      "time_s": 88200.0,
+      "temperature_surface_K": 323.14893442583883,
+      "moisture_surface": 0.06560780885998015,
+      "signed_Jw_kg_m2_s": 3.436986941857164e-06,
+      "heat_balance_abs_W_per_rad": 4.4025469738535534e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4405804733458588e-11
+    },
+    {
+      "time_s": 88800.0,
+      "temperature_surface_K": 323.1489344258394,
+      "moisture_surface": 0.06535701847055617,
+      "signed_Jw_kg_m2_s": 3.381804578762274e-06,
+      "heat_balance_abs_W_per_rad": 1.709695319669103e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4370724170695563e-11
+    },
+    {
+      "time_s": 89400.0,
+      "temperature_surface_K": 323.14893442584037,
+      "moisture_surface": 0.06511257698878953,
+      "signed_Jw_kg_m2_s": 3.328019189962962e-06,
+      "heat_balance_abs_W_per_rad": 3.4576428901949886e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4345625994140747e-11
+    },
+    {
+      "time_s": 90000.0,
+      "temperature_surface_K": 323.14893442584116,
+      "moisture_surface": 0.0648742689249352,
+      "signed_Jw_kg_m2_s": 3.275583360431161e-06,
+      "heat_balance_abs_W_per_rad": 2.28789365996225e-13,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.425840292278058e-11
+    },
+    {
+      "time_s": 90600.0,
+      "temperature_surface_K": 323.1489344258418,
+      "moisture_surface": 0.06464188787875283,
+      "signed_Jw_kg_m2_s": 3.2244516751370867e-06,
+      "heat_balance_abs_W_per_rad": 1.977870732885791e-13,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4219813349891134e-11
+    },
+    {
+      "time_s": 91200.0,
+      "temperature_surface_K": 323.1489344258422,
+      "moisture_surface": 0.06441523608372614,
+      "signed_Jw_kg_m2_s": 3.1745806187620864e-06,
+      "heat_balance_abs_W_per_rad": 1.2376968832207112e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.432256066845766e-11
+    },
+    {
+      "time_s": 91800.0,
+      "temperature_surface_K": 323.1489344258427,
+      "moisture_surface": 0.06419412397766557,
+      "signed_Jw_kg_m2_s": 3.1259284812167247e-06,
+      "heat_balance_abs_W_per_rad": 1.5643141019386446e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4163704457794117e-11
+    },
+    {
+      "time_s": 91800.0,
+      "temperature_surface_K": 323.1489344258427,
+      "moisture_surface": 0.06419412397766557,
+      "signed_Jw_kg_m2_s": 3.1259284812167247e-06,
+      "heat_balance_abs_W_per_rad": 1.5643141019386446e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4163704457794117e-11
+    },
+    {
+      "time_s": 92400.0,
+      "temperature_surface_K": 323.1489344258434,
+      "moisture_surface": 0.06397836979795467,
+      "signed_Jw_kg_m2_s": 3.0784552685812943e-06,
+      "heat_balance_abs_W_per_rad": 1.2150123766999828e-13,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4121586189719406e-11
+    },
+    {
+      "time_s": 93000.0,
+      "temperature_surface_K": 323.14893442584423,
+      "moisture_surface": 0.0637677991998541,
+      "signed_Jw_kg_m2_s": 3.032122619119798e-06,
+      "heat_balance_abs_W_per_rad": 7.590432544536061e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4068930921594197e-11
+    },
+    {
+      "time_s": 93600.0,
+      "temperature_surface_K": 323.14893442584486,
+      "moisture_surface": 0.06356224489637802,
+      "signed_Jw_kg_m2_s": 2.986893724040573e-06,
+      "heat_balance_abs_W_per_rad": 4.422967626715701e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.4030331110468876e-11
+    },
+    {
+      "time_s": 94200.0,
+      "temperature_surface_K": 323.14893442584497,
+      "moisture_surface": 0.06336154631836723,
+      "signed_Jw_kg_m2_s": 2.9427332527009144e-06,
+      "heat_balance_abs_W_per_rad": 4.40415352701355e-14,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.402334737709696e-11
+    },
+    {
+      "time_s": 94800.0,
+      "temperature_surface_K": 323.14893442584537,
+      "moisture_surface": 0.06316554929346557,
+      "signed_Jw_kg_m2_s": 2.899607281971005e-06,
+      "heat_balance_abs_W_per_rad": 2.6173376637223893e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.399880158622758e-11
+    },
+    {
+      "time_s": 95400.0,
+      "temperature_surface_K": 323.1489344258459,
+      "moisture_surface": 0.06297410574282865,
+      "signed_Jw_kg_m2_s": 2.8574832294995946e-06,
+      "heat_balance_abs_W_per_rad": 3.0499318487314955e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.396370825246262e-11
+    },
+    {
+      "time_s": 95400.0,
+      "temperature_surface_K": 323.1489344258459,
+      "moisture_surface": 0.06297410574282865,
+      "signed_Jw_kg_m2_s": 2.8574832294995946e-06,
+      "heat_balance_abs_W_per_rad": 3.0499318487314955e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.396370825246262e-11
+    },
+    {
+      "time_s": 96000.0,
+      "temperature_surface_K": 323.14893442584656,
+      "moisture_surface": 0.06278707339444858,
+      "signed_Jw_kg_m2_s": 2.8163297906357515e-06,
+      "heat_balance_abs_W_per_rad": 2.692519585424483e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.392158310819968e-11
+    },
+    {
+      "time_s": 96600.0,
+      "temperature_surface_K": 323.1489344258474,
+      "moisture_surface": 0.06260431551206255,
+      "signed_Jw_kg_m2_s": 2.7761168787795884e-06,
+      "heat_balance_abs_W_per_rad": 2.2286655541910482e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3868921556833233e-11
+    },
+    {
+      "time_s": 97200.0,
+      "temperature_surface_K": 323.148934425848,
+      "moisture_surface": 0.062425700638692516,
+      "signed_Jw_kg_m2_s": 2.736815568952322e-06,
+      "heat_balance_abs_W_per_rad": 1.93936724436585e-13,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3833828385982248e-11
+    },
+    {
+      "time_s": 97800.0,
+      "temperature_surface_K": 323.14893442584804,
+      "moisture_surface": 0.062251102353921194,
+      "signed_Jw_kg_m2_s": 2.6983980443887788e-06,
+      "heat_balance_abs_W_per_rad": 1.9651347419733544e-13,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.383034830221487e-11
+    },
+    {
+      "time_s": 98400.0,
+      "temperature_surface_K": 323.1489344258483,
+      "moisture_surface": 0.062080399044064066,
+      "signed_Jw_kg_m2_s": 2.660837545967484e-06,
+      "heat_balance_abs_W_per_rad": 1.8494249162800773e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3812820973321325e-11
+    },
+    {
+      "time_s": 99000.0,
+      "temperature_surface_K": 323.14893442584895,
+      "moisture_surface": 0.06191347368447814,
+      "signed_Jw_kg_m2_s": 2.6241083243112123e-06,
+      "heat_balance_abs_W_per_rad": 1.511413343909036e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3928864774628476e-11
+    },
+    {
+      "time_s": 99000.0,
+      "temperature_surface_K": 323.14893442584895,
+      "moisture_surface": 0.06191347368447814,
+      "signed_Jw_kg_m2_s": 2.6241083243112123e-06,
+      "heat_balance_abs_W_per_rad": 1.511413343909036e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3928864774628476e-11
+    },
+    {
+      "time_s": 99600.0,
+      "temperature_surface_K": 323.14893442584946,
+      "moisture_surface": 0.06175021363326419,
+      "signed_Jw_kg_m2_s": 2.588185594394525e-06,
+      "heat_balance_abs_W_per_rad": 1.2639248887256815e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3742618333934635e-11
+    },
+    {
+      "time_s": 100200.0,
+      "temperature_surface_K": 323.1489344258502,
+      "moisture_surface": 0.06159051043569449,
+      "signed_Jw_kg_m2_s": 2.553045492511245e-06,
+      "heat_balance_abs_W_per_rad": 8.644278114260018e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3696976150241214e-11
+    },
+    {
+      "time_s": 100800.0,
+      "temperature_surface_K": 323.1489344258509,
+      "moisture_surface": 0.0614342596387425,
+      "signed_Jw_kg_m2_s": 2.518665035464728e-06,
+      "heat_balance_abs_W_per_rad": 4.9915960236467454e-14,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.365485074609713e-11
+    },
+    {
+      "time_s": 101400.0,
+      "temperature_surface_K": 323.14893442585117,
+      "moisture_surface": 0.06128136061511051,
+      "signed_Jw_kg_m2_s": 2.4850220818479904e-06,
+      "heat_balance_abs_W_per_rad": 3.788637565134605e-14,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.363731502605134e-11
+    },
+    {
+      "time_s": 102000.0,
+      "temperature_surface_K": 323.1489344258512,
+      "moisture_surface": 0.061131716396209436,
+      "signed_Jw_kg_m2_s": 2.4520952952936225e-06,
+      "heat_balance_abs_W_per_rad": 3.9820039900685486e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3633831740047412e-11
+    },
+    {
+      "time_s": 102600.0,
+      "temperature_surface_K": 323.1489344258518,
+      "moisture_surface": 0.060985233513579325,
+      "signed_Jw_kg_m2_s": 2.4198641095809363e-06,
+      "heat_balance_abs_W_per_rad": 1.0063062604701972e-14,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.359873167210291e-11
+    },
+    {
+      "time_s": 102600.0,
+      "temperature_surface_K": 323.1489344258518,
+      "moisture_surface": 0.060985233513579325,
+      "signed_Jw_kg_m2_s": 2.4198641095809363e-06,
+      "heat_balance_abs_W_per_rad": 1.0063062604701972e-14,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.359873167210291e-11
+    },
+    {
+      "time_s": 103200.0,
+      "temperature_surface_K": 323.1489344258523,
+      "moisture_surface": 0.06084182184825811,
+      "signed_Jw_kg_m2_s": 2.3883086954920054e-06,
+      "heat_balance_abs_W_per_rad": 2.8657246240232955e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3563623861074317e-11
+    },
+    {
+      "time_s": 103800.0,
+      "temperature_surface_K": 323.1489344258529,
+      "moisture_surface": 0.06070139448766012,
+      "signed_Jw_kg_m2_s": 2.357409929320089e-06,
+      "heat_balance_abs_W_per_rad": 2.565882023476961e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.352851395419794e-11
+    },
+    {
+      "time_s": 104400.0,
+      "temperature_surface_K": 323.1489344258535,
+      "moisture_surface": 0.060563867589523604,
+      "signed_Jw_kg_m2_s": 2.3271493629334983e-06,
+      "heat_balance_abs_W_per_rad": 7.968269015169654e-14,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.357308821414072e-11
+    },
+    {
+      "time_s": 105000.0,
+      "temperature_surface_K": 323.1489344258541,
+      "moisture_surface": 0.06042916025254802,
+      "signed_Jw_kg_m2_s": 2.2975091953114223e-06,
+      "heat_balance_abs_W_per_rad": 1.893710371396407e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.345127602954665e-11
+    },
+    {
+      "time_s": 105600.0,
+      "temperature_surface_K": 323.14893442585424,
+      "moisture_surface": 0.06029719439333346,
+      "signed_Jw_kg_m2_s": 2.2684722454664432e-06,
+      "heat_balance_abs_W_per_rad": 1.1530608420922228e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.356309354412951e-11
+    },
+    {
+      "time_s": 106200.0,
+      "temperature_surface_K": 323.1489344258545,
+      "moisture_surface": 0.06016789462928997,
+      "signed_Jw_kg_m2_s": 2.240021926680626e-06,
+      "heat_balance_abs_W_per_rad": 1.7454538438874113e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3426737071429205e-11
+    },
+    {
+      "time_s": 106800.0,
+      "temperature_surface_K": 323.14893442585515,
+      "moisture_surface": 0.06004118816717567,
+      "signed_Jw_kg_m2_s": 2.212142221980141e-06,
+      "heat_balance_abs_W_per_rad": 1.6175005638566613e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.355337905831659e-11
+    },
+    {
+      "time_s": 107400.0,
+      "temperature_surface_K": 323.14893442585566,
+      "moisture_surface": 0.0599170046969574,
+      "signed_Jw_kg_m2_s": 2.1848176607810156e-06,
+      "heat_balance_abs_W_per_rad": 1.1379013260710807e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3356515933521823e-11
+    },
+    {
+      "time_s": 108000.0,
+      "temperature_surface_K": 323.1489344258562,
+      "moisture_surface": 0.05979527629071714,
+      "signed_Jw_kg_m2_s": 2.1580332966451308e-06,
+      "heat_balance_abs_W_per_rad": 8.331369461742397e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3321402382870413e-11
+    },
+    {
+      "time_s": 108600.0,
+      "temperature_surface_K": 323.1489344258567,
+      "moisture_surface": 0.05967593730631965,
+      "signed_Jw_kg_m2_s": 2.1317746860838435e-06,
+      "heat_balance_abs_W_per_rad": 5.979722472620263e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3293314942865962e-11
+    },
+    {
+      "time_s": 109200.0,
+      "temperature_surface_K": 323.14893442585714,
+      "moisture_surface": 0.05955892429559504,
+      "signed_Jw_kg_m2_s": 2.1060278683550543e-06,
+      "heat_balance_abs_W_per_rad": 3.621833300423366e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3265227258917473e-11
+    },
+    {
+      "time_s": 109800.0,
+      "temperature_surface_K": 323.14893442585725,
+      "moisture_surface": 0.05944417591679314,
+      "signed_Jw_kg_m2_s": 2.0807793462001982e-06,
+      "heat_balance_abs_W_per_rad": 3.3649790033403236e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3258215328225812e-11
+    },
+    {
+      "time_s": 110400.0,
+      "temperature_surface_K": 323.1489344258573,
+      "moisture_surface": 0.059331632851081714,
+      "signed_Jw_kg_m2_s": 2.0560160674710404e-06,
+      "heat_balance_abs_W_per_rad": 3.453340082696917e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3254709656404608e-11
+    },
+    {
+      "time_s": 111000.0,
+      "temperature_surface_K": 323.1489344258574,
+      "moisture_surface": 0.05922123772288359,
+      "signed_Jw_kg_m2_s": 2.0317254076011472e-06,
+      "heat_balance_abs_W_per_rad": 3.184671653441171e-14,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.324768876790174e-11
+    },
+    {
+      "time_s": 111600.0,
+      "temperature_surface_K": 323.14893442585776,
+      "moisture_surface": 0.05911293502384421,
+      "signed_Jw_kg_m2_s": 2.0078951528761773e-06,
+      "heat_balance_abs_W_per_rad": 1.5055438400841218e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3226618978168284e-11
+    },
+    {
+      "time_s": 112200.0,
+      "temperature_surface_K": 323.14893442585793,
+      "moisture_surface": 0.05900667104025373,
+      "signed_Jw_kg_m2_s": 1.9845134844642914e-06,
+      "heat_balance_abs_W_per_rad": 8.74394214781242e-15,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.321608807537496e-11
+    },
+    {
+      "time_s": 112800.0,
+      "temperature_surface_K": 323.14893442585804,
+      "moisture_surface": 0.0589023937837293,
+      "signed_Jw_kg_m2_s": 1.9615689631639087e-06,
+      "heat_balance_abs_W_per_rad": 5.889661553721833e-15,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3209067181797853e-11
+    },
+    {
+      "time_s": 113400.0,
+      "temperature_surface_K": 323.1489344258581,
+      "moisture_surface": 0.05880005292500443,
+      "signed_Jw_kg_m2_s": 1.939050514835129e-06,
+      "heat_balance_abs_W_per_rad": 6.493749639732601e-15,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.32055580001564e-11
+    },
+    {
+      "time_s": 114000.0,
+      "temperature_surface_K": 323.1489344258581,
+      "moisture_surface": 0.0586995997306684,
+      "signed_Jw_kg_m2_s": 1.9169474164802663e-06,
+      "heat_balance_abs_W_per_rad": 3.12298093087344e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3202048258535095e-11
+    },
+    {
+      "time_s": 114600.0,
+      "temperature_surface_K": 323.1489344258583,
+      "moisture_surface": 0.05860098700268938,
+      "signed_Jw_kg_m2_s": 1.895249282936893e-06,
+      "heat_balance_abs_W_per_rad": 4.0341387542153295e-15,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3195025257223565e-11
+    },
+    {
+      "time_s": 115200.0,
+      "temperature_surface_K": 323.14893442585833,
+      "moisture_surface": 0.05850416902060745,
+      "signed_Jw_kg_m2_s": 1.8739460541583479e-06,
+      "heat_balance_abs_W_per_rad": 4.484461798948425e-15,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3191515128495098e-11
+    },
+    {
+      "time_s": 115800.0,
+      "temperature_surface_K": 323.1489344258584,
+      "moisture_surface": 0.05840910148624085,
+      "signed_Jw_kg_m2_s": 1.853027983047239e-06,
+      "heat_balance_abs_W_per_rad": 4.885656059302667e-15,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.318800452487666e-11
+    },
+    {
+      "time_s": 116400.0,
+      "temperature_surface_K": 323.1489344258584,
+      "moisture_surface": 0.05831574147079771,
+      "signed_Jw_kg_m2_s": 1.8324856238182394e-06,
+      "heat_balance_abs_W_per_rad": 3.1028166164918407e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3184493564647962e-11
+    },
+    {
+      "time_s": 117000.0,
+      "temperature_surface_K": 323.14893442585856,
+      "moisture_surface": 0.058224047364266215,
+      "signed_Jw_kg_m2_s": 1.8123098208622167e-06,
+      "heat_balance_abs_W_per_rad": 2.0328765111214382e-15,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3177469516808808e-11
+    },
+    {
+      "time_s": 117600.0,
+      "temperature_surface_K": 323.14893442585856,
+      "moisture_surface": 0.05813397882697132,
+      "signed_Jw_kg_m2_s": 1.7924916980870652e-06,
+      "heat_balance_abs_W_per_rad": 3.072345602470277e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.317395814453905e-11
+    },
+    {
+      "time_s": 118200.0,
+      "temperature_surface_K": 323.14893442585867,
+      "moisture_surface": 0.05804549674319866,
+      "signed_Jw_kg_m2_s": 1.773022648713403e-06,
+      "heat_balance_abs_W_per_rad": 2.5071920453043016e-15,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3170446417226283e-11
+    },
+    {
+      "time_s": 118800.0,
+      "temperature_surface_K": 323.14893442585867,
+      "moisture_surface": 0.05795856317678319,
+      "signed_Jw_kg_m2_s": 1.7538943255025714e-06,
+      "heat_balance_abs_W_per_rad": 3.075206762885934e-13,
+      "water_balance_abs_kg_s_per_rad": 1.6543612251060553e-24,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.316693440847413e-11
+    },
+    {
+      "time_s": 119400.0,
+      "temperature_surface_K": 323.148934425859,
+      "moisture_surface": 0.05787314132855925,
+      "signed_Jw_kg_m2_s": 1.7350986313942103e-06,
+      "heat_balance_abs_W_per_rad": 2.900400749308281e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3145860038801198e-11
+    },
+    {
+      "time_s": 120000.0,
+      "temperature_surface_K": 323.14893442585964,
+      "moisture_surface": 0.05778919549560058,
+      "signed_Jw_kg_m2_s": 1.7166277105376814e-06,
+      "heat_balance_abs_W_per_rad": 4.6276588487957917e-14,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3157016740086524e-11
+    },
+    {
+      "time_s": 120600.0,
+      "temperature_surface_K": 323.1489344258602,
+      "moisture_surface": 0.05770669103215125,
+      "signed_Jw_kg_m2_s": 1.6984739396955573e-06,
+      "heat_balance_abs_W_per_rad": 7.784005868539e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3153461618578823e-11
+    },
+    {
+      "time_s": 121200.0,
+      "temperature_surface_K": 323.1489344258607,
+      "moisture_surface": 0.05762559431217134,
+      "signed_Jw_kg_m2_s": 1.6806299200023998e-06,
+      "heat_balance_abs_W_per_rad": 1.0593262392531511e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.314994905384368e-11
+    },
+    {
+      "time_s": 121800.0,
+      "temperature_surface_K": 323.14893442586134,
+      "moisture_surface": 0.057545872693422116,
+      "signed_Jw_kg_m2_s": 1.6630884690622897e-06,
+      "heat_balance_abs_W_per_rad": 1.600061482199312e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.300187551465416e-11
+    },
+    {
+      "time_s": 122400.0,
+      "temperature_surface_K": 323.1489344258615,
+      "moisture_surface": 0.057467494483022324,
+      "signed_Jw_kg_m2_s": 1.6458426133700398e-06,
+      "heat_balance_abs_W_per_rad": 1.528589883360684e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.299134576746836e-11
+    },
+    {
+      "time_s": 123000.0,
+      "temperature_surface_K": 323.1489344258616,
+      "moisture_surface": 0.0573904289044005,
+      "signed_Jw_kg_m2_s": 1.628885581039595e-06,
+      "heat_balance_abs_W_per_rad": 1.4918543973207205e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.29843214779604e-11
+    },
+    {
+      "time_s": 123600.0,
+      "temperature_surface_K": 323.1489344258617,
+      "moisture_surface": 0.057314646065584465,
+      "signed_Jw_kg_m2_s": 1.6122107948266417e-06,
+      "heat_balance_abs_W_per_rad": 1.4898620096454468e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2980807913230465e-11
+    },
+    {
+      "time_s": 124200.0,
+      "temperature_surface_K": 323.14893442586174,
+      "moisture_surface": 0.05724011692876296,
+      "signed_Jw_kg_m2_s": 1.595811865431146e-06,
+      "heat_balance_abs_W_per_rad": 1.487502211237047e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.297729406382337e-11
+    },
+    {
+      "time_s": 124800.0,
+      "temperature_surface_K": 323.1489344258618,
+      "moisture_surface": 0.05716681328106519,
+      "signed_Jw_kg_m2_s": 1.5796825850678542e-06,
+      "heat_balance_abs_W_per_rad": 1.4847818025000745e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.297378010031263e-11
+    },
+    {
+      "time_s": 125400.0,
+      "temperature_surface_K": 323.14893442586185,
+      "moisture_surface": 0.05709470770649773,
+      "signed_Jw_kg_m2_s": 1.5638169212914795e-06,
+      "heat_balance_abs_W_per_rad": 1.481707409142641e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2970266069200267e-11
+    },
+    {
+      "time_s": 126000.0,
+      "temperature_surface_K": 323.1489344258619,
+      "moisture_surface": 0.057023773558990964,
+      "signed_Jw_kg_m2_s": 1.5482090110659898e-06,
+      "heat_balance_abs_W_per_rad": 1.478285487873235e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.29667516794362e-11
+    },
+    {
+      "time_s": 126600.0,
+      "temperature_surface_K": 323.14893442586197,
+      "moisture_surface": 0.05695398493650926,
+      "signed_Jw_kg_m2_s": 1.5328531550679873e-06,
+      "heat_balance_abs_W_per_rad": 1.4745223318711323e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2963237059204627e-11
+    },
+    {
+      "time_s": 127200.0,
+      "temperature_surface_K": 323.148934425862,
+      "moisture_surface": 0.0568853166561617,
+      "signed_Jw_kg_m2_s": 1.5177438122102162e-06,
+      "heat_balance_abs_W_per_rad": 1.470424076048525e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2959722343953656e-11
+    },
+    {
+      "time_s": 127800.0,
+      "temperature_surface_K": 323.1489344258621,
+      "moisture_surface": 0.05681774423028894,
+      "signed_Jw_kg_m2_s": 1.502875594379869e-06,
+      "heat_balance_abs_W_per_rad": 1.4659967021042394e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.295620752259571e-11
+    },
+    {
+      "time_s": 128400.0,
+      "temperature_surface_K": 323.14893442586214,
+      "moisture_surface": 0.056751243843468815,
+      "signed_Jw_kg_m2_s": 1.4882432613790438e-06,
+      "heat_balance_abs_W_per_rad": 1.4612460433850377e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2952692502391795e-11
+    },
+    {
+      "time_s": 129000.0,
+      "temperature_surface_K": 323.1489344258622,
+      "moisture_surface": 0.05668579233040469,
+      "signed_Jw_kg_m2_s": 1.4738417160594243e-06,
+      "heat_balance_abs_W_per_rad": 1.456177789560998e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2949177329103008e-11
+    },
+    {
+      "time_s": 129600.0,
+      "temperature_surface_K": 323.14893442586225,
+      "moisture_surface": 0.056621367154663906,
+      "signed_Jw_kg_m2_s": 1.4596659996440317e-06,
+      "heat_balance_abs_W_per_rad": 1.4507974911215316e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2945662023854243e-11
+    },
+    {
+      "time_s": 130200.0,
+      "temperature_surface_K": 323.1489344258623,
+      "moisture_surface": 0.05655794638821579,
+      "signed_Jw_kg_m2_s": 1.4457112872248914e-06,
+      "heat_balance_abs_W_per_rad": 1.44511056370422e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.29421464848323e-11
+    },
+    {
+      "time_s": 130800.0,
+      "temperature_surface_K": 323.1489344258624,
+      "moisture_surface": 0.056495508691751774,
+      "signed_Jw_kg_m2_s": 1.4319728834327856e-06,
+      "heat_balance_abs_W_per_rad": 1.6005884690477352e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.309868976515387e-11
+    },
+    {
+      "time_s": 131400.0,
+      "temperature_surface_K": 323.1489344258624,
+      "moisture_surface": 0.056434033295740135,
+      "signed_Jw_kg_m2_s": 1.4184462182686702e-06,
+      "heat_balance_abs_W_per_rad": 1.4328378350569985e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2935115246584807e-11
+    },
+    {
+      "time_s": 132000.0,
+      "temperature_surface_K": 323.1489344258625,
+      "moisture_surface": 0.05637349998218634,
+      "signed_Jw_kg_m2_s": 1.4051268430903206e-06,
+      "heat_balance_abs_W_per_rad": 1.4262622275555407e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2931599440185346e-11
+    },
+    {
+      "time_s": 132600.0,
+      "temperature_surface_K": 323.14893442586254,
+      "moisture_surface": 0.056313889067077925,
+      "signed_Jw_kg_m2_s": 1.3920104267496204e-06,
+      "heat_balance_abs_W_per_rad": 1.419400386114865e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2928083460747938e-11
+    },
+    {
+      "time_s": 133200.0,
+      "temperature_surface_K": 323.14893442586265,
+      "moisture_surface": 0.05625518138347898,
+      "signed_Jw_kg_m2_s": 1.379092751872772e-06,
+      "heat_balance_abs_W_per_rad": 1.6259211470459872e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3087159536013376e-11
+    },
+    {
+      "time_s": 133800.0,
+      "temperature_surface_K": 323.1489344258627,
+      "moisture_surface": 0.05619735826523789,
+      "signed_Jw_kg_m2_s": 1.3663697112754546e-06,
+      "heat_balance_abs_W_per_rad": 1.6329675342596002e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3084347986836812e-11
+    },
+    {
+      "time_s": 134400.0,
+      "temperature_surface_K": 323.14893442586276,
+      "moisture_surface": 0.056140401531302155,
+      "signed_Jw_kg_m2_s": 1.3538373045115436e-06,
+      "heat_balance_abs_W_per_rad": 1.6402897575660477e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.3081563857994347e-11
+    },
+    {
+      "time_s": 135000.0,
+      "temperature_surface_K": 323.14893442586276,
+      "moisture_surface": 0.056084293470598,
+      "signed_Jw_kg_m2_s": 1.341491634546128e-06,
+      "heat_balance_abs_W_per_rad": 1.3891850368454186e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2914018369666112e-11
+    },
+    {
+      "time_s": 135600.0,
+      "temperature_surface_K": 323.1489344258628,
+      "moisture_surface": 0.056029016827458394,
+      "signed_Jw_kg_m2_s": 1.3293289045491678e-06,
+      "heat_balance_abs_W_per_rad": 1.3809618464306418e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2910501822353678e-11
+    },
+    {
+      "time_s": 136200.0,
+      "temperature_surface_K": 323.1489344258629,
+      "moisture_surface": 0.05597455478758067,
+      "signed_Jw_kg_m2_s": 1.3173454148057059e-06,
+      "heat_balance_abs_W_per_rad": 1.3724796110717616e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2906985718661353e-11
+    },
+    {
+      "time_s": 136800.0,
+      "temperature_surface_K": 323.14893442586293,
+      "moisture_surface": 0.05592089096448084,
+      "signed_Jw_kg_m2_s": 1.3055375597353574e-06,
+      "heat_balance_abs_W_per_rad": 1.6371316459031461e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.307069533090292e-11
+    },
+    {
+      "time_s": 137400.0,
+      "temperature_surface_K": 323.14893442586293,
+      "moisture_surface": 0.055868009386437364,
+      "signed_Jw_kg_m2_s": 1.2939018250194925e-06,
+      "heat_balance_abs_W_per_rad": 1.3898707761799748e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2903465436771587e-11
+    },
+    {
+      "time_s": 138000.0,
+      "temperature_surface_K": 323.148934425863,
+      "moisture_surface": 0.05581589448389327,
+      "signed_Jw_kg_m2_s": 1.2824347848292833e-06,
+      "heat_balance_abs_W_per_rad": 1.3806360434325638e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.289994859838479e-11
+    },
+    {
+      "time_s": 138600.0,
+      "temperature_surface_K": 323.14893442586305,
+      "moisture_surface": 0.0557645310773068,
+      "signed_Jw_kg_m2_s": 1.2711330991524315e-06,
+      "heat_balance_abs_W_per_rad": 1.3711584185243228e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2896431580259565e-11
+    },
+    {
+      "time_s": 139200.0,
+      "temperature_surface_K": 323.14893442586316,
+      "moisture_surface": 0.05571390436542776,
+      "signed_Jw_kg_m2_s": 1.2599935112135695e-06,
+      "heat_balance_abs_W_per_rad": 1.673158495201619e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.306023036991098e-11
+    },
+    {
+      "time_s": 139800.0,
+      "temperature_surface_K": 323.1489344258632,
+      "moisture_surface": 0.05566399991398313,
+      "signed_Jw_kg_m2_s": 1.2490128449847175e-06,
+      "heat_balance_abs_W_per_rad": 1.316373699750843e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2885885227136058e-11
+    },
+    {
+      "time_s": 140400.0,
+      "temperature_surface_K": 323.14893442586407,
+      "moisture_surface": 0.055614803644756045,
+      "signed_Jw_kg_m2_s": 1.2381880027822779e-06,
+      "heat_balance_abs_W_per_rad": 8.145669830686676e-14,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.283320114246224e-11
+    },
+    {
+      "time_s": 141000.0,
+      "temperature_surface_K": 323.14893442586487,
+      "moisture_surface": 0.055566301825044344,
+      "signed_Jw_kg_m2_s": 1.2275159629475717e-06,
+      "heat_balance_abs_W_per_rad": 3.476492844995603e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.27840336848086e-11
+    },
+    {
+      "time_s": 141600.0,
+      "temperature_surface_K": 323.1489344258649,
+      "moisture_surface": 0.05551848105748059,
+      "signed_Jw_kg_m2_s": 1.216993777606897e-06,
+      "heat_balance_abs_W_per_rad": 3.370140510160386e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.278052241933299e-11
+    },
+    {
+      "time_s": 142200.0,
+      "temperature_surface_K": 323.148934425865,
+      "moisture_surface": 0.055471328270202874,
+      "signed_Jw_kg_m2_s": 1.2066185705087647e-06,
+      "heat_balance_abs_W_per_rad": 3.26157606204545e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2777005606268628e-11
+    },
+    {
+      "time_s": 142800.0,
+      "temperature_surface_K": 323.14893442586504,
+      "moisture_surface": 0.05542483070735751,
+      "signed_Jw_kg_m2_s": 1.1963875349341801e-06,
+      "heat_balance_abs_W_per_rad": 3.150832988320216e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2773488128595676e-11
+    },
+    {
+      "time_s": 143400.0,
+      "temperature_surface_K": 323.14893442586504,
+      "moisture_surface": 0.055378975919929144,
+      "signed_Jw_kg_m2_s": 1.1862979316789564e-06,
+      "heat_balance_abs_W_per_rad": 3.3891011819848064e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2773482978379635e-11
+    },
+    {
+      "time_s": 144000.0,
+      "temperature_surface_K": 323.1489344258651,
+      "moisture_surface": 0.05533375175687403,
+      "signed_Jw_kg_m2_s": 1.1763470871027287e-06,
+      "heat_balance_abs_W_per_rad": 3.27409808307528e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2769965452031023e-11
+    },
+    {
+      "time_s": 144600.0,
+      "temperature_surface_K": 323.14893442586515,
+      "moisture_surface": 0.05528914635655679,
+      "signed_Jw_kg_m2_s": 1.1665323912447547e-06,
+      "heat_balance_abs_W_per_rad": 3.1570126577187563e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.276644789612269e-11
+    },
+    {
+      "time_s": 145200.0,
+      "temperature_surface_K": 323.1489344258652,
+      "moisture_surface": 0.05524514813847402,
+      "signed_Jw_kg_m2_s": 1.156851296002836e-06,
+      "heat_balance_abs_W_per_rad": 3.037875676619787e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2762930314371367e-11
+    },
+    {
+      "time_s": 145800.0,
+      "temperature_surface_K": 323.1489344258654,
+      "moisture_surface": 0.055201745795246095,
+      "signed_Jw_kg_m2_s": 1.1473013133712313e-06,
+      "heat_balance_abs_W_per_rad": 2.2144064252925033e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.275238902898056e-11
+    },
+    {
+      "time_s": 146400.0,
+      "temperature_surface_K": 323.14893442586595,
+      "moisture_surface": 0.055158928284884085,
+      "signed_Jw_kg_m2_s": 1.1378800137391273e-06,
+      "heat_balance_abs_W_per_rad": 1.069138163000873e-14,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.272795780856602e-11
+    },
+    {
+      "time_s": 147000.0,
+      "temperature_surface_K": 323.1489344258664,
+      "moisture_surface": 0.055116684823303744,
+      "signed_Jw_kg_m2_s": 1.1285850242434538e-06,
+      "heat_balance_abs_W_per_rad": 3.6523291681038336e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2725692627105798e-11
+    },
+    {
+      "time_s": 147600.0,
+      "temperature_surface_K": 323.1489344258669,
+      "moisture_surface": 0.055075004877089564,
+      "signed_Jw_kg_m2_s": 1.1194140271767444e-06,
+      "heat_balance_abs_W_per_rad": 2.3361397583758027e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2654047807608948e-11
+    },
+    {
+      "time_s": 148200.0,
+      "temperature_surface_K": 323.1489344258675,
+      "moisture_surface": 0.05503387815649493,
+      "signed_Jw_kg_m2_s": 1.1103647584469188e-06,
+      "heat_balance_abs_W_per_rad": 2.0069072034766203e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2618926310983765e-11
+    },
+    {
+      "time_s": 148800.0,
+      "temperature_surface_K": 323.1489344258678,
+      "moisture_surface": 0.05499329460866812,
+      "signed_Jw_kg_m2_s": 1.1014350060867845e-06,
+      "heat_balance_abs_W_per_rad": 1.8179512832108927e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2597853504521062e-11
+    },
+    {
+      "time_s": 149400.0,
+      "temperature_surface_K": 323.14893442586794,
+      "moisture_surface": 0.05495324441109691,
+      "signed_Jw_kg_m2_s": 1.0926226088116231e-06,
+      "heat_balance_abs_W_per_rad": 1.224834415014067e-13,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2716822098662505e-11
+    },
+    {
+      "time_s": 150000.0,
+      "temperature_surface_K": 323.14893442586794,
+      "moisture_surface": 0.054913717965269684,
+      "signed_Jw_kg_m2_s": 1.083925454624422e-06,
+      "heat_balance_abs_W_per_rad": 1.7906473660508403e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2590820992139237e-11
+    },
+    {
+      "time_s": 150600.0,
+      "temperature_surface_K": 323.14893442586805,
+      "moisture_surface": 0.05487470589053154,
+      "signed_Jw_kg_m2_s": 1.0753414794640111e-06,
+      "heat_balance_abs_W_per_rad": 1.2519142272362744e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2712494323854997e-11
+    },
+    {
+      "time_s": 151200.0,
+      "temperature_surface_K": 323.14893442586805,
+      "moisture_surface": 0.0548361990181436,
+      "signed_Jw_kg_m2_s": 1.0668686658979069e-06,
+      "heat_balance_abs_W_per_rad": 1.2306066501203207e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2710357802134292e-11
+    },
+    {
+      "time_s": 151800.0,
+      "temperature_surface_K": 323.14893442586805,
+      "moisture_surface": 0.054798188385527136,
+      "signed_Jw_kg_m2_s": 1.0585050418558314e-06,
+      "heat_balance_abs_W_per_rad": 1.7834798764854152e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.258377921460893e-11
+    },
+    {
+      "time_s": 152400.0,
+      "temperature_surface_K": 323.14893442586816,
+      "moisture_surface": 0.054760665230692195,
+      "signed_Jw_kg_m2_s": 1.050248679403811e-06,
+      "heat_balance_abs_W_per_rad": 1.258745022461382e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2706135688809578e-11
+    },
+    {
+      "time_s": 153000.0,
+      "temperature_surface_K": 323.14893442586816,
+      "moisture_surface": 0.054723620986839194,
+      "signed_Jw_kg_m2_s": 1.0420976935563585e-06,
+      "heat_balance_abs_W_per_rad": 1.7544352264355502e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2576742928296952e-11
+    },
+    {
+      "time_s": 153600.0,
+      "temperature_surface_K": 323.14893442586816,
+      "moisture_surface": 0.05468704727713078,
+      "signed_Jw_kg_m2_s": 1.0340502411260948e-06,
+      "heat_balance_abs_W_per_rad": 1.7747780993106996e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2576737305939927e-11
+    },
+    {
+      "time_s": 154200.0,
+      "temperature_surface_K": 323.1489344258682,
+      "moisture_surface": 0.05465093590962682,
+      "signed_Jw_kg_m2_s": 1.0261045196092812e-06,
+      "heat_balance_abs_W_per_rad": 1.7598423598868795e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.257321987061009e-11
+    },
+    {
+      "time_s": 154800.0,
+      "temperature_surface_K": 323.14893442586833,
+      "moisture_surface": 0.054615278872379054,
+      "signed_Jw_kg_m2_s": 1.018258766106471e-06,
+      "heat_balance_abs_W_per_rad": 1.2819331234637622e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2697894966760632e-11
+    },
+    {
+      "time_s": 155400.0,
+      "temperature_surface_K": 323.1489344258683,
+      "moisture_surface": 0.054580068328672016,
+      "signed_Jw_kg_m2_s": 1.0105112562753603e-06,
+      "heat_balance_abs_W_per_rad": 1.7646039527723336e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2569695516031072e-11
+    },
+    {
+      "time_s": 156000.0,
+      "temperature_surface_K": 323.1489344258684,
+      "moisture_surface": 0.0545452966124139,
+      "signed_Jw_kg_m2_s": 1.0028603033166161e-06,
+      "heat_balance_abs_W_per_rad": 1.276946867784268e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.269387206056087e-11
+    },
+    {
+      "time_s": 156600.0,
+      "temperature_surface_K": 323.1489344258689,
+      "moisture_surface": 0.054510956223671414,
+      "signed_Jw_kg_m2_s": 9.953042569913964e-07,
+      "heat_balance_abs_W_per_rad": 1.4175886723020905e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2531052130957708e-11
+    },
+    {
+      "time_s": 157200.0,
+      "temperature_surface_K": 323.14893442586947,
+      "moisture_surface": 0.05447703982433458,
+      "signed_Jw_kg_m2_s": 9.878415026674565e-07,
+      "heat_balance_abs_W_per_rad": 1.0858344511164844e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2495930331585336e-11
+    },
+    {
+      "time_s": 157800.0,
+      "temperature_surface_K": 323.14893442587004,
+      "moisture_surface": 0.054443540233917995,
+      "signed_Jw_kg_m2_s": 9.804704603952857e-07,
+      "heat_balance_abs_W_per_rad": 7.539299516270378e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.246080897003841e-11
+    },
+    {
+      "time_s": 158400.0,
+      "temperature_surface_K": 323.1489344258706,
+      "moisture_surface": 0.05441045042548711,
+      "signed_Jw_kg_m2_s": 9.731895840117561e-07,
+      "heat_balance_abs_W_per_rad": 4.218771371262551e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2425687651553552e-11
+    },
+    {
+      "time_s": 159000.0,
+      "temperature_surface_K": 323.14893442587095,
+      "moisture_surface": 0.054377763521708235,
+      "signed_Jw_kg_m2_s": 9.659973602709806e-07,
+      "heat_balance_abs_W_per_rad": 2.301367651383667e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2404614463916068e-11
+    },
+    {
+      "time_s": 159600.0,
+      "temperature_surface_K": 323.148934425871,
+      "moisture_surface": 0.05434547279101624,
+      "signed_Jw_kg_m2_s": 9.588923080010839e-07,
+      "heat_balance_abs_W_per_rad": 2.1382498514820116e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2401099199529728e-11
+    },
+    {
+      "time_s": 160200.0,
+      "temperature_surface_K": 323.14893442587106,
+      "moisture_surface": 0.054313571643895726,
+      "signed_Jw_kg_m2_s": 9.518729772859354e-07,
+      "heat_balance_abs_W_per_rad": 1.9736995014207995e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.239758103267339e-11
+    },
+    {
+      "time_s": 160800.0,
+      "temperature_surface_K": 323.14893442587106,
+      "moisture_surface": 0.05428205362927595,
+      "signed_Jw_kg_m2_s": 9.449379486719065e-07,
+      "heat_balance_abs_W_per_rad": 2.158880960908558e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2397574848474778e-11
+    },
+    {
+      "time_s": 161400.0,
+      "temperature_surface_K": 323.1489344258711,
+      "moisture_surface": 0.05425091243102891,
+      "signed_Jw_kg_m2_s": 9.380858323973366e-07,
+      "heat_balance_abs_W_per_rad": 1.991519792565381e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.239405659718094e-11
+    },
+    {
+      "time_s": 162000.0,
+      "temperature_surface_K": 323.1489344258712,
+      "moisture_surface": 0.054220141864571816,
+      "signed_Jw_kg_m2_s": 9.313152676449529e-07,
+      "heat_balance_abs_W_per_rad": 1.8227800494969002e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2390538144004093e-11
+    },
+    {
+      "time_s": 162600.0,
+      "temperature_surface_K": 323.1489344258712,
+      "moisture_surface": 0.05418973587357114,
+      "signed_Jw_kg_m2_s": 9.24624921816657e-07,
+      "heat_balance_abs_W_per_rad": 2.003824121459366e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2390531932186502e-11
+    },
+    {
+      "time_s": 163200.0,
+      "temperature_surface_K": 323.14893442587123,
+      "moisture_surface": 0.05415968852674008,
+      "signed_Jw_kg_m2_s": 9.1801348982886e-07,
+      "heat_balance_abs_W_per_rad": 1.8323786575852688e-14,
+      "water_balance_abs_kg_s_per_rad": 8.271806125530277e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.238701358538008e-11
+    },
+    {
+      "time_s": 163800.0,
+      "temperature_surface_K": 323.14893442587123,
+      "moisture_surface": 0.05412999401473148,
+      "signed_Jw_kg_m2_s": 9.114796934288165e-07,
+      "heat_balance_abs_W_per_rad": 2.010750150640997e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.238700704927718e-11
+    },
+    {
+      "time_s": 164400.0,
+      "temperature_surface_K": 323.1489344258713,
+      "moisture_surface": 0.054100646647119346,
+      "signed_Jw_kg_m2_s": 9.050222805304524e-07,
+      "heat_balance_abs_W_per_rad": 1.8366659843952682e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2383488808495658e-11
+    },
+    {
+      "time_s": 165000.0,
+      "temperature_surface_K": 323.14893442587135,
+      "moisture_surface": 0.054071640849467466,
+      "signed_Jw_kg_m2_s": 8.986400245693715e-07,
+      "heat_balance_abs_W_per_rad": 1.6612870343981995e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2379970447151615e-11
+    },
+    {
+      "time_s": 165600.0,
+      "temperature_surface_K": 323.14893442587135,
+      "moisture_surface": 0.05404297116048439,
+      "signed_Jw_kg_m2_s": 8.923317238768477e-07,
+      "heat_balance_abs_W_per_rad": 1.8357725946586874e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2379963925553024e-11
+    },
+    {
+      "time_s": 166200.0,
+      "temperature_surface_K": 323.1489344258714,
+      "moisture_surface": 0.05401463222925639,
+      "signed_Jw_kg_m2_s": 8.860962010709841e-07,
+      "heat_balance_abs_W_per_rad": 1.6578511638524376e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2376445615089927e-11
+    },
+    {
+      "time_s": 166800.0,
+      "temperature_surface_K": 323.14893442587146,
+      "moisture_surface": 0.053986618812563655,
+      "signed_Jw_kg_m2_s": 8.79932302466188e-07,
+      "heat_balance_abs_W_per_rad": 1.4786818176692105e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.237292707757893e-11
+    },
+    {
+      "time_s": 167400.0,
+      "temperature_surface_K": 323.14893442587146,
+      "moisture_surface": 0.05395892577226711,
+      "signed_Jw_kg_m2_s": 8.73838897498176e-07,
+      "heat_balance_abs_W_per_rad": 1.64942209587785e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2372920690495306e-11
+    },
+    {
+      "time_s": 168000.0,
+      "temperature_surface_K": 323.1489344258715,
+      "moisture_surface": 0.05393154807277469,
+      "signed_Jw_kg_m2_s": 8.678148781664814e-07,
+      "heat_balance_abs_W_per_rad": 1.467801624843898e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.236940231654657e-11
+    },
+    {
+      "time_s": 168600.0,
+      "temperature_surface_K": 323.1489344258715,
+      "moisture_surface": 0.053904480778575355,
+      "signed_Jw_kg_m2_s": 8.618591584918382e-07,
+      "heat_balance_abs_W_per_rad": 1.6361195781323975e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2369395666578226e-11
+    },
+    {
+      "time_s": 169200.0,
+      "temperature_surface_K": 323.1489344258716,
+      "moisture_surface": 0.0538777190518436,
+      "signed_Jw_kg_m2_s": 8.559706739891046e-07,
+      "heat_balance_abs_W_per_rad": 1.45210633963928e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2365877334962877e-11
+    },
+    {
+      "time_s": 169800.0,
+      "temperature_surface_K": 323.14893442587163,
+      "moisture_surface": 0.05385125815010968,
+      "signed_Jw_kg_m2_s": 8.501483811546248e-07,
+      "heat_balance_abs_W_per_rad": 1.2669181462008166e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2362358759135403e-11
+    },
+    {
+      "time_s": 170400.0,
+      "temperature_surface_K": 323.14893442587163,
+      "moisture_surface": 0.053825093423996835,
+      "signed_Jw_kg_m2_s": 8.44391256968353e-07,
+      "heat_balance_abs_W_per_rad": 1.4317097695251282e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2362352251427384e-11
+    },
+    {
+      "time_s": 171000.0,
+      "temperature_surface_K": 323.1489344258717,
+      "moisture_surface": 0.05379922031501899,
+      "signed_Jw_kg_m2_s": 8.386982984092616e-07,
+      "heat_balance_abs_W_per_rad": 1.2442127365832185e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2358833845184705e-11
+    },
+    {
+      "time_s": 171600.0,
+      "temperature_surface_K": 323.1489344258717,
+      "moisture_surface": 0.05377363435344068,
+      "signed_Jw_kg_m2_s": 8.330685219844581e-07,
+      "heat_balance_abs_W_per_rad": 1.4067219712826085e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2358827151352835e-11
+    },
+    {
+      "time_s": 172200.0,
+      "temperature_surface_K": 323.14893442587174,
+      "moisture_surface": 0.05374833115619643,
+      "signed_Jw_kg_m2_s": 8.275009632713796e-07,
+      "heat_balance_abs_W_per_rad": 1.2169697661690227e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2355308802762923e-11
+    },
+    {
+      "time_s": 172800.0,
+      "temperature_surface_K": 323.1489344258718,
+      "moisture_surface": 0.05372330642486214,
+      "signed_Jw_kg_m2_s": 8.219946764714238e-07,
+      "heat_balance_abs_W_per_rad": 1.0261097018389342e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2351790208737982e-11
+    },
+    {
+      "time_s": 173400.0,
+      "temperature_surface_K": 323.1489344258718,
+      "moisture_surface": 0.05369855594368834,
+      "signed_Jw_kg_m2_s": 8.165487339772042e-07,
+      "heat_balance_abs_W_per_rad": 1.1852939587450733e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.235178372041066e-11
+    },
+    {
+      "time_s": 174000.0,
+      "temperature_surface_K": 323.14893442587186,
+      "moisture_surface": 0.053674075577684166,
+      "signed_Jw_kg_m2_s": 8.111622259509576e-07,
+      "heat_balance_abs_W_per_rad": 9.922559816243489e-15,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2348265257520278e-11
+    },
+    {
+      "time_s": 174600.0,
+      "temperature_surface_K": 323.14893442587186,
+      "moisture_surface": 0.0536498612707521,
+      "signed_Jw_kg_m2_s": 8.05834259914119e-07,
+      "heat_balance_abs_W_per_rad": 1.1492866665171464e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2348258583565523e-11
+    },
+    {
+      "time_s": 175200.0,
+      "temperature_surface_K": 323.1489344258719,
+      "moisture_surface": 0.05362590904387419,
+      "signed_Jw_kg_m2_s": 8.005639603482389e-07,
+      "heat_balance_abs_W_per_rad": 9.541202280160783e-15,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2344740191149668e-11
+    },
+    {
+      "time_s": 175800.0,
+      "temperature_surface_K": 323.1489344258719,
+      "moisture_surface": 0.053602214993346574,
+      "signed_Jw_kg_m2_s": 7.953504683065127e-07,
+      "heat_balance_abs_W_per_rad": 1.1090460085347479e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2344733421793055e-11
+    },
+    {
+      "time_s": 176400.0,
+      "temperature_surface_K": 323.14893442587197,
+      "moisture_surface": 0.05357877528906136,
+      "signed_Jw_kg_m2_s": 7.901929410357332e-07,
+      "heat_balance_abs_W_per_rad": 9.117989933279721e-15,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2341215020553484e-11
+    },
+    {
+      "time_s": 177000.0,
+      "temperature_surface_K": 323.1489344258722,
+      "moisture_surface": 0.05355558617283375,
+      "signed_Jw_kg_m2_s": 7.850905516082087e-07,
+      "heat_balance_abs_W_per_rad": 3.3988374365053062e-15,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2330562089778226e-11
+    },
+    {
+      "time_s": 177600.0,
+      "temperature_surface_K": 323.1489344258727,
+      "moisture_surface": 0.05353264395677394,
+      "signed_Jw_kg_m2_s": 7.80042488563522e-07,
+      "heat_balance_abs_W_per_rad": 2.647723178119059e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.22920425152354e-11
+    },
+    {
+      "time_s": 178200.0,
+      "temperature_surface_K": 323.1489344258733,
+      "moisture_surface": 0.0535099450217034,
+      "signed_Jw_kg_m2_s": 7.750479555600567e-07,
+      "heat_balance_abs_W_per_rad": 2.311465744349863e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.22569219178357e-11
+    },
+    {
+      "time_s": 178800.0,
+      "temperature_surface_K": 323.1489344258739,
+      "moisture_surface": 0.05348748581560983,
+      "signed_Jw_kg_m2_s": 7.701061710350414e-07,
+      "heat_balance_abs_W_per_rad": 1.0421407933995045e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2326015504720535e-11
+    },
+    {
+      "time_s": 179400.0,
+      "temperature_surface_K": 323.1489344258744,
+      "moisture_surface": 0.05346526285214496,
+      "signed_Jw_kg_m2_s": 7.65216367874004e-07,
+      "heat_balance_abs_W_per_rad": 1.6386608065753325e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2186680931293176e-11
+    },
+    {
+      "time_s": 180000.0,
+      "temperature_surface_K": 323.1489344258746,
+      "moisture_surface": 0.053443272709161375,
+      "signed_Jw_kg_m2_s": 7.603777930888384e-07,
+      "heat_balance_abs_W_per_rad": 1.4338217774285718e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2323036771417193e-11
+    },
+    {
+      "time_s": 180600.0,
+      "temperature_surface_K": 323.14893442587453,
+      "moisture_surface": 0.05342151202728563,
+      "signed_Jw_kg_m2_s": 7.55589707503829e-07,
+      "heat_balance_abs_W_per_rad": 1.5975210002371844e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2179648720763518e-11
+    },
+    {
+      "time_s": 181200.0,
+      "temperature_surface_K": 323.1489344258746,
+      "moisture_surface": 0.05339997750853087,
+      "signed_Jw_kg_m2_s": 7.508513854503875e-07,
+      "heat_balance_abs_W_per_rad": 1.576810553708611e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2176130446100727e-11
+    },
+    {
+      "time_s": 181800.0,
+      "temperature_surface_K": 323.1489344258746,
+      "moisture_surface": 0.053378665914944216,
+      "signed_Jw_kg_m2_s": 7.461621144694283e-07,
+      "heat_balance_abs_W_per_rad": 1.5911213113806438e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.217612375288926e-11
+    },
+    {
+      "time_s": 182400.0,
+      "temperature_surface_K": 323.14893442587464,
+      "moisture_surface": 0.05335757406728894,
+      "signed_Jw_kg_m2_s": 7.415211950214039e-07,
+      "heat_balance_abs_W_per_rad": 1.5702271431393037e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.217260547537756e-11
+    },
+    {
+      "time_s": 183000.0,
+      "temperature_surface_K": 323.1489344258747,
+      "moisture_surface": 0.053336698843758204,
+      "signed_Jw_kg_m2_s": 7.369279402032825e-07,
+      "heat_balance_abs_W_per_rad": 1.4314982545838786e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.231574856408474e-11
+    },
+    {
+      "time_s": 183600.0,
+      "temperature_surface_K": 323.1489344258747,
+      "moisture_surface": 0.053316037178727294,
+      "signed_Jw_kg_m2_s": 7.323816754740015e-07,
+      "heat_balance_abs_W_per_rad": 1.5632821263538032e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.216908052275048e-11
+    },
+    {
+      "time_s": 184200.0,
+      "temperature_surface_K": 323.14893442587476,
+      "moisture_surface": 0.05329558606153023,
+      "signed_Jw_kg_m2_s": 7.278817383852776e-07,
+      "heat_balance_abs_W_per_rad": 1.5421196967306342e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2165562040801924e-11
+    },
+    {
+      "time_s": 184800.0,
+      "temperature_surface_K": 323.14893442587476,
+      "moisture_surface": 0.053275342535276535,
+      "signed_Jw_kg_m2_s": 7.234274783212537e-07,
+      "heat_balance_abs_W_per_rad": 1.5559831628104833e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2165555606575672e-11
+    },
+    {
+      "time_s": 185400.0,
+      "temperature_surface_K": 323.1489344258748,
+      "moisture_surface": 0.05325530369568564,
+      "signed_Jw_kg_m2_s": 7.190182562420299e-07,
+      "heat_balance_abs_W_per_rad": 1.5346465869133765e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.216203716039058e-11
+    },
+    {
+      "time_s": 186000.0,
+      "temperature_surface_K": 323.14893442587487,
+      "moisture_surface": 0.05323546668996301,
+      "signed_Jw_kg_m2_s": 7.146534444363804e-07,
+      "heat_balance_abs_W_per_rad": 1.4665557847249126e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.230868628266778e-11
+    },
+    {
+      "time_s": 186600.0,
+      "temperature_surface_K": 323.1489344258749,
+      "moisture_surface": 0.05321582871569775,
+      "signed_Jw_kg_m2_s": 7.10332426279175e-07,
+      "heat_balance_abs_W_per_rad": 1.4878742739747107e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2307299686170474e-11
+    },
+    {
+      "time_s": 187200.0,
+      "temperature_surface_K": 323.1489344258749,
+      "moisture_surface": 0.05319638701978829,
+      "signed_Jw_kg_m2_s": 7.060545959950057e-07,
+      "heat_balance_abs_W_per_rad": 1.4741645267705753e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2305922265595038e-11
+    },
+    {
+      "time_s": 187800.0,
+      "temperature_surface_K": 323.1489344258749,
+      "moisture_surface": 0.05317713889739547,
+      "signed_Jw_kg_m2_s": 7.018193584278285e-07,
+      "heat_balance_abs_W_per_rad": 1.5186788355278967e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2154987382086078e-11
+    },
+    {
+      "time_s": 188400.0,
+      "temperature_surface_K": 323.1489344258749,
+      "moisture_surface": 0.05315808169092297,
+      "signed_Jw_kg_m2_s": 6.976261288166168e-07,
+      "heat_balance_abs_W_per_rad": 1.5320358373927246e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2154980940776956e-11
+    },
+    {
+      "time_s": 189000.0,
+      "temperature_surface_K": 323.148934425875,
+      "moisture_surface": 0.0531392127890196,
+      "signed_Jw_kg_m2_s": 6.934743325758392e-07,
+      "heat_balance_abs_W_per_rad": 1.5101982055223752e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2151462480410786e-11
+    },
+    {
+      "time_s": 189600.0,
+      "temperature_surface_K": 323.148934425875,
+      "moisture_surface": 0.05312052962561059,
+      "signed_Jw_kg_m2_s": 6.893634050823064e-07,
+      "heat_balance_abs_W_per_rad": 1.5233932744610853e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2151456044758662e-11
+    },
+    {
+      "time_s": 190200.0,
+      "temperature_surface_K": 323.14893442587504,
+      "moisture_surface": 0.053102029678947824,
+      "signed_Jw_kg_m2_s": 6.852927914661873e-07,
+      "heat_balance_abs_W_per_rad": 1.5013954113631277e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2147937615874314e-11
+    },
+    {
+      "time_s": 190800.0,
+      "temperature_surface_K": 323.1489344258751,
+      "moisture_surface": 0.05308371047068839,
+      "signed_Jw_kg_m2_s": 6.812619464082706e-07,
+      "heat_balance_abs_W_per_rad": 1.4989847669763425e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.229782968729865e-11
+    },
+    {
+      "time_s": 191400.0,
+      "temperature_surface_K": 323.14893442587504,
+      "moisture_surface": 0.05306556956499031,
+      "signed_Jw_kg_m2_s": 6.772703339409787e-07,
+      "heat_balance_abs_W_per_rad": 1.5273901068068071e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.214792450892013e-11
+    },
+    {
+      "time_s": 192000.0,
+      "temperature_surface_K": 323.1489344258751,
+      "moisture_surface": 0.05304760456763429,
+      "signed_Jw_kg_m2_s": 6.733174272551376e-07,
+      "heat_balance_abs_W_per_rad": 1.5051579179216915e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2144406404818257e-11
+    },
+    {
+      "time_s": 192600.0,
+      "temperature_surface_K": 323.1489344258751,
+      "moisture_surface": 0.05302981312516587,
+      "signed_Jw_kg_m2_s": 6.694027085112134e-07,
+      "heat_balance_abs_W_per_rad": 1.5179622920727936e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.214439973236172e-11
+    },
+    {
+      "time_s": 193200.0,
+      "temperature_surface_K": 323.14893442587515,
+      "moisture_surface": 0.05301219292405514,
+      "signed_Jw_kg_m2_s": 6.65525668654421e-07,
+      "heat_balance_abs_W_per_rad": 1.4955777845518022e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2140881647647076e-11
+    },
+    {
+      "time_s": 193800.0,
+      "temperature_surface_K": 323.14893442587515,
+      "moisture_surface": 0.05299474168988176,
+      "signed_Jw_kg_m2_s": 6.616858072354035e-07,
+      "heat_balance_abs_W_per_rad": 1.508231308277396e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.214087498892198e-11
+    },
+    {
+      "time_s": 194400.0,
+      "temperature_surface_K": 323.14893442587527,
+      "moisture_surface": 0.05297745718653572,
+      "signed_Jw_kg_m2_s": 6.578826322343734e-07,
+      "heat_balance_abs_W_per_rad": 1.5266572593479563e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2290022611296442e-11
+    },
+    {
+      "time_s": 195000.0,
+      "temperature_surface_K": 323.14893442587527,
+      "moisture_surface": 0.052960337215437206,
+      "signed_Jw_kg_m2_s": 6.54115659889452e-07,
+      "heat_balance_abs_W_per_rad": 1.5139782718926506e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2288748106748194e-11
+    },
+    {
+      "time_s": 195600.0,
+      "temperature_surface_K": 323.14893442587527,
+      "moisture_surface": 0.05294337961477893,
+      "signed_Jw_kg_m2_s": 6.503844145299605e-07,
+      "heat_balance_abs_W_per_rad": 1.475522941412088e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2133832174845555e-11
+    },
+    {
+      "time_s": 196200.0,
+      "temperature_surface_K": 323.14893442587527,
+      "moisture_surface": 0.0529265822587813,
+      "signed_Jw_kg_m2_s": 6.466884284125331e-07,
+      "heat_balance_abs_W_per_rad": 1.487883591467896e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.213382560802467e-11
+    },
+    {
+      "time_s": 196800.0,
+      "temperature_surface_K": 323.1489344258753,
+      "moisture_surface": 0.052909943056967765,
+      "signed_Jw_kg_m2_s": 6.430272415616622e-07,
+      "heat_balance_abs_W_per_rad": 1.4650598645800977e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2130307431989202e-11
+    },
+    {
+      "time_s": 197400.0,
+      "temperature_surface_K": 323.1489344258753,
+      "moisture_surface": 0.05289345995345699,
+      "signed_Jw_kg_m2_s": 6.394004016139633e-07,
+      "heat_balance_abs_W_per_rad": 1.477278330740552e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.213030092451677e-11
+    },
+    {
+      "time_s": 198000.0,
+      "temperature_surface_K": 323.1489344258754,
+      "moisture_surface": 0.05287713092627248,
+      "signed_Jw_kg_m2_s": 6.35807463666253e-07,
+      "heat_balance_abs_W_per_rad": 1.454313841786684e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2126782751641253e-11
+    },
+    {
+      "time_s": 198600.0,
+      "temperature_surface_K": 323.1489344258754,
+      "moisture_surface": 0.05286095398666571,
+      "signed_Jw_kg_m2_s": 6.322479901266375e-07,
+      "heat_balance_abs_W_per_rad": 1.4663928569191067e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.212677632203042e-11
+    },
+    {
+      "time_s": 199200.0,
+      "temperature_surface_K": 323.14893442587544,
+      "moisture_surface": 0.0528449271784583,
+      "signed_Jw_kg_m2_s": 6.287215505697428e-07,
+      "heat_balance_abs_W_per_rad": 1.4432903011824738e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2123258086268647e-11
+    },
+    {
+      "time_s": 199800.0,
+      "temperature_surface_K": 323.1489344258755,
+      "moisture_surface": 0.052829048577396356,
+      "signed_Jw_kg_m2_s": 6.252277215946712e-07,
+      "heat_balance_abs_W_per_rad": 1.5555976666523047e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.227881151518374e-11
+    },
+    {
+      "time_s": 200400.0,
+      "temperature_surface_K": 323.1489344258755,
+      "moisture_surface": 0.05281331629052269,
+      "signed_Jw_kg_m2_s": 6.217660866868524e-07,
+      "heat_balance_abs_W_per_rad": 1.543558274405776e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2277600976880587e-11
+    },
+    {
+      "time_s": 201000.0,
+      "temperature_surface_K": 323.1489344258755,
+      "moisture_surface": 0.05279772845556057,
+      "signed_Jw_kg_m2_s": 6.183362360824558e-07,
+      "heat_balance_abs_W_per_rad": 1.443802545462549e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2119727190206955e-11
+    },
+    {
+      "time_s": 201600.0,
+      "temperature_surface_K": 323.1489344258755,
+      "moisture_surface": 0.05278228324031438,
+      "signed_Jw_kg_m2_s": 6.149377666365103e-07,
+      "heat_balance_abs_W_per_rad": 1.4555444021555363e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2119720655561784e-11
+    },
+    {
+      "time_s": 202200.0,
+      "temperature_surface_K": 323.1489344258756,
+      "moisture_surface": 0.052766978842081556,
+      "signed_Jw_kg_m2_s": 6.115702816935173e-07,
+      "heat_balance_abs_W_per_rad": 1.5780693146354321e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2274009616150613e-11
+    },
+    {
+      "time_s": 202800.0,
+      "temperature_surface_K": 323.1489344258756,
+      "moisture_surface": 0.05275181348708024,
+      "signed_Jw_kg_m2_s": 6.082333909615102e-07,
+      "heat_balance_abs_W_per_rad": 1.5662969560728213e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.227282589822417e-11
+    },
+    {
+      "time_s": 203400.0,
+      "temperature_surface_K": 323.1489344258756,
+      "moisture_surface": 0.05273678542988707,
+      "signed_Jw_kg_m2_s": 6.049267103883478e-07,
+      "heat_balance_abs_W_per_rad": 1.4201538055376494e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.211267814299129e-11
+    },
+    {
+      "time_s": 204000.0,
+      "temperature_surface_K": 323.1489344258756,
+      "moisture_surface": 0.052721892952891924,
+      "signed_Jw_kg_m2_s": 6.016498620417424e-07,
+      "heat_balance_abs_W_per_rad": 1.4316371870422062e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.211267178975572e-11
+    },
+    {
+      "time_s": 204600.0,
+      "temperature_surface_K": 323.1489344258756,
+      "moisture_surface": 0.052707134365760945,
+      "signed_Jw_kg_m2_s": 5.984024739911073e-07,
+      "heat_balance_abs_W_per_rad": 1.443057432596394e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.211266531013225e-11
+    },
+    {
+      "time_s": 205200.0,
+      "temperature_surface_K": 323.14893442587567,
+      "moisture_surface": 0.05269250800491261,
+      "signed_Jw_kg_m2_s": 5.95184180192276e-07,
+      "heat_balance_abs_W_per_rad": 1.4193025080924772e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2109148420963595e-11
+    },
+    {
+      "time_s": 205800.0,
+      "temperature_surface_K": 323.1489344258757,
+      "moisture_surface": 0.05267801223300775,
+      "signed_Jw_kg_m2_s": 5.919946203752827e-07,
+      "heat_balance_abs_W_per_rad": 1.578626571735508e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2267004662372062e-11
+    },
+    {
+      "time_s": 206400.0,
+      "temperature_surface_K": 323.1489344258757,
+      "moisture_surface": 0.052663645438447704,
+      "signed_Jw_kg_m2_s": 5.888334399339475e-07,
+      "heat_balance_abs_W_per_rad": 1.406719989082371e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2105624121446786e-11
+    },
+    {
+      "time_s": 207000.0,
+      "temperature_surface_K": 323.1489344258757,
+      "moisture_surface": 0.05264940603488747,
+      "signed_Jw_kg_m2_s": 5.857002898187447e-07,
+      "heat_balance_abs_W_per_rad": 1.4178934785876177e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.210561770156835e-11
+    },
+    {
+      "time_s": 207600.0,
+      "temperature_surface_K": 323.1489344258758,
+      "moisture_surface": 0.05263529246075503,
+      "signed_Jw_kg_m2_s": 5.825948264310458e-07,
+      "heat_balance_abs_W_per_rad": 1.3938941363828124e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2102099686627682e-11
+    },
+    {
+      "time_s": 208200.0,
+      "temperature_surface_K": 323.1489344258758,
+      "moisture_surface": 0.052621303178785606,
+      "signed_Jw_kg_m2_s": 5.795167115206355e-07,
+      "heat_balance_abs_W_per_rad": 1.4049475920121973e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2102093431967435e-11
+    },
+    {
+      "time_s": 208800.0,
+      "temperature_surface_K": 323.1489344258758,
+      "moisture_surface": 0.05260743667556387,
+      "signed_Jw_kg_m2_s": 5.76465612084984e-07,
+      "heat_balance_abs_W_per_rad": 1.415941831574896e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2102086956143494e-11
+    },
+    {
+      "time_s": 209400.0,
+      "temperature_surface_K": 323.14893442587584,
+      "moisture_surface": 0.052593691461077,
+      "signed_Jw_kg_m2_s": 5.734412002709047e-07,
+      "heat_balance_abs_W_per_rad": 1.3917649175999046e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.209856917287887e-11
+    },
+    {
+      "time_s": 210000.0,
+      "temperature_surface_K": 323.14893442587584,
+      "moisture_surface": 0.052580066068276934,
+      "signed_Jw_kg_m2_s": 5.704431532782316e-07,
+      "heat_balance_abs_W_per_rad": 1.402642334282132e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2098562769299677e-11
+    },
+    {
+      "time_s": 210600.0,
+      "temperature_surface_K": 323.1489344258759,
+      "moisture_surface": 0.052566559052652104,
+      "signed_Jw_kg_m2_s": 5.674711532655921e-07,
+      "heat_balance_abs_W_per_rad": 1.3783496818839108e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2095044936970985e-11
+    },
+    {
+      "time_s": 211200.0,
+      "temperature_surface_K": 323.1489344258759,
+      "moisture_surface": 0.05255316899181085,
+      "signed_Jw_kg_m2_s": 5.645248872587426e-07,
+      "heat_balance_abs_W_per_rad": 1.3891123493335647e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.209503863399291e-11
+    },
+    {
+      "time_s": 211800.0,
+      "temperature_surface_K": 323.14893442587595,
+      "moisture_surface": 0.05253989448507001,
+      "signed_Jw_kg_m2_s": 5.616040470600362e-07,
+      "heat_balance_abs_W_per_rad": 1.3647060057488453e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2091520651832782e-11
+    },
+    {
+      "time_s": 212400.0,
+      "temperature_surface_K": 323.148934425876,
+      "moisture_surface": 0.052526734153055615,
+      "signed_Jw_kg_m2_s": 5.587083291605761e-07,
+      "heat_balance_abs_W_per_rad": 1.6322010563678052e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2254734625054083e-11
+    },
+    {
+      "time_s": 213000.0,
+      "temperature_surface_K": 323.148934425876,
+      "moisture_surface": 0.05251368663730983,
+      "signed_Jw_kg_m2_s": 5.558374346537168e-07,
+      "heat_balance_abs_W_per_rad": 1.6214598941908424e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2253654132459918e-11
+    },
+    {
+      "time_s": 213600.0,
+      "temperature_surface_K": 323.148934425876,
+      "moisture_surface": 0.05250075059990937,
+      "signed_Jw_kg_m2_s": 5.529910691511134e-07,
+      "heat_balance_abs_W_per_rad": 1.3613770931755846e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2087990363511423e-11
+    },
+    {
+      "time_s": 214200.0,
+      "temperature_surface_K": 323.14893442587606,
+      "moisture_surface": 0.05248792472308852,
+      "signed_Jw_kg_m2_s": 5.501689426997598e-07,
+      "heat_balance_abs_W_per_rad": 1.6352571143892777e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2251509804526096e-11
+    },
+    {
+      "time_s": 214800.0,
+      "temperature_surface_K": 323.14893442587606,
+      "moisture_surface": 0.05247520770887253,
+      "signed_Jw_kg_m2_s": 5.473707697013393e-07,
+      "heat_balance_abs_W_per_rad": 1.347179661942917e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.208446618568921e-11
+    },
+    {
+      "time_s": 215400.0,
+      "temperature_surface_K": 323.14893442587606,
+      "moisture_surface": 0.05246259827871897,
+      "signed_Jw_kg_m2_s": 5.445962688332974e-07,
+      "heat_balance_abs_W_per_rad": 1.3575562976104533e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2084460105823716e-11
+    },
+    {
+      "time_s": 216000.0,
+      "temperature_surface_K": 323.14893442587606,
+      "moisture_surface": 0.052450095173165,
+      "signed_Jw_kg_m2_s": 5.418451629712354e-07,
+      "heat_balance_abs_W_per_rad": 1.3678796783015063e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.208445378766049e-11
+    },
+    {
+      "time_s": 216600.0,
+      "temperature_surface_K": 323.1489344258761,
+      "moisture_surface": 0.05243769715148349,
+      "signed_Jw_kg_m2_s": 5.391171791132477e-07,
+      "heat_balance_abs_W_per_rad": 1.3430380323840252e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2080936099080037e-11
+    },
+    {
+      "time_s": 217200.0,
+      "temperature_surface_K": 323.1489344258761,
+      "moisture_surface": 0.05242540299134599,
+      "signed_Jw_kg_m2_s": 5.364120483057518e-07,
+      "heat_balance_abs_W_per_rad": 1.353256290891426e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2080929906073247e-11
+    },
+    {
+      "time_s": 217800.0,
+      "temperature_surface_K": 323.1489344258761,
+      "moisture_surface": 0.05241321148849249,
+      "signed_Jw_kg_m2_s": 5.337295055708449e-07,
+      "heat_balance_abs_W_per_rad": 1.3634226517864054e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2080923594369355e-11
+    },
+    {
+      "time_s": 218400.0,
+      "temperature_surface_K": 323.1489344258762,
+      "moisture_surface": 0.05240112145640985,
+      "signed_Jw_kg_m2_s": 5.310692898355222e-07,
+      "heat_balance_abs_W_per_rad": 1.338425384749285e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.207740603883374e-11
+    },
+    {
+      "time_s": 219000.0,
+      "temperature_surface_K": 323.1489344258762,
+      "moisture_surface": 0.05238913172601359,
+      "signed_Jw_kg_m2_s": 5.284311438616841e-07,
+      "heat_balance_abs_W_per_rad": 1.348489289085162e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.207739979029818e-11
+    },
+    {
+      "time_s": 219600.0,
+      "temperature_surface_K": 323.1489344258763,
+      "moisture_surface": 0.052377241145339336,
+      "signed_Jw_kg_m2_s": 5.258148141782273e-07,
+      "heat_balance_abs_W_per_rad": 1.6824533086758502e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2242127406106246e-11
+    },
+    {
+      "time_s": 220200.0,
+      "temperature_surface_K": 323.1489344258763,
+      "moisture_surface": 0.05236544857923915,
+      "signed_Jw_kg_m2_s": 5.232200510142329e-07,
+      "heat_balance_abs_W_per_rad": 1.672352031730241e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.224111123699639e-11
+    },
+    {
+      "time_s": 220800.0,
+      "temperature_surface_K": 323.14893442587623,
+      "moisture_surface": 0.052353752909085796,
+      "signed_Jw_kg_m2_s": 5.20646608233899e-07,
+      "heat_balance_abs_W_per_rad": 1.3432670734128328e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2073869792307445e-11
+    },
+    {
+      "time_s": 221400.0,
+      "temperature_surface_K": 323.1489344258763,
+      "moisture_surface": 0.052342153032480104,
+      "signed_Jw_kg_m2_s": 5.180942432721407e-07,
+      "heat_balance_abs_W_per_rad": 1.318019100511752e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2070352265245574e-11
+    },
+    {
+      "time_s": 222000.0,
+      "temperature_surface_K": 323.14893442587635,
+      "moisture_surface": 0.052330647862967615,
+      "signed_Jw_kg_m2_s": 5.15562717072256e-07,
+      "heat_balance_abs_W_per_rad": 1.6774611638132545e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2238092240509987e-11
+    },
+    {
+      "time_s": 222600.0,
+      "temperature_surface_K": 323.14893442587635,
+      "moisture_surface": 0.05231923632976006,
+      "signed_Jw_kg_m2_s": 5.130517940246253e-07,
+      "heat_balance_abs_W_per_rad": 1.6675590814225466e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2237095817642906e-11
+    },
+    {
+      "time_s": 223200.0,
+      "temperature_surface_K": 323.14893442587635,
+      "moisture_surface": 0.05230791737745965,
+      "signed_Jw_kg_m2_s": 5.10561241906063e-07,
+      "heat_balance_abs_W_per_rad": 1.3122075816113109e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2066822472564163e-11
+    },
+    {
+      "time_s": 223800.0,
+      "temperature_surface_K": 323.14893442587635,
+      "moisture_surface": 0.05229668996579383,
+      "signed_Jw_kg_m2_s": 5.080908318214419e-07,
+      "heat_balance_abs_W_per_rad": 1.3218784839482213e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2066816322025676e-11
+    },
+    {
+      "time_s": 224400.0,
+      "temperature_surface_K": 323.1489344258764,
+      "moisture_surface": 0.05228555306935228,
+      "signed_Jw_kg_m2_s": 5.056403381458293e-07,
+      "heat_balance_abs_W_per_rad": 1.2963900828634204e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2063298694213168e-11
+    },
+    {
+      "time_s": 225000.0,
+      "temperature_surface_K": 323.1489344258764,
+      "moisture_surface": 0.05227450567733016,
+      "signed_Jw_kg_m2_s": 5.032095384679939e-07,
+      "heat_balance_abs_W_per_rad": 1.305966755760117e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2063292744108873e-11
+    },
+    {
+      "time_s": 225600.0,
+      "temperature_surface_K": 323.14893442587646,
+      "moisture_surface": 0.052263546793276355,
+      "signed_Jw_kg_m2_s": 5.007982135350057e-07,
+      "heat_balance_abs_W_per_rad": 1.6889961919438925e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2232186221771044e-11
+    },
+    {
+      "time_s": 226200.0,
+      "temperature_surface_K": 323.14893442587646,
+      "moisture_surface": 0.05225267543484712,
+      "signed_Jw_kg_m2_s": 4.984061471980355e-07,
+      "heat_balance_abs_W_per_rad": 1.2898689086043665e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.205976917630254e-11
+    },
+    {
+      "time_s": 226800.0,
+      "temperature_surface_K": 323.14893442587646,
+      "moisture_surface": 0.05224189063356315,
+      "signed_Jw_kg_m2_s": 4.960331263588986e-07,
+      "heat_balance_abs_W_per_rad": 1.299307091470529e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2059763150743338e-11
+    },
+    {
+      "time_s": 227400.0,
+      "temperature_surface_K": 323.14893442587646,
+      "moisture_surface": 0.05223119143457567,
+      "signed_Jw_kg_m2_s": 4.936789409185891e-07,
+      "heat_balance_abs_W_per_rad": 1.3086998511910987e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.205975703781185e-11
+    },
+    {
+      "time_s": 228000.0,
+      "temperature_surface_K": 323.1489344258766,
+      "moisture_surface": 0.05222057689643079,
+      "signed_Jw_kg_m2_s": 4.913433837254252e-07,
+      "heat_balance_abs_W_per_rad": 1.7210353342601357e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2228343222197382e-11
+    },
+    {
+      "time_s": 228600.0,
+      "temperature_surface_K": 323.1489344258765,
+      "moisture_surface": 0.052210046090844835,
+      "signed_Jw_kg_m2_s": 4.890262505256233e-07,
+      "heat_balance_abs_W_per_rad": 1.2922387005789547e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2056233666198847e-11
+    },
+    {
+      "time_s": 229200.0,
+      "temperature_surface_K": 323.1489344258766,
+      "moisture_surface": 0.05219959810247953,
+      "signed_Jw_kg_m2_s": 4.867273399138184e-07,
+      "heat_balance_abs_W_per_rad": 1.7022163263508605e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.22264492242431e-11
+    },
+    {
+      "time_s": 229800.0,
+      "temperature_surface_K": 323.1489344258766,
+      "moisture_surface": 0.05218923202872678,
+      "signed_Jw_kg_m2_s": 4.844464532857205e-07,
+      "heat_balance_abs_W_per_rad": 1.2756002663799202e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.205271031768025e-11
+    },
+    {
+      "time_s": 230400.0,
+      "temperature_surface_K": 323.1489344258766,
+      "moisture_surface": 0.0521789469794892,
+      "signed_Jw_kg_m2_s": 4.821833947898164e-07,
+      "heat_balance_abs_W_per_rad": 1.284771353774875e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2052704305979764e-11
+    },
+    {
+      "time_s": 231000.0,
+      "temperature_surface_K": 323.14893442587663,
+      "moisture_surface": 0.05216874207697435,
+      "signed_Jw_kg_m2_s": 4.799379712820975e-07,
+      "heat_balance_abs_W_per_rad": 1.2587873621016687e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.20491868544825e-11
+    },
+    {
+      "time_s": 231600.0,
+      "temperature_surface_K": 323.14893442587663,
+      "moisture_surface": 0.05215861645548808,
+      "signed_Jw_kg_m2_s": 4.777099922805899e-07,
+      "heat_balance_abs_W_per_rad": 1.2678722326339218e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2049181057427986e-11
+    },
+    {
+      "time_s": 232200.0,
+      "temperature_surface_K": 323.14893442587663,
+      "moisture_surface": 0.052148569261231834,
+      "signed_Jw_kg_m2_s": 4.7549926992074656e-07,
+      "heat_balance_abs_W_per_rad": 1.2769144953069523e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2049175064105896e-11
+    },
+    {
+      "time_s": 232800.0,
+      "temperature_surface_K": 323.1489344258767,
+      "moisture_surface": 0.05213859965210504,
+      "signed_Jw_kg_m2_s": 4.733056189119796e-07,
+      "heat_balance_abs_W_per_rad": 1.250802745002196e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.204565769260469e-11
+    },
+    {
+      "time_s": 233400.0,
+      "temperature_surface_K": 323.1489344258767,
+      "moisture_surface": 0.05212870679751241,
+      "signed_Jw_kg_m2_s": 4.711288564952492e-07,
+      "heat_balance_abs_W_per_rad": 1.2597608087110018e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2045651906972698e-11
+    },
+    {
+      "time_s": 234000.0,
+      "temperature_surface_K": 323.1489344258767,
+      "moisture_surface": 0.05211888987817192,
+      "signed_Jw_kg_m2_s": 4.689688024008153e-07,
+      "heat_balance_abs_W_per_rad": 1.2686772569239636e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2045645944877047e-11
+    },
+    {
+      "time_s": 234600.0,
+      "temperature_surface_K": 323.1489344258768,
+      "moisture_surface": 0.0521091480859293,
+      "signed_Jw_kg_m2_s": 4.668252788074191e-07,
+      "heat_balance_abs_W_per_rad": 1.7601447861319634e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2218143104117682e-11
+    },
+    {
+      "time_s": 235200.0,
+      "temperature_surface_K": 323.1489344258768,
+      "moisture_surface": 0.052099480623574154,
+      "signed_Jw_kg_m2_s": 4.6469811030182695e-07,
+      "heat_balance_abs_W_per_rad": 1.7511881283965527e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2217241654198983e-11
+    },
+    {
+      "time_s": 235800.0,
+      "temperature_surface_K": 323.14893442587675,
+      "moisture_surface": 0.05208988670466217,
+      "signed_Jw_kg_m2_s": 4.625871238397058e-07,
+      "heat_balance_abs_W_per_rad": 1.2600684710891408e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2042116913323123e-11
+    },
+    {
+      "time_s": 236400.0,
+      "temperature_surface_K": 323.1489344258768,
+      "moisture_surface": 0.05208036555333795,
+      "signed_Jw_kg_m2_s": 4.604921487066427e-07,
+      "heat_balance_abs_W_per_rad": 1.2337100355102122e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2038599730365976e-11
+    },
+    {
+      "time_s": 237000.0,
+      "temperature_surface_K": 323.1489344258768,
+      "moisture_surface": 0.052070916404162323,
+      "signed_Jw_kg_m2_s": 4.5841301648014637e-07,
+      "heat_balance_abs_W_per_rad": 1.2424232227006246e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.203859392939365e-11
+    },
+    {
+      "time_s": 237600.0,
+      "temperature_surface_K": 323.1489344258768,
+      "moisture_surface": 0.05206153850194376,
+      "signed_Jw_kg_m2_s": 4.563495609925508e-07,
+      "heat_balance_abs_W_per_rad": 1.251096683522102e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.203858803695294e-11
+    },
+    {
+      "time_s": 238200.0,
+      "temperature_surface_K": 323.14893442587686,
+      "moisture_surface": 0.05205223110157097,
+      "signed_Jw_kg_m2_s": 4.543016182941858e-07,
+      "heat_balance_abs_W_per_rad": 1.224619131474039e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2035070898806976e-11
+    },
+    {
+      "time_s": 238800.0,
+      "temperature_surface_K": 323.14893442587686,
+      "moisture_surface": 0.05204299346785218,
+      "signed_Jw_kg_m2_s": 4.522690266180116e-07,
+      "heat_balance_abs_W_per_rad": 1.233214061779308e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2035065133922435e-11
+    },
+    {
+      "time_s": 239400.0,
+      "temperature_surface_K": 323.14893442587686,
+      "moisture_surface": 0.0520338248753535,
+      "signed_Jw_kg_m2_s": 4.50251626344047e-07,
+      "heat_balance_abs_W_per_rad": 1.2417701651023045e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.20350592804337e-11
+    },
+    {
+      "time_s": 240000.0,
+      "temperature_surface_K": 323.1489344258769,
+      "moisture_surface": 0.052024724608242895,
+      "signed_Jw_kg_m2_s": 4.4824925996505075e-07,
+      "heat_balance_abs_W_per_rad": 1.2151761940005017e-13,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.203154218954677e-11
+    },
+    {
+      "time_s": 240600.0,
+      "temperature_surface_K": 323.1489344258769,
+      "moisture_surface": 0.052015691960135384,
+      "signed_Jw_kg_m2_s": 4.4626177205244844e-07,
+      "heat_balance_abs_W_per_rad": 1.2236555366209565e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2031536463769262e-11
+    },
+    {
+      "time_s": 241200.0,
+      "temperature_surface_K": 323.1489344258769,
+      "moisture_surface": 0.05200672623394295,
+      "signed_Jw_kg_m2_s": 4.4428900922331295e-07,
+      "heat_balance_abs_W_per_rad": 1.232096923166877e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2031530649294968e-11
+    },
+    {
+      "time_s": 241800.0,
+      "temperature_surface_K": 323.148934425877,
+      "moisture_surface": 0.05199782674172635,
+      "signed_Jw_kg_m2_s": 4.4233082010775485e-07,
+      "heat_balance_abs_W_per_rad": 1.2053891450048218e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.202801354661261e-11
+    },
+    {
+      "time_s": 242400.0,
+      "temperature_surface_K": 323.148934425877,
+      "moisture_surface": 0.0519889928045494,
+      "signed_Jw_kg_m2_s": 4.403870553168636e-07,
+      "heat_balance_abs_W_per_rad": 1.2137554848768068e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2028007963523404e-11
+    },
+    {
+      "time_s": 243000.0,
+      "temperature_surface_K": 323.14893442587737,
+      "moisture_surface": 0.05198022375233651,
+      "signed_Jw_kg_m2_s": 4.384575674113624e-07,
+      "heat_balance_abs_W_per_rad": 9.763044841866545e-14,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.2003424486969034e-11
+    },
+    {
+      "time_s": 243600.0,
+      "temperature_surface_K": 323.14893442587794,
+      "moisture_surface": 0.05197151892373248,
+      "signed_Jw_kg_m2_s": 4.3654221087074874e-07,
+      "heat_balance_abs_W_per_rad": 6.334825303985313e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1968307272958498e-11
+    },
+    {
+      "time_s": 244200.0,
+      "temperature_surface_K": 323.1489344258785,
+      "moisture_surface": 0.0519628776659642,
+      "signed_Jw_kg_m2_s": 4.3464084206287305e-07,
+      "heat_balance_abs_W_per_rad": 2.906243248008731e-14,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1933190105824368e-11
+    },
+    {
+      "time_s": 244800.0,
+      "temperature_surface_K": 323.1489344258791,
+      "moisture_surface": 0.0519542993347096,
+      "signed_Jw_kg_m2_s": 4.327533192151014e-07,
+      "heat_balance_abs_W_per_rad": 5.226986501109785e-15,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1903300002537908e-11
+    },
+    {
+      "time_s": 245400.0,
+      "temperature_surface_K": 323.1489344258794,
+      "moisture_surface": 0.05194578329395912,
+      "signed_Jw_kg_m2_s": 4.3087950238382906e-07,
+      "heat_balance_abs_W_per_rad": 2.710598516821709e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.187349008876007e-11
+    },
+    {
+      "time_s": 246000.0,
+      "temperature_surface_K": 323.1489344258795,
+      "moisture_surface": 0.05193732891589006,
+      "signed_Jw_kg_m2_s": 4.2901925342684166e-07,
+      "heat_balance_abs_W_per_rad": 2.817171598113594e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1901657679282396e-11
+    },
+    {
+      "time_s": 246600.0,
+      "temperature_surface_K": 323.1489344258795,
+      "moisture_surface": 0.051928935580737766,
+      "signed_Jw_kg_m2_s": 4.271724359749658e-07,
+      "heat_balance_abs_W_per_rad": 2.7360424700097994e-14,
+      "water_balance_abs_kg_s_per_rad": 4.1359030627651384e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1900840856283764e-11
+    },
+    {
+      "time_s": 247200.0,
+      "temperature_surface_K": 323.14893442587953,
+      "moisture_surface": 0.05192060267667094,
+      "signed_Jw_kg_m2_s": 4.253389154046328e-07,
+      "heat_balance_abs_W_per_rad": 3.006379336814421e-14,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.190002742360795e-11
+    },
+    {
+      "time_s": 247800.0,
+      "temperature_surface_K": 323.14893442587953,
+      "moisture_surface": 0.051912329599667954,
+      "signed_Jw_kg_m2_s": 4.235185588106691e-07,
+      "heat_balance_abs_W_per_rad": 2.925952437342719e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1899217574730932e-11
+    },
+    {
+      "time_s": 248400.0,
+      "temperature_surface_K": 323.1489344258795,
+      "moisture_surface": 0.05190411575339544,
+      "signed_Jw_kg_m2_s": 4.2171123497957403e-07,
+      "heat_balance_abs_W_per_rad": 2.7153169777654006e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1869952443270286e-11
+    },
+    {
+      "time_s": 249000.0,
+      "temperature_surface_K": 323.1489344258796,
+      "moisture_surface": 0.0518959605490917,
+      "signed_Jw_kg_m2_s": 4.1991681436387456e-07,
+      "heat_balance_abs_W_per_rad": 3.117251329647314e-14,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1897608172035808e-11
+    },
+    {
+      "time_s": 249600.0,
+      "temperature_surface_K": 323.1489344258796,
+      "moisture_surface": 0.051887863405448896,
+      "signed_Jw_kg_m2_s": 4.1813516905619297e-07,
+      "heat_balance_abs_W_per_rad": 3.0378589117279977e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1896808731659937e-11
+    },
+    {
+      "time_s": 250200.0,
+      "temperature_surface_K": 323.1489344258796,
+      "moisture_surface": 0.05187982374849856,
+      "signed_Jw_kg_m2_s": 4.163661727640668e-07,
+      "heat_balance_abs_W_per_rad": 2.9588064230946286e-14,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1896012637820428e-11
+    },
+    {
+      "time_s": 250800.0,
+      "temperature_surface_K": 323.14893442587965,
+      "moisture_surface": 0.05187184101150006,
+      "signed_Jw_kg_m2_s": 4.1460970078540056e-07,
+      "heat_balance_abs_W_per_rad": 3.231204048628302e-14,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.189521977556467e-11
+    },
+    {
+      "time_s": 251400.0,
+      "temperature_surface_K": 323.14893442587965,
+      "moisture_surface": 0.05186391463483014,
+      "signed_Jw_kg_m2_s": 4.12865629984157e-07,
+      "heat_balance_abs_W_per_rad": 3.1528239959947254e-14,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.189443058737109e-11
+    },
+    {
+      "time_s": 252000.0,
+      "temperature_surface_K": 323.1489344258796,
+      "moisture_surface": 0.051856044065874456,
+      "signed_Jw_kg_m2_s": 4.1113383876650616e-07,
+      "heat_balance_abs_W_per_rad": 2.69177054939216e-13,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1862896819238015e-11
+    },
+    {
+      "time_s": 252600.0,
+      "temperature_surface_K": 323.1489344258801,
+      "moisture_surface": 0.05184822875892066,
+      "signed_Jw_kg_m2_s": 4.0941420705728153e-07,
+      "heat_balance_abs_W_per_rad": 5.805957028167092e-14,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.189286107066256e-11
+    },
+    {
+      "time_s": 253200.0,
+      "temperature_surface_K": 323.1489344258801,
+      "moisture_surface": 0.05184046817505562,
+      "signed_Jw_kg_m2_s": 4.077066162773775e-07,
+      "heat_balance_abs_W_per_rad": 5.728566857135461e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.189208248973284e-11
+    },
+    {
+      "time_s": 253800.0,
+      "temperature_surface_K": 323.14893442588004,
+      "moisture_surface": 0.051832761782061317,
+      "signed_Jw_kg_m2_s": 4.060109493208383e-07,
+      "heat_balance_abs_W_per_rad": 2.433776173160523e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.183479136057953e-11
+    },
+    {
+      "time_s": 254400.0,
+      "temperature_surface_K": 323.14893442588016,
+      "moisture_surface": 0.051825109054314276,
+      "signed_Jw_kg_m2_s": 4.0432709053273507e-07,
+      "heat_balance_abs_W_per_rad": 5.925873057303442e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.189053338680279e-11
+    },
+    {
+      "time_s": 255000.0,
+      "temperature_surface_K": 323.14893442588016,
+      "moisture_surface": 0.05181750947268714,
+      "signed_Jw_kg_m2_s": 4.026549256874986e-07,
+      "heat_balance_abs_W_per_rad": 5.849452991550814e-14,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1889763819170735e-11
+    },
+    {
+      "time_s": 255600.0,
+      "temperature_surface_K": 323.14893442588016,
+      "moisture_surface": 0.051809962524450796,
+      "signed_Jw_kg_m2_s": 4.0099434196739354e-07,
+      "heat_balance_abs_W_per_rad": 5.773351822602774e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1888997362956107e-11
+    },
+    {
+      "time_s": 256200.0,
+      "temperature_surface_K": 323.14893442588016,
+      "moisture_surface": 0.05180246770317921,
+      "signed_Jw_kg_m2_s": 3.9934522794157345e-07,
+      "heat_balance_abs_W_per_rad": 2.3936357391812444e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.182774708324446e-11
+    },
+    {
+      "time_s": 256800.0,
+      "temperature_surface_K": 323.14893442588016,
+      "moisture_surface": 0.05179502450865536,
+      "signed_Jw_kg_m2_s": 3.977074735453862e-07,
+      "heat_balance_abs_W_per_rad": 2.401078150519259e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.182774186658908e-11
+    },
+    {
+      "time_s": 257400.0,
+      "temperature_surface_K": 323.1489344258802,
+      "moisture_surface": 0.05178763244677895,
+      "signed_Jw_kg_m2_s": 3.960809700600611e-07,
+      "heat_balance_abs_W_per_rad": 5.898050586525389e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1886716983622302e-11
+    },
+    {
+      "time_s": 258000.0,
+      "temperature_surface_K": 323.1489344258802,
+      "moisture_surface": 0.05178029102947573,
+      "signed_Jw_kg_m2_s": 3.944656100927665e-07,
+      "heat_balance_abs_W_per_rad": 5.823202846966139e-14,
+      "water_balance_abs_kg_s_per_rad": 2.0679515313825692e-25,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1885963110719505e-11
+    },
+    {
+      "time_s": 258600.0,
+      "temperature_surface_K": 323.14893442588027,
+      "moisture_surface": 0.05177299977460922,
+      "signed_Jw_kg_m2_s": 3.9286128755718203e-07,
+      "heat_balance_abs_W_per_rad": 6.099773833604912e-14,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.1885212277358626e-11
+    },
+    {
+      "time_s": 259200.0,
+      "temperature_surface_K": 323.1489344258802,
+      "moisture_surface": 0.0517657582058916,
+      "signed_Jw_kg_m2_s": 3.912678976538836e-07,
+      "heat_balance_abs_W_per_rad": 2.3954308902194505e-13,
+      "water_balance_abs_kg_s_per_rad": 0.0,
+      "boundary_residual_W_m2": 0.0,
+      "heat_scale_W_per_rad": 2.182420922635841e-11
+    }
+  ],
+  "remesh": [
+    {
+      "time_s": 300.0,
+      "volume_integral_C_before": 0.0007844478023401807,
+      "volume_integral_C_after": 0.0007844478023401806,
+      "effective_storage_J_before": 29284.773576163523,
+      "effective_storage_J_after": 29284.78001281224,
+      "effective_storage_change_J": 0.006436648716771742,
+      "fronts_before": [
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        }
+      ],
+      "fronts_after": [
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        }
+      ],
+      "meaning": "K(T,C)*(T-273.15) volume indicator, not total mixture enthalpy; properties recomputed after transfer"
+    },
+    {
+      "time_s": 1800.0,
+      "volume_integral_C_before": 0.0007171213428988027,
+      "volume_integral_C_after": 0.0007171213428988028,
+      "effective_storage_J_before": 33397.449107232474,
+      "effective_storage_J_after": 33397.48566618647,
+      "effective_storage_change_J": 0.0365589539942448,
+      "fronts_before": [
+        {
+          "radius_m": 0.017896118754215748,
+          "relative_radius": 0.8948059377107874,
+          "wet_volume_fraction": 0.8006776661624816,
+          "status": "MONOTONE_CORE",
+          "crossings": 1
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        }
+      ],
+      "fronts_after": [
+        {
+          "radius_m": 0.017894809260694415,
+          "relative_radius": 0.8947404630347208,
+          "wet_volume_fraction": 0.8005604961915865,
+          "status": "MONOTONE_CORE",
+          "crossings": 1
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        },
+        {
+          "radius_m": 0.02,
+          "relative_radius": 1.0,
+          "wet_volume_fraction": 1.0,
+          "status": "ALL_WET",
+          "crossings": 0
+        }
+      ],
+      "meaning": "K(T,C)*(T-273.15) volume indicator, not total mixture enthalpy; properties recomputed after transfer"
+    }
+  ],
+  "reverse_flux_sample_count": 0,
+  "scope": "instantaneous FV effective-temperature and water identities at 600 s and stage outputs; RK4 stage guards run at every substep",
+  "b0_kg_m3": 275.0422535211268,
+  "dry_mass_kg": 0.08640707230887533
+}

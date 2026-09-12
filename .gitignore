@@ -6,3 +6,16 @@ __pycache__/
 work/cache/
 work/checkpoints/
 data/raw/
+# Reproducible study trajectories/payloads and local QA scratch data.
+work/studies/experiments/
+work/studies/plot_payload/
+work/studies/pytest*/
+work/studies/*tmp*/
+work/studies/*suite*/
+work/studies/diagnostics/*_test.xlsx
+work/studies/diagnostics/workbook_previews/
+work/studies/diagnostics/workbook_preview_inputs/
+work/studies/diagnostics/visual_previews/
+work/studies/compute.lock
+work/studies/STOP
+work/studies/BASELINE_STOP

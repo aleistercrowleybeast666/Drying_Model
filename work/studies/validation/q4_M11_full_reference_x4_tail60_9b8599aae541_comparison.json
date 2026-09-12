@@ -1,0 +1,99 @@
+{
+  "case": "q4",
+  "mode": "M11",
+  "reference_id": "q4_M11_full_reference_x4_tail60_9b8599aae541",
+  "production_id": "q4_M11_production_x2_tail60_7848b38bac48",
+  "status": "PASS",
+  "full_schedule_reference_passed": true,
+  "time_half_passed": null,
+  "max_abs_T_K": 0.005172119193218805,
+  "max_abs_C": 0.002763094857819448,
+  "max_abs_Cmax": 4.1103533629571753e-05,
+  "event_relative": 0.00039102379229372927,
+  "event_delta_s": 79.55999999998085,
+  "thresholds": {
+    "T_K": 0.01,
+    "C": 0.01,
+    "event_s": null,
+    "event_relative": 0.002
+  },
+  "common_output_count": 4321,
+  "common_time_range_s": [
+    0.0,
+    259200.0
+  ],
+  "events": [
+    {
+      "time_s": 203545.44,
+      "T_K": 4.653256922892979e-05,
+      "C": 5.723677253959003e-05,
+      "Cmax": 4.058393687994544e-05,
+      "source": "genuine reintegration to exact common physical time"
+    },
+    {
+      "time_s": 203465.88,
+      "T_K": 4.647415090630602e-05,
+      "C": 5.7261709924746884e-05,
+      "Cmax": 4.058799414669023e-05,
+      "source": "genuine reintegration to exact common physical time"
+    }
+  ],
+  "full_history_verified": true,
+  "reference_pairing_verified": true,
+  "reference_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 600.0,
+      "nr": 800,
+      "nz": 1
+    },
+    {
+      "t_start": 600.0,
+      "t_end": 3600.0,
+      "nr": 640,
+      "nz": 1
+    },
+    {
+      "t_start": 3600.0,
+      "t_end": 21600.0,
+      "nr": 320,
+      "nz": 1
+    },
+    {
+      "t_start": 21600.0,
+      "t_end": 259200.0,
+      "nr": 160,
+      "nz": 1
+    }
+  ],
+  "production_schedule": [
+    {
+      "t_start": 0.0,
+      "t_end": 600.0,
+      "nr": 400,
+      "nz": 1
+    },
+    {
+      "t_start": 600.0,
+      "t_end": 3600.0,
+      "nr": 320,
+      "nz": 1
+    },
+    {
+      "t_start": 3600.0,
+      "t_end": 21600.0,
+      "nr": 160,
+      "nz": 1
+    },
+    {
+      "t_start": 21600.0,
+      "t_end": 259200.0,
+      "nr": 80,
+      "nz": 1
+    }
+  ],
+  "scope": "formal output times plus both genuinely integrated event times; internal audit is diagnostic only",
+  "official_M00_status_unchanged": true,
+  "series_path": "work/studies/validation/q4_M11_full_reference_x4_tail60_9b8599aae541_comparison.npz",
+  "series_sha256": "dd8ef51f00cd57ed1662a9930286f44bda2c6889a7896c64f42e61939125131c"
+}

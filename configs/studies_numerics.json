@@ -1,0 +1,6 @@
+{
+  "thermal_spatial_factors": {
+    "q4": {"M10": 2, "M11": 2}
+  },
+  "reason": "Q4 M10 initial schedule failed the unchanged 0.01 K spatial threshold at 60 s (0.0231146 K). Double Q4 M10 and conservatively choose the same refinement for M11, which shares the latent boundary. Both require their OWN doubled full reference and half-step verification; no borrowed PASS. M00 unchanged."
+}
