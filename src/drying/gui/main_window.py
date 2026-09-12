@@ -38,9 +38,9 @@ class MainWindow:
         for name in PAGE_NAMES:self.pages[name]=Q.QWidget();self.stack.addWidget(self.pages[name])
         self.nav.currentRowChanged.connect(self.stack.setCurrentIndex)
         self._build_home(self,Q);self._build_validation(self,Q);self._build_compute(self,Q);self._build_studies(self,Q);self._build_results(self,Q);self._build_model(self,Q);self._build_logs(self,Q)
-        bar=Q.QFrame();grid=Q.QGridLayout(bar);self.task_label=Q.QLabel("任务名称：无");self.phase_label=Q.QLabel("当前阶段：空闲");self.counter=Q.QLabel("0 / 0");self.progress=Q.QProgressBar();self.stop=Q.QPushButton("安全停止");self.show_log=Q.QPushButton("查看日志")
-        grid.addWidget(self.task_label,0,0);grid.addWidget(self.phase_label,0,1);grid.addWidget(self.counter,0,2);grid.addWidget(self.progress,1,0,1,3);grid.addWidget(self.stop,0,3,2,1);grid.addWidget(self.show_log,0,4,2,1);outer.addWidget(bar)
-        self.stop.clicked.connect(lambda:self._safe_stop(self));self.show_log.clicked.connect(lambda:self.nav.setCurrentRow(6))
+        bar=Q.QFrame();grid=Q.QGridLayout(bar);self.task_label=Q.QLabel("任务名称：无");self.phase_label=Q.QLabel("当前阶段：空闲");self.counter=Q.QLabel("0 / 0");self.progress=Q.QProgressBar();self.stop=Q.QPushButton("安全停止");self.resume=Q.QPushButton("继续上次任务");self.show_log=Q.QPushButton("查看日志")
+        grid.addWidget(self.task_label,0,0);grid.addWidget(self.phase_label,0,1);grid.addWidget(self.counter,0,2);grid.addWidget(self.progress,1,0,1,3);grid.addWidget(self.stop,0,3,2,1);grid.addWidget(self.resume,0,4,2,1);grid.addWidget(self.show_log,0,5,2,1);outer.addWidget(bar)
+        self.stop.clicked.connect(lambda:self._safe_stop(self));self.resume.clicked.connect(lambda:self._resume(self));self.show_log.clicked.connect(lambda:self.nav.setCurrentRow(6))
         self.runner=TaskRunner(root,self);self.runner.on_output=lambda stream,text:self._output(self,stream,text);self.runner.on_step=lambda cmd,code,left:self._step(self,cmd,code,left);self.runner.on_done=lambda ok:self._done(self,ok)
         self.nav.setCurrentRow(0)
 
@@ -87,8 +87,16 @@ class MainWindow:
     @staticmethod
     def _build_studies(self,Q):
         layout=MainWindow._layout(self,Q,PAGE_NAMES[3],"创新与模型分析");tabs=Q.QTabWidget();layout.addWidget(tabs)
-        texts=[("二维辅助核验",auxiliary_text(self.rows)+"\n\n"+TWO_D_DETAIL),("干燥动力学","慢—快—慢分析 / 干燥前沿 / 扩散时钟 / T-R-C 响应时序"),("几何—物性交叉","P3/P4 + 固定半径/收缩\n"+P4_FIXED_NOTICE),("环境敏感性","30 min / 60 min（正式）/ 90 min\n在当前数值分辨率下未观察到显著尾窗敏感性。"),("热模型",SUPPLEMENTAL_NOTICE+"\nM10 仅潜热；M01 仅显式携热；M11 两者均计。"),("水质量守恒","solver-level mass balance；查看真实发布摘要。")]
-        for title,text in texts:w=Q.QWidget();v=Q.QVBoxLayout(w);v.addWidget(Q.QLabel(text));v.addStretch();tabs.addTab(w,title)
+        def page(title,text):w=Q.QWidget();v=Q.QVBoxLayout(w);v.addWidget(Q.QLabel(text));tabs.addTab(w,title);return v
+        v=page("二维辅助核验",auxiliary_text(self.rows)+"\n\n"+TWO_D_DETAIL);self._path_button(self,Q,v,"查看二维对比图",self.root/"results/q1/q1_1d_2d_compare.png");run=Q.QPushButton("重新运行二维辅助验收");run.clicked.connect(lambda:self._launch(self,[self.builder.auxiliary_2d()],"二维辅助验收",True));v.addWidget(run);v.addStretch()
+        v=page("干燥动力学","慢—快—慢分析 / 干燥前沿 / 扩散时钟 / T-R-C 响应时序")
+        for text,path in (("查看慢—快—慢分析",self.root/"results/studies/figures/03_drying_kinetics.png"),("查看干燥前沿",self.root/"results/studies/figures/02_drying_fronts.png"),("查看扩散时钟与响应时序",self.root/"results/studies/figures/04_diffusion_clock_drivers.png")):self._path_button(self,Q,v,text,path)
+        v.addStretch();v=page("几何—物性交叉","P3/P4 + 固定半径/收缩\n"+P4_FIXED_NOTICE);self._path_button(self,Q,v,"查看交叉分析图",self.root/"results/studies/figures/05_geometry_property_cross.png");run=Q.QPushButton("运行/恢复 P3+收缩独立实验");run.clicked.connect(lambda:self._launch(self,[self.builder.geometry()],"P3+收缩实验",True));v.addWidget(run);v.addStretch()
+        v=page("环境敏感性","30 min / 60 min（正式）/ 90 min\n在当前数值分辨率下未观察到显著尾窗敏感性。");self._path_button(self,Q,v,"查看环境延拓图",self.root/"results/studies/figures/06_environment_robustness.png");v.addStretch()
+        v=page("热模型",SUPPLEMENTAL_NOTICE+"\nM10 仅潜热；M01 仅显式携热；M11 两者均计。");self.mode_checks={m:Q.QCheckBox(m) for m in ("M10","M01","M11")};self.study_case_checks={c:Q.QCheckBox(label) for c,label in (("q1","Q1"),("q23","Q2/Q3"),("q4","Q4"))};pick=Q.QHBoxLayout()
+        for widget in (*self.mode_checks.values(),*self.study_case_checks.values()):pick.addWidget(widget)
+        v.addLayout(pick);run=Q.QPushButton("运行所选补充热模型");run.clicked.connect(lambda:self._thermal(self));v.addWidget(run);self._path_button(self,Q,v,"查看热模型图",self.root/"results/studies/figures/07_thermal_modes.png");v.addStretch()
+        v=page("水质量守恒","solver-level mass balance；查看真实发布摘要。");self._path_button(self,Q,v,"查看守恒摘要",self.root/"work/validation/mass_balance/summary.json");run=Q.QPushButton("重新运行守恒审计");run.clicked.connect(lambda:self._launch(self,[self.builder.mass_balance()],"水质量守恒审计",True));v.addWidget(run);v.addStretch()
 
     @staticmethod
     def _build_results(self,Q):
@@ -96,7 +104,9 @@ class MainWindow:
 
     @staticmethod
     def _build_model(self,Q):
-        layout=MainWindow._layout(self,Q,PAGE_NAMES[5],"模型说明");layout.addWidget(Q.QLabel("正式模型：1D 径向圆柱热-质扩散模型\n空间离散：单元中心有限体积法\n时间积分：经典四阶段 RK4\ndt_max = 0.25 s；实际步长受稳定性限制\nQ4：ξ=r/R(t)，径向均匀收缩\n二维仅用于端面效应与降维合理性辅助核验"));layout.addStretch()
+        layout=MainWindow._layout(self,Q,PAGE_NAMES[5],"模型说明");layout.addWidget(Q.QLabel("正式模型：1D 径向圆柱热-质扩散模型\n空间离散：单元中心有限体积法\n时间积分：经典四阶段 RK4\ndt_max = 0.25 s；实际步长受稳定性限制\nQ4：ξ=r/R(t)，径向均匀收缩\n二维仅用于端面效应与降维合理性辅助核验"))
+        for text,path in (("打开完整数学物理模型说明",self.root/"results/overview.md"),("打开 README",self.root/"README.md"),("打开 paper_facts",self.root/"results/paper_facts.md")):self._path_button(self,Q,layout,text,path)
+        layout.addStretch()
 
     @staticmethod
     def _build_logs(self,Q):
@@ -109,7 +119,7 @@ class MainWindow:
 
     @staticmethod
     def _launch(self,commands,name,determinate):
-        try:self.progress_state.begin(name,len(commands),determinate);self.task_kind=name;self._update_progress(self);self.runner.start(commands);self.nav.setCurrentRow(6)
+        try:self.last_commands=[list(c) for c in commands];self.last_task=(name,determinate);self.progress_state.begin(name,len(commands),determinate);self.task_kind=name;self._update_progress(self);self.runner.start(commands);self.nav.setCurrentRow(6)
         except RuntimeError as exc:self.log.appendPlainText(str(exc))
 
     @staticmethod
@@ -137,6 +147,17 @@ class MainWindow:
     @staticmethod
     def _safe_stop(self):
         self.runner.request_stop(self.builder.stop_marker("正式" in self.task_kind));self.log.appendPlainText("将在下一个安全保存点停止，并保留可恢复状态。")
+    @staticmethod
+    def _resume(self):
+        if not hasattr(self,"last_commands"):self.log.appendPlainText("未检测到可恢复任务");return
+        name,determinate=self.last_task;self._launch(self,self.last_commands,"继续 "+name,determinate)
+    @staticmethod
+    def _thermal(self):
+        try:self._launch(self,self.builder.thermal([m for m,w in self.mode_checks.items() if w.isChecked()],[c for c,w in self.study_case_checks.items() if w.isChecked()]),"补充热模型",True)
+        except ValueError as exc:self.log.appendPlainText(str(exc));self.nav.setCurrentRow(6)
+    @staticmethod
+    def _path_button(self,Q,layout,text,path):
+        button=Q.QPushButton(text);button.clicked.connect(lambda _,p=path:self._open(self,p));layout.addWidget(button);return button
     @staticmethod
     def _open(self,path):
         try:open_path(path)
