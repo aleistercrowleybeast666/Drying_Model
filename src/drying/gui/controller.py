@@ -4,7 +4,7 @@ import sys
 
 HEAVY_KINDS = frozenset({"official", "thermal", "mass_balance", "geometry"})
 SUPPLEMENTAL_NOTICE = "M10/M01/M11 为补充敏感性研究，不替代正式 M00。"
-TWO_D_NOTICE = "二维辅助验收：PASS；严格二维网格独立性：PARTIAL_2D / 未认证（NOT CERTIFIED）。"
+TWO_D_NOTICE = "二维辅助验收：PASS；局部早期边界层仍有网格敏感性，不宣称二维全时域完全收敛。"
 P4_FIXED_NOTICE = "P4 + 固定半径：72 h 未达标；该分支未独立完成完整空间加密，交互项仅用于结构诊断。"
 
 
