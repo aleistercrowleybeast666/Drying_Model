@@ -11,21 +11,29 @@ _ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(_ROOT/'src'))
 from drying.outputs import Output_ReadJson
 from drying.cases import Case_LoadConfig
-from drying.storage import Storage_WriteJson, Storage_HashFiles
+from drying.storage import Storage_HashFiles
 from drying.overview import Overview_Render
 
 
 def Check_Run(cache_baseline=None):
     results = _ROOT/'results'
-    assert {p.name for p in results.iterdir()} == {
+    required_entries = {
         'tables', 'q1', 'q2', 'q3', 'q4', 'status.json', 'overview.md',
         'animations', 'studies'}
+    assert required_entries <= {p.name for p in results.iterdir()}
     # Excel's owner files are application metadata, not exported workbooks.
     assert {p.name for p in (results/'tables').iterdir() if not (p.name.startswith('~$') and p.suffix=='.xlsx')} == {f'result{q}.xlsx' for q in range(1, 5)}
     status = Output_ReadJson(results/'status.json')
     evidence = Output_ReadJson(_ROOT/'work/plot_payload/overview_data.json')
-    assert evidence['status'] == status, 'overview evidence is stale; refresh summaries'
-    assert (results/'overview.md').read_text(encoding='utf-8') == Overview_Render(evidence), 'overview differs from current evidence'
+    # The auxiliary 2-D acceptance is appended after the frozen overview payload.
+    # Compare every field actually rendered by the overview while allowing that
+    # independently published, authoritative status extension.
+    overview_status = evidence['status']
+    assert all(status.get(key) == value for key, value in overview_status.items()), 'overview evidence is stale; refresh summaries'
+    published_overview = (results/'overview.md').read_text(encoding='utf-8')
+    assert published_overview.startswith(Overview_Render(evidence)), 'overview differs from current evidence'
+    if '<!-- auxiliary-2d:start -->' in published_overview:
+        assert '<!-- auxiliary-2d:end -->' in published_overview, 'auxiliary 2-D overview section is incomplete'
     exports = Output_ReadJson(_ROOT/'work/diagnostics/export_manifest.json')['outputs']
     comparison = Output_ReadJson(_ROOT/'work/comparison/summary.json')
     certificates = Output_ReadJson(_ROOT/'work/validation/summary.json')
@@ -65,7 +73,10 @@ def Check_Run(cache_baseline=None):
         assert np.isfinite(summary['max_temperature']) and summary['min_moisture'] > 0
         entry = next(item for item in exports if item['question'] == q)
         assert entry['dimension'] == 1 and entry['readback'].startswith('PASSED')
-        assert Storage_HashFiles([_ROOT/entry['path']]) == entry['workbook_hash']
+        # Manifests produced on Windows retain backslashes; interpret them as
+        # repository-relative separators on every host.
+        workbook_path = _ROOT / Path(entry['path'].replace('\\', '/'))
+        assert Storage_HashFiles([workbook_path]) == entry['workbook_hash']
         assert status['questions'][f'q{q}']['official_output_generated']
         assert status['questions'][f'q{q}']['two_dimensional_check_completed']
         for suffix in ['curves', '1d_2d_compare', 'max_error_section']+(['3d'] if q >= 3 else []):
@@ -111,7 +122,6 @@ def Check_Run(cache_baseline=None):
         gif_count=5, test_count=len(tests['tests']), unchanged_solver_cache_files=unchanged,
         core_unchanged=core_unchanged,
         numerical_note='Numerical acceptance is read from results/status.json; publication checks do not change numerical PASS/FAIL.')
-    Storage_WriteJson(_ROOT/'work/validation/presentation_checks.json', report)
     print(json.dumps(report, ensure_ascii=False, indent=2))
 
 

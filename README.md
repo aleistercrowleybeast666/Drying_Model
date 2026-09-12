@@ -98,7 +98,7 @@ logs/
 GUI 只调用 CLI；参数与来源只读，实验组/轨迹/热模式选择实际进入命令。扩展“停止”写 `work/studies/STOP`，在下一保存点退出；恢复前移除标记。
 关闭正在运行的窗口会等待子进程安全结束。主任务使用 `work/studies/BASELINE_STOP`，在当前完整计算阶段保存缓存后停止；扩展任务在下一输出保存点停止。
 命令行恢复前删除相应停止标记；GUI 的计算/恢复按钮会清除本任务标记。停止不强行终止进程，不改正式数值内核。
-若本机 Python 缺 Tcl/Tk，GUI 明确报 `GUI_UNAVAILABLE`，上述 CLI 仍可独立使用。
+桌面界面采用 PySide6；安装 `requirements.txt` 后可运行 `python app.py`。若图形环境或 PySide6 不可用，上述 CLI 仍可独立使用。
 
 四份 Excel 只使用一维结果，保存后逐单元回读校验；不会因验证状态而复制到不同目录。72 h 未烘干时，summary 中 `drying_time` 为 null，表中保留已计算时序，不添加烘干终点行。`status.json` 的 `time_convergence_passed`、`spatial_convergence_passed`、`two_dimensional_check_completed`、`drying_completed`、`official_output_generated` 分别记录对应状态；完成二维比较不等于空间精度已认证。summary 时间单位为秒。
 
