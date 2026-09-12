@@ -5,7 +5,7 @@ from enum import IntEnum
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
-from drying.gui.main_window import main
+from judge_gui import main
 
 
 class AppCommandResult(IntEnum):

@@ -1,6 +1,10 @@
 .venv/
 __pycache__/
 .pytest_cache/
+release/
+work/release/
+work/recompute/
+logs/
 *.nbc
 *.nbi
 work/cache/

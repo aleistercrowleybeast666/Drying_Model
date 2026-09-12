@@ -1,3 +1,2 @@
 -r requirements.txt
-# Saturation liquid/vapour properties for M10/M01/M11 only.
-iapws==1.5.5
+# Compatibility alias; all runtime requirements are now in requirements.txt.

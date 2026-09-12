@@ -75,8 +75,12 @@ def Baseline_Freeze(root):
     specification=dict(input=Baseline_ReadJson(root/'data/input_manifest.json'),config=Case_LoadConfig(root),
                        numerical_core_hash=Case_GetSourceHash(root),selected=selected,workbooks=workbooks)
     baseline_id=hashlib.sha256(json.dumps(specification,sort_keys=True).encode()).hexdigest()
-    commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
-    dirty=subprocess.check_output(['git','status','--porcelain'],cwd=root,text=True).splitlines()
+    try:
+        commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True,stderr=subprocess.DEVNULL).strip()
+        dirty=subprocess.check_output(['git','status','--porcelain'],cwd=root,text=True,stderr=subprocess.DEVNULL).splitlines()
+    except (OSError,subprocess.CalledProcessError):
+        # Release recomputation has reviewable source, but requires no Git install.
+        commit='release-source-copy'; dirty=[]
     result=dict(schema_version=1,baseline_id=baseline_id,created_at=datetime.now().astimezone().isoformat(),
         commit=commit,working_tree_dirty=bool(dirty),working_tree_changes=dirty,**specification,
         status=status,validation=validation,images=images,protected_files=records,

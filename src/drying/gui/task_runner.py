@@ -32,7 +32,7 @@ class TaskRunner(QObject):
         self.root = Path(root)
         self.active: TaskRecord | None = None
         self.process = QProcess(self)
-        self.process.setProcessChannelMode(QProcess.MergedChannels)
+        self.process.setProcessChannelMode(QProcess.ProcessChannelMode.MergedChannels)
         self.process.readyReadStandardOutput.connect(self._read_output)
         self.process.finished.connect(self._finished)
         self.process.errorOccurred.connect(self._error)
@@ -80,5 +80,5 @@ class TaskRunner(QObject):
         self.finished.emit(record)
 
     def _error(self, error):
-        if self.process.state() == QProcess.NotRunning and self.active and self.active.returncode is None:
+        if self.process.state() == QProcess.ProcessState.NotRunning and self.active and self.active.returncode is None:
             self.line_ready.emit(f"任务启动失败：{self.process.errorString()}")

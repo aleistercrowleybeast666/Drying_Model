@@ -73,11 +73,14 @@ def test_required_scoped_wording():
 
 
 def test_one_task_lock(monkeypatch,tmp_path):
-    runner=TaskRunner(tmp_path);entered=threading.Event();release=threading.Event()
-    def work(record):entered.set();release.wait();record.status="PASS"
-    monkeypatch.setattr(runner,"_work",work);runner.start(["one"],"official");entered.wait(1)
+    # The current runner is QProcess based; no obsolete Python worker thread.
+    monkeypatch.setenv('QT_QPA_PLATFORM','offscreen')
+    from PySide6.QtWidgets import QApplication
+    app=QApplication.instance() or QApplication([])
+    runner=TaskRunner(tmp_path)
+    runner.start([sys.executable,'-c','import time; time.sleep(0.3)'],'official')
     with pytest.raises(RuntimeError,match="已有计算任务正在运行"):runner.start(["two"],"thermal")
-    release.set()
+    assert runner.process.waitForFinished(5000)
 
 
 def test_safe_stop_marker(tmp_path):

@@ -9,6 +9,12 @@ from PIL import Image
 
 _ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(_ROOT/'src'))
+# Distribution verification deliberately checks published artifacts without
+# claiming that omitted development caches were independently recomputed.
+if __name__ == '__main__' and '--publication-only' in sys.argv:
+    import os
+    from drying.publication import Publication_Check
+    raise SystemExit(Publication_Check(Path(os.environ.get('DRYING_MODEL_ROOT',str(_ROOT)))))
 from drying.outputs import Output_ReadJson
 from drying.cases import Case_LoadConfig
 from drying.storage import Storage_HashFiles

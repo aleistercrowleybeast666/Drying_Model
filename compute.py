@@ -19,7 +19,11 @@ def Compute_Main():
     options.add_argument('--payload-only',action='store_true',help='仅从已有有效计算缓存刷新绘图数据，不解 PDE')
     options.add_argument('--resume-finalize',action='store_true',help='所有求解/验证/导出已完成时，从比较汇总与数据打包恢复')
     parser.add_argument('--case',choices=['q1','q23','q4'],help='只重新计算并导出所选正式 M00 轨迹；省略时保持原完整流程')
+    parser.add_argument('--official-only',action='store_true',help='仅完成所选一维正式验证和 Excel；跨问二维/综合绘图由统一路由稍后执行')
+    parser.add_argument('--two-dimensional-only',action='store_true',help='已有全部正式一维轨迹后，运行二维验证并生成综合绘图数据')
     args=parser.parse_args()
+    if args.official_only and (not args.case or args.two_dimensional_only or args.payload_only):
+        parser.error('--official-only requires --case and cannot combine with other modes')
     from drying.cases import Case_LoadConfig, Case_ReadStatus, Case_SolvePairEvents
     from drying.inputs import Input_Prepare
     from drying.mesh import Mesh_PrepareCase
@@ -50,7 +54,7 @@ def Compute_Main():
         if not args.payload_only and not args.resume_finalize:
             Input_Prepare(_ROOT,_ROOT/'data/raw')
             selected_cases=[args.case] if args.case else ['q1','q23','q4']
-            for case in selected_cases:
+            for case in ([] if args.two_dimensional_only else selected_cases):
                 phase=case+': mesh / fixed validation'; Record('RUNNING')
                 Mesh_PrepareCase(_ROOT,case)
                 Validation_Run(_ROOT,'1d',case)
@@ -61,6 +65,13 @@ def Compute_Main():
                     Stage_Validate(_ROOT,case,fixed)
                 phase=case+': official export'; Record('RUNNING')
                 Export_Run(_ROOT,case)
+            if args.official_only:
+                evidence=json.loads((_ROOT/'work/validation/summary.json').read_text(encoding='utf-8'))[args.case+'_1d']
+                if not (evidence.get('time_passed') and evidence.get('spatial_convergence_passed',evidence.get('spatial_passed'))):
+                    raise RuntimeError('OFFICIAL_VALIDATION_FAILED: selected case did not pass its unchanged criteria')
+                phase='complete'; Record('COMPLETE')
+                print('OFFICIAL_CASE_COMPLETE: isolated selected 1D trajectory and Excel; combined 2D figures require the auxiliary task',flush=True)
+                return 0
             for case in selected_cases:
                 phase=case+': 2D verification'; Record('RUNNING')
                 Validation_Run(_ROOT,'2d',case)
