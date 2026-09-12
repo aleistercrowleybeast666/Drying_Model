@@ -25,7 +25,8 @@ def Runner_GetProcess(root):
             if record['pid']!=process.pid or abs(record['created_at']-process.create_time())>.01:return None
         # Verify the command as well as the PID: never target an unrelated process
         # that inherited a recycled PID / stale or copied lock file.
-        expected={root/'药材烘干模型_完整离线复算.exe',root/'药材烘干模型_完整离线复算.py',
+        expected={root/'药材烘干模型_原题表格复算.exe',root/'药材烘干模型_原题表格复算.py',
+            root/'药材烘干模型_完整离线复算.exe',root/'药材烘干模型_完整离线复算.py',
                   root/'code/offline_recompute.py',root/'offline_recompute.py',
                   root/'dependencies/application/code/offline_recompute.py'}
         cwd=Path(process.cwd())

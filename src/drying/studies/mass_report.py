@@ -103,7 +103,7 @@ The existing policy is immutable across resume/publication runs.
     return policy
 
 
-def MassReport_Publish(root, manifest):
+def MassReport_Publish(root, manifest, refresh_overview=True):
     root = Path(root); folder = root/'work/validation/mass_balance'
     keys = [k for k, spec in manifest['specs'].items() if spec['kind']=='production']
     cases = []; missing = []; policy_path = folder/'policy.json'
@@ -131,7 +131,7 @@ def MassReport_Publish(root, manifest):
                 solver_mass_balance=record['solver_mass_balance'], remesh=record['remesh']))
     if not policy and not missing:
         MassReport_FreezePolicy(root,cases)
-        return MassReport_Publish(root,manifest)
+        return MassReport_Publish(root,manifest,refresh_overview=refresh_overview)
     summary = dict(schema_version=1, status='MEASURED' if not missing else 'INCOMPLETE',
         method='solver_mass_balance', completed_case_count=len(cases), expected_case_count=12,
         cases=cases, missing_cases=missing, export_mass_balance_affects_pass=False,
@@ -155,8 +155,11 @@ def MassReport_Publish(root, manifest):
         if facts_path.exists():
             from .paper_facts import PaperFacts_WriteMarkdown
             facts=Baseline_ReadJson(facts_path); facts['solver_mass_balance']=brief
-            Storage_WriteJson(facts_path,facts); PaperFacts_WriteMarkdown(root,facts)
-        from .synthesis import Synthesis_RefreshOverview
-        Synthesis_RefreshOverview(root)
+            Storage_WriteJson(facts_path,facts)
+            if 'official' in facts:PaperFacts_WriteMarkdown(root,facts)
+            else:(root/'results/paper_facts.md').write_text('\n'.join(MassReport_GetLines(summary))+'\n',encoding='utf-8')
+        if refresh_overview:
+            from .synthesis import Synthesis_RefreshOverview
+            Synthesis_RefreshOverview(root)
         print(f'MASS_BALANCE_{summary["status"]} {len(cases)}/12 max_abs={summary["max_mass_balance_abs_error_kg"]:.6e} kg max_rel={summary["max_mass_balance_rel_error"]:.6e}',flush=True)
     return summary

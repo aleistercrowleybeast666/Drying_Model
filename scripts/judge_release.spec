@@ -15,7 +15,7 @@ metadata = []
 for package in ['imageio','numpy','scipy','numba','llvmlite','matplotlib','openpyxl','pillow','psutil','iapws','pypdf','PySide6']:
     metadata += copy_metadata(package)
 cli = Analysis([str(root/'offline_recompute.py')], pathex=[str(root)],
-    hiddenimports=hidden+['tomllib','runpy','logging.handlers'], datas=collect_data_files('iapws')+metadata,
+    hiddenimports=hidden+['tomllib','runpy','logging.handlers'], datas=collect_data_files('iapws',include_py_files=True)+metadata,
     hookspath=[str(root/'scripts/pyinstaller_hooks')],
     excludes=['drying','pytest','tkinter','IPython','notebook'],
     hooksconfig={'matplotlib':{'backends':['Agg']}})
@@ -29,7 +29,7 @@ common_pyz = PYZ(cli.pure + gui.pure)
 cli_pyz = common_pyz
 gui_pyz = common_pyz
 cli_exe = EXE(cli_pyz,cli.scripts,[],exclude_binaries=True,
-    name='药材烘干模型_完整离线复算',console=True,upx=False,contents_directory='dependencies')
+    name='药材烘干模型_原题表格复算',console=True,upx=False,contents_directory='dependencies')
 gui_exe = EXE(gui_pyz,gui.scripts,[],exclude_binaries=True,
     name='药材烘干模型_GUI',console=False,upx=False,contents_directory='dependencies')
 COLLECT(gui_exe,cli_exe,gui.binaries,gui.datas,cli.binaries,cli.datas,

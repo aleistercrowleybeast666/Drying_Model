@@ -47,7 +47,7 @@ def test_restore_only_regenerates_user_deleted_results(tmp_path):
 
 def test_moved_source_command_resolves_from_new_root_not_launch_directory(tmp_path,monkeypatch):
     moved=tmp_path/'移动后的 程序';moved.mkdir()
-    (moved/'药材烘干模型_完整离线复算.py').write_text('')
+    (moved/'药材烘干模型_原题表格复算.py').write_text('')
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv('DRYING_MODEL_ROOT',str(moved))
     command=Runtime_BuildRecomputeCommand(['--official','q1'])
@@ -86,7 +86,7 @@ def test_verify_has_no_numeric_or_workspace_dependency():
 def test_exe_command_never_uses_external_python(monkeypatch,tmp_path):
     monkeypatch.setattr(sys,'frozen',True,raising=False)
     command = Runtime_BuildRecomputeCommand(['--official','q4'],tmp_path)
-    assert command==[str(tmp_path/'药材烘干模型_完整离线复算.exe'),'--official','q4']
+    assert command==[str(tmp_path/'药材烘干模型_原题表格复算.exe'),'--official','q4']
 
 
 def test_runtime_root_honors_explicit_workspace(monkeypatch,tmp_path):
@@ -127,14 +127,14 @@ def test_gui_real_subprocess_dry_run_and_logs(qt_app):
     from drying.gui.judge_window import JudgeWindow
     from PySide6.QtCore import QProcess
     root = Path(__file__).resolve().parents[1]
-    window = JudgeWindow(root); window.Selection_Set(['q1','M10']); window.dry_run=True
+    window = JudgeWindow(root); window.Selection_Set(['q1','extensions']); window.dry_run=True
     window.Task_Start()
     deadline=time.monotonic()+15
     while window.process.state()!=QProcess.ProcessState.NotRunning and time.monotonic()<deadline:
         qt_app.processEvents(); time.sleep(.01)
     qt_app.processEvents()
     assert window.process.exitCode()==0
-    assert 'DRY_RUN' in window.logs.toPlainText() and 'study-foundation' in window.logs.toPlainText()
+    assert 'DRY_RUN' in window.logs.toPlainText() and 'shared.baseline' in window.logs.toPlainText()
     assert window.start.isEnabled()
     window.close()
 

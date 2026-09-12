@@ -8,7 +8,8 @@ from .trajectory import Trajectory_GetSpec, Trajectory_Solve
 
 def Studies_GetPlan(args):
     from .selection import Selection_GetFactor
-    root=Path(__file__).resolve().parents[3]
+    from ..runtime import Runtime_GetRoot
+    root=Runtime_GetRoot()
     cases=[args.case] if args.case else ['q1','q23','q4'];jobs=[]
     groups=['verify','postprocess','geometry','environment','thermal'] if args.group=='all' else [args.group]
     for group in groups:

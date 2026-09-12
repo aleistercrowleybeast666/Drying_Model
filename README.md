@@ -1,14 +1,23 @@
 # A题药材烘干求解工程
 
-当前发布包为精简版：`release/A题_药材烘干模型/` 顶层只有依赖、启动程序和说明，源码/配置/原始输入放在 `dependencies/application/`。不预装历史结果和缓存，运行时自动创建。GUI“立即停止”及关闭窗口会终止本目录的复算进程树；未保存进度可能丢失，下次仅复用通过原校验的缓存。旧发布包替换前保存在工作区 `work/release/previous_package_*/`。
+如果只想复算题目要求的 4 份 Excel，运行 `release_v2/A题_药材烘干模型/药材烘干模型_原题表格复算.exe`。
+需要选择验证、绘图或拓展，运行同目录 `药材烘干模型_GUI.exe`。两个程序均不需要外部 Python，共享 `dependencies/`。没有历史结果或缓存也能启动，自动创建所需目录。
 
-评委交付版位于 `release/A题_药材烘干模型/`。Windows 双击 `药材烘干模型_GUI.exe`，或双击 `药材烘干模型_完整离线复算.exe` 执行全部任务；两个程序共用 `dependencies/`，无需外部 Python。两个同名 `.py` 提供相同功能。
+本轮只发布到 `release_v2/`，旧 `release/A题_药材烘干模型/` 及其正在运行的进程保持不动。构建必须使用 `python scripts/build_release.py --dist-dir release_v2`；工具拒绝旧 release 目标。
 
-源码界面运行 `python app.py`，统一复算入口为 `python offline_recompute.py`。单页界面默认勾选 Q1、Q2/Q3、Q4，提供全选、全不选、仅正式题目、真实任务进度、安全停止和折叠日志。界面不会自动计算。`python offline_recompute.py --dry-run` 只列完整计划，`--verify` 只检查交付结果与事实一致性。实际复算隔离在 `work/recompute/`，输出在其 `results/`，已有正式结果保持不变。
+四类任务独立：A 原题表格；B 正式收敛、二维辅助、守恒；C 原题静态图/单独勾选 GIF；D 全部创新分析与图表。默认只选 A，`--all` 才运行四组。源码等价入口 `python offline_recompute.py`，可组合 `--original q1 q23 q4 --validation --plots --extensions`，`--gifs` 单独启用动画。`--dry-run` 只显示 DAG、依赖、缓存预检、是否需要 PDE 和 worker 数；`--verify` 只核验发布资源。
 
-发布目录的 `results/` 可缺省：从原始输入初始化后，成功完成的复算输出会同步重建它。路径始终相对于当前 EXE/PY 的所在目录定位，工作进程参数和任务记录使用相对路径。日志可拖动调整高度，采用大字号、白底深色文字；报错时自动展开。
+原题采用已冻结 monitor 与正式阶段方案；Q23 固定为 200→160→80。无运行时 pilot 或重新选网格。Q3/Q4 用原 Event_Locate 到真实报告时刻停止，保存对应状态与实际接受分区。拓展仍使用独立完整 72 h 轨迹。默认两个 case worker，公共输入与 JIT 准备后并行，索引/状态由单个 writer 合并。
 
-构建使用 `python -m pip install -r requirements-build.txt`，然后 `python scripts/build_release.py`。单一 spec 合并两个入口的 Python 模块和二进制依赖，生成双 EXE 的共享 onedir。完整构建与验证说明见 `RELEASE_VALIDATION.md`。
+表格无需调用 Validation_Run。Excel 逐单元回读及冻结完整精度数组核对独立执行：`TABLE_RECOMPUTE_REFERENCE_MATCH: PASS` 仅表示数值一致；数值收敛未重跑时明确标为 `NOT_RERUN_IN_TABLE_ONLY_MODE`。正式 B 空间验证只用既有 full_schedule_reference x2，时间验证只对正式接受分区减半；旧 fixed-grid 为 legacy / diagnostic only，不参与当前生产认证。
+
+双 EXE 冷启动四表实测 217.79 s（3.63 min，2 workers，含进程启动、准备、JIT、Excel 和回读）；源码实测 207.87 s。Q3=57.6215 h，Q4=51.1824 h，四表数值参考和回读均 PASS。新链路的三组一维验证实跑 PASS，约 27.37 min，按需运行。完整二维、十二例守恒及拓展全选尚未在 v2 完整冷跑，详见 [RELEASE_V2_VALIDATION.md](RELEASE_V2_VALIDATION.md)。发布包 README/TXT 由同一模板 `configs/judge_readme.md` 生成。
+
+输出在程序目录的 `results/`；运行工作区 `work/recompute/runtime/`，每 case 目录 `work/recompute/workers/`。任务耗时在 `work/recompute/timings.json` 与 `results/recompute_timing_summary.json`。GUI 保持白底、可读日志、单调进度；立即停止和关闭 GUI 都结束本次进程树。未保存的计算会丢失，重启核验匹配缓存后恢复。
+
+`configs/output_groups.json` 对现有每个正式 PNG/GIF 标明归属与依赖；绘图不启动求解，缺数据报 `PLOT_INPUT_MISSING`。冻结资源损坏报 `FROZEN_MESH_CONFIGURATION_MISSING_OR_MISMATCH`。开发者可用 `scripts/regenerate_frozen_mesh.py` 比较新 monitor，明确 `--accept` 才覆盖。
+
+以下为原有低层开发接口和模型说明；历史全量验证不进入评委默认流程。
 
 打开 `A_Drying.code-workspace` 即可在 VS Code 中使用已配置的 Python 环境和任务。当前源码、原始输入、缓存、图表、日志均在本目录内。
 

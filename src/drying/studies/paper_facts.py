@@ -50,7 +50,13 @@ def PaperFacts_Build(root, manifest, technical, publish=True):
             convergence_status=dict(time=official['time_convergence_passed'], spatial=official['spatial_convergence_passed']),
             array_sha256=manifest['series'][key]['sha256'])
         if question=='Q4':record['R_at_endpoint_m']=float(data['radius_m'][i])
-        if official['one_id'] != key:conflicts.append(dict(question=question, field='source_case_id', formal=official['one_id'], payload=key))
+        if official['one_id'] != key:
+            equivalence=official.get('full_horizon_equivalence',{})
+            if (official.get('full_horizon_equivalent_source')==key and equivalence.get('status')=='PASS'
+                and equivalence.get('table_fingerprint')==official.get('source_fingerprint')):
+                record.update(source_case_id=official['one_id'],official_table_source_case_id=official['one_id'],
+                    analysis_source_case_id=key,full_horizon_equivalence=equivalence)
+            else:conflicts.append(dict(question=question, field='source_case_id', formal=official['one_id'], payload=key))
         if abs(official['endpoint_values']['max_moisture']-values['Cmax'])>1e-10:
             conflicts.append(dict(question=question, field='endpoint_Cmax', formal=official['endpoint_values']['max_moisture'], payload=values['Cmax']))
         facts['official'][question]=record

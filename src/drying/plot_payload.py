@@ -18,7 +18,7 @@ def Payload_GetNodes(root,case_id,t,model,inputs,field=None):
     return Sampling_GetNodes(state,t,model,inputs,Case_LoadMesh(root,case_id,t))
 
 
-def Payload_PrepareCurves(root,q,case_id,model,inputs):
+def Payload_PrepareCurves(root,q,case_id,model,inputs,publish_summary=True):
     status = Case_ReadStatus(root,case_id); end = Output_GetEnd(q,status)
     times=[]; profiles=[]; means=[]; maxima=[]; radii=[]; snapshots={}
     keys = [100,600,1200,1800] if q == 1 else [1800,3600,7200,10800]
@@ -40,8 +40,9 @@ def Payload_PrepareCurves(root,q,case_id,model,inputs):
         R_m=np.array(radii),snapshot_time_s=np.array(list(snapshots)))
     for i,(r,nodes) in enumerate(snapshots.values()):
         arrays[f'snapshot_r_{i}']=r; arrays[f'snapshot_nodes_{i}']=nodes
-    Output_UpdateSummary(root,q,max_temperature=max_T-273.15,min_moisture=min_C,
-        temperature_unit='degC',moisture_unit='kg/kg',extrema_source='All stored 1D samples in question window')
+    if publish_summary:
+        Output_UpdateSummary(root,q,max_temperature=max_T-273.15,min_moisture=min_C,
+            temperature_unit='degC',moisture_unit='kg/kg',extrema_source='All stored 1D samples in question window')
     return arrays
 
 

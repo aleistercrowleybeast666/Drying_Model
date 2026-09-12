@@ -26,7 +26,7 @@ def Runtime_GetData(root=None):
 def Runtime_BuildRecomputeCommand(arguments, root=None):
     root = Path(root or Runtime_GetRoot())
     if getattr(sys, 'frozen', False):
-        return [str(root/'药材烘干模型_完整离线复算.exe'), *arguments]
-    entry = root/'药材烘干模型_完整离线复算.py'
+        return [str(root/'药材烘干模型_原题表格复算.exe'), *arguments]
+    entry = root/'药材烘干模型_原题表格复算.py'
     if not entry.exists(): entry = Runtime_GetCode(root)/'offline_recompute.py'
     return [sys.executable, '-u', str(entry), *arguments]

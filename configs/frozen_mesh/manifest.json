@@ -1,0 +1,909 @@
+{
+  "schema_version": 1,
+  "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+  "mesh_config_hash": "69788d587ac64090bb11f5ccad37a5d37c0ccf0f081cbcc97ca46711ccd4e957",
+  "schedule_config_hash": "07374525ea35ee7cc42fc7e98e81d4a5cfabd7e1a20b4f82eef2d48b5cd43582",
+  "numerical_source_hash": "829d9811ef26a6abdfe29ca1179bebbd4b5572578c888f4f24940e3c4e5098ad",
+  "schedules": {
+    "q1": [
+      {
+        "t_start": 0.0,
+        "t_end": 60.0,
+        "nr": 200,
+        "nz": 1
+      },
+      {
+        "t_start": 60.0,
+        "t_end": 300.0,
+        "nr": 160,
+        "nz": 1
+      },
+      {
+        "t_start": 300.0,
+        "t_end": 1200.0,
+        "nr": 80,
+        "nz": 1
+      },
+      {
+        "t_start": 1200.0,
+        "t_end": 1800.0,
+        "nr": 40,
+        "nz": 1
+      }
+    ],
+    "q23": [
+      {
+        "t_start": 0.0,
+        "t_end": 300.0,
+        "nr": 200,
+        "nz": 1
+      },
+      {
+        "t_start": 300.0,
+        "t_end": 1800.0,
+        "nr": 160,
+        "nz": 1
+      },
+      {
+        "t_start": 1800.0,
+        "t_end": 259200.0,
+        "nr": 80,
+        "nz": 1
+      }
+    ],
+    "q4": [
+      {
+        "t_start": 0.0,
+        "t_end": 600.0,
+        "nr": 200,
+        "nz": 1
+      },
+      {
+        "t_start": 600.0,
+        "t_end": 3600.0,
+        "nr": 160,
+        "nz": 1
+      },
+      {
+        "t_start": 3600.0,
+        "t_end": 21600.0,
+        "nr": 80,
+        "nz": 1
+      },
+      {
+        "t_start": 21600.0,
+        "t_end": 259200.0,
+        "nr": 40,
+        "nz": 1
+      }
+    ]
+  },
+  "schedule_hash": "3f67a269ff90f9da6b6266dbcd333e80e47919daf95c7671ba82d02359da3ced",
+  "cases": {
+    "q1": {
+      "mesh_summary": {
+        "configuration_hash": "4e009c066ac36b49cc7a1bd24d483cd4b8afc05f6b060d8afd321d2048d24843",
+        "case": "q1",
+        "monitor_strength": 0.125,
+        "base_stability_bound_s": 0.2653578468788543,
+        "profiles": {
+          "radial": {
+            "case": "q1",
+            "axis": "radial",
+            "pilot_id": "q1_1d_nr40_nz1_dt0.25",
+            "pilot_fingerprint": "7df7df45becfbc17ee307ada2d3925069fe99939df73459efa07e925dcfdda8c",
+            "pilot_reused": true,
+            "pilot_time_range_s": [
+              0.0,
+              1800
+            ],
+            "sample_count": 1801,
+            "reference_ranges": [
+              8.785790859551014,
+              1.0397684915086456
+            ],
+            "minima": [
+              301.15,
+              1.51023150849136
+            ],
+            "maxima": [
+              309.935790859551,
+              2.5500000000000056
+            ],
+            "min_radius": 0.02,
+            "formula": "1 + sqrt((wT max_t |dT/dx| / range(T))^2 + (wC max_t |dC/dx| / range(C))^2)",
+            "smoothing_passes": 2,
+            "max_density_ratio": 4.0,
+            "monitor_hash": "e33699637ee93e2d912c05d5a3c0182e67fc1bf0ab3a69e2ae5ca3b93b612ae8",
+            "monitor_strength": 0.125,
+            "monitor_min": 1.0,
+            "monitor_max": 1.375
+          },
+          "axial": {
+            "case": "q1",
+            "axis": "axial",
+            "pilot_id": "q1_2d_nr40_nz125_dt0.25",
+            "pilot_fingerprint": "7334f683597e30c4108d8d2557983857ffdac67da41074c82d8af762c320070f",
+            "pilot_reused": true,
+            "pilot_time_range_s": [
+              0.0,
+              1800
+            ],
+            "sample_count": 1801,
+            "reference_ranges": [
+              10.920977889980747,
+              1.7212326034924024
+            ],
+            "minima": [
+              301.15,
+              0.8287673965076037
+            ],
+            "maxima": [
+              312.0709778899807,
+              2.550000000000006
+            ],
+            "min_radius": 0.02,
+            "formula": "1 + sqrt((wT max_t |dT/dx| / range(T))^2 + (wC max_t |dC/dx| / range(C))^2)",
+            "smoothing_passes": 2,
+            "max_density_ratio": 4.0,
+            "monitor_hash": "f8a80cfebd34a052d644076940e40c2f0889ee19402f712f5c64d6c6ae7c9ec5",
+            "monitor_strength": 0.125,
+            "monitor_min": 1.0,
+            "monitor_max": 1.375
+          }
+        },
+        "stability": [
+          {
+            "case": "q1",
+            "dimension": 1,
+            "nr": 40,
+            "nz": 1,
+            "requested_dt": 0.25,
+            "stability_bound": 0.34119066043514484,
+            "uniform_stability_bound": 0.515472732393121,
+            "failing_location": [
+              0,
+              35,
+              0
+            ],
+            "dt_compatible": true,
+            "min_max_dr": {
+              "min": 0.0004067857428121746,
+              "max": 0.0005588200185019017,
+              "mean": 0.0004999999999999999,
+              "neighbor_ratio": 1.0284072704023526
+            },
+            "min_max_dz": {
+              "min": 0.125,
+              "max": 0.125,
+              "mean": 0.125,
+              "neighbor_ratio": 1.0
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.375
+          },
+          {
+            "case": "q1",
+            "dimension": 1,
+            "nr": 80,
+            "nz": 1,
+            "requested_dt": 0.25,
+            "stability_bound": 0.08529766510878518,
+            "uniform_stability_bound": 0.1288681830982782,
+            "failing_location": [
+              0,
+              71,
+              0
+            ],
+            "dt_compatible": false,
+            "min_max_dr": {
+              "min": 0.0002033928714060873,
+              "max": 0.0002795353631896452,
+              "mean": 0.00025,
+              "neighbor_ratio": 1.014266060691301
+            },
+            "min_max_dz": {
+              "min": 0.125,
+              "max": 0.125,
+              "mean": 0.125,
+              "neighbor_ratio": 1.0
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.375
+          },
+          {
+            "case": "q1",
+            "dimension": 1,
+            "nr": 160,
+            "nz": 1,
+            "requested_dt": 0.25,
+            "stability_bound": 0.021324416277195456,
+            "uniform_stability_bound": 0.03221704577456899,
+            "failing_location": [
+              0,
+              134,
+              0
+            ],
+            "dt_compatible": false,
+            "min_max_dr": {
+              "min": 0.00010169643570304254,
+              "max": 0.00013980009758546083,
+              "mean": 0.000125,
+              "neighbor_ratio": 1.0072223209080313
+            },
+            "min_max_dz": {
+              "min": 0.125,
+              "max": 0.125,
+              "mean": 0.125,
+              "neighbor_ratio": 1.0
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.375
+          },
+          {
+            "case": "q1",
+            "dimension": 2,
+            "nr": 40,
+            "nz": 125,
+            "requested_dt": 0.25,
+            "stability_bound": 0.2653578468788543,
+            "uniform_stability_bound": 0.412378185914496,
+            "failing_location": [
+              0,
+              35,
+              121
+            ],
+            "dt_compatible": true,
+            "min_max_dr": {
+              "min": 0.0004067857428121746,
+              "max": 0.0005588200185019017,
+              "mean": 0.0004999999999999999,
+              "neighbor_ratio": 1.0284072704023526
+            },
+            "min_max_dz": {
+              "min": 0.0007609447161983918,
+              "max": 0.001046298982481953,
+              "mean": 0.0009999999999999998,
+              "neighbor_ratio": 1.0389122062220189
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.375
+          },
+          {
+            "case": "q1",
+            "dimension": 2,
+            "nr": 80,
+            "nz": 125,
+            "requested_dt": 0.25,
+            "stability_bound": 0.07961001405207749,
+            "uniform_stability_bound": 0.12128770173955596,
+            "failing_location": [
+              0,
+              71,
+              121
+            ],
+            "dt_compatible": false,
+            "min_max_dr": {
+              "min": 0.0002033928714060873,
+              "max": 0.0002795353631896452,
+              "mean": 0.00025,
+              "neighbor_ratio": 1.014266060691301
+            },
+            "min_max_dz": {
+              "min": 0.0007609447161983918,
+              "max": 0.001046298982481953,
+              "mean": 0.0009999999999999998,
+              "neighbor_ratio": 1.0389122062220189
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.375
+          },
+          {
+            "case": "q1",
+            "dimension": 2,
+            "nr": 40,
+            "nz": 250,
+            "requested_dt": 0.25,
+            "stability_bound": 0.15920406924007827,
+            "uniform_stability_bound": 0.2577363661965564,
+            "failing_location": [
+              0,
+              35,
+              243
+            ],
+            "dt_compatible": false,
+            "min_max_dr": {
+              "min": 0.0004067857428121746,
+              "max": 0.0005588200185019017,
+              "mean": 0.0004999999999999999,
+              "neighbor_ratio": 1.0284072704023526
+            },
+            "min_max_dz": {
+              "min": 0.000380472358099182,
+              "max": 0.000523149491800323,
+              "mean": 0.0004999999999999999,
+              "neighbor_ratio": 1.0221452811519949
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.375
+          }
+        ]
+      },
+      "resources": {
+        "radial": {
+          "file": "q1_radial_monitor.npz",
+          "sha256": "16ad66346f151016317f6b9abf7db029c0109c6608cc83e49c4cced69da2091c",
+          "monitor_hash": "e33699637ee93e2d912c05d5a3c0182e67fc1bf0ab3a69e2ae5ca3b93b612ae8",
+          "faces_hashes": {
+            "40": "d860ec3dafd96744b0fdcb955a2962af9ab34f81a64e9295f05dd71ced7a3500",
+            "80": "a62efa9042091e49e402e8e82651e244e9289c4dd841df2b4467234bbea17503",
+            "160": "29189d0231c0ea73c6fccf127e73369119914275fe447e5886955093d0a2c756",
+            "200": "ce6da21b44e886c8942f317fdb1410b1712f31543ba84452dbbc81c32c8a3e8f",
+            "320": "cef5a976f9913feeaedcb197e04d39d8746d5e6dd675c9521633b7580da7ccb2",
+            "400": "a6d1a7695f65731e5dcc862d87f011e06c72bab0222dcaa0d2816761f588add5"
+          }
+        },
+        "axial": {
+          "file": "q1_axial_monitor.npz",
+          "sha256": "f8f9ed6648a27e24f1dc5c4bb45813e446040293e29dac8c04485e179f5d0a14",
+          "monitor_hash": "f8a80cfebd34a052d644076940e40c2f0889ee19402f712f5c64d6c6ae7c9ec5",
+          "faces_hashes": {
+            "1": "4ed6a1c93593846f5d2707175163b599ad1e8418d270f2a06ca725370c0dcf5f",
+            "125": "1dce88d2114631980c7556bfef16e354ffd34224bce2b6ea7c4cd46f6f381ad1",
+            "250": "b08120ca1ce987384797750252cd1072740a434a591a0e5f162bbb2d9463cc89"
+          }
+        }
+      }
+    },
+    "q23": {
+      "mesh_summary": {
+        "configuration_hash": "4e009c066ac36b49cc7a1bd24d483cd4b8afc05f6b060d8afd321d2048d24843",
+        "case": "q23",
+        "monitor_strength": 0.0625,
+        "base_stability_bound_s": 0.2607999622384693,
+        "profiles": {
+          "radial": {
+            "case": "q23",
+            "axis": "radial",
+            "pilot_id": "q23_1d_nr40_nz1_dt0.25",
+            "pilot_fingerprint": "39aa1dd9362da4d02040f277a138f4e8924bed89c2d66a918fc70e0371d9c5e0",
+            "pilot_reused": true,
+            "pilot_time_range_s": [
+              0.0,
+              259200
+            ],
+            "sample_count": 14941,
+            "reference_ranges": [
+              22.039843100531186,
+              2.498230658159278
+            ],
+            "minima": [
+              301.15,
+              0.051769341840726596
+            ],
+            "maxima": [
+              323.18984310053116,
+              2.5500000000000047
+            ],
+            "min_radius": 0.02,
+            "formula": "1 + sqrt((wT max_t |dT/dx| / range(T))^2 + (wC max_t |dC/dx| / range(C))^2)",
+            "smoothing_passes": 2,
+            "max_density_ratio": 4.0,
+            "monitor_hash": "c7b96598b74d4147cc6e5584f9d8d0827856b53b4aa207c9113cfe5b36e7e6b4",
+            "monitor_strength": 0.0625,
+            "monitor_min": 1.0,
+            "monitor_max": 1.1875
+          },
+          "axial": {
+            "case": "q23",
+            "axis": "axial",
+            "pilot_id": "q23_2d_nr40_nz125_dt0.25",
+            "pilot_fingerprint": "6d07f67d65fabb4ba4cbf0f0316b109e2d32709f9df90547d094e5e292aec169",
+            "pilot_reused": true,
+            "pilot_time_range_s": [
+              0.0,
+              1800
+            ],
+            "sample_count": 1801,
+            "reference_ranges": [
+              9.916939336221844,
+              1.439482555954958
+            ],
+            "minima": [
+              301.15,
+              1.1105174440450472
+            ],
+            "maxima": [
+              311.0669393362218,
+              2.550000000000005
+            ],
+            "min_radius": 0.02,
+            "formula": "1 + sqrt((wT max_t |dT/dx| / range(T))^2 + (wC max_t |dC/dx| / range(C))^2)",
+            "smoothing_passes": 2,
+            "max_density_ratio": 4.0,
+            "monitor_hash": "93ce9256764ab75be4a0ee315032fe9ba487266f54254471b18f0872ac6b3bfa",
+            "monitor_strength": 0.0625,
+            "monitor_min": 1.0,
+            "monitor_max": 1.1875
+          }
+        },
+        "stability": [
+          {
+            "case": "q23",
+            "dimension": 1,
+            "nr": 40,
+            "nz": 1,
+            "requested_dt": 0.25,
+            "stability_bound": 0.3348291840077085,
+            "uniform_stability_bound": 0.39600816277938883,
+            "failing_location": [
+              0,
+              38,
+              0
+            ],
+            "dt_compatible": true,
+            "min_max_dr": {
+              "min": 0.0004456684042283299,
+              "max": 0.0005176658748519389,
+              "mean": 0.0005,
+              "neighbor_ratio": 1.0331099976143439
+            },
+            "min_max_dz": {
+              "min": 0.125,
+              "max": 0.125,
+              "mean": 0.125,
+              "neighbor_ratio": 1.0
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.1875
+          },
+          {
+            "case": "q23",
+            "dimension": 1,
+            "nr": 80,
+            "nz": 1,
+            "requested_dt": 0.25,
+            "stability_bound": 0.08014914009765005,
+            "uniform_stability_bound": 0.09900204069484567,
+            "failing_location": [
+              0,
+              78,
+              0
+            ],
+            "dt_compatible": false,
+            "min_max_dr": {
+              "min": 0.00022058760821699107,
+              "max": 0.00025889808617706936,
+              "mean": 0.00024999999999999995,
+              "neighbor_ratio": 1.0203691759055105
+            },
+            "min_max_dz": {
+              "min": 0.125,
+              "max": 0.125,
+              "mean": 0.125,
+              "neighbor_ratio": 1.0
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.1875
+          },
+          {
+            "case": "q23",
+            "dimension": 1,
+            "nr": 160,
+            "nz": 1,
+            "requested_dt": 0.25,
+            "stability_bound": 0.01948691727418691,
+            "uniform_stability_bound": 0.02475051017371098,
+            "failing_location": [
+              0,
+              158,
+              0
+            ],
+            "dt_compatible": false,
+            "min_max_dr": {
+              "min": 0.00010965896330220382,
+              "max": 0.00012946583140461927,
+              "mean": 0.000125,
+              "neighbor_ratio": 1.0115784571944602
+            },
+            "min_max_dz": {
+              "min": 0.125,
+              "max": 0.125,
+              "mean": 0.125,
+              "neighbor_ratio": 1.0
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.1875
+          },
+          {
+            "case": "q23",
+            "dimension": 2,
+            "nr": 40,
+            "nz": 125,
+            "requested_dt": 0.25,
+            "stability_bound": 0.2607999622384693,
+            "uniform_stability_bound": 0.3168065302235104,
+            "failing_location": [
+              0,
+              38,
+              118
+            ],
+            "dt_compatible": true,
+            "min_max_dr": {
+              "min": 0.0004456684042283299,
+              "max": 0.0005176658748519389,
+              "mean": 0.0005,
+              "neighbor_ratio": 1.0331099976143439
+            },
+            "min_max_dz": {
+              "min": 0.0008629422996286606,
+              "max": 0.0010247439806109083,
+              "mean": 0.001,
+              "neighbor_ratio": 1.0219432303603135
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.1875
+          },
+          {
+            "case": "q23",
+            "dimension": 2,
+            "nr": 80,
+            "nz": 125,
+            "requested_dt": 0.25,
+            "stability_bound": 0.0750497254142958,
+            "uniform_stability_bound": 0.0931783912422077,
+            "failing_location": [
+              0,
+              78,
+              118
+            ],
+            "dt_compatible": false,
+            "min_max_dr": {
+              "min": 0.00022058760821699107,
+              "max": 0.00025889808617706936,
+              "mean": 0.00024999999999999995,
+              "neighbor_ratio": 1.0203691759055105
+            },
+            "min_max_dz": {
+              "min": 0.0008629422996286606,
+              "max": 0.0010247439806109083,
+              "mean": 0.001,
+              "neighbor_ratio": 1.0219432303603135
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.1875
+          },
+          {
+            "case": "q23",
+            "dimension": 2,
+            "nr": 40,
+            "nz": 250,
+            "requested_dt": 0.25,
+            "stability_bound": 0.15679798277406418,
+            "uniform_stability_bound": 0.19800408138969125,
+            "failing_location": [
+              0,
+              38,
+              248
+            ],
+            "dt_compatible": false,
+            "min_max_dr": {
+              "min": 0.0004456684042283299,
+              "max": 0.0005176658748519389,
+              "mean": 0.0005,
+              "neighbor_ratio": 1.0331099976143439
+            },
+            "min_max_dz": {
+              "min": 0.0004314711498143303,
+              "max": 0.0005123719903539826,
+              "mean": 0.0004999999999999999,
+              "neighbor_ratio": 1.0129211422016104
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.1875
+          }
+        ]
+      },
+      "resources": {
+        "radial": {
+          "file": "q23_radial_monitor.npz",
+          "sha256": "8ce06aac4245a0359009e98e2998ee1ced8a7757f9f8931bf76fd16bc4e52d09",
+          "monitor_hash": "c7b96598b74d4147cc6e5584f9d8d0827856b53b4aa207c9113cfe5b36e7e6b4",
+          "faces_hashes": {
+            "40": "6ae1d5c7f8d6716f0a7757de906f28395382a911321024c25e8baef9c73b77c3",
+            "80": "c473576dcd272cb16380195e5ea5c9c18de05f67e45f493d8909cc5e8eb5817d",
+            "160": "f62db8867702a7e5716eefc75737be5fd334f7c354aba8ea666f414a9df53b45",
+            "200": "e0f41d9a97be90b9a16bd31a47895d1e1e584f2921c830a71a3b38b502b40922",
+            "320": "dfb55a105e863b1050dbb4facfdb957a28a1c35e0258e4e403713353f66d7567",
+            "400": "5ef89b08cecde4889c38eaeabb08dbcbb7b5f80b89b0ea42484e949c572f373f"
+          }
+        },
+        "axial": {
+          "file": "q23_axial_monitor.npz",
+          "sha256": "7486827c5af3f935ee54da3b5e22e5d73b4ca292598062173135e71f43d0437f",
+          "monitor_hash": "93ce9256764ab75be4a0ee315032fe9ba487266f54254471b18f0872ac6b3bfa",
+          "faces_hashes": {
+            "1": "4ed6a1c93593846f5d2707175163b599ad1e8418d270f2a06ca725370c0dcf5f",
+            "125": "7dca3a6e161e443e1b891832a68b519c8743d599bb4b62971d583a69ed9f75a0",
+            "250": "9b16d1c0132447c933ab50b1b96696f0af1932a338cb69b49712d48f737d6764"
+          }
+        }
+      }
+    },
+    "q4": {
+      "mesh_summary": {
+        "configuration_hash": "4e009c066ac36b49cc7a1bd24d483cd4b8afc05f6b060d8afd321d2048d24843",
+        "case": "q4",
+        "monitor_strength": 0.03125,
+        "base_stability_bound_s": 0.2804706587380698,
+        "profiles": {
+          "radial": {
+            "case": "q4",
+            "axis": "radial",
+            "pilot_id": "q4_1d_nr40_nz1_dt0.25",
+            "pilot_fingerprint": "8f836bbbd5ddcfd5429c795364b9a0a589b4251afc9f1f680a4b79d019eddd07",
+            "pilot_reused": true,
+            "pilot_time_range_s": [
+              0.0,
+              259200
+            ],
+            "sample_count": 4321,
+            "reference_ranges": [
+              22.049967076590406,
+              2.498745556415861
+            ],
+            "minima": [
+              301.15,
+              0.05125444358414693
+            ],
+            "maxima": [
+              323.1999670765904,
+              2.550000000000008
+            ],
+            "min_radius": 0.01198,
+            "formula": "1 + sqrt((wT max_t |dT/dx| / range(T))^2 + (wC max_t |dC/dx| / range(C))^2)",
+            "smoothing_passes": 2,
+            "max_density_ratio": 4.0,
+            "monitor_hash": "6b222f29eb5392833567defa3e7b233b843b1cfab8919d6a98041e3a32849792",
+            "monitor_strength": 0.03125,
+            "monitor_min": 1.0,
+            "monitor_max": 1.09375
+          },
+          "axial": {
+            "case": "q4",
+            "axis": "axial",
+            "pilot_id": "q4_2d_nr40_nz125_dt0.25",
+            "pilot_fingerprint": "65b0d59548a097cc6f0f5dfa641451056d5055eafb4e7d5a82a37fa6d04625ce",
+            "pilot_reused": true,
+            "pilot_time_range_s": [
+              0.0,
+              1800
+            ],
+            "sample_count": 31,
+            "reference_ranges": [
+              10.645195345804154,
+              2.0418554321857623
+            ],
+            "minima": [
+              301.15,
+              0.5081445678142386
+            ],
+            "maxima": [
+              311.79519534580413,
+              2.5500000000000007
+            ],
+            "min_radius": 0.01873,
+            "formula": "1 + sqrt((wT max_t |dT/dx| / range(T))^2 + (wC max_t |dC/dx| / range(C))^2)",
+            "smoothing_passes": 2,
+            "max_density_ratio": 4.0,
+            "monitor_hash": "e6f130993ee7bf5dea946cdf6dc87899ad7cad402b9f04b767a21b1b577972bd",
+            "monitor_strength": 0.03125,
+            "monitor_min": 1.0,
+            "monitor_max": 1.09375
+          }
+        },
+        "stability": [
+          {
+            "case": "q4",
+            "dimension": 1,
+            "nr": 40,
+            "nz": 1,
+            "requested_dt": 0.25,
+            "stability_bound": 0.30653920646656585,
+            "uniform_stability_bound": 0.3456307860241739,
+            "failing_location": [
+              0,
+              38,
+              0
+            ],
+            "dt_compatible": true,
+            "min_max_dr": {
+              "min": 0.00028205488877759043,
+              "max": 0.0003083768377584064,
+              "mean": 0.00029949999999999996,
+              "neighbor_ratio": 1.011641562760427
+            },
+            "min_max_dz": {
+              "min": 0.125,
+              "max": 0.125,
+              "mean": 0.125,
+              "neighbor_ratio": 1.0
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.09375
+          },
+          {
+            "case": "q4",
+            "dimension": 1,
+            "nr": 80,
+            "nz": 1,
+            "requested_dt": 0.25,
+            "stability_bound": 0.07663480161664023,
+            "uniform_stability_bound": 0.08640769650604264,
+            "failing_location": [
+              0,
+              76,
+              0
+            ],
+            "dt_compatible": false,
+            "min_max_dr": {
+              "min": 0.00014102744438879454,
+              "max": 0.00015421813316524022,
+              "mean": 0.00014974999999999998,
+              "neighbor_ratio": 1.006885153487816
+            },
+            "min_max_dz": {
+              "min": 0.125,
+              "max": 0.125,
+              "mean": 0.125,
+              "neighbor_ratio": 1.0
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.09375
+          },
+          {
+            "case": "q4",
+            "dimension": 1,
+            "nr": 160,
+            "nz": 1,
+            "requested_dt": 0.25,
+            "stability_bound": 0.01915870040415985,
+            "uniform_stability_bound": 0.021601924126510155,
+            "failing_location": [
+              0,
+              158,
+              0
+            ],
+            "dt_compatible": false,
+            "min_max_dr": {
+              "min": 7.051372219439594e-05,
+              "max": 7.711672117340112e-05,
+              "mean": 7.487499999999999e-05,
+              "neighbor_ratio": 1.0035355863794224
+            },
+            "min_max_dz": {
+              "min": 0.125,
+              "max": 0.125,
+              "mean": 0.125,
+              "neighbor_ratio": 1.0
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.09375
+          },
+          {
+            "case": "q4",
+            "dimension": 2,
+            "nr": 40,
+            "nz": 125,
+            "requested_dt": 0.25,
+            "stability_bound": 0.2804706587380698,
+            "uniform_stability_bound": 0.31717968865674173,
+            "failing_location": [
+              0,
+              38,
+              123
+            ],
+            "dt_compatible": true,
+            "min_max_dr": {
+              "min": 0.00028205488877759043,
+              "max": 0.0003083768377584064,
+              "mean": 0.00029949999999999996,
+              "neighbor_ratio": 1.011641562760427
+            },
+            "min_max_dz": {
+              "min": 0.0009251644367714307,
+              "max": 0.0010118986027187731,
+              "mean": 0.001,
+              "neighbor_ratio": 1.0073665537000123
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.09375
+          },
+          {
+            "case": "q4",
+            "dimension": 2,
+            "nr": 80,
+            "nz": 125,
+            "requested_dt": 0.25,
+            "stability_bound": 0.07489452031047712,
+            "uniform_stability_bound": 0.08451249844635207,
+            "failing_location": [
+              0,
+              76,
+              123
+            ],
+            "dt_compatible": false,
+            "min_max_dr": {
+              "min": 0.00014102744438879454,
+              "max": 0.00015421813316524022,
+              "mean": 0.00014974999999999998,
+              "neighbor_ratio": 1.006885153487816
+            },
+            "min_max_dz": {
+              "min": 0.0009251644367714307,
+              "max": 0.0010118986027187731,
+              "mean": 0.001,
+              "neighbor_ratio": 1.0073665537000123
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.09375
+          },
+          {
+            "case": "q4",
+            "dimension": 2,
+            "nr": 40,
+            "nz": 250,
+            "requested_dt": 0.25,
+            "stability_bound": 0.2234604394171204,
+            "uniform_stability_bound": 0.25436453610511844,
+            "failing_location": [
+              0,
+              38,
+              247
+            ],
+            "dt_compatible": false,
+            "min_max_dr": {
+              "min": 0.00028205488877759043,
+              "max": 0.0003083768377584064,
+              "mean": 0.00029949999999999996,
+              "neighbor_ratio": 1.011641562760427
+            },
+            "min_max_dz": {
+              "min": 0.00046258221838570146,
+              "max": 0.0005059493013593866,
+              "mean": 0.0005,
+              "neighbor_ratio": 1.0037309796051364
+            },
+            "monitor_min": 1.0,
+            "monitor_max": 1.09375
+          }
+        ]
+      },
+      "resources": {
+        "radial": {
+          "file": "q4_radial_monitor.npz",
+          "sha256": "0d26b6197e2d1807cf55e1cbce62eeeeb6b05cfaecc3485730178cbda4fe228a",
+          "monitor_hash": "6b222f29eb5392833567defa3e7b233b843b1cfab8919d6a98041e3a32849792",
+          "faces_hashes": {
+            "40": "e64bed437d665d825e5a251b885a57c288d11e8d1675592dd34995245c5b5d6d",
+            "80": "cc2181ea5513656b1b1733c3f4c9696e10f63d98d8dd7054a6d192dbdb1bfc85",
+            "160": "464f8ed9c9a6d20a96d9fa8406ba4ada91a660c29517027f0899973819d7e549",
+            "200": "6fc0e9c3fae95e203bb0a91cb5c828baec9b8a547398dd3be375b778f9259e30",
+            "320": "ccec73896b76218064107b3e59301547c4a7f4ee522932659b9680c531828a50",
+            "400": "0fe6c55834dd4bc71a482390865c1307b38c6b6a4d74b0c1ad77c10bb2076aa9"
+          }
+        },
+        "axial": {
+          "file": "q4_axial_monitor.npz",
+          "sha256": "f8604241ccef6067c57aec72d6262bc80da38fe5890941f105a7de9cf1ea0041",
+          "monitor_hash": "e6f130993ee7bf5dea946cdf6dc87899ad7cad402b9f04b767a21b1b577972bd",
+          "faces_hashes": {
+            "1": "4ed6a1c93593846f5d2707175163b599ad1e8418d270f2a06ca725370c0dcf5f",
+            "125": "d71770c67ff242baaaec6f28212697de8b8775412c0238ae61056e21da857c77",
+            "250": "987de0d792f4bdf6a83393ad0e015443fe38f3fbc8184221afeb56545fe91635"
+          }
+        }
+      }
+    }
+  }
+}

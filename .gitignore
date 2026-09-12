@@ -2,6 +2,9 @@
 __pycache__/
 .pytest_cache/
 release/
+release_v2/
+work/release_v2/
+work/frozen_mesh_regeneration/
 work/release/
 work/recompute/
 logs/

@@ -25,6 +25,9 @@ def Analysis_ExtractSeries(root,spec,baseline=False,extra_times=()):
         saved=Baseline_ReadJson(meta)
         if saved['analysis_hash']==analysis_hash and saved['sha256']==Baseline_HashFile(file):return saved
     source=Trajectory_IterBaseline(root,spec['case']) if baseline else Trajectory_Iter(root,source_id)
+    if spec.get('case_cache_id'):
+        from ..cases import Case_IterFields, Case_LoadMesh
+        source=((t,state,Case_LoadMesh(root,spec['case_cache_id'],t)) for t,state in Case_IterFields(root,spec['case_cache_id']))
     def EventStates():
         for target in extra_times:
             state,mesh=Analysis_GetExactState(root,spec,target,baseline)
@@ -138,6 +141,11 @@ def Analysis_GetBaselineState(root,case,target):
 def Analysis_GetExactState(root,spec,target,baseline=False):
     """Use the exact saved Event_Locate state at an own event; integrate other times."""
     root=Path(root)
+    if spec.get('case_cache_id'):
+        from ..validation import Validation_GetEndpointState
+        from ..cases import Case_LoadMesh
+        key=spec['case_cache_id']
+        return Validation_GetEndpointState(root,key,target),Case_LoadMesh(root,key,target)
     if baseline:
         frozen=Baseline_ReadJson(root/'work/baseline_snapshot/baseline_manifest.json')
         key=frozen['selected'][spec['case']+'_1d']['case_id'];folder=root/'work/cache'/key
@@ -155,9 +163,14 @@ def Analysis_GetExactState(root,spec,target,baseline=False):
     return Analysis_GetBaselineState(root,spec['case'],target) if baseline else Trajectory_GetState(root,spec,target)
 
 
-def Analysis_Compare(root,left_spec,right_spec,left_entry,right_entry,left_status,right_status,left_baseline=False):
+def Analysis_Compare(root,left_spec,right_spec,left_entry,right_entry,left_status,right_status,left_baseline=False,formal_end_s=None):
     left=Analysis_LoadSeries(root,left_entry);right=Analysis_LoadSeries(root,right_entry)
     common,li,ri=np.intersect1d(left['time_s'],right['time_s'],return_indices=True)
+    if formal_end_s is not None:
+        keep=common<=formal_end_s+1e-8
+        common,li,ri=common[keep],li[keep],ri[keep]
+    if not len(common):
+        raise RuntimeError('STUDY_REFERENCE_INCOMPLETE: no common formal times')
     delta=np.abs(left['radial'][li]-right['radial'][ri])
     row_T=np.nanmax(delta[:,0,:],axis=1);row_C=np.nanmax(delta[:,1,:],axis=1)
     event_rows=[];model={'q1':1,'q23':3,'q4':4}[left_spec['case']]
@@ -187,6 +200,14 @@ def Analysis_Compare(root,left_spec,right_spec,left_entry,right_entry,left_statu
     pair_ok=pair_ok and all(left_spec[k]==right_spec[k] for k in ['case','mode','physics','tail_minutes','shrink','monitor_hash'])
     if half:pair_ok=pair_ok and right_spec['replay']==left_spec['experiment_id']
     history_ok=right_status.get('full_history_verified',False) and common[0]==0. and common[-1]==right_spec['schedule'][-1]['t_end'] and pair_ok
+    if formal_end_s is not None:
+        from ..cases import Case_GetSchedule
+        # Both true event states are checked separately above; the regular
+        # requested output calendar must be complete through the earlier end.
+        expected=Case_GetSchedule(left_spec['case'],formal_end_s)
+        expected=expected[expected<formal_end_s-1e-8]
+        history_ok=bool(right_status.get('full_history_verified',False) and pair_ok and
+            all(np.any(np.abs(common-t)<1e-8) for t in expected))
     passed=maxT<=threshold_T and maxC<=threshold_C and time_ok and history_ok
     check=dict(case=left_spec['case'],mode=left_spec['mode'],reference_id=right_spec['experiment_id'],production_id=left_spec['experiment_id'],
         status='PASS' if passed else 'FAIL',full_schedule_reference_passed=bool(passed) if not half else None,

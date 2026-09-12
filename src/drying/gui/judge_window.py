@@ -7,7 +7,7 @@ from PySide6.QtGui import QColor, QPalette
 from PySide6.QtWidgets import (QApplication, QCheckBox, QGroupBox, QHBoxLayout, QLabel,
     QMainWindow, QMessageBox, QPlainTextEdit, QProgressBar, QPushButton, QVBoxLayout, QWidget, QScrollArea, QSplitter)
 from ..runtime import Runtime_BuildRecomputeCommand
-from ..recompute import TASKS, Recompute_GetPlan
+from ..judge_pipeline import TASKS, Judge_GetPlan
 from ..runner_control import Runner_GetProcess, Runner_Stop, RunnerStopResult
 from .facts import load_facts
 
@@ -56,24 +56,33 @@ class JudgeWindow(QMainWindow):
         central = QWidget(); layout = QVBoxLayout(central); layout.setContentsMargins(24,18,24,18); layout.setSpacing(12)
         layout.addWidget(QLabel('<h2>2026 数学建模 A题 · 药材烘干模型</h2>'))
         facts = load_facts(self.root)
-        box = QGroupBox('已有正式结果'); bl = QVBoxLayout(box)
+        box = QGroupBox('正式结果 / 冻结参考'); bl = QVBoxLayout(box)
         if facts.ready:
             official = facts.data['official']
             bl.addWidget(QLabel(f"<h2>Q3：{official['Q3']['drying_time_h']:.4f} h　　Q4：{official['Q4']['drying_time_h']:.4f} h</h2>"))
-        else: bl.addWidget(QLabel('暂无已有结果；可选择项目开始复算，程序将自动创建结果目录。'))
-        bl.addWidget(QLabel('正式模型：M00 一维径向模型　｜　复算输出单独保存在 work/recompute/results'))
+        else:
+            from ..runtime import Runtime_GetCode
+            path=Runtime_GetCode(self.root)/'configs/table_reference/manifest.json'
+            reference=json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
+            if reference:
+                bl.addWidget(QLabel('冻结参考（尚未在本机复算）：Q3 %.4f h　Q4 %.4f h' % tuple(
+                    reference['questions'][str(q)]['event']['report_h'] for q in [3,4])))
+            else:bl.addWidget(QLabel('暂无结果；开始复算后自动创建工作目录。'))
+        bl.addWidget(QLabel('正式模型：M00 一维径向模型　｜　输出 results/；计算缓存 work/recompute/'))
         layout.addWidget(box)
-        choices = QGroupBox('离线复算项目'); cl = QHBoxLayout(choices); self.checks = {}
+        choices = QGroupBox('四类独立任务'); cl = QVBoxLayout(choices); self.checks = {}
         self.choices=choices
-        for title, keys in [('正式题目', ['q1','q23','q4']), ('补充验证与研究', list(TASKS)[3:])]:
+        for title, keys in [('A · 原题计算', ['q1','q23','q4']),
+                ('B · 验证', ['one-dimensional','aux-2d','mass-balance','consistency']),
+                ('C · 原题绘图', ['static','gif']), ('D · 拓展', ['extensions'])]:
             column = QVBoxLayout(); column.addWidget(QLabel('<b>'+title+'</b>'))
             for key in keys:
                 check = QCheckBox(TASKS[key]); check.setChecked(key in ['q1','q23','q4'])
                 self.checks[key] = check; column.addWidget(check)
-            column.addStretch(); cl.addLayout(column)
+            cl.addLayout(column)
         layout.addWidget(choices)
         row = QHBoxLayout(); self.select_buttons = []
-        for text, selection in [('仅正式题目',['q1','q23','q4']), ('全选',list(TASKS)), ('全不选',[])]:
+        for text, selection in [('仅原题表格',['q1','q23','q4']), ('全选',list(TASKS)), ('全不选',[])]:
             button = QPushButton(text); button.clicked.connect(lambda checked=False, keys=selection:self.Selection_Set(keys))
             row.addWidget(button); self.select_buttons.append(button)
         row.addStretch(); layout.addLayout(row)
@@ -119,6 +128,23 @@ class JudgeWindow(QMainWindow):
         keys = [key for key, check in self.checks.items() if check.isChecked()]
         if not keys:
             self.current.setText('请至少勾选一个复算项目。'); return
+        plan=Judge_GetPlan(self.root,keys)
+        dependencies=list(plan['automatic_dependencies'])
+        if set(keys)&{'static','gif'}:
+            from ..judge_plots import Judge_GetPlotMissing
+            missing=Judge_GetPlotMissing(self.root/'work/recompute/runtime')
+            additions={row['required_task'] for row in missing}-set(keys)
+            if additions:
+                dependencies += ['绘图缺少数据，需要 '+TASKS[key] for key in sorted(additions)]
+                keys += sorted(additions)
+                plan=Judge_GetPlan(self.root,keys)
+        self.logs.appendPlainText(json.dumps(plan,ensure_ascii=False,indent=2))
+        if dependencies and not self.dry_run:
+            answer=QMessageBox.question(self,'确认所选任务的必要依赖',
+                '将补充以下计算：\n'+'\n'.join('• '+text for text in dependencies)+
+                '\n\n最多两个计算进程并行。是否按上方计划开始？',
+                QMessageBox.StandardButton.Yes|QMessageBox.StandardButton.No,QMessageBox.StandardButton.No)
+            if answer!=QMessageBox.StandardButton.Yes:return
         args = ['--tasks', *keys, '--gui-run'] + (['--dry-run'] if self.dry_run else [])
         if not self.dry_run:
             for name in ['STOP','BASELINE_STOP']:
@@ -128,7 +154,7 @@ class JudgeWindow(QMainWindow):
         self.process.setWorkingDirectory(str(self.root))
         env = QProcessEnvironment.systemEnvironment(); env.insert('DRYING_MODEL_ROOT', str(self.root)); env.insert('PYTHONIOENCODING','utf-8'); env.insert('PYTHONUNBUFFERED','1')
         self.process.setProcessEnvironment(env)
-        self.progress_total=max(1,len(Recompute_GetPlan(keys)))
+        self.progress_total=max(1,len(plan['steps']))
         self.outer.setRange(0,self.progress_total);self.outer.setValue(0)
         self.outer.setFormat(f'%p% · 0 / {self.progress_total} 项')
         self.Controls_Set(True); self.current.setText('正在准备所选任务及必要依赖…')
@@ -137,7 +163,7 @@ class JudgeWindow(QMainWindow):
 
     def Controls_Set(self, busy):
         for control in [self.start, *self.checks.values(), *self.select_buttons]: control.setEnabled(True)
-        self.choices.setTitle('下一轮复算项目（不改变当前任务）' if busy else '离线复算项目')
+        self.choices.setTitle('下一轮任务选择（当前计算继续）' if busy else '四类独立任务')
         self.start.setText('复算进行中 · 点击查看状态' if busy else '开始离线复算')
         self.stop.setEnabled(busy)
         self.stop.setText('立即停止')
@@ -199,6 +225,13 @@ class JudgeWindow(QMainWindow):
         self.inner.setText('已完成；进度以任务阶段计数，不代表运行时间比例。' if code==0 and not self.dry_run else
             '保留已完成进度；重新开始新一轮任务时归零。')
         self.current.setText(('计划检查完成 · 未执行求解' if self.dry_run else '任务完成 · PASS') if code==0 else '已安全停止，可再次开始恢复' if code==2 else f'任务失败（退出码 {code}），请展开详细日志')
+        timing_path=self.root/'results/recompute_timing_summary.json'
+        if code==0 and not self.dry_run and timing_path.exists():
+            timing=json.loads(timing_path.read_text(encoding='utf-8'))
+            groups=timing.get('group_wall_s',timing.get('group_worker_wall_s',{}))
+            text='　'.join(label+' %.2f min'%(groups.get(key,0)/60) for key,label in
+                [('original','原题'),('validation','验证'),('plot','绘图'),('extension','拓展')])
+            self.inner.setText(text+'\n总耗时 %.2f min'%(timing.get('total_wall_s',timing['wall_s'])/60))
         if code not in (0,2):self.log_toggle.setChecked(True)
         if self.pending_close: self.close()
 

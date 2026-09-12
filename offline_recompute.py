@@ -1,4 +1,4 @@
-"""Console entry. No arguments means the complete offline workflow."""
+"""Console entry. No arguments means the three original solves/four Excel tables."""
 import os
 import sys
 from pathlib import Path
@@ -13,16 +13,18 @@ def main():
     sys.path.insert(0, str(code/'src'))
     if sys.stdout is not None and hasattr(sys.stdout, 'reconfigure'): sys.stdout.reconfigure(encoding='utf-8')
     if sys.stderr is not None and hasattr(sys.stderr, 'reconfigure'): sys.stderr.reconfigure(encoding='utf-8')
-    from drying.recompute import Recompute_Main
-    return Recompute_Main(root)
+    from drying.judge_pipeline import Judge_Main
+    return Judge_Main(root)
 
 
 if __name__ == '__main__':
     result = main()
     # A console created solely for this EXE indicates Explorer/double-click launch.
-    if getattr(sys, 'frozen', False) and os.name == 'nt' and not sys.argv[1:]:
+    if (getattr(sys, 'frozen', False) and os.name == 'nt' and not sys.argv[1:]
+        and sys.stdin is not None and sys.stdin.isatty()):
         import ctypes
         processes = (ctypes.c_ulong*4)()
         if ctypes.windll.kernel32.GetConsoleProcessList(processes, 4) == 1:
-            input('按回车键退出')
+            try:input('按回车键退出')
+            except EOFError:pass
     raise SystemExit(result)

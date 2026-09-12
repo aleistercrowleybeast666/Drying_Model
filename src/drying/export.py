@@ -72,14 +72,16 @@ def Export_WriteWorkbook(template, destination, times, arrays, radius_columns):
             tmp.unlink()
 
 
-def Export_Run(root, case_filter='all'):
+def Export_Run(root, case_filter='all', source_case_id=None):
     root = Path(root)
     from .outputs import Output_PrepareFolders
     Output_PrepareFolders(root)
     inputs = Case_LoadInputs(root)
     input_manifest = json.loads((root/'data/input_manifest.json').read_text(encoding='utf-8'))
     val_path = root/'work/validation/summary.json'
-    validation = json.loads(val_path.read_text(encoding='utf-8')) if val_path.exists() else {}
+    validation = json.loads(val_path.read_text(encoding='utf-8')) if source_case_id is None and val_path.exists() else {}
+    if source_case_id is not None and case_filter not in ('q1','q23','q4'):
+        raise ValueError('EXPORT_FAILED: explicit source requires a single case')
     manifest_path=root/'work/diagnostics/export_manifest.json'
     manifest=json.loads(manifest_path.read_text(encoding='utf-8')) if manifest_path.exists() else dict(input_hash=input_manifest['hash'], outputs=[], official_source='1D')
     tables = root/'work/cache/exports'
@@ -88,11 +90,13 @@ def Export_Run(root, case_filter='all'):
         if case_filter not in ('all',case):
             continue
         entry = validation.get(case+'_1d', {})
-        case_id = Case_GetSelected(root,case,1)
+        case_id = source_case_id or Case_GetSelected(root,case,1)
         mesh = Case_LoadMesh(root,case_id)
         status = Case_ReadStatus(root, case_id)
         if entry.get('selected_id') != case_id or entry.get('selected_fingerprint') != status['fingerprint']:
             entry = {}
+        if source_case_id is not None:
+            entry = dict(numerical_status='NOT_RERUN_IN_TABLE_ONLY_MODE')
         if not status['complete'] or status['dim'] != 1:
             raise RuntimeError('EXPORT_FAILED: incomplete or non-1D source')
         samples = []

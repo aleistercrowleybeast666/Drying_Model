@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "scope": "all existing official PNG/GIF and original Excel; ownership is independent of folder name",
+  "outputs": [
+    {
+      "path": "results/animations/q3_3d.gif",
+      "group": "plot",
+      "required_sources": [
+        "A: table_production",
+        "B: independent 2D fields"
+      ],
+      "selection": "gif"
+    },
+    {
+      "path": "results/animations/q3_q4_axial_section.gif",
+      "group": "plot",
+      "required_sources": [
+        "A: table_production",
+        "B: independent 2D fields"
+      ],
+      "selection": "gif"
+    },
+    {
+      "path": "results/animations/q3_q4_cutaway_cylinder.gif",
+      "group": "plot",
+      "required_sources": [
+        "A: table_production",
+        "B: independent 2D fields"
+      ],
+      "selection": "gif"
+    },
+    {
+      "path": "results/animations/q3_q4_radial_section.gif",
+      "group": "plot",
+      "required_sources": [
+        "A: table_production",
+        "B: independent 2D fields"
+      ],
+      "selection": "gif"
+    },
+    {
+      "path": "results/animations/q4_3d.gif",
+      "group": "plot",
+      "required_sources": [
+        "A: table_production",
+        "B: independent 2D fields"
+      ],
+      "selection": "gif"
+    },
+    {
+      "path": "results/q1/q1_1d_2d_compare.png",
+      "group": "validation",
+      "required_sources": [
+        "B: comparison/auxiliary fields"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/q1/q1_curves.png",
+      "group": "plot",
+      "required_sources": [
+        "A: table_production"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/q1/q1_max_error_section.png",
+      "group": "validation",
+      "required_sources": [
+        "B: comparison/auxiliary fields"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/q2/q2_1d_2d_compare.png",
+      "group": "validation",
+      "required_sources": [
+        "B: comparison/auxiliary fields"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/q2/q2_curves.png",
+      "group": "plot",
+      "required_sources": [
+        "A: table_production"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/q2/q2_max_error_section.png",
+      "group": "validation",
+      "required_sources": [
+        "B: comparison/auxiliary fields"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/q3/q3_1d_2d_compare.png",
+      "group": "validation",
+      "required_sources": [
+        "B: comparison/auxiliary fields"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/q3/q3_3d.png",
+      "group": "plot",
+      "required_sources": [
+        "A: table_production",
+        "B: independent 2D fields"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/q3/q3_curves.png",
+      "group": "plot",
+      "required_sources": [
+        "A: table_production"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/q3/q3_max_error_section.png",
+      "group": "validation",
+      "required_sources": [
+        "B: comparison/auxiliary fields"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/q4/q4_1d_2d_compare.png",
+      "group": "validation",
+      "required_sources": [
+        "B: comparison/auxiliary fields"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/q4/q4_3d.png",
+      "group": "plot",
+      "required_sources": [
+        "A: table_production",
+        "B: independent 2D fields"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/q4/q4_curves.png",
+      "group": "plot",
+      "required_sources": [
+        "A: table_production"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/q4/q4_max_error_section.png",
+      "group": "validation",
+      "required_sources": [
+        "B: comparison/auxiliary fields"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/studies/animations/thermal_moisture.gif",
+      "group": "extension",
+      "required_sources": [
+        "D: sealed study/technical payload"
+      ],
+      "selection": "gif"
+    },
+    {
+      "path": "results/studies/animations/thermal_temperature.gif",
+      "group": "extension",
+      "required_sources": [
+        "D: sealed study/technical payload"
+      ],
+      "selection": "gif"
+    },
+    {
+      "path": "results/studies/figures/01_end_effect_extent.png",
+      "group": "validation",
+      "required_sources": [
+        "B: independent 2D fields",
+        "D: matched radial-grid M00 payload"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/studies/figures/02_drying_fronts.png",
+      "group": "extension",
+      "required_sources": [
+        "D: sealed study/technical payload"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/studies/figures/03_drying_kinetics.png",
+      "group": "extension",
+      "required_sources": [
+        "D: sealed study/technical payload"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/studies/figures/04_diffusion_clock_drivers.png",
+      "group": "extension",
+      "required_sources": [
+        "D: sealed study/technical payload"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/studies/figures/05_geometry_property_cross.png",
+      "group": "extension",
+      "required_sources": [
+        "D: sealed study/technical payload"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/studies/figures/06_environment_robustness.png",
+      "group": "extension",
+      "required_sources": [
+        "D: sealed study/technical payload"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/studies/figures/07_thermal_modes.png",
+      "group": "extension",
+      "required_sources": [
+        "D: sealed study/technical payload"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/studies/figures/08_thermal_interactions.png",
+      "group": "extension",
+      "required_sources": [
+        "D: sealed study/technical payload"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/studies/figures/09_verification_evidence.png",
+      "group": "validation",
+      "required_sources": [
+        "B: comparison/auxiliary fields"
+      ],
+      "selection": "static"
+    },
+    {
+      "path": "results/tables/result1.xlsx",
+      "group": "original",
+      "required_sources": [
+        "A: q1"
+      ]
+    },
+    {
+      "path": "results/tables/result2.xlsx",
+      "group": "original",
+      "required_sources": [
+        "A: q23"
+      ]
+    },
+    {
+      "path": "results/tables/result3.xlsx",
+      "group": "original",
+      "required_sources": [
+        "A: q23"
+      ]
+    },
+    {
+      "path": "results/tables/result4.xlsx",
+      "group": "original",
+      "required_sources": [
+        "A: q4"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-12T06:10:09.745634+00:00",
+  "relative_tolerance": 1e-10,
+  "absolute_tolerance_definition": "initial_water_mass_kg * relative_tolerance",
+  "remesh_relative_tolerance": 1e-12,
+  "fp64_epsilon": 2.220446049250313e-16,
+  "maximum_case_accepted_steps": 5151687,
+  "total_accepted_steps": 29920769,
+  "maximum_mass_sum_condition_scale": 1.96066431435538,
+  "rounding_operation_allowance": 64,
+  "estimated_relative_roundoff_scale": 6.324091986092393e-11,
+  "selection_formula": "10**ceil(log10(64*eps64*sqrt(max_case_accepted_steps)*(1+max_case(integral_abs_boundary_flux/Mw0))))",
+  "selection_scope": "engineering FP64 roundoff allowance, not a rigorous worst-case bound; rounded once to a common decimal scale; no observed residual in the threshold formula",
+  "rk4_rationale": "FV internal face fluxes cancel; bd(t)*cell_volume(t) is constant for prescribed uniform radial shrinkage. The same accepted-step RK4 weights update C and integrate boundary flow, so RK4 trajectory truncation error does not create a defect of this linear discrete mass invariant.",
+  "accumulation_rationale": "Boundary outflow uses signed stage flux and Kahan summation; leading compensated-sum error is order eps times accumulated absolute flow. Remaining defect includes repeated FP64 cell-state updates and volume products.",
+  "remesh_rationale": "Retains the existing Stage_ProjectState relative volume-integral criterion 1e-12. At the same remesh time the effective dry basis and physical radius are common scalars.",
+  "existing_space_and_time_thresholds_changed": false,
+  "residual_used_to_fit_tolerance": false,
+  "measured_before_policy": [
+    {
+      "case": "q1",
+      "mode": "M00",
+      "source_file": "work/validation/mass_balance/q1_1d_stage_schedule_default_dt0.25_s030d129157f2/measurement.json",
+      "source_sha256": "d3c85fc28c4e29a499c041adb8adee70520d263218e2ca4d9d614180db161058",
+      "observed_max_relative_residual": 4.9779350343177125e-15
+    },
+    {
+      "case": "q23",
+      "mode": "M00",
+      "source_file": "work/validation/mass_balance/q23_1d_stage_schedule_conservative_dt0.25_s45cdf27de084/measurement.json",
+      "source_sha256": "6f960b5de5f3f6146ae3e1453437e1561eec015be120cd89f697fbb9e019bc2f",
+      "observed_max_relative_residual": 2.2296363392820017e-14
+    },
+    {
+      "case": "q4",
+      "mode": "M00",
+      "source_file": "work/validation/mass_balance/q4_1d_stage_schedule_default_dt0.25_s33c788387cd3/measurement.json",
+      "source_sha256": "6e3c7602acba9cdff9097c0d65754417886c3df9c5e1e91d868966115d59bf12",
+      "observed_max_relative_residual": 4.3878062786447307e-14
+    },
+    {
+      "case": "q1",
+      "mode": "M10",
+      "source_file": "work/validation/mass_balance/q1_M10_production_x1_tail60_3195d8f95b6d/measurement.json",
+      "source_sha256": "7f12326c8ea835fa54fdac850cba1d3cca99affc45d93ca0f31139e89c280bd8",
+      "observed_max_relative_residual": 4.9779350343177125e-15
+    },
+    {
+      "case": "q23",
+      "mode": "M10",
+      "source_file": "work/validation/mass_balance/q23_M10_production_x1_tail60_f001afde885f/measurement.json",
+      "source_sha256": "50086b6db533d8d4d91aae75db64402fa5f4fe2a0e10fa19d1ff84a92f4ac30e",
+      "observed_max_relative_residual": 2.6831216964241036e-14
+    },
+    {
+      "case": "q1",
+      "mode": "M01",
+      "source_file": "work/validation/mass_balance/q1_M01_production_x1_tail60_9528c86985e2/measurement.json",
+      "source_sha256": "24053babd84d8974503edd163c5c1f3bd46ab6ea3ada1f2d4b172b02b960c28a",
+      "observed_max_relative_residual": 4.9779350343177125e-15
+    },
+    {
+      "case": "q23",
+      "mode": "M01",
+      "source_file": "work/validation/mass_balance/q23_M01_production_x1_tail60_182fbf89b7a4/measurement.json",
+      "source_sha256": "8e095bb0f0759fd9ae18136989cec751f97b39079139f8f29494da786a7256ed",
+      "observed_max_relative_residual": 1.7509573511875604e-14
+    },
+    {
+      "case": "q4",
+      "mode": "M10",
+      "source_file": "work/validation/mass_balance/q4_M10_production_x2_tail60_16fad782a30b/measurement.json",
+      "source_sha256": "7f8744a169c2c0a436e289b4505c8ad5cc23f81a72d358783e8f683370aee973",
+      "observed_max_relative_residual": 5.021738630516916e-13
+    },
+    {
+      "case": "q4",
+      "mode": "M01",
+      "source_file": "work/validation/mass_balance/q4_M01_production_x1_tail60_c5eab22374c1/measurement.json",
+      "source_sha256": "a635f7adf0c7a02c27dd056b70f0cba88f19d0caba56485b9275d1ca5ddb5664",
+      "observed_max_relative_residual": 4.282150886666033e-14
+    },
+    {
+      "case": "q1",
+      "mode": "M11",
+      "source_file": "work/validation/mass_balance/q1_M11_production_x1_tail60_5590317f2af6/measurement.json",
+      "source_sha256": "0bcf2a1a669a584396f1b55f999d700e89d23488ccea816a1e0471be7f4d677c",
+      "observed_max_relative_residual": 4.9779350343177125e-15
+    },
+    {
+      "case": "q23",
+      "mode": "M11",
+      "source_file": "work/validation/mass_balance/q23_M11_production_x1_tail60_38ef6e17d315/measurement.json",
+      "source_sha256": "19ee246e1b2afda214f6f3fcbb91d66f8cf7e45a5b21773c3ac092d36030108c",
+      "observed_max_relative_residual": 2.626436026781341e-14
+    },
+    {
+      "case": "q4",
+      "mode": "M11",
+      "source_file": "work/validation/mass_balance/q4_M11_production_x2_tail60_7848b38bac48/measurement.json",
+      "source_sha256": "d9066c6d5cf0933a4fbed362d21c39838f84c8e344f13c6dce208b752ad38870",
+      "observed_max_relative_residual": 5.011173091319046e-13
+    }
+  ]
+}

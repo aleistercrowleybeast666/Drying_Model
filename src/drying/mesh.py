@@ -150,6 +150,10 @@ def Mesh_GetStabilityBound(root, case, xi, eta, radial_metadata):
 def Mesh_PrepareCase(root, case):
     from .cases import Case_LoadConfig
     from .diagnostics import Diagnostics_Record
+    import os
+    if os.environ.get('DRYING_JUDGE_FROZEN_MESH') == '1':
+        from .frozen_mesh import Frozen_PrepareCase
+        return Frozen_PrepareCase(root, case)
     root = Path(root); config = Case_LoadConfig(root); cfg = config['mesh']
     folder = root/'work/validation/mesh_profiles'; folder.mkdir(parents=True,exist_ok=True)
     signature = hashlib.sha256(json.dumps(dict(mesh=cfg,dt=config['numerics']['dt_s'],safety=config['numerics']['safety'],

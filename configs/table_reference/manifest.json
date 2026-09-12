@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "scope": "Numeric reference, not a rerun convergence certificate",
+  "tolerances": {
+    "time_s": 1e-08,
+    "temperature_C": 1e-08,
+    "moisture": 1e-10,
+    "R_m": 1e-12,
+    "surface_C": 1e-10,
+    "event_report_s": 1e-08,
+    "event_report_max_C": 1e-10
+  },
+  "questions": {
+    "1": {
+      "file": "result1_full_precision.npz",
+      "sha256": "47b3f31734f330be2fed0d6f8800b134b65e0ec11401906cf414b81d3dd14910",
+      "event": null
+    },
+    "2": {
+      "file": "result2_full_precision.npz",
+      "sha256": "2c57d847f4b62ea03086b6446e9c5ce66315f2f74b626f898aeffc9e958f9bd8",
+      "event": null
+    },
+    "3": {
+      "file": "result3_full_precision.npz",
+      "sha256": "e5278ad508c013f9f63ed52ad883538b93e852d9d8e34874a9a952cc6994b6ac",
+      "event": {
+        "left_s": 207437.25,
+        "right_s": 207437.3125,
+        "width_s": 0.0625,
+        "raw_event_s": 207437.3125,
+        "report_s": 207437.4,
+        "report_h": 57.6215,
+        "left_max_C": 0.15000000443094458,
+        "right_max_C": 0.14999998632117795,
+        "report_max_C": 0.14999996096752208
+      }
+    },
+    "4": {
+      "file": "result4_full_precision.npz",
+      "sha256": "20682dd9a7a97a681169ca0558e7e4d5cdfe21004211d896a499c19d28d1627f",
+      "event": {
+        "left_s": 184256.4375,
+        "right_s": 184256.5,
+        "width_s": 0.0625,
+        "raw_event_s": 184256.5,
+        "report_s": 184256.63999999998,
+        "report_h": 51.182399999999994,
+        "left_max_C": 0.1500000201423382,
+        "right_max_C": 0.14999998817025156,
+        "report_max_C": 0.1499999165528687
+      }
+    }
+  }
+}

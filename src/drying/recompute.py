@@ -157,6 +157,9 @@ def Recompute_RuntimeCheck():
     assert iapws.IAPWS97(T=300,x=0).h > 0
     from drying.materials import Material_Evaluate
     assert np.isfinite(Material_Evaluate(1,301.15,2.55)).all()
+    # The thermal provenance code hashes the installed IAPWS source. Verify it
+    # is physically shipped, not available only inside the frozen PYZ archive.
+    assert (Path(iapws.__file__).parent/'iapws97.py').is_file(), 'IAPWS_SOURCE_RESOURCE_MISSING'
     print(json.dumps(dict(status='PASS',frozen=bool(getattr(sys,'frozen',False)),python=sys.executable,
         qt=qVersion(),numba=numba.__version__,scipy=scipy.__version__,matplotlib_data=matplotlib.get_data_path(),
         checks=['Qt','NumPy','SciPy DLL','Numba JIT','llvmlite','Matplotlib data','openpyxl','Pillow','imageio','IAPWS','pypdf','psutil','original material callable']),ensure_ascii=False),flush=True)
