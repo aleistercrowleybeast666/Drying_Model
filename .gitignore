@@ -39,3 +39,6 @@ work/validation/mass_balance/*/checkpoint.npz
 /release_v3/
 
 /work/release_v3/
+
+/release_v4/
+/work/release_v4/

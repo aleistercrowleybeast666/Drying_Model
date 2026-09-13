@@ -287,13 +287,14 @@ def Analysis_EndEffects(root,case,matched_spec,matched_entry,official_entry):
     return result
 
 
-def Analysis_GetExpectedIds(root):
+def Analysis_GetExpectedIds(root,strict_thermal=True):
     """Resolve the explicit current plan, including source/config fingerprints."""
     from types import SimpleNamespace
     from .scheduler import Studies_GetPlan
     expected=[]
     for job in Studies_GetPlan(SimpleNamespace(group='all',case=None,mode=None)):
         job=dict(job)
+        if not strict_thermal and job.get('mode','M00')!='M00' and job['kind'] in ['full_reference','time_half']:continue
         try:
             if job['kind']=='time_half':
                 job['replay']=Trajectory_GetSpec(root,job['case'],job.get('mode','M00'),factor=job.get('factor',1))['experiment_id']
@@ -303,7 +304,7 @@ def Analysis_GetExpectedIds(root):
     return expected
 
 
-def Studies_Summarize(root,index):
+def Studies_Summarize(root,index,strict_thermal=True):
     root=Path(root);baseline=Baseline_ReadJson(root/'work/baseline_snapshot/baseline_manifest.json')
     manifest=dict(schema_version=2,baseline_id=baseline['baseline_id'],series={},checks=[],end_effects=[],thermal_audits=[],remesh_front_audits=[],experiments=index['experiments'])
     specs={};statuses={};baseline_keys={}
@@ -313,7 +314,8 @@ def Studies_Summarize(root,index):
         from .audit import Audit_CheckBaselineRemesh
         manifest['remesh_front_audits'].append(Audit_CheckBaselineRemesh(root,spec,statuses[key]))
     # Only explicit current-code/config identities are exposed; old complete caches remain history.
-    expected=Analysis_GetExpectedIds(root)
+    expected=Analysis_GetExpectedIds(root,strict_thermal)
+    manifest['strict_thermal_selected']=strict_thermal
     current={}
     for key,result in index['experiments'].items():
         if key not in expected or not result.get('complete'):continue
@@ -386,7 +388,9 @@ def Studies_Summarize(root,index):
     manifest['generation_stage']='COMPUTE_PAYLOAD'
     manifest['generation_status']='COMPUTED' if index['all_experiments_computed'] else 'PARTIAL_COMPUTE'
     failed=any(c['status']!='PASS' for c in manifest['checks']+manifest['thermal_audits']+manifest['remesh_front_audits'])
-    manifest['validation_status']='FAIL' if failed else 'PASS' if len(manifest['checks'])==21 and len(manifest['thermal_audits'])==27 else 'INCOMPLETE'
+    required_checks,required_audits=(21,27) if strict_thermal else (3,9)
+    manifest['validation_status']='FAIL' if failed else 'PASS' if len(manifest['checks'])==required_checks and len(manifest['thermal_audits'])==required_audits else 'INCOMPLETE'
+    manifest['supplemental_convergence_scope']='18 thermal strict checks selected' if strict_thermal else 'NOT_SELECTED: use Developer Full Audit for 18 thermal strict checks'
     Storage_WriteJson(root/'results/studies/study_index.json',index)
     # Writers may add synthesis/exports but never start a trajectory.
     from .synthesis import Synthesis_Build
@@ -401,6 +405,7 @@ def Studies_Summarize(root,index):
     Storage_WriteJson(path,manifest)
     Storage_WriteJson(root/'results/studies/validation_summary.json',dict(baseline_id=manifest['baseline_id'],
         generation_status=manifest['generation_status'],validation_status=manifest['validation_status'],
+        strict_thermal_selected=strict_thermal,supplemental_convergence_scope=manifest['supplemental_convergence_scope'],
         current_experiment_ids=expected,checks=manifest['checks'],thermal_audits=manifest['thermal_audits'],
         remesh_front_audits=manifest['remesh_front_audits'],end_effects=manifest['end_effects'],
         historical_checks=manifest['historical_checks'],historical_role='legacy / diagnostic only'))

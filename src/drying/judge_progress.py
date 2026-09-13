@@ -79,7 +79,7 @@ def Progress_GetCosts(root, plan, reference):
         if not reference or previous.get('progress_identity')!=reference['identity']:continue
         if not previous.get('tasks') or any(r.get('status')!='PASS' for r in previous['tasks']):continue
         for row in previous['tasks']:
-            if previous.get('progress_scope_version')!=3 and not row['key'].startswith(('A.','D.M10.','D.M01.','D.M11.','D.full.')):continue
+            if previous.get('progress_scope_version')!=4 and not row['key'].startswith(('A.','D.M10.','D.M01.','D.M11.','D.full.')):continue
             if not row.get('cache_reused') and row.get('wall_s',0)>0:
                 measured[row['key']]=dict(measured.get(row['key'],{}),wall_s=row['wall_s'])
     costs={}
@@ -94,6 +94,13 @@ def Progress_GetCosts(root, plan, reference):
         costs[job['key']]=dict(weight=max(.01,float(measured.get(job['key'],{}).get('wall_s',fallback))),
             source='measured successful wall' if job['key'] in measured else 'conservative stage/cell/step cost model',
             confidence='calibrated' if job['key'] in measured else 'rough')
+        if kind.startswith('twod_'):
+            from .runtime import Runtime_GetCode
+            resources=Progress_ReadJson(Runtime_GetCode(Path(root))/'configs/judge_resource_reference.json')
+            record=resources.get('costs',{}).get(job['key'],{}) if resources.get('identity')==reference.get('identity') else {}
+            if job['key'] not in measured:
+                costs[job['key']]=dict(weight=record.get('wall_s',15.),source=record.get('source','unmeasured 2D component'),
+                    confidence='rough' if record or not job['pde'] else 'unknown')
         if kind=='developer_diagnostic':
             stages=reference.get('tasks',{}).get('A.'+case,{}).get('stages',[])
             units=sum(s['steps']*s['nr']*s['nz'] for s in stages)
@@ -223,6 +230,7 @@ class ProgressLogStream:
 class ProgressTracker:
     def __init__(self, plan, costs, preparation=None, clock=time.monotonic):
         self.clock=clock;self.started=clock();self.workers=plan['worker_count'];self.state='running'
+        self.memory_budget_mb=plan.get('resources',{}).get('memory_budget_mb',float('inf'))
         self.jobs={j['key']:dict(j,label=j.get('label',j['key']),weight=costs[j['key']]['weight'],
             confidence=costs[j['key']].get('confidence','calibrated'),fraction=0.,status='pending',started=None,observed=False,cache_reused=False) for j in plan['steps']}
         previous=[]
@@ -282,14 +290,14 @@ class ProgressTracker:
             elif row['status']=='running':duration=max(duration-elapsed,elapsed*.5,1.)
             remaining[key]=None if row.get('confidence')=='unknown' else duration
         jobs.sort(key=lambda r:r['status']!='running')
-        return Schedule_Estimate(jobs,remaining,self.workers)[0]
+        return Schedule_Estimate(jobs,remaining,self.workers,self.memory_budget_mb)[0]
 
     def Progress_Snapshot(self):
         with self.lock:
             now=self.clock();elapsed=now-self.started
             # Task fractions are structural evidence only. Wall-time/ETA never
             # mutate them, including when a legacy task runs longer than expected.
-            estimate=self.Progress_GetEta(now) if self.state=='running' else 0. if self.state=='complete' else None
+            estimate=(None if getattr(self,'memory_waiting',False) else self.Progress_GetEta(now)) if self.state=='running' else 0. if self.state=='complete' else None
             if estimate is not None:
                 self.eta=estimate if self.eta is None else .8*max(0.,self.eta-(now-self.last_time))+.2*estimate
             else:self.eta=None

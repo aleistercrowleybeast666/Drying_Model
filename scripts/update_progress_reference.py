@@ -17,7 +17,7 @@ def Progress_ImportTimings(source,root=ROOT):
     if not reference:raise ValueError('VALID_BASE_REFERENCE_REQUIRED')
     reference.pop('seal',None)
     for row in data['tasks']:
-        if data.get('progress_scope_version')!=3 and not row['key'].startswith(('A.','D.M10.','D.M01.','D.M11.','D.full.')):continue
+        if data.get('progress_scope_version')!=4 and not row['key'].startswith(('A.','D.M10.','D.M01.','D.M11.','D.full.')):continue
         if row.get('cache_reused') or row.get('wall_s',0)<=0:continue
         entry=reference['tasks'].setdefault(row['key'],{});entry['wall_s']=row['wall_s']
         status=row.get('result',{}).get('production')

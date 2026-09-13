@@ -9,7 +9,7 @@ from PySide6.QtGui import QColor, QPalette
 from PySide6.QtWidgets import (QApplication, QCheckBox, QGroupBox, QHBoxLayout, QLabel,
     QMainWindow, QMessageBox, QPlainTextEdit, QProgressBar, QPushButton, QVBoxLayout, QWidget, QScrollArea, QSplitter)
 from ..runtime import Runtime_BuildRecomputeCommand
-from ..judge_pipeline import TASKS, PAPER_TASKS, Judge_GetPlan
+from ..judge_pipeline import TASKS, PAPER_TASKS, DEVELOPER_TASKS, Judge_GetPlan
 from ..runner_control import Runner_GetProcess, Runner_GetIdentity, Runner_Stop, RunnerStopResult
 from ..judge_progress import PREFIX, Progress_ReadJson, Progress_FormatDuration, Progress_GetConfidenceText
 from .facts import load_facts
@@ -81,7 +81,7 @@ class JudgeWindow(QMainWindow):
         for title, keys in [('A · 原题计算', ['q1','q23','q4']),
                 ('B · 验证', ['one-dimensional','aux-2d','consistency']),
                 ('C · 原题绘图', ['static']), ('D · 拓展', ['extensions']),
-                ('高级（论文仍引用 12/12 守恒；复现时保留完整审计）',['gif','thermal-gif','mass-balance','force-reference','developer-audit'])]:
+                ('高级（论文仍引用 12/12 守恒；复现时保留完整审计）',['gif','thermal-gif','mass-balance','thermal-validation','force-reference','developer-audit'])]:
             column = QVBoxLayout(); column.addWidget(QLabel('<b>'+title+'</b>'))
             for key in keys:
                 check = QCheckBox(TASKS[key]); check.setChecked(key in ['q1','q23','q4'])
@@ -92,6 +92,9 @@ class JudgeWindow(QMainWindow):
         for text, selection in [('仅原题表格',['q1','q23','q4']), ('全选（论文复现）',PAPER_TASKS), ('全不选',[])]:
             button = QPushButton(text); button.clicked.connect(lambda checked=False, keys=selection:self.Selection_Set(keys))
             row.addWidget(button); self.select_buttons.append(button)
+        self.developer_button=QPushButton('完整开发审计（最重）')
+        self.developer_button.clicked.connect(lambda:self.Selection_Set(DEVELOPER_TASKS))
+        layout.addWidget(self.developer_button)
         row.addStretch(); layout.addLayout(row)
         self.start = QPushButton('开始离线复算'); self.start.setStyleSheet('background:#176b91;color:white;font-weight:bold;padding:12px;')
         self.start.clicked.connect(self.Task_Start); layout.addWidget(self.start)
@@ -137,7 +140,6 @@ class JudgeWindow(QMainWindow):
         keys = [key for key, check in self.checks.items() if check.isChecked()]
         if not keys:
             self.current.setText('请至少勾选一个复算项目。'); return
-        if 'developer-audit' in keys:keys=list(TASKS)
         if 'thermal-gif' in keys and 'extensions' not in keys:keys.append('extensions')
         plan=Judge_GetPlan(self.root,keys)
         dependencies=list(plan['automatic_dependencies'])
@@ -150,13 +152,17 @@ class JudgeWindow(QMainWindow):
                 keys += sorted(additions)
                 plan=Judge_GetPlan(self.root,keys)
         self.logs.appendPlainText(json.dumps(plan,ensure_ascii=False,indent=2))
-        if dependencies and not self.dry_run:
+        if (dependencies or set(DEVELOPER_TASKS)<=set(keys)) and not self.dry_run:
             answer=QMessageBox.question(self,'确认所选任务的必要依赖',
                 '将补充以下计算：\n'+'\n'.join('• '+text for text in dependencies)+
-                '\n\n按 CPU / 内存自动分配资源槽。是否按上方计划开始？',
+                f"\n\n最终计划 {len(plan['steps'])} 个任务，{plan['unique_pde_experiments']} 个 PDE/重放单元。"
+                '\n按 CPU / 内存预算执行；完整开发审计包含 18 条 thermal 严格验证。是否按上方计划开始？',
                 QMessageBox.StandardButton.Yes|QMessageBox.StandardButton.No,QMessageBox.StandardButton.No)
             if answer!=QMessageBox.StandardButton.Yes:return
-        args = (['--paper-all','--gui-run'] if set(keys)==set(PAPER_TASKS) else ['--tasks', *keys, '--gui-run']) + (['--dry-run'] if self.dry_run else [])
+        chosen=set(keys)-{'force-reference'}
+        args = (['--developer-full-audit','--gui-run'] if chosen==set(DEVELOPER_TASKS) else ['--paper-all','--gui-run'] if chosen==set(PAPER_TASKS) else ['--tasks', *sorted(chosen), '--gui-run'])
+        if 'force-reference' in keys:args.append('--force-reference')
+        if self.dry_run:args.append('--dry-run')
         if not self.dry_run:
             for name in ['STOP','BASELINE_STOP']:
                 (self.root/'work/recompute/work/studies'/name).unlink(missing_ok=True)

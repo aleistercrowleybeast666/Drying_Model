@@ -32,7 +32,7 @@ class TaskObserver:
         self.task=task;self.reference=Progress_ReadReference(root);self.last=-1e30;self.fraction=0.
         self.profile=self.reference.get('tasks',{}).get('A.'+task.get('case',''),{})
         self.lower=0.;self.upper=.95;self.gif_completed=0
-        self.kernel_calls=0;self.reporting_wall_s=time.perf_counter()-started
+        self.kernel_calls=0;self.kernel_wall_s=0.;self.jit_wall_s=0.;self.reporting_wall_s=time.perf_counter()-started
         self.validation_completed=0
         from .judge_progress import Progress_ReadJson,Progress_Hash
         from .runtime import Runtime_GetCode
@@ -62,7 +62,7 @@ class TaskObserver:
                 status=values['status'];expected=next((r['steps'] for r in self.history.get('records',[]) if r['case']==values['case'] and
                     r['nr']==values['nr'] and r['nz']==values['nz'] and abs(r['time_range'][-1]-values['cap'])<1e-8),None)
                 if expected:
-                    count=4 if values['case']=='q1' else 6;steps=status['steps']+len(result[2])
+                    count=1 if self.task['kind'].startswith('twod_') else 4 if values['case']=='q1' else 6;steps=status['steps']+len(result[2])
                     self.Progress_Report(.95*(self.validation_completed+min(.99,steps/expected))/count,
                         f"二维 {values['case']}：已接受 {steps} 步",'accepted_steps')
             if name=='Table_SolveSegment' and len(result[2]) and result[4]==0:
@@ -105,7 +105,10 @@ def Progress_ObserveTask(root,task):
     def Observe_Kernel(original):
         @wraps(original)
         def Kernel_Run(*args,**kwargs):
+            started=time.perf_counter()
             result=original(*args,**kwargs)
+            elapsed=time.perf_counter()-started;observer.kernel_wall_s+=elapsed
+            if len(args)>=3 and isinstance(args[1],(int,float)) and isinstance(args[2],(int,float)) and args[1]==args[2]:observer.jit_wall_s+=elapsed
             observer.Progress_ObserveBlock(sys._getframe(1),result)
             return result
         return Kernel_Run
@@ -126,9 +129,10 @@ def Progress_ObserveTask(root,task):
             return result
         Replace(table_solver,'Rk4_Advance',Observe_Kernel(table_solver.Rk4_Advance))
         Replace(table_solver,'Table_SolveSchedule',Schedule_Run)
-        if task['kind']=='validation_2d':
-            from . import cases
+        if task['kind']=='validation_2d' or task['kind'].startswith('twod_'):
+            from . import cases,rk4
             Replace(cases,'Rk4_Advance',Observe_Kernel(cases.Rk4_Advance))
+            Replace(rk4,'Rk4_Advance',Observe_Kernel(rk4.Rk4_Advance))
         if task['kind'] in ['validation_1d','reference_1d','experiment','full_production']:
             from .studies import trajectory
             factory=trajectory.Trajectory_GetAdvance

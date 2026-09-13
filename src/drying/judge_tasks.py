@@ -32,8 +32,8 @@ def Task_GetExtendedPlan(requested, originals):
             jobs.append(dict(key='B.1d.'+case, group='validation', kind='validation_1d', case=case,
                 dependencies=['B.reference.'+case], pde=True, private=case))
         if need_2d:
-            jobs.append(dict(key='B.2d.'+case, group='validation', kind='validation_2d', case=case,
-                dependencies=['A.'+case], pde=True, private='two_'+case))
+            from .judge_twod import TwoDimensional_GetPlan
+            jobs.extend(TwoDimensional_GetPlan(case))
     if need_1d:
         jobs.append(dict(key='B.1d.publish',group='validation',kind='validation_publish',
             dependencies=['B.1d.'+c for c in originals],pde=False,exclusive=True))
@@ -43,7 +43,7 @@ def Task_GetExtendedPlan(requested, originals):
     if 'extensions' in requested:
         for case in originals:
             jobs.append(dict(key='D.full.'+case, group='extension', kind='full_production', case=case,
-                dependencies=['A.'+case], pde=True, private='full_'+case))
+                dependencies=['A.'+case], pde=case!='q1', private='full_'+case,alias_source='A.q1' if case=='q1' else None))
     if studies:
         foundation = original_dependencies
         jobs.append(dict(key='shared.baseline', group='extension' if 'extensions' in requested else 'validation',
@@ -55,7 +55,7 @@ def Task_GetExtendedPlan(requested, originals):
                 prefix=f'D.{mode}.{case}'
                 jobs.append(dict(key=prefix+'.production', group='extension' if 'extensions' in requested else 'validation',
                     kind='experiment', case=case, mode=mode, experiment_kind='production', dependencies=['shared.thermal_warmup'], pde=True))
-                if 'extensions' in requested:
+                if 'extensions' in requested and 'thermal-validation' in requested:
                     for kind in ['full_reference','time_half']:
                         jobs.append(dict(key=prefix+'.'+kind, group='extension', kind='experiment', case=case,
                             mode=mode, experiment_kind=kind, dependencies=[prefix+'.production'], pde=True))
@@ -76,7 +76,7 @@ def Task_GetExtendedPlan(requested, originals):
                 jobs.append(dict(key='D.cross.'+kind, group='extension', kind='experiment', cross=True, case='q23', mode='M00',
                     experiment_kind=kind, dependencies=['D.cross.production'] if kind=='time_half' else ['shared.baseline'], pde=True))
             dependencies = [j['key'] for j in jobs if j['kind'] in ['experiment','reference_1d']]+['B.auxiliary','B.1d.publish']
-            jobs.append(dict(key='D.publish', group='extension', kind='extension_publish', dependencies=dependencies, pde=False, exclusive=True,gifs='thermal-gif' in requested))
+            jobs.append(dict(key='D.publish', group='extension', kind='extension_publish', dependencies=dependencies, pde=False, exclusive=True,gifs='thermal-gif' in requested,strict_thermal='thermal-validation' in requested))
             jobs.append(dict(key='B.study_figures',group='validation',kind='validation_study_plots',
                 dependencies=['D.publish'],pde=False,exclusive=True))
     if 'mass-balance' in requested:
@@ -224,6 +224,9 @@ def Task_Execute(root, task):
         return dict(production=status, numeric_reference=reference, cache_reused=cached)
     if kind == 'validation_1d':
         return Task_ValidateCase(root, case, task.get('runtime'))
+    if kind.startswith('twod_'):
+        from .judge_twod import TwoDimensional_Execute
+        return TwoDimensional_Execute(root,task)
     if kind == 'reference_1d':
         from .studies.trajectory import Trajectory_GetSpec,Trajectory_Solve
         from .studies.cache import Cache_SealExperiment
@@ -282,9 +285,12 @@ def Task_Execute(root, task):
         from .stages import Stage_Solve
         from .frozen_mesh import Frozen_ReadManifest
         schedule = Frozen_ReadManifest(root)['schedules'][case]
-        status = Stage_Solve(root, case, schedule, label='conservative' if case=='q23' else 'default')
+        if task.get('alias_source'):
+            from .judge_identity import Identity_CheckQ1Alias
+            status=Identity_CheckQ1Alias(root)
+        else:status = Stage_Solve(root, case, schedule, label='conservative' if case=='q23' else 'default')
         Storage_WriteJson(root/'work/recompute/full_production.json', {case:status})
-        return dict(production=status, purpose='extension_full_horizon', full_horizon=True, cache_reused=False)
+        return dict(production=status, purpose='extension_full_horizon', full_horizon=True, cache_reused=bool(task.get('alias_source')),alias_source=task.get('alias_source'))
     if kind == 'baseline':
         if task['full']:
             from .judge_validation import Judge_CheckFullEquivalence
@@ -322,14 +328,9 @@ def Task_Execute(root, task):
         from .studies.analysis import Studies_Summarize
         from .studies.technical_analysis import Technical_Summarize
         from .judge_plots import Judge_DrawExtensions
-        if (root/'work/studies/technical/plot_payload/technical_manifest.json').exists():
-            from .studies.plot_contract import StudyPlot_ReadManifest
-            from .studies.technical_contract import Technical_ReadPayload
-            manifest=StudyPlot_ReadManifest(root)
-            Technical_ReadPayload(root,manifest)
-            Judge_DrawExtensions(root,gifs=task.get('gifs',False))
-            return dict(status='PASS',cache_reused=True)
-        Studies_Summarize(root, Judge_ReadJson(root/'results/studies/study_index.json'))
+        # Rebuild selected evidence scope from current identities; old render
+        # receipts do not prove the newly selected supplemental scope complete.
+        Studies_Summarize(root, Judge_ReadJson(root/'results/studies/study_index.json'),strict_thermal=task.get('strict_thermal',True))
         manifest=Judge_ReadJson(root/'work/studies/plot_payload/study_manifest.json')
         Storage_WriteJson(root/'work/studies/diagnostics/render_manifest.json',dict(manifest_seal=manifest['seal'],
             files=[],status='NOT_RENDERED',pde_solves=0))
@@ -346,8 +347,10 @@ def Task_Execute(root, task):
         from .judge_validation import Judge_PrepareMass
         manifest=Judge_PrepareMass(root,only=(case,task['mode']),write_manifest=False)
         key = next(k for k,v in manifest['specs'].items() if v['case']==case and v['mode']==task['mode'])
+        measurement=root/'work/validation/mass_balance'/key/'measurement.json'
+        prior_stamp=measurement.stat().st_mtime_ns if measurement.exists() else None
         result = MassBalance_MeasureCase(root, manifest, key)
-        return dict(measurement=result['solver_mass_balance'], cache_reused=False)
+        return dict(measurement=result['solver_mass_balance'], cache_reused=prior_stamp is not None and measurement.stat().st_mtime_ns==prior_stamp)
     if kind == 'mass_publish':
         from .judge_validation import Judge_PublishMass
         return Judge_PublishMass(root)

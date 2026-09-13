@@ -94,8 +94,9 @@ def Synthesis_Build(root,manifest,publish=True):
                 water_domain_status='NOT_APPLICABLE_M00' if entry['baseline'] else 'PASS' if data['Tmin_K'].min()>=spec['water']['temperature_range_K'][0] and data['Tmax_K'].max()<=spec['water']['temperature_range_K'][1] else 'THERMAL_MODEL_OUT_OF_DOMAIN',
                 minimum_temperature_C=float(data['Tmin_K'].min()-273.15),minimum_moisture=float(data['profile'][:,1].min()),
                 status=status['status'],time_verification=next((c['status'] for c in manifest['checks'] if c['production_id']==key and c['time_half_passed'] is not None),
-                    'BASELINE_CERTIFIED' if entry['baseline'] else 'INCOMPLETE'),
-                space_verification=next((c['status'] for c in manifest['checks'] if c['production_id']==key and c['full_schedule_reference_passed'] is not None),'INCOMPLETE')))
+                    'BASELINE_CERTIFIED' if entry['baseline'] else 'NOT_SELECTED_SUPPLEMENTAL' if not manifest.get('strict_thermal_selected',True) else 'INCOMPLETE'),
+                space_verification=next((c['status'] for c in manifest['checks'] if c['production_id']==key and c['full_schedule_reference_passed'] is not None),
+                    'NOT_SELECTED_SUPPLEMENTAL' if not entry['baseline'] and not manifest.get('strict_thermal_selected',True) else 'INCOMPLETE')))
     for check in manifest['checks']:
         tables['Verification'].append({k:v for k,v in check.items() if not isinstance(v,(dict,list))})
         for metric,unit,key in [('temperature','K','max_abs_T_K'),('moisture','kg/kg','max_abs_C'),('event','s','event_delta_s')]:
@@ -260,6 +261,8 @@ def Synthesis_RefreshOverview(root):
     lines=['# Drying_Model 扩展结果','',f"基线核验：{baseline['status']}；冻结 ID `{manifest['baseline_id']}`。M00 正式四表、生产数组与事件保持不变。",'',
         f"新增实验完成 {index['current_complete_count']}/{index['expected_experiment_count']}；实际产物：{books}/5 工作簿，{png}/9 PNG，{gif_label}（文件 hash 与当前 payload 核对）。",'',
         '| 轨迹 | 热模式 | 生产网格 | 烘干时间 / h | 最低温度 / °C | 时间验证 | 完整空间参考 | 收支检查 |','|---|---|---|---|---|---|---|---|']
+    if not manifest.get('strict_thermal_selected',True):
+        lines[2:2]=['本次未选择 18 条 thermal supplemental convergence；NOT_SELECTED_SUPPLEMENTAL 不表示验证通过。完整开发审计可执行全部证据。','']
     for r in manifest['summary_tables']['ThermalModes']:
         td=f"{r['drying_time_h']:.4f}" if r['drying_time_h'] is not None else '— / Q1 观察窗' if r['case']=='q1' else '72 h 未达标'
         key=Synthesis_Find(manifest,r['case'],r['mode'])
@@ -280,7 +283,7 @@ def Synthesis_RefreshOverview(root):
         from .technical_contract import Technical_ReadPayload
         technical=Technical_ReadPayload(root,manifest);cross=technical['geometry_property_cross'];timing=technical['kinetics_summary']
         lines += ['', '## 最终技术补全', '',
-            f"独立交叉轨迹 3/3（生产、完整加密、实际半步重放），验证 {technical['cross_validation']['status']}；原 38 个实验及原验证证据保留。", '',
+            f"独立交叉轨迹 3/3（生产、完整加密、实际半步重放），验证 {technical['cross_validation']['status']}；实验与验证范围以本次 manifest 的选择记录为准。", '',
             '| 交叉组 | 烘干时间 / h | Cmax(72 h) / kg/kg | 验证状态 |', '|---|---:|---:|---|']
         for row in cross['groups']:
             td=f"{row['drying_time_h']:.4f}" if row['drying_time_h'] is not None else '72 h 未达标 / null'

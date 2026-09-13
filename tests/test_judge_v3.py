@@ -109,13 +109,13 @@ def test_gui_conflicting_percent_eta_downgrades(app,tmp_path,confidence):
 def test_2d_cost_uses_2d_records_not_one_dimensional_multiple():
     plan=Judge_GetPlan(ROOT,['aux-2d']);costs=Progress_GetCosts(ROOT,plan,Progress_ReadReference(ROOT))
     for case in ['q1','q23','q4']:
-        row=costs['B.2d.'+case]
-        assert row['source']=='measured 2D step-cell history' and row['samples']>0
+        row=costs['B.2d.'+case+'.base']
+        assert row['source'].startswith('work/cache/') and row['weight']>0
 
 
 def test_missing_2d_history_is_unknown(tmp_path):
     costs=Progress_GetCosts(tmp_path,Judge_GetPlan(tmp_path,['aux-2d']),{})
-    assert all(v['confidence']=='unknown' for k,v in costs.items() if k.startswith('B.2d.'))
+    assert all(v['confidence']=='unknown' for k,v in costs.items() if k.startswith('B.2d.') and k.endswith('.base'))
 
 
 def test_d_thermal_independent_of_auxiliary_and_mass_follows_production():
@@ -131,7 +131,7 @@ def test_d_thermal_independent_of_auxiliary_and_mass_follows_production():
 
 def test_duplicate_reference_has_one_worker_and_explicit_aliases():
     plan=Judge_GetPlan(ROOT,PAPER_TASKS)
-    assert plan['deduplicated_experiments']==3
+    assert plan['deduplicated_experiments']==4
     for case in ['q1','q23','q4']:
         assert plan['experiment_aliases'][f'D.M00.{case}.full_reference']=='B.reference.'+case
         assert sum(j['kind']=='reference_1d' and j['case']==case for j in plan['steps'])==1
@@ -142,14 +142,14 @@ def test_identity_does_not_alias_different_horizon_or_replay():
     assert len(Schedule_Deduplicate(jobs)[0])==3
 
 
-@pytest.mark.parametrize('gb,expected',[(4,1),(8,2),(15,2),(16,3),(32,3)])
+@pytest.mark.parametrize('gb,expected',[(4,6),(8,6),(15,6),(16,6),(32,6)])
 def test_auto_resource_slots(gb,expected):assert Schedule_GetSlots('auto',gb,8)==expected
 
 
 def test_slots_allow_three_1d_or_two_dimensional_plus_one_dimensional():
     one=dict(key='one',kind='experiment',dependencies=[]);two=dict(key='two',kind='validation_2d',dependencies=[])
     assert Schedule_CanStart(one,[one,one],3) and not Schedule_CanStart(one,[one,one,one],3)
-    assert Schedule_CanStart(one,[two],3) and not Schedule_CanStart(two,[two],3)
+    assert Schedule_CanStart(one,[two],3) and Schedule_CanStart(two,[two],3)
 
 
 def test_paper_all_omits_all_animations_developer_includes_advanced():
@@ -185,12 +185,12 @@ def test_parallel_2d_merge_does_not_overwrite_formal_1d(tmp_path):
     assert result['q1_1d']['numerical_status']=='PASS' and result['q1_2d']['value']=='new'
 
 
-def test_estimator_drains_for_exclusive_barrier_and_prioritizes_mass():
+def test_estimator_prioritizes_longest_ready_path():
     jobs=[dict(key=k,kind=kind,dependencies=deps,exclusive=exclusive) for k,kind,deps,exclusive in
           [('a','experiment',[],False),('barrier','publish',['a'],True),
            ('heavy','experiment',['a'],False),('mass','mass_measure',['a'],False)]]
     duration,path=Schedule_Estimate(jobs,dict(a=1,barrier=2,heavy=10,mass=3),1)
-    assert duration==16 and path==['a','barrier','mass','heavy']
+    assert duration==16 and path==['a','heavy','mass','barrier']
 
 
 def test_extension_publish_waits_for_final_one_dimensional_validation():
