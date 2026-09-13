@@ -9,7 +9,10 @@
         "A: table_production",
         "B: independent 2D fields"
       ],
-      "selection": "gif"
+      "selection": "gif",
+      "producer_tasks": [
+        "C.gif"
+      ]
     },
     {
       "path": "results/animations/q3_q4_axial_section.gif",
@@ -18,7 +21,10 @@
         "A: table_production",
         "B: independent 2D fields"
       ],
-      "selection": "gif"
+      "selection": "gif",
+      "producer_tasks": [
+        "C.gif"
+      ]
     },
     {
       "path": "results/animations/q3_q4_cutaway_cylinder.gif",
@@ -27,16 +33,21 @@
         "A: table_production",
         "B: independent 2D fields"
       ],
-      "selection": "gif"
+      "selection": "gif",
+      "producer_tasks": [
+        "C.gif"
+      ]
     },
     {
       "path": "results/animations/q3_q4_radial_section.gif",
       "group": "plot",
       "required_sources": [
-        "A: table_production",
-        "B: independent 2D fields"
+        "A: M00 radial table production fields"
       ],
-      "selection": "gif"
+      "selection": "gif",
+      "producer_tasks": [
+        "C.gif"
+      ]
     },
     {
       "path": "results/animations/q4_3d.gif",
@@ -45,7 +56,10 @@
         "A: table_production",
         "B: independent 2D fields"
       ],
-      "selection": "gif"
+      "selection": "gif",
+      "producer_tasks": [
+        "C.gif"
+      ]
     },
     {
       "path": "results/q1/q1_1d_2d_compare.png",
@@ -53,7 +67,10 @@
       "required_sources": [
         "B: comparison/auxiliary fields"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "B.auxiliary"
+      ]
     },
     {
       "path": "results/q1/q1_curves.png",
@@ -61,7 +78,10 @@
       "required_sources": [
         "A: table_production"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "C.static"
+      ]
     },
     {
       "path": "results/q1/q1_max_error_section.png",
@@ -69,7 +89,10 @@
       "required_sources": [
         "B: comparison/auxiliary fields"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "B.auxiliary"
+      ]
     },
     {
       "path": "results/q2/q2_1d_2d_compare.png",
@@ -77,7 +100,10 @@
       "required_sources": [
         "B: comparison/auxiliary fields"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "B.auxiliary"
+      ]
     },
     {
       "path": "results/q2/q2_curves.png",
@@ -85,7 +111,10 @@
       "required_sources": [
         "A: table_production"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "C.static"
+      ]
     },
     {
       "path": "results/q2/q2_max_error_section.png",
@@ -93,7 +122,10 @@
       "required_sources": [
         "B: comparison/auxiliary fields"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "B.auxiliary"
+      ]
     },
     {
       "path": "results/q3/q3_1d_2d_compare.png",
@@ -101,7 +133,10 @@
       "required_sources": [
         "B: comparison/auxiliary fields"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "B.auxiliary"
+      ]
     },
     {
       "path": "results/q3/q3_3d.png",
@@ -110,7 +145,10 @@
         "A: table_production",
         "B: independent 2D fields"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "C.static"
+      ]
     },
     {
       "path": "results/q3/q3_curves.png",
@@ -118,7 +156,10 @@
       "required_sources": [
         "A: table_production"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "C.static"
+      ]
     },
     {
       "path": "results/q3/q3_max_error_section.png",
@@ -126,7 +167,10 @@
       "required_sources": [
         "B: comparison/auxiliary fields"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "B.auxiliary"
+      ]
     },
     {
       "path": "results/q4/q4_1d_2d_compare.png",
@@ -134,7 +178,10 @@
       "required_sources": [
         "B: comparison/auxiliary fields"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "B.auxiliary"
+      ]
     },
     {
       "path": "results/q4/q4_3d.png",
@@ -143,7 +190,10 @@
         "A: table_production",
         "B: independent 2D fields"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "C.static"
+      ]
     },
     {
       "path": "results/q4/q4_curves.png",
@@ -151,7 +201,10 @@
       "required_sources": [
         "A: table_production"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "C.static"
+      ]
     },
     {
       "path": "results/q4/q4_max_error_section.png",
@@ -159,7 +212,10 @@
       "required_sources": [
         "B: comparison/auxiliary fields"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "B.auxiliary"
+      ]
     },
     {
       "path": "results/studies/animations/thermal_moisture.gif",
@@ -167,7 +223,10 @@
       "required_sources": [
         "D: sealed study/technical payload"
       ],
-      "selection": "gif"
+      "selection": "gif",
+      "producer_tasks": [
+        "D.publish"
+      ]
     },
     {
       "path": "results/studies/animations/thermal_temperature.gif",
@@ -175,16 +234,22 @@
       "required_sources": [
         "D: sealed study/technical payload"
       ],
-      "selection": "gif"
+      "selection": "gif",
+      "producer_tasks": [
+        "D.publish"
+      ]
     },
     {
       "path": "results/studies/figures/01_end_effect_extent.png",
-      "group": "validation",
+      "group": "extension",
       "required_sources": [
         "B: independent 2D fields",
         "D: matched radial-grid M00 payload"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "D.publish"
+      ]
     },
     {
       "path": "results/studies/figures/02_drying_fronts.png",
@@ -192,7 +257,10 @@
       "required_sources": [
         "D: sealed study/technical payload"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "D.publish"
+      ]
     },
     {
       "path": "results/studies/figures/03_drying_kinetics.png",
@@ -200,7 +268,10 @@
       "required_sources": [
         "D: sealed study/technical payload"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "D.publish"
+      ]
     },
     {
       "path": "results/studies/figures/04_diffusion_clock_drivers.png",
@@ -208,7 +279,10 @@
       "required_sources": [
         "D: sealed study/technical payload"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "D.publish"
+      ]
     },
     {
       "path": "results/studies/figures/05_geometry_property_cross.png",
@@ -216,7 +290,10 @@
       "required_sources": [
         "D: sealed study/technical payload"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "D.publish"
+      ]
     },
     {
       "path": "results/studies/figures/06_environment_robustness.png",
@@ -224,7 +301,10 @@
       "required_sources": [
         "D: sealed study/technical payload"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "D.publish"
+      ]
     },
     {
       "path": "results/studies/figures/07_thermal_modes.png",
@@ -232,7 +312,10 @@
       "required_sources": [
         "D: sealed study/technical payload"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "D.publish"
+      ]
     },
     {
       "path": "results/studies/figures/08_thermal_interactions.png",
@@ -240,21 +323,35 @@
       "required_sources": [
         "D: sealed study/technical payload"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "D.publish"
+      ]
     },
     {
       "path": "results/studies/figures/09_verification_evidence.png",
       "group": "validation",
       "required_sources": [
-        "B: comparison/auxiliary fields"
+        "A: M00 production",
+        "B: full stage reference, actual-partition time check, remesh"
       ],
-      "selection": "static"
+      "selection": "static",
+      "producer_tasks": [
+        "B.1d.publish",
+        "B.study_figures"
+      ],
+      "optional_sources": [
+        "D: thermal audits and event sensitivity, only when extensions selected"
+      ]
     },
     {
       "path": "results/tables/result1.xlsx",
       "group": "original",
       "required_sources": [
         "A: q1"
+      ],
+      "producer_tasks": [
+        "A.q1"
       ]
     },
     {
@@ -262,6 +359,9 @@
       "group": "original",
       "required_sources": [
         "A: q23"
+      ],
+      "producer_tasks": [
+        "A.q23"
       ]
     },
     {
@@ -269,6 +369,9 @@
       "group": "original",
       "required_sources": [
         "A: q23"
+      ],
+      "producer_tasks": [
+        "A.q23"
       ]
     },
     {
@@ -276,6 +379,64 @@
       "group": "original",
       "required_sources": [
         "A: q4"
+      ],
+      "producer_tasks": [
+        "A.q4"
+      ]
+    },
+    {
+      "path": "results/studies/tables/study_summary.xlsx",
+      "group": "extension",
+      "selection": "workbook",
+      "required_sources": [
+        "D: sealed study and technical payload"
+      ],
+      "producer_tasks": [
+        "D.publish"
+      ]
+    },
+    {
+      "path": "results/studies/tables/study_timeseries.xlsx",
+      "group": "extension",
+      "selection": "workbook",
+      "required_sources": [
+        "D: sealed study and technical payload"
+      ],
+      "producer_tasks": [
+        "D.publish"
+      ]
+    },
+    {
+      "path": "results/studies/thermal/M10/supplement.xlsx",
+      "group": "extension",
+      "selection": "workbook",
+      "required_sources": [
+        "D: M10 full production and genuine events"
+      ],
+      "producer_tasks": [
+        "D.publish"
+      ]
+    },
+    {
+      "path": "results/studies/thermal/M01/supplement.xlsx",
+      "group": "extension",
+      "selection": "workbook",
+      "required_sources": [
+        "D: M01 full production and genuine events"
+      ],
+      "producer_tasks": [
+        "D.publish"
+      ]
+    },
+    {
+      "path": "results/studies/thermal/M11/supplement.xlsx",
+      "group": "extension",
+      "selection": "workbook",
+      "required_sources": [
+        "D: M11 full production and genuine events"
+      ],
+      "producer_tasks": [
+        "D.publish"
       ]
     }
   ]

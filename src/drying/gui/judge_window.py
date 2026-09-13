@@ -8,7 +8,8 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QGroupBox, QHBoxLayout, 
     QMainWindow, QMessageBox, QPlainTextEdit, QProgressBar, QPushButton, QVBoxLayout, QWidget, QScrollArea, QSplitter)
 from ..runtime import Runtime_BuildRecomputeCommand
 from ..judge_pipeline import TASKS, Judge_GetPlan
-from ..runner_control import Runner_GetProcess, Runner_Stop, RunnerStopResult
+from ..runner_control import Runner_GetProcess, Runner_GetIdentity, Runner_Stop, RunnerStopResult
+from ..judge_progress import PREFIX, Progress_ReadJson, Progress_FormatDuration
 from .facts import load_facts
 
 
@@ -18,6 +19,9 @@ class JudgeWindow(QMainWindow):
         self.root = Path(root); self.pending_close = False; self.buffer = ''; self.dry_run = False
         self.progress_total = None
         self.stop_requested=False;self.external_busy=False
+        self.owns_run=False;self.external_run_detected=False;self.owned_identity=None
+        self.external_identity=None
+        self.progress_target=0;self.progress_terminal=False
         self.decoder = codecs.getincrementaldecoder('utf-8')(errors='replace')
         self.setWindowTitle('2026 数学建模 A题 · 药材烘干模型'); self.resize(780, 740)
         palette=self.palette()
@@ -89,8 +93,8 @@ class JudgeWindow(QMainWindow):
         self.start = QPushButton('开始离线复算'); self.start.setStyleSheet('background:#176b91;color:white;font-weight:bold;padding:12px;')
         self.start.clicked.connect(self.Task_Start); layout.addWidget(self.start)
         self.current = QLabel('就绪 · 启动界面不会自动计算'); layout.addWidget(self.current)
-        self.outer = QProgressBar(); self.outer.setRange(0,1); self.outer.setValue(0); layout.addWidget(self.outer)
-        self.inner = QLabel('按实际完成的任务阶段更新进度');layout.addWidget(self.inner)
+        self.outer = QProgressBar(); self.outer.setRange(0,10000); self.outer.setValue(0);self.outer.setFormat('0.0%'); layout.addWidget(self.outer)
+        self.inner = QLabel('按实测工作量加权；进度与预计剩余时间仅用于显示');layout.addWidget(self.inner)
         self.stop = QPushButton('立即停止'); self.stop.setEnabled(False); self.stop.clicked.connect(self.Task_Stop); layout.addWidget(self.stop)
         self.stop.setObjectName('safeStop')
         scroll=QScrollArea();scroll.setWidgetResizable(True);scroll.setFrameShape(QScrollArea.Shape.NoFrame);scroll.setWidget(central)
@@ -108,6 +112,8 @@ class JudgeWindow(QMainWindow):
         self.process.readyReadStandardOutput.connect(self.Log_Read)
         self.process.finished.connect(self.Task_Done); self.process.errorOccurred.connect(self.Task_Error)
         self.process.stateChanged.connect(self.Task_StateChanged)
+        self.progress_timer=QTimer(self);self.progress_timer.setInterval(200)
+        self.progress_timer.timeout.connect(self.Progress_Animate);self.progress_timer.start()
         self.external_timer=QTimer(self);self.external_timer.setInterval(1000)
         self.external_timer.timeout.connect(self.Task_CheckExternal);self.external_timer.start()
         self.Task_CheckExternal()
@@ -154,11 +160,11 @@ class JudgeWindow(QMainWindow):
         self.process.setWorkingDirectory(str(self.root))
         env = QProcessEnvironment.systemEnvironment(); env.insert('DRYING_MODEL_ROOT', str(self.root)); env.insert('PYTHONIOENCODING','utf-8'); env.insert('PYTHONUNBUFFERED','1')
         self.process.setProcessEnvironment(env)
-        self.progress_total=max(1,len(plan['steps']))
-        self.outer.setRange(0,self.progress_total);self.outer.setValue(0)
-        self.outer.setFormat(f'%p% · 0 / {self.progress_total} 项')
+        self.progress_target=0;self.progress_terminal=False
+        self.outer.setRange(0,10000);self.outer.setValue(0);self.outer.setFormat('0.0%')
         self.Controls_Set(True); self.current.setText('正在准备所选任务及必要依赖…')
-        self.inner.setText('当前阶段进行中；完成后进度增加，阶段内保持不变。')
+        self.inner.setText('准备、JIT 和运行任务都计入总进度；预计剩余时间会随实际速度更新。')
+        self.owns_run=True;self.external_run_detected=False
         self.process.start(command[0],command[1:])
 
     def Controls_Set(self, busy):
@@ -166,28 +172,59 @@ class JudgeWindow(QMainWindow):
         self.choices.setTitle('下一轮任务选择（当前计算继续）' if busy else '四类独立任务')
         self.start.setText('复算进行中 · 点击查看状态' if busy else '开始离线复算')
         self.stop.setEnabled(busy)
-        self.stop.setText('立即停止')
+        self.stop.setText('停止外部复算' if busy and not self.owns_run else '立即停止')
         self.stop.setToolTip('结束本次复算进程树；未保存进度会丢失，部分输出可能需要重算' if busy else '没有正在运行的复算任务')
 
     def Task_StateChanged(self,state):
-        if state!=QProcess.ProcessState.NotRunning:self.Controls_Set(True)
+        if state!=QProcess.ProcessState.NotRunning:
+            self.owns_run=True
+            if int(self.process.processId()):
+                import psutil
+                try:self.owned_identity=Runner_GetIdentity(psutil.Process(int(self.process.processId())))
+                except psutil.Error:pass
+            self.Controls_Set(True)
 
     def Task_CheckExternal(self):
         if self.process.state()!=QProcess.ProcessState.NotRunning:return
-        busy=Runner_GetProcess(self.root) is not None
+        external=Runner_GetProcess(self.root);busy=external is not None
+        self.external_run_detected=busy
+        if busy:
+            identity=Runner_GetIdentity(external)
+            if identity!=self.external_identity:
+                self.external_identity=identity;self.progress_target=0;self.progress_terminal=False
+                self.outer.setValue(0);self.outer.setFormat('0.0%')
+            event=Progress_ReadJson(self.root/'work/recompute/progress.json')
+            if event.get('runner_pid')==external.pid and abs(event.get('runner_created_at',0)-external.create_time())<.01:
+                self.Progress_ApplyEvent(event)
+        elif self.external_identity:
+            event=Progress_ReadJson(self.root/'work/recompute/progress.json')
+            if (event.get('runner_pid')==self.external_identity['pid'] and
+                abs(event.get('runner_created_at',0)-self.external_identity['created_at'])<.01 and
+                event.get('event') in ['run_complete','run_failed','run_stopped']):self.Progress_ApplyEvent(event)
         requested=False
         if busy!=self.external_busy or (busy and requested!=self.stop_requested):
             self.external_busy=busy
             self.stop_requested=requested
             self.Controls_Set(busy)
-            self.current.setText('检测到已有复算任务；可立即停止，关闭此窗口也会结束该任务。' if busy else
+            self.current.setText('检测到外部 CLI 复算；关闭本窗口不会停止它，停止外部复算需要确认。' if busy else
                 '已有复算进程已结束；结果状态请查看日志。')
 
     def Task_Stop(self):
+        identity=self.owned_identity if self.owns_run else None
+        if not self.owns_run:
+            process=Runner_GetProcess(self.root)
+            if process is None:return RunnerStopResult.NO_TASK
+            identity=Runner_GetIdentity(process)
+            answer=QMessageBox.question(self,'停止外部复算',f'外部 CLI（PID {process.pid}）不是本窗口启动的。\n确定停止这一次复算及其子进程吗？\n未保存进度会丢失。',
+                QMessageBox.StandardButton.Yes|QMessageBox.StandardButton.No,QMessageBox.StandardButton.No)
+            if answer!=QMessageBox.StandardButton.Yes:return RunnerStopResult.NO_TASK
         self.stop_requested=True
-        result=Runner_Stop(self.root,int(self.process.processId()))
+        result=Runner_Stop(self.root,int(self.process.processId()) if self.owns_run else 0,expected_identity=identity)
         self.external_busy=Runner_GetProcess(self.root) is not None
-        self.current.setText('已立即停止；未保存进度可能丢失，下次将重新校验缓存。' if result!=RunnerStopResult.FAILED else
+        if result==RunnerStopResult.NO_TASK:
+            self.stop_requested=False
+            self.current.setText('所确认的进程已结束或身份已变化；未停止其他复算。')
+        else:self.current.setText('已立即停止；未保存进度可能丢失，下次将重新校验缓存。' if result!=RunnerStopResult.FAILED else
             '未能结束全部进程，请查看系统进程状态后重试。')
         self.logs.appendPlainText(self.current.text())
         if self.process.state()!=QProcess.ProcessState.NotRunning:self.process.waitForFinished(1000)
@@ -199,30 +236,46 @@ class JudgeWindow(QMainWindow):
         while '\n' in self.buffer:
             line,self.buffer = self.buffer.split('\n',1)
             line=line.replace(str(self.root),'.').replace(self.root.as_posix(),'.')
-            self.logs.appendPlainText(line)
-            if line.startswith('DRYING_EVENT '):
+            if line.startswith(PREFIX):
                 try:
-                    event = json.loads(line[len('DRYING_EVENT '):])
-                    if self.progress_total is None:self.progress_total=max(1,int(event['total']))
-                    self.outer.setRange(0,self.progress_total)
-                    completed=max(self.outer.value(),min(self.progress_total,max(0,int(event['completed']))))
-                    self.outer.setValue(completed)
-                    self.outer.setFormat(f'%p% · {completed} / {self.progress_total} 项')
-                    self.current.setText(event['message'])
+                    self.Progress_ApplyEvent(json.loads(line[len(PREFIX):]))
                 except (ValueError,KeyError): pass
+            else:self.logs.appendPlainText(line)
+
+    def Progress_ApplyEvent(self,event):
+        import math
+        value=float(event['overall_fraction'])
+        if event.get('schema_version')!=1 or not math.isfinite(value):return
+        complete=event.get('event')=='run_complete'
+        target=10000 if complete else min(9990,max(0,int(value*10000)))
+        self.progress_target=max(self.progress_target,target)
+        if complete:self.progress_terminal=True
+        if not self.isVisible() or complete:self.outer.setValue(self.progress_target)
+        self.outer.setFormat(f'{self.outer.value()/100:.1f}%')
+        self.current.setText(f"总进度 {self.progress_target/100:.1f}% · 已用 {Progress_FormatDuration(event['elapsed_s'])} · 预计剩余 {Progress_FormatDuration(event['eta_s'])}")
+        tasks=event.get('running_tasks',[])
+        self.inner.setText('　'.join(f"{r['task_label']}：{r['task_fraction']*100:.1f}%" for r in tasks) or event['message'])
+
+    def Progress_Animate(self):
+        current=self.outer.value()
+        if current<self.progress_target:
+            self.outer.setValue(min(self.progress_target,current+max(1,int((self.progress_target-current)*.45))))
+            self.outer.setFormat(f'{self.outer.value()/100:.1f}%')
 
     def Task_Done(self, code, status):
         self.Log_Read()
         if self.buffer: self.logs.appendPlainText(self.buffer); self.buffer = ''
         self.Controls_Set(False)
+        self.owns_run=False;self.owned_identity=None
         if self.stop_requested:
             self.current.setText('已立即停止；保留有效检查点，未完成阶段下次重新校验。')
             if self.pending_close:self.close()
             return
         if code==0 and not self.dry_run:
+            self.progress_target=10000;self.progress_terminal=True
             self.outer.setValue(self.outer.maximum())
-            self.outer.setFormat(f'%p% · {self.outer.maximum()} / {self.outer.maximum()} 项')
-        self.inner.setText('已完成；进度以任务阶段计数，不代表运行时间比例。' if code==0 and not self.dry_run else
+            self.outer.setFormat('100.0%')
+        self.inner.setText('已完成；所有所选任务已成功返回。' if code==0 and not self.dry_run else
             '保留已完成进度；重新开始新一轮任务时归零。')
         self.current.setText(('计划检查完成 · 未执行求解' if self.dry_run else '任务完成 · PASS') if code==0 else '已安全停止，可再次开始恢复' if code==2 else f'任务失败（退出码 {code}），请展开详细日志')
         timing_path=self.root/'results/recompute_timing_summary.json'
@@ -240,7 +293,10 @@ class JudgeWindow(QMainWindow):
         if error == QProcess.ProcessError.FailedToStart: self.Task_Done(1,None)
 
     def closeEvent(self, event):
-        if self.process.state()!=QProcess.ProcessState.NotRunning or Runner_GetProcess(self.root) is not None:
+        if self.owns_run and self.process.state()!=QProcess.ProcessState.NotRunning:
+            answer=QMessageBox.question(self,'关闭并停止本次复算','关闭窗口将停止本窗口启动的复算及其子进程。确定关闭吗？',
+                QMessageBox.StandardButton.Yes|QMessageBox.StandardButton.No,QMessageBox.StandardButton.No)
+            if answer!=QMessageBox.StandardButton.Yes:event.ignore();return
             if self.Task_Stop()==RunnerStopResult.FAILED:
                 event.ignore();return
         event.accept()

@@ -194,6 +194,8 @@ def Task_Execute(root, task):
             Storage_HashFiles([root/row['path']])==row.get('workbook_hash') for row in outputs) for q in questions)
         if not cached:
             Export_Run(root, case, source_case_id=status['case_id'])
+        from .judge_observer import Progress_Substep
+        Progress_Substep(.96,'四表数据核对 / 冻结参考','reference',upper=.99,expected_s=1.)
         reference = Table_CheckReference(root, case, status)
         Storage_WriteJson(root/'work/recompute/production.json', {case:status})
         return dict(production=status, numeric_reference=reference, cache_reused=cached)
@@ -206,7 +208,7 @@ def Task_Execute(root, task):
         from .studies.plot_contract import StudyPlot_ReadManifest, StudyPlot_GetHash
         from .studies.plots import StudyPlot_Draw,StudyPlot_SetStyle
         StudyPlot_SetStyle();manifest=StudyPlot_ReadManifest(root)
-        files=[StudyPlot_Draw(root,manifest,name).relative_to(root).as_posix() for name in ['end_effect_extent','verification_evidence']]
+        files=[StudyPlot_Draw(root,manifest,name).relative_to(root).as_posix() for name in ['verification_evidence']]
         path=root/'work/studies/diagnostics/render_manifest.json'
         receipt=Judge_ReadJson(path)
         receipt['files']=[row for row in receipt.get('files',[]) if row['path'] not in files]

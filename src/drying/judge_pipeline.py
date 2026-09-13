@@ -14,9 +14,11 @@ import subprocess
 import sys
 import time
 import traceback
+from contextlib import redirect_stdout, redirect_stderr
 
 from .runtime import Runtime_GetCode, Runtime_GetData, Runtime_BuildRecomputeCommand
 from .storage import Storage_WriteJson
+from .judge_progress import ProgressSession, ProgressConsole, ProgressRunResult, Progress_ReadJson, ProgressLogStream
 
 TASKS = {'q1': 'Q1', 'q23': 'Q2 / Q3（共享轨迹）', 'q4': 'Q4',
     'one-dimensional': '正式一维时间 / 空间 / remesh', 'aux-2d': '二维辅助验收',
@@ -53,6 +55,10 @@ def Judge_GetPlan(root, selected, workers=2):
     runtime = Path(root)/'work/recompute/runtime'
     receipts = runtime/'work/recompute/receipts'
     for job in jobs:
+        case_label={'q1':'Q1','q23':'Q2/Q3','q4':'Q4'}.get(job.get('case'),'')
+        job['label']={'original':case_label,'validation_1d':'正式时空加密 '+case_label,
+            'validation_2d':'二维辅助 '+case_label,'mass_measure':'水质量审计 '+str(job.get('mode',''))+' '+case_label,
+            'plot':'原题 GIF' if job.get('selection')=='gif' else '原题静态图'}.get(job['kind'],job['key'])
         previous = Judge_ReadJson(receipts/(job['key']+'.json'))
         job['cache_state'] = 'RECHECK_MATCHING_CACHE' if previous.get('status') == 'PASS' else 'COMPUTE_REQUIRED'
         job['expected_cache_hit'] = previous.get('status') == 'PASS'
@@ -78,19 +84,23 @@ def Judge_CopyResources(code, data, target):
     shutil.copytree(data, target/'data', dirs_exist_ok=True, ignore=ignore)
 
 
-def Judge_PrepareWorkspace(root):
+def Judge_PrepareWorkspace(root, progress=None):
     os.environ['NUMBA_CACHE_DIR'] = str(Path(root)/'work/recompute/numba_cache')
     from .frozen_mesh import Frozen_PrepareCase
     from .inputs import Input_Prepare
     root = Path(root)
     runtime = root/'work/recompute/runtime'
-    runtime.mkdir(parents=True, exist_ok=True)
-    Judge_CopyResources(Runtime_GetCode(root), Runtime_GetData(root), runtime)
+    from contextlib import nullcontext
+    with progress.Progress_Phase('prepare.workspace') if progress else nullcontext():
+        runtime.mkdir(parents=True, exist_ok=True)
+        Judge_CopyResources(Runtime_GetCode(root), Runtime_GetData(root), runtime)
     # All parsers and static resource verification belong to the parent.
-    Input_Prepare(runtime, runtime/'data/raw')
+    with progress.Progress_Phase('prepare.inputs') if progress else nullcontext():
+        Input_Prepare(runtime, runtime/'data/raw')
     os.environ['DRYING_JUDGE_FROZEN_MESH'] = '1'
-    for case in ['q1', 'q23', 'q4']:
-        Frozen_PrepareCase(runtime, case)
+    with progress.Progress_Phase('prepare.mesh') if progress else nullcontext():
+        for case in ['q1', 'q23', 'q4']:
+            Frozen_PrepareCase(runtime, case)
     os.environ['NUMBA_CACHE_DIR'] = str(root/'work/recompute/numba_cache')
     os.environ['DRYING_MODEL_ROOT'] = str(runtime)
     return runtime
@@ -145,10 +155,13 @@ def Judge_RunWorker(task_file):
     Diagnostics_Open(root)
     started = Judge_GetTime(); clock = time.perf_counter()
     try:
-        result = Task_Execute(root, task)
+        from .judge_observer import Progress_ObserveTask
+        with Progress_ObserveTask(root, task) as observer:
+            result = Task_Execute(root, task)
         receipt = dict(key=task['key'], group=task['group'], status='PASS', result=result,
             started_at=started, finished_at=Judge_GetTime(), wall_s=time.perf_counter()-clock,
             cache_reused=bool(result.get('cache_reused', False)), worker_pid=os.getpid())
+        receipt['progress_observer']=dict(kernel_calls=observer.kernel_calls,reporting_wall_s=observer.reporting_wall_s)
         Storage_WriteJson(task['receipt'], receipt)
         return 0
     except Exception:
@@ -251,15 +264,13 @@ def Judge_PublishOriginal(runtime):
     (runtime/'results/overview.md').write_text('\n'.join(lines)+'\n', encoding='utf-8')
 
 
-def Judge_RunDag(root, runtime, plan):
+def Judge_RunDag(root, runtime, plan, progress=None):
     root = Path(root)
     pending = list(plan['steps']); running = {}; done = set(); records = []
     started = time.perf_counter(); started_at = Judge_GetTime()
     receipts = runtime/'work/recompute/receipts'; receipts.mkdir(parents=True, exist_ok=True)
     taskdir = runtime/'work/recompute/tasks'; taskdir.mkdir(parents=True, exist_ok=True)
     logdir = root/'logs'; logdir.mkdir(exist_ok=True)
-    def Publish_Progress(message):
-        print('DRYING_EVENT '+json.dumps(dict(completed=len(done), total=len(plan['steps']), message=message), ensure_ascii=False), flush=True)
     def Save_Timings():
         totals = {group:sum(r['wall_s'] for r in records if r['group']==group) for group in ['original','validation','plot','extension']}
         group_wall = {}
@@ -298,15 +309,20 @@ def Judge_RunDag(root, runtime, plan):
                 log = (logdir/(job['key']+'.log')).open('w', encoding='utf-8')
                 process = subprocess.Popen(command, cwd=root, env=dict(os.environ, DRYING_MODEL_ROOT=str(root), PYTHONUNBUFFERED='1', PYTHONIOENCODING='utf-8'),
                     stdout=log, stderr=subprocess.STDOUT, creationflags=subprocess.CREATE_NO_WINDOW if os.name=='nt' else 0)
-                running[process.pid] = dict(process=process, job=job, workspace=workspace, log=log, log_path=logdir/(job['key']+'.log'), position=0)
+                running[process.pid] = dict(process=process, job=job, workspace=workspace, log=log, log_path=logdir/(job['key']+'.log'), position=0,buffer='')
                 pending.remove(job)
-                Publish_Progress('开始 '+job['key']+'；日志 logs/'+job['key']+'.log')
+                if progress:
+                    progress.tracker.Progress_Start(job['key']);progress.Progress_Emit()
             for pid, entry in list(running.items()):
                 # Tail without a pipe reader deadlock; concurrent workers have separate logs.
                 with entry['log_path'].open(encoding='utf-8', errors='replace') as stream:
                     stream.seek(entry['position']); text = stream.read(); entry['position'] = stream.tell()
                 if text:
-                    print('['+entry['job']['key']+'] '+text.rstrip(), flush=True)
+                    entry['buffer']+=text
+                    while '\n' in entry['buffer']:
+                        line,entry['buffer']=entry['buffer'].split('\n',1)
+                        if progress:progress.Progress_WorkerLine(entry['job']['key'],line)
+                        else:print(line,flush=True)
                 code = entry['process'].poll()
                 if code is None:
                     continue
@@ -323,7 +339,8 @@ def Judge_RunDag(root, runtime, plan):
                 Save_Timings()
                 if (runtime/'results').exists():
                     shutil.copytree(runtime/'results', root/'results', dirs_exist_ok=True)
-                Publish_Progress('完成 '+job['key'])
+                if progress:
+                    progress.tracker.Progress_FinishTask(job['key'],receipt.get('cache_reused',False));progress.Progress_Emit()
             if pending and not running and not any(set(j['dependencies']) <= done for j in pending):
                 raise RuntimeError('TASK_DAG_UNRESOLVED: '+str([j['key'] for j in pending]))
             if running:
@@ -359,6 +376,8 @@ def Judge_Main(root, argv=None):
     parser.add_argument('--runtime-check', action='store_true')
     parser.add_argument('--tasks', nargs='+', choices=TASKS, help=argparse.SUPPRESS)
     parser.add_argument('--gui-run', action='store_true', help=argparse.SUPPRESS)
+    parser.add_argument('--machine-progress', action='store_true', help='输出统一 JSON 进度协议')
+    parser.add_argument('--verbose', action='store_true', help='显示详细 worker 日志')
     parser.add_argument('--worker-json', help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
     root = Path(root).resolve()
@@ -382,8 +401,8 @@ def Judge_Main(root, argv=None):
     if args.all: selected = list(TASKS)
     if not selected: selected = ['q1','q23','q4']
     plan = Judge_GetPlan(root, selected, args.workers)
-    print(json.dumps(plan, ensure_ascii=False, indent=2), flush=True)
     if args.dry_run:
+        print(json.dumps(plan, ensure_ascii=False, indent=2), flush=True)
         return 0
     folder = root/'work/recompute'; folder.mkdir(parents=True, exist_ok=True)
     lock = folder/'runner.lock'
@@ -395,22 +414,48 @@ def Judge_Main(root, argv=None):
         lock.unlink()
     descriptor = os.open(lock, os.O_CREAT|os.O_EXCL|os.O_WRONLY)
     os.write(descriptor, str(os.getpid()).encode()); os.close(descriptor)
-    Storage_WriteJson(folder/'runner_identity.json', dict(pid=os.getpid(), created_at=psutil.Process().create_time()))
+    Storage_WriteJson(folder/'runner_identity.json', dict(pid=os.getpid(), created_at=psutil.Process().create_time(),
+        root=str(root),cmdline=psutil.Process().cmdline()))
+    console=ProgressConsole(machine=args.gui_run or args.machine_progress,verbose=args.verbose)
+    if not console.machine:
+        print('2026 A题药材烘干模型 · 原题表格复算\n任务：'+ '、'.join(TASKS[k] for k in selected)+
+            f"\n并行：{args.workers} workers\n输出：results/",flush=True)
+        if plan['automatic_dependencies']:print('必要依赖：'+'；'.join(plan['automatic_dependencies']),flush=True)
+    progress=ProgressSession(root,plan,console);progress.Progress_Begin()
     started = time.perf_counter()
     try:
-        runtime = Judge_PrepareWorkspace(root)
-        if any(j['pde'] for j in plan['steps']):
-            Judge_WarmKernels(runtime)
-        preparation_s = time.perf_counter()-started
-        result = Judge_RunDag(root, runtime, plan)
+        # Verbose numerical output remains in durable logs; heartbeat writes to
+        # its captured real console stream, unaffected by this redirect.
+        with (root/'logs/router.log').open('w',encoding='utf-8') as detail, redirect_stdout(ProgressLogStream(detail,progress)), redirect_stderr(ProgressLogStream(detail,progress)):
+            runtime = Judge_PrepareWorkspace(root,progress)
+            with progress.Progress_Phase('prepare.jit'):
+                if any(j['pde'] for j in plan['steps']):Judge_WarmKernels(runtime)
+            preparation_s = time.perf_counter()-started
+            result = Judge_RunDag(root, runtime, plan,progress)
         result.update(preparation_and_jit_s=preparation_s, total_wall_s=time.perf_counter()-started)
+        result['progress_identity']=progress.reference.get('identity')
         Storage_WriteJson(folder/'timings.json', result)
         Storage_WriteJson(root/'results/recompute_timing_summary.json', result)
-        print('所选任务完成；总耗时 %.2f min；输出 results/' % (result['total_wall_s']/60), flush=True)
+        # Publish success only after all required outputs have been saved.
+        audit=progress.Progress_End(ProgressRunResult.COMPLETE);result['progress']=audit
+        try:
+            Storage_WriteJson(folder/'timings.json',result)
+            Storage_WriteJson(root/'results/recompute_timing_summary.json',result)
+        except OSError as error:console.Progress_Log('WARNING: 无法保存附加进度统计：'+str(error),force=True)
+        if not console.machine:
+            production=Judge_ReadJson(runtime/'work/recompute/production.json')
+            for case,label in [('q23','Q3'),('q4','Q4')]:
+                if case in production:
+                    value=production[case]['drying_time_h']
+                    print(f"{label} = {value:.4f} h" if value is not None else label+'：观察期内未达标',flush=True)
+            print('所选任务完成；总耗时 %.2f min；输出 results/' % (result['total_wall_s']/60), flush=True)
         return JudgeRunResult.COMPLETE
-    except Exception:
-        print(traceback.format_exc(), flush=True)
-        return JudgeRunResult.FAILED
+    except (Exception,KeyboardInterrupt) as error:
+        result=ProgressRunResult.STOPPED if isinstance(error,KeyboardInterrupt) else ProgressRunResult.FAILED
+        audit=progress.Progress_End(result)
+        Storage_WriteJson(folder/'progress_failure.json',audit)
+        console.Progress_Log(traceback.format_exc(),force=True)
+        return JudgeRunResult.STOPPED if result==ProgressRunResult.STOPPED else JudgeRunResult.FAILED
     finally:
         lock.unlink(missing_ok=True)
         (folder/'runner_identity.json').unlink(missing_ok=True)

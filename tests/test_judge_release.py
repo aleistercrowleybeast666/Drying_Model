@@ -10,6 +10,17 @@ from drying.recompute import Recompute_GetPlan, Recompute_PrepareWorkspace, TASK
 from drying.runtime import Runtime_GetRoot, Runtime_BuildRecomputeCommand
 
 
+@pytest.fixture(autouse=True)
+def confirm_owned_test_shutdown(monkeypatch):
+    from PySide6.QtWidgets import QMessageBox
+    monkeypatch.setattr(QMessageBox,'question',lambda *a,**k:QMessageBox.StandardButton.Yes)
+
+
+def Progress_TestEvent(fraction,message='阶段'):
+    return dict(schema_version=1,event='progress',overall_fraction=fraction,elapsed_s=12.,eta_s=18.,message=message,
+        running_tasks=[dict(task_label=message,task_fraction=fraction)])
+
+
 def test_minimal_bundle_bootstraps_without_top_level_code_data_or_results(tmp_path):
     from drying.runtime import Runtime_GetCode,Runtime_GetData
     resource=tmp_path/'dependencies/application'
@@ -143,12 +154,12 @@ def test_gui_preserves_split_utf8_progress(qt_app,tmp_path,monkeypatch):
     from drying.gui.judge_window import JudgeWindow
     from PySide6.QtCore import QByteArray
     window=JudgeWindow(tmp_path)
-    payload=('DRYING_EVENT '+json.dumps(dict(completed=2,total=5,message='空间验证'),ensure_ascii=False)+'\n').encode()
+    payload=('DRYING_PROGRESS '+json.dumps(Progress_TestEvent(.4,'空间验证'),ensure_ascii=False)+'\n').encode()
     cut=payload.index('空'.encode())+1
     chunks=iter([payload[:cut],payload[cut:]])
     monkeypatch.setattr(window.process,'readAllStandardOutput',lambda:QByteArray(next(chunks)))
     window.Log_Read();window.Log_Read()
-    assert window.current.text()=='空间验证' and window.outer.value()==2 and window.outer.maximum()==5
+    assert '空间验证' in window.inner.text() and window.outer.value()==4000 and window.outer.maximum()==10000
     window.close()
 
 
@@ -158,13 +169,13 @@ def test_gui_progress_never_regresses_on_repeated_or_failure_events(qt_app,tmp_p
     window=JudgeWindow(tmp_path)
     values=[]
     for completed in [2,1,4,0]:
-        payload='DRYING_EVENT '+json.dumps(dict(completed=completed,total=5,message='阶段'))+'\n'
+        payload='DRYING_PROGRESS '+json.dumps(Progress_TestEvent(completed/5))+'\n'
         monkeypatch.setattr(window.process,'readAllStandardOutput',lambda:QByteArray(payload.encode()))
         window.Log_Read();values.append(window.outer.value())
-    assert values==[2,2,4,4] and window.outer.maximum()==5
+    assert values==[4000,4000,8000,8000] and window.outer.maximum()==10000
     monkeypatch.setattr(window.process,'readAllStandardOutput',lambda:QByteArray())
-    window.Task_Done(1,None);assert window.outer.value()==4
-    window.Task_Done(0,None);assert window.outer.value()==5
+    window.Task_Done(1,None);assert window.outer.value()==8000
+    window.Task_Done(0,None);assert window.outer.value()==10000
     window.close()
 
 
@@ -202,6 +213,8 @@ def test_reopened_gui_can_stop_existing_runner(qt_app,tmp_path):
     process=subprocess.Popen([sys.executable,str(script)],cwd=tmp_path)
     lock=tmp_path/'work/recompute/runner.lock';lock.parent.mkdir(parents=True)
     lock.write_text(str(process.pid))
+    import psutil
+    (lock.parent/'runner_identity.json').write_text(json.dumps(dict(pid=process.pid,created_at=psutil.Process(process.pid).create_time())))
     window=JudgeWindow(tmp_path)
     assert window.external_busy and window.stop.isEnabled() and window.start.isEnabled()
     window.select_buttons[1].click();assert all(check.isChecked() for check in window.checks.values())

@@ -15,7 +15,7 @@ metadata = []
 for package in ['imageio','numpy','scipy','numba','llvmlite','matplotlib','openpyxl','pillow','psutil','iapws','pypdf','PySide6']:
     metadata += copy_metadata(package)
 cli = Analysis([str(root/'offline_recompute.py')], pathex=[str(root)],
-    hiddenimports=hidden+['tomllib','runpy','logging.handlers'], datas=collect_data_files('iapws',include_py_files=True)+metadata,
+    hiddenimports=hidden+['tomllib','runpy','logging.handlers','contextvars'], datas=collect_data_files('iapws',include_py_files=True)+metadata,
     hookspath=[str(root/'scripts/pyinstaller_hooks')],
     excludes=['drying','pytest','tkinter','IPython','notebook'],
     hooksconfig={'matplotlib':{'backends':['Agg']}})

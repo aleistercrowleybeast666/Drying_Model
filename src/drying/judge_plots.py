@@ -5,6 +5,7 @@ from pathlib import Path
 import numpy as np
 
 from .storage import Storage_WriteJson
+from .judge_observer import Progress_PlotStep
 
 
 def Judge_GetPlotMissing(root, selection='static'):
@@ -46,6 +47,7 @@ def Judge_DrawOriginal(root, selection):
         for q,case,model in [(1,'q1',1),(2,'q23',3),(3,'q23',3),(4,'q4',4)]:
             data = Payload_PrepareCurves(root,q,production[case]['case_id'],model,inputs,publish_summary=False)
             files.append(Plot_DrawCurves(root,q,data,f'results/q{q}/q{q}_curves.png'))
+            Progress_PlotStep(len(files),6,'完成 Q'+str(q)+' 曲线')
             if q >= 3:
                 t = float(cfg['snapshot_s']); source = validation[case+'_2d']['selected_id']
                 r,z,nodes = Payload_GetNodes(root,source,t,model,inputs)
@@ -54,6 +56,7 @@ def Judge_DrawOriginal(root, selection):
                     Plot_DrawSurfaceNodes(fig,r,z,nodes,t,f'第{q}问','独立二维 PDE 解',limits)
                     destination = f'results/q{q}/q{q}_3d.png'; fig.savefig(root/destination)
                     files.append(destination)
+                    Progress_PlotStep(len(files),6,'完成 Q'+str(q)+' 三维图')
                 finally:
                     plt.close(fig)
     elif selection == 'gif':
@@ -115,6 +118,7 @@ def Judge_DrawValidation(root):
         data = np.loadtxt(root/info['csv'],delimiter=',',skiprows=1,ndmin=2)
         files.append(Plot_DrawComparison(root,q,info,section,data,f'results/q{q}/q{q}_1d_2d_compare.png'))
         files.append(Plot_DrawMaxSection(root,q,info,section,f'results/q{q}/q{q}_max_error_section.png'))
+        Progress_PlotStep(len(files),8,'完成 Q'+str(q)+' 验证图')
     Storage_WriteJson(root/'work/diagnostics/judge_validation_plots.json',dict(files=files,pde_solves=0,group='validation'))
 
 
@@ -128,13 +132,15 @@ def Judge_DrawExtensions(root):
     except FileNotFoundError as error:
         raise RuntimeError('PLOT_INPUT_MISSING: D sealed study payload') from error
     StudyPlot_SetStyle(); files = []
-    # End-effect/verification evidence belongs to B, never an implicit D figure.
-    for name in ['drying_fronts','drying_kinetics','diffusion_clock_drivers',
+    # End-effect extent needs the D matched trajectory; its output belongs to D.
+    for name in ['end_effect_extent','drying_fronts','drying_kinetics','diffusion_clock_drivers',
                  'environment_robustness','thermal_modes','thermal_interactions','geometry_property_cross']:
         path = StudyPlot_Draw(root,manifest,name)
         files.append(dict(path=path.relative_to(root).as_posix(),sha256=StudyPlot_GetHash(path)))
+        Progress_PlotStep(len(files),10,'完成拓展图 '+name)
     for name in ['thermal_temperature','thermal_moisture']:
         files.append(StudyAnimation_Write(root,manifest,name))
+        Progress_PlotStep(len(files),10,'完成拓展动画 '+name)
     Storage_WriteJson(root/'work/studies/diagnostics/render_manifest.json',dict(manifest_seal=manifest['seal'],files=files,
         status='RENDERED',pde_solves=0,group='extension'))
 

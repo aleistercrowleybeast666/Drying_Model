@@ -45,10 +45,15 @@ def Build_ArchiveTarget(target):
 
 
 def Build_GetReadme(facts):
-    timing_path = ROOT/'work/release_v2/cold_benchmark.json'
+    timing_path = ROOT/'work/release_v2/progress_cold_benchmark.json'
+    if not timing_path.exists():timing_path = ROOT/'work/release_v2/cold_benchmark.json'
     timing = json.loads(timing_path.read_text(encoding='utf-8')) if timing_path.exists() else {}
     benchmark = ('EXE 无缓存原题四表 %.2f min（2 workers，含进程启动/准备/JIT/Excel/readback）' % (timing['external_wall_s']/60)
         if timing.get('returncode') == 0 else '源码无缓存四表 3.46 min；EXE 冷启动验收结果尚未填入。')
+    warm_path=ROOT/'work/release_v2/progress_warm_benchmark.json'
+    if warm_path.exists():
+        warm=json.loads(warm_path.read_text(encoding='utf-8'))
+        if warm.get('returncode')==0:benchmark+='；匹配缓存复用 %.2f s。' % warm['external_wall_s']
     return (ROOT/'configs/judge_readme.md').read_text(encoding='utf-8').format(
         q3=facts['official']['Q3']['drying_time_h'],q4=facts['official']['Q4']['drying_time_h'],benchmark=benchmark)
 

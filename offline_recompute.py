@@ -21,7 +21,8 @@ if __name__ == '__main__':
     result = main()
     # A console created solely for this EXE indicates Explorer/double-click launch.
     if (getattr(sys, 'frozen', False) and os.name == 'nt' and not sys.argv[1:]
-        and sys.stdin is not None and sys.stdin.isatty()):
+        and sys.stdin is not None and sys.stdin.isatty()
+        and sys.stdout is not None and sys.stdout.isatty()):
         import ctypes
         processes = (ctypes.c_ulong*4)()
         if ctypes.windll.kernel32.GetConsoleProcessList(processes, 4) == 1:

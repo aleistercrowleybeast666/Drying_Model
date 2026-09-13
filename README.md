@@ -11,11 +11,15 @@
 
 表格无需调用 Validation_Run。Excel 逐单元回读及冻结完整精度数组核对独立执行：`TABLE_RECOMPUTE_REFERENCE_MATCH: PASS` 仅表示数值一致；数值收敛未重跑时明确标为 `NOT_RERUN_IN_TABLE_ONLY_MODE`。正式 B 空间验证只用既有 full_schedule_reference x2，时间验证只对正式接受分区减半；旧 fixed-grid 为 legacy / diagnostic only，不参与当前生产认证。
 
-双 EXE 冷启动四表实测 217.79 s（3.63 min，2 workers，含进程启动、准备、JIT、Excel 和回读）；源码实测 207.87 s。Q3=57.6215 h，Q4=51.1824 h，四表数值参考和回读均 PASS。新链路的三组一维验证实跑 PASS，约 27.37 min，按需运行。完整二维、十二例守恒及拓展全选尚未在 v2 完整冷跑，详见 [RELEASE_V2_VALIDATION.md](RELEASE_V2_VALIDATION.md)。发布包 README/TXT 由同一模板 `configs/judge_readme.md` 生成。
+本轮 EXE 冷启动四表实测 185.99 s（3.10 min，2 workers，含进程启动、准备、JIT、Excel 和回读），匹配缓存复用 7.74 s。Q3=57.6215 h，Q4=51.1824 h，四表数值参考和回读均 PASS。先前的三组一维验证实跑 PASS，约 27.37 min，按需运行；本轮未重新求解这些验证。完整 B、二维、十二例守恒、D、GIF、--all 仍未全冷实测，详见 [RELEASE_V2_VALIDATION.md](RELEASE_V2_VALIDATION.md)。发布包 README/TXT 由同一模板 `configs/judge_readme.md` 生成。
 
-输出在程序目录的 `results/`；运行工作区 `work/recompute/runtime/`，每 case 目录 `work/recompute/workers/`。任务耗时在 `work/recompute/timings.json` 与 `results/recompute_timing_summary.json`。GUI 保持白底、可读日志、单调进度；立即停止和关闭 GUI 都结束本次进程树。未保存的计算会丢失，重启核验匹配缓存后恢复。
+输出在程序目录的 `results/`；运行工作区 `work/recompute/runtime/`，每 case 目录 `work/recompute/workers/`。任务耗时在 `work/recompute/timings.json` 与 `results/recompute_timing_summary.json`。GUI 保持白底、可读日志，进度显示到 0.1%；立即停止结束自己启动的进程树，关闭自己的运行窗口时先确认。检测到外部 CLI 时只观察，关闭 GUI 不停止外部进程；“停止外部复算”必须确认并重新校验 PID、创建时间、命令行及根目录。未保存的计算会丢失，重启核验匹配缓存后恢复。
 
-`configs/output_groups.json` 对现有每个正式 PNG/GIF 标明归属与依赖；绘图不启动求解，缺数据报 `PLOT_INPUT_MISSING`。冻结资源损坏报 `FROZEN_MESH_CONFIGURATION_MISSING_OR_MISMATCH`。开发者可用 `scripts/regenerate_frozen_mesh.py` 比较新 monitor，明确 `--accept` 才覆盖。
+CLI/GUI 共用 `judge_progress.py` 的统一加权事件；任务权重优先使用哈希匹配的成功实测 wall time，A 内部按各阶段实测 wall 与接受步数推进，Q3/Q4 使用真实报告终点。准备、输入、冻结网格检查及 JIT 也计入进度。只读 observer 在原 RK4 调用返回后限频统计，不改调用参数、次数、分块或浮点运算顺序。`configs/progress_reference.json` 保存每阶段 nr/nz、接受步数、实际平均 dt、wall 及来源哈希；损坏或失配仅回退显示估计。旧长任务最多预测至 95%，真实回执 PASS 后才完成；STOP/FAIL 保持小于 100%。ETA 结合任务速度、依赖和 worker 槽位估计。
+
+普通 CLI 每约 5 秒更新进度；TTY 单行刷新，重定向时换行。`--verbose` 输出详细 worker 日志，`--machine-progress`/`--gui-run` 使用机器协议，`--dry-run` 保留 JSON DAG。完整日志写 `logs/`，每秒事件写 `logs/progress.jsonl` 和 `work/recompute/progress.json`，不逐步写盘。GUI 每 200 ms 平滑到已收到的上界，不会在断流后自行走到 100%。本轮完整回归 192 项通过。
+
+`configs/output_groups.json` 对现有全部 39 个 PNG/GIF/XLSX 标明归属、数据依赖和实际 producer。`01_end_effect_extent.png` 依赖 matched M00，统一归 D；B 仅生成验证图及 09 图，不隐式运行 D。绘图不启动求解，缺数据报 `PLOT_INPUT_MISSING`。冻结资源损坏报 `FROZEN_MESH_CONFIGURATION_MISSING_OR_MISMATCH`。开发者可用 `scripts/regenerate_frozen_mesh.py` 比较新 monitor，明确 `--accept` 才覆盖。
 
 以下为原有低层开发接口和模型说明；历史全量验证不进入评委默认流程。
 

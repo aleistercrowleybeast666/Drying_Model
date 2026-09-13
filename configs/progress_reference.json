@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-12T17:56:57.026946+00:00",
+  "source_run": "work/release_v2/progress_cold_benchmark.json",
+  "identity": {
+    "numerical_sources": {
+      "materials": "83af1401abe6dc99073f619efa2a5406c8b8d56c34fb8043b72a369dad39cbdf",
+      "boundaries": "5b88490ad438f9831b84104cd53f983b8c6326c7bcdfbce3c884e9826b8d5905",
+      "operators": "6c36fd3be577f379dde6aece12be7fce12a563c54cf5155c618dfd5b09b8ae43",
+      "rk4": "71b9f6b50b0f6b6656a2e79920f8b77c8d65679a89e0b8419940e629262d8709",
+      "sampling": "b335f20108608c04b4ceb5510233e89d05718928d82c6712b204fa9e9cb8717b",
+      "inputs": "a3d83290bd4d32a3e9ddaf74467d6215f9a0b3f030eca76a9dc96a9898c47a3a",
+      "events": "d03bdfe9f32e669bd6d55cf9a4d095b5376e26004b9cd52ca3f05b89397743bb",
+      "geometry": "87abb0138f2fae6833e1455363f99da62398b72de924838e0bcd6c4d2a685519",
+      "cases": "203d0c565a04798d623c3661dad7b5e76f6d6755b49185a1fe4f966ae87b31dd",
+      "stages": "69fe41afd196c95b26d76d5b669222991686ae6e65d106d12bd690487ac50b3f",
+      "table_solver": "ecea4c9ac485f569b6a33491edf929377f4ca4def1d50ded70e0a23a0a2d7157"
+    },
+    "numerical_source_hash": "829d9811ef26a6abdfe29ca1179bebbd4b5572578c888f4f24940e3c4e5098ad",
+    "frozen_schedule_hash": "3f67a269ff90f9da6b6266dbcd333e80e47919daf95c7671ba82d02359da3ced",
+    "frozen_mesh_hash": "f44f880f0e1cd02987f55d44914fe7fac4c899dd346b825b41e679b9e5e9479f",
+    "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+    "config_hash": "a133a33e3a429c0ecee4618cd36d6ca5e4e3b16b335f9cfc0187950ea4221d6b"
+  },
+  "tasks": {
+    "A.q4": {
+      "wall_s": 45.897116000000096,
+      "accepted_steps": 986857,
+      "actual_end_s": 184256.63999999998,
+      "stages": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 200,
+          "nz": 1,
+          "steps": 19215,
+          "wall_s": 8.896771000000626,
+          "actual_dt_mean": 0.0312256049960968
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 160,
+          "nz": 1,
+          "steps": 95969,
+          "wall_s": 6.552999400000772,
+          "actual_dt_mean": 0.031260094405485106
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1,
+          "steps": 221046,
+          "wall_s": 9.035997599999973,
+          "actual_dt_mean": 0.0814310143590022
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 184256.63999999998,
+          "nr": 40,
+          "nz": 1,
+          "steps": 650627,
+          "wall_s": 12.722460099999807,
+          "actual_dt_mean": 0.24999983093231604
+        }
+      ]
+    },
+    "A.q1": {
+      "wall_s": 9.599320199999966,
+      "accepted_steps": 39720,
+      "actual_end_s": 1800.0,
+      "stages": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1,
+          "steps": 7320,
+          "wall_s": 0.6242903000002116,
+          "actual_dt_mean": 0.00819672131147541
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1,
+          "steps": 15600,
+          "wall_s": 1.260113199999978,
+          "actual_dt_mean": 0.015384615384615385
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1,
+          "steps": 14400,
+          "wall_s": 0.8145908999995299,
+          "actual_dt_mean": 0.0625
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1,
+          "steps": 2400,
+          "wall_s": 0.18409430000065186,
+          "actual_dt_mean": 0.25
+        }
+      ]
+    },
+    "A.q23": {
+      "wall_s": 162.78512610000053,
+      "accepted_steps": 3392650,
+      "actual_end_s": 207437.4,
+      "stages": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1,
+          "steps": 20100,
+          "wall_s": 9.329748299999665,
+          "actual_dt_mean": 0.014925373134328358
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1,
+          "steps": 91414,
+          "wall_s": 7.00735319999967,
+          "actual_dt_mean": 0.016408865162885335
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 207437.4,
+          "nr": 80,
+          "nz": 1,
+          "steps": 3281136,
+          "wall_s": 109.63242859999991,
+          "actual_dt_mean": 0.06267262314027824
+        }
+      ]
+    }
+  },
+  "preparation": [
+    [
+      "prepare.workspace",
+      "准备运行目录",
+      0.125
+    ],
+    [
+      "prepare.inputs",
+      "读取输入",
+      0.34400000000005093
+    ],
+    [
+      "prepare.mesh",
+      "校验冻结网格",
+      0.26600000000053114
+    ],
+    [
+      "prepare.jit",
+      "M00 JIT 预热",
+      18.35899999999947
+    ]
+  ],
+  "preparation_basis": "measured phases",
+  "policy": "Display only. Stale/corrupt resources fall back without changing scientific fingerprints or results.",
+  "seal": "9fa7d0184120a931b50dea79162a23ccef34fb2275b7aefacff3bc106a6ebfc2"
+}

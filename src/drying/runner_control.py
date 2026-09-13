@@ -20,9 +20,11 @@ def Runner_GetProcess(root):
         process=psutil.Process(int((folder/'runner.lock').read_text()))
         if process.pid==os.getpid():return None
         identity=folder/'runner_identity.json'
-        if identity.exists():
-            record=json.loads(identity.read_text(encoding='utf-8'))
-            if record['pid']!=process.pid or abs(record['created_at']-process.create_time())>.01:return None
+        if not identity.exists():return None
+        record=json.loads(identity.read_text(encoding='utf-8'))
+        if record['pid']!=process.pid or abs(record['created_at']-process.create_time())>.01:return None
+        if record.get('root') and Path(record['root']).resolve()!=root:return None
+        if record.get('cmdline') and record['cmdline']!=process.cmdline():return None
         # Verify the command as well as the PID: never target an unrelated process
         # that inherited a recycled PID / stale or copied lock file.
         expected={root/'药材烘干模型_原题表格复算.exe',root/'药材烘干模型_原题表格复算.py',
@@ -36,12 +38,17 @@ def Runner_GetProcess(root):
     except (OSError,ValueError,KeyError,psutil.Error):return None
 
 
-def Runner_Stop(root,owned_pid=0):
+def Runner_GetIdentity(process):
+    return dict(pid=process.pid,created_at=process.create_time(),cmdline=process.cmdline())
+
+
+def Runner_Stop(root,owned_pid=0,expected_identity=None):
     root=Path(root).resolve()
     try:
         parent=psutil.Process(owned_pid) if owned_pid else Runner_GetProcess(root)
         if parent is None:return RunnerStopResult.NO_TASK
         if parent.pid==os.getpid() or (owned_pid and parent.ppid()!=os.getpid()):return RunnerStopResult.FAILED
+        if expected_identity and Runner_GetIdentity(parent)!=expected_identity:return RunnerStopResult.NO_TASK
     except psutil.NoSuchProcess:return RunnerStopResult.NO_TASK
     folder=root/'work/recompute';folder.mkdir(parents=True,exist_ok=True)
     Storage_WriteJson(folder/'interrupted.json',dict(status='INTERRUPTED',reason='immediate stop / GUI close',
@@ -71,5 +78,12 @@ def Runner_Stop(root,owned_pid=0):
     try:
         if lock.exists() and int(lock.read_text())==parent.pid:
             lock.unlink();(folder/'runner_identity.json').unlink(missing_ok=True)
+    except (OSError,ValueError):pass
+    progress_path=folder/'progress.json'
+    try:
+        progress=json.loads(progress_path.read_text(encoding='utf-8'))
+        if progress.get('runner_pid')==parent.pid:
+            progress.update(event='run_stopped',eta_s=None,message='复算已停止，保留已完成进度')
+            Storage_WriteJson(progress_path,progress)
     except (OSError,ValueError):pass
     return RunnerStopResult.STOPPED
