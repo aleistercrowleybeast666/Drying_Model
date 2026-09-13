@@ -25,7 +25,7 @@ class CatalogPanel(QWidget):
     def __init__(self,root,parent=None):
         super().__init__(parent);self.root=root;self.catalog=Catalog_Read(root)
         self.checks={};self.status_labels={};self.mode_labels={};self.mode_buttons={};self.snapshot=None;self.scan=None
-        self.running_keys=set();self.task_states={};self.run_id=None;self.refresh_pending=False
+        self.running_keys=set();self.task_states={};self.run_id=None;self.refresh_pending=False;self.full_pipeline=False
         layout=QVBoxLayout(self);layout.setContentsMargins(0,0,0,0)
         refresh_row=QHBoxLayout();self.refresh=QPushButton('刷新缓存');self.refresh.clicked.connect(self.Cache_Refresh)
         refresh_row.addWidget(self.refresh);self.cache_label=QLabel('正在核验跨运行缓存…');self.cache_label.setWordWrap(True)
@@ -33,7 +33,8 @@ class CatalogPanel(QWidget):
         self.presets=Catalog_GetPresets(root);self.select_buttons=[];presets_row=QHBoxLayout()
         for text,keys in [('仅四表',self.presets['official']),('论文数据（A+B）',self.presets['paper']),
                           ('全选（A+B+C+D）',self.presets['all']),('全不选',[])]:
-            button=QPushButton(text);button.clicked.connect(lambda checked=False,ks=keys:self.Selection_Set(ks))
+            button=QPushButton(text)
+            button.clicked.connect(self.Selection_AllPipeline if text.startswith('全选（') else lambda checked=False,ks=keys:self.Selection_Set(ks))
             presets_row.addWidget(button);self.select_buttons.append(button)
         layout.addLayout(presets_row)
         for mode,title in [('A','四表正式数据'),('B','创新实验数据'),('C','绘图'),('D','验证（耗时最长，建议不做）')]:
@@ -76,9 +77,19 @@ class CatalogPanel(QWidget):
             (['缺少前置数据：']+[m['label']+'：'+m['reason'] for m in missing] if missing else []))
 
     def Selection_Set(self,keys,scope=None):
+        if self.full_pipeline:
+            self.full_pipeline=False
+            for key,check in self.checks.items():
+                if not check.isEnabled():check.setChecked(False)
         selected=set(keys)
         for key in self.checks if scope is None else scope:
             check=self.checks[key];check.setChecked(key in selected and check.isEnabled())
+        self.Counts_Refresh()
+
+    def Selection_AllPipeline(self):
+        self.full_pipeline=True
+        for check in self.checks.values():check.setChecked(True)
+        self.cache_label.setText('完整流水线：先生成 A/B，再执行全部 C/D；缺缓存的后续项目已加入计划。')
         self.Counts_Refresh()
 
     def Counts_Refresh(self):
@@ -129,7 +140,7 @@ class CatalogPanel(QWidget):
         self.snapshot=snapshot;removed=0
         for key,check in self.checks.items():
             state=snapshot['items'][key];check.setEnabled(state['enabled'])
-            if not state['enabled']:
+            if not state['enabled'] and not self.full_pipeline:
                 removed+=check.isChecked();check.setChecked(False)
             if key not in self.running_keys:self.task_states.pop(key,None)
             check.setToolTip(self.Tooltip_Get(key,state['missing']))
@@ -142,7 +153,9 @@ class CatalogPanel(QWidget):
     def Cache_Failed(self,error):
         self.scan=None;self.snapshot=None;self.refresh.setEnabled(True);self.cache_label.setText('缓存扫描失败，可重试：'+error)
         for key,check in self.checks.items():
-            if self.catalog[key]['mode'] in ['C','D']:check.setEnabled(False);check.setChecked(False)
+            if self.catalog[key]['mode'] in ['C','D']:
+                check.setEnabled(False)
+                if not self.full_pipeline:check.setChecked(False)
         self.Counts_Refresh();self.Status_Refresh()
         self.cache_updated.emit({'official':{}})
         if self.refresh_pending:self.refresh_pending=False;self.Cache_Refresh()

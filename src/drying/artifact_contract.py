@@ -141,11 +141,13 @@ def Artifact_ReadbackOfficial(root,entry):
     import numpy as np
     from openpyxl import load_workbook
     from .export import Export_Readback
-    root=Path(root);runtime=root/entry['runtime'];inputs=json.loads((runtime/'data/input_manifest.json').read_text(encoding='utf-8'))
+    from .runtime import Runtime_GetData,Runtime_GetTemplate
+    root=Path(root);runtime=root/entry['runtime'];data_root=Runtime_GetData(runtime)
+    inputs=json.loads((data_root/'input_manifest.json').read_text(encoding='utf-8'))
     for q in dict(q1=[1],q23=[2,3],q4=[4])[entry['case']]:
         with np.load(runtime/f'work/cache/exports/result{q}_full_precision.npz') as data:
             arrays=[data['temperature_C'],data['moisture']] if q<=2 else [data['moisture']]
             columns=[round(x*.1,1) for x in range(21)]+(['药材表面'] if q==4 else [])
-            book=load_workbook(runtime/inputs['templates'][str(q)]['path'],read_only=True);names=book.sheetnames;book.close()
+            book=load_workbook(Runtime_GetTemplate(runtime,inputs,q),read_only=True);names=book.sheetnames;book.close()
             Export_Readback(root/f'results/tables/result{q}.xlsx',names,data['time_s'],arrays,columns)
     return dict(status='PASS',pde_solves=0)

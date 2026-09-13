@@ -34,21 +34,38 @@ def Pipeline_PrepareTask(root,runtime,job):
         Innovation_PrepareBaseline(workspace)
         Storage_WriteJson(workspace/'work/recompute/production.json',production)
         if job['layer'] in ['C','D']:Storage_WriteJson(workspace/'work/validation/summary.json',selectors)
-    if job['layer']=='D':
+    if job['layer']=='D' and job['kind']!='twod_assess':
         case=job.get('case')
         # Each evidence task uses a private copy: paired endpoint audit may add
         # files to a cache directory, but cannot mutate a production artifact.
         if job['kind'].startswith('twod_') and job['kind'] not in ['twod_seed','twod_time_half']:
             seed=runtime/f'work/validation/judge_2d/{case}/seed.json'
             if case and seed.exists():Resource_CopyTree(seed.parent,workspace/seed.parent.relative_to(runtime),immutable=True)
-        if job['kind']=='twod_assess':
-            Resource_CopyTree(runtime/'work/validation/judge_2d',workspace/'work/validation/judge_2d',immutable=True)
-            Resource_CopyTree(runtime/'work/validation/auxiliary_2d',workspace/'work/validation/auxiliary_2d',immutable=True)
     return workspace
 
 
+def Pipeline_GetEvidencePaths(root,workspace,entries):
+    """D-owned evidence, excluding sealed production inputs and shared selectors."""
+    root=Path(root).resolve();workspace=Path(workspace).resolve();protected=set()
+    for key,entry in entries.items():
+        if not key.startswith(('official.','innovation.')):continue
+        origin=(root/entry.get('runtime','.')).resolve()
+        for name in entry['paths']:
+            try:protected.add((root/name).resolve().relative_to(origin).as_posix())
+            except ValueError:continue
+    paths=[]
+    for folder in ['work/cache','work/validation']:
+        for path in (workspace/folder).rglob('*'):
+            if not path.is_file() or path.suffix not in ['.json','.npz','.csv']:continue
+            relative=path.relative_to(workspace).as_posix()
+            if relative in protected or relative=='work/validation/summary.json':continue
+            if not path.resolve().is_relative_to(workspace):raise ValueError('VALIDATION_EVIDENCE_OUTSIDE_WORKSPACE')
+            paths.append(relative)
+    return sorted(paths)
+
+
 def Pipeline_Merge(root,runtime,job,workspace,receipt):
-    from .judge_resources import Resource_CopyFile,Resource_CopyTree
+    from .judge_resources import Resource_CopyFile,Resource_CopyTree,Resource_CopyMutableFile
     root=Path(root);runtime=Path(runtime);workspace=Path(workspace);result=receipt['result']
     if job['layer'] in ['A','B']:return Dataset_Merge(root,runtime,job,workspace,receipt)
     if result.get('artifact_entry'):return
@@ -59,14 +76,19 @@ def Pipeline_Merge(root,runtime,job,workspace,receipt):
         return
     # Only D-owned references/evidence are merged. Never publish a private
     # production summary or private export over A/B results.
-    if workspace!=runtime:
-        for name in ['work/validation/judge_2d','work/validation/auxiliary_2d']:
-            Resource_CopyTree(workspace/name,runtime/name,immutable=True)
+    evidence=[]
+    if job.get('validation_kind','').startswith('twod_') or job['kind'].startswith('twod_'):
+        entries=Artifact_Require(root,job.get('requires',[]),'VALIDATION_PREREQUISITE_MISSING')
+        for name in Pipeline_GetEvidencePaths(root,workspace,entries):
+            destination=runtime/name
+            if workspace!=runtime:Resource_CopyMutableFile(workspace/name,destination)
+            evidence.append(destination.relative_to(root).as_posix())
     path=root/'work/validation/v5'/(job['key']+'.json')
     Storage_WriteJson(path,result)
     if job.get('artifact'):
-        Artifact_Seal(root,job['artifact'],job['key'],[path.relative_to(root).as_posix()],job['requires'],
-            dict(result=result,runtime='.',validation_status=result.get('status','COMPLETE')))
+        Artifact_Seal(root,job['artifact'],job['key'],[path.relative_to(root).as_posix(),*evidence],job['requires'],
+            dict(result=result,runtime=runtime.relative_to(root).as_posix() if evidence else '.',
+                evidence_complete=bool(evidence),validation_status=result.get('status','COMPLETE')))
     manifest=Artifact_ReadManifest(root,'validation.summary')
     summary={k:v.get('result',{}) for k,v in manifest.get('entries',{}).items()}
     Storage_WriteJson(root/'results/validation/summary.json',dict(scope='D only; never selects or replaces A/B data',items=summary))

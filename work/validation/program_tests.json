@@ -2,59 +2,108 @@
   "exit_status": 0,
   "tests": [
     {
+      "test": "tests/test_release_v5_final.py::test_unknown_eta_keeps_structural_progress",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.0005946000019321218,
+      "error": null
+    },
+    {
+      "test": "tests/test_release_v5_final.py::test_full_preset_includes_disabled_phase_two_and_survives_refresh",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 1.4389305000004242,
+      "error": null
+    },
+    {
+      "test": "tests/test_release_v5_final.py::test_all_thirty_renderer_dependencies_cover_actual_accesses",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.0018772999974316917,
+      "error": null
+    },
+    {
+      "test": "tests/test_release_v5_final.py::test_source_paths_and_worker_commands",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.013897900003939867,
+      "error": null
+    },
+    {
+      "test": "tests/test_release_v5_final.py::test_independent_raw_inputs_keep_original_identity",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 2.3556226000000606,
+      "error": null
+    },
+    {
+      "test": "tests/test_release_v5_final.py::test_cost_alias_and_analysis_source_locks",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 3.7768560999975307,
+      "error": null
+    },
+    {
+      "test": "tests/test_release_v5_final.py::test_d_evidence_merge_hydrate_and_missing_file_rejects_assess",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.16096980000293115,
+      "error": null
+    },
+    {
       "test": "tests/test_official_progress.py::test_real_grid_weight_and_current_stagepart_only",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.026976399996783584,
+      "duration_s": 0.012955199999851175,
       "error": null
     },
     {
       "test": "tests/test_official_progress.py::test_pause_corrupt_status_and_lower_state_never_advance_clock",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.04207509999832837,
+      "duration_s": 0.020402900001499802,
       "error": null
     },
     {
       "test": "tests/test_official_progress.py::test_first_run_eta_waits_for_observed_advance",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.028453899998567067,
+      "duration_s": 0.015473400002520066,
       "error": null
     },
     {
       "test": "tests/test_official_progress.py::test_parent_complete_is_not_success_receipt",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.020977400003175717,
+      "duration_s": 0.017995200003497303,
       "error": null
     },
     {
       "test": "tests/test_official_progress.py::test_failed_or_stopped_below_100[FAIL]",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.01830319999862695,
+      "duration_s": 0.01109839999844553,
       "error": null
     },
     {
       "test": "tests/test_official_progress.py::test_failed_or_stopped_below_100[STOPPED]",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.014624899995396845,
+      "duration_s": 0.011619199998676777,
       "error": null
     },
     {
       "test": "tests/test_official_progress.py::test_redirect_has_no_cr_ansi_and_throttles",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.022680800000671297,
+      "duration_s": 0.01989010000397684,
       "error": null
     },
     {
       "test": "tests/test_official_progress.py::test_successful_same_machine_same_science_history_only",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.00013110000145388767,
+      "duration_s": 0.00021920000290265307,
       "error": null
     }
   ]

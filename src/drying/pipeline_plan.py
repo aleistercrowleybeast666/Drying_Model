@@ -72,8 +72,9 @@ def ValidationPlan_Build(items):
             job['experiment_kind']=kind.split('_',1)[1];job['cross']=kind.startswith('cross_')
         if kind.startswith('twod_') and kind not in ['twod_assess','twod_time_half']:
             seed='D.2d.'+case+'.seed';job['dependencies'].append(seed)
+            seed_artifact='validation.2d.'+case+'.seed';job['requires'].append(seed_artifact)
             seeds[case]=Plan_CreateJob(seed,'twod_seed','D',r['requires'],validation_kind='twod_seed',case=case,
-                pde=True,private='validation_'+case+'_seed',label=case+'二维代表时刻准备')
+                artifact=seed_artifact,pde=True,private='validation_'+case+'_seed',label=case+'二维代表时刻准备')
         if kind=='twod_assess':
             # An assess-only request consumes existing validation artifacts;
             # it does not silently select additional validations.
@@ -122,6 +123,8 @@ def PipelinePlan_Build(root,selected,workers='auto',force_data=False,force_valid
             if old.get('progress_identity')==identity and old.get('peak_rss_mb'):job['memory_estimate_mb']=max(512.,old['peak_rss_mb']*1.3)
         job['persistent']=job['kind'] in ['experiment','mass_measure']
         job['locks']=[] if job['private'] else ['validation_summary'] if job['kind']=='twod_assess' else []
+        if job['layer']=='D' and job.get('validation_kind','').startswith(('thermal_','cross_')):
+            job['locks'] += ['analysis-source:'+key for key in job['requires'] if key.startswith('innovation.')]
     return dict(schema_version=5,v5=True,selected=list(selected),steps=jobs,mode='DRY_RUN',pde_solves=0,
         automatic_dependencies=[catalog[k]['display_name_zh'] for k in producers if k in catalog and k not in selected],
         missing_prerequisites=missing,worker_count=resources['cpu_tokens'],resources=resources,

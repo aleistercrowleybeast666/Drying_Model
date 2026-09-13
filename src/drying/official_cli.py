@@ -32,11 +32,13 @@ def Official_Hash(path):
 
 
 def Official_GetCode(root):
+    if (Path(root)/'dependencies/src/drying').is_dir():return Path(root)/'dependencies'
     candidate=Path(root)/'dependencies/application/code'
     return candidate if (candidate/'src').is_dir() else Path(root)
 
 
 def Official_GetData(root):
+    if (Path(root)/'dependencies/data').is_dir():return Path(root)/'dependencies/data'
     candidate=Path(root)/'dependencies/application/data'
     return candidate if candidate.is_dir() else Path(root)/'data'
 
@@ -86,6 +88,9 @@ def Official_Prepare(root,case,force=False):
         shutil.copytree(code/name,workspace/name,dirs_exist_ok=True,copy_function=Official_CopyFile,
             ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
     shutil.copytree(Official_GetData(root),workspace/'data',dirs_exist_ok=True,copy_function=Official_CopyFile)
+    if Official_Read(Official_GetData(root)/'input_manifest.json').get('raw_files'):
+        from .runtime import Runtime_StageRaw
+        Runtime_StageRaw(root,workspace,templates_only=True)
     from .frozen_mesh import Frozen_PrepareCase
     Frozen_PrepareCase(workspace,case)
     return workspace
@@ -145,6 +150,7 @@ def Official_Publish(root,case,identity):
 
 def Official_GetCommand(root,case):
     root=Path(root)
+    if (root/'main.py').is_file():return [sys.executable,'-u',str(root/'main.py'),'--worker',case]
     command=[sys.executable] if getattr(sys,'frozen',False) else [sys.executable,str(Official_GetCode(root)/'official_recompute.py')]
     return [*command,'--worker',case]
 

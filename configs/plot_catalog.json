@@ -30,8 +30,8 @@
       "path": "results/animations/q3_q4_axial_section.gif",
       "group": "原题 / 二维图",
       "requires": [
-        "official.q23",
-        "innovation.2d.q23"
+        "innovation.2d.q23",
+        "innovation.2d.q4"
       ],
       "renderer": "q3_q4_axial_section",
       "animation": true,
@@ -53,8 +53,8 @@
       "path": "results/animations/q3_q4_cutaway_cylinder.gif",
       "group": "原题 / 二维图",
       "requires": [
-        "official.q23",
-        "innovation.2d.q23"
+        "innovation.2d.q23",
+        "innovation.2d.q4"
       ],
       "renderer": "q3_q4_cutaway_cylinder",
       "animation": true,
@@ -77,7 +77,7 @@
       "group": "原题 / 二维图",
       "requires": [
         "official.q23",
-        "innovation.2d.q23"
+        "official.q4"
       ],
       "renderer": "q3_q4_radial_section",
       "animation": true,

@@ -121,7 +121,7 @@ def Judge_CopyResources(code, data, target):
 def Judge_PrepareWorkspace(root, progress=None):
     os.environ['NUMBA_CACHE_DIR'] = str(Path(root)/'work/recompute/numba_cache')
     from .frozen_mesh import Frozen_PrepareCase
-    from .inputs import Input_Prepare
+    from .runtime import Runtime_PrepareInputs
     root = Path(root)
     runtime = root/'work/recompute/runtime'
     from contextlib import nullcontext
@@ -130,7 +130,7 @@ def Judge_PrepareWorkspace(root, progress=None):
         Judge_CopyResources(Runtime_GetCode(root), Runtime_GetData(root), runtime)
     # All parsers and static resource verification belong to the parent.
     with progress.Progress_Phase('prepare.inputs') if progress else nullcontext():
-        Input_Prepare(runtime, runtime/'data/raw')
+        Runtime_PrepareInputs(root,runtime)
     os.environ['DRYING_JUDGE_FROZEN_MESH'] = '1'
     with progress.Progress_Phase('prepare.mesh') if progress else nullcontext():
         for case in ['q1', 'q23', 'q4']:

@@ -136,7 +136,7 @@ class JudgeWindow(QMainWindow):
         keys = [key for key, check in self.checks.items() if check.isChecked()]
         if not keys:
             self.current.setText('请至少勾选一个复算项目。'); return
-        if self.catalog_panel.scan is not None and any(self.catalog_panel.catalog[k]['mode'] in ['C','D'] for k in keys):
+        if self.catalog_panel.scan is not None and not self.catalog_panel.full_pipeline and any(self.catalog_panel.catalog[k]['mode'] in ['C','D'] for k in keys):
             self.current.setText('请等待缓存刷新完成，再开始绘图或验证。');return
         try:
             plan=PipelinePlan_Build(self.root,keys,force_data=self.catalog_panel.force_data.isChecked(),
@@ -254,26 +254,18 @@ class JudgeWindow(QMainWindow):
             self.outer.setRange(0,10000);self.progress_target=min(9990,max(self.outer.value(),self.progress_target,0,int(value*10000)))
             self.outer.setValue(self.progress_target);self.outer.setFormat('失败' if event['event']=='run_failed' else '已停止')
             self.current.setText(event['message']);return
-        confidence=event.get('progress_confidence','calibrated');eta_confidence=event.get('eta_confidence','calibrated')
-        if eta is not None and elapsed+eta>0:
-            implied=elapsed/(elapsed+eta)
-            if (abs(value-implied)>.20 and eta_confidence!='measured') or (value>.7 and eta>elapsed and not event.get('all_critical_measured')):
-                confidence='unknown'
+        confidence=event.get('progress_confidence','calibrated')
+        structural=float(event.get('structural_fraction',value))
+        if math.isfinite(structural):value=max(value,structural)
         self.progress_confidence='measured' if complete else confidence
         tasks=event.get('running_tasks',[])
         self.outer.setRange(0,10000)
-        if confidence=='unknown' and not complete:
-            self.progress_target=max(self.progress_target,self.outer.value())
-            self.outer.setFormat(f'{self.outer.value()/100:.1f}% · 校准中')
-            self.current.setText('正在校准剩余时间，进度暂保持 · 已用 '+Progress_FormatDuration(elapsed)+' · 剩余时间：'+Progress_GetConfidenceText(event))
-        else:
-            target=10000 if complete else min(9990,max(0,int(value*10000)))
-            self.progress_target=max(self.progress_target,self.outer.value(),target)
-            if complete:self.progress_terminal=True;self.outer.setValue(10000)
-            elif not self.isVisible():self.outer.setValue(self.progress_target)
-            label=f'总进度约 {self.progress_target/100:.1f}%'
-            self.current.setText(label+' · 已用 '+Progress_FormatDuration(elapsed)+' · 预计剩余 '+Progress_GetConfidenceText(event))
-            self.outer.setFormat(f'约 {self.outer.value()/100:.0f}%' if confidence=='rough' else f'{self.outer.value()/100:.1f}%')
+        target=10000 if complete else min(9990,max(0,int(value*10000)))
+        self.progress_target=max(self.progress_target,self.outer.value(),target)
+        if complete:self.progress_terminal=True;self.outer.setValue(10000)
+        elif not self.isVisible():self.outer.setValue(self.progress_target)
+        self.current.setText(f'总进度约 {self.progress_target/100:.1f}% · 已用 '+Progress_FormatDuration(elapsed)+' · 预计剩余 '+Progress_GetConfidenceText(event))
+        self.outer.setFormat(f'{self.outer.value()/100:.1f}%')
         groups='　'.join(f"{mode}：{row['completed']}/{row['total']} 项已完成" for mode,row in event.get('mode_progress',{}).items())
         self.inner.setText(event.get('pipeline_phase_label','')+'　'+groups+'\n'+('　'.join(r['task_label']+('：计算中（进度正在校准）' if r.get('estimated') else f"：{r['task_fraction']*100:.1f}%") for r in tasks) or event['message']))
 

@@ -70,6 +70,13 @@ def Progress_ReadReference(root):
     except (OSError,ValueError,TypeError,KeyError):return {}
 
 
+def Progress_GetCostAlias(job):
+    key=job['key']
+    if key.startswith('B.2d.') and job['kind']=='twod_base':return key+'.base'
+    if key.startswith('D.2d.'):return 'B.'+key[2:]
+    return key
+
+
 def Progress_GetCosts(root, plan, reference):
     measured=dict(reference.get('tasks',{}))
     # Warm receipts never replace cold work estimates. Match scientific identity
@@ -84,7 +91,9 @@ def Progress_GetCosts(root, plan, reference):
                 measured[row['key']]=dict(measured.get(row['key'],{}),wall_s=row['wall_s'])
     costs={}
     for job in plan['steps']:
-        case=job.get('case','q23');base=measured.get('A.'+case,{}).get('wall_s',{'q1':10.,'q23':190.,'q4':55.}[case])
+        alias=Progress_GetCostAlias(job)
+        if job['key'] not in measured and alias in measured:measured[job['key']]=measured[alias]
+        case=job.get('case') or 'q23';base=measured.get('A.'+case,{}).get('wall_s',{'q1':10.,'q23':190.,'q4':55.}[case])
         kind=job['kind']
         factor={'original':1.,'full_production':1.3,'validation_1d':2.,'reference_1d':8.,
             'experiment':3.,'mass_measure':1.5}.get(kind)
@@ -97,7 +106,8 @@ def Progress_GetCosts(root, plan, reference):
         if kind.startswith('twod_'):
             from .runtime import Runtime_GetCode
             resources=Progress_ReadJson(Runtime_GetCode(Path(root))/'configs/judge_resource_reference.json')
-            record=resources.get('costs',{}).get(job['key'],{}) if resources.get('identity')==reference.get('identity') else {}
+            history=resources.get('costs',{}) if resources.get('identity')==reference.get('identity') else {}
+            record=history.get(job['key'],history.get(alias,{}))
             if job['key'] not in measured:
                 costs[job['key']]=dict(weight=record.get('wall_s',15.),source=record.get('source','unmeasured 2D component'),
                     confidence='rough' if record or not job['pde'] else 'unknown')
@@ -108,7 +118,7 @@ def Progress_GetCosts(root, plan, reference):
             work=duration/.25*(sum(n*(n/40)**2 for n in [40,80,160])+2*160*(160/40)**2)
             costs[job['key']]=dict(weight=base*work/max(1,units),source='fixed-grid + half-step accepted cell-work estimate',
                 confidence='rough' if units else 'unknown')
-        if kind in ['experiment','reference_1d'] and job['key'] not in measured and not job.get('cross'):
+        if kind in ['experiment','reference_1d'] and not job.get('cross'):
             from .runtime import Runtime_GetCode
             from .studies.selection import Selection_GetFactor
             code=Runtime_GetCode(Path(root));profile=Progress_ReadJson(code/'configs/progress_2d_reference.json')
