@@ -30,7 +30,8 @@ def Runner_GetProcess(root):
         expected={root/'药材烘干模型_原题表格复算.exe',root/'药材烘干模型_原题表格复算.py',
             root/'药材烘干模型_完整离线复算.exe',root/'药材烘干模型_完整离线复算.py',
                   root/'code/offline_recompute.py',root/'offline_recompute.py',
-                  root/'dependencies/application/code/offline_recompute.py'}
+                  root/'dependencies/application/code/offline_recompute.py',
+                  root/'dependencies/药材烘干模型_计算后台.exe'}
         cwd=Path(process.cwd())
         if not any((Path(arg) if Path(arg).is_absolute() else cwd/arg).resolve() in expected
                    for arg in process.cmdline() if not arg.startswith('-')):return None

@@ -42,3 +42,7 @@ work/validation/mass_balance/*/checkpoint.npz
 
 /release_v4/
 /work/release_v4/
+
+/release_v5/
+/work/release_v5/
+/work/datasets/

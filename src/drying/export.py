@@ -74,7 +74,7 @@ def Export_WriteWorkbook(template, destination, times, arrays, radius_columns):
 
 def Export_Run(root, case_filter='all', source_case_id=None):
     root = Path(root)
-    from .outputs import Output_PrepareFolders
+    from .official_support import Official_PrepareFolders as Output_PrepareFolders
     Output_PrepareFolders(root)
     inputs = Case_LoadInputs(root)
     input_manifest = json.loads((root/'data/input_manifest.json').read_text(encoding='utf-8'))

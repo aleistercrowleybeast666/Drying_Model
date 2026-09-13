@@ -153,7 +153,7 @@ def StudyPlot_Draw(root,manifest,name):
     for mode in modes:
         checks=[c for c in manifest['checks'] if c['mode']==mode]
         expected=3 if mode=='M00' else 6
-        state='PASS' if len(checks)==expected and all(c['status']=='PASS' for c in checks) else 'FAIL' if any(c['status']=='FAIL' for c in checks) else 'INCOMPLETE'
+        state='未运行 D' if manifest.get('data_only') else 'PASS' if len(checks)==expected and all(c['status']=='PASS' for c in checks) else 'FAIL' if any(c['status']=='FAIL' for c in checks) else 'INCOMPLETE'
         if any(a['status']!='PASS' for a in manifest.get('thermal_audits',[]) if manifest['specs'][a['experiment_id']]['mode']==mode):state='FAIL'
         descriptions.append(mode+' '+state)
     source='冻结 M00 一维' if modes==['M00'] else '冻结 M00 与一维热扩展'

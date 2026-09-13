@@ -9,7 +9,7 @@ import uuid
 import psutil
 from .runtime import Runtime_BuildRecomputeCommand
 from .storage import Storage_WriteJson
-from .judge_schedule import Schedule_CanStart,Schedule_GetDispatch,Schedule_GetPriorities,Schedule_Estimate
+from .judge_schedule import Schedule_CanStart,Schedule_GetDispatch,Schedule_GetPriorities,Schedule_Estimate,Schedule_GetMemoryFailure
 from .judge_worker import Worker_GetEnvironment
 
 
@@ -89,20 +89,24 @@ def Executor_Run(root,runtime,plan,progress=None):
                 idles=[e for e in pool if not e['busy'] and e['process'].poll() is None]
                 reuse=idles[0] if job.get('persistent') and idles else None
                 resident=sum(rss.get(e['process'].pid,0) for e in idles if e is not reuse)
-                admission=dict(job,memory_estimate_mb=max(job['memory_estimate_mb'],rss.get(reuse['process'].pid,0)) if reuse else job['memory_estimate_mb'])
-                free_with_reuse=available+(rss.get(reuse['process'].pid,0) if reuse else 0)
+                admission=dict(job,memory_estimate_mb=max(job['memory_estimate_mb'],rss.get(reuse['process'].pid,0)) if reuse else job['memory_estimate_mb'],
+                    resident_rss_mb=rss.get(reuse['process'].pid,0) if reuse else 0.)
                 if not Schedule_CanStart(admission,[e['admission'] for e in running.values()],plan['worker_count'],
-                        resources['memory_budget_mb']-resident,free_with_reuse,resources['memory_floor_mb']):
+                        resources['memory_budget_mb']-resident,available,resources['memory_floor_mb']):
                     if idles and reuse is None:
                         Process_Close(idles[-1]);pool.remove(idles[-1])
                     continue
                 private=job.get('private')
                 if private and job.get('force_reference'):private=private+'_force_'+str(time.time_ns())
-                workspace=Judge_PreparePrivate(runtime,private,source_case=job.get('case'),include_twod=job['kind'].startswith('twod_') and job['kind']!='twod_base') if private else runtime
+                if plan.get('v5'):
+                    from .pipeline_runtime import Pipeline_PrepareTask
+                    workspace=Pipeline_PrepareTask(root,runtime,job)
+                else:workspace=Judge_PreparePrivate(runtime,private,source_case=job.get('case'),include_twod=job['kind'].startswith('twod_') and job['kind']!='twod_base') if private else runtime
                 token=uuid.uuid4().hex;logpath=logdir/(job['key']+'.log');logpath.write_text('',encoding='utf-8')
                 task=dict(job,workspace=workspace.relative_to(root).as_posix(),runtime=runtime.relative_to(root).as_posix(),
                     receipt=(receipts/(job['key']+'.json')).relative_to(root).as_posix(),log_path=logpath.relative_to(root).as_posix(),
                     run_token=token,progress_identity=identity)
+                if plan.get('v5'):task['dataset_root']='.'
                 taskpath=taskdir/(job['key']+'.json');Storage_WriteJson(taskpath,task)
                 sent=time.time();log=None
                 if job.get('persistent'):
@@ -145,20 +149,32 @@ def Executor_Run(root,runtime,plan,progress=None):
                     from datetime import datetime
                     receipt['startup_s']=max(0.,datetime.fromisoformat(receipt['started_at']).timestamp()-entry['sent_at'])
                     Storage_WriteJson(receipts/(job['key']+'.json'),receipt)
-                Judge_MergeWorker(runtime,job,entry['workspace'],receipt);records.append(receipt);done.add(job['key']);del running[pid]
-                if job['group'] in ['original','validation']:Judge_PublishOriginal(runtime)
+                if plan.get('v5'):
+                    from .pipeline_runtime import Pipeline_Merge
+                    Pipeline_Merge(root,runtime,job,entry['workspace'],receipt)
+                else:Judge_MergeWorker(runtime,job,entry['workspace'],receipt)
+                records.append(receipt);done.add(job['key']);del running[pid]
+                if not plan.get('v5') and job['group'] in ['original','validation']:Judge_PublishOriginal(runtime)
                 Timings_Save()
-                if not any(set(e['job'].get('locks',[]))&{'study_outputs','original_render','results_publish'} for e in running.values()):
+                if not plan.get('v5') and not any(set(e['job'].get('locks',[]))&{'study_outputs','original_render','results_publish'} for e in running.values()):
                     shutil.copytree(runtime/'results',root/'results',dirs_exist_ok=True)
                 if progress:progress.tracker.Progress_FinishTask(job['key'],receipt.get('cache_reused',False));progress.Progress_Emit()
             if pending and not running and not dispatched:
                 if not any(set(j['dependencies'])<=done for j in pending):raise RuntimeError('TASK_DAG_UNRESOLVED')
-                memory_wait+=interval
-                if progress:
-                    progress.tracker.memory_waiting=True
-                    progress.tracker.message='等待可用内存（保留至少 2 GB），任务进度保持不变'
+                if pool:
+                    for entry in list(pool):Process_Close(entry);pool.remove(entry)
+                    continue
+                available=psutil.virtual_memory().available/2**20
+                # Retry one task against current headroom after retiring idle
+                # workers; a stale initial budget must not create endless wait.
+                resources['memory_budget_mb']=max(resources['memory_budget_mb'],max(0.,available-resources['reserve_mb']))
+                ready=[j for j in pending if set(j['dependencies'])<=done]
+                if any(Schedule_CanStart(j,[],plan['worker_count'],resources['memory_budget_mb'],available,resources['reserve_mb']) for j in ready):continue
+                raise RuntimeError(Schedule_GetMemoryFailure(min(ready,key=lambda j:j['memory_estimate_mb']),available,resources))
             if pending or running:time.sleep(.25)
-        value=Timings_Save();shutil.copytree(runtime/'results',root/'results',dirs_exist_ok=True);return value
+        value=Timings_Save()
+        if not plan.get('v5'):shutil.copytree(runtime/'results',root/'results',dirs_exist_ok=True)
+        return value
     finally:
         for entry in running.values():
             if not entry['persistent']:Process_Close(entry,True)

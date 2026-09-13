@@ -30,7 +30,7 @@ def Worker_ExecuteFile(launch_root,task_file,startup_s=0.,persistent=False):
     launch_root=Path(launch_root).resolve();path=(launch_root/task_file).resolve()
     if not path.is_relative_to(launch_root):raise ValueError('TASK_PATH_OUTSIDE_RELEASE')
     task=Judge_ReadJson(path)
-    for name in ['workspace','runtime','receipt','log_path']:
+    for name in ['workspace','runtime','receipt','log_path','dataset_root']:
         if name not in task:continue
         target=(launch_root/task[name]).resolve()
         if not target.is_relative_to(launch_root):raise ValueError('WORKER_PATH_OUTSIDE_RELEASE: '+name)

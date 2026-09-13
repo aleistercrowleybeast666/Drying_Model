@@ -92,7 +92,7 @@ def Kinetics_GetTiming(time, Tmean, Cmean, R, vT, vC, rate_valid, radius_input, 
     return result
 
 
-def Kinetics_Extract(root, manifest, key):
+def Kinetics_Extract(root, manifest, key, state_reader=None):
     root = Path(root);spec = manifest['specs'][key];entry = manifest['series'][key]
     data = Analysis_LoadSeries(root, entry);times = data['time_s']
     output = root / 'work/studies/technical/plot_payload' / (key+'_kinetics.npz')
@@ -110,7 +110,7 @@ def Kinetics_Extract(root, manifest, key):
         means[t] = Kinetics_GetVolumeMeans(state, mesh, R)
     for t in times:
         if t not in means:
-            state, mesh = Analysis_GetExactState(root, spec, float(t), entry['baseline'])
+            state, mesh = (state_reader or Analysis_GetExactState)(root, spec, float(t), entry['baseline'])
             means[t] = Kinetics_GetVolumeMeans(state, mesh, Input_AtTime(t, *inputs, spec['shrink'])[2])
     averages = np.array([means[t] for t in times])
     difference = float(np.max(np.abs(averages[:, 1]-data['Cmean'])))

@@ -200,6 +200,15 @@ def Task_ValidateCase(root, case, runtime=None):
 
 
 def Task_Execute(root, task):
+    if task.get('layer') in ['A','B']:
+        from .dataset_layer import Dataset_Execute
+        return Dataset_Execute(root,task)
+    if task.get('layer')=='C':
+        from .render_layer import Render_Execute
+        return Render_Execute(root,task)
+    if task.get('layer')=='D':
+        from .validation_layer import Validation_Execute
+        return Validation_Execute(root,task)
     from .judge_pipeline import Judge_ReadJson
     kind = task['kind']; case = task.get('case')
     if kind == 'original':

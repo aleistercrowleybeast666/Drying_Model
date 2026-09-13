@@ -1,0 +1,757 @@
+{
+  "schema_version": 1,
+  "plots": [
+    {
+      "key": "q3_3d_gif",
+      "label": "问题3三维动画",
+      "path": "results/animations/q3_3d.gif",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "renderer": "q3_3d",
+      "animation": true,
+      "display_name_zh": "问题3三维动画",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q3_q4_axial_section_gif",
+      "label": "问题3/4轴向截面动画",
+      "path": "results/animations/q3_q4_axial_section.gif",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "renderer": "q3_q4_axial_section",
+      "animation": true,
+      "display_name_zh": "问题3/4轴向截面动画",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q3_q4_cutaway_cylinder_gif",
+      "label": "问题3/4斜切柱体动画",
+      "path": "results/animations/q3_q4_cutaway_cylinder.gif",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "renderer": "q3_q4_cutaway_cylinder",
+      "animation": true,
+      "display_name_zh": "问题3/4斜切柱体动画",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q3_q4_radial_section_gif",
+      "label": "问题3/4径向截面动画",
+      "path": "results/animations/q3_q4_radial_section.gif",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "renderer": "q3_q4_radial_section",
+      "animation": true,
+      "display_name_zh": "问题3/4径向截面动画",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q4_3d_gif",
+      "label": "问题4三维动画",
+      "path": "results/animations/q4_3d.gif",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "renderer": "q4_3d",
+      "animation": true,
+      "display_name_zh": "问题4三维动画",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q1_1d_2d_compare",
+      "label": "问题1 一维/二维对比",
+      "path": "results/q1/q1_1d_2d_compare.png",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q1",
+        "innovation.2d.q1"
+      ],
+      "renderer": "q1_1d_2d_compare",
+      "animation": false,
+      "display_name_zh": "问题1 一维/二维对比",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q1",
+        "innovation.2d.q1"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q1_curves",
+      "label": "问题1 温度/含水率曲线",
+      "path": "results/q1/q1_curves.png",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q1"
+      ],
+      "renderer": "q1_curves",
+      "animation": false,
+      "display_name_zh": "问题1 温度/含水率曲线",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q1"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q1_max_error_section",
+      "label": "问题1 最大差异截面",
+      "path": "results/q1/q1_max_error_section.png",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q1",
+        "innovation.2d.q1"
+      ],
+      "renderer": "q1_max_error_section",
+      "animation": false,
+      "display_name_zh": "问题1 最大差异截面",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q1",
+        "innovation.2d.q1"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q2_1d_2d_compare",
+      "label": "问题2 一维/二维对比",
+      "path": "results/q2/q2_1d_2d_compare.png",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "renderer": "q2_1d_2d_compare",
+      "animation": false,
+      "display_name_zh": "问题2 一维/二维对比",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q2_curves",
+      "label": "问题2 温度/含水率曲线",
+      "path": "results/q2/q2_curves.png",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q23"
+      ],
+      "renderer": "q2_curves",
+      "animation": false,
+      "display_name_zh": "问题2 温度/含水率曲线",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q23"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q2_max_error_section",
+      "label": "问题2 最大差异截面",
+      "path": "results/q2/q2_max_error_section.png",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "renderer": "q2_max_error_section",
+      "animation": false,
+      "display_name_zh": "问题2 最大差异截面",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q3_1d_2d_compare",
+      "label": "问题3 一维/二维对比",
+      "path": "results/q3/q3_1d_2d_compare.png",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "renderer": "q3_1d_2d_compare",
+      "animation": false,
+      "display_name_zh": "问题3 一维/二维对比",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q3_3d",
+      "label": "问题3 三维柱体",
+      "path": "results/q3/q3_3d.png",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "renderer": "q3_3d",
+      "animation": false,
+      "display_name_zh": "问题3 三维柱体",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q3_curves",
+      "label": "问题3 温度/含水率曲线",
+      "path": "results/q3/q3_curves.png",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q23"
+      ],
+      "renderer": "q3_curves",
+      "animation": false,
+      "display_name_zh": "问题3 温度/含水率曲线",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q23"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q3_max_error_section",
+      "label": "问题3 最大差异截面",
+      "path": "results/q3/q3_max_error_section.png",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "renderer": "q3_max_error_section",
+      "animation": false,
+      "display_name_zh": "问题3 最大差异截面",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q4_1d_2d_compare",
+      "label": "问题4 一维/二维对比",
+      "path": "results/q4/q4_1d_2d_compare.png",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "renderer": "q4_1d_2d_compare",
+      "animation": false,
+      "display_name_zh": "问题4 一维/二维对比",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q4_3d",
+      "label": "问题4 三维柱体",
+      "path": "results/q4/q4_3d.png",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "renderer": "q4_3d",
+      "animation": false,
+      "display_name_zh": "问题4 三维柱体",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q4_curves",
+      "label": "问题4 温度/含水率曲线",
+      "path": "results/q4/q4_curves.png",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q4"
+      ],
+      "renderer": "q4_curves",
+      "animation": false,
+      "display_name_zh": "问题4 温度/含水率曲线",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q4"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "q4_max_error_section",
+      "label": "问题4 最大差异截面",
+      "path": "results/q4/q4_max_error_section.png",
+      "group": "原题 / 二维图",
+      "requires": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "renderer": "q4_max_error_section",
+      "animation": false,
+      "display_name_zh": "问题4 最大差异截面",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "thermal_moisture_gif",
+      "label": "热效应含水率动画",
+      "path": "results/studies/animations/thermal_moisture.gif",
+      "group": "动画",
+      "requires": [
+        "innovation.full.q23",
+        "innovation.full.q4",
+        "innovation.thermal.M10.q23",
+        "innovation.thermal.M10.q4",
+        "innovation.thermal.M01.q23",
+        "innovation.thermal.M01.q4",
+        "innovation.thermal.M11.q23",
+        "innovation.thermal.M11.q4"
+      ],
+      "renderer": "thermal_moisture",
+      "animation": true,
+      "display_name_zh": "热效应含水率动画",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "innovation.full.q23",
+        "innovation.full.q4",
+        "innovation.thermal.M10.q23",
+        "innovation.thermal.M10.q4",
+        "innovation.thermal.M01.q23",
+        "innovation.thermal.M01.q4",
+        "innovation.thermal.M11.q23",
+        "innovation.thermal.M11.q4"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "thermal_temperature_gif",
+      "label": "热效应温度动画",
+      "path": "results/studies/animations/thermal_temperature.gif",
+      "group": "动画",
+      "requires": [
+        "innovation.full.q23",
+        "innovation.full.q4",
+        "innovation.thermal.M10.q23",
+        "innovation.thermal.M10.q4",
+        "innovation.thermal.M01.q23",
+        "innovation.thermal.M01.q4",
+        "innovation.thermal.M11.q23",
+        "innovation.thermal.M11.q4"
+      ],
+      "renderer": "thermal_temperature",
+      "animation": true,
+      "display_name_zh": "热效应温度动画",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "innovation.full.q23",
+        "innovation.full.q4",
+        "innovation.thermal.M10.q23",
+        "innovation.thermal.M10.q4",
+        "innovation.thermal.M01.q23",
+        "innovation.thermal.M01.q4",
+        "innovation.thermal.M11.q23",
+        "innovation.thermal.M11.q4"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "end_effect_extent",
+      "label": "端面影响深度",
+      "path": "results/studies/figures/01_end_effect_extent.png",
+      "group": "创新图",
+      "requires": [
+        "innovation.full.q23",
+        "innovation.full.q4",
+        "innovation.2d.q23",
+        "innovation.2d.q4",
+        "innovation.matched.q23",
+        "innovation.matched.q4"
+      ],
+      "renderer": "end_effect_extent",
+      "animation": false,
+      "display_name_zh": "端面影响深度",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "innovation.full.q23",
+        "innovation.full.q4",
+        "innovation.2d.q23",
+        "innovation.2d.q4",
+        "innovation.matched.q23",
+        "innovation.matched.q4"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "drying_fronts",
+      "label": "干燥前沿",
+      "path": "results/studies/figures/02_drying_fronts.png",
+      "group": "创新图",
+      "requires": [
+        "innovation.full.q23",
+        "innovation.full.q4"
+      ],
+      "renderer": "drying_fronts",
+      "animation": false,
+      "display_name_zh": "干燥前沿",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "innovation.full.q23",
+        "innovation.full.q4"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "drying_kinetics",
+      "label": "干燥动力学",
+      "path": "results/studies/figures/03_drying_kinetics.png",
+      "group": "创新图",
+      "requires": [
+        "innovation.full.q23",
+        "innovation.full.q4"
+      ],
+      "renderer": "drying_kinetics",
+      "animation": false,
+      "display_name_zh": "干燥动力学",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "innovation.full.q23",
+        "innovation.full.q4"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "diffusion_clock_drivers",
+      "label": "扩散时钟",
+      "path": "results/studies/figures/04_diffusion_clock_drivers.png",
+      "group": "创新图",
+      "requires": [
+        "innovation.full.q23",
+        "innovation.full.q4"
+      ],
+      "renderer": "diffusion_clock_drivers",
+      "animation": false,
+      "display_name_zh": "扩散时钟",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "innovation.full.q23",
+        "innovation.full.q4"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "geometry_property_cross",
+      "label": "几何—物性交叉",
+      "path": "results/studies/figures/05_geometry_property_cross.png",
+      "group": "创新图",
+      "requires": [
+        "innovation.full.q23",
+        "innovation.full.q4",
+        "innovation.cross.p3_shrink",
+        "innovation.cross.p4_fixed"
+      ],
+      "renderer": "geometry_property_cross",
+      "animation": false,
+      "display_name_zh": "几何—物性交叉",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "innovation.full.q23",
+        "innovation.full.q4",
+        "innovation.cross.p3_shrink",
+        "innovation.cross.p4_fixed"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "environment_robustness",
+      "label": "环境敏感性",
+      "path": "results/studies/figures/06_environment_robustness.png",
+      "group": "创新图",
+      "requires": [
+        "innovation.full.q23",
+        "innovation.full.q4",
+        "innovation.tail.q23.30",
+        "innovation.tail.q23.90",
+        "innovation.tail.q4.30",
+        "innovation.tail.q4.90"
+      ],
+      "renderer": "environment_robustness",
+      "animation": false,
+      "display_name_zh": "环境敏感性",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "innovation.full.q23",
+        "innovation.full.q4",
+        "innovation.tail.q23.30",
+        "innovation.tail.q23.90",
+        "innovation.tail.q4.30",
+        "innovation.tail.q4.90"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "thermal_modes",
+      "label": "热模式对比",
+      "path": "results/studies/figures/07_thermal_modes.png",
+      "group": "创新图",
+      "requires": [
+        "innovation.full.q23",
+        "innovation.full.q4",
+        "innovation.thermal.M10.q23",
+        "innovation.thermal.M10.q4",
+        "innovation.thermal.M01.q23",
+        "innovation.thermal.M01.q4",
+        "innovation.thermal.M11.q23",
+        "innovation.thermal.M11.q4"
+      ],
+      "renderer": "thermal_modes",
+      "animation": false,
+      "display_name_zh": "热模式对比",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "innovation.full.q23",
+        "innovation.full.q4",
+        "innovation.thermal.M10.q23",
+        "innovation.thermal.M10.q4",
+        "innovation.thermal.M01.q23",
+        "innovation.thermal.M01.q4",
+        "innovation.thermal.M11.q23",
+        "innovation.thermal.M11.q4"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "thermal_interactions",
+      "label": "热模式交互",
+      "path": "results/studies/figures/08_thermal_interactions.png",
+      "group": "创新图",
+      "requires": [
+        "innovation.full.q23",
+        "innovation.full.q4",
+        "innovation.thermal.M10.q23",
+        "innovation.thermal.M10.q4",
+        "innovation.thermal.M01.q23",
+        "innovation.thermal.M01.q4",
+        "innovation.thermal.M11.q23",
+        "innovation.thermal.M11.q4"
+      ],
+      "renderer": "thermal_interactions",
+      "animation": false,
+      "display_name_zh": "热模式交互",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "innovation.full.q23",
+        "innovation.full.q4",
+        "innovation.thermal.M10.q23",
+        "innovation.thermal.M10.q4",
+        "innovation.thermal.M01.q23",
+        "innovation.thermal.M01.q4",
+        "innovation.thermal.M11.q23",
+        "innovation.thermal.M11.q4"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "verification_evidence",
+      "label": "基础数据与验证状态说明",
+      "path": "results/studies/figures/09_verification_evidence.png",
+      "group": "创新图",
+      "requires": [
+        "official.q1",
+        "official.q23",
+        "official.q4"
+      ],
+      "renderer": "verification_evidence",
+      "animation": false,
+      "display_name_zh": "基础数据与验证状态说明",
+      "description_zh": "只读取已封印数据绘图；缺少数据时不补算。",
+      "mode": "C",
+      "dependencies": [
+        "official.q1",
+        "official.q23",
+        "official.q4"
+      ],
+      "producer": "Render_Execute",
+      "estimated_cost_class": "短",
+      "default_selected": false,
+      "advanced": false
+    }
+  ]
+}

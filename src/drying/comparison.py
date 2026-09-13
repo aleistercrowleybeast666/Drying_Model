@@ -59,7 +59,7 @@ def Comparison_ReadSnapshot(root, case_id, at_time):
     raise RuntimeError(f'PLOT_FAILED: exact cached field {case_id} at t={at_time} is unavailable')
 
 
-def Comparison_Run(root, case_filter='all'):
+def Comparison_Run(root, case_filter='all', stored_only=False,question_filter=None):
     root = Path(root)
     Output_PrepareFolders(root)
     cfg = Case_LoadConfig(root)['comparison']
@@ -96,6 +96,7 @@ def Comparison_Run(root, case_filter='all'):
                     else: two = next(stream2, None)
                     continue
                 t = one[0]
+                if question_filter is not None and t>Output_GetEnd(question_filter,one_status)+1e-8:break
                 if one_status.get('execution_mode') == 'stage_schedule': mesh1 = Case_LoadMesh(root,one_id,t)
                 r1, _, values1 = Sampling_GetNodes(one[1], t, model, inputs, mesh1)
                 r2, z2, values2 = Sampling_GetNodes(two[1], t, model, inputs, mesh2)
@@ -144,10 +145,10 @@ def Comparison_Run(root, case_filter='all'):
         Diagnostics_Record(root, status, 'WARNING' if status != 'PASS_AT_SAMPLED_TIMES' else 'INFO',
                            case_id=case, max_abs_T=maxima[0]['value'], max_abs_C=maxima[1]['value'], relative_time_difference=relative)
         Storage_WriteJson(summary_path, summary)
-    return Comparison_WriteQuestions(root, case_filter)
+    return Comparison_WriteQuestions(root, case_filter,stored_only=stored_only,question_filter=question_filter)
 
 
-def Comparison_WriteQuestions(root, case_filter='all'):
+def Comparison_WriteQuestions(root, case_filter='all', stored_only=False,question_filter=None):
     root = Path(root)
     source = Output_ReadJson(root/'work/comparison/case_summary.json')
     summary = Output_ReadJson(root/'work/comparison/summary.json')
@@ -161,8 +162,11 @@ def Comparison_WriteQuestions(root, case_filter='all'):
             columns = next(csv.reader(stream))
         rows = np.loadtxt(path, delimiter=',', skiprows=1, ndmin=2)
         for q in questions:
+            if question_filter is not None and q!=question_filter:continue
             end = Output_GetEnd(q, one_status)
             data = rows[rows[:, 0] <= end + 1e-8]
+            requested_end=end
+            if stored_only and len(data):end=float(data[-1,0])
             if len(data) < 2 or abs(data[0, 0]) > 1e-8 or abs(data[-1, 0]-end) > 1e-8:
                 raise RuntimeError(f'COMPARISON_INCOMPLETE: q{q} requires cached paired endpoint {end}')
             maxima = []
@@ -178,6 +182,7 @@ def Comparison_WriteQuestions(root, case_filter='all'):
             record = dict(info, question=q, time_range_s=[0., end], sample_count=len(data),
                 max_abs_temperature=maxima[0], max_abs_moisture=maxima[1], comparison_completed=True,
                 schema_version=2, csv=str(destination.relative_to(root)))
+            if stored_only:record.update(requested_end_s=requested_end,scope_note='仅已有共同存储时刻；未补算配对终点',validation_status='NOT_RUN')
             if q <= 2:
                 record.update(one_drying_time_h=None, two_drying_time_h=None, relative_drying_time_difference=None)
             summary[f'q{q}'] = record

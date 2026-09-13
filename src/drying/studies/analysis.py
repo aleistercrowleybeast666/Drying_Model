@@ -16,7 +16,7 @@ from .metrics import (Metrics_GetFront,Metrics_GetTies,Metrics_GetDerivative,Met
     Metrics_GetDrivers,Metrics_GetThermalTime,Metrics_GetEndEffects,Metrics_GetEventSensitivity)
 
 
-def Analysis_ExtractSeries(root,spec,baseline=False,extra_times=()):
+def Analysis_ExtractSeries(root,spec,baseline=False,extra_times=(),state_reader=None):
     root=Path(root);source_id=spec['experiment_id'];folder=root/'work/studies/plot_payload';folder.mkdir(parents=True,exist_ok=True)
     file=folder/f'{source_id}_series.npz';meta=file.with_suffix('.json')
     extra_times=sorted(set(float(t) for t in extra_times))
@@ -30,7 +30,7 @@ def Analysis_ExtractSeries(root,spec,baseline=False,extra_times=()):
         source=((t,state,Case_LoadMesh(root,spec['case_cache_id'],t)) for t,state in Case_IterFields(root,spec['case_cache_id']))
     def EventStates():
         for target in extra_times:
-            state,mesh=Analysis_GetExactState(root,spec,target,baseline)
+            state,mesh=(state_reader or Analysis_GetExactState)(root,spec,target,baseline)
             yield target,state,mesh
     source=chain(source,EventStates())
     inputs=Trajectory_GetInputs(root,spec);model={'q1':1,'q23':3,'q4':4}[spec['case']]

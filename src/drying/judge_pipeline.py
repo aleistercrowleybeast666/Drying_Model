@@ -108,12 +108,14 @@ def Judge_GetPlan(root, selected, workers='auto'):
 
 
 def Judge_CopyResources(code, data, target):
+    from .judge_resources import Resource_CopyFile,Resource_CopyMutableFile
     ignore = shutil.ignore_patterns('__pycache__', '*.pyc', '.pytest_cache', '~$*')
     for name in ['src', 'configs', 'scripts']:
-        shutil.copytree(Path(code)/name, target/name, dirs_exist_ok=True, ignore=ignore)
+        if name=='scripts' and not (Path(code)/name).is_dir():continue
+        shutil.copytree(Path(code)/name, target/name, dirs_exist_ok=True, ignore=ignore,copy_function=Resource_CopyFile)
     for source in Path(code).glob('*.py'):
-        shutil.copy2(source, target/source.name)
-    shutil.copytree(data, target/'data', dirs_exist_ok=True, ignore=ignore)
+        Resource_CopyFile(source, target/source.name)
+    shutil.copytree(data, target/'data', dirs_exist_ok=True, ignore=ignore,copy_function=Resource_CopyMutableFile)
 
 
 def Judge_PrepareWorkspace(root, progress=None):
@@ -254,10 +256,10 @@ def Judge_MergeWorker(runtime, job, workspace, receipt):
         Storage_WriteJson(runtime/'work/recompute/full_production.json', production)
 
 
-def Judge_PublishOriginal(runtime):
+def Judge_PublishOriginal(runtime, data_only=False):
     from .outputs import Output_GetEndpoint
     production = Judge_ReadJson(runtime/'work/recompute/production.json')
-    validation = Judge_ReadJson(runtime/'work/validation/summary.json')
+    validation = {} if data_only else Judge_ReadJson(runtime/'work/validation/summary.json')
     questions = {}
     for q, case in [(1, 'q1'), (2, 'q23'), (3, 'q23'), (4, 'q4')]:
         if case not in production:
@@ -302,6 +304,14 @@ def Judge_RunDag(root, runtime, plan, progress=None):
 
 
 def Judge_Main(root, argv=None):
+    values=sys.argv[1:] if argv is None else argv
+    if any(v in values for v in ['--worker-json','--persistent-worker','--runtime-check','--verify']):
+        return Judge_LegacyMain(root,values)
+    from .pipeline_cli import Pipeline_Main
+    return Pipeline_Main(root,values)
+
+
+def Judge_LegacyMain(root, argv=None):
     parser = argparse.ArgumentParser(description='默认只复算原题四张 Excel；--all 才执行四组任务。')
     parser.add_argument('--original', nargs='*', choices=['q1','q23','q4'])
     parser.add_argument('--validation', action='store_true')
@@ -334,6 +344,19 @@ def Judge_Main(root, argv=None):
         from .recompute import Recompute_RuntimeCheck
         return Recompute_RuntimeCheck()
     if args.verify:
+        package=root/'package_manifest.json'
+        if package.is_file():
+            from hashlib import file_digest
+            manifest=Judge_ReadJson(package)
+            if manifest.get('package')!='full_gui' or not manifest.get('files'):raise ValueError('GUI_PACKAGE_MANIFEST_INVALID')
+            for name,expected in manifest['files'].items():
+                path=(root/name).resolve()
+                if not path.is_relative_to(root) or not path.is_file():raise ValueError('GUI_PACKAGE_FILE_MISSING: '+name)
+                with path.open('rb') as stream:actual=file_digest(stream,'sha256').hexdigest()
+                if actual!=expected:raise ValueError('GUI_PACKAGE_HASH_MISMATCH: '+name)
+            print(json.dumps(dict(status='PASS',scope='GUI package resources only; no numerical verification',
+                files=len(manifest['files'])),ensure_ascii=False),flush=True)
+            return JudgeRunResult.COMPLETE
         from .publication import Publication_Check
         print(json.dumps(Publication_Check(root), ensure_ascii=False), flush=True)
         return 0

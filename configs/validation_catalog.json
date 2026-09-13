@@ -1,0 +1,1268 @@
+{
+  "schema_version": 1,
+  "validations": [
+    {
+      "key": "m00.q1.spatial",
+      "label": "问题1空间收敛验证",
+      "group": "M00 一维",
+      "kind": "m00_spatial",
+      "case": "q1",
+      "requires": [
+        "official.q1"
+      ],
+      "display_name_zh": "问题1空间收敛验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "m00.q1.time",
+      "label": "问题1时间步长验证",
+      "group": "M00 一维",
+      "kind": "m00_time",
+      "case": "q1",
+      "requires": [
+        "official.q1"
+      ],
+      "display_name_zh": "问题1时间步长验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "m00.q1.remesh",
+      "label": "问题1换网格守恒验证",
+      "group": "M00 一维",
+      "kind": "m00_remesh",
+      "case": "q1",
+      "requires": [
+        "official.q1"
+      ],
+      "display_name_zh": "问题1换网格守恒验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "2d.q1.time_half",
+      "label": "问题1二维时间步长验证",
+      "group": "二维验证",
+      "kind": "twod_time_half",
+      "case": "q1",
+      "requires": [
+        "official.q1",
+        "innovation.2d.q1"
+      ],
+      "display_name_zh": "问题1二维时间步长验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q1",
+        "innovation.2d.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "2d.q1.radial",
+      "label": "问题1二维径向加密验证",
+      "group": "二维验证",
+      "kind": "twod_radial",
+      "case": "q1",
+      "requires": [
+        "official.q1",
+        "innovation.2d.q1"
+      ],
+      "display_name_zh": "问题1二维径向加密验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q1",
+        "innovation.2d.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "2d.q1.axial",
+      "label": "问题1二维轴向加密验证",
+      "group": "二维验证",
+      "kind": "twod_axial",
+      "case": "q1",
+      "requires": [
+        "official.q1",
+        "innovation.2d.q1"
+      ],
+      "display_name_zh": "问题1二维轴向加密验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q1",
+        "innovation.2d.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "thermal.M10.q1.full_reference",
+      "label": "潜热模型 M10 · 问题1空间加密验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_full_reference",
+      "case": "q1",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M10.q1"
+      ],
+      "display_name_zh": "潜热模型 M10 · 问题1空间加密验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M10.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M10"
+    },
+    {
+      "key": "thermal.M10.q1.time_half",
+      "label": "潜热模型 M10 · 问题1时间步长验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_time_half",
+      "case": "q1",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M10.q1"
+      ],
+      "display_name_zh": "潜热模型 M10 · 问题1时间步长验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M10.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M10"
+    },
+    {
+      "key": "thermal.M01.q1.full_reference",
+      "label": "水分携热模型 M01 · 问题1空间加密验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_full_reference",
+      "case": "q1",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M01.q1"
+      ],
+      "display_name_zh": "水分携热模型 M01 · 问题1空间加密验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M01.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M01"
+    },
+    {
+      "key": "thermal.M01.q1.time_half",
+      "label": "水分携热模型 M01 · 问题1时间步长验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_time_half",
+      "case": "q1",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M01.q1"
+      ],
+      "display_name_zh": "水分携热模型 M01 · 问题1时间步长验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M01.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M01"
+    },
+    {
+      "key": "thermal.M11.q1.full_reference",
+      "label": "潜热+水分携热模型 M11 · 问题1空间加密验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_full_reference",
+      "case": "q1",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M11.q1"
+      ],
+      "display_name_zh": "潜热+水分携热模型 M11 · 问题1空间加密验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M11.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M11"
+    },
+    {
+      "key": "thermal.M11.q1.time_half",
+      "label": "潜热+水分携热模型 M11 · 问题1时间步长验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_time_half",
+      "case": "q1",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M11.q1"
+      ],
+      "display_name_zh": "潜热+水分携热模型 M11 · 问题1时间步长验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M11.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M11"
+    },
+    {
+      "key": "mass.M00.q1",
+      "label": "正式模型 M00 · 问题1水质量守恒",
+      "group": "水质量守恒（12 条）",
+      "kind": "mass",
+      "case": "q1",
+      "mode": "D",
+      "requires": [
+        "innovation.full.q1"
+      ],
+      "display_name_zh": "正式模型 M00 · 问题1水质量守恒",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.full.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M00"
+    },
+    {
+      "key": "mass.M10.q1",
+      "label": "潜热模型 M10 · 问题1水质量守恒",
+      "group": "水质量守恒（12 条）",
+      "kind": "mass",
+      "case": "q1",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M10.q1"
+      ],
+      "display_name_zh": "潜热模型 M10 · 问题1水质量守恒",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M10.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M10"
+    },
+    {
+      "key": "mass.M01.q1",
+      "label": "水分携热模型 M01 · 问题1水质量守恒",
+      "group": "水质量守恒（12 条）",
+      "kind": "mass",
+      "case": "q1",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M01.q1"
+      ],
+      "display_name_zh": "水分携热模型 M01 · 问题1水质量守恒",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M01.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M01"
+    },
+    {
+      "key": "mass.M11.q1",
+      "label": "潜热+水分携热模型 M11 · 问题1水质量守恒",
+      "group": "水质量守恒（12 条）",
+      "kind": "mass",
+      "case": "q1",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M11.q1"
+      ],
+      "display_name_zh": "潜热+水分携热模型 M11 · 问题1水质量守恒",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M11.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M11"
+    },
+    {
+      "key": "legacy.q1",
+      "label": "问题1旧固定网格诊断",
+      "group": "高级验证",
+      "kind": "legacy",
+      "case": "q1",
+      "requires": [
+        "official.q1"
+      ],
+      "display_name_zh": "问题1旧固定网格诊断",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q1"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": true
+    },
+    {
+      "key": "m00.q23.spatial",
+      "label": "问题2/3空间收敛验证",
+      "group": "M00 一维",
+      "kind": "m00_spatial",
+      "case": "q23",
+      "requires": [
+        "official.q23"
+      ],
+      "display_name_zh": "问题2/3空间收敛验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "m00.q23.time",
+      "label": "问题2/3时间步长验证",
+      "group": "M00 一维",
+      "kind": "m00_time",
+      "case": "q23",
+      "requires": [
+        "official.q23"
+      ],
+      "display_name_zh": "问题2/3时间步长验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "m00.q23.remesh",
+      "label": "问题2/3换网格守恒验证",
+      "group": "M00 一维",
+      "kind": "m00_remesh",
+      "case": "q23",
+      "requires": [
+        "official.q23"
+      ],
+      "display_name_zh": "问题2/3换网格守恒验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "2d.q23.time_half",
+      "label": "问题2/3二维时间步长验证",
+      "group": "二维验证",
+      "kind": "twod_time_half",
+      "case": "q23",
+      "requires": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "display_name_zh": "问题2/3二维时间步长验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "2d.q23.radial",
+      "label": "问题2/3二维径向加密验证",
+      "group": "二维验证",
+      "kind": "twod_radial",
+      "case": "q23",
+      "requires": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "display_name_zh": "问题2/3二维径向加密验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "2d.q23.axial",
+      "label": "问题2/3二维轴向加密验证",
+      "group": "二维验证",
+      "kind": "twod_axial",
+      "case": "q23",
+      "requires": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "display_name_zh": "问题2/3二维轴向加密验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "2d.q23.endpoint.radial",
+      "label": "问题2/3二维终点径向敏感性验证",
+      "group": "二维验证",
+      "kind": "twod_endpoint.radial",
+      "case": "q23",
+      "requires": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "display_name_zh": "问题2/3二维终点径向敏感性验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "2d.q23.endpoint.axial",
+      "label": "问题2/3二维终点轴向敏感性验证",
+      "group": "二维验证",
+      "kind": "twod_endpoint.axial",
+      "case": "q23",
+      "requires": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "display_name_zh": "问题2/3二维终点轴向敏感性验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q23",
+        "innovation.2d.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "thermal.M10.q23.full_reference",
+      "label": "潜热模型 M10 · 问题2/3空间加密验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_full_reference",
+      "case": "q23",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M10.q23"
+      ],
+      "display_name_zh": "潜热模型 M10 · 问题2/3空间加密验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M10.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M10"
+    },
+    {
+      "key": "thermal.M10.q23.time_half",
+      "label": "潜热模型 M10 · 问题2/3时间步长验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_time_half",
+      "case": "q23",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M10.q23"
+      ],
+      "display_name_zh": "潜热模型 M10 · 问题2/3时间步长验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M10.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M10"
+    },
+    {
+      "key": "thermal.M01.q23.full_reference",
+      "label": "水分携热模型 M01 · 问题2/3空间加密验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_full_reference",
+      "case": "q23",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M01.q23"
+      ],
+      "display_name_zh": "水分携热模型 M01 · 问题2/3空间加密验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M01.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M01"
+    },
+    {
+      "key": "thermal.M01.q23.time_half",
+      "label": "水分携热模型 M01 · 问题2/3时间步长验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_time_half",
+      "case": "q23",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M01.q23"
+      ],
+      "display_name_zh": "水分携热模型 M01 · 问题2/3时间步长验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M01.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M01"
+    },
+    {
+      "key": "thermal.M11.q23.full_reference",
+      "label": "潜热+水分携热模型 M11 · 问题2/3空间加密验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_full_reference",
+      "case": "q23",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M11.q23"
+      ],
+      "display_name_zh": "潜热+水分携热模型 M11 · 问题2/3空间加密验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M11.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M11"
+    },
+    {
+      "key": "thermal.M11.q23.time_half",
+      "label": "潜热+水分携热模型 M11 · 问题2/3时间步长验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_time_half",
+      "case": "q23",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M11.q23"
+      ],
+      "display_name_zh": "潜热+水分携热模型 M11 · 问题2/3时间步长验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M11.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M11"
+    },
+    {
+      "key": "mass.M00.q23",
+      "label": "正式模型 M00 · 问题2/3水质量守恒",
+      "group": "水质量守恒（12 条）",
+      "kind": "mass",
+      "case": "q23",
+      "mode": "D",
+      "requires": [
+        "innovation.full.q23"
+      ],
+      "display_name_zh": "正式模型 M00 · 问题2/3水质量守恒",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.full.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M00"
+    },
+    {
+      "key": "mass.M10.q23",
+      "label": "潜热模型 M10 · 问题2/3水质量守恒",
+      "group": "水质量守恒（12 条）",
+      "kind": "mass",
+      "case": "q23",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M10.q23"
+      ],
+      "display_name_zh": "潜热模型 M10 · 问题2/3水质量守恒",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M10.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M10"
+    },
+    {
+      "key": "mass.M01.q23",
+      "label": "水分携热模型 M01 · 问题2/3水质量守恒",
+      "group": "水质量守恒（12 条）",
+      "kind": "mass",
+      "case": "q23",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M01.q23"
+      ],
+      "display_name_zh": "水分携热模型 M01 · 问题2/3水质量守恒",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M01.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M01"
+    },
+    {
+      "key": "mass.M11.q23",
+      "label": "潜热+水分携热模型 M11 · 问题2/3水质量守恒",
+      "group": "水质量守恒（12 条）",
+      "kind": "mass",
+      "case": "q23",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M11.q23"
+      ],
+      "display_name_zh": "潜热+水分携热模型 M11 · 问题2/3水质量守恒",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M11.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M11"
+    },
+    {
+      "key": "legacy.q23",
+      "label": "问题2/3旧固定网格诊断",
+      "group": "高级验证",
+      "kind": "legacy",
+      "case": "q23",
+      "requires": [
+        "official.q23"
+      ],
+      "display_name_zh": "问题2/3旧固定网格诊断",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q23"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": true
+    },
+    {
+      "key": "m00.q4.spatial",
+      "label": "问题4空间收敛验证",
+      "group": "M00 一维",
+      "kind": "m00_spatial",
+      "case": "q4",
+      "requires": [
+        "official.q4"
+      ],
+      "display_name_zh": "问题4空间收敛验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "m00.q4.time",
+      "label": "问题4时间步长验证",
+      "group": "M00 一维",
+      "kind": "m00_time",
+      "case": "q4",
+      "requires": [
+        "official.q4"
+      ],
+      "display_name_zh": "问题4时间步长验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "m00.q4.remesh",
+      "label": "问题4换网格守恒验证",
+      "group": "M00 一维",
+      "kind": "m00_remesh",
+      "case": "q4",
+      "requires": [
+        "official.q4"
+      ],
+      "display_name_zh": "问题4换网格守恒验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "2d.q4.time_half",
+      "label": "问题4二维时间步长验证",
+      "group": "二维验证",
+      "kind": "twod_time_half",
+      "case": "q4",
+      "requires": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "display_name_zh": "问题4二维时间步长验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "2d.q4.radial",
+      "label": "问题4二维径向加密验证",
+      "group": "二维验证",
+      "kind": "twod_radial",
+      "case": "q4",
+      "requires": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "display_name_zh": "问题4二维径向加密验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "2d.q4.axial",
+      "label": "问题4二维轴向加密验证",
+      "group": "二维验证",
+      "kind": "twod_axial",
+      "case": "q4",
+      "requires": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "display_name_zh": "问题4二维轴向加密验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "2d.q4.endpoint.radial",
+      "label": "问题4二维终点径向敏感性验证",
+      "group": "二维验证",
+      "kind": "twod_endpoint.radial",
+      "case": "q4",
+      "requires": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "display_name_zh": "问题4二维终点径向敏感性验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "2d.q4.endpoint.axial",
+      "label": "问题4二维终点轴向敏感性验证",
+      "group": "二维验证",
+      "kind": "twod_endpoint.axial",
+      "case": "q4",
+      "requires": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "display_name_zh": "问题4二维终点轴向敏感性验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q4",
+        "innovation.2d.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false
+    },
+    {
+      "key": "thermal.M10.q4.full_reference",
+      "label": "潜热模型 M10 · 问题4空间加密验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_full_reference",
+      "case": "q4",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M10.q4"
+      ],
+      "display_name_zh": "潜热模型 M10 · 问题4空间加密验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M10.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M10"
+    },
+    {
+      "key": "thermal.M10.q4.time_half",
+      "label": "潜热模型 M10 · 问题4时间步长验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_time_half",
+      "case": "q4",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M10.q4"
+      ],
+      "display_name_zh": "潜热模型 M10 · 问题4时间步长验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M10.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M10"
+    },
+    {
+      "key": "thermal.M01.q4.full_reference",
+      "label": "水分携热模型 M01 · 问题4空间加密验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_full_reference",
+      "case": "q4",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M01.q4"
+      ],
+      "display_name_zh": "水分携热模型 M01 · 问题4空间加密验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M01.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M01"
+    },
+    {
+      "key": "thermal.M01.q4.time_half",
+      "label": "水分携热模型 M01 · 问题4时间步长验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_time_half",
+      "case": "q4",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M01.q4"
+      ],
+      "display_name_zh": "水分携热模型 M01 · 问题4时间步长验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M01.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M01"
+    },
+    {
+      "key": "thermal.M11.q4.full_reference",
+      "label": "潜热+水分携热模型 M11 · 问题4空间加密验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_full_reference",
+      "case": "q4",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M11.q4"
+      ],
+      "display_name_zh": "潜热+水分携热模型 M11 · 问题4空间加密验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M11.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M11"
+    },
+    {
+      "key": "thermal.M11.q4.time_half",
+      "label": "潜热+水分携热模型 M11 · 问题4时间步长验证",
+      "group": "热效应严格验证（18 条）",
+      "kind": "thermal_time_half",
+      "case": "q4",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M11.q4"
+      ],
+      "display_name_zh": "潜热+水分携热模型 M11 · 问题4时间步长验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M11.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M11"
+    },
+    {
+      "key": "mass.M00.q4",
+      "label": "正式模型 M00 · 问题4水质量守恒",
+      "group": "水质量守恒（12 条）",
+      "kind": "mass",
+      "case": "q4",
+      "mode": "D",
+      "requires": [
+        "innovation.full.q4"
+      ],
+      "display_name_zh": "正式模型 M00 · 问题4水质量守恒",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.full.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M00"
+    },
+    {
+      "key": "mass.M10.q4",
+      "label": "潜热模型 M10 · 问题4水质量守恒",
+      "group": "水质量守恒（12 条）",
+      "kind": "mass",
+      "case": "q4",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M10.q4"
+      ],
+      "display_name_zh": "潜热模型 M10 · 问题4水质量守恒",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M10.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M10"
+    },
+    {
+      "key": "mass.M01.q4",
+      "label": "水分携热模型 M01 · 问题4水质量守恒",
+      "group": "水质量守恒（12 条）",
+      "kind": "mass",
+      "case": "q4",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M01.q4"
+      ],
+      "display_name_zh": "水分携热模型 M01 · 问题4水质量守恒",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M01.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M01"
+    },
+    {
+      "key": "mass.M11.q4",
+      "label": "潜热+水分携热模型 M11 · 问题4水质量守恒",
+      "group": "水质量守恒（12 条）",
+      "kind": "mass",
+      "case": "q4",
+      "mode": "D",
+      "requires": [
+        "innovation.thermal.M11.q4"
+      ],
+      "display_name_zh": "潜热+水分携热模型 M11 · 问题4水质量守恒",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "dependencies": [
+        "innovation.thermal.M11.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "mode_id": "M11"
+    },
+    {
+      "key": "legacy.q4",
+      "label": "问题4旧固定网格诊断",
+      "group": "高级验证",
+      "kind": "legacy",
+      "case": "q4",
+      "requires": [
+        "official.q4"
+      ],
+      "display_name_zh": "问题4旧固定网格诊断",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": true
+    },
+    {
+      "key": "2d.assess",
+      "label": "二维辅助验收汇总",
+      "group": "二维验证",
+      "kind": "twod_assess",
+      "requires": [
+        "official.q1",
+        "official.q23",
+        "official.q4",
+        "innovation.2d.q1",
+        "innovation.2d.q23",
+        "innovation.2d.q4"
+      ],
+      "display_name_zh": "二维辅助验收汇总",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q1",
+        "official.q23",
+        "official.q4",
+        "innovation.2d.q1",
+        "innovation.2d.q23",
+        "innovation.2d.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": false,
+      "validation_requires": [
+        "validation.2d.q1.time_half",
+        "validation.2d.q1.radial",
+        "validation.2d.q1.axial",
+        "validation.2d.q23.time_half",
+        "validation.2d.q23.radial",
+        "validation.2d.q23.axial",
+        "validation.2d.q23.endpoint.radial",
+        "validation.2d.q23.endpoint.axial",
+        "validation.2d.q4.time_half",
+        "validation.2d.q4.radial",
+        "validation.2d.q4.axial",
+        "validation.2d.q4.endpoint.radial",
+        "validation.2d.q4.endpoint.axial"
+      ]
+    },
+    {
+      "key": "cross.full_reference",
+      "label": "几何—物性交叉空间加密验证",
+      "group": "高级验证",
+      "kind": "cross_full_reference",
+      "case": "q23",
+      "requires": [
+        "innovation.cross.p3_shrink"
+      ],
+      "display_name_zh": "几何—物性交叉空间加密验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "innovation.cross.p3_shrink"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": true
+    },
+    {
+      "key": "cross.time_half",
+      "label": "几何—物性交叉时间步长验证",
+      "group": "高级验证",
+      "kind": "cross_time_half",
+      "case": "q23",
+      "requires": [
+        "innovation.cross.p3_shrink"
+      ],
+      "display_name_zh": "几何—物性交叉时间步长验证",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "innovation.cross.p3_shrink"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": true
+    },
+    {
+      "key": "consistency",
+      "label": "正式结果一致性检查",
+      "group": "高级验证",
+      "kind": "consistency",
+      "requires": [
+        "official.q1",
+        "official.q23",
+        "official.q4"
+      ],
+      "display_name_zh": "正式结果一致性检查",
+      "description_zh": "只复核已有基础数据；缺少生产轨迹时拒绝执行。",
+      "mode": "D",
+      "dependencies": [
+        "official.q1",
+        "official.q23",
+        "official.q4"
+      ],
+      "producer": "Validation_Execute",
+      "estimated_cost_class": "长",
+      "default_selected": false,
+      "advanced": true
+    }
+  ]
+}

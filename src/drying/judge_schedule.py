@@ -10,25 +10,40 @@ def Schedule_GetSlots(request='auto',memory_gb=None,cpu_count=None):
     return max(1,min(6,cores-1)) if str(request)=='auto' else max(1,min(6,int(request)))
 
 
-def Schedule_GetResources(request='auto',available_mb=None,cpu_count=None):
+def Schedule_GetResources(request='auto',available_mb=None,cpu_count=None,total_mb=None):
     import psutil
-    available=psutil.virtual_memory().available/2**20 if available_mb is None else available_mb
-    return dict(cpu_tokens=Schedule_GetSlots(request,cpu_count=cpu_count),memory_budget_mb=.72*available,
-                available_memory_at_start_mb=available,memory_floor_mb=2048.)
+    memory=psutil.virtual_memory()
+    available=memory.available/2**20 if available_mb is None else available_mb
+    total=memory.total/2**20 if total_mb is None else total_mb
+    reserve=max(384.,min(2048.,.12*total))
+    tokens=Schedule_GetSlots(request,cpu_count=cpu_count)
+    if str(request)=='auto':tokens=min(tokens,max(1,int(max(0.,available-reserve)//1024)))
+    return dict(cpu_tokens=tokens,memory_budget_mb=.72*available,
+                available_memory_at_start_mb=available,total_memory_mb=total,reserve_mb=reserve,memory_floor_mb=reserve)
 
 
 def Schedule_GetDemand(job,slots=None):return job.get('cpu_demand',1)
 
 
-def Schedule_CanStart(job,running,slots,memory_budget_mb=float('inf'),available_mb=float('inf'),floor_mb=2048.):
-    if available_mb<floor_mb:return False
+def Schedule_CanStart(job,running,slots,memory_budget_mb=float('inf'),available_mb=float('inf'),floor_mb=None):
+    if floor_mb is None:floor_mb=Schedule_GetResources()['reserve_mb']
     if sum(Schedule_GetDemand(j) for j in running)+Schedule_GetDemand(job)>slots:return False
     memory=job.get('memory_estimate_mb',1024.)
     if memory+sum(j.get('memory_estimate_mb',1024.) for j in running)>memory_budget_mb:return False
-    if memory>available_mb-floor_mb:return False
+    incremental=max(0.,memory-job.get('resident_rss_mb',0.))
+    if incremental>available_mb-floor_mb:return False
     locks=set(job.get('locks',[]))
     return not any(locks.intersection(j.get('locks',[])) or
         (job.get('private') and job.get('private')==j.get('private')) for j in running)
+
+
+def Schedule_GetMemoryFailure(job,available_mb,resources):
+    memory=job.get('memory_estimate_mb',1024.)
+    incremental=max(0.,memory-job.get('resident_rss_mb',0.))
+    return ('MEMORY_REQUIREMENT_UNSATISFIED: '+job['key']+
+        f"; expected={memory:.1f} MiB, incremental={incremental:.1f} MiB, "
+        f"available={available_mb:.1f} MiB, reserve={resources['reserve_mb']:.1f} MiB, "
+        f"budget={resources['memory_budget_mb']:.1f} MiB; 请释放内存或关闭其他程序后重试；数值精度不会降低")
 
 
 def Schedule_GetIdentity(job):

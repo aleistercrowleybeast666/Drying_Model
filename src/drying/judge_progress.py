@@ -329,7 +329,7 @@ class ProgressTracker:
 class ProgressSession:
     """One heartbeat serves console, GUI and the external-run snapshot."""
     def __init__(self,root,plan,console):
-        self.root=Path(root);self.reference=Progress_ReadReference(root);self.console=console
+        self.root=Path(root);self.reference=Progress_ReadReference(root);self.console=console;self.plan=plan
         self.costs=Progress_GetCosts(root,plan,self.reference)
         prep=self.reference.get('preparation',PREPARATION)
         previous=Progress_ReadJson(self.root/'work/recompute/timings.json')
@@ -352,6 +352,17 @@ class ProgressSession:
         with self.output_lock:
             started=time.perf_counter()
             event=self.tracker.Progress_Snapshot();event.update(run_id=self.run_id,runner_pid=self.pid,runner_created_at=self.created_at)
+            if self.plan.get('v5'):
+                first=[j['key'] for j in self.plan['steps'] if j['phase']==1]
+                phase=2 if any(j['phase']==2 for j in self.plan['steps']) and all(self.tracker.jobs[k]['status']=='PASS' for k in first) else 1
+                event.update(pipeline_phase=phase,pipeline_phase_label=self.plan['phase_labels'][str(phase)])
+                with self.tracker.lock:
+                    event['task_states']={k:r['status'] for k,r in self.tracker.jobs.items()}
+                    event['mode_progress']={}
+                    for mode in ['A','B','C','D']:
+                        rows=[self.tracker.jobs[j['key']] for j in self.plan['steps'] if j['layer']==mode]
+                        if rows:event['mode_progress'][mode]=dict(completed=sum(r['status']=='PASS' for r in rows),
+                            total=len(rows),fraction=sum(r['fraction'] for r in rows)/len(rows))
             self.events.append(dict(elapsed_s=event['elapsed_s'],overall_fraction=event['overall_fraction'],eta_s=event['eta_s']))
             text=json.dumps(event,ensure_ascii=False,allow_nan=False)
             self.log.write(text+'\n');self.log.flush()

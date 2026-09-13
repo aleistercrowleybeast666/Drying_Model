@@ -144,8 +144,10 @@ def test_gui_developer_button_does_not_select_force(monkeypatch):
     from PySide6.QtWidgets import QApplication
     from drying.gui.judge_window import JudgeWindow
     app=QApplication.instance() or QApplication([]);window=JudgeWindow(ROOT)
-    window.developer_button.click()
-    assert {k for k,v in window.checks.items() if v.isChecked()}==set(DEVELOPER_TASKS)
+    window.catalog_panel.mode_buttons['D'][0].click()
+    assert not window.catalog_panel.force_validation.isChecked()
+    assert not window.catalog_panel.force_data.isChecked()
+    assert all(not v.isChecked() for k,v in window.checks.items() if not v.isEnabled())
     window.external_timer.stop();window.progress_timer.stop();window.close()
 
 

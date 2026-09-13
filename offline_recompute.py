@@ -8,6 +8,7 @@ def main():
     root = Path(os.environ.get('DRYING_MODEL_ROOT') or
         (Path(sys.executable).parent if getattr(sys, 'frozen', False) else Path(__file__).parent)).resolve()
     os.environ['DRYING_MODEL_ROOT'] = str(root)
+    os.environ.setdefault('NUMBA_CACHE_DIR',str(root/'work/recompute/numba_cache'))
     code = root/'code' if (root/'code/src').is_dir() else root
     if (root/'dependencies/application/code/src').is_dir():code=root/'dependencies/application/code'
     sys.path.insert(0, str(code/'src'))

@@ -124,8 +124,8 @@ def test_gui_single_page_selection_progress_and_stop(qt_app,tmp_path):
     window = JudgeWindow(tmp_path)
     assert not hasattr(window,'nav') and not hasattr(window,'pages')
     assert [k for k,v in window.checks.items() if v.isChecked()]==['q1','q23','q4']
-    window.select_buttons[1].click(); assert window.checks['extensions'].isChecked() and not window.checks['gif'].isChecked()
-    window.select_buttons[2].click(); assert not any(v.isChecked() for v in window.checks.values())
+    window.select_buttons[1].click(); assert window.checks['innovation.full.q4'].isChecked() and not window.checks['plot.q4_3d_gif'].isChecked()
+    window.select_buttons[3].click(); assert not any(v.isChecked() for v in window.checks.values())
     window.start.click(); assert '至少' in window.current.text()
     window.select_buttons[0].click(); assert sum(v.isChecked() for v in window.checks.values())==3
     assert window.logs.isHidden(); window.log_toggle.click(); assert not window.logs.isHidden()
@@ -138,14 +138,14 @@ def test_gui_real_subprocess_dry_run_and_logs(qt_app):
     from drying.gui.judge_window import JudgeWindow
     from PySide6.QtCore import QProcess
     root = Path(__file__).resolve().parents[1]
-    window = JudgeWindow(root); window.Selection_Set(['q1','extensions']); window.dry_run=True
+    window = JudgeWindow(root); window.Selection_Set(['q1','innovation.full.q1']); window.dry_run=True
     window.Task_Start()
     deadline=time.monotonic()+15
     while window.process.state()!=QProcess.ProcessState.NotRunning and time.monotonic()<deadline:
         qt_app.processEvents(); time.sleep(.01)
     qt_app.processEvents()
     assert window.process.exitCode()==0
-    assert 'DRY_RUN' in window.logs.toPlainText() and 'shared.baseline' in window.logs.toPlainText()
+    assert 'DRY_RUN' in window.logs.toPlainText() and 'B.full.q1' in window.logs.toPlainText()
     assert window.start.isEnabled()
     window.close()
 
@@ -217,8 +217,8 @@ def test_reopened_gui_can_stop_existing_runner(qt_app,tmp_path):
     (lock.parent/'runner_identity.json').write_text(json.dumps(dict(pid=process.pid,created_at=psutil.Process(process.pid).create_time())))
     window=JudgeWindow(tmp_path)
     assert window.external_busy and window.stop.isEnabled() and window.start.isEnabled()
-    window.select_buttons[1].click();assert window.checks['extensions'].isChecked() and not window.checks['gif'].isChecked()
-    window.select_buttons[2].click();assert not any(check.isChecked() for check in window.checks.values())
+    window.select_buttons[1].click();assert window.checks['innovation.full.q4'].isChecked() and not window.checks['plot.q4_3d_gif'].isChecked()
+    window.select_buttons[3].click();assert not any(check.isChecked() for check in window.checks.values())
     window.start.click();assert window.external_busy and '已有复算' in window.current.text()
     window.stop.click();window.Task_CheckExternal()
     assert process.wait(timeout=3)!=0 and not lock.exists()

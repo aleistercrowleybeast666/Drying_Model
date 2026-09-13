@@ -2,6 +2,16 @@
 import os
 from pathlib import Path
 import shutil
+import uuid
+
+
+def Resource_CopyMutableFile(source,destination):
+    """Replace the destination inode before copying mutable setup metadata."""
+    source=Path(source);destination=Path(destination);destination.parent.mkdir(parents=True,exist_ok=True)
+    temporary=destination.with_name(destination.name+'.'+uuid.uuid4().hex+'.copy')
+    try:shutil.copy2(source,temporary);os.replace(temporary,destination)
+    finally:temporary.unlink(missing_ok=True)
+    return str(destination)
 
 
 def Resource_CopyFile(source,destination):
