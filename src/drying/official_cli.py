@@ -13,6 +13,7 @@ import time
 import traceback
 import uuid
 from .storage import Storage_WriteJson
+from .official_progress import OfficialProgress,OfficialProgress_FormatTime
 
 
 class OfficialRunResult(IntEnum):
@@ -153,16 +154,19 @@ def Official_Run(root,cases,workers='auto',force=False):
     from .judge_schedule import Schedule_GetResources,Schedule_CanStart,Schedule_GetMemoryFailure
     root=Path(root);identity=Official_GetIdentity(root);resources=Schedule_GetResources(workers)
     previous=Official_Read(root/'logs/timings.json');peaks={r['case']:r.get('peak_rss_mb',0) for r in previous.get('cases',[])}
-    pending=list(cases);running={};records=[];start=time.perf_counter();last=0.
+    pending=list(cases);running={};records=[];start=time.perf_counter();outcome='FAIL'
+    progress=OfficialProgress(root,Official_GetCode(root),cases,identity,previous,resources['cpu_tokens'])
     env=dict(os.environ,DRYING_OFFICIAL_ROOT=str(root),PYTHONUNBUFFERED='1',PYTHONIOENCODING='utf-8')
     flags=subprocess.CREATE_NO_WINDOW|subprocess.BELOW_NORMAL_PRIORITY_CLASS if os.name=='nt' else 0
     try:
+        progress.OfficialProgress_Write(force=True)
         while pending or running:
             for case in list(pending):
                 job=dict(key=case,memory_estimate_mb=max(384.,peaks.get(case,0)*1.3))
                 available=psutil.virtual_memory().available/2**20
                 if not Schedule_CanStart(job,[r['job'] for r in running.values()],resources['cpu_tokens'],resources['memory_budget_mb'],available,resources['reserve_mb']):continue
                 Official_Prepare(root,case,force);(root/f'work/receipts/{case}.json').unlink(missing_ok=True)
+                progress.OfficialProgress_StartCase(case)
                 stream=(root/f'logs/{case}.log').open('w',encoding='utf-8');process=subprocess.Popen(Official_GetCommand(root,case),cwd=root,env=env,stdout=stream,stderr=subprocess.STDOUT,creationflags=flags)
                 running[case]=dict(process=process,log=stream,job=job,start=time.perf_counter(),peak=0.);pending.remove(case)
             for case,entry in list(running.items()):
@@ -174,23 +178,26 @@ def Official_Run(root,cases,workers='auto',force=False):
                 if process.returncode:raise RuntimeError('OFFICIAL_CASE_FAILED: '+case+'；详情 logs/'+case+'.log')
                 row=Official_Publish(root,case,identity);row.update(wall_s=time.perf_counter()-entry['start'],peak_rss_mb=entry['peak'])
                 records.append(row);del running[case]
+                progress.OfficialProgress_CompleteCase(case,row)
             if pending and not running:
                 available=psutil.virtual_memory().available/2**20;job=dict(key=pending[0],memory_estimate_mb=max(384.,peaks.get(pending[0],0)*1.3))
                 resources['memory_budget_mb']=max(resources['memory_budget_mb'],available-resources['reserve_mb'])
                 if not Schedule_CanStart(job,[],resources['cpu_tokens'],resources['memory_budget_mb'],available,resources['reserve_mb']):raise RuntimeError(Schedule_GetMemoryFailure(job,available,resources))
-            now=time.perf_counter()
-            if now-last>=2 or not pending and not running:
-                event=dict(completed=len(records),total=len(cases),running=list(running),elapsed_s=now-start)
-                message=f'已完成 {len(records)}/{len(cases)}；运行中：'+('、'.join(running) or '无')+f'；用时 {(now-start)/60:.1f} min'
-                print(message,flush=True)
-                with (root/'logs/progress.jsonl').open('a',encoding='utf-8') as stream:stream.write(json.dumps(event,ensure_ascii=False)+'\n')
-                with (root/'logs/console.log').open('a',encoding='utf-8') as stream:stream.write(message+'\n')
-                last=now
+            progress.OfficialProgress_Write()
             if pending or running:time.sleep(.2)
+        outcome='PASS';progress.OfficialProgress_Write(outcome,force=True)
+        summary=['四表正式数据计算完成' if set(cases)=={'q1','q23','q4'} else '所选正式数据计算完成',
+            '总用时：'+OfficialProgress_FormatTime(time.perf_counter()-start)]
         for row in records:
-            if row['case'] in ['q23','q4']:print(('Q3' if row['case']=='q23' else 'Q4')+f" = {row['production']['drying_time_h']:.4f} h",flush=True)
+            if row['case'] in ['q23','q4']:summary.append(('Q3' if row['case']=='q23' else 'Q4')+f" = {row['production']['drying_time_h']:.4f} h")
+        summary.append('输出：results/tables/');message='\n'.join(summary)
+        print(message,flush=True)
+        with (root/'logs/console.log').open('a',encoding='utf-8') as stream:stream.write(message+'\n')
         return OfficialRunResult.COMPLETE
+    except KeyboardInterrupt:
+        outcome='STOPPED';raise
     finally:
+        if outcome!='PASS':progress.OfficialProgress_Write(outcome,force=True)
         for entry in running.values():
             process=entry['process']
             if process.poll() is None:
@@ -200,7 +207,9 @@ def Official_Run(root,cases,workers='auto',force=False):
                     parent.kill();process.wait(timeout=5)
                 except psutil.NoSuchProcess:pass
             entry['log'].close()
-        Storage_WriteJson(root/'logs/timings.json',dict(cases=records,total_wall_s=time.perf_counter()-start,resources=resources))
+        Storage_WriteJson(root/'logs/timings.json',dict(status=outcome,selected_cases=list(cases),
+            scientific_identity=identity,machine=progress.machine,cases=records,
+            total_wall_s=time.perf_counter()-start,resources=resources))
 
 
 def Official_Main(root,argv=None):

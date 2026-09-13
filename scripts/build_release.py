@@ -13,7 +13,7 @@ ROOT=Path(__file__).resolve().parents[1]
 NAME='A题_药材烘干模型'
 OFFICIAL='01_四表正式数据_终端版'
 GUI='02_完整功能_GUI版'
-OFFICIAL_MODULES=['__init__','official_cli','official_support','materials','boundaries','operators','rk4','sampling',
+OFFICIAL_MODULES=['__init__','official_cli','official_progress','official_support','materials','boundaries','operators','rk4','sampling',
     'geometry','events','inputs','cases','stages','mesh','frozen_mesh','table_solver','table_reference','export','storage','diagnostics','judge_schedule']
 OFFICIAL_CONFIGS=['default.toml','stage_schedule.json','stage_solver_reference.json','frozen_mesh','table_reference']
 CORE=['materials','boundaries','operators','rk4','sampling','inputs','events','geometry','cases','stages','table_solver']
@@ -22,6 +22,7 @@ TOP_TEXT='''本软件分为两个完全独立版本：
 1. 01_四表正式数据_终端版
    仅复算题目要求的四份正式 Excel，依赖最少。
    双击“药材烘干模型_四表正式数据.exe”。
+   本次测试机完整四表约 2.8 min，不同电脑和后台负载下耗时会变化，仅供参考。
 
 2. 02_完整功能_GUI版
    用于四表、创新实验数据、绘图和数值验证。
@@ -114,7 +115,10 @@ work/、results/、logs/ 均只在本目录生成；不读取 GUI 版缓存。
 再次运行会核对数据身份和文件哈希，复用本版自己的有效缓存。
 Ctrl+C 停止本次任务；未完成轨迹下次继续校验。
 
-本轮按要求未执行发布后运行或数值验证，请自行验证。
+当前版本已完成四表终端版实际运行检查（用户实测）。
+在本次测试电脑上，完整四表运行约 2.8 min；不同 CPU、内存和后台负载下耗时会变化，该数值仅供参考。
+运行中显示真实结构进度、已用时间和预计剩余时间。首次运行先校准，获得真实进度后估计剩余时间。
+四表数值运行已实测；新增进度显示为只读显示层，本轮未重新完整复算，也不声称新的 ETA 已完整实测。
 '''
     for name in ['README.md','说明.txt']:(target/name).write_text(text,encoding='utf-8')
     Build_WriteEntries(target,True)

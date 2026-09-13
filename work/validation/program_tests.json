@@ -2,10 +2,59 @@
   "exit_status": 0,
   "tests": [
     {
-      "test": "tests/test_judge_gui_v5.py::test_gui_workspace_copy_without_developer_scripts",
+      "test": "tests/test_official_progress.py::test_real_grid_weight_and_current_stagepart_only",
       "phase": "call",
       "outcome": "passed",
-      "duration_s": 0.15375889999995707,
+      "duration_s": 0.026976399996783584,
+      "error": null
+    },
+    {
+      "test": "tests/test_official_progress.py::test_pause_corrupt_status_and_lower_state_never_advance_clock",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.04207509999832837,
+      "error": null
+    },
+    {
+      "test": "tests/test_official_progress.py::test_first_run_eta_waits_for_observed_advance",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.028453899998567067,
+      "error": null
+    },
+    {
+      "test": "tests/test_official_progress.py::test_parent_complete_is_not_success_receipt",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.020977400003175717,
+      "error": null
+    },
+    {
+      "test": "tests/test_official_progress.py::test_failed_or_stopped_below_100[FAIL]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.01830319999862695,
+      "error": null
+    },
+    {
+      "test": "tests/test_official_progress.py::test_failed_or_stopped_below_100[STOPPED]",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.014624899995396845,
+      "error": null
+    },
+    {
+      "test": "tests/test_official_progress.py::test_redirect_has_no_cr_ansi_and_throttles",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.022680800000671297,
+      "error": null
+    },
+    {
+      "test": "tests/test_official_progress.py::test_successful_same_machine_same_science_history_only",
+      "phase": "call",
+      "outcome": "passed",
+      "duration_s": 0.00013110000145388767,
       "error": null
     }
   ]
