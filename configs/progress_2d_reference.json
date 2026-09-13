@@ -1,0 +1,1496 @@
+{
+  "schema_version": 1,
+  "identity": {
+    "numerical_sources": {
+      "materials": "83af1401abe6dc99073f619efa2a5406c8b8d56c34fb8043b72a369dad39cbdf",
+      "boundaries": "5b88490ad438f9831b84104cd53f983b8c6326c7bcdfbce3c884e9826b8d5905",
+      "operators": "6c36fd3be577f379dde6aece12be7fce12a563c54cf5155c618dfd5b09b8ae43",
+      "rk4": "71b9f6b50b0f6b6656a2e79920f8b77c8d65679a89e0b8419940e629262d8709",
+      "sampling": "b335f20108608c04b4ceb5510233e89d05718928d82c6712b204fa9e9cb8717b",
+      "inputs": "a3d83290bd4d32a3e9ddaf74467d6215f9a0b3f030eca76a9dc96a9898c47a3a",
+      "events": "d03bdfe9f32e669bd6d55cf9a4d095b5376e26004b9cd52ca3f05b89397743bb",
+      "geometry": "87abb0138f2fae6833e1455363f99da62398b72de924838e0bcd6c4d2a685519",
+      "cases": "203d0c565a04798d623c3661dad7b5e76f6d6755b49185a1fe4f966ae87b31dd",
+      "stages": "69fe41afd196c95b26d76d5b669222991686ae6e65d106d12bd690487ac50b3f",
+      "table_solver": "ecea4c9ac485f569b6a33491edf929377f4ca4def1d50ded70e0a23a0a2d7157"
+    },
+    "numerical_source_hash": "829d9811ef26a6abdfe29ca1179bebbd4b5572578c888f4f24940e3c4e5098ad",
+    "frozen_schedule_hash": "3f67a269ff90f9da6b6266dbcd333e80e47919daf95c7671ba82d02359da3ced",
+    "frozen_mesh_hash": "f44f880f0e1cd02987f55d44914fe7fac4c899dd346b825b41e679b9e5e9479f",
+    "input_hash": "95637012db800e28d3797446328af0172f7ae6deda1d5bc7594fc8a0a9864ee6",
+    "config_hash": "a133a33e3a429c0ecee4618cd36d6ca5e4e3b16b335f9cfc0187950ea4221d6b"
+  },
+  "records": [
+    {
+      "case": "q1",
+      "nr": 40,
+      "nz": 125,
+      "wall_s": 14.22116620000088,
+      "steps": 14400,
+      "actual_dt_mean": null,
+      "time_range": [
+        0,
+        1800.0
+      ],
+      "purpose": "half_steps",
+      "source": "work/cache/q1_2d_adaptive_nr40_nz125_dt0.125_md810aa408542_half_steps/status.json",
+      "fingerprint": "72096c1ef86e4421a0e66efc81f7d2fee470054206329a88bda0f10a68708177"
+    },
+    {
+      "case": "q1",
+      "nr": 40,
+      "nz": 125,
+      "wall_s": 6.679685300001438,
+      "steps": 7200,
+      "actual_dt_mean": null,
+      "time_range": [
+        0,
+        1800.0
+      ],
+      "purpose": "base",
+      "source": "work/cache/q1_2d_adaptive_nr40_nz125_dt0.25_md810aa408542/status.json",
+      "fingerprint": "07c80e967e0b8dbc778c723630d879dc9c766821ccf304b3860136af64cb61e9"
+    },
+    {
+      "case": "q1",
+      "nr": 40,
+      "nz": 250,
+      "wall_s": 36.78779450000002,
+      "steps": 14400,
+      "actual_dt_mean": null,
+      "time_range": [
+        0,
+        1800.0
+      ],
+      "purpose": "axial_verification",
+      "source": "work/cache/q1_2d_adaptive_nr40_nz250_dt0.25_m86bafdbf4d10_axial_verification/status.json",
+      "fingerprint": "761ab80156998e5b46dcffa0f32f7f5257238fd5c86d907c7dff5aaf14da4687"
+    },
+    {
+      "case": "q1",
+      "nr": 80,
+      "nz": 125,
+      "wall_s": 77.29062390000036,
+      "steps": 28800,
+      "actual_dt_mean": null,
+      "time_range": [
+        0,
+        1800.0
+      ],
+      "purpose": "radial_verification",
+      "source": "work/cache/q1_2d_adaptive_nr80_nz125_dt0.25_m0663d58bba57_radial_verification/status.json",
+      "fingerprint": "777db0198375e12e82ec6775510f34332544100285e4a028a2a8981bc316c9a1"
+    },
+    {
+      "case": "q23",
+      "nr": 40,
+      "nz": 125,
+      "wall_s": 15.923872100000153,
+      "steps": 14400,
+      "actual_dt_mean": null,
+      "time_range": [
+        0,
+        1800.0
+      ],
+      "purpose": "half_steps",
+      "source": "work/cache/q23_2d_adaptive_nr40_nz125_dt0.125_mfd6e5cf8c919_half_steps/status.json",
+      "fingerprint": "d28f777a26d5894685724afce8ff09779a3a83f7145c31213c641fe82880abc2"
+    },
+    {
+      "case": "q23",
+      "nr": 40,
+      "nz": 125,
+      "wall_s": 1062.2996735999986,
+      "steps": 1036800,
+      "actual_dt_mean": null,
+      "time_range": [
+        0,
+        259200.0
+      ],
+      "purpose": "base",
+      "source": "work/cache/q23_2d_adaptive_nr40_nz125_dt0.25_mfd6e5cf8c919/status.json",
+      "fingerprint": "78758bbd0c40b2081d7b5ff4c7855a8cdc8c67e74e3463c8c95d81b1e9ce5004"
+    },
+    {
+      "case": "q23",
+      "nr": 40,
+      "nz": 250,
+      "wall_s": 0.027723400009563193,
+      "steps": 8,
+      "actual_dt_mean": 0.125,
+      "time_range": [
+        0,
+        5086.0
+      ],
+      "purpose": "axial_representative_extension_t5086",
+      "source": "work/cache/q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_representative_extension_t5086/status.json",
+      "fingerprint": "9d2c3f08732d05a095c2d3140789a9466337c209b8b96ff68e72222db0adbb3b"
+    },
+    {
+      "case": "q23",
+      "nr": 40,
+      "nz": 250,
+      "wall_s": 107.83390589999908,
+      "steps": 40680,
+      "actual_dt_mean": null,
+      "time_range": [
+        0,
+        5085.0
+      ],
+      "purpose": "axial_verification",
+      "source": "work/cache/q23_2d_adaptive_nr40_nz250_dt0.25_m53a461f993b9_axial_verification/status.json",
+      "fingerprint": "e6abaf9f5ff30d46c384734af84ca80bead4dc45910093ee7a7295f9457c4fc2"
+    },
+    {
+      "case": "q23",
+      "nr": 60,
+      "nz": 188,
+      "wall_s": 1.3126601999993,
+      "steps": 480,
+      "actual_dt_mean": 0.125,
+      "time_range": [
+        0,
+        60.0
+      ],
+      "purpose": "technical60x188_cost_probe",
+      "source": "work/cache/q23_2d_adaptive_nr60_nz188_dt0.25_mb9ba0fa5472a_technical60x188_cost_probe/status.json",
+      "fingerprint": "c85369f01782b5a7f0962097296bccbe7f6fd1525fcb18d1292050ea1d4c64f3"
+    },
+    {
+      "case": "q23",
+      "nr": 80,
+      "nz": 125,
+      "wall_s": 0.10513700000592507,
+      "steps": 16,
+      "actual_dt_mean": 0.0625,
+      "time_range": [
+        0,
+        5086.0
+      ],
+      "purpose": "radial_representative_extension_t5086",
+      "source": "work/cache/q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_representative_extension_t5086/status.json",
+      "fingerprint": "a0ac0dde0f4385c773fb3d519894470aa72c2ed58e299aef11b779c0719860a2"
+    },
+    {
+      "case": "q23",
+      "nr": 80,
+      "nz": 125,
+      "wall_s": 237.0530409000021,
+      "steps": 79097,
+      "actual_dt_mean": null,
+      "time_range": [
+        0,
+        5085.0
+      ],
+      "purpose": "radial_verification",
+      "source": "work/cache/q23_2d_adaptive_nr80_nz125_dt0.25_m815d75810ebf_radial_verification/status.json",
+      "fingerprint": "05efc315ba79144d1554be4347cceb5e21c4faf24b2b4db27a79b00fe07ea558"
+    },
+    {
+      "case": "q4",
+      "nr": 40,
+      "nz": 125,
+      "wall_s": 13.83901319999859,
+      "steps": 14400,
+      "actual_dt_mean": null,
+      "time_range": [
+        0,
+        1800.0
+      ],
+      "purpose": "half_steps",
+      "source": "work/cache/q4_2d_adaptive_nr40_nz125_dt0.125_md7f14a4ef684_half_steps/status.json",
+      "fingerprint": "984ec58fa325f8ae886006b01dc56b7376dd10a0f87dea9d573b0788f685a544"
+    },
+    {
+      "case": "q4",
+      "nr": 40,
+      "nz": 125,
+      "wall_s": 1080.231666900003,
+      "steps": 1036800,
+      "actual_dt_mean": null,
+      "time_range": [
+        0,
+        259200.0
+      ],
+      "purpose": "base",
+      "source": "work/cache/q4_2d_adaptive_nr40_nz125_dt0.25_md7f14a4ef684/status.json",
+      "fingerprint": "6769b70db8f82b3fb975713f1b631381d0d3e18970452395f6374fe9554c8b22"
+    },
+    {
+      "case": "q4",
+      "nr": 40,
+      "nz": 250,
+      "wall_s": 79.96898610000062,
+      "steps": 41280,
+      "actual_dt_mean": null,
+      "time_range": [
+        0,
+        10320.0
+      ],
+      "purpose": "axial_verification",
+      "source": "work/cache/q4_2d_adaptive_nr40_nz250_dt0.25_m7c4f1999f231_axial_verification/status.json",
+      "fingerprint": "ee04fb19ebf51cb81dcb479f4509a08a0a8c50a47c249fe6fdf5c0444d0658b7"
+    },
+    {
+      "case": "q4",
+      "nr": 60,
+      "nz": 188,
+      "wall_s": 0.43320540000058827,
+      "steps": 240,
+      "actual_dt_mean": 0.25,
+      "time_range": [
+        0,
+        60.0
+      ],
+      "purpose": "technical60x188_cost_probe",
+      "source": "work/cache/q4_2d_adaptive_nr60_nz188_dt0.25_mee6f06a440f2_technical60x188_cost_probe/status.json",
+      "fingerprint": "0e3047e2c70737bf85fdab55ee9f85b43f64baae289366c21c199c4442f11cbb"
+    },
+    {
+      "case": "q4",
+      "nr": 80,
+      "nz": 125,
+      "wall_s": 193.5850352999987,
+      "steps": 82560,
+      "actual_dt_mean": null,
+      "time_range": [
+        0,
+        10320.0
+      ],
+      "purpose": "radial_verification",
+      "source": "work/cache/q4_2d_adaptive_nr80_nz125_dt0.25_m338635beb33f_radial_verification/status.json",
+      "fingerprint": "b6a713ee07d474f2e441da83197a3e0b4c9767bc38927450832eb1b8606968b6"
+    }
+  ],
+  "trajectory_records": [
+    {
+      "case": "q1",
+      "mode": "M00",
+      "kind": "full_reference",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 159840,
+      "wall_s": 27.172000000005937,
+      "source": "work/studies/experiments/q1_M00_full_reference_x2_tail60_023569fa8604/status.json"
+    },
+    {
+      "case": "q1",
+      "mode": "M00",
+      "kind": "matched",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "steps": 7200,
+      "wall_s": 0.8910000000032596,
+      "source": "work/studies/experiments/q1_M00_matched_x1_tail60_98bacf28c121/status.json"
+    },
+    {
+      "case": "q1",
+      "mode": "M01",
+      "kind": "full_reference",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 159840,
+      "wall_s": 31.610000000000582,
+      "source": "work/studies/experiments/q1_M01_full_reference_x2_tail60_554bbde84f81/status.json"
+    },
+    {
+      "case": "q1",
+      "mode": "M01",
+      "kind": "production",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "steps": 39720,
+      "wall_s": 12.562000000005355,
+      "source": "work/studies/experiments/q1_M01_production_x1_tail60_9528c86985e2/status.json"
+    },
+    {
+      "case": "q1",
+      "mode": "M01",
+      "kind": "time_half",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "steps": 79440,
+      "wall_s": 4.592999999993481,
+      "source": "work/studies/experiments/q1_M01_time_half_x1_tail60_e0b5e7d57975/status.json"
+    },
+    {
+      "case": "q1",
+      "mode": "M10",
+      "kind": "full_reference",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 159840,
+      "wall_s": 24.968999999997322,
+      "source": "work/studies/experiments/q1_M10_full_reference_x2_tail60_9bf79114004f/status.json"
+    },
+    {
+      "case": "q1",
+      "mode": "M10",
+      "kind": "production",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "steps": 39720,
+      "wall_s": 14.375,
+      "source": "work/studies/experiments/q1_M10_production_x1_tail60_3195d8f95b6d/status.json"
+    },
+    {
+      "case": "q1",
+      "mode": "M10",
+      "kind": "time_half",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "steps": 79440,
+      "wall_s": 3.5,
+      "source": "work/studies/experiments/q1_M10_time_half_x1_tail60_49c14e8ae0fa/status.json"
+    },
+    {
+      "case": "q1",
+      "mode": "M11",
+      "kind": "full_reference",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 159840,
+      "wall_s": 25.937999999994645,
+      "source": "work/studies/experiments/q1_M11_full_reference_x2_tail60_f7c4a25eb396/status.json"
+    },
+    {
+      "case": "q1",
+      "mode": "M11",
+      "kind": "production",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "steps": 39720,
+      "wall_s": 8.01600000000326,
+      "source": "work/studies/experiments/q1_M11_production_x1_tail60_5590317f2af6/status.json"
+    },
+    {
+      "case": "q1",
+      "mode": "M11",
+      "kind": "time_half",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 60.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 60.0,
+          "t_end": 300.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1200.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 1200.0,
+          "t_end": 1800.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "steps": 79440,
+      "wall_s": 3.875,
+      "source": "work/studies/experiments/q1_M11_time_half_x1_tail60_1d6b6b868900/status.json"
+    },
+    {
+      "case": "q23",
+      "mode": "M00",
+      "kind": "full_reference",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 160,
+          "nz": 1
+        }
+      ],
+      "steps": 16917132,
+      "wall_s": 1330.8899999999994,
+      "source": "work/studies/experiments/q23_M00_full_reference_x2_tail60_2d0bab7bb661/status.json"
+    },
+    {
+      "case": "q23",
+      "mode": "M00",
+      "kind": "matched",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "steps": 1036800,
+      "wall_s": 20.375,
+      "source": "work/studies/experiments/q23_M00_matched_x1_tail60_7a5ac154cbd8/status.json"
+    },
+    {
+      "case": "q23",
+      "mode": "M00",
+      "kind": "tail",
+      "tail_minutes": 30,
+      "schedule": [
+        {
+          "t_start": 14400.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 3916798,
+      "wall_s": 135.96899999999732,
+      "source": "work/studies/experiments/q23_M00_tail_x1_tail30_0dfa28dfa3b2/status.json"
+    },
+    {
+      "case": "q23",
+      "mode": "M00",
+      "kind": "tail",
+      "tail_minutes": 90,
+      "schedule": [
+        {
+          "t_start": 14400.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 3916798,
+      "wall_s": 126.23399999999674,
+      "source": "work/studies/experiments/q23_M00_tail_x1_tail90_1bce5959ff42/status.json"
+    },
+    {
+      "case": "q23",
+      "mode": "M01",
+      "kind": "full_reference",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 160,
+          "nz": 1
+        }
+      ],
+      "steps": 16917209,
+      "wall_s": 1766.672000000006,
+      "source": "work/studies/experiments/q23_M01_full_reference_x2_tail60_aa672f156f14/status.json"
+    },
+    {
+      "case": "q23",
+      "mode": "M01",
+      "kind": "production",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 4220858,
+      "wall_s": 249.31200000000536,
+      "source": "work/studies/experiments/q23_M01_production_x1_tail60_182fbf89b7a4/status.json"
+    },
+    {
+      "case": "q23",
+      "mode": "M01",
+      "kind": "time_half",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 8441716,
+      "wall_s": 331.26600000000326,
+      "source": "work/studies/experiments/q23_M01_time_half_x1_tail60_192c7ddd1c43/status.json"
+    },
+    {
+      "case": "q23",
+      "mode": "M10",
+      "kind": "full_reference",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 160,
+          "nz": 1
+        }
+      ],
+      "steps": 16924983,
+      "wall_s": 1582.1719999999914,
+      "source": "work/studies/experiments/q23_M10_full_reference_x2_tail60_b7daa96bab55/status.json"
+    },
+    {
+      "case": "q23",
+      "mode": "M10",
+      "kind": "production",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 4221848,
+      "wall_s": 195.32800000000861,
+      "source": "work/studies/experiments/q23_M10_production_x1_tail60_f001afde885f/status.json"
+    },
+    {
+      "case": "q23",
+      "mode": "M10",
+      "kind": "time_half",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 8443696,
+      "wall_s": 279.75,
+      "source": "work/studies/experiments/q23_M10_time_half_x1_tail60_01be6b03ca18/status.json"
+    },
+    {
+      "case": "q23",
+      "mode": "M11",
+      "kind": "full_reference",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 160,
+          "nz": 1
+        }
+      ],
+      "steps": 16925024,
+      "wall_s": 1796.375,
+      "source": "work/studies/experiments/q23_M11_full_reference_x2_tail60_1ecd520edbf1/status.json"
+    },
+    {
+      "case": "q23",
+      "mode": "M11",
+      "kind": "production",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 4221854,
+      "wall_s": 207.76600000000326,
+      "source": "work/studies/experiments/q23_M11_production_x1_tail60_38ef6e17d315/status.json"
+    },
+    {
+      "case": "q23",
+      "mode": "M11",
+      "kind": "time_half",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 300.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 300.0,
+          "t_end": 1800.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 1800.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 8443708,
+      "wall_s": 305.6559999999881,
+      "source": "work/studies/experiments/q23_M11_time_half_x1_tail60_148eb6f8e892/status.json"
+    },
+    {
+      "case": "q4",
+      "mode": "M00",
+      "kind": "fixed_radius",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "steps": 1209510,
+      "wall_s": 29.593999999997322,
+      "source": "work/studies/experiments/q4_M00_fixed_radius_x1_tail60_707cc7210098/status.json"
+    },
+    {
+      "case": "q4",
+      "mode": "M00",
+      "kind": "full_reference",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 5148435,
+      "wall_s": 289.0149999999994,
+      "source": "work/studies/experiments/q4_M00_full_reference_x2_tail60_5e7f8e9d0fcc/status.json"
+    },
+    {
+      "case": "q4",
+      "mode": "M00",
+      "kind": "matched",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "steps": 1036800,
+      "wall_s": 19.406000000002678,
+      "source": "work/studies/experiments/q4_M00_matched_x1_tail60_fb365f390c41/status.json"
+    },
+    {
+      "case": "q4",
+      "mode": "M00",
+      "kind": "tail",
+      "tail_minutes": 30,
+      "schedule": [
+        {
+          "t_start": 14400.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "steps": 1065480,
+      "wall_s": 19.187000000005355,
+      "source": "work/studies/experiments/q4_M00_tail_x1_tail30_2fe57be4db9c/status.json"
+    },
+    {
+      "case": "q4",
+      "mode": "M00",
+      "kind": "tail",
+      "tail_minutes": 90,
+      "schedule": [
+        {
+          "t_start": 14400.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "steps": 1065480,
+      "wall_s": 19.125,
+      "source": "work/studies/experiments/q4_M00_tail_x1_tail90_76b11a5ee89a/status.json"
+    },
+    {
+      "case": "q4",
+      "mode": "M01",
+      "kind": "full_reference",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 5148866,
+      "wall_s": 379.9840000000113,
+      "source": "work/studies/experiments/q4_M01_full_reference_x2_tail60_1bb3397ee620/status.json"
+    },
+    {
+      "case": "q4",
+      "mode": "M01",
+      "kind": "production",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "steps": 1286839,
+      "wall_s": 48.578000000008615,
+      "source": "work/studies/experiments/q4_M01_production_x1_tail60_c5eab22374c1/status.json"
+    },
+    {
+      "case": "q4",
+      "mode": "M01",
+      "kind": "time_half",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "steps": 2573678,
+      "wall_s": 76.60900000001129,
+      "source": "work/studies/experiments/q4_M01_time_half_x1_tail60_afbcb4ff8274/status.json"
+    },
+    {
+      "case": "q4",
+      "mode": "M10",
+      "kind": "full_reference",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 5151321,
+      "wall_s": 345.39100000000326,
+      "source": "work/studies/experiments/q4_M10_full_reference_x2_tail60_80eb1365fc7f/status.json"
+    },
+    {
+      "case": "q4",
+      "mode": "M10",
+      "kind": "full_reference",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 800,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 640,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 160,
+          "nz": 1
+        }
+      ],
+      "steps": 20617041,
+      "wall_s": 2792.0780000000086,
+      "source": "work/studies/experiments/q4_M10_full_reference_x4_tail60_a4090c2138dc/status.json"
+    },
+    {
+      "case": "q4",
+      "mode": "M10",
+      "kind": "production",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "steps": 1287106,
+      "wall_s": 47.921999999991385,
+      "source": "work/studies/experiments/q4_M10_production_x1_tail60_cccc3b4f23f5/status.json"
+    },
+    {
+      "case": "q4",
+      "mode": "M10",
+      "kind": "time_half",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 200,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 80,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 40,
+          "nz": 1
+        }
+      ],
+      "steps": 2574212,
+      "wall_s": 89.67199999999139,
+      "source": "work/studies/experiments/q4_M10_time_half_x1_tail60_8515da56fa26/status.json"
+    },
+    {
+      "case": "q4",
+      "mode": "M10",
+      "kind": "time_half",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 10302642,
+      "wall_s": 420.95299999999406,
+      "source": "work/studies/experiments/q4_M10_time_half_x2_tail60_a20c2d50a328/status.json"
+    },
+    {
+      "case": "q4",
+      "mode": "M11",
+      "kind": "full_reference",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 800,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 640,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 160,
+          "nz": 1
+        }
+      ],
+      "steps": 20617780,
+      "wall_s": 3269.125,
+      "source": "work/studies/experiments/q4_M11_full_reference_x4_tail60_9b8599aae541/status.json"
+    },
+    {
+      "case": "q4",
+      "mode": "M11",
+      "kind": "production",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 5151687,
+      "wall_s": 377.1090000000113,
+      "source": "work/studies/experiments/q4_M11_production_x2_tail60_7848b38bac48/status.json"
+    },
+    {
+      "case": "q4",
+      "mode": "M11",
+      "kind": "time_half",
+      "tail_minutes": 60,
+      "schedule": [
+        {
+          "t_start": 0.0,
+          "t_end": 600.0,
+          "nr": 400,
+          "nz": 1
+        },
+        {
+          "t_start": 600.0,
+          "t_end": 3600.0,
+          "nr": 320,
+          "nz": 1
+        },
+        {
+          "t_start": 3600.0,
+          "t_end": 21600.0,
+          "nr": 160,
+          "nz": 1
+        },
+        {
+          "t_start": 21600.0,
+          "t_end": 259200.0,
+          "nr": 80,
+          "nz": 1
+        }
+      ],
+      "steps": 10303374,
+      "wall_s": 482.23399999999674,
+      "source": "work/studies/experiments/q4_M11_time_half_x2_tail60_977f90c756d0/status.json"
+    }
+  ],
+  "generated_at": "2026-09-13T04:54:35.894237+00:00",
+  "policy": "Measured 2D step-cell costs only; no 1D multiplier. Historic full results are read-only.",
+  "seal": "b545921f5068bb44d57abe261ad3f4f2719ba9a51cf2f98302626dd0ed546a79"
+}

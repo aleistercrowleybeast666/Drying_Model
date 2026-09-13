@@ -223,10 +223,12 @@
       "required_sources": [
         "D: sealed study/technical payload"
       ],
-      "selection": "gif",
+      "selection": "thermal-gif",
       "producer_tasks": [
         "D.publish"
-      ]
+      ],
+      "optional": true,
+      "note": "Advanced animation option; paper-all does not request this output."
     },
     {
       "path": "results/studies/animations/thermal_temperature.gif",
@@ -234,10 +236,12 @@
       "required_sources": [
         "D: sealed study/technical payload"
       ],
-      "selection": "gif",
+      "selection": "thermal-gif",
       "producer_tasks": [
         "D.publish"
-      ]
+      ],
+      "optional": true,
+      "note": "Advanced animation option; paper-all does not request this output."
     },
     {
       "path": "results/studies/figures/01_end_effect_extent.png",

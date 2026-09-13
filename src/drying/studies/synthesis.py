@@ -243,6 +243,8 @@ def Synthesis_RefreshOverview(root):
     if render.get('manifest_seal')==manifest['seal']:
         valid=[v for v in render.get('files',[]) if (root/v['path']).exists() and Baseline_HashFile(root/v['path'])==v['sha256']]
     png=sum(v['path'].endswith('.png') for v in valid);gif=sum(v['path'].endswith('.gif') for v in valid)
+    animations_selected=render.get('animations_selected',True)
+    gif_label=f'{gif}/2 GIF' if animations_selected else 'GIF 未选择（不要求生成）'
     books=sum((root/v['path']).exists() and Baseline_HashFile(root/v['path'])==v['sha256'] for v in manifest['workbooks'])
     geometry=next((v for v in manifest['counterfactuals'] if v['kind']=='fixed_radius'),None)
     geometry_note='B8：固定半径对照尚缺，见 study_index.json。'
@@ -256,7 +258,7 @@ def Synthesis_RefreshOverview(root):
     gui_ok=gui.get('status')=='PASS' and gui.get('app_sha256')==Baseline_HashFile(root/'app.py')
     gui_note='GUI 隐藏窗口配置及实际只读 CLI 子进程检查通过，未做完整人工点击验收。' if gui_ok else 'GUI 需要补充当前版本的交互验收；CLI 可独立使用。'
     lines=['# Drying_Model 扩展结果','',f"基线核验：{baseline['status']}；冻结 ID `{manifest['baseline_id']}`。M00 正式四表、生产数组与事件保持不变。",'',
-        f"新增实验完成 {index['current_complete_count']}/{index['expected_experiment_count']}；实际产物：{books}/5 工作簿，{png}/9 PNG，{gif}/2 GIF（文件 hash 与当前 payload 核对）。",'',
+        f"新增实验完成 {index['current_complete_count']}/{index['expected_experiment_count']}；实际产物：{books}/5 工作簿，{png}/9 PNG，{gif_label}（文件 hash 与当前 payload 核对）。",'',
         '| 轨迹 | 热模式 | 生产网格 | 烘干时间 / h | 最低温度 / °C | 时间验证 | 完整空间参考 | 收支检查 |','|---|---|---|---|---|---|---|---|']
     for r in manifest['summary_tables']['ThermalModes']:
         td=f"{r['drying_time_h']:.4f}" if r['drying_time_h'] is not None else '— / Q1 观察窗' if r['case']=='q1' else '72 h 未达标'
@@ -270,7 +272,7 @@ def Synthesis_RefreshOverview(root):
         f'B10：30/60/90 min 尾窗使用 31/61/91 点，已完成 {len(tails)}/4 个对照，其中 {insignificant} 个共同时间 Cmax 差在当前数值分辨能力下不显著；B11 复用真实重新积分事件；B12 分层展示证据。',
         f'N1 已核验点值对数恒等式；N2 四热组合交互按共同物理时间计算；N3 有 {applicable}/{len(sensitivity)} 个事件满足控制区稳定和斜率窗口要求，其余明确记不适用。C 类未加入。','',
         '旧 fixed-grid 80→160：legacy / diagnostic only。原正式阶段方案 Q1–Q4 均为 PASS；完整阶段参考另列。',
-        '没有新增 3D 静态图。原 5 个 GIF 原字节迁入 `results/animations/`；新 2 个 GIF 位于 `results/studies/animations/`。','',
+        ('动画需另行勾选，未选择的 GIF 不计入本轮完成条件。' if render.get('judge_scope') else '没有新增 3D 静态图。原 5 个 GIF 原字节迁入 `results/animations/`；新 2 个 GIF 位于 `results/studies/animations/`。'),'',
         '入口：`compute_studies.py --group all --resume`；已有完整缓存只刷新数据用 `--payload-only`；绘图用 `plot_studies.py`；绘后核对本页用 `compute_studies.py --output-status-only`。GUI 为 `app.py`，仅调用 CLI。',
         '缓存源由 manifest 明确引用；修改绘图样式不改变数值缓存。'+gui_note,'',
         '需人工审阅的假设：干物质有效质量基准、独立经验热容量、饱和路径水焓/潜热、各热模式共享给定 R(t)。见 `work/studies/diagnostics/thermal_assumptions.md`；本扩展不是实验精度认证。','']
@@ -285,7 +287,7 @@ def Synthesis_RefreshOverview(root):
             lines.append(f"| {row['group']} | {td} | {row['Cmax_72h']:.6f} | {row['convergence_status']} |")
         lines += ['',f"Q4 峰值时序：T={timing['t_T_peak']:.0f} s，C={timing['t_C_peak']:.0f} s；R 最大速率区间 {timing['R_peak_interval_start']:.0f}–{timing['R_peak_interval_end']:.0f} s。",
             f"t50：T={timing['t_T50']:.1f} s，C={timing['t_C50']:.1f} s，R={timing['t_R50']:.1f} s。时差与导数定义见 `../paper_facts.json`。",
-            '本轮只更新 03/05 两张静态图；全部 7 个 GIF 保持字节一致。',
+            ('本轮按所选项目生成静态图；GIF 单独选择。' if render.get('judge_scope') else '本轮只更新 03/05 两张静态图；全部 7 个 GIF 保持字节一致。'),
             '本轮刷新：`compute_studies.py --group geometry_cross --resume --payload-only`；只重画两图：`plot_studies.py --technical-only`。',
             '论文唯一直接引用数字来源：`../paper_facts.json` / `../paper_facts.md`；P4 固定组未独立加密，交互项为结构诊断。']
         for case,record in technical['refinement2d'].get('cases',{}).items():

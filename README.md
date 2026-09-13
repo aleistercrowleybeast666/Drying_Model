@@ -1,23 +1,37 @@
+# 评委版 V3
+
+最新发布目录为 `release_v3/A题_药材烘干模型/`。V2 正在运行，本轮源码和构建工具禁止写入、覆盖或停止 `release_v2/`。旧 `release/` 已按用户授权核验进程身份后删除。
+
+默认仍只生成原题四表。GUI“全选（论文复现）”或 CLI `--paper-all` 选择必要验证、静态图和创新结果，不生成 GIF；`--developer-full-audit` 增加动画、强制参考和历史诊断。当前论文引用 12/12 守恒，paper-all 保留 12 例，以对应 production 完成即调度的方式执行。不得把缓存预览当作实际 PASS。
+
+`--workers auto/1/2/3` 使用 CPU/内存资源槽；二维 2 槽、一维 1 槽，发布独占。D 一维分支与二维独立，三条 B/D M00 全程参考按一致数值身份合并。二维直接计算覆盖代表时刻与既定 critical window 的参考，避免先计算较短窗口后再重复。物理模型、正式网格、RK4、dt_max=0.25、阈值和 Excel 不变。
+
+任务百分比只使用真实结构证据，不允许 elapsed/历史耗时推进。总进度按已用时间与关键路径 ETA 计算，带 measured/calibrated/rough/unknown 可信度；粗估显示区间，冲突或无数据时显示“正在校准”。界面平滑时间常数 10 s、最大增长 0.8 个百分点/s。Console 使用 ANSI 清行或终端列宽清行，重定向输出不含 ANSI；正常稳定性限制按 INFO 去重，科学诊断原样保留。
+
+`--paper-all --explain-schedule` 可检查资源槽、依赖、去重、关键路径及最昂贵任务。`scripts/update_progress_reference.py <timings.json>` 校验科学身份后导入显示成本；V2 复合任务拆分后作用范围不同的旧耗时不直接复用。`--collect-2d` 从完成记录提取二维与 thermal 成本，V3 不依赖 V2 文件。
+
+构建：`python scripts/build_release.py --dist-dir release_v3`。最新验收及未实测限制见 [RELEASE_V3_VALIDATION.md](RELEASE_V3_VALIDATION.md)。下方 V2 数据属于历史基线，不是 V3 全选耗时。
+
 # A题药材烘干求解工程
 
-如果只想复算题目要求的 4 份 Excel，运行 `release_v2/A题_药材烘干模型/药材烘干模型_原题表格复算.exe`。
+如果只想复算题目要求的 4 份 Excel，运行 `release_v3/A题_药材烘干模型/药材烘干模型_原题表格复算.exe`。
 需要选择验证、绘图或拓展，运行同目录 `药材烘干模型_GUI.exe`。两个程序均不需要外部 Python，共享 `dependencies/`。没有历史结果或缓存也能启动，自动创建所需目录。
 
-本轮只发布到 `release_v2/`，旧 `release/A题_药材烘干模型/` 及其正在运行的进程保持不动。构建必须使用 `python scripts/build_release.py --dist-dir release_v2`；工具拒绝旧 release 目标。
+本轮只发布到 `release_v3/`，正在运行的 `release_v2/` 保持不动。构建使用 `python scripts/build_release.py --dist-dir release_v3`；工具拒绝 V2 和旧 release 目标。
 
 四类任务独立：A 原题表格；B 正式收敛、二维辅助、守恒；C 原题静态图/单独勾选 GIF；D 全部创新分析与图表。默认只选 A，`--all` 才运行四组。源码等价入口 `python offline_recompute.py`，可组合 `--original q1 q23 q4 --validation --plots --extensions`，`--gifs` 单独启用动画。`--dry-run` 只显示 DAG、依赖、缓存预检、是否需要 PDE 和 worker 数；`--verify` 只核验发布资源。
 
-原题采用已冻结 monitor 与正式阶段方案；Q23 固定为 200→160→80。无运行时 pilot 或重新选网格。Q3/Q4 用原 Event_Locate 到真实报告时刻停止，保存对应状态与实际接受分区。拓展仍使用独立完整 72 h 轨迹。默认两个 case worker，公共输入与 JIT 准备后并行，索引/状态由单个 writer 合并。
+原题采用已冻结 monitor 与正式阶段方案；Q23 固定为 200→160→80。无运行时 pilot 或重新选网格。Q3/Q4 用原 Event_Locate 到真实报告时刻停止，保存对应状态与实际接受分区。拓展仍使用独立完整 72 h 轨迹。默认 auto 资源槽，公共输入与 JIT 准备后并行，索引/状态由单个 writer 合并。
 
 表格无需调用 Validation_Run。Excel 逐单元回读及冻结完整精度数组核对独立执行：`TABLE_RECOMPUTE_REFERENCE_MATCH: PASS` 仅表示数值一致；数值收敛未重跑时明确标为 `NOT_RERUN_IN_TABLE_ONLY_MODE`。正式 B 空间验证只用既有 full_schedule_reference x2，时间验证只对正式接受分区减半；旧 fixed-grid 为 legacy / diagnostic only，不参与当前生产认证。
 
-本轮 EXE 冷启动四表实测 185.99 s（3.10 min，2 workers，含进程启动、准备、JIT、Excel 和回读），匹配缓存复用 7.74 s。Q3=57.6215 h，Q4=51.1824 h，四表数值参考和回读均 PASS。先前的三组一维验证实跑 PASS，约 27.37 min，按需运行；本轮未重新求解这些验证。完整 B、二维、十二例守恒、D、GIF、--all 仍未全冷实测，详见 [RELEASE_V2_VALIDATION.md](RELEASE_V2_VALIDATION.md)。发布包 README/TXT 由同一模板 `configs/judge_readme.md` 生成。
+V3 EXE 四表匹配缓存复用实测 11.15 s（1 slot）；首次使用新路径含新 JIT 缓存准备为 33.94 s。V3 冷启动未实测，以免争用正在运行的 V2 资源。历史 V2 冷跑为 185.99 s，不能当作 V3 测量。Q3=57.6215 h，Q4=51.1824 h，四表数值参考和本轮逐单元回读均 PASS。完整 B、二维、十二例守恒、D、GIF 和论文全选仍未全冷实测，详见 [RELEASE_V3_VALIDATION.md](RELEASE_V3_VALIDATION.md)。发布包 README/TXT 由同一模板 `configs/judge_readme.md` 生成。
 
-输出在程序目录的 `results/`；运行工作区 `work/recompute/runtime/`，每 case 目录 `work/recompute/workers/`。任务耗时在 `work/recompute/timings.json` 与 `results/recompute_timing_summary.json`。GUI 保持白底、可读日志，进度显示到 0.1%；立即停止结束自己启动的进程树，关闭自己的运行窗口时先确认。检测到外部 CLI 时只观察，关闭 GUI 不停止外部进程；“停止外部复算”必须确认并重新校验 PID、创建时间、命令行及根目录。未保存的计算会丢失，重启核验匹配缓存后恢复。
+输出在程序目录的 `results/`；运行工作区 `work/recompute/runtime/`，每 case 目录 `work/recompute/workers/`。任务耗时在 `work/recompute/timings.json` 与 `results/recompute_timing_summary.json`。GUI 保持白底、可读日志，进度按可信度显示精确值、整数粗估或校准中；立即停止结束自己启动的进程树，关闭自己的运行窗口时先确认。检测到外部 CLI 时只观察，关闭 GUI 不停止外部进程；“停止外部复算”必须确认并重新校验 PID、创建时间、命令行及根目录。未保存的计算会丢失，重启核验匹配缓存后恢复。
 
-CLI/GUI 共用 `judge_progress.py` 的统一加权事件；任务权重优先使用哈希匹配的成功实测 wall time，A 内部按各阶段实测 wall 与接受步数推进，Q3/Q4 使用真实报告终点。准备、输入、冻结网格检查及 JIT 也计入进度。只读 observer 在原 RK4 调用返回后限频统计，不改调用参数、次数、分块或浮点运算顺序。`configs/progress_reference.json` 保存每阶段 nr/nz、接受步数、实际平均 dt、wall 及来源哈希；损坏或失配仅回退显示估计。旧长任务最多预测至 95%，真实回执 PASS 后才完成；STOP/FAIL 保持小于 100%。ETA 结合任务速度、依赖和 worker 槽位估计。
+CLI/GUI 共用 `judge_progress.py` 事件。任务进度只由接受步、阶段、文件等结构证据推进；缺少内部证据时保持上次真实值，不允许根据经过时间预测到 95%。总进度以 elapsed/(elapsed+ETA) 估算，可信度不足时显示校准中。只读 observer 在原 RK4 调用返回后限频统计，不改调用参数、次数、分块或浮点运算顺序。`configs/progress_reference.json` 保存每阶段 nr/nz、接受步数、实际平均 dt、wall 及来源哈希，二维另用匹配历史完成记录。ETA 结合任务速度、依赖和资源槽位计算；真实回执 PASS 后才完成，STOP/FAIL 保持小于 100%。
 
-普通 CLI 每约 5 秒更新进度；TTY 单行刷新，重定向时换行。`--verbose` 输出详细 worker 日志，`--machine-progress`/`--gui-run` 使用机器协议，`--dry-run` 保留 JSON DAG。完整日志写 `logs/`，每秒事件写 `logs/progress.jsonl` 和 `work/recompute/progress.json`，不逐步写盘。GUI 每 200 ms 平滑到已收到的上界，不会在断流后自行走到 100%。本轮完整回归 192 项通过。
+普通 CLI 每约 5 秒更新进度；TTY 单行刷新，重定向时换行。`--verbose` 输出详细 worker 日志，`--machine-progress`/`--gui-run` 使用机器协议，`--dry-run` 保留 JSON DAG。完整日志写 `logs/`，每秒事件写 `logs/progress.jsonl` 和 `work/recompute/progress.json`，不逐步写盘。GUI 每 200 ms 平滑到已收到的上界，不会在断流后自行走到 100%。本轮完整回归 230 项通过。
 
 `configs/output_groups.json` 对现有全部 39 个 PNG/GIF/XLSX 标明归属、数据依赖和实际 producer。`01_end_effect_extent.png` 依赖 matched M00，统一归 D；B 仅生成验证图及 09 图，不隐式运行 D。绘图不启动求解，缺数据报 `PLOT_INPUT_MISSING`。冻结资源损坏报 `FROZEN_MESH_CONFIGURATION_MISSING_OR_MISMATCH`。开发者可用 `scripts/regenerate_frozen_mesh.py` 比较新 monitor，明确 `--accept` 才覆盖。
 

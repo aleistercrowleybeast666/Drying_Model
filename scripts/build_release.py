@@ -29,14 +29,15 @@ def Build_ArchiveTarget(target):
     """Preserve the used package outside release before replacing it."""
     target=Path(target).resolve()
     if not target.exists():return None
-    if not target.is_relative_to((ROOT/'release_v2').resolve()):raise ValueError('OLD_RELEASE_PROTECTED: only release_v2 may be replaced')
+    if not target.is_relative_to((ROOT/'release_v3').resolve()):raise ValueError('OLD_RELEASE_PROTECTED: only release_v3 may be replaced')
     sys.path.insert(0,str(ROOT/'src'))
     from drying.runner_control import Runner_Stop,RunnerStopResult
-    if Runner_Stop(target)==RunnerStopResult.FAILED:raise RuntimeError('Cannot stop release runner; package retained')
+    from drying.runner_control import Runner_GetProcess
+    if Runner_GetProcess(target) is not None:raise RuntimeError('ACTIVE_RELEASE_PROTECTED: package retained')
     import psutil
     for process in psutil.process_iter(['exe']):
         if process.info['exe'] and Path(process.info['exe']).resolve()==target/(GUI+'.exe'):
-            process.kill();process.wait(timeout=5)
+            raise RuntimeError('ACTIVE_GUI_PROTECTED: package retained')
     archive=(ROOT/'work/release'/('previous_package_'+datetime.now().strftime('%Y%m%d_%H%M%S_%f'))).resolve()
     if not archive.is_relative_to((ROOT/'work/release').resolve()):raise ValueError('Invalid archive directory')
     shutil.move(str(target),str(archive))
@@ -45,12 +46,12 @@ def Build_ArchiveTarget(target):
 
 
 def Build_GetReadme(facts):
-    timing_path = ROOT/'work/release_v2/progress_cold_benchmark.json'
-    if not timing_path.exists():timing_path = ROOT/'work/release_v2/cold_benchmark.json'
+    timing_path = ROOT/'work/release_v3/progress_cold_benchmark.json'
+    if not timing_path.exists():timing_path = ROOT/'work/release_v3/cold_benchmark.json'
     timing = json.loads(timing_path.read_text(encoding='utf-8')) if timing_path.exists() else {}
-    benchmark = ('EXE 无缓存原题四表 %.2f min（2 workers，含进程启动/准备/JIT/Excel/readback）' % (timing['external_wall_s']/60)
-        if timing.get('returncode') == 0 else '源码无缓存四表 3.46 min；EXE 冷启动验收结果尚未填入。')
-    warm_path=ROOT/'work/release_v2/progress_warm_benchmark.json'
+    benchmark = ('EXE 无缓存原题四表 %.2f min（%s slots，含进程启动/准备/JIT/Excel/readback）' % (timing['external_wall_s']/60,timing.get('workers','auto'))
+        if timing.get('returncode') == 0 else 'V3 冷启动未实测；既有 V2 原题四表冷跑约 3.10 min。')
+    warm_path=ROOT/'work/release_v3/progress_warm_benchmark.json'
     if warm_path.exists():
         warm=json.loads(warm_path.read_text(encoding='utf-8'))
         if warm.get('returncode')==0:benchmark+='；匹配缓存复用 %.2f s。' % warm['external_wall_s']
@@ -127,7 +128,7 @@ def Build_StageCode(target):
     for name in ['src','configs','scripts','tests']:
         shutil.copytree(ROOT/name,code/name,dirs_exist_ok=True,ignore=ignore)
     for path in ROOT.glob('*.py'): shutil.copy2(path,code/path.name)
-    for name in ['README.md','requirements-build.txt','requirements.txt','pytest.ini','RELEASE_VALIDATION.md','RELEASE_V2_VALIDATION.md']:
+    for name in ['README.md','requirements-build.txt','requirements.txt','pytest.ini','RELEASE_VALIDATION.md','RELEASE_V3_VALIDATION.md']:
         shutil.copy2(ROOT/name,code/name)
     evidence=code/'release_evidence';evidence.mkdir(exist_ok=True)
     shutil.copy2(ROOT/'work/validation/program_tests.json',evidence/'program_tests.json')
@@ -167,12 +168,12 @@ def Build_Manifest(target,publication):
 def Build_Run():
     parser = argparse.ArgumentParser(); parser.add_argument('--stage-only',action='store_true'); parser.add_argument('--reuse-bundle',action='store_true')
     parser.add_argument('--update-code',action='store_true',help='只更新发布源码和说明，保留用户 work 和已删除/已有的 results')
-    parser.add_argument('--dist-dir',type=Path,default=ROOT/'release_v2',help='v2 发布目录；旧 release 禁止修改')
+    parser.add_argument('--dist-dir',type=Path,default=ROOT/'release_v3',help='v3 发布目录；旧 release 禁止修改')
     args = parser.parse_args(); args.dist_dir=args.dist_dir.resolve()
     target = args.dist_dir/NAME
-    if not target.resolve().is_relative_to((ROOT/'release_v2').resolve()):
-        raise RuntimeError('OLD_RELEASE_PROTECTED: use --dist-dir release_v2; old release is running')
-    folder = ROOT/'work/release_v2/build'; folder.mkdir(parents=True,exist_ok=True)
+    if not target.resolve().is_relative_to((ROOT/'release_v3').resolve()):
+        raise RuntimeError('OLD_RELEASE_PROTECTED: use --dist-dir release_v3; release_v2 is protected; old release is running')
+    folder = ROOT/'work/release_v3/build'; folder.mkdir(parents=True,exist_ok=True)
     receipt = ROOT/'work/release/publication_manifest.json'
     if receipt.exists(): publication = json.loads(receipt.read_text(encoding='utf-8'))['publication_sha256']
     else:
@@ -180,8 +181,8 @@ def Build_Run():
     for name,digest in publication.items():
         if Build_Hash(ROOT/name)!=digest: raise RuntimeError('FROZEN_FILE_CHANGED: '+name)
     target = args.dist_dir/NAME
-    if not target.resolve().is_relative_to((ROOT/'release_v2').resolve()):
-        raise RuntimeError('OLD_RELEASE_PROTECTED: use --dist-dir release_v2; old release is running')
+    if not target.resolve().is_relative_to((ROOT/'release_v3').resolve()):
+        raise RuntimeError('OLD_RELEASE_PROTECTED: use --dist-dir release_v3; release_v2 is protected; old release is running')
     if args.update_code:
         assert (target/(CLI+'.exe')).is_file() and (target/'dependencies').is_dir()
         Build_StageCode(target)

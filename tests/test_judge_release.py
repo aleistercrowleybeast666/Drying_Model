@@ -17,7 +17,7 @@ def confirm_owned_test_shutdown(monkeypatch):
 
 
 def Progress_TestEvent(fraction,message='阶段'):
-    return dict(schema_version=1,event='progress',overall_fraction=fraction,elapsed_s=12.,eta_s=18.,message=message,
+    return dict(schema_version=1,event='progress',overall_fraction=fraction,elapsed_s=12.,eta_s=12.*(1-fraction)/fraction if fraction else 0.,eta_confidence='measured',message=message,
         running_tasks=[dict(task_label=message,task_fraction=fraction)])
 
 
@@ -124,7 +124,7 @@ def test_gui_single_page_selection_progress_and_stop(qt_app,tmp_path):
     window = JudgeWindow(tmp_path)
     assert not hasattr(window,'nav') and not hasattr(window,'pages')
     assert [k for k,v in window.checks.items() if v.isChecked()]==['q1','q23','q4']
-    window.select_buttons[1].click(); assert all(v.isChecked() for v in window.checks.values())
+    window.select_buttons[1].click(); assert window.checks['extensions'].isChecked() and not window.checks['gif'].isChecked()
     window.select_buttons[2].click(); assert not any(v.isChecked() for v in window.checks.values())
     window.start.click(); assert '至少' in window.current.text()
     window.select_buttons[0].click(); assert sum(v.isChecked() for v in window.checks.values())==3
@@ -163,7 +163,7 @@ def test_gui_preserves_split_utf8_progress(qt_app,tmp_path,monkeypatch):
     window.close()
 
 
-def test_gui_progress_never_regresses_on_repeated_or_failure_events(qt_app,tmp_path,monkeypatch):
+def test_gui_tracks_new_credible_wall_target(qt_app,tmp_path,monkeypatch):
     from drying.gui.judge_window import JudgeWindow
     from PySide6.QtCore import QByteArray
     window=JudgeWindow(tmp_path)
@@ -172,9 +172,9 @@ def test_gui_progress_never_regresses_on_repeated_or_failure_events(qt_app,tmp_p
         payload='DRYING_PROGRESS '+json.dumps(Progress_TestEvent(completed/5))+'\n'
         monkeypatch.setattr(window.process,'readAllStandardOutput',lambda:QByteArray(payload.encode()))
         window.Log_Read();values.append(window.outer.value())
-    assert values==[4000,4000,8000,8000] and window.outer.maximum()==10000
+    assert values==[4000,2000,8000,0] and window.outer.maximum()==10000
     monkeypatch.setattr(window.process,'readAllStandardOutput',lambda:QByteArray())
-    window.Task_Done(1,None);assert window.outer.value()==8000
+    window.Task_Done(1,None);assert window.outer.value()==0
     window.Task_Done(0,None);assert window.outer.value()==10000
     window.close()
 
@@ -217,7 +217,7 @@ def test_reopened_gui_can_stop_existing_runner(qt_app,tmp_path):
     (lock.parent/'runner_identity.json').write_text(json.dumps(dict(pid=process.pid,created_at=psutil.Process(process.pid).create_time())))
     window=JudgeWindow(tmp_path)
     assert window.external_busy and window.stop.isEnabled() and window.start.isEnabled()
-    window.select_buttons[1].click();assert all(check.isChecked() for check in window.checks.values())
+    window.select_buttons[1].click();assert window.checks['extensions'].isChecked() and not window.checks['gif'].isChecked()
     window.select_buttons[2].click();assert not any(check.isChecked() for check in window.checks.values())
     window.start.click();assert window.external_busy and '已有复算' in window.current.text()
     window.stop.click();window.Task_CheckExternal()

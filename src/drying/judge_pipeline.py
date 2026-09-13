@@ -25,6 +25,8 @@ TASKS = {'q1': 'Q1', 'q23': 'Q2 / Q3（共享轨迹）', 'q4': 'Q4',
     'mass-balance': '水质量守恒（四模式 × 三个 case）', 'consistency': '结果一致性检查',
     'static': '原题静态图', 'gif': '原题 GIF / 动画（耗时较长）',
     'extensions': '全部拓展：热模式、几何交叉、环境、动力学、前沿、diffusion clock'}
+TASKS.update({'thermal-gif':'热模式动画 GIF','developer-audit':'Developer Full Audit（历史诊断）','force-reference':'强制重算所有参考'})
+PAPER_TASKS=['q1','q23','q4','one-dimensional','aux-2d','mass-balance','consistency','static','extensions']
 
 
 class JudgeRunResult(IntEnum):
@@ -42,9 +44,11 @@ def Judge_GetTime():
     return datetime.now(timezone.utc).isoformat()
 
 
-def Judge_GetPlan(root, selected, workers=2):
+def Judge_GetPlan(root, selected, workers='auto'):
     """Read-only symbolic DAG; identities are checked again by each numerical owner."""
     from .judge_tasks import Task_GetExtendedPlan
+    from .judge_schedule import Schedule_GetSlots,Schedule_Deduplicate,Schedule_GetDemand
+    workers=Schedule_GetSlots(workers)
     requested = set(selected)
     jobs = []
     needs_all = bool(requested & {'one-dimensional', 'aux-2d', 'mass-balance', 'consistency', 'extensions'})
@@ -52,6 +56,8 @@ def Judge_GetPlan(root, selected, workers=2):
     for case in originals:
         jobs.append(dict(key='A.'+case, group='original', kind='original', case=case, dependencies=[], pde=True, private=case))
     jobs += Task_GetExtendedPlan(requested, originals)
+    logical_count=len(jobs)
+    jobs,aliases=Schedule_Deduplicate(jobs)
     runtime = Path(root)/'work/recompute/runtime'
     receipts = runtime/'work/recompute/receipts'
     for job in jobs:
@@ -62,6 +68,8 @@ def Judge_GetPlan(root, selected, workers=2):
         previous = Judge_ReadJson(receipts/(job['key']+'.json'))
         job['cache_state'] = 'RECHECK_MATCHING_CACHE' if previous.get('status') == 'PASS' else 'COMPUTE_REQUIRED'
         job['expected_cache_hit'] = previous.get('status') == 'PASS'
+        job['slots']=Schedule_GetDemand(job,workers)
+        job['force_reference']='force-reference' in requested and (job['kind'] in ['reference_1d','validation_1d','validation_2d'] or job.get('experiment_kind') in ['full_reference','time_half'])
     implicit = [TASKS[q] for q in originals if q not in requested]
     if 'mass-balance' in requested:
         implicit.append('守恒所需 M10/M01/M11 production（完整轨迹，不生成拓展图）')
@@ -72,7 +80,9 @@ def Judge_GetPlan(root, selected, workers=2):
         worker_count=workers, parallel_groups={g:[j['key'] for j in jobs if j['group']==g]
             for g in ['original', 'validation', 'plot', 'extension']},
         cache_note='Preview receipt only; execution rechecks fingerprint and source seals. A stale receipt never suppresses a task.',
-        output='results/ (runtime data: work/recompute/runtime/)')
+        output='results/ (runtime data: work/recompute/runtime/)',logical_tasks=logical_count,
+        unique_pde_experiments=sum(j['pde'] for j in jobs),deduplicated_experiments=len(aliases),experiment_aliases=aliases,
+        mass_scope='12 trajectories retained: current paper facts explicitly cite 12/12; each audit follows its production')
 
 
 def Judge_CopyResources(code, data, target):
@@ -111,6 +121,11 @@ def Judge_PreparePrivate(runtime, name):
     destination.mkdir(parents=True, exist_ok=True)
     Judge_CopyResources(runtime, runtime/'data', destination)
     shutil.copytree(runtime/'work/validation/mesh_profiles', destination/'work/validation/mesh_profiles', dirs_exist_ok=True)
+    if name.startswith(('ref_','two_','dev_')):
+        case=name.split('_',1)[1];source=Judge_ReadJson(runtime/'work/recompute/production.json')[case]
+        Storage_WriteJson(destination/'work/recompute/production.json',{case:source})
+        for row in [source,*source.get('stages',[])]:
+            shutil.copytree(runtime/'work/cache'/row['case_id'],destination/'work/cache'/row['case_id'],dirs_exist_ok=True)
     return destination
 
 
@@ -175,6 +190,7 @@ def Judge_RunWorker(task_file):
 
 def Judge_MergeWorker(runtime, job, workspace, receipt):
     """One writer; private caches keep their original relative paths/fingerprints."""
+    if job['kind']=='developer_diagnostic':return
     if workspace != runtime:
         for name in ['work/cache', 'work/checkpoints', 'work/plot_payload',
                      'work/studies/experiments','work/studies/plot_payload','work/studies/validation']:
@@ -189,7 +205,11 @@ def Judge_MergeWorker(runtime, job, workspace, receipt):
             Storage_WriteJson(runtime/'work/comparison/summary.json',comparison)
         # Validation summary is a merge, never a concurrent whole-file replacement.
         validation = Judge_ReadJson(runtime/'work/validation/summary.json')
-        validation.update(Judge_ReadJson(workspace/'work/validation/summary.json'))
+        incoming=Judge_ReadJson(workspace/'work/validation/summary.json')
+        dimension={'validation_1d':'1d','validation_2d':'2d'}.get(job['kind'])
+        if dimension:incoming={k:v for k,v in incoming.items() if k==job['case']+'_'+dimension}
+        elif job['kind']=='reference_1d':incoming={}
+        validation.update(incoming)
         if (workspace/'work/validation').exists():
             shutil.copytree(workspace/'work/validation', runtime/'work/validation', dirs_exist_ok=True,
                 ignore=shutil.ignore_patterns('summary.json', 'summary.lock'))
@@ -211,7 +231,7 @@ def Judge_MergeWorker(runtime, job, workspace, receipt):
             for name in ['table_reference_','table_cache_']:
                 source=workspace/f"work/recompute/{name}{job['case']}.json"
                 if source.exists():shutil.copy2(source,runtime/f"work/recompute/{name}{job['case']}.json")
-    if job['kind'] == 'experiment':
+    if job['kind'] in ['experiment','reference_1d']:
         index_path = runtime/('work/studies/technical/index.json' if receipt['result'].get('cross') else 'results/studies/study_index.json')
         index = Judge_ReadJson(index_path, dict(schema_version=1, experiments={}))
         index['experiments'][receipt['result']['experiment_id']] = receipt['result']['status']
@@ -291,16 +311,23 @@ def Judge_RunDag(root, runtime, plan, progress=None):
         return result
     try:
         while pending or running:
-            for job in list(pending):
-                if len(running) >= plan['worker_count']:
-                    break
+            ready_exclusive=next((j for j in pending if j.get('exclusive') and set(j['dependencies'])<=done),None)
+            dispatch=sorted(pending,key=lambda j:(j is not ready_exclusive,j['kind']!='mass_measure'))
+            for job in dispatch:
+                # Drain current workers for a ready short barrier; otherwise a
+                # stream of expensive jobs can starve baseline/JIT publication.
+                if ready_exclusive is not None and job is not ready_exclusive:continue
+                from .judge_schedule import Schedule_CanStart
+                if not Schedule_CanStart(job,[r['job'] for r in running.values()],plan['worker_count']):continue
                 if not set(job['dependencies']) <= done:
                     continue
                 if job.get('exclusive') and running:
                     continue
                 if any(entry['job'].get('exclusive') for entry in running.values()):
                     break
-                workspace = Judge_PreparePrivate(runtime, job['private']) if job.get('private') else runtime
+                private=job.get('private')
+                if private and job.get('force_reference'):private='ref_'+job['case']+'_force_'+str(time.time_ns())
+                workspace = Judge_PreparePrivate(runtime, private) if private else runtime
                 # The case private workspace already contains its A trajectory.
                 task = dict(job, workspace=workspace.relative_to(root).as_posix(), runtime=runtime.relative_to(root).as_posix(),
                     receipt=(receipts/(job['key']+'.json')).relative_to(root).as_posix())
@@ -370,7 +397,10 @@ def Judge_Main(root, argv=None):
     parser.add_argument('--gifs', action='store_true')
     parser.add_argument('--extensions', action='store_true')
     parser.add_argument('--all', action='store_true')
-    parser.add_argument('--workers', type=int, choices=[1,2,3], default=2)
+    parser.add_argument('--workers', choices=['auto','1','2','3'], default='auto')
+    parser.add_argument('--paper-all',action='store_true')
+    parser.add_argument('--developer-full-audit',action='store_true')
+    parser.add_argument('--explain-schedule',action='store_true')
     parser.add_argument('--dry-run', action='store_true')
     parser.add_argument('--verify', action='store_true', help='仅检查发布资源，不启动 PDE')
     parser.add_argument('--runtime-check', action='store_true')
@@ -398,12 +428,24 @@ def Judge_Main(root, argv=None):
     if args.plots: selected.append('static')
     if args.gifs: selected.append('gif')
     if args.extensions: selected.append('extensions')
-    if args.all: selected = list(TASKS)
+    if args.all or args.paper_all:selected=list(PAPER_TASKS)
+    if args.developer_full_audit:selected=list(TASKS)
     if not selected: selected = ['q1','q23','q4']
     plan = Judge_GetPlan(root, selected, args.workers)
-    if args.dry_run:
+    if args.explain_schedule:
+        from .judge_progress import Progress_ReadReference,Progress_GetCosts
+        from .judge_schedule import Schedule_Estimate
+        costs=Progress_GetCosts(root,plan,Progress_ReadReference(root))
+        remaining={k:None if r.get('confidence')=='unknown' else r['weight'] for k,r in costs.items()}
+        wall,path=Schedule_Estimate(plan['steps'],remaining,plan['worker_count'])
+        plan['explanation']=dict(critical_path=path,parallel_branches=plan['parallel_groups'],resource_slots=plan['worker_count'],
+            top_10_expensive=sorted([dict(task=k,**v) for k,v in costs.items()],key=lambda r:r['weight'],reverse=True)[:10],
+            estimated_wall_s=wall,eta_confidence='unknown' if wall is None else 'rough' if any(v['confidence']=='rough' for v in costs.values()) else 'calibrated',
+            scope='Scheduler units; 2D validation bundles contain the documented directional/window subsolves; estimate is not an end-to-end benchmark')
+    if args.dry_run or args.explain_schedule:
         print(json.dumps(plan, ensure_ascii=False, indent=2), flush=True)
         return 0
+    if 'release_v2' in root.parts:raise RuntimeError('RELEASE_V2_PROTECTED: V3 cannot run or write inside V2')
     folder = root/'work/recompute'; folder.mkdir(parents=True, exist_ok=True)
     lock = folder/'runner.lock'
     import psutil
@@ -419,7 +461,7 @@ def Judge_Main(root, argv=None):
     console=ProgressConsole(machine=args.gui_run or args.machine_progress,verbose=args.verbose)
     if not console.machine:
         print('2026 A题药材烘干模型 · 原题表格复算\n任务：'+ '、'.join(TASKS[k] for k in selected)+
-            f"\n并行：{args.workers} workers\n输出：results/",flush=True)
+            f"\n并行：{plan['worker_count']} resource slots\n输出：results/",flush=True)
         if plan['automatic_dependencies']:print('必要依赖：'+'；'.join(plan['automatic_dependencies']),flush=True)
     progress=ProgressSession(root,plan,console);progress.Progress_Begin()
     started = time.perf_counter()
@@ -432,7 +474,7 @@ def Judge_Main(root, argv=None):
                 if any(j['pde'] for j in plan['steps']):Judge_WarmKernels(runtime)
             preparation_s = time.perf_counter()-started
             result = Judge_RunDag(root, runtime, plan,progress)
-        result.update(preparation_and_jit_s=preparation_s, total_wall_s=time.perf_counter()-started)
+        result.update(preparation_and_jit_s=preparation_s, total_wall_s=time.perf_counter()-started,progress_scope_version=3)
         result['progress_identity']=progress.reference.get('identity')
         Storage_WriteJson(folder/'timings.json', result)
         Storage_WriteJson(root/'results/recompute_timing_summary.json', result)

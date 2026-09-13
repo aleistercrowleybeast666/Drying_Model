@@ -8,6 +8,37 @@ import numpy as np
 from .storage import Storage_WriteJson
 
 
+def Judge_Validate2d(root,case):
+    """Same validation functions, plan the required critical window once."""
+    import types
+    from .validation import Validation_Run
+    policy=json.loads((Path(root)/'configs/auxiliary_2d_validation.json').read_text(encoding='utf-8'))
+    namespace=dict(Validation_Run.__globals__);load=namespace['Case_LoadConfig']
+    def Config_GetPlan(path):
+        config=load(path)
+        config['validation']['two_dimensional_refinement_duration_s']=max(
+            config['validation']['two_dimensional_refinement_duration_s'],policy['critical_window_end_s'][case])
+        return config
+    namespace['Case_LoadConfig']=Config_GetPlan
+    from .judge_observer import Progress_Substep
+    completed=0;total=5 if case=='q1' else 7
+    def Observe(original,name):
+        def Step_Run(*args,**kwargs):
+            nonlocal completed
+            result=original(*args,**kwargs)
+            if name!='Case_Solve' or (not kwargs.get('tag') and kwargs.get('cap') is None):
+                completed+=1;Progress_Substep(.95*min(completed,total)/total,'二维验证完成子步骤 '+name,'validation_stage')
+            return result
+        return Step_Run
+    for name in ['Case_Solve','Validation_CheckTime','Validation_CompareCaches','Validation_CheckEndpoint']:
+        namespace[name]=Observe(namespace[name],name)
+    # Comparison_Run is locally imported by Validation_Run; the final compare
+    # phase is covered by its first directional comparison rather than a fake tick.
+    total-=1
+    run=types.FunctionType(Validation_Run.__code__,namespace,Validation_Run.__name__,Validation_Run.__defaults__)
+    return run(root,scope='2d',case_filter=case)
+
+
 def Judge_CheckFullEquivalence(root):
     from .judge_pipeline import Judge_ReadJson
     from .cases import Case_IterFields
@@ -51,7 +82,7 @@ def Judge_CompleteAuxiliaryWindows(root, case, entry):
     Validation_SaveEntry(root, case+'_2d', entry)
 
 
-def Judge_PrepareMass(root):
+def Judge_PrepareMass(root,only=None,write_manifest=True):
     from .judge_pipeline import Judge_ReadJson
     from .judge_tasks import Task_GetCaseSpec
     from .studies.trajectory import Trajectory_GetSpec
@@ -60,7 +91,8 @@ def Judge_PrepareMass(root):
     baseline = Judge_ReadJson(root/'work/baseline_snapshot/baseline_manifest.json')
     result = dict(specs={}, statuses={}, series={})
     for case in ['q1','q23','q4']:
-        source = baseline['selected'][case+'_1d']
+        if only and only[0]!=case:continue
+        source = Judge_ReadJson(root/'work/recompute/production.json')[case]
         spec = Task_GetCaseSpec(root, source)
         # Audit every accepted step of the actual source, with an explicit scope.
         # This audit spec is distinct from an extension trajectory specification.
@@ -68,13 +100,16 @@ def Judge_PrepareMass(root):
             spec['schedule'] = [dict(t_start=s['t_start'],t_end=s['t_end'],nr=s['nr'],nz=1) for s in source['stages']]
             spec['audit_scope'] = 'entire table_production accepted trajectory through real drying report'
         key = spec['experiment_id']
-        result['specs'][key] = spec; result['statuses'][key] = source; result['series'][key] = dict(baseline=True)
+        if not only or only[1]=='M00':
+            result['specs'][key] = spec; result['statuses'][key] = source; result['series'][key] = dict(baseline=True)
         for mode in ['M10','M01','M11']:
+            if only and only[1]!=mode:continue
             spec = Trajectory_GetSpec(root, case, mode, factor=Selection_GetFactor(root,case,mode))
             key = spec['experiment_id']; status = Judge_ReadJson(root/'work/studies/experiments'/key/'status.json')
             if not status.get('complete'):
                 raise RuntimeError('MASS_SOURCE_INCOMPLETE: '+key)
             result['specs'][key] = spec; result['statuses'][key] = status; result['series'][key] = dict(baseline=False)
+    if not write_manifest:return result
     folder = root/'work/validation/mass_balance'; folder.mkdir(parents=True, exist_ok=True)
     # Freeze the previously measured policy as a release resource; never fit it
     # again to this machine's residuals.

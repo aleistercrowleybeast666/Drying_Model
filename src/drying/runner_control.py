@@ -44,6 +44,7 @@ def Runner_GetIdentity(process):
 
 def Runner_Stop(root,owned_pid=0,expected_identity=None):
     root=Path(root).resolve()
+    if 'release_v2' in root.parts:return RunnerStopResult.FAILED
     try:
         parent=psutil.Process(owned_pid) if owned_pid else Runner_GetProcess(root)
         if parent is None:return RunnerStopResult.NO_TASK

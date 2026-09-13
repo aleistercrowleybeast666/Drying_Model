@@ -122,7 +122,7 @@ def Judge_DrawValidation(root):
     Storage_WriteJson(root/'work/diagnostics/judge_validation_plots.json',dict(files=files,pde_solves=0,group='validation'))
 
 
-def Judge_DrawExtensions(root):
+def Judge_DrawExtensions(root,gifs=True):
     from .studies.plot_contract import StudyPlot_ReadManifest, StudyPlot_GetHash
     from .studies.plots import StudyPlot_SetStyle, StudyPlot_Draw
     from .studies.animations import StudyAnimation_Write
@@ -137,12 +137,12 @@ def Judge_DrawExtensions(root):
                  'environment_robustness','thermal_modes','thermal_interactions','geometry_property_cross']:
         path = StudyPlot_Draw(root,manifest,name)
         files.append(dict(path=path.relative_to(root).as_posix(),sha256=StudyPlot_GetHash(path)))
-        Progress_PlotStep(len(files),10,'完成拓展图 '+name)
-    for name in ['thermal_temperature','thermal_moisture']:
+        Progress_PlotStep(len(files),10 if gifs else 8,'完成拓展图 '+name)
+    for name in ['thermal_temperature','thermal_moisture'] if gifs else []:
         files.append(StudyAnimation_Write(root,manifest,name))
         Progress_PlotStep(len(files),10,'完成拓展动画 '+name)
     Storage_WriteJson(root/'work/studies/diagnostics/render_manifest.json',dict(manifest_seal=manifest['seal'],files=files,
-        status='RENDERED',pde_solves=0,group='extension'))
+        status='RENDERED',pde_solves=0,group='extension',judge_scope=True,animations_selected=gifs))
 
 
 def Judge_DrawSpatialEvidence(root):

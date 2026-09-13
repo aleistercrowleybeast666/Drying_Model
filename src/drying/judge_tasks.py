@@ -9,6 +9,18 @@ import numpy as np
 from .storage import Storage_WriteJson, Storage_WriteArray
 
 
+def Task_ArchiveReference(root,spec):
+    """Explicit force option preserves old evidence outside the active cache."""
+    import time
+    root=Path(root).resolve()
+    if 'release_v2' in root.parts:raise RuntimeError('RELEASE_V2_PROTECTED')
+    source=(root/'work/studies/experiments'/spec['experiment_id']).resolve()
+    target=(root/'work/recompute/forced_references'/str(time.time_ns())/spec['experiment_id']).resolve()
+    if not source.is_relative_to(root/'work/studies/experiments') or not target.is_relative_to(root/'work/recompute/forced_references'):
+        raise ValueError('REFERENCE_PATH_OUTSIDE_WORKSPACE')
+    if source.exists():target.parent.mkdir(parents=True,exist_ok=True);shutil.move(str(source),str(target))
+
+
 def Task_GetExtendedPlan(requested, originals):
     jobs = []
     original_dependencies = ['A.'+c for c in originals]
@@ -16,11 +28,12 @@ def Task_GetExtendedPlan(requested, originals):
     need_1d = bool(requested & {'one-dimensional', 'extensions'})
     for case in originals:
         if need_1d:
+            jobs.append(dict(key='B.reference.'+case,group='validation',kind='reference_1d',case=case,mode='M00',experiment_kind='full_reference',factor=2,horizon=1800 if case=='q1' else 259200,dependencies=['A.'+case],pde=True,private='ref_'+case))
             jobs.append(dict(key='B.1d.'+case, group='validation', kind='validation_1d', case=case,
-                dependencies=['A.'+case], pde=True, private=case))
+                dependencies=['B.reference.'+case], pde=True, private=case))
         if need_2d:
             jobs.append(dict(key='B.2d.'+case, group='validation', kind='validation_2d', case=case,
-                dependencies=['B.1d.'+case] if need_1d else ['A.'+case], pde=True, private=case))
+                dependencies=['A.'+case], pde=True, private='two_'+case))
     if need_1d:
         jobs.append(dict(key='B.1d.publish',group='validation',kind='validation_publish',
             dependencies=['B.1d.'+c for c in originals],pde=False,exclusive=True))
@@ -30,11 +43,11 @@ def Task_GetExtendedPlan(requested, originals):
     if 'extensions' in requested:
         for case in originals:
             jobs.append(dict(key='D.full.'+case, group='extension', kind='full_production', case=case,
-                dependencies=['B.auxiliary'], pde=True, private='full_'+case))
+                dependencies=['A.'+case], pde=True, private='full_'+case))
     if studies:
-        foundation = ['D.full.'+c for c in originals] if 'extensions' in requested else original_dependencies
+        foundation = original_dependencies
         jobs.append(dict(key='shared.baseline', group='extension' if 'extensions' in requested else 'validation',
-            kind='baseline', dependencies=foundation, pde=False, exclusive=True, full='extensions' in requested))
+            kind='baseline', dependencies=foundation, pde=False, exclusive=True, full=False))
         jobs.append(dict(key='shared.thermal_warmup', group='extension' if 'extensions' in requested else 'validation',
             kind='thermal_warmup', dependencies=['shared.baseline'], pde=False, exclusive=True))
         for mode in ['M10','M01','M11']:
@@ -47,10 +60,12 @@ def Task_GetExtendedPlan(requested, originals):
                         jobs.append(dict(key=prefix+'.'+kind, group='extension', kind='experiment', case=case,
                             mode=mode, experiment_kind=kind, dependencies=[prefix+'.production'], pde=True))
         if 'extensions' in requested:
+            jobs.append(dict(key='shared.matched_baseline',group='extension',kind='baseline',full=True,dependencies=['shared.baseline','B.auxiliary']+['D.full.'+c for c in originals],pde=False,exclusive=True))
             for case in ['q23','q4','q1']:
-                for kind in ['full_reference','matched']:
+                jobs.append(dict(key=f'D.M00.{case}.full_reference',group='validation',kind='reference_1d',case=case,mode='M00',experiment_kind='full_reference',factor=2,horizon=1800 if case=='q1' else 259200,dependencies=['A.'+case],pde=True,private='ref_'+case))
+                for kind in ['matched']:
                     jobs.append(dict(key=f'D.M00.{case}.{kind}', group='extension', kind='experiment', case=case,
-                        mode='M00', experiment_kind=kind, dependencies=['shared.baseline'], pde=True))
+                        mode='M00', experiment_kind=kind, dependencies=['shared.matched_baseline'], pde=True))
                 if case != 'q1':
                     for tail in [30,90]:
                         jobs.append(dict(key=f'D.tail.{case}.{tail}', group='extension', kind='experiment', case=case,
@@ -60,19 +75,20 @@ def Task_GetExtendedPlan(requested, originals):
             for kind in ['production','full_reference','time_half']:
                 jobs.append(dict(key='D.cross.'+kind, group='extension', kind='experiment', cross=True, case='q23', mode='M00',
                     experiment_kind=kind, dependencies=['D.cross.production'] if kind=='time_half' else ['shared.baseline'], pde=True))
-            dependencies = [j['key'] for j in jobs if j['kind']=='experiment']
-            jobs.append(dict(key='D.publish', group='extension', kind='extension_publish', dependencies=dependencies, pde=False, exclusive=True))
+            dependencies = [j['key'] for j in jobs if j['kind'] in ['experiment','reference_1d']]+['B.auxiliary','B.1d.publish']
+            jobs.append(dict(key='D.publish', group='extension', kind='extension_publish', dependencies=dependencies, pde=False, exclusive=True,gifs='thermal-gif' in requested))
             jobs.append(dict(key='B.study_figures',group='validation',kind='validation_study_plots',
                 dependencies=['D.publish'],pde=False,exclusive=True))
     if 'mass-balance' in requested:
-        dependencies = ['D.publish'] if 'extensions' in requested else [j['key'] for j in jobs if j['kind']=='experiment']
-        jobs.append(dict(key='B.mass.prepare', group='validation', kind='mass_prepare', dependencies=dependencies, pde=False, exclusive=True))
         for mode in ['M00','M10','M01','M11']:
             for case in ['q23','q4','q1']:
-                jobs.append(dict(key=f'B.mass.{mode}.{case}', group='validation', kind='mass_measure', mode=mode, case=case,
-                    dependencies=['B.mass.prepare'], pde=True))
-        jobs.append(dict(key='B.mass.publish', group='validation', kind='mass_publish',
-            dependencies=[j['key'] for j in jobs if j['kind']=='mass_measure'], pde=False, exclusive=True))
+                dependency='A.'+case if mode=='M00' else f'D.{mode}.{case}.production'
+                jobs.append(dict(key=f'B.mass.{mode}.{case}',group='validation',kind='mass_measure',mode=mode,case=case,
+                    dependencies=[dependency,'shared.baseline'],pde=True))
+        jobs.append(dict(key='B.mass.prepare',group='validation',kind='mass_prepare',
+            dependencies=[j['key'] for j in jobs if j['kind']=='mass_measure'],pde=False,exclusive=True))
+        jobs.append(dict(key='B.mass.publish',group='validation',kind='mass_publish',dependencies=['B.mass.prepare']+
+            (['D.publish'] if 'extensions' in requested else []),pde=False,exclusive=True))
     if 'consistency' in requested:
         jobs.append(dict(key='B.consistency', group='validation', kind='consistency',
             dependencies=[j['key'] for j in jobs]+original_dependencies, pde=False, exclusive=True))
@@ -80,6 +96,9 @@ def Task_GetExtendedPlan(requested, originals):
         if choice in requested:
             jobs.append(dict(key='C.'+choice, group='plot', kind='plot', selection=choice,
                 dependencies=original_dependencies+(['B.auxiliary'] if need_2d else []), pde=False, exclusive=True))
+    if 'developer-audit' in requested:
+        for case in originals:
+            jobs.append(dict(key='developer.fixed.'+case,group='validation',kind='developer_diagnostic',case=case,dependencies=['A.'+case],pde=True,private='dev_'+case))
     return jobs
 
 
@@ -135,7 +154,7 @@ def Task_GetCaseSpec(root, status, kind='production', replay=None):
     return spec
 
 
-def Task_ValidateCase(root, case):
+def Task_ValidateCase(root, case, runtime=None):
     from .judge_pipeline import Judge_ReadJson
     from .table_solver import Table_SolveSchedule
     from .cases import Case_ReadStatus
@@ -149,6 +168,10 @@ def Task_ValidateCase(root, case):
     Task_PrepareBaseline(root)
     spec = Task_GetCaseSpec(root, production)
     reference_spec = Trajectory_GetSpec(root, case, kind='full_reference', factor=2)
+    if runtime and Path(runtime)!=Path(root):
+        shared=Path(runtime)/'work/studies/experiments'/reference_spec['experiment_id']
+        if not shared.exists():raise RuntimeError('SHARED_REFERENCE_IDENTITY_MISMATCH')
+        shutil.copytree(shared,Path(root)/'work/studies/experiments'/reference_spec['experiment_id'],dirs_exist_ok=True)
     reference = Cache_SealExperiment(root, reference_spec, Trajectory_Solve(root, reference_spec))
     left = Analysis_ExtractSeries(root, spec)
     right = Analysis_ExtractSeries(root, reference_spec)
@@ -200,7 +223,19 @@ def Task_Execute(root, task):
         Storage_WriteJson(root/'work/recompute/production.json', {case:status})
         return dict(production=status, numeric_reference=reference, cache_reused=cached)
     if kind == 'validation_1d':
-        return Task_ValidateCase(root, case)
+        return Task_ValidateCase(root, case, task.get('runtime'))
+    if kind == 'reference_1d':
+        from .studies.trajectory import Trajectory_GetSpec,Trajectory_Solve
+        from .studies.cache import Cache_SealExperiment
+        Task_PrepareBaseline(root)
+        spec=Trajectory_GetSpec(root,case,kind='full_reference',factor=2)
+        if task.get('force_reference'):Task_ArchiveReference(root,spec)
+        old=Judge_ReadJson(root/'work/studies/experiments'/spec['experiment_id']/'status.json')
+        result=Cache_SealExperiment(root,spec,Trajectory_Solve(root,spec,resume=True))
+        return dict(experiment_id=spec['experiment_id'],status=result,cache_reused=old.get('complete',False))
+    if kind == 'developer_diagnostic':
+        from .validation import Validation_Run
+        return dict(diagnostic_only=True,validation=Validation_Run(root,scope='1d',case_filter=case),cache_reused=False)
     if kind == 'validation_publish':
         from .judge_plots import Judge_DrawSpatialEvidence
         return Judge_DrawSpatialEvidence(root)
@@ -224,7 +259,8 @@ def Task_Execute(root, task):
         if case+'_1d' not in summary:
             Validation_SaveEntry(root, case+'_1d', dict(selected_id=production['case_id'], selected_fingerprint=production['fingerprint'],
                 numerical_status='NOT_RERUN_IN_TABLE_ONLY_MODE'))
-        summary = Validation_Run(root, scope='2d', case_filter=case)
+        from .judge_validation import Judge_Validate2d
+        summary = Judge_Validate2d(root,case)
         # The current auxiliary policy contains the previously reviewed critical
         # window; ensure it is fully covered, not just the old 1800 s default.
         from .judge_validation import Judge_CompleteAuxiliaryWindows
@@ -274,6 +310,7 @@ def Task_Execute(root, task):
             replay = Trajectory_GetSpec(root, case, mode, factor=factor)['experiment_id'] if experiment_kind=='time_half' else None
             spec = Trajectory_GetSpec(root, case, mode, kind=experiment_kind, factor=factor,
                 tail_minutes=task.get('tail_minutes',60), replay=replay)
+        if task.get('force_reference'):Task_ArchiveReference(root,spec)
         old = Judge_ReadJson(root/'work/studies/experiments'/spec['experiment_id']/'status.json')
         result = Cache_SealExperiment(root, spec, Trajectory_Solve(root, spec, resume=True))
         if not result.get('complete'):
@@ -281,6 +318,7 @@ def Task_Execute(root, task):
         return dict(experiment_id=spec['experiment_id'], status=result, cross=task.get('cross', False),
             purpose='extension_full_horizon', full_horizon=True, cache_reused=old.get('complete',False))
     if kind == 'extension_publish':
+        Task_PrepareBaseline(root,full=True)
         from .studies.analysis import Studies_Summarize
         from .studies.technical_analysis import Technical_Summarize
         from .judge_plots import Judge_DrawExtensions
@@ -289,7 +327,7 @@ def Task_Execute(root, task):
             from .studies.technical_contract import Technical_ReadPayload
             manifest=StudyPlot_ReadManifest(root)
             Technical_ReadPayload(root,manifest)
-            Judge_DrawExtensions(root)
+            Judge_DrawExtensions(root,gifs=task.get('gifs',False))
             return dict(status='PASS',cache_reused=True)
         Studies_Summarize(root, Judge_ReadJson(root/'results/studies/study_index.json'))
         manifest=Judge_ReadJson(root/'work/studies/plot_payload/study_manifest.json')
@@ -298,14 +336,15 @@ def Task_Execute(root, task):
         summary = Technical_Summarize(root, Judge_ReadJson(root/'work/studies/technical/index.json'))
         if summary['status'] != 'PASS':
             raise RuntimeError('TECHNICAL_VALIDATION_FAILED')
-        Judge_DrawExtensions(root)
+        Judge_DrawExtensions(root,gifs=task.get('gifs',False))
         return dict(status=summary['status'], cache_reused=False)
     if kind == 'mass_prepare':
         from .judge_validation import Judge_PrepareMass
         return Judge_PrepareMass(root)
     if kind == 'mass_measure':
         from .studies.mass_balance import MassBalance_MeasureCase
-        manifest = Judge_ReadJson(root/'work/validation/mass_balance/source_manifest.json')
+        from .judge_validation import Judge_PrepareMass
+        manifest=Judge_PrepareMass(root,only=(case,task['mode']),write_manifest=False)
         key = next(k for k,v in manifest['specs'].items() if v['case']==case and v['mode']==task['mode'])
         result = MassBalance_MeasureCase(root, manifest, key)
         return dict(measurement=result['solver_mass_balance'], cache_reused=False)

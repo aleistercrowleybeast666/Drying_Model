@@ -1,15 +1,17 @@
 """One-page judge UI. All calculation requests use the unified console protocol."""
 import json
 import codecs
+import time
+import math
 from pathlib import Path
 from PySide6.QtCore import QProcess, QProcessEnvironment, QTimer, Qt
 from PySide6.QtGui import QColor, QPalette
 from PySide6.QtWidgets import (QApplication, QCheckBox, QGroupBox, QHBoxLayout, QLabel,
     QMainWindow, QMessageBox, QPlainTextEdit, QProgressBar, QPushButton, QVBoxLayout, QWidget, QScrollArea, QSplitter)
 from ..runtime import Runtime_BuildRecomputeCommand
-from ..judge_pipeline import TASKS, Judge_GetPlan
+from ..judge_pipeline import TASKS, PAPER_TASKS, Judge_GetPlan
 from ..runner_control import Runner_GetProcess, Runner_GetIdentity, Runner_Stop, RunnerStopResult
-from ..judge_progress import PREFIX, Progress_ReadJson, Progress_FormatDuration
+from ..judge_progress import PREFIX, Progress_ReadJson, Progress_FormatDuration, Progress_GetConfidenceText
 from .facts import load_facts
 
 
@@ -21,7 +23,7 @@ class JudgeWindow(QMainWindow):
         self.stop_requested=False;self.external_busy=False
         self.owns_run=False;self.external_run_detected=False;self.owned_identity=None
         self.external_identity=None
-        self.progress_target=0;self.progress_terminal=False
+        self.progress_target=0;self.progress_terminal=False;self.progress_confidence='calibrated';self.animation_time=time.monotonic()
         self.decoder = codecs.getincrementaldecoder('utf-8')(errors='replace')
         self.setWindowTitle('2026 数学建模 A题 · 药材烘干模型'); self.resize(780, 740)
         palette=self.palette()
@@ -77,8 +79,9 @@ class JudgeWindow(QMainWindow):
         choices = QGroupBox('四类独立任务'); cl = QVBoxLayout(choices); self.checks = {}
         self.choices=choices
         for title, keys in [('A · 原题计算', ['q1','q23','q4']),
-                ('B · 验证', ['one-dimensional','aux-2d','mass-balance','consistency']),
-                ('C · 原题绘图', ['static','gif']), ('D · 拓展', ['extensions'])]:
+                ('B · 验证', ['one-dimensional','aux-2d','consistency']),
+                ('C · 原题绘图', ['static']), ('D · 拓展', ['extensions']),
+                ('高级（论文仍引用 12/12 守恒；复现时保留完整审计）',['gif','thermal-gif','mass-balance','force-reference','developer-audit'])]:
             column = QVBoxLayout(); column.addWidget(QLabel('<b>'+title+'</b>'))
             for key in keys:
                 check = QCheckBox(TASKS[key]); check.setChecked(key in ['q1','q23','q4'])
@@ -86,7 +89,7 @@ class JudgeWindow(QMainWindow):
             cl.addLayout(column)
         layout.addWidget(choices)
         row = QHBoxLayout(); self.select_buttons = []
-        for text, selection in [('仅原题表格',['q1','q23','q4']), ('全选',list(TASKS)), ('全不选',[])]:
+        for text, selection in [('仅原题表格',['q1','q23','q4']), ('全选（论文复现）',PAPER_TASKS), ('全不选',[])]:
             button = QPushButton(text); button.clicked.connect(lambda checked=False, keys=selection:self.Selection_Set(keys))
             row.addWidget(button); self.select_buttons.append(button)
         row.addStretch(); layout.addLayout(row)
@@ -94,7 +97,7 @@ class JudgeWindow(QMainWindow):
         self.start.clicked.connect(self.Task_Start); layout.addWidget(self.start)
         self.current = QLabel('就绪 · 启动界面不会自动计算'); layout.addWidget(self.current)
         self.outer = QProgressBar(); self.outer.setRange(0,10000); self.outer.setValue(0);self.outer.setFormat('0.0%'); layout.addWidget(self.outer)
-        self.inner = QLabel('按实测工作量加权；进度与预计剩余时间仅用于显示');layout.addWidget(self.inner)
+        self.inner = QLabel('总进度按已用时间与关键路径 ETA 估算；任务进度来自实际计算证据');layout.addWidget(self.inner)
         self.stop = QPushButton('立即停止'); self.stop.setEnabled(False); self.stop.clicked.connect(self.Task_Stop); layout.addWidget(self.stop)
         self.stop.setObjectName('safeStop')
         scroll=QScrollArea();scroll.setWidgetResizable(True);scroll.setFrameShape(QScrollArea.Shape.NoFrame);scroll.setWidget(central)
@@ -134,6 +137,8 @@ class JudgeWindow(QMainWindow):
         keys = [key for key, check in self.checks.items() if check.isChecked()]
         if not keys:
             self.current.setText('请至少勾选一个复算项目。'); return
+        if 'developer-audit' in keys:keys=list(TASKS)
+        if 'thermal-gif' in keys and 'extensions' not in keys:keys.append('extensions')
         plan=Judge_GetPlan(self.root,keys)
         dependencies=list(plan['automatic_dependencies'])
         if set(keys)&{'static','gif'}:
@@ -148,10 +153,10 @@ class JudgeWindow(QMainWindow):
         if dependencies and not self.dry_run:
             answer=QMessageBox.question(self,'确认所选任务的必要依赖',
                 '将补充以下计算：\n'+'\n'.join('• '+text for text in dependencies)+
-                '\n\n最多两个计算进程并行。是否按上方计划开始？',
+                '\n\n按 CPU / 内存自动分配资源槽。是否按上方计划开始？',
                 QMessageBox.StandardButton.Yes|QMessageBox.StandardButton.No,QMessageBox.StandardButton.No)
             if answer!=QMessageBox.StandardButton.Yes:return
-        args = ['--tasks', *keys, '--gui-run'] + (['--dry-run'] if self.dry_run else [])
+        args = (['--paper-all','--gui-run'] if set(keys)==set(PAPER_TASKS) else ['--tasks', *keys, '--gui-run']) + (['--dry-run'] if self.dry_run else [])
         if not self.dry_run:
             for name in ['STOP','BASELINE_STOP']:
                 (self.root/'work/recompute/work/studies'/name).unlink(missing_ok=True)
@@ -160,7 +165,7 @@ class JudgeWindow(QMainWindow):
         self.process.setWorkingDirectory(str(self.root))
         env = QProcessEnvironment.systemEnvironment(); env.insert('DRYING_MODEL_ROOT', str(self.root)); env.insert('PYTHONIOENCODING','utf-8'); env.insert('PYTHONUNBUFFERED','1')
         self.process.setProcessEnvironment(env)
-        self.progress_target=0;self.progress_terminal=False
+        self.progress_target=0;self.progress_terminal=False;self.progress_confidence='calibrated';self.animation_time=time.monotonic()
         self.outer.setRange(0,10000);self.outer.setValue(0);self.outer.setFormat('0.0%')
         self.Controls_Set(True); self.current.setText('正在准备所选任务及必要依赖…')
         self.inner.setText('准备、JIT 和运行任务都计入总进度；预计剩余时间会随实际速度更新。')
@@ -191,7 +196,7 @@ class JudgeWindow(QMainWindow):
         if busy:
             identity=Runner_GetIdentity(external)
             if identity!=self.external_identity:
-                self.external_identity=identity;self.progress_target=0;self.progress_terminal=False
+                self.external_identity=identity;self.progress_target=0;self.progress_terminal=False;self.progress_confidence='calibrated';self.animation_time=time.monotonic()
                 self.outer.setValue(0);self.outer.setFormat('0.0%')
             event=Progress_ReadJson(self.root/'work/recompute/progress.json')
             if event.get('runner_pid')==external.pid and abs(event.get('runner_created_at',0)-external.create_time())<.01:
@@ -243,24 +248,46 @@ class JudgeWindow(QMainWindow):
             else:self.logs.appendPlainText(line)
 
     def Progress_ApplyEvent(self,event):
-        import math
         value=float(event['overall_fraction'])
         if event.get('schema_version')!=1 or not math.isfinite(value):return
-        complete=event.get('event')=='run_complete'
-        target=10000 if complete else min(9990,max(0,int(value*10000)))
-        self.progress_target=max(self.progress_target,target)
-        if complete:self.progress_terminal=True
-        if not self.isVisible() or complete:self.outer.setValue(self.progress_target)
-        self.outer.setFormat(f'{self.outer.value()/100:.1f}%')
-        self.current.setText(f"总进度 {self.progress_target/100:.1f}% · 已用 {Progress_FormatDuration(event['elapsed_s'])} · 预计剩余 {Progress_FormatDuration(event['eta_s'])}")
+        complete=event.get('event')=='run_complete';elapsed=event['elapsed_s'];eta=event.get('eta_s')
+        if event.get('event') in ['run_failed','run_stopped']:
+            self.outer.setRange(0,10000);self.progress_target=min(9990,max(0,int(value*10000)))
+            self.outer.setValue(self.progress_target);self.outer.setFormat('失败' if event['event']=='run_failed' else '已停止')
+            self.current.setText(event['message']);return
+        confidence=event.get('progress_confidence','calibrated');eta_confidence=event.get('eta_confidence','calibrated')
+        if eta is not None and elapsed+eta>0:
+            implied=elapsed/(elapsed+eta)
+            if (abs(value-implied)>.20 and eta_confidence!='measured') or (value>.7 and eta>elapsed and not event.get('all_critical_measured')):
+                confidence='unknown'
+        self.progress_confidence='measured' if complete else confidence
         tasks=event.get('running_tasks',[])
-        self.inner.setText('　'.join(f"{r['task_label']}：{r['task_fraction']*100:.1f}%" for r in tasks) or event['message'])
+        if confidence=='unknown' and not complete:
+            self.outer.setRange(0,0);self.outer.setFormat('正在校准')
+            self.current.setText('总体进度：正在校准 · 已用 '+Progress_FormatDuration(elapsed)+' · 剩余时间：'+Progress_GetConfidenceText(event))
+        else:
+            self.outer.setRange(0,10000)
+            target=10000 if complete else min(9990,max(0,int(value*10000)))
+            self.progress_target=target
+            if complete:self.progress_terminal=True;self.outer.setValue(10000)
+            elif not self.isVisible():self.outer.setValue(target)
+            label=f'总体约 {value*100:.0f}%' if confidence=='rough' else f'总进度约 {value*100:.1f}%'
+            self.current.setText(label+' · 已用 '+Progress_FormatDuration(elapsed)+' · 预计剩余 '+Progress_GetConfidenceText(event))
+            self.outer.setFormat(f'约 {self.outer.value()/100:.0f}%' if confidence=='rough' else f'{self.outer.value()/100:.1f}%')
+        self.inner.setText('　'.join(r['task_label']+('：计算中（进度正在校准）' if r.get('estimated') else f"：{r['task_fraction']*100:.1f}%") for r in tasks) or event['message'])
 
-    def Progress_Animate(self):
-        current=self.outer.value()
-        if current<self.progress_target:
-            self.outer.setValue(min(self.progress_target,current+max(1,int((self.progress_target-current)*.45))))
-            self.outer.setFormat(f'{self.outer.value()/100:.1f}%')
+    def Progress_Animate(self,dt=None):
+        now=time.monotonic();dt=max(0.,min(.5,now-self.animation_time)) if dt is None else max(0.,dt);self.animation_time=now
+        if self.outer.maximum()==0:return
+        current=self.outer.value();gap=self.progress_target-current
+        if gap>0:
+            change=min(gap*(1-math.exp(-dt/10.)),80*dt)
+            self.outer.setValue(min(self.progress_target,current+int(change)))
+        elif gap<0:
+            # A slowing critical path invalidates the old number; do not retain
+            # an overconfident percentage above the new credible upper bound.
+            self.outer.setValue(self.progress_target)
+        self.outer.setFormat(f'约 {self.outer.value()/100:.0f}%' if self.progress_confidence=='rough' else f'{self.outer.value()/100:.1f}%')
 
     def Task_Done(self, code, status):
         self.Log_Read()
@@ -286,6 +313,8 @@ class JudgeWindow(QMainWindow):
                 [('original','原题'),('validation','验证'),('plot','绘图'),('extension','拓展')])
             self.inner.setText(text+'\n总耗时 %.2f min'%(timing.get('total_wall_s',timing['wall_s'])/60))
         if code not in (0,2):self.log_toggle.setChecked(True)
+        if code!=0 and self.outer.maximum()==0:
+            self.outer.setRange(0,10000);self.outer.setValue(min(9990,self.progress_target));self.outer.setFormat('已停止' if code==2 else '失败')
         if self.pending_close: self.close()
 
     def Task_Error(self, error):
@@ -304,7 +333,7 @@ class JudgeWindow(QMainWindow):
     def Smoke_Check(self, path):
         assert self.isVisible() and self.process.state() == QProcess.ProcessState.NotRunning
         assert [k for k,v in self.checks.items() if v.isChecked()] == ['q1','q23','q4']
-        self.select_buttons[1].click(); assert all(v.isChecked() for v in self.checks.values())
+        self.select_buttons[1].click(); assert {k for k,v in self.checks.items() if v.isChecked()}==set(PAPER_TASKS)
         self.select_buttons[2].click(); assert not any(v.isChecked() for v in self.checks.values())
         self.start.click(); assert ('已有复算' if self.external_busy else '至少') in self.current.text()
         self.select_buttons[0].click()

@@ -17,6 +17,7 @@ _CURRENT = ContextVar('judge_display_observer',default=None)
 
 def Progress_Substep(fraction, message, phase='publish', upper=None, expected_s=None):
     observer=_CURRENT.get()
+    if observer is not None and phase=='validation_stage':observer.validation_completed+=1
     if observer is not None:observer.Progress_Report(fraction,message,phase,upper,expected_s,force=True)
 
 
@@ -32,6 +33,12 @@ class TaskObserver:
         self.profile=self.reference.get('tasks',{}).get('A.'+task.get('case',''),{})
         self.lower=0.;self.upper=.95;self.gif_completed=0
         self.kernel_calls=0;self.reporting_wall_s=time.perf_counter()-started
+        self.validation_completed=0
+        from .judge_progress import Progress_ReadJson,Progress_Hash
+        from .runtime import Runtime_GetCode
+        self.history=Progress_ReadJson(Runtime_GetCode(root)/'configs/progress_2d_reference.json')
+        seal=self.history.pop('seal',None)
+        if self.history.get('identity')!=self.reference.get('identity') or seal!=Progress_Hash(self.history):self.history={}
 
     def Progress_Report(self,fraction,message,phase='solve',upper=None,expected_s=None,force=False,**detail):
         now=time.monotonic()
@@ -51,6 +58,13 @@ class TaskObserver:
         try:
             if frame.f_code.co_name=='Advance':frame=frame.f_back
             name=frame.f_code.co_name;values=frame.f_locals
+            if name=='Case_Solve' and len(result[2]) and result[4]==0 and values.get('dim')==2:
+                status=values['status'];expected=next((r['steps'] for r in self.history.get('records',[]) if r['case']==values['case'] and
+                    r['nr']==values['nr'] and r['nz']==values['nz'] and abs(r['time_range'][-1]-values['cap'])<1e-8),None)
+                if expected:
+                    count=4 if values['case']=='q1' else 6;steps=status['steps']+len(result[2])
+                    self.Progress_Report(.95*(self.validation_completed+min(.99,steps/expected))/count,
+                        f"二维 {values['case']}：已接受 {steps} 步",'accepted_steps')
             if name=='Table_SolveSegment' and len(result[2]) and result[4]==0:
                 rows=self.profile.get('stages',[])
                 start=values['start_time'];steps=values['steps']+len(result[2]);t=float(result[1])
@@ -112,7 +126,10 @@ def Progress_ObserveTask(root,task):
             return result
         Replace(table_solver,'Rk4_Advance',Observe_Kernel(table_solver.Rk4_Advance))
         Replace(table_solver,'Table_SolveSchedule',Schedule_Run)
-        if task['kind'] in ['validation_1d','experiment','full_production']:
+        if task['kind']=='validation_2d':
+            from . import cases
+            Replace(cases,'Rk4_Advance',Observe_Kernel(cases.Rk4_Advance))
+        if task['kind'] in ['validation_1d','reference_1d','experiment','full_production']:
             from .studies import trajectory
             factory=trajectory.Trajectory_GetAdvance
             @wraps(factory)

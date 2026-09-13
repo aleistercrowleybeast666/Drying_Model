@@ -35,3 +35,7 @@ work/studies/technical/pre_extension_manifest.json
 work/test_cache_final/
 work/studies/technical/validation/early_progress_audit.json
 work/validation/mass_balance/*/checkpoint.npz
+
+/release_v3/
+
+/work/release_v3/

@@ -35,19 +35,19 @@ def Progress_MakeTracker(preparation=()):
 
 def test_weighted_progress_is_not_task_count():
     t,c=Progress_MakeTracker();t.Progress_FinishTask('A.q1')
-    assert t.Progress_Snapshot()['overall_fraction']==pytest.approx(10/255)
+    assert t.Progress_Snapshot()['structural_fraction']==pytest.approx(10/255)
 
 
 def test_parallel_q23_and_q4_both_contribute():
     t,c=Progress_MakeTracker()
     for key in ['A.q23','A.q4']:t.Progress_Start(key);t.Progress_Update(key,.5)
-    assert t.Progress_Snapshot()['overall_fraction']==pytest.approx((190+55)*.5/255)
+    assert t.Progress_Snapshot()['structural_fraction']==pytest.approx((190+55)*.5/255)
 
 
 def test_internal_steps_and_monotonic_stale_fallback():
     t,c=Progress_MakeTracker();t.Progress_Start('A.q23');values=[]
     for f in [.1,.25,.05,.6]:
-        t.Progress_Update('A.q23',f);values.append(t.Progress_Snapshot()['overall_fraction'])
+        t.Progress_Update('A.q23',f);values.append(t.Progress_Snapshot()['structural_fraction'])
     assert values==sorted(values) and values[1]>values[0]
     assert values[2]==values[1]
 
@@ -177,7 +177,7 @@ def test_observer_calls_kernel_once_and_keeps_return_identity(tmp_path):
 
 def test_gui_point_one_percent_and_no_overshoot(qt_app,tmp_path):
     from drying.gui.judge_window import JudgeWindow
-    t,c=Progress_MakeTracker();event=t.Progress_Snapshot();event['overall_fraction']=.473
+    t,c=Progress_MakeTracker();event=t.Progress_Snapshot();event.update(overall_fraction=.473,elapsed_s=47.3,eta_s=52.7)
     window=JudgeWindow(tmp_path);window.Progress_ApplyEvent(event)
     assert window.outer.maximum()==10000 and window.outer.value()==4730 and window.outer.format()=='47.3%'
     for _ in range(40):window.Progress_Animate()

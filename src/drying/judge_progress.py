@@ -10,6 +10,8 @@ from pathlib import Path
 import sys
 import threading
 import time
+import shutil
+import unicodedata
 
 PREFIX = 'DRYING_PROGRESS '
 WORKER_PREFIX = 'DRYING_TASK_PROGRESS '
@@ -77,19 +79,55 @@ def Progress_GetCosts(root, plan, reference):
         if not reference or previous.get('progress_identity')!=reference['identity']:continue
         if not previous.get('tasks') or any(r.get('status')!='PASS' for r in previous['tasks']):continue
         for row in previous['tasks']:
+            if previous.get('progress_scope_version')!=3 and not row['key'].startswith(('A.','D.M10.','D.M01.','D.M11.','D.full.')):continue
             if not row.get('cache_reused') and row.get('wall_s',0)>0:
                 measured[row['key']]=dict(measured.get(row['key'],{}),wall_s=row['wall_s'])
     costs={}
     for job in plan['steps']:
         case=job.get('case','q23');base=measured.get('A.'+case,{}).get('wall_s',{'q1':10.,'q23':190.,'q4':55.}[case])
         kind=job['kind']
-        factor={'original':1.,'full_production':1.3,'validation_1d':8.,'validation_2d':125.*4.,
+        factor={'original':1.,'full_production':1.3,'validation_1d':2.,'reference_1d':8.,
             'experiment':3.,'mass_measure':1.5}.get(kind)
         if kind=='experiment':
             factor*=4 if job.get('experiment_kind')=='full_reference' else 2 if job.get('experiment_kind')=='time_half' else 1
         fallback=base*factor if factor else (600. if job.get('selection')=='gif' else 55. if kind=='plot' else 15.)
         costs[job['key']]=dict(weight=max(.01,float(measured.get(job['key'],{}).get('wall_s',fallback))),
-            source='measured successful wall' if job['key'] in measured else 'conservative stage/cell/step cost model')
+            source='measured successful wall' if job['key'] in measured else 'conservative stage/cell/step cost model',
+            confidence='calibrated' if job['key'] in measured else 'rough')
+        if kind=='developer_diagnostic':
+            stages=reference.get('tasks',{}).get('A.'+case,{}).get('stages',[])
+            units=sum(s['steps']*s['nr']*s['nz'] for s in stages)
+            duration=1800 if case=='q1' else 259200
+            work=duration/.25*(sum(n*(n/40)**2 for n in [40,80,160])+2*160*(160/40)**2)
+            costs[job['key']]=dict(weight=base*work/max(1,units),source='fixed-grid + half-step accepted cell-work estimate',
+                confidence='rough' if units else 'unknown')
+        if kind in ['experiment','reference_1d'] and job['key'] not in measured and not job.get('cross'):
+            from .runtime import Runtime_GetCode
+            from .studies.selection import Selection_GetFactor
+            code=Runtime_GetCode(Path(root));profile=Progress_ReadJson(code/'configs/progress_2d_reference.json')
+            seal=profile.pop('seal',None)
+            if reference and profile.get('identity')==reference['identity'] and seal==Progress_Hash(profile):
+                factor=Selection_GetFactor(code,case,job.get('mode','M00'))*(2 if job.get('experiment_kind')=='full_reference' else 1)
+                expected=[s['nr']*factor for s in reference['tasks']['A.'+case]['stages']]
+                matches=[r for r in profile.get('trajectory_records',[]) if r['case']==case and r['mode']==job.get('mode','M00') and
+                    r['kind']==job.get('experiment_kind') and r['tail_minutes']==job.get('tail_minutes',60) and [s['nr'] for s in r['schedule']]==expected]
+                if matches:
+                    sample=matches[-1];costs[job['key']]=dict(weight=sample['wall_s'],source=sample['source'],confidence='calibrated',accepted_steps=sample['steps'])
+        if kind=='validation_2d' and job['key'] not in measured:
+            from .runtime import Runtime_GetCode
+            profile=Progress_ReadJson(Runtime_GetCode(Path(root))/'configs/progress_2d_reference.json')
+            seal=profile.pop('seal',None)
+            valid=bool(reference) and profile.get('identity')==reference['identity'] and seal==Progress_Hash(profile)
+            rows=[r for r in profile.get('records',[]) if r['case']==case] if valid else []
+            # Each grid/purpose contributes its measured accepted-step cell work;
+            # never infer a 2D cost by multiplying a 1D wall time.
+            choices={}
+            for row in rows:
+                key=(row['nr'],row['nz'],row['purpose'])
+                if key not in choices or row['time_range'][-1]>choices[key]['time_range'][-1]:choices[key]=row
+            cost=sum(r['steps']*r['nr']*r['nz']*(r['wall_s']/(r['steps']*r['nr']*r['nz'])) for r in choices.values())
+            costs[job['key']]=dict(weight=max(.01,cost),source='measured 2D step-cell history' if rows else 'no matching 2D calibration',
+                confidence='rough' if rows else 'unknown',samples=len(choices))
     return costs
 
 
@@ -99,10 +137,39 @@ def Progress_FormatDuration(seconds):
     return f'{hours}:{minutes:02d}:{seconds:02d}' if hours else f'{minutes}:{seconds:02d}'
 
 
+def Progress_GetConfidenceText(event):
+    confidence=event.get('eta_confidence','calibrated');eta=event.get('eta_s')
+    if confidence=='unknown' or eta is None:return '正在校准'
+    if confidence=='rough':return f'粗略 {Progress_FormatDuration(eta*.6)}～{Progress_FormatDuration(eta*1.7)}'
+    return '约 '+Progress_FormatDuration(eta)
+
+
+def Progress_EnableAnsi(stream):
+    if not getattr(stream,'isatty',lambda:False)():return False
+    if os.name!='nt':return True
+    try:
+        import ctypes,msvcrt
+        handle=msvcrt.get_osfhandle(stream.fileno());mode=ctypes.c_ulong()
+        api=ctypes.windll.kernel32
+        return bool(api.GetConsoleMode(ctypes.c_void_p(handle),ctypes.byref(mode)) and
+            api.SetConsoleMode(ctypes.c_void_p(handle),mode.value|4))
+    except (AttributeError,OSError,ValueError):return False
+
+
+def Progress_FitLine(text,columns):
+    result=[];width=0
+    for char in text:
+        size=0 if unicodedata.combining(char) else 2 if unicodedata.east_asian_width(char) in ['W','F'] else 1
+        if width+size>max(1,columns-1):break
+        result.append(char);width+=size
+    return ''.join(result)
+
+
 class ProgressConsole:
-    def __init__(self, stream=None, machine=False, verbose=False, clock=time.monotonic):
+    def __init__(self, stream=None, machine=False, verbose=False, clock=time.monotonic,ansi=None):
         self.stream=stream or sys.stdout;self.machine=machine;self.verbose=verbose;self.clock=clock
-        self.last=-1e30;self.line_open=False;self.width=0
+        self.last=-1e30;self.line_open=False;self.ansi=Progress_EnableAnsi(self.stream) if ansi is None else ansi
+        self.stability_seen=set()
 
     def Progress_Write(self, event):
         now=self.clock()
@@ -111,16 +178,31 @@ class ProgressConsole:
             self.stream.write(PREFIX+json.dumps(event,ensure_ascii=False)+'\n');self.stream.flush();return
         if not terminal and now-self.last<5:return
         self.last=now
-        active=' | '.join(f"{r['task_label']} {r['task_fraction']*100:.1f}%" for r in event['running_tasks'])
-        text=f"[{event['overall_fraction']*100:5.1f}%] "+(active or event['message'])
-        text+=f" | 已用 {Progress_FormatDuration(event['elapsed_s'])} | 预计剩余 {Progress_FormatDuration(event['eta_s'])}"
+        active=' | '.join(r['task_label']+('：计算中（进度正在校准）' if r.get('estimated') else f" {r['task_fraction']*100:.1f}%") for r in event['running_tasks'])
+        confidence=event.get('progress_confidence','calibrated')
+        label='正在校准' if confidence=='unknown' else f"约 {event['overall_fraction']*100:.0f}%" if confidence=='rough' else f"{event['overall_fraction']*100:5.1f}%"
+        text='['+label+'] '+f"已用 {Progress_FormatDuration(event['elapsed_s'])} | 预计剩余 {Progress_GetConfidenceText(event)} | "+(active or event['message'])
         tty=bool(getattr(self.stream,'isatty',lambda:False)())
-        self.stream.write(('\r'+text.ljust(self.width)) if tty else text+'\n')
-        self.width=max(self.width,len(text));self.line_open=tty
+        clear='\r\x1b[2K' if self.ansi else '\r'+' '*shutil.get_terminal_size(fallback=(120,30)).columns+'\r'
+        if tty:text=Progress_FitLine(text,shutil.get_terminal_size(fallback=(120,30)).columns)
+        self.stream.write((clear+text) if tty else text+'\n')
+        self.line_open=tty
         if terminal and tty:self.stream.write('\n');self.line_open=False
         self.stream.flush()
 
     def Progress_Log(self, line, force=False):
+        if 'DT_LIMITED_BY_STABILITY' in line:
+            dangerous=any(x in line for x in ['RK_FAILURE','REJECTION','MAX_STEPS','NONFINITE','FALLBACK','VALIDATION_FAIL'])
+            try:
+                payload=json.loads(line[line.index('{'):]);actual=payload.get('accepted_dt_s',payload.get('actual_dt_s'))
+                dangerous|=actual is not None and actual<=10*payload.get('min_dt_s',1e-8)
+            except (ValueError,TypeError):pass
+            if not dangerous:
+                key=line.split(']',1)[0] if line.startswith('[') else 'preparation'
+                if not self.verbose and key in self.stability_seen:return
+                self.stability_seen.add(key)
+                line=(line.replace('WARNING','INFO')+' [NORMAL_STABILITY_LIMIT]') if self.verbose else key+'] INFO 稳定性约束已自动减小时间步（正常）'
+                force=True
         if not (force or self.verbose or 'WARNING' in line or 'ERROR' in line or 'Traceback' in line):return
         if self.line_open:self.stream.write('\n');self.line_open=False
         self.stream.write(line.rstrip()+'\n');self.stream.flush()
@@ -142,11 +224,12 @@ class ProgressTracker:
     def __init__(self, plan, costs, preparation=None, clock=time.monotonic):
         self.clock=clock;self.started=clock();self.workers=plan['worker_count'];self.state='running'
         self.jobs={j['key']:dict(j,label=j.get('label',j['key']),weight=costs[j['key']]['weight'],
-            fraction=0.,status='pending',started=None,observed=False,cache_reused=False) for j in plan['steps']}
+            confidence=costs[j['key']].get('confidence','calibrated'),fraction=0.,status='pending',started=None,observed=False,cache_reused=False) for j in plan['steps']}
         previous=[]
         for key,label,weight in preparation if preparation is not None else PREPARATION:
             self.jobs[key]=dict(key=key,label=label,group='preparation',kind='preparation',weight=weight,
                 fraction=0.,status='pending',started=None,dependencies=previous[-1:],observed=False,cache_reused=False)
+            self.jobs[key]['confidence']='calibrated'
             previous.append(key)
         self.preparation=previous;self.overall=0.;self.eta=None;self.last_time=self.started
         if previous:
@@ -186,52 +269,51 @@ class ProgressTracker:
             self.message={'complete':'所选任务已完成并通过检查','failed':'任务失败，请查看日志','stopped':'复算已停止，保留已完成进度'}[self.state]
 
     def Progress_GetEta(self,now):
-        slots=[0.]*self.workers;finish={k:0. for k,r in self.jobs.items() if r['status']=='PASS'}
-        pending={k:r for k,r in self.jobs.items() if r['status']!='PASS'}
-        while pending:
-            available=[(k,r) for k,r in pending.items() if set(r.get('dependencies',[]))<=finish.keys()]
-            if not available:return None
-            key,row=min(available,key=lambda item:(item[1]['status']!='running',item[0]))
-            remaining=row['weight']*(1-row['fraction'])
-            if row.get('expected_cache_hit'):remaining=min(remaining,2.)
+        from .judge_schedule import Schedule_Estimate
+        jobs=[];remaining={};unfinished={k for k,r in self.jobs.items() if r['status']!='PASS'}
+        for key,row in self.jobs.items():
+            if key not in unfinished:continue
+            jobs.append(dict(row,dependencies=[d for d in row.get('dependencies',[]) if d in unfinished]))
+            duration=row['weight']*(1-row['fraction'])
             elapsed=now-row['started'] if row['started'] is not None else 0.
-            if row['status']=='running' and not row.get('expected_cache_hit') and elapsed>10 and .05<row['fraction']<.99:
-                remaining=.4*remaining+.6*elapsed*(1-row['fraction'])/row['fraction']
-            ready=max([finish[k] for k in row.get('dependencies',[])]+[0.])
-            if row.get('exclusive') or row['group']=='preparation':
-                end=max(ready,max(slots))+remaining;slots=[end]*self.workers
-            else:
-                slot=min(range(self.workers),key=slots.__getitem__);end=max(ready,slots[slot])+remaining;slots[slot]=end
-            finish[key]=end;del pending[key]
-        return max(slots)
+            if row.get('expected_cache_hit'):duration=min(duration,2.)
+            elif row['status']=='running' and row['observed'] and .01<row['fraction']<.99:
+                duration=.25*duration+.75*elapsed*(1-row['fraction'])/row['fraction']
+            elif row['status']=='running':duration=max(duration-elapsed,elapsed*.5,1.)
+            remaining[key]=None if row.get('confidence')=='unknown' else duration
+        jobs.sort(key=lambda r:r['status']!='running')
+        return Schedule_Estimate(jobs,remaining,self.workers)[0]
 
     def Progress_Snapshot(self):
         with self.lock:
-            now=self.clock()
-            for row in self.jobs.values():
-                if row['status']!='running' or self.state!='running':continue
-                # Exact observations hold between reports. Legacy work can use
-                # a capped wall-time estimate, never an implicit PASS.
-                upper=row.get('upper',.95)
-                elapsed=max(0.,now-row.get('forecast_start',row['started']))
-                origin=row.get('forecast_fraction',0.)
-                duration=row.get('forecast_s',row['weight'])
-                estimate=origin+(upper-origin)*min(.95,elapsed/max(.01,duration))
-                row['fraction']=max(row['fraction'],min(upper,estimate))
-            raw=sum(r['weight']*r['fraction'] for r in self.jobs.values())/max(.01,sum(r['weight'] for r in self.jobs.values()))
-            self.overall=1. if self.state=='complete' else max(self.overall,min(.999,raw))
+            now=self.clock();elapsed=now-self.started
+            # Task fractions are structural evidence only. Wall-time/ETA never
+            # mutate them, including when a legacy task runs longer than expected.
             estimate=self.Progress_GetEta(now) if self.state=='running' else 0. if self.state=='complete' else None
             if estimate is not None:
                 self.eta=estimate if self.eta is None else .8*max(0.,self.eta-(now-self.last_time))+.2*estimate
             else:self.eta=None
             self.last_time=now
+            ranks={'measured':0,'calibrated':1,'rough':2,'unknown':3}
+            confidence=max((r.get('confidence','unknown') for r in self.jobs.values() if r['status']!='PASS'),key=ranks.get,default='measured')
+            if self.eta is None:confidence='unknown'
+            implied=elapsed/(elapsed+self.eta) if self.eta is not None and elapsed+self.eta>0 else 0.
+            self.overall=1. if self.state=='complete' else max(self.overall,min(.999,implied))
+            measured=all(r['observed'] and r.get('confidence') in ['measured','calibrated'] for r in self.jobs.values() if r['status']=='running')
+            progress_confidence=confidence
+            if confidence!='measured' and abs(self.overall-implied)>.20:progress_confidence='unknown'
+            if self.overall>.7 and self.eta is not None and self.eta>elapsed and not measured:progress_confidence='unknown'
             active=[dict(task_key=k,task_label=r['label'],group=r['group'],task_fraction=r['fraction'],
-                phase=r.get('phase',r['kind']),estimated=not r['observed']) for k,r in self.jobs.items() if r['status']=='running']
+                phase=r.get('phase',r['kind']),estimated=not r['observed'],status='RUNNING' if r['observed'] else 'CALIBRATING')
+                for k,r in self.jobs.items() if r['status']=='running']
             current=self.jobs.get(self.current,{})
             return dict(schema_version=1,event={'running':'progress','complete':'run_complete','failed':'run_failed','stopped':'run_stopped'}[self.state],
                 phase=current.get('phase',current.get('kind','preparation')),task_key=self.current,task_label=current.get('label','准备'),
                 group=current.get('group','preparation'),task_fraction=current.get('fraction',0.),overall_fraction=self.overall,
-                elapsed_s=now-self.started,eta_s=0. if self.state=='complete' else self.eta,message=self.message,running_tasks=active,
+                structural_fraction=sum(r['weight']*r['fraction'] for r in self.jobs.values())/max(.01,sum(r['weight'] for r in self.jobs.values())),
+                progress_confidence='measured' if self.state=='complete' else progress_confidence,eta_confidence=confidence,
+                ETA_raw=estimate,ETA_display=self.eta,all_critical_measured=measured,
+                elapsed_s=elapsed,eta_s=0. if self.state=='complete' else self.eta,message=self.message,running_tasks=active,
                 completed_tasks=sum(r['status']=='PASS' for r in self.jobs.values()),total_tasks=len(self.jobs),
                 cache_reused=bool(current.get('cache_reused')))
 
